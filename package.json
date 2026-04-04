@@ -12,7 +12,8 @@
     "lint:css:fix": "stylelint \"src/**/*.css\" --fix",
     "lint:fix": "eslint src/ --fix",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "prepare": "husky"
   },
   "dependencies": {
     "solid-js": "^1.9.11"
@@ -23,7 +24,9 @@
     "@vitest/coverage-v8": "^4.1.2",
     "eslint": "^9.39.4",
     "eslint-plugin-solid": "^0.14.5",
+    "husky": "^9.1.7",
     "jsdom": "^29.0.1",
+    "lint-staged": "^16.4.0",
     "stylelint": "^17.6.0",
     "stylelint-config-standard": "^40.0.0",
     "typescript": "~5.9.3",

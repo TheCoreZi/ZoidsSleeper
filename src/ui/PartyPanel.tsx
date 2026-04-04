@@ -7,12 +7,12 @@ type StatOption = 'attack' | 'attack-100' | 'base-attack' | 'base-hp' | 'experie
 
 const STAT_LABELS: Record<StatOption, string> = {
   'attack': 'Current Attack',
+  'hp': 'Current HP',
   'attack-100': 'Attack at Lv 100',
+  'hp-100': 'HP at Lv 100',
   'base-attack': 'Base Attack',
   'base-hp': 'Base HP',
   'experience': 'Experience',
-  'hp': 'Current HP',
-  'hp-100': 'HP at Lv 100',
 };
 
 function getExpProgress(zoid: OwnedZoid): number {
