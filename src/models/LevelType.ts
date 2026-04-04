@@ -1,11 +1,13 @@
-export enum LevelType {
-  Erratic = 'erratic',
-  Fast = 'fast',
-  Fluctuating = 'fluctuating',
-  MediumFast = 'mediumfast',
-  MediumSlow = 'mediumslow',
-  Slow = 'slow',
-}
+export type LevelType = 'erratic' | 'fast' | 'fluctuating' | 'mediumfast' | 'mediumslow' | 'slow';
+
+export const LevelType = {
+  Erratic: 'erratic',
+  Fast: 'fast',
+  Fluctuating: 'fluctuating',
+  MediumFast: 'mediumfast',
+  MediumSlow: 'mediumslow',
+  Slow: 'slow',
+} as const;
 
 export const MAX_LEVEL = 100;
 
