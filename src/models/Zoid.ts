@@ -34,6 +34,7 @@ export interface ZoidStats {
 
 export const ZOID_LIST: Record<string, ZoidData> = {
   command_wolf: { attack: 200, baseExp: 50, id: 'command_wolf', levelType: LevelType.MediumFast, maxHealth: 200, name: 'Command Wolf' },
+  garius: {attack: 50, baseExp: 10, id: 'garius', levelType: LevelType.Fast, maxHealth: 100, name: 'Garius'},
   merda: {attack: 50, baseExp: 20, id: 'merda', levelType: LevelType.Fast, maxHealth: 100, name: 'Merda'},
   molga: { attack: 100, baseExp: 35, id: 'molga', levelType: LevelType.Fast, maxHealth: 400, name: 'Molga' },
   tortoise: { attack: 100, baseExp: 30, id: 'tortoise', levelType: LevelType.Fast, maxHealth: 700, name: 'Cannon Tortoise' },
@@ -82,5 +83,5 @@ export function resolveZoid({ bonusMultiplier = 1, id, level }: ZoidRef): ZoidSt
 }
 
 export const DEFAULT_PARTY: OwnedZoid[] = [
-  { experience: 0, id: 'tortoise' },
+  { experience: 0, id: 'garius' },
 ];
