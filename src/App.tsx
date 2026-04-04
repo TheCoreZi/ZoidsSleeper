@@ -24,7 +24,9 @@ const App: Component = () => {
     <div class="app">
       <h1>Zoids Sleeper</h1>
       <div class="main-layout">
-        <PartyPanel expanded={showParty()} onToggle={() => setShowParty((v) => !v)} />
+        <div class="left-column">
+          <PartyPanel expanded={showParty()} onToggle={() => setShowParty((v) => !v)} />
+        </div>
         <div class="battle-column">
           <Show
             when={isPilotBattleMode()}
@@ -43,6 +45,7 @@ const App: Component = () => {
             </div>
           </Show>
         </div>
+        <div class="right-column" />
       </div>
     </div>
   );
