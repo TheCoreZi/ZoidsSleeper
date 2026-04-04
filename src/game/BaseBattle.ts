@@ -69,6 +69,7 @@ export abstract class BaseBattle {
   }
 
   private emitDamageNumber(amount: number, source: DamageSource): void {
+    if (amount <= 0) {return;}
     const event = { amount, id: damageIdCounter++, source, timestamp: Date.now() };
     setDamageEvents([...damageEvents().slice(-9), event]);
   }

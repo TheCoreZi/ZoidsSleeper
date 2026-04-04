@@ -3,6 +3,7 @@ import type { PlayerStats } from '../models/Player';
 import type { ZoidInstance } from '../models/Zoid';
 
 export type BattleState = 'fighting' | 'pilot-defeat' | 'pilot-fighting' | 'pilot-victory' | 'victory';
+export type GamePhase = 'intro' | 'playing';
 export type DamageSource = 'auto' | 'click';
 
 export interface DamageEvent {
@@ -18,6 +19,7 @@ export interface PilotInfo {
 }
 
 const [battleState, setBattleState] = createSignal<BattleState>('fighting');
+const [gamePhase, setGamePhase] = createSignal<GamePhase>('playing');
 const [damageEvents, setDamageEvents] = createSignal<DamageEvent[]>([]);
 const [enemyZoid, setEnemyZoid] = createSignal<ZoidInstance | null>(null);
 const [pilotEnemyProgress, setPilotEnemyProgress] = createSignal({ current: 0, total: 0 });
@@ -44,6 +46,7 @@ export {
   damageEvents,
   enemyHealthPercent,
   enemyZoid,
+  gamePhase,
   pilotEnemyProgress,
   pilotInfo,
   pilotPlayerHealth,
@@ -53,6 +56,7 @@ export {
   playerStats,
   setBattleState,
   setDamageEvents,
+  setGamePhase,
   setEnemyZoid,
   setPilotEnemyProgress,
   setPilotInfo,

@@ -1,6 +1,7 @@
 import { createMemo, createSignal, onCleanup, onMount, Show, type Component } from 'solid-js';
 import { Game } from './game/Game';
-import { battleState, victoryMessage } from './store/gameStore';
+import { battleState, gamePhase, victoryMessage } from './store/gameStore';
+import IntroSequence from './story/IntroSequence';
 import BattleScreen from './ui/BattleScreen';
 import PartyPanel from './ui/PartyPanel';
 import PilotBattleScreen from './ui/PilotBattleScreen';
@@ -23,30 +24,35 @@ const App: Component = () => {
   return (
     <div class="app">
       <h1>Zoids Sleeper</h1>
-      <div class="main-layout">
-        <div class="left-column">
-          <PartyPanel expanded={showParty()} onToggle={() => setShowParty((v) => !v)} />
+      <Show
+        when={gamePhase() === 'playing'}
+        fallback={<IntroSequence onComplete={(id) => game?.completeIntro(id)} />}
+      >
+        <div class="main-layout">
+          <div class="left-column">
+            <PartyPanel expanded={showParty()} onToggle={() => setShowParty((v) => !v)} />
+          </div>
+          <div class="battle-column">
+            <Show
+              when={isPilotBattleMode()}
+              fallback={<BattleScreen onClick={() => game?.battle.clickAttack()} />}
+            >
+              <PilotBattleScreen
+                onClick={() => game?.pilotBattle?.clickAttack()}
+                onExit={() => game?.exitPilotBattle()}
+                onRetry={() => game?.pilotBattle?.restart()}
+              />
+            </Show>
+            <Show when={victoryMessage()}>
+              <div class="victory-popup">
+                <h2>Pilot Defeated!</h2>
+                <p>{victoryMessage()}</p>
+              </div>
+            </Show>
+          </div>
+          <div class="right-column" />
         </div>
-        <div class="battle-column">
-          <Show
-            when={isPilotBattleMode()}
-            fallback={<BattleScreen onClick={() => game?.battle.clickAttack()} />}
-          >
-            <PilotBattleScreen
-              onClick={() => game?.pilotBattle?.clickAttack()}
-              onExit={() => game?.exitPilotBattle()}
-              onRetry={() => game?.pilotBattle?.restart()}
-            />
-          </Show>
-          <Show when={victoryMessage()}>
-            <div class="victory-popup">
-              <h2>Pilot Defeated!</h2>
-              <p>{victoryMessage()}</p>
-            </div>
-          </Show>
-        </div>
-        <div class="right-column" />
-      </div>
+      </Show>
     </div>
   );
 };

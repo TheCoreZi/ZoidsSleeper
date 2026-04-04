@@ -5,6 +5,7 @@ import { getRoute, ROUTES } from '../models/Route';
 import {
   battleState,
   setBattleState,
+  setGamePhase,
   setPilotEnemyProgress,
   setPilotInfo,
   setPilotPlayerHealth,
@@ -23,6 +24,7 @@ import { Save } from './Save';
 
 export class Game {
   battle: Battle;
+  hasSave = false;
   hasSeenPilotBattle = false;
   loop: GameLoop;
   pilotBattle: PilotBattle | null = null;
@@ -36,7 +38,16 @@ export class Game {
     this.loop = new GameLoop(TICK_TIME, () => this.gameTick());
     setCurrentRoute(savedRoute);
     setPlayerStats(DEFAULT_PLAYER);
-    this.loadSave();
+    this.hasSave = this.loadSave();
+  }
+
+  completeIntro(zoidId: string): void {
+    setParty([{ experience: 0, id: zoidId }]);
+    this.battle.spawnEnemy();
+    setBattleState('fighting');
+    setGamePhase('playing');
+    this.loop.start();
+    this.save.store(this);
   }
 
   enterPilotBattle(): void {
@@ -60,7 +71,12 @@ export class Game {
   }
 
   start(): void {
-    this.loop.start();
+    if (this.hasSave) {
+      setGamePhase('playing');
+      this.loop.start();
+    } else {
+      setGamePhase('intro');
+    }
   }
 
   stop(): void {
@@ -89,7 +105,7 @@ export class Game {
     setTimeout(() => setVictoryMessage(null), 3000);
   }
 
-  private loadSave(): void {
+  private loadSave(): boolean {
     const data = this.save.load();
     if (data) {
       if (data.hasSeenPilotBattle) {
@@ -103,7 +119,9 @@ export class Game {
       if (data.party?.length) {
         setParty(data.party);
       }
+      return true;
     }
+    return false;
   }
 
   private loadSavedRoute() {
