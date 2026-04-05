@@ -1,3 +1,4 @@
+import type { Requirement } from './Requirement';
 import type { Route } from './Route';
 
 export const BattleBackground = { Desert: 'desert', Grass: 'grass' } as const;
@@ -10,6 +11,7 @@ export interface Landmark {
   battleBackground: BattleBackground;
   id: string;
   name: string;
+  requirements?: Requirement[];
   type: LandmarkType;
 }
 

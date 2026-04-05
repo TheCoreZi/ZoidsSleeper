@@ -1,6 +1,7 @@
 import { beforeEach, describe, expect, it } from 'vitest';
 import { Save } from '../src/game/Save';
 import { DEFAULT_PARTY } from '../src/models/Zoid';
+import { incrementRouteKills, loadStatistics } from '../src/store/statisticsStore';
 
 describe('Save', () => {
   beforeEach(() => {
@@ -21,5 +22,17 @@ describe('Save', () => {
 
     expect(loaded?.landmarkId).toBe('gleam-outskirts');
     expect(loaded?.party).toEqual(DEFAULT_PARTY);
+  });
+
+  it('should persist route kills', () => {
+    loadStatistics({});
+    incrementRouteKills('test-route');
+    incrementRouteKills('test-route');
+    const save = new Save();
+
+    save.store();
+    const loaded = save.load();
+
+    expect(loaded?.routeKills).toEqual({ 'test-route': 2 });
   });
 });

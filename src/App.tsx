@@ -51,17 +51,17 @@ const App: Component = () => {
                 <BattleScreen onClick={() => game?.battle?.clickAttack()} />
               </Match>
             </Switch>
-            <Show when={popupMessage()}>
-              <div class={`popup-message ${popupMessage()!.type === PopupType.Defeat ? 'popup-defeat' : ''}`}>
-                <h2>{popupMessage()!.title}</h2>
-                <p>{popupMessage()!.content}</p>
-              </div>
-            </Show>
           </div>
           <div class="map-column">
             <WorldMap onLocationChange={(l) => game?.changeLocation(l)} />
           </div>
           <div class="right-column" />
+        </div>
+      </Show>
+      <Show when={popupMessage()}>
+        <div class={`popup-message ${popupMessage()!.type === PopupType.Defeat ? 'popup-defeat' : ''}`}>
+          <h2>{popupMessage()!.title}</h2>
+          <p>{popupMessage()!.content}</p>
         </div>
       </Show>
     </div>

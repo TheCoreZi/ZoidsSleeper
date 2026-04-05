@@ -55,6 +55,15 @@
   filter: drop-shadow(0 0 8px #ffc107);
 }
 
+.map-node--locked {
+  cursor: pointer;
+  opacity: 0.4;
+}
+
+.map-node--locked:hover {
+  filter: none;
+}
+
 .map-node--current {
   animation: map-pulse 2s infinite;
 }
@@ -73,6 +82,15 @@
 
 .map-route:hover {
   filter: drop-shadow(0 0 8px #00d4ff);
+}
+
+.map-route--locked {
+  cursor: pointer;
+  opacity: 0.4;
+}
+
+.map-route--locked:hover {
+  filter: none;
 }
 
 .map-route--current {

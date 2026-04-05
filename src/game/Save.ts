@@ -2,11 +2,13 @@ import { SAVE_TICK, TICK_TIME } from '../constants';
 import type { OwnedZoid } from '../models/Zoid';
 import { currentLandmark } from '../store/landmarkStore';
 import { party } from '../store/partyStore';
+import { routeKills } from '../store/statisticsStore';
 const SAVE_KEY = 'zoids-sleeper-save';
 
 interface SaveData {
   landmarkId: string;
   party?: OwnedZoid[];
+  routeKills?: Record<string, number>;
 }
 
 export class Save {
@@ -29,6 +31,7 @@ export class Save {
     const data: SaveData = {
       landmarkId: currentLandmark().id,
       party: party(),
+      routeKills: routeKills(),
     };
     localStorage.setItem(SAVE_KEY, JSON.stringify(data));
   }

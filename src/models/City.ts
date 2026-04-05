@@ -4,6 +4,7 @@ import { ActionFightPilot, ActionTalkToNPC } from './CityAction';
 import type { Landmark } from './Landmark';
 import { BattleBackground, LandmarkType } from './Landmark';
 import { getPilot } from './Pilot';
+import { RouteKillRequirement } from './Requirement';
 
 export interface City extends Landmark {
   actions?: CityAction[];
@@ -18,6 +19,7 @@ export const CITIES: City[] = [
     id: 'abandoned-camp',
     mapPosition: { x: 51.5, y: 85 },
     name: 'Abandoned Camp',
+    requirements: [new RouteKillRequirement('gleam-outskirts', 10)],
     type: LandmarkType.City,
   },
   {

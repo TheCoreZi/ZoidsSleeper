@@ -1,6 +1,7 @@
 import { randomEnemy, type Route } from '../models/Route';
 import { createZoid } from '../models/Zoid';
 import { setEnemyZoid } from '../store/gameStore';
+import { incrementRouteKills } from '../store/statisticsStore';
 import type { PlayerStats } from '../models/Player';
 import { BaseBattle } from './BaseBattle';
 
@@ -25,6 +26,7 @@ export class Battle extends BaseBattle {
   }
 
   protected onEnemyDefeated(): void {
+    incrementRouteKills(this.route.id);
     this.spawnEnemy();
   }
 

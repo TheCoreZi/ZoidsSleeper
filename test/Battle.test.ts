@@ -1,10 +1,11 @@
-import { describe, expect, it } from 'vitest';
+import { beforeEach, describe, expect, it } from 'vitest';
 import { BATTLE_TICK, TICK_TIME } from '../src/constants';
 import { Battle } from '../src/game/Battle';
 import { BattleBackground, LandmarkType } from '../src/models/Landmark';
 import { calculateClickAttack, DEFAULT_PLAYER } from '../src/models/Player';
 import { type Route, ROUTES } from '../src/models/Route';
 import { partyAttack } from '../src/store/partyStore';
+import { getRouteKills, loadStatistics } from '../src/store/statisticsStore';
 
 const toughRoute: Route = {
   battleBackground: BattleBackground.Grass,
@@ -16,6 +17,10 @@ const toughRoute: Route = {
 };
 
 describe('Battle', () => {
+  beforeEach(() => {
+    loadStatistics({});
+  });
+
   it('should auto-attack after accumulating BATTLE_TICK', () => {
     const battle = new Battle(DEFAULT_PLAYER, toughRoute);
     const initialHealth = battle.enemy.health;
@@ -93,5 +98,14 @@ describe('Battle', () => {
 
     expect(battle.enemy.health).toBe(battle.enemy.maxHealth);
     expect(battle.counter).toBe(0);
+  });
+
+  it('should increment route kills when enemy is defeated', () => {
+    const battle = new Battle(DEFAULT_PLAYER, ROUTES[0]);
+    battle.enemy.health = 1;
+
+    battle.clickAttack();
+
+    expect(getRouteKills(ROUTES[0].id)).toBe(1);
   });
 });
