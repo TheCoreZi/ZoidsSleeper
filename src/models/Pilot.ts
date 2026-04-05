@@ -11,12 +11,14 @@ export const PILOTS: Pilot[] = [
     id: 'bandit1',
     name: 'Bandit',
     zoids: [
-      { id: 'molga', level: 2 },
-      { id: 'molga', level: 2 },
-      { id: 'command_wolf', level: 4 },
+      { id: 'molga', level: 5 },
     ],
   },
 ];
+
+export function getPilot(id: string): Pilot | undefined {
+  return PILOTS.find((p) => p.id === id);
+}
 
 export function getPilotImage(id: string): string {
   return `images/pilots/${id}.png`;

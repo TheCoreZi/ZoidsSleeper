@@ -1,7 +1,10 @@
-import type { Component } from 'solid-js';
+import { For, type Component } from 'solid-js';
+import type { City } from '../models/City';
 import { currentLandmark, landmarkBackground } from '../store/landmarkStore';
 
 const IdleLandmarkScreen: Component = () => {
+  const actions = () => (currentLandmark() as City).actions ?? [];
+
   return (
     <div class="battle-screen">
       <div class="enemy-section">
@@ -9,7 +12,17 @@ const IdleLandmarkScreen: Component = () => {
         <div
           class="battle-area"
           style={{ 'background-image': `url('${landmarkBackground()}')`, 'background-size': 'cover' }}
-        />
+        >
+          <div class="city-actions">
+            <For each={actions()}>
+              {(action) => (
+                <button class="city-action-btn" onClick={() => action.execute()}>
+                  {action.label}
+                </button>
+              )}
+            </For>
+          </div>
+        </div>
       </div>
     </div>
   );

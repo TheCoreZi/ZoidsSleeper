@@ -211,9 +211,9 @@ h1 {
   }
 }
 
-.victory-popup {
+.popup-message {
   align-items: center;
-  animation: victory-fade 3s ease-in-out forwards;
+  animation: popup-fade 3s ease-in-out forwards;
   background: rgb(0 0 0 / 85%);
   border: 1px solid #ffd700;
   border-radius: 8px;
@@ -229,19 +229,27 @@ h1 {
   z-index: 100;
 }
 
-.victory-popup h2 {
+.popup-defeat {
+  border-color: #f44;
+}
+
+.popup-defeat h2 {
+  color: #f44;
+}
+
+.popup-message h2 {
   color: #ffd700;
   font-size: 1rem;
   margin: 0;
 }
 
-.victory-popup p {
+.popup-message p {
   color: #ccc;
   font-size: 0.85rem;
   margin: 0;
 }
 
-@keyframes victory-fade {
+@keyframes popup-fade {
   0% {
     opacity: 0;
     transform: translateX(-50%) translateY(10px);
@@ -384,6 +392,34 @@ h1 {
 }
 
 .defeat-content button:hover {
+  background: #1a4a8a;
+}
+
+/* City Actions */
+
+.city-actions {
+  bottom: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  right: 0;
+}
+
+.city-action-btn {
+  background: #0f3460;
+  border: 2px solid #00d4ff;
+  border-radius: 6px;
+  color: #00d4ff;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.6rem 1.5rem;
+  transition: background 0.2s;
+}
+
+.city-action-btn:hover {
   background: #1a4a8a;
 }
 
@@ -576,6 +612,17 @@ h1 {
 }
 
 /* Dialog Box */
+
+.dialog-overlay {
+  left: 50%;
+  max-width: 600px;
+  padding: 1rem;
+  position: fixed;
+  top: 4rem;
+  transform: translateX(-50%);
+  width: 100%;
+  z-index: 10;
+}
 
 .dialog-box {
   background: #16213e;
