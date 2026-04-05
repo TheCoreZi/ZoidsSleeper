@@ -1,4 +1,3 @@
-import { PILOT_ENCOUNTER_CHANCE } from '../constants';
 import { randomEnemy, type Route } from '../models/Route';
 import { createZoid } from '../models/Zoid';
 import { setEnemyZoid } from '../store/gameStore';
@@ -6,7 +5,6 @@ import type { PlayerStats } from '../models/Player';
 import { BaseBattle } from './BaseBattle';
 
 export class Battle extends BaseBattle {
-  onPilotEncounter: (() => void) | null = null;
   route: Route;
 
   constructor(playerStats: PlayerStats, route: Route) {
@@ -27,11 +25,7 @@ export class Battle extends BaseBattle {
   }
 
   protected onEnemyDefeated(): void {
-    if (Math.random() < PILOT_ENCOUNTER_CHANCE && this.onPilotEncounter) {
-      this.onPilotEncounter();
-    } else {
-      this.spawnEnemy();
-    }
+    this.spawnEnemy();
   }
 
   protected syncToStore(): void {

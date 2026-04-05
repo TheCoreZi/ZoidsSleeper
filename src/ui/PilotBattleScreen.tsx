@@ -2,7 +2,6 @@ import { For, Show, type Component } from 'solid-js';
 import { getPilotImage } from '../models/Pilot';
 import { getZoidImage } from '../models/Zoid';
 import {
-  battleState,
   enemyZoid,
   pilotEnemyProgress,
   pilotInfo,
@@ -20,8 +19,6 @@ import PlayerInfo from './PlayerInfo';
 
 interface PilotBattleScreenProps {
   onClick: () => void;
-  onExit: () => void;
-  onRetry: () => void;
 }
 
 const PilotBattleScreen: Component<PilotBattleScreenProps> = (props) => {
@@ -30,8 +27,7 @@ const PilotBattleScreen: Component<PilotBattleScreenProps> = (props) => {
       <div class="enemy-section">
         <h2 class="enemy-name">{enemyZoid()?.name ?? 'Unknown'}</h2>
         <HealthBar />
-        <div class={`battle-area bg-${battleBackground()}`} onClick={() => props.onClick()}
-        >
+        <div class={`battle-area bg-${battleBackground()}`} onClick={() => props.onClick()}>
           {enemyZoid()?.id && (
             <img class="enemy-image" src={getZoidImage(enemyZoid()!.id)} alt={enemyZoid()!.name} />
           )}
@@ -69,20 +65,6 @@ const PilotBattleScreen: Component<PilotBattleScreenProps> = (props) => {
       </div>
       <div class="divider" />
       <PlayerInfo />
-
-      <Show when={battleState() === 'pilot-defeat'}>
-        <div class="defeat-overlay">
-          <div class="defeat-content">
-            <h2>Defeated!</h2>
-            <p>
-              Defeated {pilotEnemyProgress().current} / {pilotEnemyProgress().total} Zoids
-            </p>
-            <button onClick={() => props.onRetry()}>Retry</button>
-            <button onClick={() => props.onExit()}>Leave</button>
-          </div>
-        </div>
-      </Show>
-
     </div>
   );
 };
