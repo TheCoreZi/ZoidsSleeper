@@ -1,4 +1,4 @@
 {
-  "src/**/*.{ts,tsx}": "eslint",
+  "src/**/*.{ts,tsx}": ["eslint", "bash -c 'tsc -b --noEmit'"],
   "src/**/*.css": "stylelint"
 }

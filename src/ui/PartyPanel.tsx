@@ -4,15 +4,17 @@ import { experienceForLevel, MAX_LEVEL } from '../models/LevelType';
 import { getOwnedZoidLevel, getZoidById, getZoidImage, resolveZoid, type OwnedZoid } from '../models/Zoid';
 import { party } from '../store/partyStore';
 
-const enum StatOption {
-  Attack = 'attack',
-  Attack100 = 'attack_100',
-  BaseAttack = 'base_attack',
-  BaseHp = 'base_hp',
-  Experience = 'experience',
-  Hp = 'hp',
-  Hp100 = 'hp_100',
-}
+const StatOption = {
+  Attack: 'attack',
+  Attack100: 'attack_100',
+  BaseAttack: 'base_attack',
+  BaseHp: 'base_hp',
+  Experience: 'experience',
+  Hp: 'hp',
+  Hp100: 'hp_100',
+} as const;
+
+type StatOption = typeof StatOption[keyof typeof StatOption];
 
 const STAT_OPTIONS: StatOption[] = [
   StatOption.Attack, StatOption.Hp, StatOption.Attack100, StatOption.Hp100,
