@@ -1,7 +1,7 @@
 import { Show, type Component } from 'solid-js';
 import { getZoidImage } from '../models/Zoid';
 import { enemyZoid, showClickHint } from '../store/gameStore';
-import { battleBackground } from '../store/routeStore';
+import { battleBackground } from '../store/landmarkStore';
 import DamageNumber from './DamageNumber';
 import HealthBar from './HealthBar';
 import PlayerInfo from './PlayerInfo';

@@ -16,7 +16,7 @@ body {
   flex-direction: column;
   align-items: center;
   padding: 2rem;
-  gap: 1.5rem;
+  gap: 0.5rem;
 }
 
 h1 {
@@ -45,6 +45,13 @@ h1 {
 .enemy-name {
   color: #e94560;
   font-size: 1.5rem;
+}
+
+.route-label {
+  color: #aaa;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
 .health-bar-container {
@@ -136,6 +143,13 @@ h1 {
 }
 
 .player-info {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.player-stats-row {
   display: flex;
   gap: 1.5rem;
   justify-content: center;
@@ -377,9 +391,10 @@ h1 {
 
 .main-layout {
   display: flex;
-  gap: 1rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
   justify-content: center;
-  width: 100%;
+  width: 90%;
 }
 
 .left-column {
@@ -389,6 +404,18 @@ h1 {
 .battle-column {
   flex: 2;
   position: relative;
+}
+
+.map-column {
+  display: flex;
+  justify-content: center;
+  order: 1;
+  width: 100%;
+}
+
+.map-column > * {
+  flex: 2;
+  max-width: calc(50% - 0.5rem);
 }
 
 .right-column {
@@ -690,14 +717,24 @@ h1 {
   }
 
   .main-layout {
-    flex-direction: column-reverse;
+    flex-direction: column;
   }
 
   .battle-column {
     max-width: 95vw;
+    order: 1;
+  }
+
+  .map-column > * {
+    max-width: 100%;
+  }
+
+  .map-column {
+    order: 2;
   }
 
   .left-column {
+    order: 3;
     width: 100%;
   }
 
@@ -730,7 +767,7 @@ h1 {
     width: 100%;
   }
 
-  .player-info {
+  .player-stats-row {
     flex-wrap: wrap;
     gap: 1rem;
   }
@@ -779,7 +816,7 @@ h1 {
     width: 20px;
   }
 
-  .player-info {
+  .player-stats-row {
     gap: 0.75rem;
   }
 

@@ -38,6 +38,7 @@ export const ZOID_LIST: Record<string, ZoidData> = {
   command_wolf: { attack: 200, baseExp: 50, id: 'command_wolf', levelType: LevelType.MediumFast, maxHealth: 200, name: 'Command Wolf' },
   elephantus: { attack: 100, baseExp: 15, id: 'elephantus', levelType: LevelType.MediumSlow, maxHealth: 200, name: 'Elephantus' },
   garius: {attack: 50, baseExp: 10, id: 'garius', levelType: LevelType.Fast, maxHealth: 100, name: 'Garius'},
+  gator: {attack: 150, baseExp: 35, id: 'gator', levelType: LevelType.MediumFast, maxHealth: 200, name: 'Gator'},
   glidoler: {attack: 100, baseExp: 10, id: 'glidoler', levelType: LevelType.MediumFast, maxHealth: 40, name: 'Glidoler'},
   merda: {attack: 50, baseExp: 20, id: 'merda', levelType: LevelType.Fast, maxHealth: 100, name: 'Merda'},
   molga: { attack: 100, baseExp: 35, id: 'molga', levelType: LevelType.Fast, maxHealth: 400, name: 'Molga' },

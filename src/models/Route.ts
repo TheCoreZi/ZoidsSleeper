@@ -1,23 +1,29 @@
+import type { Landmark } from './Landmark';
+import { BattleBackground, LandmarkType } from './Landmark';
 import { type ZoidRef, type ZoidStats, resolveZoid } from './Zoid';
 
-export type BackgroundType = 'desert' | 'grass';
-
-export interface Route {
-  background: BackgroundType;
+export interface Route extends Landmark {
+  connects: [string, string];
   enemies: ZoidRef[];
-  name: string;
-  number: number;
+  type: typeof LandmarkType.Route;
 }
 
 export const ROUTES: Route[] = [
-  { background: 'grass', enemies: [
-    { id: 'molga', level: 1 },
-    { id: 'merda', level: 1},
-  ], name: 'Grasslands', number: 1 },
+  {
+    battleBackground: BattleBackground.Grass,
+    connects: ['gleam-village', 'abandoned-camp'],
+    enemies: [
+      { id: 'merda', level: 5 },
+      { id: 'gator', level: 5 },
+    ],
+    id: 'gleam-outskirts',
+    name: 'Gleam Outskirts',
+    type: LandmarkType.Route,
+  },
 ];
 
-export function getRoute(number: number): Route | undefined {
-  return ROUTES.find((r) => r.number === number);
+export function getRoute(id: string): Route | undefined {
+  return ROUTES.find((r) => r.id === id);
 }
 
 export function randomEnemy(route: Route): ZoidStats {

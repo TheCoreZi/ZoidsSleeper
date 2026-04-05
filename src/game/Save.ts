@@ -1,25 +1,22 @@
 import { SAVE_TICK, TICK_TIME } from '../constants';
 import type { OwnedZoid } from '../models/Zoid';
+import { currentLandmark } from '../store/landmarkStore';
 import { party } from '../store/partyStore';
-import type { Game } from './Game';
-
 const SAVE_KEY = 'zoids-sleeper-save';
 
 interface SaveData {
-  enemyHealth: number;
-  hasSeenPilotBattle: boolean;
+  landmarkId: string;
   party?: OwnedZoid[];
-  routeNumber: number;
 }
 
 export class Save {
   counter = 0;
 
-  gameTick(game: Game): void {
+  gameTick(): void {
     this.counter += TICK_TIME;
     if (this.counter >= SAVE_TICK) {
       this.counter = 0;
-      this.store(game);
+      this.store();
     }
   }
 
@@ -28,12 +25,10 @@ export class Save {
     return raw ? JSON.parse(raw) : null;
   }
 
-  store(game: Game): void {
+  store(): void {
     const data: SaveData = {
-      enemyHealth: game.battle.enemy.health,
-      hasSeenPilotBattle: game.hasSeenPilotBattle,
+      landmarkId: currentLandmark().id,
       party: party(),
-      routeNumber: game.battle.route.number,
     };
     localStorage.setItem(SAVE_KEY, JSON.stringify(data));
   }

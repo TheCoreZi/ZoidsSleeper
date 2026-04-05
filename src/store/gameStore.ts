@@ -2,7 +2,7 @@ import { createMemo, createSignal } from 'solid-js';
 import type { PlayerStats } from '../models/Player';
 import type { ZoidInstance } from '../models/Zoid';
 
-export type BattleState = 'fighting' | 'pilot-defeat' | 'pilot-fighting' | 'pilot-victory' | 'victory';
+export type BattleState = 'fighting' | 'idle' | 'pilot-defeat' | 'pilot-fighting' | 'pilot-victory' | 'victory';
 export type GamePhase = 'intro' | 'playing';
 export type DamageSource = 'auto' | 'click';
 
