@@ -15,19 +15,11 @@ describe('Save', () => {
 
   it('should store and load save data', () => {
     const save = new Save();
-    const mockGame = {
-      battle: {
-        enemy: { health: 250 },
-        route: { number: 1 },
-      },
-      hasSeenPilotBattle: false,
-    } as any;
 
-    save.store(mockGame);
+    save.store();
     const loaded = save.load();
 
-    expect(loaded?.enemyHealth).toBe(250);
-    expect(loaded?.routeNumber).toBe(1);
+    expect(loaded?.landmarkId).toBe('gleam-outskirts');
     expect(loaded?.party).toEqual(DEFAULT_PARTY);
   });
 });

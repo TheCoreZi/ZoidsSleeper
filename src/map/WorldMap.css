@@ -1,0 +1,92 @@
+.world-map {
+  background: #16213e;
+  border: 2px solid #0f3460;
+  border-radius: 12px;
+  margin-top: 0;
+  overflow: hidden;
+  padding: 0.5rem;
+}
+
+.world-map-title {
+  color: #00d4ff;
+  cursor: pointer;
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 0;
+  text-align: center;
+  text-transform: uppercase;
+  user-select: none;
+}
+
+.world-map-title:hover {
+  color: #5be0ff;
+}
+
+.world-map-subtitle {
+  color: #999;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.world-map-toggle {
+  font-size: 0.8rem;
+  margin-left: 0.5rem;
+}
+
+.world-map--open .world-map-title {
+  margin-bottom: 0.75rem;
+}
+
+.world-map svg {
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.map-node {
+  cursor: pointer;
+  transition: filter 0.2s;
+}
+
+.map-node:hover {
+  filter: drop-shadow(0 0 8px #ffc107);
+}
+
+.map-node--current {
+  animation: map-pulse 2s infinite;
+}
+
+.map-node-label {
+  fill: #000;
+  font-weight: bold;
+  pointer-events: none;
+  text-anchor: middle;
+}
+
+.map-route {
+  cursor: pointer;
+  transition: filter 0.2s;
+}
+
+.map-route:hover {
+  filter: drop-shadow(0 0 8px #00d4ff);
+}
+
+.map-route--current {
+  animation: map-pulse 2s infinite;
+}
+
+
+@keyframes map-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.6;
+  }
+}

@@ -1,8 +1,10 @@
-import { createMemo, createSignal, onCleanup, onMount, Show, type Component } from 'solid-js';
+import { createMemo, createSignal, Match, onCleanup, onMount, Show, Switch, type Component } from 'solid-js';
 import { Game } from './game/Game';
+import WorldMap from './map/WorldMap';
 import { battleState, gamePhase, victoryMessage } from './store/gameStore';
 import IntroSequence from './story/IntroSequence';
 import BattleScreen from './ui/BattleScreen';
+import IdleLandmarkScreen from './ui/IdleLandmarkScreen';
 import PartyPanel from './ui/PartyPanel';
 import PilotBattleScreen from './ui/PilotBattleScreen';
 
@@ -10,6 +12,7 @@ const App: Component = () => {
   let game: Game;
   const [showParty, setShowParty] = createSignal(true);
 
+  const isFighting = createMemo(() => battleState() === 'fighting' || battleState() === 'victory');
   const isPilotBattleMode = createMemo(() => battleState().startsWith('pilot-'));
 
   onMount(() => {
@@ -33,22 +36,27 @@ const App: Component = () => {
             <PartyPanel expanded={showParty()} onToggle={() => setShowParty((v) => !v)} />
           </div>
           <div class="battle-column">
-            <Show
-              when={isPilotBattleMode()}
-              fallback={<BattleScreen onClick={() => game?.battle.clickAttack()} />}
-            >
-              <PilotBattleScreen
-                onClick={() => game?.pilotBattle?.clickAttack()}
-                onExit={() => game?.exitPilotBattle()}
-                onRetry={() => game?.pilotBattle?.restart()}
-              />
-            </Show>
+            <Switch fallback={<IdleLandmarkScreen />}>
+              <Match when={isPilotBattleMode()}>
+                <PilotBattleScreen
+                  onClick={() => game?.battle?.clickAttack()}
+                  onExit={() => game?.exitPilotBattle()}
+                  onRetry={() => game?.retryPilotBattle()}
+                />
+              </Match>
+              <Match when={isFighting()}>
+                <BattleScreen onClick={() => game?.battle?.clickAttack()} />
+              </Match>
+            </Switch>
             <Show when={victoryMessage()}>
               <div class="victory-popup">
                 <h2>Pilot Defeated!</h2>
                 <p>{victoryMessage()}</p>
               </div>
             </Show>
+          </div>
+          <div class="map-column">
+            <WorldMap onLocationChange={(l) => game?.changeLocation(l)} />
           </div>
           <div class="right-column" />
         </div>

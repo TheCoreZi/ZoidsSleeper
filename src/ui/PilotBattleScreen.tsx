@@ -12,7 +12,7 @@ import {
   pilotZoidIds,
   showClickHint,
 } from '../store/gameStore';
-import { battleBackground } from '../store/routeStore';
+import { battleBackground } from '../store/landmarkStore';
 import DamageNumber from './DamageNumber';
 import HealthBar from './HealthBar';
 import PlayerHealthBar from './PlayerHealthBar';
@@ -30,7 +30,8 @@ const PilotBattleScreen: Component<PilotBattleScreenProps> = (props) => {
       <div class="enemy-section">
         <h2 class="enemy-name">{enemyZoid()?.name ?? 'Unknown'}</h2>
         <HealthBar />
-        <div class={`battle-area bg-${battleBackground()}`} onClick={() => props.onClick()}>
+        <div class={`battle-area bg-${battleBackground()}`} onClick={() => props.onClick()}
+        >
           {enemyZoid()?.id && (
             <img class="enemy-image" src={getZoidImage(enemyZoid()!.id)} alt={enemyZoid()!.name} />
           )}

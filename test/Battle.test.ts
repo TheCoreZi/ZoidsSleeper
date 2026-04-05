@@ -1,11 +1,19 @@
 import { describe, expect, it } from 'vitest';
 import { BATTLE_TICK, TICK_TIME } from '../src/constants';
 import { Battle } from '../src/game/Battle';
+import { BattleBackground, LandmarkType } from '../src/models/Landmark';
 import { calculateClickAttack, DEFAULT_PLAYER } from '../src/models/Player';
 import { type Route, ROUTES } from '../src/models/Route';
 import { partyAttack } from '../src/store/partyStore';
 
-const toughRoute: Route = { background: 'grass', enemies: [{ id: 'molga', level: 50 }], name: 'Test', number: 99 };
+const toughRoute: Route = {
+  battleBackground: BattleBackground.Grass,
+  connects: ['test-a', 'test-b'],
+  enemies: [{ id: 'molga', level: 50 }],
+  id: 'test-route',
+  name: 'Test',
+  type: LandmarkType.Route,
+};
 
 describe('Battle', () => {
   it('should auto-attack after accumulating BATTLE_TICK', () => {
@@ -54,7 +62,6 @@ describe('Battle', () => {
   });
 
   it('should calculate click and auto damage independently', () => {
-    const toughRoute: Route = { background: 'grass', enemies: [{ id: 'molga', level: 50 }], name: 'Test', number: 99 };
     const battle = new Battle(DEFAULT_PLAYER, toughRoute);
     const initialHealth = battle.enemy.health;
 
