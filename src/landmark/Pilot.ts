@@ -1,4 +1,4 @@
-import type { ZoidRef } from './Zoid';
+import type { ZoidRef } from '../models/Zoid';
 
 export interface Pilot {
   id: string;

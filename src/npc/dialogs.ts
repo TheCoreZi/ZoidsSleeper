@@ -8,4 +8,10 @@ export const NPCDialogs: Record<string, DialogScript> = {
     { speaker: 'Boy', text: "You should take the intermediate route to get there. You'll encounter Zoids Sleepers along the way — it's good practice for your combat techniques." },
     { speaker: 'Boy', text: 'Please, bring them back safely!' },
   ],
+  woman: [
+    { speaker: 'Woman', text: 'Thank you for saving me! But please, you have to help me!' },
+    { speaker: 'Woman', text: 'The bandits... they took my son! They dragged him toward Wind Colony!' },
+    { speaker: 'Woman', text: "I'm desperate... he's just a child. Please, you have to save him!" },
+    { speaker: 'Woman', text: 'Wind Colony is to the east. Be careful, the road is dangerous.' },
+  ],
 };

@@ -1,10 +1,11 @@
 import { NPCDialogs } from '../npc/dialogs';
-import type { CityAction } from './CityAction';
-import { ActionFightPilot, ActionTalkToNPC } from './CityAction';
+import { PilotDefeatRequirement, RouteKillRequirement } from '../requirement';
+import { ActionFightPilot } from './action/ActionFightPilot';
+import { ActionTalkToNPC } from './action/ActionTalkToNPC';
+import type { CityAction } from './action/CityAction';
 import type { Landmark } from './Landmark';
 import { BattleBackground, LandmarkType } from './Landmark';
 import { getPilot } from './Pilot';
-import { RouteKillRequirement } from './Requirement';
 
 export interface City extends Landmark {
   actions?: CityAction[];
@@ -14,7 +15,10 @@ export interface City extends Landmark {
 
 export const CITIES: City[] = [
   {
-    actions: [new ActionFightPilot(getPilot('bandit1')!, 'Fight Bandit')],
+    actions: [
+      new ActionFightPilot(getPilot('bandit1')!, 'Fight Bandit', [new PilotDefeatRequirement('bandit1', 'Bandit')]),
+      new ActionTalkToNPC('woman', NPCDialogs.woman, 'Talk to Woman', undefined, [new PilotDefeatRequirement('bandit1', 'Bandit')]),
+    ],
     battleBackground: BattleBackground.Grass,
     id: 'abandoned-camp',
     mapPosition: { x: 51.5, y: 85 },
@@ -28,6 +32,15 @@ export const CITIES: City[] = [
     id: 'gleam-village',
     mapPosition: { x: 53, y: 87 },
     name: 'Gleam Village',
+    type: LandmarkType.City,
+  },
+  {
+    actions: [],
+    battleBackground: BattleBackground.Grass,
+    id: 'wind-colony',
+    mapPosition: { x: 50, y: 83 },
+    name: 'Wind Colony',
+    requirements: [new RouteKillRequirement('wind-road', 10)],
     type: LandmarkType.City,
   },
 ];

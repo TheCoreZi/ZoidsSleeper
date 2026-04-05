@@ -1,13 +1,7 @@
 import { TICK_TIME } from '../constants';
+import type { City, Landmark, Pilot, Route } from '../landmark';
+import { ActionFightPilot, ActionTalkToNPC, getCity, getLandmarkHints, getRoute, isLandmarkUnlocked, isRoute, ROUTES } from '../landmark';
 import { REGIONS } from '../map/Region';
-import type { City } from '../models/City';
-import { getCity } from '../models/City';
-import { ActionFightPilot, ActionTalkToNPC } from '../models/CityAction';
-import type { Landmark } from '../models/Landmark';
-import { isRoute } from '../models/Landmark';
-import type { Pilot } from '../models/Pilot';
-import { getLandmarkHints, isLandmarkUnlocked } from '../models/Requirement';
-import { type Route, getRoute, ROUTES } from '../models/Route';
 import { DEFAULT_PLAYER } from '../models/Player';
 import { PopupMessage, PopupType } from '../models/PopupMessage';
 import {
@@ -27,7 +21,7 @@ import {
 } from '../store/gameStore';
 import { setCurrentLandmark } from '../store/landmarkStore';
 import { setParty } from '../store/partyStore';
-import { loadStatistics } from '../store/statisticsStore';
+import { incrementPilotDefeats, loadStatistics } from '../store/statisticsStore';
 import { BaseBattle } from './BaseBattle';
 import { Battle } from './Battle';
 import { GameLoop } from './GameLoop';
@@ -88,7 +82,10 @@ export class Game {
   enterPilotBattle(pilot: Pilot): void {
     const battle = new PilotBattle(DEFAULT_PLAYER, pilot);
     battle.onDefeat = () => this.endPilotBattle(new PopupMessage(`You're not strong enough to defeat ${pilot.name}. Upgrade your army and come back!`, 'Defeated!', PopupType.Defeat));
-    battle.onVictory = () => this.endPilotBattle(new PopupMessage(`${pilot.name} has been defeated!`, 'Victory!', PopupType.Victory));
+    battle.onVictory = () => {
+      incrementPilotDefeats(pilot.id);
+      this.endPilotBattle(new PopupMessage(`${pilot.name} has been defeated!`, 'Victory!', PopupType.Victory));
+    };
     this.battle = battle;
     setPilotInfo({ id: pilot.id, name: pilot.name });
     setBattleState('pilot-fighting');
@@ -153,8 +150,8 @@ export class Game {
       if (data.party?.length) {
         setParty(data.party);
       }
-      if (data.routeKills) {
-        loadStatistics(data.routeKills);
+      if (data.routeKills || data.pilotDefeats) {
+        loadStatistics(data.routeKills ?? {}, data.pilotDefeats ?? {});
       }
       return true;
     }

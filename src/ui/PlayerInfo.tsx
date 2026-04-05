@@ -1,7 +1,6 @@
 import { Show, type Component } from 'solid-js';
-import { CITIES } from '../models/City';
+import { CITIES, findRouteKillRequirement } from '../landmark';
 import { calculateClickAttack } from '../models/Player';
-import { findRouteKillRequirement } from '../models/Requirement';
 import { playerStats } from '../store/gameStore';
 import { currentLandmark, isOnRoute } from '../store/landmarkStore';
 import { partyAttack } from '../store/partyStore';

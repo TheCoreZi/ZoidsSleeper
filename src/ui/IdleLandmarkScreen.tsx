@@ -1,9 +1,10 @@
 import { For, type Component } from 'solid-js';
-import type { City } from '../models/City';
+import type { City } from '../landmark';
+import { isCityActionVisible } from '../landmark';
 import { currentLandmark, landmarkBackground } from '../store/landmarkStore';
 
 const IdleLandmarkScreen: Component = () => {
-  const actions = () => (currentLandmark() as City).actions ?? [];
+  const actions = () => ((currentLandmark() as City).actions ?? []).filter(isCityActionVisible);
 
   return (
     <div class="battle-screen">

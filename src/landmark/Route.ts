@@ -1,6 +1,7 @@
+import { PilotDefeatRequirement } from '../requirement';
 import type { Landmark } from './Landmark';
 import { BattleBackground, LandmarkType } from './Landmark';
-import { type ZoidRef, type ZoidStats, resolveZoid } from './Zoid';
+import { type ZoidRef, type ZoidStats, resolveZoid } from '../models/Zoid';
 
 export interface Route extends Landmark {
   connects: [string, string];
@@ -18,6 +19,18 @@ export const ROUTES: Route[] = [
     ],
     id: 'gleam-outskirts',
     name: 'Gleam Outskirts',
+    type: LandmarkType.Route,
+  },
+  {
+    battleBackground: BattleBackground.Desert,
+    connects: ['abandoned-camp', 'wind-colony'],
+    enemies: [
+      { id: 'merda', level: 8 },
+      { id: 'gator', level: 8 },
+    ],
+    id: 'wind-road',
+    name: 'Wind Road',
+    requirements: [new PilotDefeatRequirement('bandit1', 'Bandit')],
     type: LandmarkType.Route,
   },
 ];

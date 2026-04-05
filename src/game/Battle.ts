@@ -1,4 +1,5 @@
-import { randomEnemy, type Route } from '../models/Route';
+import type { Route } from '../landmark';
+import { randomEnemy } from '../landmark';
 import { createZoid } from '../models/Zoid';
 import { setEnemyZoid } from '../store/gameStore';
 import { incrementRouteKills } from '../store/statisticsStore';

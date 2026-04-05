@@ -1,7 +1,6 @@
 import { For, Show, type Component } from 'solid-js';
-import { getCity } from '../models/City';
-import type { Landmark } from '../models/Landmark';
-import { isLandmarkUnlocked } from '../models/Requirement';
+import type { Landmark } from '../landmark';
+import { getCity, isLandmarkUnlocked } from '../landmark';
 import {
   citiesForRegion,
   currentLandmark,

@@ -1,4 +1,4 @@
-import type { Pilot } from '../models/Pilot';
+import type { Pilot } from '../landmark';
 import type { PlayerStats } from '../models/Player';
 import { createZoid, resolveZoid } from '../models/Zoid';
 import {

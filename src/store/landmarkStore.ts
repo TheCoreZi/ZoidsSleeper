@@ -1,12 +1,8 @@
 import { createMemo, createSignal } from 'solid-js';
-import type { City } from '../models/City';
-import { getCity } from '../models/City';
-import type { BattleBackground, Landmark } from '../models/Landmark';
-import { isRoute } from '../models/Landmark';
+import type { BattleBackground, City, Landmark, Route } from '../landmark';
+import { getCity, getRoute, isRoute, ROUTES } from '../landmark';
 import type { Region } from '../map/Region';
 import { REGIONS } from '../map/Region';
-import type { Route } from '../models/Route';
-import { getRoute, ROUTES } from '../models/Route';
 
 const [currentLandmark, setCurrentLandmark] = createSignal<Landmark>(ROUTES[0]);
 const [currentRegion, setCurrentRegion] = createSignal<Region>(REGIONS[0]);

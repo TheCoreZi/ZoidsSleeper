@@ -12,15 +12,15 @@ export interface Region {
 
 export const REGIONS: Region[] = [
   {
-    cityIds: ['abandoned-camp', 'gleam-village'],
+    cityIds: ['abandoned-camp', 'gleam-village', 'wind-colony'],
     id: 'south-europa',
     image: 'images/map/europa.png',
     imageSize: { h: 1024, w: 1536 },
     initialLandmark: 'gleam-village',
     name: 'Southern Europa',
-    routeIds: ['gleam-outskirts'],
+    routeIds: ['gleam-outskirts', 'wind-road'],
     subtitle: 'Western Continent: Europa',
-    viewBox: { h: 524, w: 700, x: 400, y: 500 },
+    viewBox: { h: 200, w: 300, x: 700, y: 750 },
   },
 ];
 

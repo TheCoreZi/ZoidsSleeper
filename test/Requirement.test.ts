@@ -1,11 +1,11 @@
 import { beforeEach, describe, expect, it } from 'vitest';
-import { BattleBackground, LandmarkType, type Landmark } from '../src/models/Landmark';
-import { RouteKillRequirement, getLandmarkHints, isLandmarkUnlocked } from '../src/models/Requirement';
+import { BattleBackground, getLandmarkHints, isLandmarkUnlocked, LandmarkType, type Landmark } from '../src/landmark';
+import { RouteKillRequirement } from '../src/requirement';
 import { incrementRouteKills, loadStatistics } from '../src/store/statisticsStore';
 
 describe('RouteKillRequirement', () => {
   beforeEach(() => {
-    loadStatistics({});
+    loadStatistics({}, {});
   });
 
   it('should not be completed when kills are insufficient', () => {
@@ -15,7 +15,7 @@ describe('RouteKillRequirement', () => {
   });
 
   it('should be completed when kills reach required value', () => {
-    loadStatistics({ 'test-route': 10 });
+    loadStatistics({ 'test-route': 10 }, {});
     const req = new RouteKillRequirement('test-route', 10);
 
     expect(req.isCompleted()).toBe(true);
@@ -39,7 +39,7 @@ describe('RouteKillRequirement', () => {
 
 describe('isLandmarkUnlocked', () => {
   beforeEach(() => {
-    loadStatistics({});
+    loadStatistics({}, {});
   });
 
   const baseLandmark: Landmark = {
@@ -54,7 +54,7 @@ describe('isLandmarkUnlocked', () => {
   });
 
   it('should return true when all requirements are completed', () => {
-    loadStatistics({ 'test-route': 10 });
+    loadStatistics({ 'test-route': 10 }, {});
     const landmark: Landmark = {
       ...baseLandmark,
       requirements: [new RouteKillRequirement('test-route', 10)],
@@ -75,7 +75,7 @@ describe('isLandmarkUnlocked', () => {
 
 describe('getLandmarkHints', () => {
   beforeEach(() => {
-    loadStatistics({});
+    loadStatistics({}, {});
   });
 
   it('should return hints for incomplete requirements', () => {

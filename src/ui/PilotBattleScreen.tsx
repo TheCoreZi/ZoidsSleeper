@@ -1,5 +1,5 @@
 import { For, Show, type Component } from 'solid-js';
-import { getPilotImage } from '../models/Pilot';
+import { getPilotImage } from '../landmark';
 import { getZoidImage } from '../models/Zoid';
 import {
   enemyZoid,

@@ -96,6 +96,11 @@ h1 {
   width: 100%;
 }
 
+.battle-area.bg-desert {
+  background-image: url('/images/scenario/desert.png');
+  background-repeat: repeat;
+}
+
 .battle-area.bg-grass {
   background-image: url('/images/scenario/grass.png');
   background-repeat: repeat;

@@ -1,9 +1,8 @@
 import { beforeEach, describe, expect, it } from 'vitest';
 import { BATTLE_TICK, TICK_TIME } from '../src/constants';
 import { Battle } from '../src/game/Battle';
-import { BattleBackground, LandmarkType } from '../src/models/Landmark';
+import { BattleBackground, LandmarkType, type Route, ROUTES } from '../src/landmark';
 import { calculateClickAttack, DEFAULT_PLAYER } from '../src/models/Player';
-import { type Route, ROUTES } from '../src/models/Route';
 import { partyAttack } from '../src/store/partyStore';
 import { getRouteKills, loadStatistics } from '../src/store/statisticsStore';
 
@@ -18,7 +17,7 @@ const toughRoute: Route = {
 
 describe('Battle', () => {
   beforeEach(() => {
-    loadStatistics({});
+    loadStatistics({}, {});
   });
 
   it('should auto-attack after accumulating BATTLE_TICK', () => {
