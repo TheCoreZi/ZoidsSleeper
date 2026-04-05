@@ -587,12 +587,22 @@ h1 {
   width: 100%;
 }
 
+.dialog-content {
+  align-items: center;
+  display: flex;
+  gap: 1rem;
+}
+
 .dialog-portrait {
   border-radius: 8px;
+  flex-shrink: 0;
   height: 64px;
   image-rendering: pixelated;
-  margin-bottom: 0.75rem;
   width: 64px;
+}
+
+.dialog-text-area {
+  flex: 1;
 }
 
 .dialog-prompt {

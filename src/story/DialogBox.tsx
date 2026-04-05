@@ -21,13 +21,17 @@ const DialogBox: Component<DialogBoxProps> = (props) => {
 
   return (
     <div class="dialog-box" onClick={handleClick}>
-      <Show when={currentLine().portrait}>
-        <img class="dialog-portrait" src={currentLine().portrait} alt={currentLine().speaker} />
-      </Show>
-      <Show when={currentLine().speaker}>
-        <div class="dialog-speaker">{currentLine().speaker}</div>
-      </Show>
-      <div class="dialog-text">{currentLine().text}</div>
+      <div class="dialog-content">
+        <div class="dialog-text-area">
+          <Show when={currentLine().speaker}>
+            <div class="dialog-speaker">{currentLine().speaker}</div>
+          </Show>
+          <div class="dialog-text">{currentLine().text}</div>
+        </div>
+        <Show when={currentLine().portrait}>
+          <img class="dialog-portrait" src={currentLine().portrait} alt={currentLine().speaker} />
+        </Show>
+      </div>
       <div class="dialog-prompt">Click to continue...</div>
     </div>
   );
