@@ -18,6 +18,10 @@ export const PILOTS: Pilot[] = [
   },
 ];
 
+export function getPilot(id: string): Pilot | undefined {
+  return PILOTS.find((p) => p.id === id);
+}
+
 export function getPilotImage(id: string): string {
   return `images/pilots/${id}.png`;
 }

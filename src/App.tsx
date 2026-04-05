@@ -1,7 +1,8 @@
 import { createMemo, createSignal, Match, onCleanup, onMount, Show, Switch, type Component } from 'solid-js';
 import { Game } from './game/Game';
 import WorldMap from './map/WorldMap';
-import { battleState, gamePhase, victoryMessage } from './store/gameStore';
+import { PopupType } from './models/PopupMessage';
+import { battleState, gamePhase, popupMessage } from './store/gameStore';
 import IntroSequence from './story/IntroSequence';
 import BattleScreen from './ui/BattleScreen';
 import IdleLandmarkScreen from './ui/IdleLandmarkScreen';
@@ -38,20 +39,16 @@ const App: Component = () => {
           <div class="battle-column">
             <Switch fallback={<IdleLandmarkScreen />}>
               <Match when={isPilotBattleMode()}>
-                <PilotBattleScreen
-                  onClick={() => game?.battle?.clickAttack()}
-                  onExit={() => game?.exitPilotBattle()}
-                  onRetry={() => game?.retryPilotBattle()}
-                />
+                <PilotBattleScreen onClick={() => game?.battle?.clickAttack()} />
               </Match>
               <Match when={isFighting()}>
                 <BattleScreen onClick={() => game?.battle?.clickAttack()} />
               </Match>
             </Switch>
-            <Show when={victoryMessage()}>
-              <div class="victory-popup">
-                <h2>Pilot Defeated!</h2>
-                <p>{victoryMessage()}</p>
+            <Show when={popupMessage()}>
+              <div class={`popup-message ${popupMessage()!.type === PopupType.Defeat ? 'popup-defeat' : ''}`}>
+                <h2>{popupMessage()!.title}</h2>
+                <p>{popupMessage()!.content}</p>
               </div>
             </Show>
           </div>

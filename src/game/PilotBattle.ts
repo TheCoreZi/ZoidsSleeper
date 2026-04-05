@@ -2,7 +2,6 @@ import type { Pilot } from '../models/Pilot';
 import type { PlayerStats } from '../models/Player';
 import { createZoid, resolveZoid } from '../models/Zoid';
 import {
-  setBattleState,
   setEnemyZoid,
   setPilotEnemyProgress,
   setPilotPlayerHealth,
@@ -14,6 +13,8 @@ import { BaseBattle } from './BaseBattle';
 
 export class PilotBattle extends BaseBattle {
   currentEnemyIndex = 0;
+  onDefeat: (() => void) | null = null;
+  onVictory: (() => void) | null = null;
   pilot: Pilot;
   playerHealth: number;
   playerMaxHealth: number;
@@ -24,15 +25,6 @@ export class PilotBattle extends BaseBattle {
     this.playerMaxHealth = playerStats.baseHealth + partyMaxHealth();
     this.playerHealth = this.playerMaxHealth;
     this.enemy = createZoid(resolveZoid(pilot.zoids[0]));
-    this.syncToStore();
-  }
-
-  restart(): void {
-    this.counter = 0;
-    this.currentEnemyIndex = 0;
-    this.enemy = createZoid(resolveZoid(this.pilot.zoids[0]));
-    this.playerHealth = this.playerMaxHealth;
-    setBattleState('pilot-fighting');
     this.syncToStore();
   }
 
@@ -48,7 +40,7 @@ export class PilotBattle extends BaseBattle {
     if (this.currentEnemyIndex < this.pilot.zoids.length - 1) {
       this.nextEnemy();
     } else {
-      setBattleState('pilot-victory');
+      this.onVictory?.();
     }
   }
 
@@ -64,7 +56,7 @@ export class PilotBattle extends BaseBattle {
     this.playerHealth = Math.max(0, this.playerHealth - this.enemy.attack);
     this.syncToStore();
     if (this.playerHealth <= 0) {
-      setBattleState('pilot-defeat');
+      this.onDefeat?.();
     }
   }
 

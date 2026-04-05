@@ -1,11 +1,14 @@
 import { TICK_TIME } from '../constants';
 import { REGIONS } from '../map/Region';
+import type { City } from '../models/City';
 import { getCity } from '../models/City';
+import { ActionFightPilot } from '../models/CityAction';
 import type { Landmark } from '../models/Landmark';
 import { isRoute } from '../models/Landmark';
 import { type Route, getRoute, ROUTES } from '../models/Route';
-import { randomPilot } from '../models/Pilot';
+import type { Pilot } from '../models/Pilot';
 import { DEFAULT_PLAYER } from '../models/Player';
+import { PopupMessage, PopupType } from '../models/PopupMessage';
 import {
   battleState,
   setBattleState,
@@ -18,9 +21,9 @@ import {
   setPilotZoidIds,
   setPlayerStats,
   setShowClickHint,
-  setVictoryMessage,
+  setPopupMessage,
 } from '../store/gameStore';
-import { currentLandmark, setCurrentLandmark } from '../store/landmarkStore';
+import { setCurrentLandmark } from '../store/landmarkStore';
 import { setParty } from '../store/partyStore';
 import { BaseBattle } from './BaseBattle';
 import { Battle } from './Battle';
@@ -41,6 +44,7 @@ export class Game {
     setCurrentLandmark(savedLandmark);
     setPlayerStats(DEFAULT_PLAYER);
     this.hasSave = this.loadSave();
+    this.wireCityActions(savedLandmark);
     if (isRoute(savedLandmark)) {
       this.startBattle(savedLandmark);
     } else {
@@ -51,6 +55,7 @@ export class Game {
 
   changeLocation(landmark: Landmark): void {
     setCurrentLandmark(landmark);
+    this.wireCityActions(landmark);
     if (isRoute(landmark)) {
       this.startBattle(landmark);
     } else {
@@ -71,31 +76,13 @@ export class Game {
     this.save.store();
   }
 
-  enterPilotBattle(): void {
-    const pilot = randomPilot();
-    this.battle = new PilotBattle(DEFAULT_PLAYER, pilot);
+  enterPilotBattle(pilot: Pilot): void {
+    const battle = new PilotBattle(DEFAULT_PLAYER, pilot);
+    battle.onDefeat = () => this.endPilotBattle(new PopupMessage(`You're not strong enough to defeat ${pilot.name}. Upgrade your army and come back!`, 'Defeated!', PopupType.Defeat));
+    battle.onVictory = () => this.endPilotBattle(new PopupMessage(`${pilot.name} has been defeated!`, 'Victory!', PopupType.Victory));
+    this.battle = battle;
     setPilotInfo({ id: pilot.id, name: pilot.name });
     setBattleState('pilot-fighting');
-  }
-
-  exitPilotBattle(): void {
-    setPilotInfo(null);
-    setPilotEnemyProgress({ current: 0, total: 0 });
-    setPilotPlayerHealth(0);
-    setPilotPlayerMaxHealth(0);
-    setPilotZoidIds([]);
-    const landmark = currentLandmark();
-    if (isRoute(landmark)) {
-      this.startBattle(landmark);
-    } else {
-      this.battle = null;
-      setBattleState('idle');
-      setEnemyZoid(null);
-    }
-  }
-
-  retryPilotBattle(): void {
-    (this.battle as PilotBattle)?.restart();
   }
 
   start(): void {
@@ -111,11 +98,17 @@ export class Game {
     this.loop.stop();
   }
 
-  private startBattle(route: Route): void {
-    const battle = new Battle(DEFAULT_PLAYER, route);
-    battle.onPilotEncounter = () => this.enterPilotBattle();
-    this.battle = battle;
-    setBattleState('fighting');
+  private endPilotBattle(popup: PopupMessage): void {
+    setPilotInfo(null);
+    setPilotEnemyProgress({ current: 0, total: 0 });
+    setPilotPlayerHealth(0);
+    setPilotPlayerMaxHealth(0);
+    setPilotZoidIds([]);
+    this.battle = null;
+    setBattleState('idle');
+    setEnemyZoid(null);
+    setPopupMessage(popup);
+    setTimeout(() => setPopupMessage(null), 3000);
   }
 
   private gameTick(): void {
@@ -124,18 +117,22 @@ export class Game {
       case 'pilot-fighting':
         this.battle?.gameTick();
         break;
-      case 'pilot-victory':
-        this.handlePilotVictory();
-        break;
     }
     this.save.gameTick();
   }
 
-  private handlePilotVictory(): void {
-    const name = (this.battle as PilotBattle)?.pilot.name ?? 'Pilot';
-    this.exitPilotBattle();
-    setVictoryMessage(`${name} has been defeated!`);
-    setTimeout(() => setVictoryMessage(null), 3000);
+  private startBattle(route: Route): void {
+    this.battle = new Battle(DEFAULT_PLAYER, route);
+    setBattleState('fighting');
+  }
+
+  private wireCityActions(landmark: Landmark): void {
+    const city = landmark as City;
+    city.actions?.forEach((action) => {
+      if (action instanceof ActionFightPilot) {
+        action.onExecute = () => this.enterPilotBattle(action.pilot);
+      }
+    });
   }
 
   private loadSave(): boolean {
