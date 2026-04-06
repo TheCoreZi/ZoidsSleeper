@@ -26,6 +26,14 @@ export const NPCS: Record<string, Npc> = {
     ],
     id: 'captain_malinoff',
     nameKey: 'pilots:captain_malinoff',
+    portrait: 'images/pilots/malinoff.png',
+  },
+  scrap_dealer: {
+    dialogs: [
+      { dialogKey: 'dialog:scrap_dealer' },
+    ],
+    id: 'scrap_dealer',
+    nameKey: 'pilots:scrap_dealer',
   },
   woman: {
     dialogs: [

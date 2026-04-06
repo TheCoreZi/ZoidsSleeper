@@ -1,7 +1,8 @@
-import { PilotDefeatRequirement } from '../requirement';
+import { MissionCompletedRequirement } from '../requirement';
 import type { Landmark } from './Landmark';
 import { BattleBackground, LandmarkType } from './Landmark';
 import { type ZoidRef, type ZoidStats, resolveZoid } from '../models/Zoid';
+import { CAMPAIGNS } from '../campaign/campaigns';
 
 export interface Route extends Landmark {
   connects: [string, string];
@@ -19,6 +20,7 @@ export const ROUTES: Route[] = [
     ],
     id: 'gleam_outskirts',
     name: 'Gleam Outskirts',
+    requirements: [new MissionCompletedRequirement(CAMPAIGNS.sleeper_commander.id, 'talk_to_boy')],
     type: LandmarkType.Route,
   },
   {
@@ -30,7 +32,7 @@ export const ROUTES: Route[] = [
     ],
     id: 'wind_road',
     name: 'Wind Road',
-    requirements: [new PilotDefeatRequirement('bandit1')],
+    requirements: [new MissionCompletedRequirement(CAMPAIGNS.sleeper_commander.id, 'report_to_captain')],
     type: LandmarkType.Route,
   },
 ];

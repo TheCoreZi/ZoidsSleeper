@@ -38,6 +38,13 @@
     "Ahora ve y ayuda a nuestros vecinos. Los bandidos no esperarán para siempre.",
     "Ten cuidado ahí fuera, chico. Y cuida bien de ese Zoid."
   ],
+  "scrap_dealer": [
+    "Galos, Zi-Dollars, Zenys... todas esas monedas, un día valen una fortuna y al otro no compran ni un grano de sal.",
+    "¿Quieres un consejo, chico? Guarda tu riqueza en materiales.",
+    "¿Yo? Junto Magnis, pequeños fragmentos de Zoid Magnite que puedes recolectar de Zoids destruidos.",
+    "Generalmente se concentran en los conductos conectados al Zoid Core.",
+    "La próxima vez que derrotes uno, no olvides revisar los restos. Te sorprendería lo que puedes encontrar."
+  ],
   "planet_intro": [
     "En el planeta Zi, mas allá de la Vía Láctea, existen Zoids de acero con destacada capacidad de combate. Los Zoids tienen dentro de si ese espíritu guerrero.",
     "Ellos constituyen el arma mas potente en la guerra entre el Imperio y la Republica del Planeta Zi. Durante décadas, esta guerra ha devastado estas tierras. En medio de este gran conflicto, las aldeas más pequeñas luchan por sobrevivir.",
@@ -47,6 +54,9 @@
     "¡Gracias por salvarme! Pero por favor, ¡tienes que ayudarme!",
     "¡Los bandidos... se llevaron a mi hija! ¡Lo arrastraron hacia la Colonia del Viento!",
     "Estoy desesperada... es solo una niña. ¡Por favor, tienes que salvarla!",
-    "La Colonia del Viento está al norte. Ten cuidado, el camino es peligroso."
+    "La Colonia del Viento está al norte. Ten cuidado, el camino es peligroso.",
+    "Toma esto, tal vez te sea útil",
+    "Esos bandidos estaban usando estos dispositivos para comandar a los Zoids alrededor de este campamento y evitar que se acerquen los soldados.",
+    "Logré arrebatarle uno al que se llevó a mi hija. La verdad no se qué sea pero tal vez ese anciano de la aldea sepa qué es."
   ]
 }

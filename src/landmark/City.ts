@@ -27,8 +27,9 @@ export const CITIES: City[] = [
   },
   {
     actions: [
-      new ActionTalkToNPC('boy'),
+      new ActionTalkToNPC('boy', [new MissionCompletedRequirement('sleeper_commander', 'talk_to_hostage')]),
       new ActionTalkToNPC('captain_malinoff', undefined, [new MissionCompletedRequirement('sleeper_commander', 'talk_to_hostage')]),
+      new ActionTalkToNPC('scrap_dealer'),
     ],
     battleBackground: BattleBackground.Grass,
     id: 'gleam_village',

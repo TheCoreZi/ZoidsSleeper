@@ -38,6 +38,13 @@
     "Now go and help our neighbors. The bandits won't wait forever.",
     "Be careful out there, kid. And take good care of that Zoid."
   ],
+  "scrap_dealer": [
+    "Galos, Zi-Dollars, Zenys... all those currencies, one day they're worth a fortune, and the next they won't buy you a grain of salt.",
+    "You want some advice, kid? Keep your wealth in materials.",
+    "Me? I collect Magnis, tiny shards of Zoid Magnite you can salvage from destroyed Zoids.",
+    "They're usually concentrated around the pipes connected to the Zoid Core.",
+    "Next time you take one down, don't forget to check the wreckage. You'd be surprised what you can find."
+  ],
   "planet_intro": [
     "On Planet Zi, beyond the Milky Way, there exist steel Zoids with outstanding combat capability. The Zoids carry within them a warrior spirit.",
     "They are the most powerful weapon in the war between the Empire and the Republic of Planet Zi. For decades, this war has ravaged these lands. Amidst this great conflict, smaller villages struggle to survive.",
@@ -47,6 +54,9 @@
     "Thank you for saving me! But please, you have to help me!",
     "The bandits... they took my daughter! They dragged her towards Wind Colony!",
     "I'm desperate... she's just a child. Please, you have to save her!",
-    "Wind Colony is to the north. Be careful, the road is dangerous."
+    "Wind Colony is to the north. Be careful, the road is dangerous.",
+    "Take this, it might be useful to you.",
+    "Those bandits were using these devices to command the Zoids around this camp and keep soldiers from getting close.",
+    "I managed to snatch one from the bandit who took my daughter. I don't really know what it is, but maybe that old man in the village would know."
   ]
 }
