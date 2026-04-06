@@ -1,4 +1,7 @@
 {
+  "complete_campaign": "Completar operación: {{name}}",
+  "complete_mission": "Completar misión: {{mission}} de la operación:({{campaign}})",
   "defeat_pilot": "Derrota a {{name}}",
-  "defeat_zoids_on_route": "Derrota {{count}} zoids en {{route}}"
+  "defeat_zoids_on_route": "Derrota {{count}} zoids en {{route}}",
+  "talk_to_npc": "Hablar con {{name}}"
 }

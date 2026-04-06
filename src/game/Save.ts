@@ -1,11 +1,14 @@
 import { SAVE_TICK, TICK_TIME } from '../constants';
+import type { CampaignSaveData } from '../campaign/Campaign';
 import type { OwnedZoid } from '../models/Zoid';
+import { campaignStates } from '../store/campaignStore';
 import { currentLandmark } from '../store/landmarkStore';
 import { party } from '../store/partyStore';
 import { pilotDefeats, routeKills } from '../store/statisticsStore';
 const SAVE_KEY = 'zoids-sleeper-save';
 
 interface SaveData {
+  campaigns?: Record<string, CampaignSaveData>;
   landmarkId: string;
   party?: OwnedZoid[];
   pilotDefeats?: Record<string, number>;
@@ -30,6 +33,7 @@ export class Save {
 
   store(): void {
     const data: SaveData = {
+      campaigns: campaignStates(),
       landmarkId: currentLandmark().id,
       party: party(),
       pilotDefeats: pilotDefeats(),

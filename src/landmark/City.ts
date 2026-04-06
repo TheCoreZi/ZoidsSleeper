@@ -1,5 +1,4 @@
-import { NPCDialogs } from '../npc/dialogs';
-import { PilotDefeatRequirement, RouteKillRequirement } from '../requirement';
+import { MissionCompletedRequirement, PilotDefeatRequirement, RouteKillRequirement } from '../requirement';
 import { ActionFightPilot } from './action/ActionFightPilot';
 import { ActionTalkToNPC } from './action/ActionTalkToNPC';
 import type { CityAction } from './action/CityAction';
@@ -17,7 +16,7 @@ export const CITIES: City[] = [
   {
     actions: [
       new ActionFightPilot(PILOTS['bandit1'], [new PilotDefeatRequirement('bandit1')]),
-      new ActionTalkToNPC('woman', NPCDialogs.woman, undefined, [new PilotDefeatRequirement('bandit1')]),
+      new ActionTalkToNPC('woman', undefined, [new PilotDefeatRequirement('bandit1')]),
     ],
     battleBackground: BattleBackground.Grass,
     id: 'abandoned_camp',
@@ -27,7 +26,10 @@ export const CITIES: City[] = [
     type: LandmarkType.City,
   },
   {
-    actions: [new ActionTalkToNPC('boy', NPCDialogs.boy)],
+    actions: [
+      new ActionTalkToNPC('boy'),
+      new ActionTalkToNPC('captain_malinoff', undefined, [new MissionCompletedRequirement('sleeper_commander', 'talk_to_hostage')]),
+    ],
     battleBackground: BattleBackground.Grass,
     id: 'gleam_village',
     mapPosition: { x: 53, y: 87 },

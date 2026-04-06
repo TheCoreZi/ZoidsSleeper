@@ -1,5 +1,5 @@
 import { t } from '../../i18n';
-import type { NPCDialog } from '../../npc/dialogs';
+import { getNpc } from '../../npc/Npc';
 import type { Requirement } from '../../requirement';
 import { buildDialog, type DialogScript } from '../../story/Dialog';
 import type { CityAction } from './CityAction';
@@ -7,32 +7,31 @@ import type { CityAction } from './CityAction';
 export class ActionTalkToNPC implements CityAction {
   completeRequirements?: Requirement[];
   id: string;
+  npcId: string;
   onExecute: (() => void) | null = null;
   requirements?: Requirement[];
-  speakerId: string;
 
-  private dialogKey: string;
-  private speakerKey: string;
-
-  constructor(speakerId: string, dialog: NPCDialog, completeRequirements?: Requirement[], requirements?: Requirement[]) {
+  constructor(npcId: string, completeRequirements?: Requirement[], requirements?: Requirement[]) {
     this.completeRequirements = completeRequirements;
-    this.dialogKey = dialog.dialogKey;
-    this.id = `talk-${speakerId}`;
+    this.id = `talk-${npcId}`;
+    this.npcId = npcId;
     this.requirements = requirements;
-    this.speakerId = speakerId;
-    this.speakerKey = dialog.speakerKey;
   }
 
   get script(): DialogScript {
-    return buildDialog(this.speakerKey, this.dialogKey);
-  }
-
-  getLabel(): string {
-    return t('ui:talk_to_npc', { name: t(`pilots:${this.speakerId}`) });
+    const npc = getNpc(this.npcId);
+    const dialog = npc.dialogs.find((d) => !d.unlockRequirement || d.unlockRequirement.isCompleted())
+      ?? npc.dialogs[npc.dialogs.length - 1];
+    return buildDialog(npc.nameKey, dialog.dialogKey, npc.portrait);
   }
 
   execute(): void {
     this.onExecute?.();
+  }
+
+  getLabel(): string {
+    const npc = getNpc(this.npcId);
+    return t('ui:talk_to_npc', { name: t(npc.nameKey) });
   }
 
   isCompleted(): boolean {

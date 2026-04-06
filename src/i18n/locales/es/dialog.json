@@ -3,8 +3,22 @@
     "¡Por favor, tienes que ayudarme! ¡Un bandido vino y se llevó a mi hermana y a mi madre!",
     "Se fueron hacia el campamento abandonado del norte... Tengo mucho miedo por ellas.",
     "¡Pero ten cuidado, el bandido es muy fuerte!",
-    "Deberías tomar la ruta intermedia para llegar. Encontrarás Zoids Durmientes por el camino — es buena práctica para tus técnicas de combate.",
+    "Deberías tomar la ruta intermedia para llegar. Encontrarás Zoids Sleepers por el camino — es buena práctica para tus técnicas de combate.",
     "¡Por favor, tráelas de vuelta sanas y salvas!"
+  ],
+  "captain_debrief": [
+    "Gracias por tu ayuda, sabía que había algo especial en ti...",
+    "Hmmm un artefacto usado por los bandidos? Dejame verlo...",
+    "Ohh en mis dias en el ejercito vi este tipo de artefactos pero este se ve mucho más avanzado de los que conocía...",
+    "Si no me equivoco es un módulo Sleeper. Algunas personas en el ejercito solo se preocupan por el número de Zoids disponibles para la pelear.",
+    "Así que inventaron el sistema Sleeper como una forma en que los pilotos pueden controlar a más Zoids al mismo tiempo.",
+    "Al parecer estos inventos han caído en manos equivocadas, es por eso que hay tantos Zoids Sleepers rondando por aquí...",
+    "Estoy casi seguro que los bandidos los trajeron.",
+    "...",
+    "Pero no te equivoques joven piloto, no todos los inventos del ejercito son malos...",
+    "Si te ganas su confianza, este sistema Sleeper te permitiría crear lazos con varios Zoids al mismo tiempo",
+    "Si de verdad piensas enfrentarte a esos bandidos te vendrían bien refuerzos.",
+    "Para eso necesitarás más Zoids, por qué no hablas con el viejo Jenkins, el solía trabajar en un laboratorio de Zoids, tal vez pueda ayudarte."
   ],
   "captain": [
     "¡¡¡EEEEEEY!! Necesito tu ayuda.",

@@ -6,6 +6,20 @@
     "You should take the intermediate route to get there. You'll encounter Zoids Sleepers along the way — it's good practice for your combat techniques.",
     "Please, bring them back safely!"
   ],
+  "captain_debrief": [
+    "Thank you for your help, I knew there was something special about you...",
+    "Hmmm an artifact used by the bandits? Let me take a look...",
+    "Ohh back in my days in the army I saw these kinds of artifacts, but this one looks far more advanced than any I knew...",
+    "If I'm not mistaken, it's a Sleeper module. Some people in the army only care about the number of Zoids available for battle.",
+    "So they invented the Sleeper system as a way for pilots to control multiple Zoids at the same time.",
+    "It seems these inventions have fallen into the wrong hands, that's why there are so many Zoids Sleepers roaming around here...",
+    "I'm almost certain the bandits brought them.",
+    "...",
+    "But make no mistake, young pilot, not all army inventions are bad...",
+    "If you earn its trust, this Sleeper system would allow you to bond with several Zoids at the same time.",
+    "If you really plan to face those bandits, you could use some reinforcements.",
+    "For that you'll need more Zoids. Why don't you talk to old Jenkins? He used to work in a Zoid laboratory, maybe he can help you."
+  ],
   "captain": [
     "HEEEEEEY!! I need your help.",
     "Bandits have been raiding our village. They grow bolder each day.",

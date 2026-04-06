@@ -10,7 +10,7 @@ describe('isCityActionVisible', () => {
   });
 
   it('should return true for action without any requirements', () => {
-    const action = new ActionTalkToNPC('test', []);
+    const action = new ActionTalkToNPC('boy');
 
     expect(isCityActionVisible(action)).toBe(true);
   });
@@ -29,14 +29,14 @@ describe('isCityActionVisible', () => {
   });
 
   it('should return false for action with unfulfilled requirements (locked)', () => {
-    const action = new ActionTalkToNPC('test', [], undefined, [new PilotDefeatRequirement('bandit1')]);
+    const action = new ActionTalkToNPC('boy', undefined, [new PilotDefeatRequirement('bandit1')]);
 
     expect(isCityActionVisible(action)).toBe(false);
   });
 
   it('should return true for action with fulfilled requirements and no completeRequirements', () => {
     loadStatistics({}, { bandit1: 1 });
-    const action = new ActionTalkToNPC('test', [], undefined, [new PilotDefeatRequirement('bandit1')]);
+    const action = new ActionTalkToNPC('boy', undefined, [new PilotDefeatRequirement('bandit1')]);
 
     expect(isCityActionVisible(action)).toBe(true);
   });
