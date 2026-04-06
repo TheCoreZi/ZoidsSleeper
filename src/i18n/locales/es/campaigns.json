@@ -1,0 +1,28 @@
+{
+  "sleeper_commander": {
+    "description": "La Aldea Destello es atacada por Zoids Sleepers, muestra tu habilidad como piloto y descubre a los culpables.",
+    "missions": {
+      "beat_bandit": {
+        "description": "Encontraste un campamento abandonado donde un bandido tiene rehenes. Véncelo y rescátalos",
+        "name": "Vence al bandido"
+      },
+      "hone_skills": {
+        "description": "Hay muchos Zoids Sleepers en las afueras de la aldea, son perfectos para mejorar tus habilidades como piloto.",
+        "name": "Mejora tus habilidades"
+      },
+      "report_to_captain": {
+        "description": "Puede ser que el anciano capitán sepa más sobre este artefacto, habla con él",
+        "name": "Reporta al capitán"
+      },
+      "talk_to_boy": {
+        "description": "Hay un chico en la aldea que luce muy desesperado, habla con el.",
+        "name": "Habla con el chico"
+      },
+      "talk_to_hostage": {
+        "description": "El bandido huyó, peor la rehén se nota alterada, habla con ella.",
+        "name": "Habla con la rehén"
+      }
+    },
+    "name": "Comandante Sleeper"
+  }
+}

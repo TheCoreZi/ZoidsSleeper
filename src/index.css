@@ -902,6 +902,94 @@ h1 {
   font-size: 1.2rem;
 }
 
+/* Campaign Panel */
+
+.campaign-panel {
+  align-self: flex-start;
+  background: #16213e;
+  border: 2px solid #0f3460;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  width: 100%;
+}
+
+.campaign-title {
+  color: #00d4ff;
+  font-size: 1rem;
+  padding: 0.75rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.campaign-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.campaign-entry {
+  border-top: 1px solid #0f3460;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.5rem 0.75rem;
+  text-align: center;
+}
+
+.campaign-header {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.campaign-name {
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+.campaign-progress {
+  color: #00d4ff;
+  font-size: 0.75rem;
+}
+
+.campaign-mission-hint {
+  color: #999;
+  font-size: 0.75rem;
+}
+
+.campaign-description {
+  color: #999;
+  font-size: 0.75rem;
+}
+
+.campaign-deploy-btn {
+  background: #0f3460;
+  border: 1px solid #00d4ff;
+  border-radius: 4px;
+  color: #00d4ff;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin-top: 0.25rem;
+  padding: 0.3rem 0.75rem;
+  transition: background 0.2s;
+}
+
+.campaign-deploy-btn:hover {
+  background: #1a4a8a;
+}
+
+.campaign-completed .campaign-name {
+  color: #666;
+}
+
+.campaign-status-check {
+  color: #4caf50;
+  font-size: 0.75rem;
+}
+
 /* Mobile Responsive */
 
 @media (width <= 768px) {
@@ -937,7 +1025,8 @@ h1 {
   }
 
   .right-column {
-    display: none;
+    order: 4;
+    width: 100%;
   }
 
   .battle-screen {

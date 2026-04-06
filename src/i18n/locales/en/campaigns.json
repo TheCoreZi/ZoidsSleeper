@@ -1,0 +1,28 @@
+{
+  "sleeper_commander": {
+    "description": "Gleam Village is under attack by Zoids Sleepers. Prove your skill as a pilot and uncover the culprits.",
+    "missions": {
+      "beat_bandit": {
+        "description": "You found an abandoned camp where a bandit is holding hostages. Defeat him and rescue them.",
+        "name": "Beat the bandit"
+      },
+      "hone_skills": {
+        "description": "There are many Zoids Sleepers in the village outskirts, perfect for honing your piloting skills.",
+        "name": "Hone your skills"
+      },
+      "report_to_captain": {
+        "description": "The old captain might know more about this artifact. Talk to him.",
+        "name": "Report to the captain"
+      },
+      "talk_to_boy": {
+        "description": "There's a boy in the village who looks desperate. Talk to him.",
+        "name": "Talk to the boy"
+      },
+      "talk_to_hostage": {
+        "description": "The bandit fled, but the hostage seems shaken. Talk to her.",
+        "name": "Talk to the hostage"
+      }
+    },
+    "name": "Sleeper Commander"
+  }
+}

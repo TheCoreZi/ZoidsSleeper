@@ -9,6 +9,7 @@ import BattleScreen from './ui/BattleScreen';
 import IdleLandmarkScreen from './ui/IdleLandmarkScreen';
 import SettingsMenu from './ui/SettingsMenu';
 import PartyPanel from './ui/PartyPanel';
+import CampaignPanel from './ui/CampaignPanel';
 import PilotBattleScreen from './ui/PilotBattleScreen';
 
 const App: Component = () => {
@@ -59,7 +60,9 @@ const App: Component = () => {
           <div class="map-column">
             <WorldMap onLocationChange={(l) => game?.changeLocation(l)} />
           </div>
-          <div class="right-column" />
+          <div class="right-column">
+            <CampaignPanel />
+          </div>
         </div>
       </Show>
       <Show when={popupMessage()}>

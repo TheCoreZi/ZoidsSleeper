@@ -1,4 +1,5 @@
 import { TICK_TIME } from '../constants';
+import { CAMPAIGNS } from '../campaign/campaigns';
 import { t } from '../i18n';
 import type { City, Landmark, Route } from '../landmark';
 import type { Pilot } from '../models/Pilot';
@@ -6,6 +7,7 @@ import { ActionFightPilot, ActionTalkToNPC, getCity, getLandmarkHints, getRoute,
 import { REGIONS } from '../map/Region';
 import { DEFAULT_PLAYER } from '../models/Player';
 import { PopupMessage, PopupType } from '../models/PopupMessage';
+import { loadCampaigns, markNpcTalked, checkCampaigns } from '../store/campaignStore';
 import {
   battleState,
   setBattleState,
@@ -43,6 +45,9 @@ export class Game {
     setCurrentLandmark(savedLandmark);
     setPlayerStats(DEFAULT_PLAYER);
     this.hasSave = this.loadSave();
+    if (!this.hasSave) {
+      loadCampaigns(CAMPAIGNS, {});
+    }
     this.wireCityActions(savedLandmark);
     if (isRoute(savedLandmark)) {
       this.startBattle(savedLandmark);
@@ -77,6 +82,7 @@ export class Game {
     setEnemyZoid(null);
     setGamePhase('playing');
     setShowClickHint(false);
+    checkCampaigns();
     this.loop.start();
     this.save.store();
   }
@@ -86,6 +92,7 @@ export class Game {
     battle.onDefeat = () => this.endPilotBattle(new PopupMessage(t('ui:not_strong_enough', { name: t(`pilots:${pilot.id}`) }), t('ui:defeated'), PopupType.Defeat));
     battle.onVictory = () => {
       incrementPilotDefeats(pilot.id);
+      checkCampaigns();
       this.endPilotBattle(new PopupMessage(t('ui:pilot_defeated', { name: t(`pilots:${pilot.id}`) }), t('ui:victory'), PopupType.Victory));
     };
     this.battle = battle;
@@ -140,7 +147,11 @@ export class Game {
       if (action instanceof ActionFightPilot) {
         action.onExecute = () => this.enterPilotBattle(action.pilot);
       } else if (action instanceof ActionTalkToNPC) {
-        action.onExecute = () => setActiveDialog(action.script);
+        action.onExecute = () => {
+          markNpcTalked(action.npcId);
+          setActiveDialog(action.script);
+          checkCampaigns();
+        };
       }
     });
   }
@@ -155,6 +166,7 @@ export class Game {
       if (data.routeKills || data.pilotDefeats) {
         loadStatistics(data.routeKills ?? {}, data.pilotDefeats ?? {});
       }
+      loadCampaigns(CAMPAIGNS, data.campaigns ?? {});
       return true;
     }
     return false;
