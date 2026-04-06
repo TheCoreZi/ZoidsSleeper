@@ -1,13 +1,17 @@
 import type { Route } from '../landmark';
 import { randomEnemy } from '../landmark';
-import { createZoid } from '../models/Zoid';
-import { setEnemyZoid } from '../store/gameStore';
-import { checkCampaigns } from '../store/campaignStore';
-import { incrementRouteKills } from '../store/statisticsStore';
+import { calculateMagnisReward, Currency } from '../models/Currency';
 import type { PlayerStats } from '../models/Player';
+import { createZoid } from '../models/Zoid';
+import { checkCampaigns } from '../store/campaignStore';
+import { rewardEvents, setEnemyZoid, setRewardEvents } from '../store/gameStore';
+import { incrementRouteKills } from '../store/statisticsStore';
+import { addCurrency } from '../store/walletStore';
+
 import { BaseBattle } from './BaseBattle';
 
 export class Battle extends BaseBattle {
+  rewardIdCounter = 0;
   route: Route;
 
   constructor(playerStats: PlayerStats, route: Route) {
@@ -28,6 +32,9 @@ export class Battle extends BaseBattle {
   }
 
   protected onEnemyDefeated(): void {
+    const reward = calculateMagnisReward(this.route.baseReward);
+    addCurrency(Currency.Magnis, reward);
+    setRewardEvents([...rewardEvents().slice(-4), { amount: reward, id: this.rewardIdCounter++ }]);
     incrementRouteKills(this.route.id);
     checkCampaigns();
     this.spawnEnemy();

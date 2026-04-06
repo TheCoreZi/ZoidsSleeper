@@ -1,5 +1,6 @@
 {
   "choose": "Elegir",
+  "currency": "Botín",
   "choose_your_zoid": "Elige tu Zoid",
   "click_hint": "Haz clic para disparar tu arma de piloto",
   "click_to_continue": "Haz clic para continuar...",
@@ -8,6 +9,7 @@
   "fights_completed": "Zoids Combatidos",
   "locked": "Bloqueado",
   "language": "Idioma",
+  "magnis": "Magnis",
   "lv": "Nv.",
   "manual_attack": "Ataque manual",
   "not_strong_enough": "¡No eres lo suficientemente fuerte para derrotar a {{name}}. Mejora tu ejército y vuelve!",

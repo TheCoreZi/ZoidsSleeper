@@ -2,6 +2,7 @@ import type { ZoidRef } from '../models/Zoid';
 
 export interface Pilot {
   id: string;
+  magnisReward: number;
   name: string;
   zoids: ZoidRef[];
 }
@@ -9,6 +10,7 @@ export interface Pilot {
 export const PILOTS: Record<string, Pilot> = {
   bandit1: {
     id: 'bandit1',
+    magnisReward: 200,
     name: 'Bandit',
     zoids: [
       { id: 'molga', level: 5 },

@@ -6,6 +6,7 @@ import { battleBackground } from '../store/landmarkStore';
 import DamageNumber from './DamageNumber';
 import HealthBar from './HealthBar';
 import PlayerInfo from './PlayerInfo';
+import RewardNumber from './RewardNumber';
 
 interface BattleScreenProps {
   onClick: () => void;
@@ -22,6 +23,7 @@ const BattleScreen: Component<BattleScreenProps> = (props) => {
             <img class="enemy-image" src={getZoidImage(enemyZoid()!.id)} alt={enemyZoid()!.name} />
           )}
           <DamageNumber />
+          <RewardNumber />
           <div class="battle-bottom">
             <Show when={showClickHint()}>
               <p class="click-hint">{t('ui:click_hint')}</p>

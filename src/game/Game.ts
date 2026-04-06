@@ -2,6 +2,7 @@ import { TICK_TIME } from '../constants';
 import { CAMPAIGNS } from '../campaign/campaigns';
 import { t } from '../i18n';
 import type { City, Landmark, Route } from '../landmark';
+import { Currency } from '../models/Currency';
 import type { Pilot } from '../models/Pilot';
 import { ActionFightPilot, ActionTalkToNPC, getCity, getLandmarkHints, getRoute, isLandmarkUnlocked, isRoute, ROUTES } from '../landmark';
 import { REGIONS } from '../map/Region';
@@ -26,6 +27,7 @@ import {
 import { setCurrentLandmark } from '../store/landmarkStore';
 import { setParty } from '../store/partyStore';
 import { incrementPilotDefeats, loadStatistics } from '../store/statisticsStore';
+import { addCurrency, loadWallet } from '../store/walletStore';
 import { BaseBattle } from './BaseBattle';
 import { Battle } from './Battle';
 import { GameLoop } from './GameLoop';
@@ -91,6 +93,7 @@ export class Game {
     const battle = new PilotBattle(DEFAULT_PLAYER, pilot);
     battle.onDefeat = () => this.endPilotBattle(new PopupMessage(t('ui:not_strong_enough', { name: t(`pilots:${pilot.id}`) }), t('ui:defeated'), PopupType.Defeat));
     battle.onVictory = () => {
+      addCurrency(Currency.Magnis, pilot.magnisReward);
       incrementPilotDefeats(pilot.id);
       checkCampaigns();
       this.endPilotBattle(new PopupMessage(t('ui:pilot_defeated', { name: t(`pilots:${pilot.id}`) }), t('ui:victory'), PopupType.Victory));
@@ -165,6 +168,9 @@ export class Game {
       }
       if (data.routeKills || data.pilotDefeats) {
         loadStatistics(data.routeKills ?? {}, data.pilotDefeats ?? {});
+      }
+      if (data.wallet) {
+        loadWallet(data.wallet);
       }
       loadCampaigns(CAMPAIGNS, data.campaigns ?? {});
       return true;

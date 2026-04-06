@@ -5,6 +5,7 @@ import { campaignStates } from '../store/campaignStore';
 import { currentLandmark } from '../store/landmarkStore';
 import { party } from '../store/partyStore';
 import { pilotDefeats, routeKills } from '../store/statisticsStore';
+import { wallet } from '../store/walletStore';
 const SAVE_KEY = 'zoids-sleeper-save';
 
 interface SaveData {
@@ -13,6 +14,7 @@ interface SaveData {
   party?: OwnedZoid[];
   pilotDefeats?: Record<string, number>;
   routeKills?: Record<string, number>;
+  wallet?: Record<string, number>;
 }
 
 export class Save {
@@ -38,6 +40,7 @@ export class Save {
       party: party(),
       pilotDefeats: pilotDefeats(),
       routeKills: routeKills(),
+      wallet: wallet(),
     };
     localStorage.setItem(SAVE_KEY, JSON.stringify(data));
   }

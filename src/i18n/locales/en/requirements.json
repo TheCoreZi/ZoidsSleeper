@@ -3,5 +3,6 @@
   "complete_mission": "Complete mission: {{mission}} of the operation {{campaign}}",
   "defeat_pilot": "Defeat {{name}}",
   "defeat_zoids_on_route": "Defeat {{count}} zoids on {{route}}",
+  "magnis_required": "Have {{count}} Magnis",
   "talk_to_npc": "Talk to {{name}}"
 }

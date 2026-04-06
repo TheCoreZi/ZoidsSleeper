@@ -7,6 +7,7 @@ import { CAMPAIGNS } from '../campaign/campaigns';
 export interface Route extends Landmark {
   connects: [string, string];
   enemies: ZoidRef[];
+  baseReward: number;
   type: typeof LandmarkType.Route;
 }
 
@@ -19,6 +20,7 @@ export const ROUTES: Route[] = [
       { id: 'gator', level: 5 },
     ],
     id: 'gleam_outskirts',
+    baseReward: 30, // 5 ~ 55 Magnis
     name: 'Gleam Outskirts',
     requirements: [new MissionCompletedRequirement(CAMPAIGNS.sleeper_commander.id, 'talk_to_boy')],
     type: LandmarkType.Route,
@@ -31,6 +33,7 @@ export const ROUTES: Route[] = [
       { id: 'gator', level: 8 },
     ],
     id: 'wind_road',
+    baseReward: 50, // 25 ~ 75 Magnis
     name: 'Wind Road',
     requirements: [new MissionCompletedRequirement(CAMPAIGNS.sleeper_commander.id, 'report_to_captain')],
     type: LandmarkType.Route,

@@ -20,10 +20,16 @@ export interface PilotInfo {
   name: string;
 }
 
+export interface RewardEvent {
+  amount: number;
+  id: number;
+}
+
 const [battleState, setBattleState] = createSignal<BattleState>('fighting');
 const [gamePhase, setGamePhase] = createSignal<GamePhase>('playing');
 const [damageEvents, setDamageEvents] = createSignal<DamageEvent[]>([]);
 const [enemyZoid, setEnemyZoid] = createSignal<ZoidInstance | null>(null);
+const [rewardEvents, setRewardEvents] = createSignal<RewardEvent[]>([]);
 const [pilotEnemyProgress, setPilotEnemyProgress] = createSignal({ current: 0, total: 0 });
 const [pilotInfo, setPilotInfo] = createSignal<PilotInfo | null>(null);
 const [pilotPlayerHealth, setPilotPlayerHealth] = createSignal(0);
@@ -58,6 +64,7 @@ export {
   pilotPlayerMaxHealth,
   pilotZoidIds,
   playerStats,
+  rewardEvents,
   setActiveDialog,
   setBattleState,
   setDamageEvents,
@@ -66,6 +73,7 @@ export {
   setPilotEnemyProgress,
   setPilotInfo,
   setPilotPlayerHealth,
+  setRewardEvents,
   setPilotPlayerMaxHealth,
   setPilotZoidIds,
   setPlayerStats,

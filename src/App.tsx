@@ -9,6 +9,7 @@ import BattleScreen from './ui/BattleScreen';
 import IdleLandmarkScreen from './ui/IdleLandmarkScreen';
 import SettingsMenu from './ui/SettingsMenu';
 import PartyPanel from './ui/PartyPanel';
+import WalletPanel from './ui/WalletPanel';
 import CampaignPanel from './ui/CampaignPanel';
 import PilotBattleScreen from './ui/PilotBattleScreen';
 
@@ -45,6 +46,7 @@ const App: Component = () => {
       >
         <div class="main-layout">
           <div class="left-column">
+            <WalletPanel />
             <PartyPanel expanded={showParty()} onToggle={() => setShowParty((v) => !v)} />
           </div>
           <div class="battle-column">
