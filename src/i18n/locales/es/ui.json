@@ -1,10 +1,12 @@
 {
+  "buy": "Comprar",
   "choose": "Elegir",
   "currency": "Botín",
   "choose_your_zoid": "Elige tu Zoid",
   "click_hint": "Haz clic para disparar tu arma de piloto",
   "click_to_continue": "Haz clic para continuar...",
   "defeated": "¡Derrotado!",
+  "depot": "Depósito",
   "fight_pilot": "Luchar contra {{name}}",
   "fights_completed": "Zoids Combatidos",
   "locked": "Bloqueado",
@@ -12,6 +14,7 @@
   "magnis": "Magnis",
   "lv": "Nv.",
   "manual_attack": "Ataque manual",
+  "max": "Máx",
   "not_strong_enough": "¡No eres lo suficientemente fuerte para derrotar a {{name}}. Mejora tu ejército y vuelve!",
   "pilot_defeated": "¡{{name}} ha sido derrotado!",
   "settings": "Ajustes",
@@ -30,9 +33,11 @@
   "new_item": "¡Nuevo objeto obtenido!",
   "operations": "Operaciones",
   "talk_to_npc": "Hablar con {{name}}",
+  "total": "Total",
   "total_attack": "Ataque total de Zoids",
   "unknown": "Desconocido",
   "victory": "¡Victoria!",
+  "visit_depot": "Visitar Depósito",
   "zoids_army": "Ejército Zoids",
   "zoids_defeated": "Zoids derrotados"
 }

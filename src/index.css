@@ -1251,6 +1251,259 @@ body {
   font-weight: bold;
 }
 
+/* Depot Actions (top inside battle-area) */
+
+.city-depot-actions {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 1rem;
+}
+
+.city-depot-actions .city-action-btn {
+  border-color: #ffd700;
+  color: #ffd700;
+}
+
+.city-depot-actions .city-action-btn:hover {
+  background: #4a3a10;
+}
+
+/* Depot Shop */
+
+.shop-overlay {
+  align-items: flex-start;
+  background: rgb(0 0 0 / 60%);
+  display: flex;
+  inset: 0;
+  justify-content: center;
+  padding-top: 5rem;
+  position: fixed;
+  z-index: 100;
+}
+
+.shop-panel {
+  background: #16213e;
+  border: 2px solid #0f3460;
+  border-radius: 12px;
+  max-width: 500px;
+  padding: 1.25rem;
+  width: 90%;
+}
+
+.shop-header {
+  align-items: center;
+  border-bottom: 1px solid #0f3460;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  position: relative;
+}
+
+.shop-title {
+  color: #00d4ff;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.shop-close {
+  background: none;
+  border: none;
+  color: #999;
+  cursor: pointer;
+  font-size: 1.2rem;
+  position: absolute;
+  right: 0;
+}
+
+.shop-close:hover {
+  color: #e94560;
+}
+
+.shop-wallet {
+  align-items: center;
+  display: flex;
+  gap: 0.4rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.shop-wallet-icon {
+  height: 18px;
+  width: 18px;
+}
+
+.shop-wallet-amount {
+  color: #ffd700;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.shop-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.shop-item {
+  align-items: center;
+  background: #1a1a2e;
+  border: 2px solid #0f3460;
+  border-radius: 8px;
+  color: #e0e0e0;
+  cursor: pointer;
+  display: flex;
+  gap: 0.75rem;
+  padding: 0.6rem 0.75rem;
+  text-align: left;
+  transition: border-color 0.2s;
+  width: 100%;
+}
+
+.shop-item:hover {
+  border-color: #00d4ff;
+}
+
+.shop-item-selected {
+  border-color: #00d4ff;
+  background: rgb(0 212 255 / 10%);
+}
+
+.shop-item-icon {
+  flex-shrink: 0;
+  height: 36px;
+  image-rendering: pixelated;
+  object-fit: contain;
+  width: 36px;
+}
+
+.shop-item-info {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 0;
+}
+
+.shop-item-name {
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+.shop-item-desc {
+  color: #999;
+  font-size: 0.7rem;
+}
+
+.shop-item-price {
+  align-items: center;
+  display: flex;
+  gap: 0.25rem;
+  white-space: nowrap;
+}
+
+.shop-item-price span {
+  color: #ffd700;
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+.shop-price-icon {
+  height: 14px;
+  width: 14px;
+}
+
+.shop-buy-section {
+  border-top: 1px solid #0f3460;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding-top: 0.75rem;
+}
+
+.shop-amount-row {
+  align-items: center;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.shop-amount-btn {
+  background: #0f3460;
+  border: 1px solid #00d4ff;
+  border-radius: 4px;
+  color: #00d4ff;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: bold;
+  padding: 0.3rem 0.6rem;
+  transition: background 0.2s;
+}
+
+.shop-amount-btn:hover {
+  background: #1a4a8a;
+}
+
+.shop-amount-value {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  min-width: 2.5rem;
+  text-align: center;
+}
+
+.shop-total-row {
+  align-items: center;
+  display: flex;
+  gap: 0.3rem;
+  justify-content: center;
+}
+
+.shop-total-label {
+  color: #999;
+  font-size: 0.85rem;
+}
+
+.shop-total-value {
+  color: #ffd700;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.shop-no-funds {
+  color: #e94560;
+}
+
+.shop-buy-btn {
+  background: #0f3460;
+  border: 2px solid #00d4ff;
+  border-radius: 6px;
+  color: #00d4ff;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 0.6rem;
+  transition: background 0.2s;
+  width: 100%;
+}
+
+.shop-buy-btn:disabled {
+  border-color: #333;
+  color: #555;
+  cursor: not-allowed;
+}
+
+.shop-buy-btn:hover:not(:disabled) {
+  background: #1a4a8a;
+}
+
 /* Mobile Responsive */
 
 @media (width <= 768px) {

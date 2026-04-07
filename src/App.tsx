@@ -14,10 +14,12 @@ import WorldMap from './map/WorldMap';
 import { PopupType } from './models/PopupMessage';
 import {
   activeDialog,
+  activeShop,
   battleState,
   gamePhase,
   popupMessage,
   setActiveDialog,
+  setActiveShop,
 } from './store/gameStore';
 import DialogBox from './story/DialogBox';
 import IntroSequence from './story/IntroSequence';
@@ -27,8 +29,10 @@ import IdleLandmarkScreen from './ui/IdleLandmarkScreen';
 import PartyPanel from './ui/PartyPanel';
 import PilotBattleScreen from './ui/PilotBattleScreen';
 import SettingsMenu from './ui/SettingsMenu';
+import ShopPanel from './ui/ShopPanel';
 import SuppliesPanel from './ui/SuppliesPanel';
 import WalletIndicator from './ui/WalletPanel';
+import { buyItem } from './store/inventoryStore';
 
 const App: Component = () => {
   let game: Game;
@@ -74,6 +78,13 @@ const App: Component = () => {
           <SettingsMenu />
         </div>
       </div>
+      <Show when={activeShop()}>
+        <ShopPanel
+          shop={activeShop()!}
+          onBuy={(item, amount) => buyItem(item.id, amount)}
+          onClose={() => setActiveShop(null)}
+        />
+      </Show>
       <Show when={showSupplies()}>
         <SuppliesPanel onClose={() => setShowSupplies(false)} />
       </Show>

@@ -1,11 +1,27 @@
 import { createSignal } from 'solid-js';
 import { t } from '../i18n';
-import { ItemType } from '../item';
+import { type ConsumableItem, ItemType } from '../item';
 import { ITEMS } from '../item';
+import { Currency } from '../models/Currency';
 import { PopupMessage, PopupType } from '../models/PopupMessage';
 import { setPopupMessage } from './gameStore';
+import { addCurrency, getCurrency } from './walletStore';
 
 const [inventory, setInventory] = createSignal<Record<string, number>>({});
+
+function buyItem(itemId: string, amount: number): boolean {
+  const item = ITEMS[itemId];
+  if (!item || item.type !== ItemType.Consumable) {
+    return false;
+  }
+  const total = (item as ConsumableItem).price * amount;
+  if (getCurrency(Currency.Magnis) < total) {
+    return false;
+  }
+  addCurrency(Currency.Magnis, -total);
+  addItem(itemId, amount);
+  return true;
+}
 
 function addItem(itemId: string, amount: number, unique = false): void {
   if (unique && getItemCount(itemId) > 0) {
@@ -18,6 +34,7 @@ function addItem(itemId: string, amount: number, unique = false): void {
       PopupType.Item,
       `images/items/${itemId}.png`
     ));
+    setTimeout(() => setPopupMessage(null), 3000);
   }
   setInventory((prev) => ({ ...prev, [itemId]: (prev[itemId] ?? 0) + amount }));
 }
@@ -42,4 +59,4 @@ function removeItem(itemId: string, amount: number): void {
   });
 }
 
-export { addItem, getItemCount, inventory, loadInventory, removeItem };
+export { addItem, buyItem, getItemCount, inventory, loadInventory, removeItem };

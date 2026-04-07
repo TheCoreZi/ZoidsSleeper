@@ -2,6 +2,7 @@ import { createMemo, createSignal } from 'solid-js';
 import type { PlayerStats } from '../models/Player';
 import type { PopupMessage } from '../models/PopupMessage';
 import type { DialogScript } from '../story/Dialog';
+import type { ShopData } from '../ui/ShopPanel';
 import type { ZoidInstance } from '../models/Zoid';
 
 export type BattleState = 'fighting' | 'idle' | 'pilot-fighting' | 'victory';
@@ -38,6 +39,7 @@ const [pilotZoidIds, setPilotZoidIds] = createSignal<string[]>([]);
 const [playerStats, setPlayerStats] = createSignal<PlayerStats | null>(null);
 const [showClickHint, setShowClickHint] = createSignal(true);
 const [activeDialog, setActiveDialog] = createSignal<DialogScript | null>(null);
+const [activeShop, setActiveShop] = createSignal<ShopData | null>(null);
 const [popupMessage, setPopupMessage] = createSignal<PopupMessage | null>(null);
 
 const enemyHealthPercent = createMemo(() => {
@@ -52,6 +54,7 @@ const pilotPlayerHealthPercent = createMemo(() => {
 
 export {
   activeDialog,
+  activeShop,
   battleState,
   damageEvents,
   enemyHealthPercent,
@@ -66,6 +69,7 @@ export {
   playerStats,
   rewardEvents,
   setActiveDialog,
+  setActiveShop,
   setBattleState,
   setDamageEvents,
   setGamePhase,
