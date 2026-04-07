@@ -1,4 +1,6 @@
+export { ArmySizeRequirement } from './ArmySizeRequirement';
 export { CampaignCompletedRequirement } from './CampaignCompletedRequirement';
+export { ComparisonCondition, evaluateCondition } from './ComparisonCondition';
 export { ItemRequirement } from './ItemRequirement';
 export { MagnisRequirement } from './MagnisRequirement';
 export { MissionCompletedRequirement } from './MissionCompletedRequirement';
@@ -6,3 +8,4 @@ export { NpcTalkedInCampaignRequirement } from './NpcTalkedInCampaignRequirement
 export { PilotDefeatRequirement } from './PilotDefeatRequirement';
 export type { Requirement } from './Requirement';
 export { RouteKillRequirement } from './RouteKillRequirement';
+export { ZiDataRequirement } from './ZiDataRequirement';

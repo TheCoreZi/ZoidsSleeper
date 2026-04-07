@@ -1,4 +1,4 @@
-import { NpcTalkedInCampaignRequirement, PilotDefeatRequirement, RouteKillRequirement } from '../requirement';
+import { ArmySizeRequirement, ComparisonCondition, NpcTalkedInCampaignRequirement, PilotDefeatRequirement, RouteKillRequirement, ZiDataRequirement } from '../requirement';
 import type { Campaign } from './Campaign';
 
 export const CAMPAIGNS: Record<string, Campaign> = {
@@ -12,6 +12,10 @@ export const CAMPAIGNS: Record<string, Campaign> = {
       { id: 'talk_to_hostage', goals: [new NpcTalkedInCampaignRequirement('sleeper_commander', 'woman')] },
       { id: 'report_to_captain', goals: [new NpcTalkedInCampaignRequirement('sleeper_commander', 'captain_malinoff')] },
       { id: 'talk_to_jenkins', goals: [new NpcTalkedInCampaignRequirement('sleeper_commander', 'jenkins')] },
+      { id: 'obtain_zi_data', goals: [new ZiDataRequirement(ComparisonCondition.AtLeast, 1)] },
+      { id: 'jenkins_to_work', goals: [new NpcTalkedInCampaignRequirement('sleeper_commander', 'jenkins')] },
+      { id: 'grow_army', goals: [new ArmySizeRequirement(ComparisonCondition.AtLeast, 2)] },
+      { id: 'captain_farewell', goals: [new NpcTalkedInCampaignRequirement('sleeper_commander', 'captain_malinoff')] },
     ],
   },
 };

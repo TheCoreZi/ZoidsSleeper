@@ -14,6 +14,22 @@
         "description": "The old captain might know more about this artifact. Talk to him.",
         "name": "Report to the captain"
       },
+      "captain_farewell": {
+        "description": "Now that you have reinforcements, report back to the captain before heading out.",
+        "name": "Report to the captain"
+      },
+      "grow_army": {
+        "description": "You'll need more Zoids if you plan to face the bandits. Use Jenkins' lab to incubate at least another Zoid for your army.",
+        "name": "Grow your army"
+      },
+      "jenkins_to_work": {
+        "description": "You've gathered Zoid structural data. Go back to Jenkins and start working in his lab.",
+        "name": "Back to Jenkins"
+      },
+      "obtain_zi_data": {
+        "description": "Scan a Zoid Sleeper's Core to obtain structural data. Use the Core Analyzer and a Probe.",
+        "name": "Obtain Zi-Data"
+      },
       "talk_to_jenkins": {
         "description": "The captain mentioned old Jenkins, a former Zoid lab researcher. Find him and show him the Sleeper module.",
         "name": "Talk to old Jenkins"

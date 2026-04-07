@@ -4,7 +4,7 @@ import { t } from '../i18n';
 import type { City, Landmark, Route } from '../landmark';
 import { Currency } from '../models/Currency';
 import type { Pilot } from '../models/Pilot';
-import { ActionFightPilot, ActionTalkToNPC, ActionVisitDepot, getCity, getLandmarkHints, getRoute, isLandmarkUnlocked, isRoute, ROUTES } from '../landmark';
+import { ActionFightPilot, ActionTalkToNPC, ActionVisitDepot, ActionVisitLab, getCity, getLandmarkHints, getRoute, isLandmarkUnlocked, isRoute, ROUTES } from '../landmark';
 import { REGIONS } from '../map/Region';
 import { DEFAULT_PLAYER } from '../models/Player';
 import { PopupMessage, PopupType } from '../models/PopupMessage';
@@ -23,6 +23,7 @@ import {
   setPlayerStats,
   setShowClickHint,
   setActiveDialog,
+  setActiveLab,
   setActiveShop,
   setPopupMessage,
 } from '../store/gameStore';
@@ -162,6 +163,8 @@ export class Game {
         };
       } else if (action instanceof ActionVisitDepot) {
         action.onExecute = () => setActiveShop({ items: action.items });
+      } else if (action instanceof ActionVisitLab) {
+        action.onExecute = () => setActiveLab({ labId: action.labId });
       }
     });
   }

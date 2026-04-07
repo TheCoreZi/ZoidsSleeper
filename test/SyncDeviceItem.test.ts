@@ -25,7 +25,7 @@ describe('core_probe in ITEMS', () => {
     expect(probe).toBeDefined();
     expect(probe.id).toBe('core_probe');
     expect(probe.type).toBe(ItemType.Consumable);
-    expect(probe.price).toBe(500);
-    expect(probe.successBonus).toBe(0.1);
+    expect(probe.price).toBe(1000);
+    expect(probe.successBonus).toBe(0);
   });
 });

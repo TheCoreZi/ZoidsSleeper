@@ -1,13 +1,14 @@
 import { For, type Component } from 'solid-js';
 import { t } from '../i18n';
-import type { City } from '../landmark';
-import { ActionVisitDepot, isCityActionVisible } from '../landmark';
+import type { City, CityAction } from '../landmark';
+import { ActionVisitDepot, ActionVisitLab, isCityActionVisible } from '../landmark';
 import { currentLandmark, landmarkBackground } from '../store/landmarkStore';
 
 const IdleLandmarkScreen: Component = () => {
   const visibleActions = () => ((currentLandmark() as City).actions ?? []).filter(isCityActionVisible);
-  const depotActions = () => visibleActions().filter((a) => a instanceof ActionVisitDepot);
-  const otherActions = () => visibleActions().filter((a) => !(a instanceof ActionVisitDepot));
+  const isShopAction = (a: CityAction) => a instanceof ActionVisitDepot || a instanceof ActionVisitLab;
+  const depotActions = () => visibleActions().filter(isShopAction);
+  const otherActions = () => visibleActions().filter((a) => !isShopAction(a));
 
   return (
     <div class="battle-screen">

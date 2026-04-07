@@ -21,8 +21,24 @@ export const NPCS: Record<string, Npc> = {
     id: 'boy',
     nameKey: 'pilots:boy',
   },
+  captain_malinoff: {
+    dialogs: [
+      {
+        dialogKey: 'dialog:captain_farewell',
+        unlockRequirement: new MissionCompletedRequirement('sleeper_commander', 'grow_army'),
+      },
+      { dialogKey: 'dialog:captain_debrief' },
+    ],
+    id: 'captain_malinoff',
+    nameKey: 'pilots:captain_malinoff',
+    portrait: 'images/pilots/malinoff.png',
+  },
   jenkins: {
     dialogs: [
+      {
+        dialogKey: 'dialog:jenkins_to_work',
+        unlockRequirement: new MissionCompletedRequirement('sleeper_commander', 'obtain_zi_data'),
+      },
       {
         dialogKey: 'dialog:jenkins',
         unlockRequirement: new MissionCompletedRequirement('sleeper_commander', 'report_to_captain'),
@@ -30,14 +46,6 @@ export const NPCS: Record<string, Npc> = {
     ],
     id: 'jenkins',
     nameKey: 'pilots:jenkins',
-  },
-  captain_malinoff: {
-    dialogs: [
-      { dialogKey: 'dialog:captain_debrief' },
-    ],
-    id: 'captain_malinoff',
-    nameKey: 'pilots:captain_malinoff',
-    portrait: 'images/pilots/malinoff.png',
   },
   scrap_dealer: {
     dialogs: [

@@ -20,6 +20,10 @@
     "Si consigues los datos de un Zoid, ven a verme y pondremos a incubar algunos Cores. Aunque con este laboratorio tan básico solo podremos crear Zoids simples, y no te garantizo mucho éxito.",
     "Solo te falta una pieza importante: para conectar el Analizador a los Cores necesitarás una Sonda. Son de un solo uso, así que tendrás que invertir en ellas. Visita el taller de la señora Becker, seguro las tiene."
   ],
+  "jenkins_to_work": [
+    "¡Vaya, vaya! Así que lograste obtener los datos estructurales de un Zoid. Nada mal para un novato.",
+    "Bien, es hora de ponernos a trabajar. Vamos a mi humilde laboratorio, veamos qué podemos crear con lo que tienes."
+  ],
   "captain_debrief": [
     "Gracias por tu ayuda, sabía que había algo especial en ti...",
     "Hmmm un artefacto usado por los bandidos? Dejame verlo...",
@@ -33,6 +37,11 @@
     "Si te ganas su confianza, este sistema Sleeper te permitiría crear lazos con varios Zoids al mismo tiempo",
     "Si de verdad piensas enfrentarte a esos bandidos te vendrían bien refuerzos.",
     "Para eso necesitarás más Zoids, por qué no hablas con el viejo Jenkins, el solía trabajar en un laboratorio de Zoids, tal vez pueda ayudarte."
+  ],
+  "captain_farewell": [
+    "¡Vaya! Ahora sí pareces todo un comandante con tu propia armada.",
+    "Veo que estás decidido a hacerle frente a esos bandidos. Buena suerte, muchacho.",
+    "Ten cuidado, en estos tiempos de guerra lo mejor sería no inmiscuirse en asuntos de los ejércitos. Pero algo me dice que ya es tarde para eso..."
   ],
   "captain": [
     "¡¡¡EEEEEEY!! Necesito tu ayuda.",

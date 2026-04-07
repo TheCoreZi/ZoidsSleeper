@@ -20,6 +20,12 @@ describe('Zoid', () => {
     });
   });
 
+  it('should have a positive price for every zoid', () => {
+    Object.values(ZOID_LIST).forEach((zoid) => {
+      expect(zoid.price).toBeGreaterThan(0);
+    });
+  });
+
   it('should create independent instances from the same stats', () => {
     const stats = resolveZoid({ id: 'molga', level: 20 });
     const a = createZoid(stats);

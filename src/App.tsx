@@ -11,15 +11,18 @@ import {
 import { Game } from './game/Game';
 import { t } from './i18n';
 import WorldMap from './map/WorldMap';
-import { PopupType } from './models/PopupMessage';
+import { PopupMessage, PopupType } from './models/PopupMessage';
 import {
   activeDialog,
+  activeLab,
   activeShop,
   battleState,
   gamePhase,
   popupMessage,
   setActiveDialog,
+  setActiveLab,
   setActiveShop,
+  setPopupMessage,
 } from './store/gameStore';
 import DialogBox from './story/DialogBox';
 import IntroSequence from './story/IntroSequence';
@@ -29,11 +32,18 @@ import IdleLandmarkScreen from './ui/IdleLandmarkScreen';
 import PartyPanel from './ui/PartyPanel';
 import PilotBattleScreen from './ui/PilotBattleScreen';
 import SettingsMenu from './ui/SettingsMenu';
+import LabPanel from './ui/LabPanel';
 import ShopPanel from './ui/ShopPanel';
 import SuppliesPanel from './ui/SuppliesPanel';
 import ZiArchivePanel from './ui/ZiArchivePanel';
 import WalletIndicator from './ui/WalletPanel';
+import { Currency } from './models/Currency';
+import { getZoidImage, ZOID_LIST } from './models/Zoid';
 import { buyItem } from './store/inventoryStore';
+import { checkCampaigns } from './store/campaignStore';
+import { addZoidToArmy } from './store/partyStore';
+import { addCurrency, getCurrency } from './store/walletStore';
+import { decrementZoidData } from './store/zoidDataStore';
 
 const App: Component = () => {
   let game: Game;
@@ -93,6 +103,23 @@ const App: Component = () => {
           <SettingsMenu />
         </div>
       </div>
+      <Show when={activeLab()}>
+        <LabPanel
+          labId={activeLab()!.labId}
+          onBuy={(zoidId) => {
+            const zoid = ZOID_LIST[zoidId];
+            if (getCurrency(Currency.Magnis) >= zoid.price) {
+              addCurrency(Currency.Magnis, -zoid.price);
+              decrementZoidData(zoidId);
+              addZoidToArmy(zoidId);
+              checkCampaigns();
+              setPopupMessage(new PopupMessage(zoid.name, t('ui:new_zoid'), PopupType.Item, getZoidImage(zoidId)));
+              setTimeout(() => setPopupMessage(null), 3000);
+            }
+          }}
+          onClose={() => setActiveLab(null)}
+        />
+      </Show>
       <Show when={activeShop()}>
         <ShopPanel
           shop={activeShop()!}
