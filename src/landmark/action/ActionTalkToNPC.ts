@@ -7,14 +7,16 @@ import type { CityAction } from './CityAction';
 export class ActionTalkToNPC implements CityAction {
   completeRequirements?: Requirement[];
   id: string;
+  labelKey?: string;
   npcId: string;
   onComplete?: () => void;
   onExecute: (() => void) | null = null;
   requirements?: Requirement[];
 
-  constructor(npcId: string, completeRequirements?: Requirement[], requirements?: Requirement[], onComplete?: () => void) {
+  constructor(npcId: string, completeRequirements?: Requirement[], requirements?: Requirement[], onComplete?: () => void, labelKey?: string) {
     this.completeRequirements = completeRequirements;
     this.id = `talk-${npcId}`;
+    this.labelKey = labelKey;
     this.npcId = npcId;
     this.onComplete = onComplete;
     this.requirements = requirements;
@@ -34,6 +36,9 @@ export class ActionTalkToNPC implements CityAction {
   }
 
   getLabel(): string {
+    if (this.labelKey) {
+      return t(this.labelKey);
+    }
     const npc = getNpc(this.npcId);
     return t('ui:talk_to_npc', { name: t(npc.nameKey) });
   }

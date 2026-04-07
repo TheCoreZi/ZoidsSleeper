@@ -1,4 +1,10 @@
 {
+  "bianco": [
+    "Oye, ¿supiste de Blu? ¡Ese mocoso apareció otra vez cerca de las ruinas!",
+    "No deja de andar fisgoneando y estorbando. El jefe está perdiendo la paciencia.",
+    "Blu ha estado lidiando solo con eso, pero ni con su Guysack logra espantar al mocoso.",
+    "Vamos a las ruinas a ayudar a Blu a deshacerse de esa plaga de una vez por todas."
+  ],
   "becker_scan": [
     "¡Oh, un cliente! Rara vez me compran Sondas de Core, así que déjame darte un consejo para que les saques provecho.",
     "Cuando enfrentes a un Zoid Sleeper, haz clic en la sonda antes de que termine la batalla. Si logras debilitarlo lo suficiente, podrás escanear su Core.",
@@ -27,9 +33,22 @@
     "Si consigues los datos de un Zoid, ven a verme y pondremos a incubar algunos Cores. Aunque con este laboratorio tan básico solo podremos crear Zoids simples, y no te garantizo mucho éxito.",
     "Solo te falta una pieza importante: para conectar el Analizador a los Cores necesitarás una Sonda. Son de un solo uso, así que tendrás que invertir en ellas. Visita el taller de la señora Becker, seguro las tiene."
   ],
+  "maria_flyheight": [
+    "¿Mi hermano Van? *suspira* Está ahí afuera otra vez, ¿verdad?",
+    "Siempre ha soñado con ser un gran guerrero como nuestro padre. Se la pasa explorando el Desierto de Elmia, imaginando que está en una gran aventura.",
+    "Seguramente está por allá ahora mismo, rondando por las ruinas.",
+    "Si vas para allá, por favor cuídalo. Es imprudente, pero tiene buen corazón.",
+    "El desierto está al este de aquí. Ten cuidado, los Sleepers de allá son más fuertes que los de cerca de la aldea."
+  ],
   "jenkins_to_work": [
     "¡Vaya, vaya! Así que lograste obtener los datos estructurales de un Zoid. Nada mal para un novato.",
     "Bien, es hora de ponernos a trabajar. Vamos a mi humilde laboratorio, veamos qué podemos crear con lo que tienes."
+  ],
+  "priest_leon": [
+    "¿Hmm, una chica perdida, dices? Me temo que no hemos escuchado nada sobre eso aquí en la Colonia del Viento.",
+    "Pero... si hay alguien que sabe sobre los movimientos de los bandidos, es ese chico que siempre se mete en problemas con ellos.",
+    "No sé qué lo impulsa, pero constantemente se aventura al desierto para enfrentarlos. Bastante imprudente, si me preguntas.",
+    "Deberías hablar con su hermana. Ella podría saber dónde encontrarlo."
   ],
   "captain_debrief": [
     "Gracias por tu ayuda, sabía que había algo especial en ti...",

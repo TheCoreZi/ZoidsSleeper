@@ -16,6 +16,14 @@ export const PILOTS: Record<string, Pilot> = {
       { id: 'molga', level: 5 },
     ],
   },
+  bul: {
+    id: 'bul',
+    magnisReward: 500,
+    name: 'Bul',
+    zoids: [
+      { id: 'guysack', level: 5, imageOverride:'guysack_bs', maxHealthOverride: 2500 },
+    ],
+  },
 };
 
 export function getPilotImage(id: string): string {

@@ -4,7 +4,7 @@ import { t } from '../i18n';
 import type { City, Landmark, Route } from '../landmark';
 import { Currency } from '../models/Currency';
 import type { Pilot } from '../models/Pilot';
-import { ActionFightPilot, ActionTalkToNPC, ActionVisitDepot, ActionVisitLab, getCity, getLandmarkHints, getRoute, isLandmarkUnlocked, isRoute, ROUTES } from '../landmark';
+import { ActionFightPilot, ActionTalkToNPC, ActionVisitDepot, ActionVisitLab, getLandmarkById, getLandmarkHints, isLandmarkUnlocked, isRoute, ROUTES } from '../landmark';
 import { REGIONS } from '../map/Region';
 import { DEFAULT_PLAYER } from '../models/Player';
 import { PopupMessage, PopupType } from '../models/PopupMessage';
@@ -201,6 +201,6 @@ export class Game {
   private loadSavedLandmark(): Landmark {
     const data = this.save.load();
     const id = data?.landmarkId ?? REGIONS[0].initialLandmark;
-    return getRoute(id) ?? getCity(id) ?? ROUTES[0];
+    return getLandmarkById(id) ?? ROUTES[0];
   }
 }

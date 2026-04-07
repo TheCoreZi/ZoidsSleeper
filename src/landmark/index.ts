@@ -2,6 +2,8 @@ export { ActionFightPilot, ActionTalkToNPC, ActionVisitDepot, ActionVisitLab, is
 export type { CityAction } from './action';
 export { CITIES, getCity } from './City';
 export type { City } from './City';
+export { DUNGEONS, getDungeon } from './Dungeon';
+export type { Dungeon } from './Dungeon';
 export {
   BattleBackground,
   findRouteKillRequirement,
@@ -11,5 +13,6 @@ export {
   LandmarkType,
 } from './Landmark';
 export type { Landmark } from './Landmark';
+export { getLandmarkById } from './registry';
 export { getRoute, randomEnemy, ROUTES } from './Route';
 export type { Route } from './Route';

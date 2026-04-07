@@ -16,6 +16,11 @@ export const CAMPAIGNS: Record<string, Campaign> = {
       { id: 'jenkins_to_work', goals: [new NpcTalkedInCampaignRequirement('sleeper_commander', 'jenkins')] },
       { id: 'grow_army', goals: [new ArmySizeRequirement(ComparisonCondition.AtLeast, 2)] },
       { id: 'captain_farewell', goals: [new NpcTalkedInCampaignRequirement('sleeper_commander', 'captain_malinoff')] },
+      { id: 'talk_to_priest_leon', goals: [new NpcTalkedInCampaignRequirement('sleeper_commander', 'priest_leon')] },
+      { id: 'talk_to_maria', goals: [new NpcTalkedInCampaignRequirement('sleeper_commander', 'maria_flyheight')] },
+      { id: 'elmia_desert_patrol', goals: [new RouteKillRequirement('elmia_desert', 10)] },
+      { id: 'listen_to_bandits', goals: [new NpcTalkedInCampaignRequirement('sleeper_commander', 'bianco')] },
+      { id: 'defeat_bul', goals: [new PilotDefeatRequirement('bul')] },
     ],
   },
 };

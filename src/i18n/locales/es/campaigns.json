@@ -41,6 +41,26 @@
       "talk_to_hostage": {
         "description": "El bandido huyó, peor la rehén se nota alterada, habla con ella.",
         "name": "Habla con la rehén"
+      },
+      "talk_to_priest_leon": {
+        "description": "Has llegado a la Colonia del Viento. Pregunta al Padre León, el sacerdote local, si sabe algo sobre la chica perdida.",
+        "name": "Plegaria al Viento"
+      },
+      "talk_to_maria": {
+        "description": "El Padre León mencionó a un chico que siempre se mete en problemas con los bandidos. Habla con su hermana María Flyheight.",
+        "name": "El Joven del Planeta Zi"
+      },
+      "elmia_desert_patrol": {
+        "description": "María dice que su hermano Van está en algún lugar del Desierto de Elmia. Abre camino entre los Sleepers para encontrarlo.",
+        "name": "Travesía por Elmia"
+      },
+      "listen_to_bandits": {
+        "description": "Encontraste unas ruinas en el desierto. Hay bandidos cerca. Escucha lo que dicen.",
+        "name": "Voces entre Ruinas"
+      },
+      "defeat_bul": {
+        "description": "Los bandidos mencionaron a Bul, que intenta deshacerse de un niño. Ayuda a Van deteniendo a Blu y su Guysack.",
+        "name": "Emboscada en las Ruinas"
       }
     },
     "name": "Comandante Sleeper"

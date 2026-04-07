@@ -383,6 +383,7 @@ body {
   flex-shrink: 0;
   height: 40px;
   image-rendering: pixelated;
+  object-fit: contain;
   width: 40px;
 }
 

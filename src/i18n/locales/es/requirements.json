@@ -1,7 +1,7 @@
 {
   "army_size_required": "Tener al menos {{count}} Zoids en el ejército",
   "complete_campaign": "Completar operación: {{name}}",
-  "complete_mission": "Completar misión: {{mission}} de la operación:({{campaign}})",
+  "complete_mission": "Completar misión: {{mission}} de la operación {{campaign}}",
   "defeat_pilot": "Derrota a {{name}}",
   "item_required": "Tener {{count}} {{item}}",
   "defeat_zoids_on_route": "Derrota {{count}} zoids en {{route}}",

@@ -47,7 +47,10 @@ export const CITIES: City[] = [
     type: LandmarkType.City,
   },
   {
-    actions: [],
+    actions: [
+      new ActionTalkToNPC('maria_flyheight', undefined, [new MissionCompletedRequirement('sleeper_commander', 'talk_to_priest_leon')]),
+      new ActionTalkToNPC('priest_leon', [new MissionCompletedRequirement('sleeper_commander', 'talk_to_maria')]),
+    ],
     battleBackground: BattleBackground.Grass,
     id: 'wind_colony',
     mapPosition: { x: 50, y: 83 },

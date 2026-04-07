@@ -1,4 +1,10 @@
 {
+  "bianco": [
+    "Hey, have you heard? There's some kid wandering around the ruins again.",
+    "Apparently he plays soldier out in the desert, pretending to be some kind of warrior like his old man.",
+    "Problem is, he keeps stumbling into our operations. Blu tried to chase him off with his Guysack, but the brat won't take a hint.",
+    "Let's head to the ruins and help Bulu get rid of that nuisance once and for all."
+  ],
   "becker_scan": [
     "Oh, a customer! People rarely buy Core Probes from me, so let me give you a tip to get the most out of them.",
     "When you're fighting a Zoid Sleeper, click the probe before the battle ends. If you weaken it enough, you'll be able to scan its Core.",
@@ -12,6 +18,13 @@
     "But be careful, the bandit is really strong!",
     "You should take the intermediate route to get there. You'll encounter Zoids Sleepers along the way — it's good practice for your combat techniques.",
     "Please, bring them back safely!"
+  ],
+  "maria_flyheight": [
+    "My brother Van? *sighs* He's out there again, isn't he?",
+    "He's always dreamed of being a great warrior like our father. He spends his days exploring the Elmia Desert, pretending he's on some grand adventure.",
+    "He's probably out there right now, wandering around the ruins.",
+    "If you're heading that way, please watch out for him. He's reckless, but he means well.",
+    "The desert is east of here. Be careful, the Sleepers out there are stronger than the ones near the village."
   ],
   "jenkins_to_work": [
     "Well, well! So you actually managed to get a Zoid's structural data. Not bad for a rookie.",
@@ -30,6 +43,12 @@
     "Fair warning though — no Zoid will just let you access its Core. You'll have to immobilize it first. I won't lie to you, taking down a Zoid without destroying it is no easy feat.",
     "Once you've got the data from a Zoid, come see me and we'll start incubating some Cores. With this basic lab, we can only hatch simple Zoids, and I can't promise a high success rate.",
     "One last thing: to connect the Analyzer to the Cores you'll need a Probe. They're single-use, so you'll have to stock up. Visit Mrs. Becker's workshop, she should have them."
+  ],
+  "priest_leon": [
+    "Hmm, a missing girl, you say? I'm afraid we haven't heard anything about that here in Wind Colony.",
+    "But... if anyone would know about the bandits' movements, it's that boy who's always getting himself into trouble with them.",
+    "I don't know what drives him, but he's constantly venturing into the desert to confront them. Quite reckless if you ask me.",
+    "You should speak with his sister. She might know where to find him."
   ],
   "captain_farewell": [
     "Well, well! Now you actually look like a proper army commander.",

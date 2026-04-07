@@ -1,11 +1,12 @@
 import { For, Show, type Component } from 'solid-js';
 import { t } from '../i18n';
 import type { Landmark } from '../landmark';
-import { getCity, isLandmarkUnlocked } from '../landmark';
+import { getCity, getDungeon, isLandmarkUnlocked } from '../landmark';
 import {
   citiesForRegion,
   currentLandmark,
   currentRegion,
+  dungeonsForRegion,
   routesForRegion,
 } from '../store/landmarkStore';
 import { mapOpen, toggleMap } from './MapStore';
@@ -17,7 +18,7 @@ interface WorldMapProps {
 
 const WorldMap: Component<WorldMapProps> = (props) => {
   function cityPosition(cityId: string) {
-    const city = getCity(cityId);
+    const city = getCity(cityId) ?? getDungeon(cityId);
     if (!city) {
       return { x: 0, y: 0 };
     }
@@ -109,6 +110,37 @@ const WorldMap: Component<WorldMapProps> = (props) => {
                           font-size={`${fontSize}`}
                         >
                           {t(`locations:${city.id}`).split(' ').map((w) => w[0]).join('')}
+                        </text>
+                      </g>
+                    );
+                  }}
+                </For>
+                <For each={dungeonsForRegion(currentRegion())}>
+                  {(dungeon) => {
+                    const cx = () => (dungeon.mapPosition.x / 100) * currentRegion().imageSize.w;
+                    const cy = () => (dungeon.mapPosition.y / 100) * currentRegion().imageSize.h;
+                    const isCurrent = () => currentLandmark().id === dungeon.id;
+                    const locked = () => !isLandmarkUnlocked(dungeon);
+
+                    return (
+                      <g
+                        class={`map-node ${isCurrent() ? 'map-node--current' : ''} ${locked() ? 'map-node--locked' : ''}`}
+                        onClick={() => handleLandmarkClick(dungeon)}
+                      >
+                        <polygon
+                          points={`${cx()},${cy() - cityRadius} ${cx() - cityRadius},${cy() + cityRadius} ${cx() + cityRadius},${cy() + cityRadius}`}
+                          fill={locked() ? '#444' : isCurrent() ? '#ffc107' : '#8b6914'}
+                          stroke={locked() ? '#666' : isCurrent() ? '#fff' : '#ffc107'}
+                          stroke-width={strokeWidth}
+                          stroke-linejoin="round"
+                        />
+                        <text
+                          class="map-node-label"
+                          x={cx()}
+                          y={cy() - cityRadius - 5 * scale}
+                          font-size={`${fontSize}`}
+                        >
+                          {t(`locations:${dungeon.id}`).split(' ').map((w) => w[0]).join('')}
                         </text>
                       </g>
                     );

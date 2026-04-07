@@ -41,6 +41,22 @@ export const ROUTES: Route[] = [
     requirements: [new MissionCompletedRequirement('sleeper_commander', 'captain_farewell')],
     type: LandmarkType.Route,
   },
+  {
+    baseReward: 80,
+    battleBackground: BattleBackground.Desert,
+    connects: ['wind_colony', 'elmia_ruins'],
+    enemies: [
+      { id: 'gator', level: 14 },
+      { id: 'malder', level: 12 },
+      { id: 'merda', level: 12 },
+      { id: 'molga', level: 14 },
+      { id: 'zatton', level: 15 },
+    ],
+    id: 'elmia_desert',
+    name: 'Elmia Desert',
+    requirements: [new MissionCompletedRequirement('sleeper_commander', 'talk_to_maria')],
+    type: LandmarkType.Route,
+  },
 ];
 
 export function getRoute(id: string): Route | undefined {

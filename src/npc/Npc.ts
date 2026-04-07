@@ -19,12 +19,23 @@ export const NPCS: Record<string, Npc> = {
     id: 'becker',
     nameKey: 'pilots:becker',
   },
+  bianco: {
+    dialogs: [{ dialogKey: 'dialog:bianco' }],
+    id: 'bianco',
+    nameKey: 'pilots:bianco',
+  },
   boy: {
     dialogs: [
       { dialogKey: 'dialog:boy' },
     ],
     id: 'boy',
     nameKey: 'pilots:boy',
+  },
+  priest_leon: {
+    dialogs: [{ dialogKey: 'dialog:priest_leon' }],
+    id: 'priest_leon',
+    nameKey: 'pilots:priest_leon',
+    portrait: 'images/pilots/priest_leon.png',
   },
   captain_malinoff: {
     dialogs: [
@@ -37,6 +48,11 @@ export const NPCS: Record<string, Npc> = {
     id: 'captain_malinoff',
     nameKey: 'pilots:captain_malinoff',
     portrait: 'images/pilots/malinoff.png',
+  },
+  maria_flyheight: {
+    dialogs: [{ dialogKey: 'dialog:maria_flyheight' }],
+    id: 'maria_flyheight',
+    nameKey: 'pilots:maria_flyheight',
   },
   jenkins: {
     dialogs: [
@@ -71,3 +87,4 @@ export const NPCS: Record<string, Npc> = {
 export function getNpc(id: string): Npc {
   return NPCS[id];
 }
+

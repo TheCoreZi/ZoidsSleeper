@@ -41,6 +41,26 @@
       "talk_to_hostage": {
         "description": "The bandit fled, but the hostage seems shaken. Talk to her.",
         "name": "Talk to the hostage"
+      },
+      "talk_to_priest_leon": {
+        "description": "You've arrived at Wind Colony. Ask the the local priest, if he knows anything about the missing girl.",
+        "name": "Prayer to the Wind"
+      },
+      "talk_to_maria": {
+        "description": "Te priest mentioned a boy who keeps getting into trouble with the bandits. Talk to his sister Maria Flyheight.",
+        "name": "The Boy from Planet Zi"
+      },
+      "elmia_desert_patrol": {
+        "description": "Maria says her brother Van is somewhere in the Elmia Desert. Fight through the Sleepers to find him.",
+        "name": "Crossing Through Elmia"
+      },
+      "listen_to_bandits": {
+        "description": "You found some ruins in the desert. There are bandits nearby. Listen to what they're saying.",
+        "name": "Voices Among Ruins"
+      },
+      "defeat_bul": {
+        "description": "The bandits mentioned Bul, who's trying to get rid of a boy. Help Van by holding back Bul and his Guysack.",
+        "name": "Ambush at the Ruins"
       }
     },
     "name": "Sleeper Commander"

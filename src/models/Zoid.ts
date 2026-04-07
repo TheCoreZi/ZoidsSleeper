@@ -34,6 +34,7 @@ export interface ZoidRef {
   attackOverride?: number;
   bonusMultiplier?: number;
   id: string;
+  imageOverride?: string;
   level: number;
   maxHealthOverride?: number;
 }
@@ -41,6 +42,7 @@ export interface ZoidRef {
 export interface ZoidStats {
   attack: number;
   id: string;
+  imageOverride?: string;
   level: number;
   maxHealth: number;
   name: string;
@@ -52,9 +54,10 @@ export const ZOID_LIST: Record<string, ZoidData> = {
   garius: { attack: 50, baseExp: 10, dropRate: -1, faction: Faction.HelicRepublic, id: 'garius', levelType: LevelType.Fast, maxHealth: 100, name: 'Garius', price: 2000 },
   gator: { attack: 150, baseExp: 35, dropRate: 25, faction: Faction.GuylosEmpire, id: 'gator', levelType: LevelType.MediumFast, maxHealth: 200, name: 'Gator', price: 4000 },
   glidoler: { attack: 100, baseExp: 10, dropRate: -1, faction: Faction.HelicRepublic, id: 'glidoler', levelType: LevelType.MediumFast, maxHealth: 40, name: 'Glidoler', price: 2000 },
+  guysack: { attack: 180, baseExp: 45, dropRate: 10, faction: Faction.GuylosEmpire, id: 'guysack', levelType: LevelType.MediumFast, maxHealth: 500, name: 'Guysack', price: 20000 },
   malder: { attack: 20, baseExp: 40, dropRate: 10, faction: Faction.ZenebasEmpire, id: 'malder', levelType: LevelType.Erratic, maxHealth: 700, name: 'Malder', price: 8000 },
   merda: { attack: 50, baseExp: 20, dropRate: 50, faction: Faction.ZenebasEmpire, id: 'merda', levelType: LevelType.Fast, maxHealth: 100, name: 'Merda', price: 2000 },
-  molga: { attack: 100, baseExp: 35, dropRate: 20, faction: Faction.ZenebasEmpire, id: 'molga', levelType: LevelType.Fast, maxHealth: 400, name: 'Molga', price: 6000 },
+  molga: { attack: 100, baseExp: 35, dropRate: 20, faction: Faction.ZenebasEmpire, id: 'molga', levelType: LevelType.Fast, maxHealth: 400, name: 'Molga', price: 20000 },
   tortoise: { attack: 100, baseExp: 30, dropRate: 20, faction: Faction.ZenebasEmpire, id: 'tortoise', levelType: LevelType.Fast, maxHealth: 700, name: 'Cannon Tortoise', price: 9000 },
   zatton: { attack: 120, baseExp: 40, dropRate: 5, faction: Faction.ZenebasEmpire, id: 'zatton', levelType: LevelType.MediumSlow, maxHealth: 350, name: 'Zatton', price: 10000 },
 };
@@ -86,15 +89,16 @@ export function getZoidById(id: string): ZoidData {
   return zoid;
 }
 
-export function getZoidImage(id: string): string {
-  return `images/zoids/${id}.png`;
+export function getZoidImage(id: string, imageOverride?: string): string {
+  return `images/zoids/${imageOverride ?? id}.png`;
 }
 
-export function resolveZoid({ attackOverride, bonusMultiplier = 1, id, level, maxHealthOverride }: ZoidRef): ZoidStats {
+export function resolveZoid({ attackOverride, bonusMultiplier = 1, id, imageOverride, level, maxHealthOverride }: ZoidRef): ZoidStats {
   const base = getZoidById(id);
   return {
     attack: attackOverride ?? calculateStat(base.attack, level, bonusMultiplier),
     id: base.id,
+    imageOverride,
     level,
     maxHealth: maxHealthOverride ?? calculateStat(base.maxHealth, level, bonusMultiplier),
     name: base.name,
