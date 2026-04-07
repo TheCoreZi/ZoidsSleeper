@@ -8,6 +8,9 @@ import { rewardEvents, setEnemyZoid, setRewardEvents } from '../store/gameStore'
 import { incrementRouteKills } from '../store/statisticsStore';
 import { addCurrency } from '../store/walletStore';
 
+import { ZoidResearchStatus } from '../models/Zoid';
+import { updateZoidResearch } from '../store/zoidResearchStore';
+
 import { BaseBattle } from './BaseBattle';
 import { attemptScan, getAvailableProbe } from './Scan';
 
@@ -19,11 +22,13 @@ export class Battle extends BaseBattle {
     super(playerStats);
     this.route = route;
     this.enemy = createZoid(randomEnemy(route));
+    updateZoidResearch(this.enemy.id, ZoidResearchStatus.Seen);
     this.syncToStore();
   }
 
   spawnEnemy(): void {
     this.enemy = createZoid(randomEnemy(this.route));
+    updateZoidResearch(this.enemy.id, ZoidResearchStatus.Seen);
     this.counter = 0;
     this.syncToStore();
   }

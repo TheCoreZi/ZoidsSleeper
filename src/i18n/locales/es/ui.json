@@ -1,4 +1,11 @@
 {
+  "archive_attack": "ATK: {{value}}",
+  "archive_empty": "Aún no se han registrado datos de Zoids",
+  "archive_hp": "HP: {{value}}",
+  "archive_scans": "Escaneos: {{count}}",
+  "archive_status_created": "Desplegado",
+  "archive_status_scanned": "Escaneado",
+  "archive_status_seen": "Visto",
   "buy": "Comprar",
   "choose": "Elegir",
   "currency": "Botín",
@@ -44,5 +51,6 @@
   "visit_depot": "Visitar Depósito",
   "zdata_empty": "Aún no has recolectado Z-Data",
   "zoids_army": "Ejército Zoids",
+  "zi_archive": "Archivo Zi",
   "zoids_defeated": "Zoids derrotados"
 }

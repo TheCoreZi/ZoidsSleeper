@@ -1,11 +1,12 @@
 import { t } from '../i18n';
 import { ITEMS, SyncDeviceItem } from '../item';
 import { PopupMessage, PopupType } from '../models/PopupMessage';
-import { getZoidById, getZoidImage } from '../models/Zoid';
+import { getZoidById, getZoidImage, ZoidResearchStatus } from '../models/Zoid';
 import { setPopupMessage } from '../store/gameStore';
 import { getItemCount, inventory, removeItem } from '../store/inventoryStore';
 import { party } from '../store/partyStore';
 import { getZoidDataCount, incrementZoidData } from '../store/zoidDataStore';
+import { updateZoidResearch } from '../store/zoidResearchStore';
 
 export function attemptScan(zoidId: string, probeId: string): boolean {
   const zoid = getZoidById(zoidId);
@@ -18,6 +19,7 @@ export function attemptScan(zoidId: string, probeId: string): boolean {
     const isNew = getZoidDataCount(zoidId) === 0;
     const inParty = party().some((z) => z.id === zoidId);
     incrementZoidData(zoidId);
+    updateZoidResearch(zoidId, ZoidResearchStatus.Scanned);
     if (isNew && !inParty) {
       const zoidData = getZoidById(zoidId);
       setPopupMessage(new PopupMessage(zoidData.name, t('ui:new_zdata'), PopupType.Item, getZoidImage(zoidId)));

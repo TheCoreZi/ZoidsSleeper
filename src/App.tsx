@@ -31,12 +31,14 @@ import PilotBattleScreen from './ui/PilotBattleScreen';
 import SettingsMenu from './ui/SettingsMenu';
 import ShopPanel from './ui/ShopPanel';
 import SuppliesPanel from './ui/SuppliesPanel';
+import ZiArchivePanel from './ui/ZiArchivePanel';
 import WalletIndicator from './ui/WalletPanel';
 import { buyItem } from './store/inventoryStore';
 
 const App: Component = () => {
   let game: Game;
   const [showParty, setShowParty] = createSignal(true);
+  const [showArchive, setShowArchive] = createSignal(false);
   const [showSupplies, setShowSupplies] = createSignal(false);
 
   const isFighting = createMemo(
@@ -63,8 +65,21 @@ const App: Component = () => {
         </div>
         <div class="header-buttons">
           <button
+            class="archive-button"
+            onClick={() => { setShowArchive((v) => !v); setShowSupplies(false); }}
+            title={t('ui:zi_archive')}
+          >
+            <img
+              class="archive-button-icon"
+              src="images/icons/book-solid.svg"
+              width="20"
+              height="20"
+              alt="Zi-Archive"
+            />
+          </button>
+          <button
             class="supplies-button"
-            onClick={() => setShowSupplies((v) => !v)}
+            onClick={() => { setShowSupplies((v) => !v); setShowArchive(false); }}
             title={t('ui:supplies')}
           >
             <img
@@ -84,6 +99,9 @@ const App: Component = () => {
           onBuy={(item, amount) => buyItem(item.id, amount)}
           onClose={() => setActiveShop(null)}
         />
+      </Show>
+      <Show when={showArchive()}>
+        <ZiArchivePanel onClose={() => setShowArchive(false)} />
       </Show>
       <Show when={showSupplies()}>
         <SuppliesPanel onClose={() => setShowSupplies(false)} />

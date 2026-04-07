@@ -3,8 +3,10 @@ import { BATTLE_TICK, TICK_TIME } from '../src/constants';
 import { Battle } from '../src/game/Battle';
 import { BattleBackground, LandmarkType, type Route, ROUTES } from '../src/landmark';
 import { calculateClickAttack, DEFAULT_PLAYER } from '../src/models/Player';
+import { ZoidResearchStatus } from '../src/models/Zoid';
 import { partyAttack } from '../src/store/partyStore';
 import { getRouteKills, loadStatistics } from '../src/store/statisticsStore';
+import { getZoidResearch, loadZoidResearch } from '../src/store/zoidResearchStore';
 
 const toughRoute: Route = {
   battleBackground: BattleBackground.Grass,
@@ -18,6 +20,7 @@ const toughRoute: Route = {
 describe('Battle', () => {
   beforeEach(() => {
     loadStatistics({}, {});
+    loadZoidResearch({});
   });
 
   it('should auto-attack after accumulating BATTLE_TICK', () => {
@@ -97,6 +100,21 @@ describe('Battle', () => {
 
     expect(battle.enemy.health).toBe(battle.enemy.maxHealth);
     expect(battle.counter).toBe(0);
+  });
+
+  it('should mark enemy zoid as seen on construction', () => {
+    const battle = new Battle(DEFAULT_PLAYER, ROUTES[0]);
+
+    expect(getZoidResearch(battle.enemy.id)).toBe(ZoidResearchStatus.Seen);
+  });
+
+  it('should mark enemy zoid as seen on spawn', () => {
+    const battle = new Battle(DEFAULT_PLAYER, ROUTES[0]);
+    loadZoidResearch({});
+
+    battle.spawnEnemy();
+
+    expect(getZoidResearch(battle.enemy.id)).toBe(ZoidResearchStatus.Seen);
   });
 
   it('should increment route kills when enemy is defeated', () => {

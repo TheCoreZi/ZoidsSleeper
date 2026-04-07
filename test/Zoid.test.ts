@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { createZoid, resolveZoid } from '../src/models/Zoid';
+import { Faction, FACTIONS } from '../src/models/Faction';
+import { createZoid, resolveZoid, ZOID_LIST } from '../src/models/Zoid';
 
 describe('Zoid', () => {
   it('should create a zoid instance with full health', () => {
@@ -8,6 +9,15 @@ describe('Zoid', () => {
 
     expect(zoid.health).toBe(zoid.maxHealth);
     expect(zoid.name).toBe('Command Wolf');
+  });
+
+  it('should have a valid faction for every zoid', () => {
+    const validFactions = Object.values(Faction);
+
+    Object.values(ZOID_LIST).forEach((zoid) => {
+      expect(validFactions).toContain(zoid.faction);
+      expect(FACTIONS[zoid.faction]).toBeDefined();
+    });
   });
 
   it('should create independent instances from the same stats', () => {

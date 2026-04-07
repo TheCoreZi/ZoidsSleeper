@@ -1,6 +1,7 @@
 import { SAVE_TICK, TICK_TIME } from '../constants';
 import type { CampaignSaveData } from '../campaign/Campaign';
 import type { OwnedZoid } from '../models/Zoid';
+import type { ZoidResearchStatus } from '../models/Zoid';
 import { campaignStates } from '../store/campaignStore';
 import { currentLandmark } from '../store/landmarkStore';
 import { party } from '../store/partyStore';
@@ -8,6 +9,7 @@ import { pilotDefeats, routeKills } from '../store/statisticsStore';
 import { inventory } from '../store/inventoryStore';
 import { wallet } from '../store/walletStore';
 import { zoidDataLog } from '../store/zoidDataStore';
+import { zoidResearch } from '../store/zoidResearchStore';
 const SAVE_KEY = 'zoids-sleeper-save';
 
 interface SaveData {
@@ -19,6 +21,7 @@ interface SaveData {
   routeKills?: Record<string, number>;
   wallet?: Record<string, number>;
   zoidData?: Record<string, number>;
+  zoidResearch?: Record<string, ZoidResearchStatus>;
 }
 
 export class Save {
@@ -47,6 +50,7 @@ export class Save {
       routeKills: routeKills(),
       wallet: wallet(),
       zoidData: zoidDataLog(),
+      zoidResearch: zoidResearch(),
     };
     localStorage.setItem(SAVE_KEY, JSON.stringify(data));
   }

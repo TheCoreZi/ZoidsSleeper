@@ -8,6 +8,7 @@ import { ActionFightPilot, ActionTalkToNPC, ActionVisitDepot, getCity, getLandma
 import { REGIONS } from '../map/Region';
 import { DEFAULT_PLAYER } from '../models/Player';
 import { PopupMessage, PopupType } from '../models/PopupMessage';
+import { ZoidResearchStatus } from '../models/Zoid';
 import { loadCampaigns, markNpcTalked, checkCampaigns } from '../store/campaignStore';
 import {
   battleState,
@@ -26,11 +27,12 @@ import {
   setPopupMessage,
 } from '../store/gameStore';
 import { setCurrentLandmark } from '../store/landmarkStore';
-import { setParty } from '../store/partyStore';
+import { addZoidToArmy, setParty } from '../store/partyStore';
 import { incrementPilotDefeats, loadStatistics } from '../store/statisticsStore';
 import { loadInventory } from '../store/inventoryStore';
 import { addCurrency, loadWallet } from '../store/walletStore';
 import { loadZoidData } from '../store/zoidDataStore';
+import { loadZoidResearch, updateZoidResearch } from '../store/zoidResearchStore';
 import { BaseBattle } from './BaseBattle';
 import { Battle } from './Battle';
 import { GameLoop } from './GameLoop';
@@ -82,7 +84,7 @@ export class Game {
   }
 
   completeIntro(zoidId: string): void {
-    setParty([{ experience: 0, id: zoidId }]);
+    addZoidToArmy(zoidId);
     setBattleState('idle');
     setEnemyZoid(null);
     setGamePhase('playing');
@@ -183,6 +185,10 @@ export class Game {
       if (data.zoidData) {
         loadZoidData(data.zoidData);
       }
+      if (data.zoidResearch) {
+        loadZoidResearch(data.zoidResearch);
+      }
+      data.party?.forEach((z) => updateZoidResearch(z.id, ZoidResearchStatus.Created));
       loadCampaigns(CAMPAIGNS, data.campaigns ?? {});
       return true;
     }

@@ -1,6 +1,7 @@
 import type { Pilot } from '../models/Pilot';
 import type { PlayerStats } from '../models/Player';
-import { createZoid, resolveZoid } from '../models/Zoid';
+import { createZoid, resolveZoid, ZoidResearchStatus } from '../models/Zoid';
+import { updateZoidResearch } from '../store/zoidResearchStore';
 import {
   setEnemyZoid,
   setPilotEnemyProgress,
@@ -25,6 +26,7 @@ export class PilotBattle extends BaseBattle {
     this.playerMaxHealth = playerStats.baseHealth + partyMaxHealth();
     this.playerHealth = this.playerMaxHealth;
     this.enemy = createZoid(resolveZoid(pilot.zoids[0]));
+    updateZoidResearch(this.enemy.id, ZoidResearchStatus.Seen);
     this.syncToStore();
   }
 
@@ -63,6 +65,7 @@ export class PilotBattle extends BaseBattle {
   private nextEnemy(): void {
     this.currentEnemyIndex++;
     this.enemy = createZoid(resolveZoid(this.pilot.zoids[this.currentEnemyIndex]));
+    updateZoidResearch(this.enemy.id, ZoidResearchStatus.Seen);
     this.syncToStore();
   }
 }
