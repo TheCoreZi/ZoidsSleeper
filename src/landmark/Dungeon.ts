@@ -21,7 +21,7 @@ export const DUNGEONS: Dungeon[] = [
     ],
     battleBackground: BattleBackground.Desert,
     id: 'elmia_ruins',
-    mapPosition: { x: 48, y: 81 },
+    mapPosition: { x: 52, y: 82 },
     name: 'Elmia Ruins',
     requirements: [new RouteKillRequirement('elmia_desert', 10)],
     type: LandmarkType.Dungeon,
