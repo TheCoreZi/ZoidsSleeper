@@ -56,4 +56,12 @@ describe('InventoryStore', () => {
 
     expect(getItemCount('sleeper_module')).toBe(3);
   });
+
+  it('should remove a consumable item', () => {
+    addItem('core_probe', 3);
+
+    removeItem('core_probe', 1);
+
+    expect(getItemCount('core_probe')).toBe(2);
+  });
 });

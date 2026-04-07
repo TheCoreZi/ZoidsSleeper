@@ -3,14 +3,17 @@ import { t } from '../i18n';
 import { Currency } from '../models/Currency';
 import { getCurrency } from '../store/walletStore';
 
-const WalletPanel: Component = () => (
-  <div class="wallet-panel">
-    <h3 class="wallet-title">{t('ui:currency')}</h3>
-    <div class="wallet-row">
-      <img class="wallet-icon" src="images/items/Magnis.png" alt={t('ui:magnis')} />
-      <span class="wallet-amount">{getCurrency(Currency.Magnis).toLocaleString()}</span>
-    </div>
+const WalletIndicator: Component = () => (
+  <div class="wallet-indicator">
+    <img
+      class="wallet-indicator-icon"
+      src="images/items/Magnis.png"
+      alt={t('ui:magnis')}
+    />
+    <span class="wallet-indicator-amount">
+      {getCurrency(Currency.Magnis).toLocaleString()}
+    </span>
   </div>
 );
 
-export default WalletPanel;
+export default WalletIndicator;
