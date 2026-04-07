@@ -14,6 +14,11 @@ export interface Npc {
 }
 
 export const NPCS: Record<string, Npc> = {
+  becker: {
+    dialogs: [{ dialogKey: 'dialog:becker_scan' }],
+    id: 'becker',
+    nameKey: 'pilots:becker',
+  },
   boy: {
     dialogs: [
       { dialogKey: 'dialog:boy' },

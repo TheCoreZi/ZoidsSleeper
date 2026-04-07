@@ -33,6 +33,7 @@ export const CITIES: City[] = [
     actions: [
       new ActionVisitDepot([ITEMS.core_probe as ConsumableItem], [new ItemRequirement(ITEMS.core_analyzer.id)]),
       new ActionVisitLab('jenkins_lab', [new MissionCompletedRequirement('sleeper_commander', 'jenkins_to_work')]),
+      new ActionTalkToNPC('becker', undefined, [new ItemRequirement(ITEMS.core_probe.id)]),
       new ActionTalkToNPC('boy', [new MissionCompletedRequirement('sleeper_commander', 'talk_to_hostage')]),
       new ActionTalkToNPC('captain_malinoff', [new MissionCompletedRequirement('sleeper_commander', 'talk_to_jenkins')], [new ItemRequirement(ITEMS.sleeper_module.id)]),
       new ActionTalkToNPC('captain_malinoff', undefined, [new MissionCompletedRequirement('sleeper_commander', 'grow_army')]),
@@ -51,7 +52,7 @@ export const CITIES: City[] = [
     id: 'wind_colony',
     mapPosition: { x: 50, y: 83 },
     name: 'Wind Colony',
-    requirements: [new MissionCompletedRequirement('sleeper_commander', 'captain_farewell'), new RouteKillRequirement('wind_road', 10)],
+    requirements: [new RouteKillRequirement('wind_road', 10)],
     type: LandmarkType.City,
   },
 ];
