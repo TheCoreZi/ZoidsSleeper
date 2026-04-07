@@ -31,7 +31,7 @@ export const CITIES: City[] = [
     actions: [
       new ActionTalkToNPC('boy', [new MissionCompletedRequirement('sleeper_commander', 'talk_to_hostage')]),
       new ActionTalkToNPC('captain_malinoff', [new MissionCompletedRequirement('sleeper_commander', 'talk_to_jenkins')], [new ItemRequirement(ITEMS.sleeper_module.id)]),
-      new ActionTalkToNPC('jenkins', undefined, [new MissionCompletedRequirement('sleeper_commander', 'report_to_captain')]),
+      new ActionTalkToNPC('jenkins', undefined, [new MissionCompletedRequirement('sleeper_commander', 'report_to_captain')], () => addItem(ITEMS.core_analyzer.id, 1, true)),
       new ActionTalkToNPC('scrap_dealer'),
     ],
     battleBackground: BattleBackground.Grass,

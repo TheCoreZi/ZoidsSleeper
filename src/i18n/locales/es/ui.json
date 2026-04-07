@@ -27,6 +27,7 @@
   "campaign_completed": "Completada",
   "deploy": "Desplegar",
   "mission_progress": "Misión {{current}}/{{total}}",
+  "new_item": "¡Nuevo objeto obtenido!",
   "operations": "Operaciones",
   "talk_to_npc": "Hablar con {{name}}",
   "total_attack": "Ataque total de Zoids",
