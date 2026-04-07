@@ -2,6 +2,10 @@ import { createSignal } from 'solid-js';
 
 const [zoidDataLog, setZoidDataLog] = createSignal<Record<string, number>>({});
 
+function getTotalZoidDataCount(): number {
+  return Object.values(zoidDataLog()).reduce((sum, count) => sum + count, 0);
+}
+
 function getZoidDataCount(zoidId: string): number {
   return zoidDataLog()[zoidId] ?? 0;
 }
@@ -27,4 +31,4 @@ function loadZoidData(data: Record<string, number>): void {
   setZoidDataLog(data);
 }
 
-export { decrementZoidData, getZoidDataCount, incrementZoidData, loadZoidData, zoidDataLog };
+export { decrementZoidData, getTotalZoidDataCount, getZoidDataCount, incrementZoidData, loadZoidData, zoidDataLog };
