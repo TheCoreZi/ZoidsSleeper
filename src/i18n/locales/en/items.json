@@ -1,4 +1,12 @@
 {
+  "core_analyzer": {
+    "description": "A device that can be used to obtain structural data from Zoid Cores.",
+    "name": "Core Analyzer"
+  },
+  "core_probe": {
+    "description": "A probe to connect to the Zoid Core. Can obtain structural data.",
+    "name": "Core Probe"
+  },
   "sleeper_module": {
     "description": "A strange module that allows to control multiple Sleepers behavior at the same time.",
     "name": "Sleeper Module"

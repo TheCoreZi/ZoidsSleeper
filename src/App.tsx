@@ -1,9 +1,24 @@
-import { createMemo, createSignal, Match, onCleanup, onMount, Show, Switch, type Component } from 'solid-js';
+import {
+  type Component,
+  createMemo,
+  createSignal,
+  Match,
+  onCleanup,
+  onMount,
+  Show,
+  Switch,
+} from 'solid-js';
 import { Game } from './game/Game';
 import { t } from './i18n';
 import WorldMap from './map/WorldMap';
 import { PopupType } from './models/PopupMessage';
-import { activeDialog, battleState, gamePhase, popupMessage, setActiveDialog } from './store/gameStore';
+import {
+  activeDialog,
+  battleState,
+  gamePhase,
+  popupMessage,
+  setActiveDialog,
+} from './store/gameStore';
 import DialogBox from './story/DialogBox';
 import IntroSequence from './story/IntroSequence';
 import BattleScreen from './ui/BattleScreen';
@@ -13,15 +28,19 @@ import PartyPanel from './ui/PartyPanel';
 import PilotBattleScreen from './ui/PilotBattleScreen';
 import SettingsMenu from './ui/SettingsMenu';
 import SuppliesPanel from './ui/SuppliesPanel';
-import WalletPanel from './ui/WalletPanel';
+import WalletIndicator from './ui/WalletPanel';
 
 const App: Component = () => {
   let game: Game;
   const [showParty, setShowParty] = createSignal(true);
   const [showSupplies, setShowSupplies] = createSignal(false);
 
-  const isFighting = createMemo(() => battleState() === 'fighting' || battleState() === 'victory');
-  const isPilotBattleMode = createMemo(() => battleState().startsWith('pilot-'));
+  const isFighting = createMemo(
+    () => battleState() === 'fighting' || battleState() === 'victory'
+  );
+  const isPilotBattleMode = createMemo(() =>
+    battleState().startsWith('pilot-')
+  );
 
   onMount(() => {
     game = new Game();
@@ -35,10 +54,22 @@ const App: Component = () => {
   return (
     <div class="app">
       <div class="app-header">
-        <div class="game-title-bar"><h1 class="game-title">Zoids Sleeper</h1></div>
+        <div class="game-title-bar">
+          <h1 class="game-title">Zoids Sleeper</h1>
+        </div>
         <div class="header-buttons">
-          <button class="supplies-button" onClick={() => setShowSupplies((v) => !v)} title={t('ui:supplies')}>
-            <img class="supplies-button-icon" src="images/icons/box-solid.svg" width="20" height="20" alt="Supplies" />
+          <button
+            class="supplies-button"
+            onClick={() => setShowSupplies((v) => !v)}
+            title={t('ui:supplies')}
+          >
+            <img
+              class="supplies-button-icon"
+              src="images/icons/box-solid.svg"
+              width="20"
+              height="20"
+              alt="Supplies"
+            />
           </button>
           <SettingsMenu />
         </div>
@@ -48,22 +79,32 @@ const App: Component = () => {
       </Show>
       <Show when={activeDialog()}>
         <div class="dialog-overlay">
-          <DialogBox script={activeDialog()!} onComplete={() => setActiveDialog(null)} />
+          <DialogBox
+            script={activeDialog()!}
+            onComplete={() => setActiveDialog(null)}
+          />
         </div>
       </Show>
       <Show
         when={gamePhase() === 'playing'}
-        fallback={<IntroSequence onComplete={(id) => game?.completeIntro(id)} />}
+        fallback={
+          <IntroSequence onComplete={(id) => game?.completeIntro(id)} />
+        }
       >
+        <WalletIndicator />
         <div class="main-layout">
           <div class="left-column">
-            <WalletPanel />
-            <PartyPanel expanded={showParty()} onToggle={() => setShowParty((v) => !v)} />
+            <PartyPanel
+              expanded={showParty()}
+              onToggle={() => setShowParty((v) => !v)}
+            />
           </div>
           <div class="battle-column">
             <Switch fallback={<IdleLandmarkScreen />}>
               <Match when={isPilotBattleMode()}>
-                <PilotBattleScreen onClick={() => game?.battle?.clickAttack()} />
+                <PilotBattleScreen
+                  onClick={() => game?.battle?.clickAttack()}
+                />
               </Match>
               <Match when={isFighting()}>
                 <BattleScreen onClick={() => game?.battle?.clickAttack()} />
@@ -79,9 +120,20 @@ const App: Component = () => {
         </div>
       </Show>
       <Show when={popupMessage()}>
-        <div class={`popup-message ${popupMessage()!.type === PopupType.Defeat ? 'popup-defeat' : ''}`}>
-          <h2>{popupMessage()!.title}</h2>
-          <p>{popupMessage()!.content}</p>
+        <div
+          class={`popup-message ${popupMessage()!.type === PopupType.Defeat ? 'popup-defeat' : popupMessage()!.type === PopupType.Item ? 'popup-item' : ''}`}
+        >
+          <Show when={popupMessage()!.image}>
+            <img
+              class="popup-message-img"
+              src={popupMessage()!.image}
+              alt=""
+            />
+          </Show>
+          <div>
+            <h2>{popupMessage()!.title}</h2>
+            <p>{popupMessage()!.content}</p>
+          </div>
         </div>
       </Show>
     </div>

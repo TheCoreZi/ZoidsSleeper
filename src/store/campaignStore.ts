@@ -89,7 +89,7 @@ function markNpcTalked(npcId: string): void {
     for (const [id, state] of Object.entries(next)) {
       if (state.status !== CampaignStatus.Started) {continue;}
       const key = `${id}:${npcId}`;
-      if (state.missionNpcFlags?.[key] === false) {
+      if (state.missionNpcFlags?.[key] !== true) {
         next[id] = { ...state, missionNpcFlags: { ...state.missionNpcFlags, [key]: true } };
         changed = true;
       }
