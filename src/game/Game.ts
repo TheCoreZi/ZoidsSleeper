@@ -30,6 +30,7 @@ import { setParty } from '../store/partyStore';
 import { incrementPilotDefeats, loadStatistics } from '../store/statisticsStore';
 import { loadInventory } from '../store/inventoryStore';
 import { addCurrency, loadWallet } from '../store/walletStore';
+import { loadZoidData } from '../store/zoidDataStore';
 import { BaseBattle } from './BaseBattle';
 import { Battle } from './Battle';
 import { GameLoop } from './GameLoop';
@@ -178,6 +179,9 @@ export class Game {
       }
       if (data.wallet) {
         loadWallet(data.wallet);
+      }
+      if (data.zoidData) {
+        loadZoidData(data.zoidData);
       }
       loadCampaigns(CAMPAIGNS, data.campaigns ?? {});
       return true;

@@ -7,6 +7,7 @@ import { party } from '../store/partyStore';
 import { pilotDefeats, routeKills } from '../store/statisticsStore';
 import { inventory } from '../store/inventoryStore';
 import { wallet } from '../store/walletStore';
+import { zoidDataLog } from '../store/zoidDataStore';
 const SAVE_KEY = 'zoids-sleeper-save';
 
 interface SaveData {
@@ -17,6 +18,7 @@ interface SaveData {
   pilotDefeats?: Record<string, number>;
   routeKills?: Record<string, number>;
   wallet?: Record<string, number>;
+  zoidData?: Record<string, number>;
 }
 
 export class Save {
@@ -44,6 +46,7 @@ export class Save {
       pilotDefeats: pilotDefeats(),
       routeKills: routeKills(),
       wallet: wallet(),
+      zoidData: zoidDataLog(),
     };
     localStorage.setItem(SAVE_KEY, JSON.stringify(data));
   }

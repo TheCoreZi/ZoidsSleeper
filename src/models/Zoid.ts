@@ -8,6 +8,7 @@ export interface OwnedZoid {
 export interface ZoidData {
   attack: number;
   baseExp: number;
+  dropRate: number;
   id: string;
   levelType: LevelType;
   maxHealth: number;
@@ -35,16 +36,16 @@ export interface ZoidStats {
 }
 
 export const ZOID_LIST: Record<string, ZoidData> = {
-  command_wolf: { attack: 200, baseExp: 50, id: 'command_wolf', levelType: LevelType.MediumFast, maxHealth: 200, name: 'Command Wolf' },
-  elephantus: { attack: 100, baseExp: 15, id: 'elephantus', levelType: LevelType.MediumSlow, maxHealth: 200, name: 'Elephantus' },
-  garius: {attack: 50, baseExp: 10, id: 'garius', levelType: LevelType.Fast, maxHealth: 100, name: 'Garius'},
-  gator: {attack: 150, baseExp: 35, id: 'gator', levelType: LevelType.MediumFast, maxHealth: 200, name: 'Gator'},
-  glidoler: {attack: 100, baseExp: 10, id: 'glidoler', levelType: LevelType.MediumFast, maxHealth: 40, name: 'Glidoler'},
-  malder: { attack: 20, baseExp: 40, id: 'malder', levelType: LevelType.Erratic, maxHealth: 700, name: 'Malder' },
-  merda: {attack: 50, baseExp: 20, id: 'merda', levelType: LevelType.Fast, maxHealth: 100, name: 'Merda'},
-  molga: { attack: 100, baseExp: 35, id: 'molga', levelType: LevelType.Fast, maxHealth: 400, name: 'Molga' },
-  tortoise: { attack: 100, baseExp: 30, id: 'tortoise', levelType: LevelType.Fast, maxHealth: 700, name: 'Cannon Tortoise' },
-  zatton: { attack: 120, baseExp: 40, id: 'zatton', levelType: LevelType.MediumSlow, maxHealth: 350, name: 'Zatton' },
+  command_wolf: { attack: 200, baseExp: 50, dropRate: 15, id: 'command_wolf', levelType: LevelType.MediumFast, maxHealth: 200, name: 'Command Wolf' },
+  elephantus: { attack: 100, baseExp: 15, dropRate: -1, id: 'elephantus', levelType: LevelType.MediumSlow, maxHealth: 200, name: 'Elephantus' },
+  garius: { attack: 50, baseExp: 10, dropRate: -1, id: 'garius', levelType: LevelType.Fast, maxHealth: 100, name: 'Garius' },
+  gator: { attack: 150, baseExp: 35, dropRate: 25, id: 'gator', levelType: LevelType.MediumFast, maxHealth: 200, name: 'Gator' },
+  glidoler: { attack: 100, baseExp: 10, dropRate: -1, id: 'glidoler', levelType: LevelType.MediumFast, maxHealth: 40, name: 'Glidoler' },
+  malder: { attack: 20, baseExp: 40, dropRate: 10, id: 'malder', levelType: LevelType.Erratic, maxHealth: 700, name: 'Malder' },
+  merda: { attack: 50, baseExp: 20, dropRate: 50, id: 'merda', levelType: LevelType.Fast, maxHealth: 100, name: 'Merda' },
+  molga: { attack: 100, baseExp: 35, dropRate: 20, id: 'molga', levelType: LevelType.Fast, maxHealth: 400, name: 'Molga' },
+  tortoise: { attack: 100, baseExp: 30, dropRate: 20, id: 'tortoise', levelType: LevelType.Fast, maxHealth: 700, name: 'Cannon Tortoise' },
+  zatton: { attack: 120, baseExp: 40, dropRate: 5, id: 'zatton', levelType: LevelType.MediumSlow, maxHealth: 350, name: 'Zatton' },
 };
 
 export function calculatePartyAttack(party: OwnedZoid[]): number {

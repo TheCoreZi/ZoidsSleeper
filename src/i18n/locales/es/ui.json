@@ -17,9 +17,12 @@
   "max": "Máx",
   "not_strong_enough": "¡No eres lo suficientemente fuerte para derrotar a {{name}}. Mejora tu ejército y vuelve!",
   "pilot_defeated": "¡{{name}} ha sido derrotado!",
+  "scan_rate": "Prob. de análisis: {{rate}}%",
   "settings": "Ajustes",
   "supplies": "Suministros",
   "supplies_empty": "Sin objetos aún",
+  "tab_items": "Herramientas",
+  "tab_zdata": "Z-Data",
   "stat_attack": "Ataque actual",
   "stat_attack_100": "Ataque al Nv 100",
   "stat_base_attack": "Ataque base",
@@ -31,6 +34,7 @@
   "deploy": "Desplegar",
   "mission_progress": "Misión {{current}}/{{total}}",
   "new_item": "¡Nuevo objeto obtenido!",
+  "new_zdata": "¡Nueva Z-Data obtenida!",
   "operations": "Operaciones",
   "talk_to_npc": "Hablar con {{name}}",
   "total": "Total",
@@ -38,6 +42,7 @@
   "unknown": "Desconocido",
   "victory": "¡Victoria!",
   "visit_depot": "Visitar Depósito",
+  "zdata_empty": "Aún no has recolectado Z-Data",
   "zoids_army": "Ejército Zoids",
   "zoids_defeated": "Zoids derrotados"
 }

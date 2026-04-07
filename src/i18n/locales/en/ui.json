@@ -17,9 +17,12 @@
   "max": "Max",
   "not_strong_enough": "You're not strong enough to defeat {{name}}. Upgrade your army and come back!",
   "pilot_defeated": "{{name}} has been defeated!",
+  "scan_rate": "Scan rate: {{rate}}%",
   "settings": "Settings",
   "supplies": "Supplies",
   "supplies_empty": "No items yet",
+  "tab_items": "Items",
+  "tab_zdata": "Z-Data",
   "stat_attack": "Current Attack",
   "stat_attack_100": "Attack at Lv 100",
   "stat_base_attack": "Base Attack",
@@ -31,6 +34,7 @@
   "deploy": "Deploy",
   "mission_progress": "Mission {{current}}/{{total}}",
   "new_item": "New Item Obtained!",
+  "new_zdata": "New Z-Data Obtained!",
   "operations": "Operations",
   "talk_to_npc": "Talk to {{name}}",
   "total": "Total",
@@ -38,6 +42,7 @@
   "unknown": "Unknown",
   "victory": "Victory!",
   "visit_depot": "Visit Depot",
+  "zdata_empty": "No Z-Data collected yet",
   "zoids_army": "Zoids Army",
   "zoids_defeated": "Zoids Defeated"
 }

@@ -9,6 +9,7 @@ import { incrementRouteKills } from '../store/statisticsStore';
 import { addCurrency } from '../store/walletStore';
 
 import { BaseBattle } from './BaseBattle';
+import { attemptScan, getAvailableProbe } from './Scan';
 
 export class Battle extends BaseBattle {
   rewardIdCounter = 0;
@@ -36,6 +37,10 @@ export class Battle extends BaseBattle {
     addCurrency(Currency.Magnis, reward);
     setRewardEvents([...rewardEvents().slice(-4), { amount: reward, id: this.rewardIdCounter++ }]);
     incrementRouteKills(this.route.id);
+    const probe = getAvailableProbe();
+    if (probe) {
+      attemptScan(this.enemy.id, probe);
+    }
     checkCampaigns();
     this.spawnEnemy();
   }
