@@ -39,6 +39,11 @@ const [pilotZoidIds, setPilotZoidIds] = createSignal<string[]>([]);
 const [playerStats, setPlayerStats] = createSignal<PlayerStats | null>(null);
 const [showClickHint, setShowClickHint] = createSignal(true);
 const [activeDialog, setActiveDialog] = createSignal<DialogScript | null>(null);
+export interface LabData {
+  labId: string;
+}
+
+const [activeLab, setActiveLab] = createSignal<LabData | null>(null);
 const [activeShop, setActiveShop] = createSignal<ShopData | null>(null);
 const [popupMessage, setPopupMessage] = createSignal<PopupMessage | null>(null);
 
@@ -54,6 +59,7 @@ const pilotPlayerHealthPercent = createMemo(() => {
 
 export {
   activeDialog,
+  activeLab,
   activeShop,
   battleState,
   damageEvents,
@@ -69,6 +75,7 @@ export {
   playerStats,
   rewardEvents,
   setActiveDialog,
+  setActiveLab,
   setActiveShop,
   setBattleState,
   setDamageEvents,

@@ -23,6 +23,7 @@ export interface ZoidData {
   levelType: LevelType;
   maxHealth: number;
   name: string;
+  price: number;
 }
 
 export interface ZoidInstance extends ZoidStats {
@@ -46,16 +47,16 @@ export interface ZoidStats {
 }
 
 export const ZOID_LIST: Record<string, ZoidData> = {
-  command_wolf: { attack: 200, baseExp: 50, dropRate: 15, faction: Faction.HelicRepublic, id: 'command_wolf', levelType: LevelType.MediumFast, maxHealth: 200, name: 'Command Wolf' },
-  elephantus: { attack: 100, baseExp: 15, dropRate: -1, faction: Faction.HelicRepublic, id: 'elephantus', levelType: LevelType.MediumSlow, maxHealth: 200, name: 'Elephantus' },
-  garius: { attack: 50, baseExp: 10, dropRate: -1, faction: Faction.HelicRepublic, id: 'garius', levelType: LevelType.Fast, maxHealth: 100, name: 'Garius' },
-  gator: { attack: 150, baseExp: 35, dropRate: 25, faction: Faction.GuylosEmpire, id: 'gator', levelType: LevelType.MediumFast, maxHealth: 200, name: 'Gator' },
-  glidoler: { attack: 100, baseExp: 10, dropRate: -1, faction: Faction.HelicRepublic, id: 'glidoler', levelType: LevelType.MediumFast, maxHealth: 40, name: 'Glidoler' },
-  malder: { attack: 20, baseExp: 40, dropRate: 10, faction: Faction.ZenebasEmpire, id: 'malder', levelType: LevelType.Erratic, maxHealth: 700, name: 'Malder' },
-  merda: { attack: 50, baseExp: 20, dropRate: 50, faction: Faction.ZenebasEmpire, id: 'merda', levelType: LevelType.Fast, maxHealth: 100, name: 'Merda' },
-  molga: { attack: 100, baseExp: 35, dropRate: 20, faction: Faction.ZenebasEmpire, id: 'molga', levelType: LevelType.Fast, maxHealth: 400, name: 'Molga' },
-  tortoise: { attack: 100, baseExp: 30, dropRate: 20, faction: Faction.ZenebasEmpire, id: 'tortoise', levelType: LevelType.Fast, maxHealth: 700, name: 'Cannon Tortoise' },
-  zatton: { attack: 120, baseExp: 40, dropRate: 5, faction: Faction.ZenebasEmpire, id: 'zatton', levelType: LevelType.MediumSlow, maxHealth: 350, name: 'Zatton' },
+  command_wolf: { attack: 200, baseExp: 50, dropRate: 15, faction: Faction.HelicRepublic, id: 'command_wolf', levelType: LevelType.MediumFast, maxHealth: 200, name: 'Command Wolf', price: 40000 },
+  elephantus: { attack: 100, baseExp: 15, dropRate: -1, faction: Faction.HelicRepublic, id: 'elephantus', levelType: LevelType.MediumSlow, maxHealth: 200, name: 'Elephantus', price: 50000 },
+  garius: { attack: 50, baseExp: 10, dropRate: -1, faction: Faction.HelicRepublic, id: 'garius', levelType: LevelType.Fast, maxHealth: 100, name: 'Garius', price: 2000 },
+  gator: { attack: 150, baseExp: 35, dropRate: 25, faction: Faction.GuylosEmpire, id: 'gator', levelType: LevelType.MediumFast, maxHealth: 200, name: 'Gator', price: 4000 },
+  glidoler: { attack: 100, baseExp: 10, dropRate: -1, faction: Faction.HelicRepublic, id: 'glidoler', levelType: LevelType.MediumFast, maxHealth: 40, name: 'Glidoler', price: 2000 },
+  malder: { attack: 20, baseExp: 40, dropRate: 10, faction: Faction.ZenebasEmpire, id: 'malder', levelType: LevelType.Erratic, maxHealth: 700, name: 'Malder', price: 8000 },
+  merda: { attack: 50, baseExp: 20, dropRate: 50, faction: Faction.ZenebasEmpire, id: 'merda', levelType: LevelType.Fast, maxHealth: 100, name: 'Merda', price: 2000 },
+  molga: { attack: 100, baseExp: 35, dropRate: 20, faction: Faction.ZenebasEmpire, id: 'molga', levelType: LevelType.Fast, maxHealth: 400, name: 'Molga', price: 6000 },
+  tortoise: { attack: 100, baseExp: 30, dropRate: 20, faction: Faction.ZenebasEmpire, id: 'tortoise', levelType: LevelType.Fast, maxHealth: 700, name: 'Cannon Tortoise', price: 9000 },
+  zatton: { attack: 120, baseExp: 40, dropRate: 5, faction: Faction.ZenebasEmpire, id: 'zatton', levelType: LevelType.MediumSlow, maxHealth: 350, name: 'Zatton', price: 10000 },
 };
 
 export function calculatePartyAttack(party: OwnedZoid[]): number {
