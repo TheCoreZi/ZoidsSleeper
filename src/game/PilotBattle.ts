@@ -51,7 +51,7 @@ export class PilotBattle extends BaseBattle {
     setPilotEnemyProgress({ current: this.currentEnemyIndex, total: this.pilot.zoids.length });
     setPilotPlayerHealth(this.playerHealth);
     setPilotPlayerMaxHealth(this.playerMaxHealth);
-    setPilotZoidIds(this.pilot.zoids.map((z) => z.id));
+    setPilotZoidIds(this.pilot.zoids.map((z) => ({ id: z.id, imageOverride: z.imageOverride })));
   }
 
   private enemyAttack(): void {
