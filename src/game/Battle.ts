@@ -11,8 +11,9 @@ import { addCurrency } from '../store/walletStore';
 import { ZoidResearchStatus } from '../models/Zoid';
 import { updateZoidResearch } from '../store/zoidResearchStore';
 
+import { getActiveDeviceId, getActiveScanMode, resetScanAfterBattle, ScanMode } from '../store/scanStore';
 import { BaseBattle } from './BaseBattle';
-import { attemptScan, getAvailableProbe } from './Scan';
+import { attemptScan } from './Scan';
 
 export class Battle extends BaseBattle {
   rewardIdCounter = 0;
@@ -42,10 +43,11 @@ export class Battle extends BaseBattle {
     addCurrency(Currency.Magnis, reward);
     setRewardEvents([...rewardEvents().slice(-4), { amount: reward, id: this.rewardIdCounter++ }]);
     incrementRouteKills(this.route.id);
-    const probe = getAvailableProbe();
-    if (probe) {
-      attemptScan(this.enemy.id, probe);
+    const deviceId = getActiveDeviceId();
+    if (deviceId && getActiveScanMode() !== ScanMode.Off) {
+      attemptScan(this.enemy.id, deviceId);
     }
+    resetScanAfterBattle();
     checkCampaigns();
     this.spawnEnemy();
   }
