@@ -188,6 +188,9 @@ export class Game {
       if (data.zoidData) {
         loadZoidData(data.zoidData);
       }
+      if (data.playerStats) {
+        setPlayerStats(data.playerStats);
+      }
       if (data.zoidResearch) {
         loadZoidResearch(data.zoidResearch);
       }

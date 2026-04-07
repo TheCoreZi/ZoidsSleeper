@@ -1,8 +1,10 @@
 import { SAVE_TICK, TICK_TIME } from '../constants';
 import type { CampaignSaveData } from '../campaign/Campaign';
+import type { PlayerStats } from '../models/Player';
 import type { OwnedZoid } from '../models/Zoid';
 import type { ZoidResearchStatus } from '../models/Zoid';
 import { campaignStates } from '../store/campaignStore';
+import { playerStats } from '../store/gameStore';
 import { currentLandmark } from '../store/landmarkStore';
 import { party } from '../store/partyStore';
 import { pilotDefeats, routeKills } from '../store/statisticsStore';
@@ -18,6 +20,7 @@ interface SaveData {
   landmarkId: string;
   party?: OwnedZoid[];
   pilotDefeats?: Record<string, number>;
+  playerStats?: PlayerStats;
   routeKills?: Record<string, number>;
   wallet?: Record<string, number>;
   zoidData?: Record<string, number>;
@@ -47,6 +50,7 @@ export class Save {
       landmarkId: currentLandmark().id,
       party: party(),
       pilotDefeats: pilotDefeats(),
+      playerStats: playerStats() ?? undefined,
       routeKills: routeKills(),
       wallet: wallet(),
       zoidData: zoidDataLog(),

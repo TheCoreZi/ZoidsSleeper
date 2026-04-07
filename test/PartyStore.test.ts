@@ -1,11 +1,14 @@
 import { beforeEach, describe, expect, it } from 'vitest';
+import { DEFAULT_PLAYER } from '../src/models/Player';
 import { ZoidResearchStatus } from '../src/models/Zoid';
+import { playerStats, setPlayerStats } from '../src/store/gameStore';
 import { addZoidToArmy, party, setParty } from '../src/store/partyStore';
 import { getZoidResearch, loadZoidResearch } from '../src/store/zoidResearchStore';
 
 describe('PartyStore - addZoidToArmy', () => {
   beforeEach(() => {
     setParty([]);
+    setPlayerStats(DEFAULT_PLAYER);
     loadZoidResearch({});
   });
 
@@ -31,5 +34,11 @@ describe('PartyStore - addZoidToArmy', () => {
     addZoidToArmy('molga');
 
     expect(getZoidResearch('molga')).toBe(ZoidResearchStatus.Created);
+  });
+
+  it('should increment click attack when adding a zoid', () => {
+    addZoidToArmy('molga');
+
+    expect(playerStats()!.clickAttack).toBe(2);
   });
 });

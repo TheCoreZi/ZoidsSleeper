@@ -53,6 +53,7 @@ export const NPCS: Record<string, Npc> = {
     dialogs: [{ dialogKey: 'dialog:maria_flyheight' }],
     id: 'maria_flyheight',
     nameKey: 'pilots:maria_flyheight',
+    portrait: 'images/pilots/maria.png',
   },
   jenkins: {
     dialogs: [

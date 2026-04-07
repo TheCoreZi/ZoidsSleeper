@@ -1,7 +1,6 @@
 import { Show, type Component } from 'solid-js';
 import { t } from '../i18n';
 import { CITIES, findRouteKillRequirement } from '../landmark';
-import { calculateClickAttack } from '../models/Player';
 import { playerStats } from '../store/gameStore';
 import { currentLandmark, isOnRoute } from '../store/landmarkStore';
 import { partyAttack } from '../store/partyStore';
@@ -33,7 +32,7 @@ const PlayerInfo: Component = () => {
         </div>
         <div class="player-stat">
           <span class="player-stat-label">{t('ui:manual_attack')}</span>
-          <span class="player-stat-value">{playerStats() ? calculateClickAttack(playerStats()!) : 0}</span>
+          <span class="player-stat-value">{playerStats()?.clickAttack ?? 0}</span>
         </div>
       </div>
     </div>

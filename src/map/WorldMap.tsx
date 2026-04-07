@@ -75,7 +75,7 @@ const WorldMap: Component<WorldMapProps> = (props) => {
                           y1={from().y}
                           x2={to().x}
                           y2={to().y}
-                          stroke={locked() ? '#444' : isCurrent() ? '#00d4ff' : '#ff0000'}
+                          stroke={locked() ? '#444' : isCurrent() ? '#00d4ff' : '#ffc107'}
                           stroke-width={routeStrokeWidth}
                           stroke-linecap="round"
                         />
@@ -99,8 +99,8 @@ const WorldMap: Component<WorldMapProps> = (props) => {
                           cx={cx()}
                           cy={cy()}
                           r={cityRadius}
-                          fill={locked() ? '#444' : isCurrent() ? '#ffc107' : '#8b6914'}
-                          stroke={locked() ? '#666' : isCurrent() ? '#fff' : '#ffc107'}
+                          fill={locked() ? '#444' : isCurrent() ? '#3b82f6' : '#f97316'}
+                          stroke={locked() ? '#666' : isCurrent() ? '#fff' : '#fff'}
                           stroke-width={strokeWidth}
                         />
                         <text
@@ -129,8 +129,8 @@ const WorldMap: Component<WorldMapProps> = (props) => {
                       >
                         <polygon
                           points={`${cx()},${cy() - cityRadius} ${cx() - cityRadius},${cy() + cityRadius} ${cx() + cityRadius},${cy() + cityRadius}`}
-                          fill={locked() ? '#444' : isCurrent() ? '#ffc107' : '#8b6914'}
-                          stroke={locked() ? '#666' : isCurrent() ? '#fff' : '#ffc107'}
+                          fill={locked() ? '#444' : isCurrent() ? '#3b82f6' : '#f97316'}
+                          stroke={locked() ? '#666' : isCurrent() ? '#fff' : '#fff'}
                           stroke-width={strokeWidth}
                           stroke-linejoin="round"
                         />

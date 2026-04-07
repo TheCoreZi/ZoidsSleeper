@@ -1,4 +1,6 @@
 import { beforeEach, describe, expect, it } from 'vitest';
+import { DEFAULT_PLAYER } from '../src/models/Player';
+import { playerStats, setPlayerStats } from '../src/store/gameStore';
 import {
   getPilotDefeats,
   getRouteKills,
@@ -9,6 +11,7 @@ import {
 
 describe('StatisticsStore - routeKills', () => {
   beforeEach(() => {
+    setPlayerStats(DEFAULT_PLAYER);
     loadStatistics({}, {});
   });
 
@@ -43,6 +46,32 @@ describe('StatisticsStore - routeKills', () => {
     incrementRouteKills('test-route');
 
     expect(getRouteKills('test-route')).toBe(6);
+  });
+
+  it('should increment click attack every 200 kills', () => {
+    loadStatistics({ 'test-route': 199 }, {});
+
+    incrementRouteKills('test-route');
+
+    expect(playerStats()!.clickAttack).toBe(2);
+  });
+
+  it('should not increment click attack before 200 kills', () => {
+    loadStatistics({ 'test-route': 198 }, {});
+
+    incrementRouteKills('test-route');
+
+    expect(playerStats()!.clickAttack).toBe(1);
+  });
+
+  it('should not mix kills across routes for click attack', () => {
+    loadStatistics({ 'route-a': 100 }, {});
+
+    for (let i = 0; i < 100; i++) {
+      incrementRouteKills('route-b');
+    }
+
+    expect(playerStats()!.clickAttack).toBe(1);
   });
 });
 

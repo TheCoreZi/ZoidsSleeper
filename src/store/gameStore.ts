@@ -47,6 +47,10 @@ const [activeLab, setActiveLab] = createSignal<LabData | null>(null);
 const [activeShop, setActiveShop] = createSignal<ShopData | null>(null);
 const [popupMessage, setPopupMessage] = createSignal<PopupMessage | null>(null);
 
+function incrementClickAttack(amount = 1): void {
+  setPlayerStats((prev) => prev ? { ...prev, clickAttack: prev.clickAttack + amount } : prev);
+}
+
 const enemyHealthPercent = createMemo(() => {
   const enemy = enemyZoid();
   return enemy ? Math.floor((enemy.health / enemy.maxHealth) * 100) : 0;
@@ -66,6 +70,7 @@ export {
   enemyHealthPercent,
   enemyZoid,
   gamePhase,
+  incrementClickAttack,
   pilotEnemyProgress,
   pilotInfo,
   pilotPlayerHealth,

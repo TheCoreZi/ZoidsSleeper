@@ -2,8 +2,9 @@ import { beforeEach, describe, expect, it } from 'vitest';
 import { BATTLE_TICK, TICK_TIME } from '../src/constants';
 import { Battle } from '../src/game/Battle';
 import { BattleBackground, LandmarkType, type Route, ROUTES } from '../src/landmark';
-import { calculateClickAttack, DEFAULT_PLAYER } from '../src/models/Player';
+import { DEFAULT_PLAYER } from '../src/models/Player';
 import { ZoidResearchStatus } from '../src/models/Zoid';
+import { playerStats, setPlayerStats } from '../src/store/gameStore';
 import { partyAttack } from '../src/store/partyStore';
 import { getRouteKills, loadStatistics } from '../src/store/statisticsStore';
 import { getZoidResearch, loadZoidResearch } from '../src/store/zoidResearchStore';
@@ -19,6 +20,7 @@ const toughRoute: Route = {
 
 describe('Battle', () => {
   beforeEach(() => {
+    setPlayerStats(DEFAULT_PLAYER);
     loadStatistics({}, {});
     loadZoidResearch({});
   });
@@ -47,25 +49,23 @@ describe('Battle', () => {
     expect(battle.enemy.health).toBe(initialHealth);
   });
 
-  it('should deal click damage using player click formula', () => {
+  it('should deal click damage using player click attack', () => {
     const battle = new Battle(DEFAULT_PLAYER, toughRoute);
     const initialHealth = battle.enemy.health;
-    const expectedDamage = calculateClickAttack(DEFAULT_PLAYER);
 
     battle.clickAttack();
 
-    expect(battle.enemy.health).toBe(initialHealth - expectedDamage);
+    expect(battle.enemy.health).toBe(initialHealth - playerStats()!.clickAttack);
   });
 
   it('should rate-limit click attacks', () => {
     const battle = new Battle(DEFAULT_PLAYER, toughRoute);
     const initialHealth = battle.enemy.health;
-    const expectedDamage = calculateClickAttack(DEFAULT_PLAYER);
 
     battle.clickAttack();
     battle.clickAttack(); // should be ignored (within CLICK_COOLDOWN)
 
-    expect(battle.enemy.health).toBe(initialHealth - expectedDamage);
+    expect(battle.enemy.health).toBe(initialHealth - playerStats()!.clickAttack);
   });
 
   it('should calculate click and auto damage independently', () => {
@@ -73,8 +73,7 @@ describe('Battle', () => {
     const initialHealth = battle.enemy.health;
 
     battle.clickAttack();
-    const clickDamage = calculateClickAttack(DEFAULT_PLAYER);
-    expect(battle.enemy.health).toBe(initialHealth - clickDamage);
+    expect(battle.enemy.health).toBe(initialHealth - playerStats()!.clickAttack);
 
     const healthAfterClick = battle.enemy.health;
     const ticksNeeded = BATTLE_TICK / TICK_TIME;

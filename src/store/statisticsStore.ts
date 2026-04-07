@@ -1,4 +1,5 @@
 import { createSignal } from 'solid-js';
+import { incrementClickAttack } from './gameStore';
 
 const [pilotDefeats, setPilotDefeats] = createSignal<Record<string, number>>({});
 const [routeKills, setRouteKills] = createSignal<Record<string, number>>({});
@@ -16,7 +17,11 @@ function incrementPilotDefeats(pilotId: string): void {
 }
 
 function incrementRouteKills(routeId: string): void {
-  setRouteKills((prev) => ({ ...prev, [routeId]: (prev[routeId] ?? 0) + 1 }));
+  const previousKills = getRouteKills(routeId);
+  setRouteKills((prev) => ({ ...prev, [routeId]: previousKills + 1 }));
+  if ((previousKills + 1) % 200 === 0) {
+    incrementClickAttack();
+  }
 }
 
 function loadStatistics(routeKillsData: Record<string, number>, pilotDefeatsData: Record<string, number>): void {
