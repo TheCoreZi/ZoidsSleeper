@@ -6,6 +6,10 @@
     "You should take the intermediate route to get there. You'll encounter Zoids Sleepers along the way — it's good practice for your combat techniques.",
     "Please, bring them back safely!"
   ],
+  "jenkins_to_work": [
+    "Well, well! So you actually managed to get a Zoid's structural data. Not bad for a rookie.",
+    "Alright, time to get to work. Let's head to my humble lab and see what we can create with what you've got."
+  ],
   "jenkins": [
     "So Malinoff sent you? Well, well... I saw how you helped the people of this village, so I'll hear you out.",
     "More Zoids, you say? The easiest way is buying them from the army, though they'll only sell you their scraps.",
@@ -19,6 +23,11 @@
     "Fair warning though — no Zoid will just let you access its Core. You'll have to immobilize it first. I won't lie to you, taking down a Zoid without destroying it is no easy feat.",
     "Once you've got the data from a Zoid, come see me and we'll start incubating some Cores. With this basic lab, we can only hatch simple Zoids, and I can't promise a high success rate.",
     "One last thing: to connect the Analyzer to the Cores you'll need a Probe. They're single-use, so you'll have to stock up. Visit Mrs. Becker's workshop, she should have them."
+  ],
+  "captain_farewell": [
+    "Well, well! Now you actually look like a proper army commander.",
+    "I can see you're determined to take on those bandits. Good luck, kid.",
+    "Be careful out there. In these times of war, it's best not to get mixed up in military affairs. But something tells me it's too late for that..."
   ],
   "captain_debrief": [
     "Thank you for your help, I knew there was something special about you...",

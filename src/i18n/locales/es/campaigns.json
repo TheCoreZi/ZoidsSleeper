@@ -14,6 +14,22 @@
         "description": "Puede ser que el anciano capitán sepa más sobre este artefacto, habla con él",
         "name": "Reporta al capitán"
       },
+      "captain_farewell": {
+        "description": "Ahora que tienes refuerzos, reporta al capitán antes de partir.",
+        "name": "Reporta al capitán"
+      },
+      "grow_army": {
+        "description": "Necesitarás más Zoids si piensas enfrentarte a los bandidos. Usa el laboratorio de Jenkins para incubar al menos otro Zoid para tu ejército.",
+        "name": "Amplía tu ejército"
+      },
+      "jenkins_to_work": {
+        "description": "Has conseguido datos estructurales de un Zoid. Vuelve con Jenkins y comiencen a trabajar en su laboratorio.",
+        "name": "Vuelve con Jenkins"
+      },
+      "obtain_zi_data": {
+        "description": "Escanea el Core de un Zoid Sleeper para obtener datos estructurales. Usa el Analizador de Cores y una Sonda",
+        "name": "Obtén Zi-Data"
+      },
       "talk_to_jenkins": {
         "description": "El capitán mencionó al viejo Jenkins, un antiguo investigador de laboratorio de Zoids. Encuéntralo y muéstrale el módulo Sleeper.",
         "name": "Habla con el viejo Jenkins"
