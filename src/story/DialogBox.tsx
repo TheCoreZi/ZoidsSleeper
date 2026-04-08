@@ -10,10 +10,10 @@ interface DialogBoxProps {
 const DialogBox: Component<DialogBoxProps> = (props) => {
   const [lineIndex, setLineIndex] = createSignal(0);
 
-  const currentLine = () => props.script[lineIndex()];
+  const currentLine = () => props.script.lines[lineIndex()];
 
   const handleClick = () => {
-    if (lineIndex() < props.script.length - 1) {
+    if (lineIndex() < props.script.lines.length - 1) {
       setLineIndex((i) => i + 1);
     } else {
       props.onComplete();

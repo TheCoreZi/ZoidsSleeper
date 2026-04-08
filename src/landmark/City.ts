@@ -1,7 +1,7 @@
 import { type ConsumableItem, ITEMS } from '../item';
 import { PILOTS } from '../models/Pilot';
 import { ItemRequirement, MissionCompletedRequirement, PilotDefeatRequirement, RouteKillRequirement } from '../requirement';
-import { addItem } from '../store/inventoryStore';
+import { itemReward } from '../reward';
 import { ActionFightPilot } from './action/ActionFightPilot';
 import { ActionTalkToNPC } from './action/ActionTalkToNPC';
 import { ActionVisitDepot } from './action/ActionVisitDepot';
@@ -20,7 +20,7 @@ export const CITIES: City[] = [
   {
     actions: [
       new ActionFightPilot(PILOTS['bandit1'], undefined, [new PilotDefeatRequirement('bandit1')]),
-      new ActionTalkToNPC('woman', [new PilotDefeatRequirement('bandit1')], [new MissionCompletedRequirement('sleeper_commander', 'report_to_captain')], () => addItem('sleeper_module', 1, true)),
+      new ActionTalkToNPC('woman', [new PilotDefeatRequirement('bandit1')], [new MissionCompletedRequirement('sleeper_commander', 'report_to_captain')], itemReward('sleeper_module', 1, true)),
     ],
     battleBackground: BattleBackground.Grass,
     id: 'abandoned_camp',
@@ -37,7 +37,7 @@ export const CITIES: City[] = [
       new ActionTalkToNPC('boy', undefined, [new MissionCompletedRequirement('sleeper_commander', 'talk_to_hostage')]),
       new ActionTalkToNPC('captain_malinoff', [new ItemRequirement(ITEMS.sleeper_module.id)], [new MissionCompletedRequirement('sleeper_commander', 'talk_to_jenkins')]),
       new ActionTalkToNPC('captain_malinoff', [new MissionCompletedRequirement('sleeper_commander', 'grow_army')]),
-      new ActionTalkToNPC('jenkins', [new MissionCompletedRequirement('sleeper_commander', 'report_to_captain')], [new MissionCompletedRequirement('sleeper_commander', 'jenkins_to_work')], () => addItem(ITEMS.core_analyzer.id, 1, true)),
+      new ActionTalkToNPC('jenkins', [new MissionCompletedRequirement('sleeper_commander', 'report_to_captain')], [new MissionCompletedRequirement('sleeper_commander', 'jenkins_to_work')], itemReward(ITEMS.core_analyzer.id, 1, true)),
       new ActionTalkToNPC('scrap_dealer'),
     ],
     battleBackground: BattleBackground.Grass,

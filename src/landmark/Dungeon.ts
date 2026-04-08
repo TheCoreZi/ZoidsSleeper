@@ -1,6 +1,7 @@
 import { CAMPAIGNS } from '../campaign/campaigns';
 import { PILOTS } from '../models/Pilot';
 import { MissionCompletedRequirement, PilotDefeatRequirement, RouteKillRequirement } from '../requirement';
+import { cutsceneReward } from '../reward';
 import { ActionFightPilot } from './action/ActionFightPilot';
 import { ActionTalkToNPC } from './action/ActionTalkToNPC';
 import type { CityAction } from './action/CityAction';
@@ -22,7 +23,7 @@ export const DUNGEONS: Dungeon[] = [
       new ActionFightPilot(PILOTS['bul'], [new MissionCompletedRequirement(C.id, 'listen_to_bandits')], [new PilotDefeatRequirement('bul')]),
       new ActionTalkToNPC('van', [new PilotDefeatRequirement('bul')], [new PilotDefeatRequirement('bianco_nero')]),
       new ActionFightPilot(PILOTS['bianco_nero'], [new MissionCompletedRequirement(C.id, 'find_van')], [new PilotDefeatRequirement('bianco_nero')]),
-      new ActionTalkToNPC('bianco', [new MissionCompletedRequirement(C.id, 'defeat_bianco_nero')], [new MissionCompletedRequirement(C.id, 'interrogate_bandits')], undefined, 'ui:interrogate_bandits'),
+      new ActionTalkToNPC('bianco', [new MissionCompletedRequirement(C.id, 'defeat_bianco_nero')], [new MissionCompletedRequirement(C.id, 'interrogate_bandits')], cutsceneReward('dialog:narration_discover_fione'), 'ui:interrogate_bandits'),
     ],
     battleBackground: BattleBackground.Desert,
     id: 'elmia_ruins',
