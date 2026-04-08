@@ -1,11 +1,11 @@
 import { describe, expect, it } from 'vitest';
 import { Faction, FACTIONS } from '../src/models/Faction';
-import { createZoid, resolveZoid, ZOID_LIST } from '../src/models/Zoid';
+import { spawnZoid, buildZoid, ZOID_LIST } from '../src/models/Zoid';
 
 describe('Zoid', () => {
   it('should create a zoid instance with full health', () => {
-    const stats = resolveZoid({ id: 'command_wolf', level: 1 });
-    const zoid = createZoid(stats);
+    const stats = buildZoid({ id: 'command_wolf', level: 1 });
+    const zoid = spawnZoid(stats);
 
     expect(zoid.health).toBe(zoid.maxHealth);
     expect(zoid.name).toBe('Command Wolf');
@@ -27,9 +27,9 @@ describe('Zoid', () => {
   });
 
   it('should create independent instances from the same stats', () => {
-    const stats = resolveZoid({ id: 'molga', level: 20 });
-    const a = createZoid(stats);
-    const b = createZoid(stats);
+    const stats = buildZoid({ id: 'molga', level: 20 });
+    const a = spawnZoid(stats);
+    const b = spawnZoid(stats);
 
     a.health = 0;
 

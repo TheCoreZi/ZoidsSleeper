@@ -1,12 +1,12 @@
 import { MissionCompletedRequirement } from '../requirement';
 import type { Landmark } from './Landmark';
 import { BattleBackground, LandmarkType } from './Landmark';
-import { type ZoidRef, type ZoidStats, getZoidById, resolveZoid } from '../models/Zoid';
+import { type ZoidBlueprint, type CustomizedZoid, getZoidById, buildZoid } from '../models/Zoid';
 import { CAMPAIGNS } from '../campaign/campaigns';
 
 export interface Route extends Landmark {
   connects: [string, string];
-  enemies: ZoidRef[];
+  enemies: ZoidBlueprint[];
   baseReward: number;
   routeHealth: number;
   type: typeof LandmarkType.Route;
@@ -67,9 +67,9 @@ export function getRoute(id: string): Route | undefined {
   return ROUTES.find((r) => r.id === id);
 }
 
-export function randomEnemy(route: Route): ZoidStats {
+export function randomEnemy(route: Route): CustomizedZoid {
   const ref = route.enemies[Math.floor(Math.random() * route.enemies.length)];
-  const stats = resolveZoid(ref);
+  const stats = buildZoid(ref);
   const baseHp = getZoidById(ref.id).maxHealth;
   const avgHp = route.enemies.reduce((sum, e) => sum + getZoidById(e.id).maxHealth, 0) / route.enemies.length;
   return { ...stats, maxHealth: Math.max(1, Math.round(route.routeHealth * (0.6 + baseHp / avgHp / 2 ))) };

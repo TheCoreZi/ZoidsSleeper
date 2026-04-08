@@ -1,6 +1,6 @@
 import { BaseBattle } from '../game/BaseBattle';
 import type { PlayerStats } from '../models/Player';
-import { createZoid, resolveZoid } from '../models/Zoid';
+import { spawnZoid, buildZoid } from '../models/Zoid';
 import { setEnemyZoid } from '../store/gameStore';
 
 const STARTER_LEVEL = 5;
@@ -10,7 +10,7 @@ export class IntroBattle extends BaseBattle {
 
   constructor(playerStats: PlayerStats, zoidId: string) {
     super(playerStats);
-    this.enemy = createZoid(resolveZoid({ id: zoidId, level: STARTER_LEVEL, maxHealthOverride: 100 }));
+    this.enemy = spawnZoid(buildZoid({ id: zoidId, level: STARTER_LEVEL, maxHealthOverride: 100 }));
     this.syncToStore();
   }
 

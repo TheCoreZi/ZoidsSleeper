@@ -291,7 +291,7 @@ body {
   font-size: 1.4rem;
   font-weight: bold;
   position: absolute;
-  text-shadow: 1px 1px 2px rgb(0 0 0 / 80%);
+  text-shadow: 0 0 3px #000, 0 0 6px #000, 1px 1px 2px #000;
 }
 
 .damage-auto {
@@ -332,7 +332,7 @@ body {
   font-weight: bold;
   gap: 0.2rem;
   position: absolute;
-  text-shadow: 1px 1px 2px rgb(0 0 0 / 80%);
+  text-shadow: 0 0 3px #000, 0 0 6px #000, 1px 1px 2px #000;
 }
 
 .reward-icon {
@@ -471,6 +471,11 @@ body {
   opacity: 0.5;
 }
 
+.player-health-bar-wrapper {
+  position: relative;
+  width: 100%;
+}
+
 .player-health-bar-container {
   background: #333;
   border-radius: 0 0 6px 6px;
@@ -495,6 +500,22 @@ body {
   text-shadow: 1px 1px 2px rgb(0 0 0 / 80%);
   top: 50%;
   transform: translate(-50%, -50%);
+}
+
+.player-damage-numbers {
+  pointer-events: none;
+  position: absolute;
+  right: 10%;
+  top: -0.5rem;
+}
+
+.player-damage-number {
+  animation: float-up 0.8s ease-out forwards;
+  color: #f44;
+  font-size: 1rem;
+  font-weight: bold;
+  position: absolute;
+  text-shadow: 0 0 3px #000, 0 0 6px #000, 1px 1px 2px #000;
 }
 
 .defeat-overlay {

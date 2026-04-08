@@ -7,7 +7,7 @@ const WalletIndicator: Component = () => (
   <div class="wallet-indicator">
     <img
       class="wallet-indicator-icon"
-      src="images/items/Magnis.png"
+      src="images/items/magnis.png"
       alt={t('ui:magnis')}
     />
     <span class="wallet-indicator-amount">

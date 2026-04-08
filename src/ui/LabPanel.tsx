@@ -26,7 +26,7 @@ const LabPanel: Component<LabPanelProps> = (props) => {
         <div class="archive-header">
           <span class="archive-title">{t(`locations:${props.labId}`)}</span>
           <div class="lab-wallet">
-            <img class="shop-wallet-icon" src="images/items/Magnis.png" alt="Magnis" />
+            <img class="shop-wallet-icon" src="images/items/magnis.png" alt="Magnis" />
             <span>{getCurrency(Currency.Magnis).toLocaleString()}</span>
           </div>
           <button class="archive-close" onClick={() => props.onClose()}>
@@ -55,7 +55,7 @@ const LabPanel: Component<LabPanelProps> = (props) => {
                     />
                     <span class="archive-card-name">{entry.data.name}</span>
                     <div class="lab-card-price">
-                      <img class="shop-price-icon" src="images/items/Magnis.png" alt="" />
+                      <img class="shop-price-icon" src="images/items/magnis.png" alt="" />
                       <span>{entry.data.price.toLocaleString()}</span>
                     </div>
                     <span class="lab-card-zdata">Z-Data: {getZoidDataCount(entry.id)}</span>

@@ -1,6 +1,7 @@
 import { Faction } from './Faction';
 import { LevelType, levelFromExperience } from './LevelType';
 
+/** A zoid owned by the player, tracking accumulated experience. */
 export interface OwnedZoid {
   experience: number;
   id: string;
@@ -14,7 +15,8 @@ export const ZoidResearchStatus = {
 
 export type ZoidResearchStatus = (typeof ZoidResearchStatus)[keyof typeof ZoidResearchStatus];
 
-export interface ZoidData {
+/** Static base template for a zoid species (attack, health, faction, price, etc.) */
+export interface ZoidSpecies {
   attack: number;
   baseExp: number;
   dropRate: number;
@@ -26,11 +28,13 @@ export interface ZoidData {
   price: number;
 }
 
-export interface ZoidInstance extends ZoidStats {
+/** A live zoid in combat with mutable health. Extends CustomizedZoid. */
+export interface SpawnedZoid extends CustomizedZoid {
   health: number;
 }
 
-export interface ZoidRef {
+/** Configuration to spawn an enemy: species id + level + optional stat overrides. */
+export interface ZoidBlueprint {
   attackOverride?: number;
   bonusMultiplier?: number;
   id: string;
@@ -39,7 +43,8 @@ export interface ZoidRef {
   maxHealthOverride?: number;
 }
 
-export interface ZoidStats {
+/** Computed stats for a zoid at a specific level, built from a ZoidBlueprint. */
+export interface CustomizedZoid {
   attack: number;
   id: string;
   imageOverride?: string;
@@ -48,7 +53,7 @@ export interface ZoidStats {
   name: string;
 }
 
-export const ZOID_LIST: Record<string, ZoidData> = {
+export const ZOID_LIST: Record<string, ZoidSpecies> = {
   command_wolf: { attack: 200, baseExp: 50, dropRate: 15, faction: Faction.HelicRepublic, id: 'command_wolf', levelType: LevelType.MediumFast, maxHealth: 200, name: 'Command Wolf', price: 40000 },
   elephantus: { attack: 100, baseExp: 15, dropRate: -1, faction: Faction.HelicRepublic, id: 'elephantus', levelType: LevelType.MediumSlow, maxHealth: 200, name: 'Elephantus', price: 50000 },
   garius: { attack: 50, baseExp: 10, dropRate: -1, faction: Faction.HelicRepublic, id: 'garius', levelType: LevelType.Fast, maxHealth: 100, name: 'Garius', price: 2000 },
@@ -64,18 +69,18 @@ export const ZOID_LIST: Record<string, ZoidData> = {
 };
 
 export function calculatePartyAttack(party: OwnedZoid[]): number {
-  return party.reduce((sum, z) => sum + resolveZoid({ id: z.id, level: getOwnedZoidLevel(z) }).attack, 0);
+  return party.reduce((sum, z) => sum + buildZoid({ id: z.id, level: getOwnedZoidLevel(z) }).attack, 0);
 }
 
 export function calculatePartyMaxHealth(party: OwnedZoid[]): number {
-  return party.reduce((sum, z) => sum + resolveZoid({ id: z.id, level: getOwnedZoidLevel(z) }).maxHealth, 0);
+  return party.reduce((sum, z) => sum + buildZoid({ id: z.id, level: getOwnedZoidLevel(z) }).maxHealth, 0);
 }
 
 export function calculateStat(baseStat: number, level: number, bonusMultiplier = 1): number {
   return Math.max(1, Math.floor(baseStat * (level / 100) * bonusMultiplier));
 }
 
-export function createZoid(stats: ZoidStats): ZoidInstance {
+export function spawnZoid(stats: CustomizedZoid): SpawnedZoid {
   return { ...stats, health: stats.maxHealth };
 }
 
@@ -84,7 +89,7 @@ export function getOwnedZoidLevel(owned: OwnedZoid): number {
   return levelFromExperience(owned.experience, data.levelType);
 }
 
-export function getZoidById(id: string): ZoidData {
+export function getZoidById(id: string): ZoidSpecies {
   const zoid = ZOID_LIST[id];
   if (!zoid) {throw new Error(`Unknown Zoid: ${id}`);}
   return zoid;
@@ -94,7 +99,7 @@ export function getZoidImage(id: string, imageOverride?: string): string {
   return `images/zoids/${imageOverride ?? id}.png`;
 }
 
-export function resolveZoid({ attackOverride, bonusMultiplier = 1, id, imageOverride, level, maxHealthOverride }: ZoidRef): ZoidStats {
+export function buildZoid({ attackOverride, bonusMultiplier = 1, id, imageOverride, level, maxHealthOverride }: ZoidBlueprint): CustomizedZoid {
   const base = getZoidById(id);
   return {
     attack: attackOverride ?? calculateStat(base.attack, level, bonusMultiplier),

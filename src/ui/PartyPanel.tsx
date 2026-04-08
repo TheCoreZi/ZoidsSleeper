@@ -1,7 +1,7 @@
 import { createSignal, For, Show, type Component } from 'solid-js';
 import { t } from '../i18n';
 import { experienceForLevel, MAX_LEVEL } from '../models/LevelType';
-import { getOwnedZoidLevel, getZoidById, getZoidImage, resolveZoid, type OwnedZoid } from '../models/Zoid';
+import { getOwnedZoidLevel, getZoidById, getZoidImage, buildZoid, type OwnedZoid } from '../models/Zoid';
 import { party } from '../store/partyStore';
 
 const StatOption = {
@@ -37,13 +37,13 @@ function getExpProgress(zoid: OwnedZoid): number {
 function getStatValue(zoid: OwnedZoid, stat: StatOption): number {
   const level = getOwnedZoidLevel(zoid);
   switch (stat) {
-    case StatOption.Attack: return resolveZoid({ id: zoid.id, level }).attack;
-    case StatOption.Attack100: return resolveZoid({ id: zoid.id, level: 100 }).attack;
+    case StatOption.Attack: return buildZoid({ id: zoid.id, level }).attack;
+    case StatOption.Attack100: return buildZoid({ id: zoid.id, level: 100 }).attack;
     case StatOption.BaseAttack: return getZoidById(zoid.id).attack;
     case StatOption.BaseHp: return getZoidById(zoid.id).maxHealth;
     case StatOption.Experience: return zoid.experience;
-    case StatOption.Hp: return resolveZoid({ id: zoid.id, level }).maxHealth;
-    case StatOption.Hp100: return resolveZoid({ id: zoid.id, level: 100 }).maxHealth;
+    case StatOption.Hp: return buildZoid({ id: zoid.id, level }).maxHealth;
+    case StatOption.Hp100: return buildZoid({ id: zoid.id, level: 100 }).maxHealth;
   }
 }
 

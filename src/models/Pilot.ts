@@ -1,10 +1,10 @@
-import type { ZoidRef } from '../models/Zoid';
+import type { ZoidBlueprint } from '../models/Zoid';
 
 export interface Pilot {
   id: string;
   magnisReward: number;
   name: string;
-  zoids: ZoidRef[];
+  zoids: ZoidBlueprint[];
 }
 
 export const PILOTS: Record<string, Pilot> = {

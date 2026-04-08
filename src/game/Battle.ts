@@ -2,7 +2,7 @@ import type { Route } from '../landmark';
 import { randomEnemy } from '../landmark';
 import { calculateMagnisReward, Currency } from '../models/Currency';
 import type { PlayerStats } from '../models/Player';
-import { createZoid } from '../models/Zoid';
+import { spawnZoid } from '../models/Zoid';
 import { checkCampaigns } from '../store/campaignStore';
 import { rewardEvents, setEnemyZoid, setRewardEvents } from '../store/gameStore';
 import { incrementRouteKills } from '../store/statisticsStore';
@@ -22,13 +22,13 @@ export class Battle extends BaseBattle {
   constructor(playerStats: PlayerStats, route: Route) {
     super(playerStats);
     this.route = route;
-    this.enemy = createZoid(randomEnemy(route));
+    this.enemy = spawnZoid(randomEnemy(route));
     updateZoidResearch(this.enemy.id, ZoidResearchStatus.Seen);
     this.syncToStore();
   }
 
   spawnEnemy(): void {
-    this.enemy = createZoid(randomEnemy(this.route));
+    this.enemy = spawnZoid(randomEnemy(this.route));
     updateZoidResearch(this.enemy.id, ZoidResearchStatus.Seen);
     this.counter = 0;
     this.syncToStore();

@@ -3,7 +3,7 @@ import { TICK_TIME } from '../constants';
 import { GameLoop } from '../game/GameLoop';
 import { DEFAULT_PLAYER } from '../models/Player';
 import { getZoidById } from '../models/Zoid';
-import { setBattleState } from '../store/gameStore';
+import { BattleState, setBattleState } from '../store/gameStore';
 import BattleScreen from '../ui/BattleScreen';
 import DialogBox from './DialogBox';
 import { IntroBattle } from './IntroBattle';
@@ -32,12 +32,12 @@ const IntroSequence: Component<IntroSequenceProps> = (props) => {
     battle = new IntroBattle(DEFAULT_PLAYER, selectedZoidId!);
     battle.onVictory = () => {
       loop?.stop();
-      setBattleState('idle');
+      setBattleState(BattleState.Idle);
       setStep('farewell');
     };
     loop = new GameLoop(TICK_TIME, () => battle!.gameTick());
     loop.start();
-    setBattleState('fighting');
+    setBattleState(BattleState.WildCombat);
     setStep('battle');
   };
 

@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { LevelType, experienceForLevel } from '../src/models/LevelType';
-import { calculatePartyAttack, calculatePartyMaxHealth, resolveZoid } from '../src/models/Zoid';
+import { calculatePartyAttack, calculatePartyMaxHealth, buildZoid } from '../src/models/Zoid';
 
 describe('Party', () => {
   it('should calculate total party attack', () => {
@@ -10,8 +10,8 @@ describe('Party', () => {
     ];
 
     const expected =
-      resolveZoid({ id: 'command_wolf', level: 1 }).attack +
-      resolveZoid({ id: 'molga', level: 1 }).attack;
+      buildZoid({ id: 'command_wolf', level: 1 }).attack +
+      buildZoid({ id: 'molga', level: 1 }).attack;
 
     expect(calculatePartyAttack(party)).toBe(expected);
   });
@@ -23,8 +23,8 @@ describe('Party', () => {
     ];
 
     const expected =
-      resolveZoid({ id: 'command_wolf', level: 1 }).maxHealth +
-      resolveZoid({ id: 'molga', level: 1 }).maxHealth;
+      buildZoid({ id: 'command_wolf', level: 1 }).maxHealth +
+      buildZoid({ id: 'molga', level: 1 }).maxHealth;
 
     expect(calculatePartyMaxHealth(party)).toBe(expected);
   });
