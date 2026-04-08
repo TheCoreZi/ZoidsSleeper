@@ -1,4 +1,10 @@
 {
+  "bianco_interrogation": [
+    "Alright, alright! I'll talk! Just... keep that dinosaur away from me.",
+    "We were hired to find a girl. We thought it could be that kid, so we took her to our boss.",
+    "...you don't want to mess with him.",
+    "That's all I know, I swear!"
+  ],
   "bianco": [
     "Hey, have you heard? There's some kid wandering around the ruins again.",
     "Apparently he plays soldier out in the desert, pretending to be some kind of warrior like his old man.",
@@ -19,12 +25,31 @@
     "You should take the intermediate route to get there. You'll encounter Zoids Sleepers along the way — it's good practice for your combat techniques.",
     "Please, bring them back safely!"
   ],
+  "maria_fiona": [
+    "You were worried about Van? He left early with that girl and that dinosaur they found. I think he's showing her around the town.",
+    "That boy... he's always getting himself into these situations.",
+    "But a girl with no memories? That's... concerning.",
+    "If you see him, please tell him to be careful. And... thank you for your help."
+  ],
   "maria_flyheight": [
     "My brother Van? *sighs* He's out there again, isn't he?",
     "He's always dreamed of being a great warrior like our father. He spends his days exploring the Elmia Desert, pretending he's on some grand adventure.",
     "He's probably out there right now, wandering around the ruins.",
     "If you're heading that way, please watch out for him. He's reckless, but he means well.",
     "The desert is east of here. Be careful, the Sleepers out there are stronger than the ones near the village."
+  ],
+  "narration_discover_fione": [
+    "After the miracle you just witnessed, you return to the ruins searching for any sign of Van.",
+    "Deep within the crumbling passages, you hear he's in a chamber similar to where they found Zeke.",
+    "Suddenly, another capsule opens and a girl emerges from it.",
+    "But at that very moment, weakened by the battle, the ground beneath you gives way and you fall into a hidden chamber.",
+    "In the center stands a small ancient statue, its surface covered in strange symbols."
+  ],
+  "narration_shield_liger": [
+    "In the middle of the battle, Van bursts out of the ruins, carried by Zeke.",
+    "Bianco and Nero turn around and chase him. Your Zoids are still regrouping and you can't reach Van in time. He's cornered.",
+    "But then something strange happens: Zeke fuses with one of the destroyed Zoids from the ruins, and suddenly it rises, fully restored.",
+    "And in a matter of seconds, Van and the Shield Liger drive the bandits away."
   ],
   "jenkins_to_work": [
     "Well, well! So you actually managed to get a Zoid's structural data. Not bad for a rookie.",
@@ -98,6 +123,13 @@
     "On Planet Zi, beyond the Milky Way, there exist steel Zoids with outstanding combat capability. The Zoids carry within them a warrior spirit.",
     "They are the most powerful weapon in the war between the Empire and the Republic of Planet Zi. For decades, this war has ravaged these lands. Amidst this great conflict, smaller villages struggle to survive.",
     "In one of these forgotten villages, a new threat approaches..."
+  ],
+  "van_alert": [
+    "Huh? Who are you? Wait... you're not one of those bandits, are you?",
+    "My name's Van. Van Flyheight. I was hiding in here when one of those capsules opened and that Zoid came out and attacked me.",
+    "Bandits? More of them coming? I figured as much...",
+    "So you can command Zoids? Great, then let's go after them and...",
+    "No time!! Maybe I can trick that Guysack guy and escape. Don't worry about me."
   ],
   "woman": [
     "Thank you for saving me! But please, you have to help me!",

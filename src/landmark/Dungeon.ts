@@ -13,11 +13,16 @@ export interface Dungeon extends Landmark {
   type: typeof LandmarkType.Dungeon;
 }
 
+const C = CAMPAIGNS.sleeper_commander;
+
 export const DUNGEONS: Dungeon[] = [
   {
     actions: [
-      new ActionTalkToNPC('bianco', [new PilotDefeatRequirement('bul')], undefined, undefined, 'ui:listen_to_bandits'),
-      new ActionFightPilot(PILOTS['bul'], [new PilotDefeatRequirement('bul')], [new MissionCompletedRequirement(CAMPAIGNS.sleeper_commander.id, 'listen_to_bandits')]),
+      new ActionTalkToNPC('bianco', undefined, [new PilotDefeatRequirement('bul')], undefined, 'ui:listen_to_bandits'),
+      new ActionFightPilot(PILOTS['bul'], [new MissionCompletedRequirement(C.id, 'listen_to_bandits')], [new PilotDefeatRequirement('bul')]),
+      new ActionTalkToNPC('van', [new PilotDefeatRequirement('bul')], [new PilotDefeatRequirement('bianco_nero')]),
+      new ActionFightPilot(PILOTS['bianco_nero'], [new MissionCompletedRequirement(C.id, 'find_van')], [new PilotDefeatRequirement('bianco_nero')]),
+      new ActionTalkToNPC('bianco', [new MissionCompletedRequirement(C.id, 'defeat_bianco_nero')], [new MissionCompletedRequirement(C.id, 'interrogate_bandits')], undefined, 'ui:interrogate_bandits'),
     ],
     battleBackground: BattleBackground.Desert,
     id: 'elmia_ruins',

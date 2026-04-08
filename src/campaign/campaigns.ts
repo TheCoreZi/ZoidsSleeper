@@ -1,4 +1,6 @@
 import { ArmySizeRequirement, ComparisonCondition, NpcTalkedInCampaignRequirement, PilotDefeatRequirement, RouteKillRequirement, ZiDataRequirement } from '../requirement';
+import { enqueueDialog } from '../store/gameStore';
+import { buildDialog } from '../story/Dialog';
 import type { Campaign } from './Campaign';
 
 export const CAMPAIGNS: Record<string, Campaign> = {
@@ -21,6 +23,10 @@ export const CAMPAIGNS: Record<string, Campaign> = {
       { id: 'elmia_desert_patrol', goals: [new RouteKillRequirement('elmia_desert', 10)] },
       { id: 'listen_to_bandits', goals: [new NpcTalkedInCampaignRequirement('sleeper_commander', 'bianco')] },
       { id: 'defeat_bul', goals: [new PilotDefeatRequirement('bul')] },
+      { id: 'find_van', goals: [new NpcTalkedInCampaignRequirement('sleeper_commander', 'van')] },
+      { id: 'defeat_bianco_nero', goals: [new PilotDefeatRequirement('bianco_nero')], onComplete: () => enqueueDialog(buildDialog('', 'dialog:narration_shield_liger')) },
+      { id: 'interrogate_bandits', goals: [new NpcTalkedInCampaignRequirement('sleeper_commander', 'bianco')], onComplete: () => enqueueDialog(buildDialog('', 'dialog:narration_discover_fione')) },
+      { id: 'maria_van_status', goals: [new NpcTalkedInCampaignRequirement('sleeper_commander', 'maria_flyheight')] },
     ],
   },
 };

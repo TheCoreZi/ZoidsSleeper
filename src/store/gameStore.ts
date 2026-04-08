@@ -39,6 +39,23 @@ const [pilotZoidIds, setPilotZoidIds] = createSignal<{ id: string; imageOverride
 const [playerStats, setPlayerStats] = createSignal<PlayerStats | null>(null);
 const [showClickHint, setShowClickHint] = createSignal(true);
 const [activeDialog, setActiveDialog] = createSignal<DialogScript | null>(null);
+const [dialogQueue, setDialogQueue] = createSignal<DialogScript[]>([]);
+
+function dequeueDialog(): DialogScript | undefined {
+  const queue = dialogQueue();
+  if (queue.length === 0) {return undefined;}
+  const [next, ...rest] = queue;
+  setDialogQueue(rest);
+  return next;
+}
+
+function enqueueDialog(script: DialogScript): void {
+  if (!activeDialog()) {
+    setActiveDialog(script);
+  } else {
+    setDialogQueue((q) => [...q, script]);
+  }
+}
 export interface LabData {
   labId: string;
 }
@@ -67,6 +84,8 @@ export {
   activeShop,
   battleState,
   damageEvents,
+  dequeueDialog,
+  enqueueDialog,
   enemyHealthPercent,
   enemyZoid,
   gamePhase,

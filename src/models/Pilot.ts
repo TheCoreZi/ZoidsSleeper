@@ -16,6 +16,15 @@ export const PILOTS: Record<string, Pilot> = {
       { id: 'molga', level: 5 },
     ],
   },
+  bianco_nero: {
+    id: 'bianco_nero',
+    magnisReward: 800,
+    name: 'Bianco & Nero',
+    zoids: [
+      { id: 'command_wolf', level: 15 },
+      { id: 'command_wolf', level: 15 },
+    ],
+  },
   bul: {
     id: 'bul',
     magnisReward: 500,
