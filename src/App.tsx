@@ -41,6 +41,7 @@ import WalletIndicator from './ui/WalletPanel';
 import { Currency } from './models/Currency';
 import { getZoidImage, ZOID_LIST } from './models/Zoid';
 import { buyItem } from './store/inventoryStore';
+import { grantReward } from './reward';
 import { checkCampaigns } from './store/campaignStore';
 import { addZoidToArmy } from './store/partyStore';
 import { addCurrency, getCurrency } from './store/walletStore';
@@ -139,6 +140,8 @@ const App: Component = () => {
           <DialogBox
             script={activeDialog()!}
             onComplete={() => {
+              const dialog = activeDialog();
+              if (dialog?.reward) {grantReward(dialog.reward);}
               checkCampaigns();
               setActiveDialog(dequeueDialog() ?? null);
             }}
