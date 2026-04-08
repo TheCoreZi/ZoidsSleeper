@@ -61,6 +61,22 @@
       "defeat_bul": {
         "description": "The bandits mentioned Blu, who's trying to get rid of a boy. Help Van by holding back Blu and his Guysack.",
         "name": "Ambush at the Ruins"
+      },
+      "find_van": {
+        "description": "That will hold Blu off for a few minutes. Find Van and warn him about the incoming bandits.",
+        "name": "The Boy in the Ruins"
+      },
+      "defeat_bianco_nero": {
+        "description": "Blu's reinforcements have arrived. Van can't escape alone. Hold off the bandits while Van gets out.",
+        "name": "Wolves at the Gate"
+      },
+      "interrogate_bandits": {
+        "description": "The bandits might know where the girl was taken. Interrogate Bianco.",
+        "name": "Truth Among Thieves"
+      },
+      "maria_van_status": {
+        "description": "Ask Maria how Van and the mysterious girl are doing.",
+        "name": "The Mysterious Fine"
       }
     },
     "name": "Sleeper Commander"

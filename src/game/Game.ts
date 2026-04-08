@@ -159,7 +159,6 @@ export class Game {
         action.onExecute = () => {
           markNpcTalked(action.npcId);
           setActiveDialog(action.script);
-          checkCampaigns();
         };
       } else if (action instanceof ActionVisitDepot) {
         action.onExecute = () => setActiveShop({ items: action.items });

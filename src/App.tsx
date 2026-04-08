@@ -19,6 +19,7 @@ import {
   battleState,
   gamePhase,
   popupMessage,
+  dequeueDialog,
   setActiveDialog,
   setActiveLab,
   setActiveShop,
@@ -137,7 +138,10 @@ const App: Component = () => {
         <div class="dialog-overlay">
           <DialogBox
             script={activeDialog()!}
-            onComplete={() => setActiveDialog(null)}
+            onComplete={() => {
+              checkCampaigns();
+              setActiveDialog(dequeueDialog() ?? null);
+            }}
           />
         </div>
       </Show>

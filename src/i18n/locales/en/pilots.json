@@ -2,6 +2,7 @@
   "bandit1": "Bandit",
   "becker": "Ms. Becker",
   "bianco": "Bianco",
+  "bianco_nero": "Bianco & Nero",
   "boy": "Boy",
   "bul": "Blu",
   "captain_malinoff": "Captain Malinoff",
@@ -9,5 +10,6 @@
   "maria_flyheight": "Maria Flyheight",
   "priest_leon": "Priest Leon",
   "scrap_dealer": "Scrap Dealer",
+  "van": "Van",
   "woman": "Woman"
 }

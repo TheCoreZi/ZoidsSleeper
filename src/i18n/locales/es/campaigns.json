@@ -61,6 +61,22 @@
       "defeat_bul": {
         "description": "Los bandidos mencionaron a Blu, que intenta deshacerse de un niño. Ayuda a Van deteniendo a Blu y su Guysack.",
         "name": "Emboscada en las Ruinas"
+      },
+      "find_van": {
+        "description": "Eso detendrá a Blu por unos minutos. Encuentra a Van y adviértele sobre los bandidos que se acercan.",
+        "name": "El Chico de las Ruinas"
+      },
+      "defeat_bianco_nero": {
+        "description": "Los refuerzos de Blu llegaron, Van no podrá escapar solo. Detén a los bandidos mientras Van sale de ahí",
+        "name": "Lobos a las Puertas"
+      },
+      "interrogate_bandits": {
+        "description": "Los bandidos podrían saber a dónde se llevaron a la chica. Interroga a Bianco.",
+        "name": "Verdad entre Ladrones"
+      },
+      "maria_van_status": {
+        "description": "Preguntale a María como se encuentra Van y la misteriosa chica.",
+        "name": "La misteriosa Fine"
       }
     },
     "name": "Comandante Sleeper"

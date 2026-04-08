@@ -58,6 +58,7 @@ export const ZOID_LIST: Record<string, ZoidData> = {
   malder: { attack: 20, baseExp: 40, dropRate: 10, faction: Faction.ZenebasEmpire, id: 'malder', levelType: LevelType.Erratic, maxHealth: 700, name: 'Malder', price: 8000 },
   merda: { attack: 50, baseExp: 20, dropRate: 50, faction: Faction.ZenebasEmpire, id: 'merda', levelType: LevelType.Fast, maxHealth: 100, name: 'Merda', price: 2000 },
   molga: { attack: 100, baseExp: 35, dropRate: 20, faction: Faction.ZenebasEmpire, id: 'molga', levelType: LevelType.Fast, maxHealth: 400, name: 'Molga', price: 20000 },
+  shield_liger: { attack: 250, baseExp: 100, dropRate: 1, faction: Faction.HelicRepublic, id: 'shield_liger', levelType: LevelType.MediumFast, maxHealth: 600, name: 'Shield Liger', price: 100000 },
   tortoise: { attack: 100, baseExp: 30, dropRate: 20, faction: Faction.ZenebasEmpire, id: 'tortoise', levelType: LevelType.Fast, maxHealth: 700, name: 'Cannon Tortoise', price: 9000 },
   zatton: { attack: 120, baseExp: 40, dropRate: 5, faction: Faction.ZenebasEmpire, id: 'zatton', levelType: LevelType.MediumSlow, maxHealth: 350, name: 'Zatton', price: 10000 },
 };

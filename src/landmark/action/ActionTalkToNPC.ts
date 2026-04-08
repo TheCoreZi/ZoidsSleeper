@@ -13,7 +13,7 @@ export class ActionTalkToNPC implements CityAction {
   onExecute: (() => void) | null = null;
   requirements?: Requirement[];
 
-  constructor(npcId: string, completeRequirements?: Requirement[], requirements?: Requirement[], onComplete?: () => void, labelKey?: string) {
+  constructor(npcId: string, requirements?: Requirement[], completeRequirements?: Requirement[], onComplete?: () => void, labelKey?: string) {
     this.completeRequirements = completeRequirements;
     this.id = `talk-${npcId}`;
     this.labelKey = labelKey;
