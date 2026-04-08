@@ -17,26 +17,26 @@ describe('isCityActionVisible', () => {
 
   it('should return false for action with fulfilled completeRequirements', () => {
     loadStatistics({}, { bandit1: 1 });
-    const action = new ActionFightPilot(PILOTS['bandit1'], [new PilotDefeatRequirement('bandit1')]);
+    const action = new ActionFightPilot(PILOTS['bandit1'], undefined, [new PilotDefeatRequirement('bandit1')]);
 
     expect(isCityActionVisible(action)).toBe(false);
   });
 
   it('should return true for action with unfulfilled completeRequirements', () => {
-    const action = new ActionFightPilot(PILOTS['bandit1'], [new PilotDefeatRequirement('bandit1')]);
+    const action = new ActionFightPilot(PILOTS['bandit1'], undefined, [new PilotDefeatRequirement('bandit1')]);
 
     expect(isCityActionVisible(action)).toBe(true);
   });
 
   it('should return false for action with unfulfilled requirements (locked)', () => {
-    const action = new ActionTalkToNPC('boy', undefined, [new PilotDefeatRequirement('bandit1')]);
+    const action = new ActionTalkToNPC('boy', [new PilotDefeatRequirement('bandit1')]);
 
     expect(isCityActionVisible(action)).toBe(false);
   });
 
   it('should return true for action with fulfilled requirements and no completeRequirements', () => {
     loadStatistics({}, { bandit1: 1 });
-    const action = new ActionTalkToNPC('boy', undefined, [new PilotDefeatRequirement('bandit1')]);
+    const action = new ActionTalkToNPC('boy', [new PilotDefeatRequirement('bandit1')]);
 
     expect(isCityActionVisible(action)).toBe(true);
   });
@@ -45,8 +45,8 @@ describe('isCityActionVisible', () => {
     loadStatistics({ 'test-route': 10 }, {});
     const action = new ActionFightPilot(
       PILOTS['bandit1'],
-      [new PilotDefeatRequirement('bandit1')],
       [new RouteKillRequirement('test-route', 10)],
+      [new PilotDefeatRequirement('bandit1')],
     );
 
     expect(isCityActionVisible(action)).toBe(true);
@@ -56,8 +56,8 @@ describe('isCityActionVisible', () => {
     loadStatistics({ 'test-route': 10 }, { bandit1: 1 });
     const action = new ActionFightPilot(
       PILOTS['bandit1'],
-      [new PilotDefeatRequirement('bandit1')],
       [new RouteKillRequirement('test-route', 10)],
+      [new PilotDefeatRequirement('bandit1')],
     );
 
     expect(isCityActionVisible(action)).toBe(false);

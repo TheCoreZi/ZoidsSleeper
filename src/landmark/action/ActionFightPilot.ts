@@ -10,7 +10,7 @@ export class ActionFightPilot implements CityAction {
   pilot: Pilot;
   requirements?: Requirement[];
 
-  constructor(pilot: Pilot, completeRequirements?: Requirement[], requirements?: Requirement[]) {
+  constructor(pilot: Pilot, requirements?: Requirement[], completeRequirements?: Requirement[]) {
     this.completeRequirements = completeRequirements;
     this.id = `fight-${pilot.id}`;
     this.pilot = pilot;

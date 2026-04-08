@@ -1,4 +1,10 @@
 {
+  "bianco_interrogation": [
+    "¡Está bien, está bien! ¡Hablaré! Solo... no dejes que ese dinosaurio se me acerque.",
+    "Nos contrataron para encontrar a una chica. Pensamos que podía tratarse de esa niña, así que se la llevamos a nuestro jefe.",
+    "...no querrás meterte con él.",
+    "¡Eso es todo lo que sé, lo juro!"
+  ],
   "bianco": [
     "Oye, ¿supiste de Blu? ¡Ese mocoso apareció otra vez cerca de las ruinas!",
     "No deja de andar fisgoneando y estorbando. El jefe está perdiendo la paciencia.",
@@ -33,12 +39,31 @@
     "Si consigues los datos de un Zoid, ven a verme y pondremos a incubar algunos Cores. Aunque con este laboratorio tan básico solo podremos crear Zoids simples, y no te garantizo mucho éxito.",
     "Solo te falta una pieza importante: para conectar el Analizador a los Cores necesitarás una Sonda. Son de un solo uso, así que tendrás que invertir en ellas. Visita el taller de la señora Becker, seguro las tiene."
   ],
+  "maria_fiona": [
+    "¿Así que estabas preocupado por Van? Él se fue temprano con esa chica y ese dinosaurio que encontraron. Creo que le está enseñando la ciudad.",
+    "Ese chico... siempre metiéndose en estas situaciones.",
+    "¿Pero una chica sin recuerdos? Eso es... preocupante.",
+    "Si lo ves, por favor dile que tenga cuidado. Y... gracias por tu ayuda."
+  ],
   "maria_flyheight": [
     "¿Mi hermano Van? *suspira* Está ahí afuera otra vez, ¿verdad?",
     "Siempre ha soñado con ser un gran guerrero como nuestro padre. Se la pasa explorando el Desierto de Elmia, imaginando que está en una gran aventura.",
     "Seguramente está por allá ahora mismo, rondando por las ruinas.",
     "Si vas para allá, por favor cuídalo. Es imprudente, pero tiene buen corazón.",
     "El desierto está al este de aquí. Ten cuidado, los Sleepers de allá son más fuertes que los de cerca de la aldea."
+  ],
+  "narration_discover_fione": [
+    "Tras el milagro que acabas de presenciar, regresas a las ruinas buscando alguna señal de Van.",
+    "En lo profundo de los pasajes en ruinas, escuchas que se encuentra en una cámara similar a donde encontraron a Zeke.",
+    "De pronto, otra de las cápsulas se abre y una chica sale de ella.",
+    "Pero justo en ese momento, debido a la batalla, el suelo sobre el que estás parado se abre y caes a una cámara oculta.",
+    "En el centro se alza una pequeña estatua antigua, su superficie cubierta de extraños símbolos."
+  ],
+  "narration_shield_liger": [
+    "En medio de la batalla, Van sale disparado de las ruinas cargado por Zeke.",
+    "Bianco y Nero dan la vuelta y lo persiguen. Tus Zoids aún se están reorganizando y no te da tiempo de ayudar a Van, que está acorralado.",
+    "Pero en ese momento algo extraño sucede: Zeke se fusiona con uno de los Zoids destruidos de las ruinas y de pronto este se levanta totalmente restaurado.",
+    "Y en cuestión de segundos, Van y el Shield Liger ahuyentan a los bandidos."
   ],
   "jenkins_to_work": [
     "¡Vaya, vaya! Así que lograste obtener los datos estructurales de un Zoid. Nada mal para un novato.",
@@ -98,6 +123,13 @@
     "En el planeta Zi, mas allá de la Vía Láctea, existen Zoids de acero con destacada capacidad de combate. Los Zoids tienen dentro de si ese espíritu guerrero.",
     "Ellos constituyen el arma mas potente en la guerra entre el Imperio y la Republica del Planeta Zi. Durante décadas, esta guerra ha devastado estas tierras. En medio de este gran conflicto, las aldeas más pequeñas luchan por sobrevivir.",
     "En una de estas aldeas olvidadas, una nueva amenaza se acerca..."
+  ],
+  "van_alert": [
+    "¿Eh? ¿Quién eres? Espera... no eres uno de esos bandidos, ¿verdad?",
+    "Me llamo Van. Van Flyheight. Estaba escondiéndome aquí cuando una de esas cápsulas se abrió y ese Zoid salió de ahí y me atacó.",
+    "¿Bandidos? ¿Vienen más? Ya me lo imaginaba...",
+    "¿Así que tú puedes comandar Zoids? Genial, entonces vamos por ellos y...",
+    "¡¡No hay tiempo!! Tal vez pueda engañar a ese tipo del Guysack y escapar. No te preocupes por mí."
   ],
   "woman": [
     "¡Gracias por salvarme! Pero por favor, ¡tienes que ayudarme!",

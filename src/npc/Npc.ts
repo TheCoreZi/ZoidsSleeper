@@ -20,9 +20,13 @@ export const NPCS: Record<string, Npc> = {
     nameKey: 'pilots:becker',
   },
   bianco: {
-    dialogs: [{ dialogKey: 'dialog:bianco' }],
+    dialogs: [
+      { dialogKey: 'dialog:bianco_interrogation', unlockRequirement: new MissionCompletedRequirement('sleeper_commander', 'defeat_bianco_nero') },
+      { dialogKey: 'dialog:bianco' },
+    ],
     id: 'bianco',
     nameKey: 'pilots:bianco',
+    portrait: 'images/pilots/bianco.png',
   },
   boy: {
     dialogs: [
@@ -50,7 +54,10 @@ export const NPCS: Record<string, Npc> = {
     portrait: 'images/pilots/malinoff.png',
   },
   maria_flyheight: {
-    dialogs: [{ dialogKey: 'dialog:maria_flyheight' }],
+    dialogs: [
+      { dialogKey: 'dialog:maria_fiona', unlockRequirement: new MissionCompletedRequirement('sleeper_commander', 'interrogate_bandits') },
+      { dialogKey: 'dialog:maria_flyheight' },
+    ],
     id: 'maria_flyheight',
     nameKey: 'pilots:maria_flyheight',
     portrait: 'images/pilots/maria.png',
@@ -75,6 +82,12 @@ export const NPCS: Record<string, Npc> = {
     ],
     id: 'scrap_dealer',
     nameKey: 'pilots:scrap_dealer',
+  },
+  van: {
+    dialogs: [{ dialogKey: 'dialog:van_alert' }],
+    id: 'van',
+    nameKey: 'pilots:van',
+    portrait: 'images/pilots/van.png',
   },
   woman: {
     dialogs: [
