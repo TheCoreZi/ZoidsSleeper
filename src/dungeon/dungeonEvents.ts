@@ -14,6 +14,6 @@ export const DUNGEON_EVENTS = {
   ]),
   mysterious_creature: new DungeonEvent('mysterious_creature', 'dungeon:event_creature', [
     new DungeonEventChoice('dungeon:event_creature_provoke', new DamageOutcome('dungeon:event_creature_damage', 15)),
-    new DungeonEventChoice('dungeon:event_creature_approah>',new HealOutcome('dungeon:event_creature_heal', 10) ),
+    new DungeonEventChoice('dungeon:event_creature_approach',new HealOutcome('dungeon:event_creature_heal', 10) ),
   ]),
 };
