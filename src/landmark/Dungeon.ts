@@ -1,8 +1,10 @@
 import { CAMPAIGNS } from '../campaign/campaigns';
-import { PILOTS } from '../models/Pilot';
+import { DungeonSortieEvent } from '../dungeon/DungeonSortieEvent';
+import { DUNGEON_EVENTS } from '../dungeon/dungeonEvents';
+import type { BossTier } from '../dungeon/DungeonSortieConfig';
+import { DUNGEON_SUPPLIES } from '../dungeon/dungeonSupplies';
 import { MissionCompletedRequirement, PilotDefeatRequirement, RouteKillRequirement } from '../requirement';
 import { cutsceneReward } from '../reward';
-import { ActionFightPilot } from './action/ActionFightPilot';
 import { ActionTalkToNPC } from './action/ActionTalkToNPC';
 import type { CityAction } from './action/CityAction';
 import type { Landmark } from './Landmark';
@@ -19,10 +21,37 @@ const C = CAMPAIGNS.sleeper_commander;
 export const DUNGEONS: Dungeon[] = [
   {
     actions: [
-      new ActionTalkToNPC('bianco', undefined, [new PilotDefeatRequirement('bul')], undefined, 'ui:listen_to_bandits'),
-      new ActionFightPilot(PILOTS['bul'], [new MissionCompletedRequirement(C.id, 'listen_to_bandits')], [new PilotDefeatRequirement('bul')]),
+      new DungeonSortieEvent({
+        id: 'elmia_ruins_sortie',
+        bossTiers: [
+          { pilots: ['bul'] },
+          { pilots: ['bianco_nero'], requirements: [new MissionCompletedRequirement(C.id, 'find_van')] },
+          { pilots: ['bianco_nero', 'bul'], requirements: [new MissionCompletedRequirement(C.id, 'defeat_bianco_nero')] },
+        ] satisfies BossTier[],
+        enemies: [
+          { zoidData: { id: 'gator', level: 14,maxHealthOverride: 80  } },
+          { zoidData: { id: 'malder', level: 12, maxHealthOverride: 100 } },
+          { zoidData: { id: 'zatton', level: 15, maxHealthOverride: 150 } },
+        ],
+        eliteEnemies: [
+          { zoidData: { id: 'guysack', level: 20, bonusMultiplier: 1.5 }, requirement: new MissionCompletedRequirement(C.id, 'defeat_bianco_nero')},
+          { zoidData: { id: 'molga', level: 20, bonusMultiplier: 1.1 } },
+        ],
+        baseReward: 200,
+        entryCost: 500,
+        layers: 4,
+        nodesPerLayer: [3, 4],
+        eventPool: [
+          DUNGEON_EVENTS.mysterious_device,
+          DUNGEON_EVENTS.mysterious_creature,
+        ],
+        supplyOptions: [
+          DUNGEON_SUPPLIES.field_repair,
+          DUNGEON_SUPPLIES.overclock,
+        ],
+        requirements: [new MissionCompletedRequirement(C.id, 'listen_to_bandits')],
+      }),
       new ActionTalkToNPC('van', [new PilotDefeatRequirement('bul')], [new PilotDefeatRequirement('bianco_nero')]),
-      new ActionFightPilot(PILOTS['bianco_nero'], [new MissionCompletedRequirement(C.id, 'find_van')], [new PilotDefeatRequirement('bianco_nero')]),
       new ActionTalkToNPC('bianco', [new MissionCompletedRequirement(C.id, 'defeat_bianco_nero')], [new MissionCompletedRequirement(C.id, 'interrogate_bandits')], cutsceneReward('dialog:narration_discover_fione'), 'ui:interrogate_bandits'),
     ],
     battleBackground: BattleBackground.Desert,

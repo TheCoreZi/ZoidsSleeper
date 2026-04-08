@@ -1,10 +1,11 @@
 import type { Pilot } from '../models/Pilot';
 import type { PlayerStats } from '../models/Player';
-import { createZoid, resolveZoid, ZoidResearchStatus } from '../models/Zoid';
+import { spawnZoid, buildZoid, ZoidResearchStatus } from '../models/Zoid';
 import { updateZoidResearch } from '../store/zoidResearchStore';
 import {
   setEnemyZoid,
   setPilotEnemyProgress,
+  setPilotInfo,
   setPilotPlayerHealth,
   setPilotPlayerMaxHealth,
   setPilotZoidIds,
@@ -20,12 +21,12 @@ export class PilotBattle extends BaseBattle {
   playerHealth: number;
   playerMaxHealth: number;
 
-  constructor(playerStats: PlayerStats, pilot: Pilot) {
+  constructor(playerStats: PlayerStats, pilot: Pilot, initialHealth?: number, initialMaxHealth?: number) {
     super(playerStats);
     this.pilot = pilot;
-    this.playerMaxHealth = playerStats.baseHealth + partyMaxHealth();
-    this.playerHealth = this.playerMaxHealth;
-    this.enemy = createZoid(resolveZoid(pilot.zoids[0]));
+    this.playerMaxHealth = initialMaxHealth ?? (playerStats.baseHealth + partyMaxHealth());
+    this.playerHealth = initialHealth ?? this.playerMaxHealth;
+    this.enemy = spawnZoid(buildZoid(pilot.zoids[0]));
     updateZoidResearch(this.enemy.id, ZoidResearchStatus.Seen);
     this.syncToStore();
   }
@@ -49,13 +50,16 @@ export class PilotBattle extends BaseBattle {
   protected syncToStore(): void {
     setEnemyZoid({ ...this.enemy });
     setPilotEnemyProgress({ current: this.currentEnemyIndex, total: this.pilot.zoids.length });
+    setPilotInfo({ id: this.pilot.id, name: this.pilot.name });
     setPilotPlayerHealth(this.playerHealth);
     setPilotPlayerMaxHealth(this.playerMaxHealth);
     setPilotZoidIds(this.pilot.zoids.map((z) => ({ id: z.id, imageOverride: z.imageOverride })));
   }
 
   private enemyAttack(): void {
+    const damage = Math.min(this.playerHealth, this.enemy.attack);
     this.playerHealth = Math.max(0, this.playerHealth - this.enemy.attack);
+    this.emitPlayerDamageNumber(damage);
     this.syncToStore();
     if (this.playerHealth <= 0) {
       this.onDefeat?.();
@@ -64,7 +68,7 @@ export class PilotBattle extends BaseBattle {
 
   private nextEnemy(): void {
     this.currentEnemyIndex++;
-    this.enemy = createZoid(resolveZoid(this.pilot.zoids[this.currentEnemyIndex]));
+    this.enemy = spawnZoid(buildZoid(this.pilot.zoids[this.currentEnemyIndex]));
     updateZoidResearch(this.enemy.id, ZoidResearchStatus.Seen);
     this.syncToStore();
   }

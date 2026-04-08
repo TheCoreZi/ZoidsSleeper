@@ -40,7 +40,7 @@ const ShopPanel: Component<ShopPanelProps> = (props) => {
           <button class="shop-close" onClick={() => props.onClose()}>✕</button>
         </div>
         <div class="shop-wallet">
-          <img class="shop-wallet-icon" src="images/items/Magnis.png" alt="Magnis" />
+          <img class="shop-wallet-icon" src="images/items/magnis.png" alt="Magnis" />
           <span class="shop-wallet-amount">{getCurrency(Currency.Magnis).toLocaleString()}</span>
         </div>
         <div class="shop-items">
@@ -56,7 +56,7 @@ const ShopPanel: Component<ShopPanelProps> = (props) => {
                   <span class="shop-item-desc">{t(`items:${item.id}.description`)}</span>
                 </div>
                 <div class="shop-item-price">
-                  <img class="shop-price-icon" src="images/items/Magnis.png" alt="" />
+                  <img class="shop-price-icon" src="images/items/magnis.png" alt="" />
                   <span>{item.price.toLocaleString()}</span>
                 </div>
               </button>
@@ -73,7 +73,7 @@ const ShopPanel: Component<ShopPanelProps> = (props) => {
           </div>
           <div class="shop-total-row">
             <span class="shop-total-label">{t('ui:total')}:</span>
-            <img class="shop-price-icon" src="images/items/Magnis.png" alt="" />
+            <img class="shop-price-icon" src="images/items/magnis.png" alt="" />
             <span class={`shop-total-value ${canAfford() ? '' : 'shop-no-funds'}`}>
               {totalPrice().toLocaleString()}
             </span>

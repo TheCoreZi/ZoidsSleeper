@@ -3,10 +3,22 @@ import type { PlayerStats } from '../models/Player';
 import type { PopupMessage } from '../models/PopupMessage';
 import type { DialogScript } from '../story/Dialog';
 import type { ShopData } from '../ui/ShopPanel';
-import type { ZoidInstance } from '../models/Zoid';
+import type { SpawnedZoid } from '../models/Zoid';
 
-export type BattleState = 'fighting' | 'idle' | 'pilot-fighting' | 'victory';
-export type GamePhase = 'intro' | 'playing';
+export const BattleState = {
+  DungeonBoss: 'dungeon-boss',
+  DungeonCombat: 'dungeon-combat',
+  Idle: 'idle',
+  PilotCombat: 'pilot-combat',
+  WildCombat: 'wild-combat',
+} as const;
+export type BattleState = (typeof BattleState)[keyof typeof BattleState];
+
+export const GamePhase = {
+  Intro: 'intro',
+  Playing: 'playing',
+} as const;
+export type GamePhase = (typeof GamePhase)[keyof typeof GamePhase];
 export type DamageSource = 'auto' | 'click';
 
 export interface DamageEvent {
@@ -26,13 +38,14 @@ export interface RewardEvent {
   id: number;
 }
 
-const [battleState, setBattleState] = createSignal<BattleState>('fighting');
-const [gamePhase, setGamePhase] = createSignal<GamePhase>('playing');
+const [battleState, setBattleState] = createSignal<BattleState>(BattleState.WildCombat);
+const [gamePhase, setGamePhase] = createSignal<GamePhase>(GamePhase.Playing);
 const [damageEvents, setDamageEvents] = createSignal<DamageEvent[]>([]);
-const [enemyZoid, setEnemyZoid] = createSignal<ZoidInstance | null>(null);
+const [enemyZoid, setEnemyZoid] = createSignal<SpawnedZoid | null>(null);
 const [rewardEvents, setRewardEvents] = createSignal<RewardEvent[]>([]);
 const [pilotEnemyProgress, setPilotEnemyProgress] = createSignal({ current: 0, total: 0 });
 const [pilotInfo, setPilotInfo] = createSignal<PilotInfo | null>(null);
+const [playerDamageEvents, setPlayerDamageEvents] = createSignal<DamageEvent[]>([]);
 const [pilotPlayerHealth, setPilotPlayerHealth] = createSignal(0);
 const [pilotPlayerMaxHealth, setPilotPlayerMaxHealth] = createSignal(0);
 const [pilotZoidIds, setPilotZoidIds] = createSignal<{ id: string; imageOverride?: string }[]>([]);
@@ -92,6 +105,7 @@ export {
   incrementClickAttack,
   pilotEnemyProgress,
   pilotInfo,
+  playerDamageEvents,
   pilotPlayerHealth,
   pilotPlayerHealthPercent,
   pilotPlayerMaxHealth,
@@ -105,6 +119,7 @@ export {
   setDamageEvents,
   setGamePhase,
   setEnemyZoid,
+  setPlayerDamageEvents,
   setPilotEnemyProgress,
   setPilotInfo,
   setPilotPlayerHealth,

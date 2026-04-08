@@ -14,7 +14,7 @@ const RewardNumber: Component = () => {
             class="reward-number"
             onAnimationEnd={() => handleAnimationEnd(event.id)}
           >
-            +{event.amount} <img class="reward-icon" src="images/items/Magnis.png" alt="Magnis" />
+            +{event.amount} <img class="reward-icon" src="images/items/magnis.png" alt="Magnis" />
           </span>
         )}
       </For>

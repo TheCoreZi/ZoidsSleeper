@@ -3,6 +3,7 @@ import { createSignal } from 'solid-js';
 
 import enCampaigns from './locales/en/campaigns.json';
 import enDialog from './locales/en/dialog.json';
+import enDungeon from './locales/en/dungeon.json';
 import enFactions from './locales/en/factions.json';
 import enItems from './locales/en/items.json';
 import enLocations from './locales/en/locations.json';
@@ -12,6 +13,7 @@ import enUi from './locales/en/ui.json';
 import enZoids from './locales/en/zoids.json';
 import esCampaigns from './locales/es/campaigns.json';
 import esDialog from './locales/es/dialog.json';
+import esDungeon from './locales/es/dungeon.json';
 import esFactions from './locales/es/factions.json';
 import esItems from './locales/es/items.json';
 import esLocations from './locales/es/locations.json';
@@ -20,7 +22,7 @@ import esRequirements from './locales/es/requirements.json';
 import esUi from './locales/es/ui.json';
 import esZoids from './locales/es/zoids.json';
 
-const NAMESPACES = ['campaigns', 'dialog', 'factions', 'items', 'locations', 'pilots', 'requirements', 'ui', 'zoids'] as const;
+const NAMESPACES = ['campaigns', 'dialog', 'dungeon', 'factions', 'items', 'locations', 'pilots', 'requirements', 'ui', 'zoids'] as const;
 
 i18next.init({
   defaultNS: 'ui',
@@ -29,8 +31,8 @@ i18next.init({
   lng: localStorage.getItem('locale') ?? 'en',
   ns: [...NAMESPACES],
   resources: {
-    en: { campaigns: enCampaigns, dialog: enDialog, factions: enFactions, items: enItems, locations: enLocations, pilots: enPilots, requirements: enRequirements, ui: enUi, zoids: enZoids },
-    es: { campaigns: esCampaigns, dialog: esDialog, factions: esFactions, items: esItems, locations: esLocations, pilots: esPilots, requirements: esRequirements, ui: esUi, zoids: esZoids },
+    en: { campaigns: enCampaigns, dialog: enDialog, dungeon: enDungeon, factions: enFactions, items: enItems, locations: enLocations, pilots: enPilots, requirements: enRequirements, ui: enUi, zoids: enZoids },
+    es: { campaigns: esCampaigns, dialog: esDialog, dungeon: esDungeon, factions: esFactions, items: esItems, locations: esLocations, pilots: esPilots, requirements: esRequirements, ui: esUi, zoids: esZoids },
   },
 });
 

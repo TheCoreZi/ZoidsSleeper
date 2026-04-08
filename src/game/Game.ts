@@ -1,17 +1,35 @@
 import { TICK_TIME } from '../constants';
 import { CAMPAIGNS } from '../campaign/campaigns';
+import { DungeonBattle } from '../dungeon/DungeonBattle';
+import { DungeonSortieEvent } from '../dungeon/DungeonSortieEvent';
+import {
+  advanceLayer,
+  DungeonPhase,
+  dungeonRun,
+  endDungeon,
+  findNode,
+  isPlayerDead,
+  markNodeCompleted,
+  selectNode,
+  setDungeonPhase,
+  startSortie,
+} from '../dungeon/dungeonStore';
+import { SortieNodeType } from '../dungeon/DungeonGraph';
 import { t } from '../i18n';
 import type { City, Landmark, Route } from '../landmark';
+import { ActionFightPilot, ActionTalkToNPC, ActionVisitDepot, ActionVisitLab, getLandmarkById, getLandmarkHints, isLandmarkUnlocked, isRoute, ROUTES } from '../landmark';
+import type { Dungeon } from '../landmark';
+import { REGIONS } from '../map/Region';
 import { Currency } from '../models/Currency';
 import type { Pilot } from '../models/Pilot';
-import { ActionFightPilot, ActionTalkToNPC, ActionVisitDepot, ActionVisitLab, getLandmarkById, getLandmarkHints, isLandmarkUnlocked, isRoute, ROUTES } from '../landmark';
-import { REGIONS } from '../map/Region';
 import { DEFAULT_PLAYER } from '../models/Player';
 import { PopupMessage, PopupType } from '../models/PopupMessage';
 import { ZoidResearchStatus } from '../models/Zoid';
 import { loadCampaigns, markNpcTalked, checkCampaigns } from '../store/campaignStore';
 import {
+  BattleState,
   battleState,
+  GamePhase,
   setBattleState,
   setEnemyZoid,
   setGamePhase,
@@ -28,7 +46,7 @@ import {
   setPopupMessage,
 } from '../store/gameStore';
 import { setCurrentLandmark } from '../store/landmarkStore';
-import { addZoidToArmy, setParty } from '../store/partyStore';
+import { addZoidToArmy, partyMaxHealth, setParty } from '../store/partyStore';
 import { incrementPilotDefeats, loadStatistics } from '../store/statisticsStore';
 import { loadInventory } from '../store/inventoryStore';
 import { addCurrency, loadWallet } from '../store/walletStore';
@@ -60,7 +78,7 @@ export class Game {
     if (isRoute(savedLandmark)) {
       this.startBattle(savedLandmark);
     } else {
-      setBattleState('idle');
+      setBattleState(BattleState.Idle);
       setEnemyZoid(null);
     }
   }
@@ -78,7 +96,7 @@ export class Game {
       this.startBattle(landmark);
     } else {
       this.battle = null;
-      setBattleState('idle');
+      setBattleState(BattleState.Idle);
       setEnemyZoid(null);
     }
     this.save.store();
@@ -86,13 +104,41 @@ export class Game {
 
   completeIntro(zoidId: string): void {
     addZoidToArmy(zoidId);
-    setBattleState('idle');
+    setBattleState(BattleState.Idle);
     setEnemyZoid(null);
-    setGamePhase('playing');
+    setGamePhase(GamePhase.Playing);
     setShowClickHint(false);
     checkCampaigns();
     this.loop.start();
     this.save.store();
+  }
+
+  endDungeonRun(victory: boolean): void {
+    this.battle = null;
+    setBattleState(BattleState.Idle);
+    setEnemyZoid(null);
+    setPilotInfo(null);
+    setPilotEnemyProgress({ current: 0, total: 0 });
+    setPilotPlayerHealth(0);
+    setPilotPlayerMaxHealth(0);
+    setPilotZoidIds([]);
+    if (victory) {
+      checkCampaigns();
+      setPopupMessage(new PopupMessage(t('ui:sortie_complete'), t('ui:victory'), PopupType.Victory));
+    } else {
+      setPopupMessage(new PopupMessage(t('ui:sortie_failed'), t('ui:defeated'), PopupType.Defeat));
+    }
+    endDungeon();
+    setTimeout(() => setPopupMessage(null), 3000);
+  }
+
+  enterDungeon(sortieEvent: DungeonSortieEvent): void {
+    addCurrency(Currency.Magnis, -sortieEvent.entryCost);
+    const maxHealth = DEFAULT_PLAYER.baseHealth + partyMaxHealth();
+    startSortie(sortieEvent, maxHealth, maxHealth);
+    this.battle = null;
+    setBattleState(BattleState.Idle);
+    setEnemyZoid(null);
   }
 
   enterPilotBattle(pilot: Pilot): void {
@@ -105,16 +151,68 @@ export class Game {
       this.endPilotBattle(new PopupMessage(t('ui:pilot_defeated', { name: t(`pilots:${pilot.id}`) }), t('ui:victory'), PopupType.Victory));
     };
     this.battle = battle;
-    setPilotInfo({ id: pilot.id, name: pilot.name });
-    setBattleState('pilot-fighting');
+    setBattleState(BattleState.PilotCombat);
+  }
+
+  selectDungeonNode(nodeId: string): void {
+    const run = dungeonRun();
+    if (!run) {return;}
+    const node = findNode(run.graph, nodeId);
+    if (!node) {return;}
+
+    selectNode(nodeId);
+
+    switch (node.type) {
+      case SortieNodeType.Boss:
+        this.startDungeonBoss();
+        break;
+      case SortieNodeType.Combat:
+      case SortieNodeType.Elite:
+        this.startDungeonCombat(run.config, node.type);
+        break;
+      case SortieNodeType.Event:
+        setDungeonPhase(DungeonPhase.Event);
+        break;
+      case SortieNodeType.Supply:
+        setDungeonPhase(DungeonPhase.Supply);
+        break;
+    }
+  }
+
+  ambushFromEvent(): void {
+    const run = dungeonRun();
+    if (!run) {return;}
+    this.startDungeonCombat(run.config, SortieNodeType.Combat);
+  }
+
+  completeDungeonNode(): void {
+    const run = dungeonRun();
+    if (!run?.currentNodeId) {return;}
+    markNodeCompleted(run.currentNodeId);
+    const node = findNode(run.graph, run.currentNodeId);
+
+    if (node?.type === SortieNodeType.Boss) {
+      this.endDungeonRun(true);
+      return;
+    }
+
+    if (isPlayerDead()) {
+      this.endDungeonRun(false);
+      return;
+    }
+
+    this.battle = null;
+    setBattleState(BattleState.Idle);
+    setEnemyZoid(null);
+    advanceLayer();
   }
 
   start(): void {
     if (this.hasSave) {
-      setGamePhase('playing');
+      setGamePhase(GamePhase.Playing);
       this.loop.start();
     } else {
-      setGamePhase('intro');
+      setGamePhase(GamePhase.Intro);
     }
   }
 
@@ -129,7 +227,7 @@ export class Game {
     setPilotPlayerMaxHealth(0);
     setPilotZoidIds([]);
     this.battle = null;
-    setBattleState('idle');
+    setBattleState(BattleState.Idle);
     setEnemyZoid(null);
     setPopupMessage(popup);
     setTimeout(() => setPopupMessage(null), 3000);
@@ -137,23 +235,60 @@ export class Game {
 
   private gameTick(): void {
     switch (battleState()) {
-      case 'fighting':
-      case 'pilot-fighting':
+      case BattleState.DungeonBoss:
+      case BattleState.DungeonCombat:
+      case BattleState.WildCombat:
+      case BattleState.PilotCombat:
         this.battle?.gameTick();
         break;
     }
     this.save.gameTick();
   }
 
+  private startDungeonBoss(): void {
+    const run = dungeonRun();
+    if (!run) {return;}
+    const boss = run.bossPilot;
+    const battle = new PilotBattle(
+      DEFAULT_PLAYER,
+      boss,
+      run.playerHealth,
+      run.playerMaxHealth
+    );
+    battle.onVictory = () => {
+      incrementPilotDefeats(boss.id);
+      this.completeDungeonNode();
+    };
+    battle.onDefeat = () => {
+      this.endDungeonRun(false);
+    };
+    this.battle = battle;
+    setBattleState(BattleState.DungeonBoss);
+    setDungeonPhase(DungeonPhase.Boss);
+  }
+
+  private startDungeonCombat(config: DungeonSortieEvent, nodeType: SortieNodeType): void {
+    const battle = new DungeonBattle(DEFAULT_PLAYER, config, nodeType);
+    battle.onNodeComplete = () => this.completeDungeonNode();
+    battle.onDefeat = () => {
+      this.endDungeonRun(false);
+    };
+    this.battle = battle;
+    setBattleState(BattleState.DungeonCombat);
+    setDungeonPhase(DungeonPhase.Combat);
+  }
+
   private startBattle(route: Route): void {
     this.battle = new Battle(DEFAULT_PLAYER, route);
-    setBattleState('fighting');
+    setBattleState(BattleState.WildCombat);
   }
 
   private wireCityActions(landmark: Landmark): void {
-    const city = landmark as City;
+    const city = landmark as City | Dungeon;
     city.actions?.forEach((action) => {
-      if (action instanceof ActionFightPilot) {
+      if (action instanceof DungeonSortieEvent) {
+        action.onExecute = () => this.enterDungeon(action);
+      } else if (action instanceof ActionFightPilot) {
         action.onExecute = () => this.enterPilotBattle(action.pilot);
       } else if (action instanceof ActionTalkToNPC) {
         action.onExecute = () => {
@@ -188,7 +323,7 @@ export class Game {
         loadZoidData(data.zoidData);
       }
       if (data.playerStats) {
-        setPlayerStats(data.playerStats);
+        setPlayerStats({ ...data.playerStats, attackMult: data.playerStats.attackMult ?? 1 });
       }
       if (data.zoidResearch) {
         loadZoidResearch(data.zoidResearch);

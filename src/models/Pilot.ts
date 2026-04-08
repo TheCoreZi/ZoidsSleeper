@@ -1,10 +1,10 @@
-import type { ZoidRef } from '../models/Zoid';
+import type { ZoidBlueprint } from '../models/Zoid';
 
 export interface Pilot {
   id: string;
   magnisReward: number;
   name: string;
-  zoids: ZoidRef[];
+  zoids: ZoidBlueprint[];
 }
 
 export const PILOTS: Record<string, Pilot> = {
@@ -18,16 +18,16 @@ export const PILOTS: Record<string, Pilot> = {
   },
   bianco_nero: {
     id: 'bianco_nero',
-    magnisReward: 800,
+    magnisReward: 1200,
     name: 'Bianco & Nero',
     zoids: [
-      { id: 'command_wolf', level: 15 },
-      { id: 'command_wolf', level: 15 },
+      { id: 'command_wolf', level: 15, maxHealthOverride: 800 },
+      { id: 'command_wolf', level: 17, maxHealthOverride: 900 },
     ],
   },
   bul: {
     id: 'bul',
-    magnisReward: 500,
+    magnisReward: 1000,
     name: 'Bul',
     zoids: [
       { id: 'guysack', level: 5, imageOverride:'guysack_bs', maxHealthOverride: 2500 },

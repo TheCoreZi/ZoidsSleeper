@@ -8,6 +8,11 @@ import {
   Show,
   Switch,
 } from 'solid-js';
+import DungeonBattleScreen from './dungeon/DungeonBattleScreen';
+import DungeonEventScreen from './dungeon/DungeonEventScreen';
+import DungeonMapScreen from './dungeon/DungeonMapScreen';
+import DungeonSupplyScreen from './dungeon/DungeonSupplyScreen';
+import { DungeonPhase, dungeonPhase, isDungeonActive } from './dungeon/dungeonStore';
 import { Game } from './game/Game';
 import { t } from './i18n';
 import WorldMap from './map/WorldMap';
@@ -16,7 +21,9 @@ import {
   activeDialog,
   activeLab,
   activeShop,
+  BattleState,
   battleState,
+  GamePhase,
   gamePhase,
   popupMessage,
   dequeueDialog,
@@ -54,10 +61,15 @@ const App: Component = () => {
   const [showSupplies, setShowSupplies] = createSignal(false);
 
   const isFighting = createMemo(
-    () => battleState() === 'fighting' || battleState() === 'victory'
+    () => battleState() === BattleState.WildCombat
   );
+  const isDungeonCombat = createMemo(() => battleState() === BattleState.DungeonCombat);
+  const isDungeonBoss = createMemo(() => battleState() === BattleState.DungeonBoss);
+  const isDungeonEvent = createMemo(() => isDungeonActive() && dungeonPhase() === DungeonPhase.Event);
+  const isDungeonMap = createMemo(() => isDungeonActive() && dungeonPhase() === DungeonPhase.Map);
+  const isDungeonSupply = createMemo(() => isDungeonActive() && dungeonPhase() === DungeonPhase.Supply);
   const isPilotBattleMode = createMemo(() =>
-    battleState().startsWith('pilot-')
+    battleState() === BattleState.PilotCombat
   );
 
   onMount(() => {
@@ -149,7 +161,7 @@ const App: Component = () => {
         </div>
       </Show>
       <Show
-        when={gamePhase() === 'playing'}
+        when={gamePhase() === GamePhase.Playing}
         fallback={
           <IntroSequence onComplete={(id) => game?.completeIntro(id)} />
         }
@@ -164,6 +176,33 @@ const App: Component = () => {
           </div>
           <div class="battle-column">
             <Switch fallback={<IdleLandmarkScreen />}>
+              <Match when={isDungeonMap()}>
+                <DungeonMapScreen
+                  onNodeSelect={(nodeId) => game?.selectDungeonNode(nodeId)}
+                  onRetreat={() => game?.endDungeonRun(false)}
+                />
+              </Match>
+              <Match when={isDungeonEvent()}>
+                <DungeonEventScreen
+                  onAmbush={() => game?.ambushFromEvent()}
+                  onComplete={() => game?.completeDungeonNode()}
+                />
+              </Match>
+              <Match when={isDungeonSupply()}>
+                <DungeonSupplyScreen
+                  onComplete={() => game?.completeDungeonNode()}
+                />
+              </Match>
+              <Match when={isDungeonCombat()}>
+                <DungeonBattleScreen
+                  onClick={() => game?.battle?.clickAttack()}
+                />
+              </Match>
+              <Match when={isDungeonBoss()}>
+                <PilotBattleScreen
+                  onClick={() => game?.battle?.clickAttack()}
+                />
+              </Match>
               <Match when={isPilotBattleMode()}>
                 <PilotBattleScreen
                   onClick={() => game?.battle?.clickAttack()}

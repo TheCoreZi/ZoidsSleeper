@@ -1,13 +1,15 @@
 import { BATTLE_TICK, CLICK_COOLDOWN, TICK_TIME } from '../constants';
 import { awardExperience, calculateExperienceGain } from '../models/Experience';
 import type { PlayerStats } from '../models/Player';
-import { getOwnedZoidLevel, getZoidById, type ZoidInstance } from '../models/Zoid';
+import { getOwnedZoidLevel, getZoidById, type SpawnedZoid } from '../models/Zoid';
 import {
   damageEvents,
   type DamageSource,
   incrementClickAttack,
+  playerDamageEvents,
   playerStats,
   setDamageEvents,
+  setPlayerDamageEvents,
 } from '../store/gameStore';
 import { party, partyAttack, setParty } from '../store/partyStore';
 
@@ -15,7 +17,7 @@ let damageIdCounter = 0;
 
 export abstract class BaseBattle {
   counter = 0;
-  enemy!: ZoidInstance;
+  enemy!: SpawnedZoid;
   lastClickAttack = 0;
   playerStats: PlayerStats;
 
@@ -28,7 +30,8 @@ export abstract class BaseBattle {
     if (now - this.lastClickAttack < CLICK_COOLDOWN) {return;}
     if (this.enemy.health <= 0) {return;}
     this.lastClickAttack = now;
-    const damage = playerStats()?.clickAttack ?? 1;
+    const stats = playerStats();
+    const damage = Math.max(1, Math.floor((stats?.clickAttack ?? 1) * (stats?.attackMult ?? 1)));
     this.dealDamage(damage, 'click');
   }
 
@@ -51,7 +54,8 @@ export abstract class BaseBattle {
 
   private autoAttack(): void {
     if (this.enemy.health <= 0) {return;}
-    this.dealDamage(partyAttack(), 'auto');
+    const damage = Math.max(1, Math.floor(partyAttack() * (playerStats()?.attackMult ?? 1)));
+    this.dealDamage(damage, 'auto');
   }
 
   private awardExperience(): void {
@@ -74,6 +78,12 @@ export abstract class BaseBattle {
       this.awardExperience();
       this.onEnemyDefeated();
     }
+  }
+
+  protected emitPlayerDamageNumber(amount: number): void {
+    if (amount <= 0) {return;}
+    const event = { amount, id: damageIdCounter++, source: 'auto' as DamageSource, timestamp: Date.now() };
+    setPlayerDamageEvents([...playerDamageEvents().slice(-9), event]);
   }
 
   private emitDamageNumber(amount: number, source: DamageSource): void {
