@@ -20,6 +20,7 @@ export const CITIES: City[] = [
   {
     actions: [
       new ActionFightPilot(PILOTS['bandit1'], undefined, [new PilotDefeatRequirement('bandit1')]),
+      new ActionTalkToNPC('watchman', [new MissionCompletedRequirement('sleeper_commander', 'talk_to_jenkins')]),
       new ActionTalkToNPC('woman', [new PilotDefeatRequirement('bandit1')], [new MissionCompletedRequirement('sleeper_commander', 'report_to_captain')], itemReward('sleeper_module', 1, true)),
     ],
     battleBackground: BattleBackground.Grass,
@@ -48,6 +49,7 @@ export const CITIES: City[] = [
   },
   {
     actions: [
+      new ActionTalkToNPC('explorer'),
       new ActionTalkToNPC('maria_flyheight', [new MissionCompletedRequirement('sleeper_commander', 'talk_to_priest_leon')]),
       new ActionTalkToNPC('priest_leon', undefined, [new MissionCompletedRequirement('sleeper_commander', 'talk_to_maria')]),
     ],
