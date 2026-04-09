@@ -75,6 +75,14 @@
     "No sé qué lo impulsa, pero constantemente se aventura al desierto para enfrentarlos. Bastante imprudente, si me preguntas.",
     "Deberías hablar con su hermana. Ella podría saber dónde encontrarlo."
   ],
+  "explorer_dungeon_tips": [
+    "¿Vas a entrar a las ruinas? Yo ya he bajado un par de veces. Déjame contarte qué esperar.",
+    "La mayor parte del tiempo te toparás con Sleepers hostiles cerca de la entrada. Pero con forme vayas avanzando se volverán mas peligrosos",
+    "De hecho hay algunos que son mucho más peligrosos que el resto. Más difíciles de lidiar con ellos, pero generalmente custodian tesoros más valiosos.",
+    "Las ruinas están llenas de sorpresas. Cosas extrañas pasan ahí abajo... tendrás que tomar decisiones que podrían ayudarte o empeorarte las cosas.",
+    "Y si tienes suerte, podrías encontrar algunos suministros en el camino. Podrían darte una ventaja, pero nada viene sin un costo.",
+    "Sea lo que sea que busques. No entres a menos que estés listo para una pelea de verdad."
+  ],
   "captain_debrief": [
     "Gracias por tu ayuda, sabía que había algo especial en ti...",
     "Hmmm un artefacto usado por los bandidos? Dejame verlo...",
@@ -92,6 +100,9 @@
   "captain_farewell": [
     "¡Vaya! Ahora sí pareces todo un comandante con tu propia armada.",
     "Veo que estás decidido a hacerle frente a esos bandidos. Buena suerte, muchacho.",
+    "Ah, una cosa más. Le eché un vistazo más de cerca a ese módulo Sleeper tuyo.",
+    "No te recomendaría desplegar más de un Zoid de la misma especie. El módulo no parece permitir el control simultáneo de multiples Zoids de la misma especie.",
+    "Así que si estás formando tu ejército la variedad será tu mejor arma.... Por ahora",
     "Ten cuidado, en estos tiempos de guerra lo mejor sería no inmiscuirse en asuntos de los ejércitos. Pero algo me dice que ya es tarde para eso..."
   ],
   "captain": [
@@ -130,6 +141,13 @@
     "¿Bandidos? ¿Vienen más? Ya me lo imaginaba...",
     "¿Así que tú puedes comandar Zoids? Genial, entonces vamos por ellos y...",
     "¡¡No hay tiempo!! Tal vez pueda engañar a ese tipo del Guysack y escapar. No te preocupes por mí."
+  ],
+  "watchman_combat_tips": [
+    "Oye, tú eres el que se enfrentó a ese bandido ¿verdad? Déjame darte un consejo sobre el uso de armas.",
+    "Cuando eres un pilotto no lo parece pero mientras más Sleepers derrotes más afilados se vuelven tus instintos de combate, como dicen La práctica hace al maestro",
+    "Al aprender sobre als armas de una nueva especie de Zoid, también aprendes mejores formas de usar las tuyas.",
+    "Además, mientras más pilotees tus Zoids, más acostumbrado te vuelves a sus armas. La experiencia cuenta mucho ahí fuera.",
+    "Así que sigue luchando, sigue aprendiendo y sigue piloteando. En poco tiempo serás una fuerza imparable."
   ],
   "woman": [
     "¡Gracias por salvarme! Pero por favor, ¡tienes que ayudarme!",

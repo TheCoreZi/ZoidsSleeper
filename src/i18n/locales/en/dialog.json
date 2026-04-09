@@ -78,7 +78,18 @@
   "captain_farewell": [
     "Well, well! Now you actually look like a proper army commander.",
     "I can see you're determined to take on those bandits. Good luck, kid.",
+    "Oh, one more thing. I took a closer look at that Sleeper module of yours.",
+    "I wouldn't recommend deploying more than one Zoid of the same species. The module doesn't seem to allow live control of multiple Zoids of the same kind.",
+    "So if you're building your army, variety will be your best weapon... For now.",
     "Be careful out there. In these times of war, it's best not to get mixed up in military affairs. But something tells me it's too late for that..."
+  ],
+  "explorer_dungeon_tips": [
+    "You're heading into the ruins? I've been down there a few times myself. Let me tell you what to expect.",
+    "Most of the time you'll run into hostile Sleepers near the entrance. But the deeper you go, the more dangerous they become.",
+    "In fact, some are far more dangerous than the rest. Harder to deal with, but they usually guard more valuable treasures.",
+    "The ruins are full of surprises too. Strange things happen down there... you'll have to make choices that could help you or make things worse.",
+    "And if you're lucky, you might stumble upon some supplies along the way. They could give you an edge, but nothing comes without a cost.",
+    "Whatever you're looking for, don't go in unless you're ready for a real fight."
   ],
   "captain_debrief": [
     "Thank you for your help, I knew there was something special about you...",
@@ -130,6 +141,13 @@
     "Bandits? More of them coming? I figured as much...",
     "So you can command Zoids? Great, then let's go after them and...",
     "No time!! Maybe I can trick that Guysack guy and escape. Don't worry about me."
+  ],
+  "watchman_combat_tips": [
+    "Hey, you're the one who faced that bandit, right? Let me give you some advice about using weapons.",
+    "As a pilot it might not seem like it, but the more Sleepers you take down, the sharper your combat instincts get. Practice makes perfect, as they say.",
+    "By learning about the weapons of a new Zoid species, you also learn better ways to use your own.",
+    "On top of that, the more you pilot your Zoids, the more used to their weapons you become. Experience counts for a lot out there.",
+    "So keep fighting, keep learning, and keep piloting. You'll be a force to be reckoned with in no time."
   ],
   "woman": [
     "Thank you for saving me! But please, you have to help me!",

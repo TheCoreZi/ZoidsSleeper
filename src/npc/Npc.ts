@@ -41,6 +41,11 @@ export const NPCS: Record<string, Npc> = {
     nameKey: 'pilots:priest_leon',
     portrait: 'images/pilots/priest_leon.png',
   },
+  explorer: {
+    dialogs: [{ dialogKey: 'dialog:explorer_dungeon_tips' }],
+    id: 'explorer',
+    nameKey: 'pilots:explorer',
+  },
   captain_malinoff: {
     dialogs: [
       {
@@ -88,6 +93,11 @@ export const NPCS: Record<string, Npc> = {
     id: 'van',
     nameKey: 'pilots:van',
     portrait: 'images/pilots/van.png',
+  },
+  watchman: {
+    dialogs: [{ dialogKey: 'dialog:watchman_combat_tips' }],
+    id: 'watchman',
+    nameKey: 'pilots:watchman',
   },
   woman: {
     dialogs: [
