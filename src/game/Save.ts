@@ -30,6 +30,11 @@ interface SaveData {
 export class Save {
   counter = 0;
 
+  static reset(): void {
+    localStorage.removeItem(SAVE_KEY);
+    location.reload();
+  }
+
   gameTick(): void {
     this.counter += TICK_TIME;
     if (this.counter >= SAVE_TICK) {
