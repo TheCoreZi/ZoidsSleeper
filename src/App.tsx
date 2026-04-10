@@ -50,7 +50,7 @@ import { getZoidImage, ZOID_LIST } from './models/Zoid';
 import { buyItem } from './store/inventoryStore';
 import { grantReward } from './reward';
 import { checkCampaigns } from './store/campaignStore';
-import { addZoidToArmy } from './store/partyStore';
+import { addZoidToArmy, party } from './store/partyStore';
 import { addCurrency, getCurrency } from './store/walletStore';
 import { decrementZoidData } from './store/zoidDataStore';
 
@@ -123,12 +123,15 @@ const App: Component = () => {
           onBuy={(zoidId) => {
             const zoid = ZOID_LIST[zoidId];
             if (getCurrency(Currency.Magnis) >= zoid.price) {
+              const isNew = !party().some((z) => z.id === zoidId);
               addCurrency(Currency.Magnis, -zoid.price);
               decrementZoidData(zoidId);
               addZoidToArmy(zoidId);
               checkCampaigns();
-              setPopupMessage(new PopupMessage(zoid.name, t('ui:new_zoid'), PopupType.Item, getZoidImage(zoidId)));
-              setTimeout(() => setPopupMessage(null), 3000);
+              if (isNew) {
+                setPopupMessage(new PopupMessage(zoid.name, t('ui:new_zoid'), PopupType.Item, getZoidImage(zoidId)));
+                setTimeout(() => setPopupMessage(null), 3000);
+              }
             }
           }}
           onClose={() => setActiveLab(null)}
