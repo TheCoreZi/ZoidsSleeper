@@ -12,8 +12,10 @@ type MenuView = 'dev-campaign' | 'language' | 'main';
 
 const SettingsMenu: Component = () => {
   const [isOpen, setIsOpen] = createSignal(false);
+  const [showImportDialog, setShowImportDialog] = createSignal(false);
   const [showResetDialog, setShowResetDialog] = createSignal(false);
   const [view, setView] = createSignal<MenuView>('main');
+  let fileInputRef: HTMLInputElement | undefined;
 
   const close = () => { setIsOpen(false); setView('main'); };
   const toggle = () => { if (isOpen()) { close(); } else { setIsOpen(true); } };
@@ -39,6 +41,14 @@ const SettingsMenu: Component = () => {
               <button class="settings-menu-option" onClick={() => setView('language')}>
                 <span class="settings-menu-icon">🌐</span>
                 {t('ui:language')}
+              </button>
+              <button class="settings-menu-option" onClick={() => { Save.exportSave(); close(); }}>
+                <span class="settings-menu-icon">💾</span>
+                {t('ui:download_save')}
+              </button>
+              <button class="settings-menu-option" onClick={() => { close(); setShowImportDialog(true); }}>
+                <span class="settings-menu-icon">📂</span>
+                {t('ui:load_game')}
               </button>
               <button class="settings-menu-option settings-menu-option--danger" onClick={() => { close(); setShowResetDialog(true); }}>
                 <span class="settings-menu-icon">🗑️</span>
@@ -79,6 +89,35 @@ const SettingsMenu: Component = () => {
           <div class="reset-dialog-actions">
             <button class="reset-dialog-cancel" onClick={() => setShowResetDialog(false)}>{t('ui:cancel')}</button>
             <button class="reset-dialog-confirm" onClick={() => Save.reset()}>{t('ui:reset_game')}</button>
+          </div>
+        </div>
+      </div>
+    </Show>
+    <input
+      type="file"
+      accept=".txt"
+      ref={fileInputRef}
+      style={{ display: 'none' }}
+      onChange={async (e) => {
+        const file = e.currentTarget.files?.[0];
+        if (file) {
+          const ok = await Save.importSave(file);
+          if (!ok) {
+            // eslint-disable-next-line no-alert
+            alert(t('ui:load_error'));
+          }
+        }
+        setShowImportDialog(false);
+      }}
+    />
+    <Show when={showImportDialog()}>
+      <div class="reset-overlay" onClick={() => setShowImportDialog(false)}>
+        <div class="reset-dialog" onClick={(e) => e.stopPropagation()}>
+          <p class="reset-dialog-title">{t('ui:load_game')}</p>
+          <p class="reset-dialog-message">{t('ui:load_confirm')}</p>
+          <div class="reset-dialog-actions">
+            <button class="reset-dialog-cancel" onClick={() => setShowImportDialog(false)}>{t('ui:cancel')}</button>
+            <button class="reset-dialog-confirm" onClick={() => fileInputRef?.click()}>{t('ui:load_game')}</button>
           </div>
         </div>
       </div>
