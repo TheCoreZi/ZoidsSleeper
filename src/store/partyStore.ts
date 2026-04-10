@@ -9,7 +9,15 @@ const partyAttack = createMemo(() => calculatePartyAttack(party()));
 const partyMaxHealth = createMemo(() => calculatePartyMaxHealth(party()));
 
 function addZoidToArmy(zoidId: string, experience = 0): void {
-  setParty((prev) => [...prev, { experience, id: zoidId }]);
+  setParty((prev) => {
+    const existing = prev.find((z) => z.id === zoidId);
+    if (existing) {
+      return prev.map((z) => z.id === zoidId
+        ? { ...z, copies: (z.copies ?? 1) + 1 }
+        : z);
+    }
+    return [...prev, { experience, id: zoidId }];
+  });
   incrementClickAttack();
   updateZoidResearch(zoidId, ZoidResearchStatus.Created);
 }

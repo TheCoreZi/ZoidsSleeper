@@ -147,18 +147,19 @@ const App: Component = () => {
       <Show when={showSupplies()}>
         <SuppliesPanel onClose={() => setShowSupplies(false)} />
       </Show>
-      <Show when={activeDialog()}>
-        <div class="dialog-overlay">
-          <DialogBox
-            script={activeDialog()!}
-            onComplete={() => {
-              const dialog = activeDialog();
-              if (dialog?.reward) {grantReward(dialog.reward);}
-              checkCampaigns();
-              setActiveDialog(dequeueDialog() ?? null);
-            }}
-          />
-        </div>
+      <Show when={activeDialog()} keyed>
+        {(dialog) => (
+          <div class="dialog-overlay">
+            <DialogBox
+              script={dialog}
+              onComplete={() => {
+                if (dialog.reward) {grantReward(dialog.reward);}
+                checkCampaigns();
+                setActiveDialog(dequeueDialog() ?? null);
+              }}
+            />
+          </div>
+        )}
       </Show>
       <Show
         when={gamePhase() === GamePhase.Playing}

@@ -3,6 +3,7 @@ import { LevelType, levelFromExperience } from './LevelType';
 
 /** A zoid owned by the player, tracking accumulated experience. */
 export interface OwnedZoid {
+  copies?: number;
   experience: number;
   id: string;
 }
