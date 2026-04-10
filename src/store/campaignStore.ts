@@ -108,6 +108,17 @@ function startCampaign(id: string): void {
   }));
 }
 
+function forceSetMission(campaignId: string, missionId: string): void {
+  const campaign = campaigns[campaignId];
+  if (!campaign) {return;}
+  const missionIndex = campaign.missions.findIndex((m) => m.id === missionId);
+  if (missionIndex < 0) {return;}
+  setCampaignStates((prev) => ({
+    ...prev,
+    [campaignId]: { currentMission: missionId, missionNpcFlags: buildNpcFlags(campaign, missionIndex), status: CampaignStatus.Started },
+  }));
+}
+
 function checkCampaigns(): void {
   const states = campaignStates();
   for (const campaign of Object.values(campaigns)) {
@@ -134,6 +145,8 @@ function checkCampaigns(): void {
 
 export {
   campaignStates,
+  checkCampaigns,
+  forceSetMission,
   getCampaignState,
   isCampaignCompleted,
   isCampaignStarted,
@@ -142,5 +155,4 @@ export {
   loadCampaigns,
   markNpcTalked,
   startCampaign,
-  checkCampaigns,
 };
