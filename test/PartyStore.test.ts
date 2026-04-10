@@ -41,4 +41,32 @@ describe('PartyStore - addZoidToArmy', () => {
 
     expect(playerStats()!.clickAttack).toBe(2);
   });
+
+  it('should not add duplicate entry for the same zoid', () => {
+    addZoidToArmy('molga');
+    addZoidToArmy('molga');
+
+    expect(party().filter((z) => z.id === 'molga')).toHaveLength(1);
+  });
+
+  it('should increment copies when adding a duplicate zoid', () => {
+    addZoidToArmy('molga');
+    addZoidToArmy('molga');
+
+    expect(party().find((z) => z.id === 'molga')?.copies).toBe(2);
+  });
+
+  it('should still increment click attack on duplicate purchase', () => {
+    addZoidToArmy('molga');
+    addZoidToArmy('molga');
+
+    expect(playerStats()!.clickAttack).toBe(3);
+  });
+
+  it('should add different zoids as separate entries', () => {
+    addZoidToArmy('molga');
+    addZoidToArmy('gator');
+
+    expect(party()).toHaveLength(2);
+  });
 });
