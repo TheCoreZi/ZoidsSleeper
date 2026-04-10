@@ -1,8 +1,9 @@
 import { createSignal } from 'solid-js';
-import { Currency } from '../models/Currency';
+import { calculateMagnisReward, Currency, type CurrencyReward } from '../models/Currency';
 
 const [wallet, setWallet] = createSignal<Record<Currency, number>>({
   [Currency.Magnis]: 0,
+  [Currency.ZiMetal]: 0,
 });
 
 function addCurrency(currency: Currency, amount: number): void {
@@ -14,7 +15,26 @@ function getCurrency(currency: Currency): number {
 }
 
 function loadWallet(data: Record<string, number>): void {
-  setWallet({ [Currency.Magnis]: data[Currency.Magnis] ?? 0 });
+  setWallet({
+    [Currency.Magnis]: data[Currency.Magnis] ?? 0,
+    [Currency.ZiMetal]: data[Currency.ZiMetal] ?? 0,
+  });
 }
 
-export { addCurrency, getCurrency, loadWallet, wallet };
+export interface GrantedReward {
+  magnis: number;
+  ziMetal: number;
+}
+
+function grantCurrencyReward(reward: CurrencyReward, multiplier = 1, includeZiMetal = false): GrantedReward {
+  const magnis = calculateMagnisReward(reward.magnis ?? 0) * multiplier;
+  addCurrency(Currency.Magnis, magnis);
+  let ziMetal = 0;
+  if (includeZiMetal) {
+    ziMetal = (reward.zi_metal ?? 0) * multiplier;
+    if (ziMetal > 0) {addCurrency(Currency.ZiMetal, ziMetal);}
+  }
+  return { magnis, ziMetal };
+}
+
+export { addCurrency, getCurrency, grantCurrencyReward, loadWallet, wallet };

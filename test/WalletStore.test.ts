@@ -37,4 +37,28 @@ describe('WalletStore', () => {
 
     expect(getCurrency(Currency.Magnis)).toBe(150);
   });
+
+  it('should start with 0 zi metal', () => {
+    expect(getCurrency(Currency.ZiMetal)).toBe(0);
+  });
+
+  it('should add zi metal currency', () => {
+    addCurrency(Currency.ZiMetal, 5);
+
+    expect(getCurrency(Currency.ZiMetal)).toBe(5);
+  });
+
+  it('should load zi metal from saved data', () => {
+    loadWallet({ zi_metal: 42 });
+
+    expect(getCurrency(Currency.ZiMetal)).toBe(42);
+  });
+
+  it('should keep currencies independent', () => {
+    addCurrency(Currency.Magnis, 100);
+    addCurrency(Currency.ZiMetal, 10);
+
+    expect(getCurrency(Currency.Magnis)).toBe(100);
+    expect(getCurrency(Currency.ZiMetal)).toBe(10);
+  });
 });

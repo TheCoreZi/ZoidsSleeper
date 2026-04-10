@@ -1,7 +1,9 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { Save } from '../src/game/Save';
+import { Currency } from '../src/models/Currency';
 import { DEFAULT_PARTY, ZoidResearchStatus } from '../src/models/Zoid';
 import { incrementRouteKills, loadStatistics } from '../src/store/statisticsStore';
+import { addCurrency, loadWallet } from '../src/store/walletStore';
 import { loadZoidResearch, updateZoidResearch } from '../src/store/zoidResearchStore';
 
 describe('Save', () => {
@@ -47,6 +49,17 @@ describe('Save', () => {
       gator: ZoidResearchStatus.Created,
       molga: ZoidResearchStatus.Scanned,
     });
+  });
+
+  it('should persist zi metal in wallet', () => {
+    loadWallet({});
+    addCurrency(Currency.ZiMetal, 25);
+    const save = new Save();
+
+    save.store();
+    const loaded = save.load();
+
+    expect(loaded?.wallet?.zi_metal).toBe(25);
   });
 
   it('should persist route kills', () => {

@@ -1,12 +1,10 @@
 import { BaseBattle } from '../game/BaseBattle';
-import { attemptScan } from '../game/Scan';
-import { calculateMagnisReward, Currency } from '../models/Currency';
+import { grantCurrencyReward } from '../store/walletStore';
 import type { PlayerStats } from '../models/Player';
 import { spawnZoid, buildZoid, type ZoidBlueprint, ZoidResearchStatus } from '../models/Zoid';
 
-import { setEnemyZoid, setPilotPlayerHealth, setPilotPlayerMaxHealth } from '../store/gameStore';
-import { getActiveDeviceId, getActiveScanMode, resetScanAfterBattle, ScanMode } from '../store/scanStore';
-import { addCurrency } from '../store/walletStore';
+import { rewardEvents, setEnemyZoid, setPilotPlayerHealth, setPilotPlayerMaxHealth, setRewardEvents } from '../store/gameStore';
+import { resetScanAfterBattle } from '../store/scanStore';
 import { updateZoidResearch } from '../store/zoidResearchStore';
 import type { DungeonSortieEvent } from './DungeonSortieEvent';
 import { changePlayerHealth, dungeonRun, isPlayerDead } from './dungeonStore';
@@ -15,6 +13,7 @@ import { SortieNodeType, type SortieNodeType as SortieNodeTypeValue } from './Du
 export class DungeonBattle extends BaseBattle {
   currentEnemyIndex = -1;
   enemies: ZoidBlueprint[];
+  rewardIdCounter = 0;
   onDefeat: (() => void) | null = null;
   onNodeComplete: (() => void) | null = null;
 
@@ -49,11 +48,11 @@ export class DungeonBattle extends BaseBattle {
 
   protected onEnemyDefeated(): void {
     const rewardMultiplier = this.nodeType === SortieNodeType.Elite ? 3 : 1;
-    addCurrency(Currency.Magnis, calculateMagnisReward(this.config.baseReward) * rewardMultiplier);
-    const deviceId = getActiveDeviceId();
-    if (deviceId && getActiveScanMode() !== ScanMode.Off) {
-      attemptScan(this.enemy.id, deviceId);
-    }
+    const scanned = this.nodeType !== SortieNodeType.Boss && this.tryScan();
+    const reward = grantCurrencyReward(this.config.baseReward, rewardMultiplier, scanned);
+    const events = [...rewardEvents().slice(-4), { amount: reward.magnis, currency: 'magnis', id: this.rewardIdCounter++ }];
+    if (reward.ziMetal > 0) {events.push({ amount: reward.ziMetal, currency: 'zi_metal', id: this.rewardIdCounter++ });}
+    setRewardEvents(events);
     resetScanAfterBattle();
     if (this.currentEnemyIndex < this.enemies.length - 1) {
       this.nextEnemy();

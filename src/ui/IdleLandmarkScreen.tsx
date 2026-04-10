@@ -16,7 +16,7 @@ const IdleLandmarkScreen: Component = () => {
   const sortieAction = () => visibleActions().find((a): a is DungeonSortieEvent => a instanceof DungeonSortieEvent);
   const canAffordSortie = () => {
     const action = sortieAction();
-    return action ? getCurrency(Currency.Magnis) >= action.entryCost : false;
+    return action ? getCurrency(Currency.ZiMetal) >= action.entryCost : false;
   };
 
   return (
@@ -33,7 +33,7 @@ const IdleLandmarkScreen: Component = () => {
                 <button class="sortie-btn" disabled={!canAffordSortie()} onClick={() => action().execute()}>
                   <span>{t('ui:begin_sortie')}</span>
                   <span class="sortie-cost">
-                    <img class="sortie-cost-icon" src="images/items/magnis.png" alt="Magnis" />
+                    <img class="sortie-cost-icon" src="images/items/zi_metal.png" alt="Zi Metal" />
                     {action().entryCost.toLocaleString()}
                   </span>
                 </button>

@@ -133,7 +133,7 @@ export class Game {
   }
 
   enterDungeon(sortieEvent: DungeonSortieEvent): void {
-    addCurrency(Currency.Magnis, -sortieEvent.entryCost);
+    addCurrency(Currency.ZiMetal, -sortieEvent.entryCost);
     const maxHealth = DEFAULT_PLAYER.baseHealth + partyMaxHealth();
     startSortie(sortieEvent, maxHealth, maxHealth);
     this.battle = null;

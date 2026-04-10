@@ -12,6 +12,8 @@ import {
   setPlayerDamageEvents,
 } from '../store/gameStore';
 import { party, partyAttack, setParty } from '../store/partyStore';
+import { getActiveDeviceId, getActiveScanMode, ScanMode } from '../store/scanStore';
+import { attemptScan } from './Scan';
 
 let damageIdCounter = 0;
 
@@ -51,6 +53,14 @@ export abstract class BaseBattle {
   protected abstract syncToStore(): void;
 
   protected onBattleTick(): void {}
+
+  protected tryScan(): boolean {
+    const deviceId = getActiveDeviceId();
+    if (deviceId && getActiveScanMode() !== ScanMode.Off) {
+      return attemptScan(this.enemy.id, deviceId);
+    }
+    return false;
+  }
 
   private autoAttack(): void {
     if (this.enemy.health <= 0) {return;}

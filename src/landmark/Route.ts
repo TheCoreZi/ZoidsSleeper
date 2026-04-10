@@ -1,13 +1,14 @@
 import { MissionCompletedRequirement } from '../requirement';
+import type { CurrencyReward } from '../models/Currency';
 import type { Landmark } from './Landmark';
 import { BattleBackground, LandmarkType } from './Landmark';
 import { type ZoidBlueprint, type CustomizedZoid, getZoidById, buildZoid } from '../models/Zoid';
 import { CAMPAIGNS } from '../campaign/campaigns';
 
 export interface Route extends Landmark {
+  baseReward: CurrencyReward;
   connects: [string, string];
   enemies: ZoidBlueprint[];
-  baseReward: number;
   routeHealth: number;
   type: typeof LandmarkType.Route;
 }
@@ -22,7 +23,7 @@ export const ROUTES: Route[] = [
       { id: 'malder', level: 5 },
     ],
     id: 'gleam_outskirts',
-    baseReward: 30, // 5 ~ 55 Magnis
+    baseReward: { magnis: 30, zi_metal: 4 },
     routeHealth: 20,
     name: 'Gleam Outskirts',
     requirements: [new MissionCompletedRequirement(CAMPAIGNS.sleeper_commander.id, 'talk_to_boy')],
@@ -38,14 +39,14 @@ export const ROUTES: Route[] = [
       { id: 'zatton', level: 10 },
     ],
     id: 'wind_road',
-    baseReward: 50, // 25 ~ 75 Magnis
+    baseReward: { magnis: 50, zi_metal: 8 },
     routeHealth: 66,
     name: 'Wind Road',
     requirements: [new MissionCompletedRequirement('sleeper_commander', 'captain_farewell')],
     type: LandmarkType.Route,
   },
   {
-    baseReward: 80,
+    baseReward: { magnis: 80, zi_metal: 13 },
     battleBackground: BattleBackground.Desert,
     connects: ['wind_colony', 'elmia_ruins'],
     enemies: [

@@ -9,12 +9,13 @@ const RewardNumber: Component = () => {
   return (
     <div class="reward-numbers">
       <For each={rewardEvents()}>
-        {(event) => (
+        {(event, index) => (
           <span
-            class="reward-number"
+            class={`reward-number reward-${event.currency}`}
+            style={{ 'animation-delay': `${index() * 0.15}s` }}
             onAnimationEnd={() => handleAnimationEnd(event.id)}
           >
-            +{event.amount} <img class="reward-icon" src="images/items/magnis.png" alt="Magnis" />
+            +{event.amount} <img class="reward-icon" src={`images/items/${event.currency}.png`} alt={event.currency} />
           </span>
         )}
       </For>

@@ -35,6 +35,7 @@ export interface PilotInfo {
 
 export interface RewardEvent {
   amount: number;
+  currency: string;
   id: number;
 }
 

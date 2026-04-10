@@ -13,6 +13,14 @@ const WalletIndicator: Component = () => (
     <span class="wallet-indicator-amount">
       {getCurrency(Currency.Magnis).toLocaleString()}
     </span>
+    <img
+      class="wallet-indicator-icon"
+      src="images/items/zi_metal.png"
+      alt={t('ui:zi_metal')}
+    />
+    <span class="wallet-indicator-amount">
+      {getCurrency(Currency.ZiMetal).toLocaleString()}
+    </span>
   </div>
 );
 

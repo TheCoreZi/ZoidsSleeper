@@ -37,8 +37,8 @@ export const DUNGEONS: Dungeon[] = [
           { zoidData: { id: 'guysack', level: 20, bonusMultiplier: 1.5 }, requirement: new MissionCompletedRequirement(C.id, 'defeat_bianco_nero')},
           { zoidData: { id: 'molga', level: 20, bonusMultiplier: 1.1 } },
         ],
-        baseReward: 200,
-        entryCost: 500,
+        baseReward: { magnis: 200, zi_metal: 5 },
+        entryCost: 50,
         layers: 4,
         nodesPerLayer: [3, 4],
         eventPool: [

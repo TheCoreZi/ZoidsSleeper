@@ -1,4 +1,5 @@
 import { t } from '../i18n';
+import type { CurrencyReward } from '../models/Currency';
 import type { Pilot } from '../models/Pilot';
 import { PILOTS } from '../models/Pilot';
 import type { Requirement } from '../requirement';
@@ -8,7 +9,7 @@ import type { BossTier, DungeonEnemy } from './DungeonSortieConfig';
 import type { SupplyOption } from './DungeonSupply';
 
 export interface DungeonSortieConfig {
-  baseReward: number;
+  baseReward: CurrencyReward;
   bossTiers: BossTier[];
   completeRequirements?: Requirement[];
   eliteEnemies: DungeonEnemy[];
@@ -23,7 +24,7 @@ export interface DungeonSortieConfig {
 }
 
 export class DungeonSortieEvent implements CityAction {
-  baseReward: number;
+  baseReward: CurrencyReward;
   bossTiers: BossTier[];
   completeRequirements?: Requirement[];
   eliteEnemies: DungeonEnemy[];
