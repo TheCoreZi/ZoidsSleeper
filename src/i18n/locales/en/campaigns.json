@@ -4,70 +4,70 @@
     "missions": {
       "beat_bandit": {
         "description": "You found an abandoned camp where a bandit is holding hostages. Defeat him and rescue them.",
-        "name": "Beat the bandit"
+        "name": "Save the Girl, Save the World"
       },
       "hone_skills": {
         "description": "There are many Zoids Sleepers in the village outskirts, perfect for honing your piloting skills.",
-        "name": "Hone your skills"
+        "name": "Field Training"
       },
       "report_to_captain": {
-        "description": "The old captain might know more about this artifact. Talk to him.",
-        "name": "Report to the captain"
+        "description": "The old captain might know more about this artifact. Talk to him in the village.",
+        "name": "Mission Report"
       },
       "captain_farewell": {
-        "description": "Now that you have reinforcements, report back to the captain before heading out.",
-        "name": "Report to the captain"
+        "description": "Now that you have reinforcements, report back to the captain in the village before heading out.",
+        "name": "Time to Depart"
       },
       "grow_army": {
         "description": "You'll need more Zoids if you plan to face the bandits. Use Jenkins' lab to incubate at least another Zoid for your army.",
-        "name": "Grow your army"
+        "name": "Recruitment"
       },
       "jenkins_to_work": {
-        "description": "You've gathered Zoid structural data. Go back to Jenkins and start working in his lab.",
-        "name": "Back to Jenkins"
+        "description": "You've gathered Zoid structural data. Head back to the village with Jenkins and start working in his lab.",
+        "name": "That's How Babies Are Made"
       },
       "obtain_zi_data": {
         "description": "Scan a Zoid Sleeper's Core to obtain structural data. Use the Core Analyzer and a Probe.",
-        "name": "Obtain Zi-Data"
+        "name": "Zoid Anatomy"
       },
       "talk_to_jenkins": {
         "description": "The captain mentioned old Jenkins, a former Zoid lab researcher. Find him and show him the Sleeper module.",
-        "name": "Talk to old Jenkins"
+        "name": "Old Jenkins"
       },
       "talk_to_boy": {
         "description": "There's a boy in the village who looks desperate. Talk to him.",
-        "name": "Talk to the boy"
+        "name": "Village in Peril"
       },
       "talk_to_hostage": {
         "description": "The bandit fled, but the hostage seems shaken. Talk to her.",
-        "name": "Talk to the hostage"
+        "name": "Hostage"
       },
       "talk_to_priest_leon": {
-        "description": "You've arrived at Wind Colony. Ask the the local priest, if he knows anything about the missing girl.",
+        "description": "You've arrived at Wind Colony. Ask the local priest if he knows anything about the missing girl.",
         "name": "Prayer to the Wind"
       },
       "talk_to_maria": {
-        "description": "Te priest mentioned a boy who keeps getting into trouble with the bandits. Talk to his sister Maria Flyheight.",
+        "description": "The priest mentioned a boy who keeps getting into trouble with the bandits. Talk to his sister Maria Flyheight.",
         "name": "The Boy from Planet Zi"
       },
       "elmia_desert_patrol": {
         "description": "Maria says her brother Van is somewhere in the Elmia Desert. Fight through the Sleepers to find him.",
-        "name": "Crossing Through Elmia"
+        "name": "Desert Ruins"
       },
       "listen_to_bandits": {
         "description": "You found some ruins in the desert. There are bandits nearby. Listen to what they're saying.",
         "name": "Voices Among Ruins"
       },
       "defeat_bul": {
-        "description": "The bandits mentioned Blu, who's trying to get rid of a boy. Help Van by holding back Blu and his Guysack.",
-        "name": "Ambush at the Ruins"
+        "description": "The bandits mentioned Blu, who's trying to get rid of a boy. Help Van by stopping Blu and his Guysack in a sortie through the Elmia Ruins.",
+        "name": "Protector"
       },
       "find_van": {
-        "description": "That will hold Blu off for a few minutes. Find Van and warn him about the incoming bandits.",
+        "description": "That will hold Blu off for a few minutes. Find Van in the ruins and warn him about the incoming bandits.",
         "name": "The Boy in the Ruins"
       },
       "defeat_bianco_nero": {
-        "description": "Blu's reinforcements have arrived. Van can't escape alone. Hold off the bandits while Van gets out.",
+        "description": "Blu's reinforcements have arrived. Van can't escape alone. Sortie into the ruins and hold off the bandits while Van gets out.",
         "name": "Wolves at the Gate"
       },
       "interrogate_bandits": {
@@ -75,8 +75,8 @@
         "name": "Truth Among Thieves"
       },
       "maria_van_status": {
-        "description": "Ask Maria how Van and the mysterious girl are doing.",
-        "name": "The Mysterious Fine"
+        "description": "Ask Maria at Wind Colony how Van and the mysterious girl are doing.",
+        "name": "What Was That About?"
       }
     },
     "name": "Sleeper Commander"

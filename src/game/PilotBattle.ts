@@ -36,6 +36,7 @@ export class PilotBattle extends BaseBattle {
   }
 
   protected onBattleTick(): void {
+    if (this.enemy.health <= 0) {return;}
     this.enemyAttack();
   }
 

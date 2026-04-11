@@ -3,44 +3,44 @@
     "description": "La Aldea Destello es atacada por Zoids Sleepers, muestra tu habilidad como piloto y descubre a los culpables.",
     "missions": {
       "beat_bandit": {
-        "description": "Encontraste un campamento abandonado donde un bandido tiene rehenes. Véncelo y rescátalos",
-        "name": "Vence al bandido"
+        "description": "Encontraste un campamento abandonado donde un bandido tiene rehenes. Véncelo y rescátalos.",
+        "name": "Salva a la chica, salva al mundo"
       },
       "hone_skills": {
         "description": "Hay muchos Zoids Sleepers en las afueras de la aldea, son perfectos para mejorar tus habilidades como piloto.",
-        "name": "Mejora tus habilidades"
+        "name": "Entrenamiento de campo"
       },
       "report_to_captain": {
-        "description": "Puede ser que el anciano capitán sepa más sobre este artefacto, habla con él",
-        "name": "Reporta al capitán"
+        "description": "Puede ser que el anciano capitán sepa más sobre este artefacto, habla con él en la aldea.",
+        "name": "Reporte de misión"
       },
       "captain_farewell": {
-        "description": "Ahora que tienes refuerzos, reporta al capitán antes de partir.",
-        "name": "Reporta al capitán"
+        "description": "Ahora que tienes refuerzos, repórtate con el capitán en la aldea antes de partir.",
+        "name": "Hora de partir"
       },
       "grow_army": {
         "description": "Necesitarás más Zoids si piensas enfrentarte a los bandidos. Usa el laboratorio de Jenkins para incubar al menos otro Zoid para tu ejército.",
-        "name": "Amplía tu ejército"
+        "name": "Reclutamiento"
       },
       "jenkins_to_work": {
-        "description": "Has conseguido datos estructurales de un Zoid. Vuelve con Jenkins y comiencen a trabajar en su laboratorio.",
-        "name": "Vuelve con Jenkins"
+        "description": "Has conseguido datos estructurales de un Zoid. Vuelve a la aldea con Jenkins y comiencen a trabajar en su laboratorio.",
+        "name": "Así se hacen los bebés"
       },
       "obtain_zi_data": {
-        "description": "Escanea el Core de un Zoid Sleeper para obtener datos estructurales. Usa el Analizador de Cores y una Sonda",
-        "name": "Obtén Zi-Data"
+        "description": "Escanea el Core de un Zoid Sleeper para obtener datos estructurales. Usa el Analizador de Cores y una Sonda.",
+        "name": "Anatomía Zoid"
       },
       "talk_to_jenkins": {
         "description": "El capitán mencionó al viejo Jenkins, un antiguo investigador de laboratorio de Zoids. Encuéntralo y muéstrale el módulo Sleeper.",
-        "name": "Habla con el viejo Jenkins"
+        "name": "El Viejo Jenkins"
       },
       "talk_to_boy": {
-        "description": "Hay un chico en la aldea que luce muy desesperado, habla con el.",
-        "name": "Habla con el chico"
+        "description": "Hay un chico en la aldea que luce muy desesperado, habla con él.",
+        "name": "Aldea en apuros"
       },
       "talk_to_hostage": {
-        "description": "El bandido huyó, peor la rehén se nota alterada, habla con ella.",
-        "name": "Habla con la rehén"
+        "description": "El bandido huyó, pero la rehén se ve alterada. Habla con ella.",
+        "name": "Rehén"
       },
       "talk_to_priest_leon": {
         "description": "Has llegado a la Colonia del Viento. Pregunta al Padre León, el sacerdote local, si sabe algo sobre la chica perdida.",
@@ -52,22 +52,22 @@
       },
       "elmia_desert_patrol": {
         "description": "María dice que su hermano Van está en algún lugar del Desierto de Elmia. Abre camino entre los Sleepers para encontrarlo.",
-        "name": "Travesía por Elmia"
+        "name": "Ruinas del Desierto"
       },
       "listen_to_bandits": {
         "description": "Encontraste unas ruinas en el desierto. Hay bandidos cerca. Escucha lo que dicen.",
         "name": "Voces entre Ruinas"
       },
       "defeat_bul": {
-        "description": "Los bandidos mencionaron a Blu, que intenta deshacerse de un niño. Ayuda a Van deteniendo a Blu y su Guysack.",
-        "name": "Emboscada en las Ruinas"
+        "description": "Los bandidos mencionaron a Blu, que intenta deshacerse de un niño. Ayuda a Van deteniendo a Blu y su Guysack incursionando en las Ruinas de Elmia.",
+        "name": "Protector"
       },
       "find_van": {
-        "description": "Eso detendrá a Blu por unos minutos. Encuentra a Van y adviértele sobre los bandidos que se acercan.",
+        "description": "Eso detendrá a Blu por unos minutos. Encuentra a Van en las ruinas y adviértele sobre los bandidos que se acercan.",
         "name": "El Chico de las Ruinas"
       },
       "defeat_bianco_nero": {
-        "description": "Los refuerzos de Blu llegaron, Van no podrá escapar solo. Detén a los bandidos mientras Van sale de ahí",
+        "description": "Los refuerzos de Blu llegaron, Van no podrá escapar solo. Incursiona en las ruinas y detén a los bandidos mientras Van sale de ahí.",
         "name": "Lobos a las Puertas"
       },
       "interrogate_bandits": {
@@ -75,8 +75,8 @@
         "name": "Verdad entre Ladrones"
       },
       "maria_van_status": {
-        "description": "Preguntale a María como se encuentra Van y la misteriosa chica.",
-        "name": "La misteriosa Fine"
+        "description": "Pregúntale a María en la Colonia del Viento cómo se encuentran Van y la misteriosa chica.",
+        "name": "¿A qué venía?"
       }
     },
     "name": "Comandante Sleeper"
