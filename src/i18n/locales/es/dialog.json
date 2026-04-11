@@ -1,133 +1,88 @@
 {
   "bianco_interrogation": [
-    "¡Está bien, está bien! ¡Hablaré! Solo... no dejes que ese dinosaurio se me acerque.",
-    "Nos contrataron para encontrar a una chica. Pensamos que podía tratarse de esa niña, así que se la llevamos a nuestro jefe.",
-    "...no querrás meterte con él.",
-    "¡Eso es todo lo que sé, lo juro!"
+    "¡Está bien, está bien! ¡Hablaré! Solo... no dejes que ese dinosaurio se me acerque. Nos contrataron para encontrar a una chica. Pensamos que podía tratarse de esa niña, así que se la llevamos a nuestro jefe.",
+    "...no querrás meterte con él. ¡Eso es todo lo que sé, lo juro!"
   ],
   "bianco": [
-    "Oye, ¿supiste de Blu? ¡Ese mocoso apareció otra vez cerca de las ruinas!",
-    "No deja de andar fisgoneando y estorbando. El jefe está perdiendo la paciencia.",
-    "Blu ha estado lidiando solo con eso, pero ni con su Guysack logra espantar al mocoso.",
-    "Vamos a las ruinas a ayudar a Blu a deshacerse de esa plaga de una vez por todas."
+    "Oye, ¿supiste de Blu? ¡Ese mocoso apareció otra vez cerca de las ruinas! No deja de andar fisgoneando y estorbando. El jefe está perdiendo la paciencia.",
+    "Blu ha estado lidiando solo con eso, pero ni con su Guysack logra espantar al mocoso. Vamos a las ruinas a ayudar a Blu a deshacerse de esa plaga de una vez por todas."
   ],
   "becker_scan": [
     "¡Oh, un cliente! Rara vez me compran Sondas de Core, así que déjame darte un consejo para que les saques provecho.",
-    "Cuando enfrentes a un Zoid Sleeper, haz clic en la sonda antes de que termine la batalla. Si logras debilitarlo lo suficiente, podrás escanear su Core.",
-    "¿Vas a pelear contra varios seguidos? Haz doble clic y la sonda se activará automáticamente en cada combate.",
-    "Eso sí, las sondas son frágiles. Se rompen con cada intento, aciertes o no. Así que necesitarás una por cada escaneo.",
-    "Pero por mí no hay problema... ¡mientras más compres, mejor para el negocio!"
+    "Cuando enfrentes a un Zoid Sleeper, haz clic en la sonda antes de que termine la batalla. Si logras debilitarlo lo suficiente, podrás escanear su Core. ¿Vas a pelear contra varios seguidos? Haz doble clic y la sonda se activará automáticamente en cada combate.",
+    "Eso sí, las sondas son frágiles. Se rompen con cada intento, aciertes o no. Así que necesitarás una por cada escaneo. Pero por mí no hay problema... ¡mientras más compres, mejor para el negocio!"
   ],
   "boy": [
-    "¡Por favor, tienes que ayudarme! ¡Un bandido vino y se llevó a mi hermana y a mi madre!",
-    "Se fueron hacia el campamento abandonado del norte... Tengo mucho miedo por ellas.",
-    "¡Pero ten cuidado, el bandido es muy fuerte!",
-    "Deberías tomar la ruta intermedia para llegar. Encontrarás Zoids Sleepers por el camino — es buena práctica para tus técnicas de combate.",
+    "¡Por favor, tienes que ayudarme! ¡Un bandido vino y se llevó a mi hermana y a mi madre! Se fueron hacia el campamento abandonado del norte... Tengo mucho miedo por ellas.",
+    "¡Pero ten cuidado, el bandido es muy fuerte! Deberías tomar la ruta intermedia para llegar. Encontrarás Zoids Sleepers por el camino — es buena práctica para tus técnicas de combate.",
     "¡Por favor, tráelas de vuelta sanas y salvas!"
   ],
   "jenkins": [
-    "¿Así que Malinoff te envía? Vaya, vaya... Vi cómo ayudaste a la gente de esta aldea, así que por eso acepto hablar contigo.",
-    "¿Conseguir más Zoids? La forma más fácil es comprárselos al ejército, aunque solo te darán sus desechos.",
-    "Yo dejé de trabajar con Zoids hace mucho, pero en mis tiempos usábamos trampas para capturar Zoids salvajes. Hoy en día es casi imposible encontrarlos, y más aún lograr que cooperen contigo.",
-    "Así que los ejércitos idearon una nueva forma: aprendimos a incubar Zoid Cores.",
-    "Como sabes, el Zoid Core es el núcleo vital de cada Zoid. Cada especie tiene un Core distinto, pero todos comparten un mismo origen: los metales disueltos en las aguas primigenias del planeta.",
-    "Lo que logramos fue recrear las condiciones de esas aguas primitivas en un laboratorio. Si consigues suficiente Zoid Magnite, o en su defecto bastante Magnis, podemos sumergirlo en esa sustancia y crear un Zoid Core nuevo.",
-    "El siguiente paso es moldear ese Core a la especie que necesites. Para eso hacen falta datos estructurales del Zoid.",
-    "Toma, esto es un Analizador de Cores. Si lo conectas a un Zoid Core activo, puedes escanear su estructura y obtener los datos que necesitamos para moldear un Core nuevo según esa especie.",
-    "Últimamente hay muchos Zoid Sleepers por esta región. Si te topas con uno, intenta no destrozarlo y analiza su Core.",
-    "Eso sí, ningún Zoid te dará acceso a su Core así como así. Tendrás que inmovilizarlo primero. No te voy a mentir, inmovilizar un Zoid sin destruirlo no es tarea fácil.",
-    "Si consigues los datos de un Zoid, ven a verme y pondremos a incubar algunos Cores. Aunque con este laboratorio tan básico solo podremos crear Zoids simples, y no te garantizo mucho éxito.",
-    "Solo te falta una pieza importante: para conectar el Analizador a los Cores necesitarás una Sonda. Son de un solo uso, así que tendrás que invertir en ellas. Visita el taller de la señora Becker, seguro las tiene."
+    "¿Así que Malinoff te envía? Vaya, vaya... Vi cómo ayudaste a la gente de esta aldea, así que por eso acepto hablar contigo. ¿Conseguir más Zoids? La forma más fácil es comprárselos al ejército, aunque solo te darán sus desechos.",
+    "Yo dejé de trabajar con Zoids hace mucho, pero en mis tiempos usábamos trampas para capturar Zoids salvajes. Hoy en día es casi imposible encontrarlos, y más aún lograr que cooperen contigo. Así que los ejércitos idearon una nueva forma: aprendimos a incubar Zoid Cores.",
+    "Como sabes, el Zoid Core es el núcleo vital de cada Zoid. Cada especie tiene un Core distinto, pero todos comparten un mismo origen: los metales disueltos en las aguas primigenias del planeta. Lo que logramos fue recrear las condiciones de esas aguas primitivas en un laboratorio. Si consigues suficiente Zoid Magnite, o en su defecto bastante Magnis, podemos sumergirlo en esa sustancia y crear un Zoid Core nuevo.",
+    "El siguiente paso es moldear ese Core a la especie que necesites. Para eso hacen falta datos estructurales del Zoid. Toma, esto es un Analizador de Cores. Si lo conectas a un Zoid Core activo, puedes escanear su estructura y obtener los datos que necesitamos para moldear un Core nuevo según esa especie.",
+    "Últimamente hay muchos Zoid Sleepers por esta región. Si te topas con uno, intenta no destrozarlo y analiza su Core. Eso sí, ningún Zoid te dará acceso a su Core así como así. Tendrás que inmovilizarlo primero. No te voy a mentir, inmovilizar un Zoid sin destruirlo no es tarea fácil.",
+    "Si consigues los datos de un Zoid, ven a verme y pondremos a incubar algunos Cores. Aunque con este laboratorio tan básico solo podremos crear Zoids simples, y no te garantizo mucho éxito. Solo te falta una pieza importante: para conectar el Analizador a los Cores necesitarás una Sonda. Son de un solo uso, así que tendrás que invertir en ellas. Visita el taller de la señora Becker, seguro las tiene."
   ],
   "maria_fiona": [
-    "¿Así que estabas preocupado por Van? Él se fue temprano con esa chica y ese dinosaurio que encontraron. Creo que le está enseñando la ciudad.",
-    "Ese chico... siempre metiéndose en estas situaciones.",
-    "¿Pero una chica sin recuerdos? Eso es... preocupante.",
-    "Si lo ves, por favor dile que tenga cuidado. Y... gracias por tu ayuda."
+    "¿Así que estabas preocupado por Van? Él se fue temprano con esa chica y ese dinosaurio que encontraron. Creo que le está enseñando la ciudad. Ese chico... siempre metiéndose en estas situaciones.",
+    "¿Pero una chica sin recuerdos? Eso es... preocupante. Si lo ves, por favor dile que tenga cuidado. Y... gracias por tu ayuda."
   ],
   "maria_flyheight": [
-    "¿Mi hermano Van? *suspira* Está ahí afuera otra vez, ¿verdad?",
-    "Siempre ha soñado con ser un gran guerrero como nuestro padre. Se la pasa explorando el Desierto de Elmia, imaginando que está en una gran aventura.",
-    "Seguramente está por allá ahora mismo, rondando por las ruinas.",
-    "Si vas para allá, por favor cuídalo. Es imprudente, pero tiene buen corazón.",
+    "¿Mi hermano Van? *suspira* Está ahí afuera otra vez, ¿verdad? Siempre ha soñado con ser un gran guerrero como nuestro padre. Se la pasa explorando el Desierto de Elmia, imaginando que está en una gran aventura.",
+    "Seguramente está por allá ahora mismo, rondando por las ruinas. Si vas para allá, por favor cuídalo. Es imprudente, pero tiene buen corazón.",
     "El desierto está al este de aquí. Ten cuidado, los Sleepers de allá son más fuertes que los de cerca de la aldea."
   ],
   "narration_discover_fione": [
-    "Tras el milagro que acabas de presenciar, regresas a las ruinas buscando alguna señal de Van.",
-    "En lo profundo de los pasajes en ruinas, escuchas que se encuentra en una cámara similar a donde encontraron a Zeke.",
-    "De pronto, otra de las cápsulas se abre y una chica sale de ella.",
-    "Pero justo en ese momento, debido a la batalla, el suelo sobre el que estás parado se abre y caes a una cámara oculta.",
+    "Tras el milagro que acabas de presenciar, regresas a las ruinas buscando alguna señal de Van. En lo profundo de los pasajes en ruinas, escuchas que se encuentra en una cámara similar a donde encontraron a Zeke.",
+    "De pronto, otra de las cápsulas se abre y una chica sale de ella. Pero justo en ese momento, debido a la batalla, el suelo sobre el que estás parado se abre y caes a una cámara oculta.",
     "En el centro se alza una pequeña estatua antigua, su superficie cubierta de extraños símbolos."
   ],
   "narration_shield_liger": [
-    "En medio de la batalla, Van sale disparado de las ruinas cargado por Zeke.",
-    "Bianco y Nero dan la vuelta y lo persiguen. Tus Zoids aún se están reorganizando y no te da tiempo de ayudar a Van, que está acorralado.",
-    "Pero en ese momento algo extraño sucede: Zeke se fusiona con uno de los Zoids destruidos de las ruinas y de pronto este se levanta totalmente restaurado.",
-    "Y en cuestión de segundos, Van y el Shield Liger ahuyentan a los bandidos."
+    "En medio de la batalla, Van sale disparado de las ruinas cargado por Zeke. Bianco y Nero dan la vuelta y lo persiguen. Tus Zoids aún se están reorganizando y no te da tiempo de ayudar a Van, que está acorralado.",
+    "Pero en ese momento algo extraño sucede: Zeke se fusiona con uno de los Zoids destruidos de las ruinas y de pronto este se levanta totalmente restaurado. Y en cuestión de segundos, Van y el Shield Liger ahuyentan a los bandidos."
   ],
   "jenkins_to_work": [
-    "¡Vaya, vaya! Así que lograste obtener los datos estructurales de un Zoid. Nada mal para un novato.",
-    "Bien, es hora de ponernos a trabajar. Vamos a mi humilde laboratorio, veamos qué podemos crear con lo que tienes."
+    "¡Vaya, vaya! Así que lograste obtener los datos estructurales de un Zoid. Nada mal para un novato. Bien, es hora de ponernos a trabajar. Vamos a mi humilde laboratorio, veamos qué podemos crear con lo que tienes."
   ],
   "priest_leon": [
-    "¿Hmm, una chica perdida, dices? Me temo que no hemos escuchado nada sobre eso aquí en la Colonia del Viento.",
-    "Pero... si hay alguien que sabe sobre los movimientos de los bandidos, es ese chico que siempre se mete en problemas con ellos.",
-    "No sé qué lo impulsa, pero constantemente se aventura al desierto para enfrentarlos. Bastante imprudente, si me preguntas.",
-    "Deberías hablar con su hermana. Ella podría saber dónde encontrarlo."
+    "¿Hmm, una chica perdida, dices? Me temo que no hemos escuchado nada sobre eso aquí en la Colonia del Viento. Pero... si hay alguien que sabe sobre los movimientos de los bandidos, es ese chico que siempre se mete en problemas con ellos.",
+    "No sé qué lo impulsa, pero constantemente se aventura al desierto para enfrentarlos. Bastante imprudente, si me preguntas. Deberías hablar con su hermana. Ella podría saber dónde encontrarlo."
   ],
   "explorer_dungeon_tips": [
-    "¿Vas a entrar a las ruinas? Yo ya he bajado un par de veces. Déjame contarte qué esperar.",
-    "La mayor parte del tiempo te toparás con Sleepers hostiles cerca de la entrada. Pero con forme vayas avanzando se volverán mas peligrosos",
-    "De hecho hay algunos que son mucho más peligrosos que el resto. Más difíciles de lidiar con ellos, pero generalmente custodian tesoros más valiosos.",
-    "Las ruinas están llenas de sorpresas. Cosas extrañas pasan ahí abajo... tendrás que tomar decisiones que podrían ayudarte o empeorarte las cosas.",
-    "Y si tienes suerte, podrías encontrar algunos suministros en el camino. Podrían darte una ventaja, pero nada viene sin un costo.",
-    "Sea lo que sea que busques. No entres a menos que estés listo para una pelea de verdad."
+    "¿Vas a entrar a las ruinas? Yo ya he bajado un par de veces. Déjame contarte qué esperar. La mayor parte del tiempo te toparás con Sleepers hostiles cerca de la entrada. Pero con forme vayas avanzando se volverán mas peligrosos",
+    "De hecho hay algunos que son mucho más peligrosos que el resto. Más difíciles de lidiar con ellos, pero generalmente custodian tesoros más valiosos. Las ruinas están llenas de sorpresas. Cosas extrañas pasan ahí abajo... tendrás que tomar decisiones que podrían ayudarte o empeorarte las cosas.",
+    "Y si tienes suerte, podrías encontrar algunos suministros en el camino. Podrían darte una ventaja, pero nada viene sin un costo. Sea lo que sea que busques. No entres a menos que estés listo para una pelea de verdad."
   ],
   "captain_debrief": [
-    "Gracias por tu ayuda, sabía que había algo especial en ti...",
-    "Hmmm un artefacto usado por los bandidos? Dejame verlo...",
-    "Ohh en mis dias en el ejercito vi este tipo de artefactos pero este se ve mucho más avanzado de los que conocía...",
-    "Si no me equivoco es un módulo Sleeper. Algunas personas en el ejercito solo se preocupan por el número de Zoids disponibles para la pelear.",
-    "Así que inventaron el sistema Sleeper como una forma en que los pilotos pueden controlar a más Zoids al mismo tiempo.",
-    "Al parecer estos inventos han caído en manos equivocadas, es por eso que hay tantos Zoids Sleepers rondando por aquí...",
-    "Estoy casi seguro que los bandidos los trajeron.",
-    "...",
-    "Pero no te equivoques joven piloto, no todos los inventos del ejercito son malos...",
-    "Si te ganas su confianza, este sistema Sleeper te permitiría crear lazos con varios Zoids al mismo tiempo",
-    "Si de verdad piensas enfrentarte a esos bandidos te vendrían bien refuerzos.",
-    "Para eso necesitarás más Zoids, por qué no hablas con el viejo Jenkins, el solía trabajar en un laboratorio de Zoids, tal vez pueda ayudarte."
+    "Gracias por tu ayuda, sabía que había algo especial en ti... Hmmm un artefacto usado por los bandidos? Dejame verlo...",
+    "Ohh en mis dias en el ejercito vi este tipo de artefactos pero este se ve mucho más avanzado de los que conocía... Si no me equivoco es un módulo Sleeper. Algunas personas en el ejercito solo se preocupan por el número de Zoids disponibles para la pelear.",
+    "Así que inventaron el sistema Sleeper como una forma en que los pilotos pueden controlar a más Zoids al mismo tiempo. Al parecer estos inventos han caído en manos equivocadas, es por eso que hay tantos Zoids Sleepers rondando por aquí... Estoy casi seguro que los bandidos los trajeron.",
+    "Pero no te equivoques joven piloto, no todos los inventos del ejercito son malos... Si te ganas su confianza, este sistema Sleeper te permitiría crear lazos con varios Zoids al mismo tiempo",
+    "Si de verdad piensas enfrentarte a esos bandidos te vendrían bien refuerzos. Para eso necesitarás más Zoids, por qué no hablas con el viejo Jenkins, el solía trabajar en un laboratorio de Zoids, tal vez pueda ayudarte."
   ],
   "captain_farewell": [
-    "¡Vaya! Ahora sí pareces todo un comandante con tu propia armada.",
-    "Veo que estás decidido a hacerle frente a esos bandidos. Buena suerte, muchacho.",
-    "Ah, una cosa más. Le eché un vistazo más de cerca a ese módulo Sleeper tuyo.",
-    "No te recomendaría desplegar más de un Zoid de la misma especie. El módulo no parece permitir el control simultáneo de multiples Zoids de la misma especie.",
-    "Así que si estás formando tu ejército la variedad será tu mejor arma.... Por ahora",
-    "Ten cuidado, en estos tiempos de guerra lo mejor sería no inmiscuirse en asuntos de los ejércitos. Pero algo me dice que ya es tarde para eso..."
+    "¡Vaya! Ahora sí pareces todo un comandante con tu propia armada. Veo que estás decidido a hacerle frente a esos bandidos. Buena suerte, muchacho.",
+    "Ah, una cosa más. Le eché un vistazo más de cerca a ese módulo Sleeper tuyo. No te recomendaría desplegar más de un Zoid de la misma especie. El módulo no parece permitir el control simultáneo de multiples Zoids de la misma especie.",
+    "Así que si estás formando tu ejército la variedad será tu mejor arma.... Por ahora. Ten cuidado, en estos tiempos de guerra lo mejor sería no inmiscuirse en asuntos de los ejércitos. Pero algo me dice que ya es tarde para eso..."
   ],
   "captain": [
-    "¡¡¡EEEEEEY!! Necesito tu ayuda.",
-    "Los bandidos han estado saqueando nuestro pueblo. Cada día se vuelven más agresivos.",
-    "Todos nuestros soldados fueron reclutados para la guerra entre la República y el Imperio. No queda nadie para defendernos.",
-    "Yo ya estoy muy viejo para luchar. Mi cuerpo no aguanta el esfuerzo de pilotar un Zoid.",
-    "Pero todavía tengo tres Zoids de mis días como soldado. Están anticuados... pero me salvaron la vida.",
-    "¿Pilotarías uno de ellos para proteger esta aldea?"
+    "¡¡¡EEEEEEY!! Necesito tu ayuda. Los bandidos han estado saqueando nuestro pueblo. Cada día se vuelven más agresivos.",
+    "Todos nuestros soldados fueron reclutados para la guerra entre la República y el Imperio. No queda nadie para defendernos. Yo ya estoy muy viejo para luchar. Mi cuerpo no aguanta el esfuerzo de pilotar un Zoid.",
+    "Pero todavía tengo tres Zoids de mis días como soldado. Están anticuados... pero me salvaron la vida. ¿Pilotarías uno de ellos para proteger esta aldea?"
   ],
   "challenge": [
     "¿{{zoidName}}, eh? Buena elección.",
-    "Pero elegir un Zoid no es suficiente. El Zoid también debe elegirte a ti.",
-    "¡Demuestra tu valía. Sube a la cabina y demuéstrale que tienes espíritu de piloto!"
+    "Pero elegir un Zoid no es suficiente. El Zoid también debe elegirte a ti. ¡Demuestra tu valía. Sube a la cabina y demuéstrale que tienes espíritu de piloto!"
   ],
   "farewell": [
     "¡Ja! Sabía que lo tenías. El Zoid te ha aceptado como su piloto.",
-    "Ahora ve y ayuda a nuestros vecinos. Los bandidos no esperarán para siempre.",
-    "Ten cuidado ahí fuera, chico. Y cuida bien de ese Zoid."
+    "Ahora ve y ayuda a nuestros vecinos. Los bandidos no esperarán para siempre. Ten cuidado ahí fuera, chico. Y cuida bien de ese Zoid."
   ],
   "scrap_dealer": [
-    "Galos, Zi-Dollars, Zenys... todas esas monedas, un día valen una fortuna y al otro no compran ni un grano de sal.",
-    "¿Quieres un consejo, chico? Guarda tu riqueza en materiales.",
-    "¿Yo? Junto Magnis, pequeños fragmentos de Zoid Magnite que puedes recolectar de Zoids destruidos.",
-    "Generalmente se concentran en los conductos conectados al Zoid Core.",
+    "Galos, Zi-Dollars, Zenys... todas esas monedas, un día valen una fortuna y al otro no compran ni un grano de sal. ¿Quieres un consejo, chico? Guarda tu riqueza en materiales.",
+    "¿Yo? Junto Magnis, pequeños fragmentos de Zoid Magnite que puedes recolectar de Zoids destruidos. Generalmente se concentran en los conductos conectados al Zoid Core.",
     "La próxima vez que derrotes uno, no olvides revisar los restos. Te sorprendería lo que puedes encontrar."
   ],
   "planet_intro": [
@@ -136,26 +91,19 @@
     "En una de estas aldeas olvidadas, una nueva amenaza se acerca..."
   ],
   "van_alert": [
-    "¿Eh? ¿Quién eres? Espera... no eres uno de esos bandidos, ¿verdad?",
-    "Me llamo Van. Van Flyheight. Estaba escondiéndome aquí cuando una de esas cápsulas se abrió y ese Zoid salió de ahí y me atacó.",
-    "¿Bandidos? ¿Vienen más? Ya me lo imaginaba...",
-    "¿Así que tú puedes comandar Zoids? Genial, entonces vamos por ellos y...",
+    "¿Eh? ¿Quién eres? Espera... no eres uno de esos bandidos, ¿verdad? Me llamo Van. Van Flyheight. Estaba escondiéndome aquí cuando una de esas cápsulas se abrió y ese Zoid salió de ahí y me atacó.",
+    "¿Bandidos? ¿Vienen más? Ya me lo imaginaba... ¿Así que tú puedes comandar Zoids? Genial, entonces vamos por ellos y...",
     "¡¡No hay tiempo!! Tal vez pueda engañar a ese tipo del Guysack y escapar. No te preocupes por mí."
   ],
   "watchman_combat_tips": [
-    "Oye, tú eres el que se enfrentó a ese bandido ¿verdad? Déjame darte un consejo sobre el uso de armas.",
-    "Cuando eres un pilotto no lo parece pero mientras más Sleepers derrotes más afilados se vuelven tus instintos de combate, como dicen La práctica hace al maestro",
-    "Al aprender sobre als armas de una nueva especie de Zoid, también aprendes mejores formas de usar las tuyas.",
-    "Además, mientras más pilotees tus Zoids, más acostumbrado te vuelves a sus armas. La experiencia cuenta mucho ahí fuera.",
+    "Oye, tú eres el que se enfrentó a ese bandido ¿verdad? Déjame darte un consejo sobre el uso de armas. Cuando eres un pilotto no lo parece pero mientras más Sleepers derrotes más afilados se vuelven tus instintos de combate, como dicen La práctica hace al maestro",
+    "Al aprender sobre als armas de una nueva especie de Zoid, también aprendes mejores formas de usar las tuyas. Además, mientras más pilotees tus Zoids, más acostumbrado te vuelves a sus armas. La experiencia cuenta mucho ahí fuera.",
     "Así que sigue luchando, sigue aprendiendo y sigue piloteando. En poco tiempo serás una fuerza imparable."
   ],
   "woman": [
-    "¡Gracias por salvarme! Pero por favor, ¡tienes que ayudarme!",
-    "¡Los bandidos... se llevaron a mi hija! ¡Lo arrastraron hacia la Colonia del Viento!",
-    "Estoy desesperada... es solo una niña. ¡Por favor, tienes que salvarla!",
-    "La Colonia del Viento está al norte. Ten cuidado, el camino es peligroso.",
-    "Toma esto, tal vez te sea útil",
-    "Esos bandidos estaban usando estos dispositivos para comandar a los Zoids alrededor de este campamento y evitar que se acerquen los soldados.",
+    "¡Gracias por salvarme! Pero por favor, ¡tienes que ayudarme! ¡Los bandidos... se llevaron a mi hija! ¡Lo arrastraron hacia la Colonia del Viento!",
+    "Estoy desesperada... es solo una niña. ¡Por favor, tienes que salvarla! La Colonia del Viento está al norte. Ten cuidado, el camino es peligroso.",
+    "Toma esto, tal vez te sea útil. Esos bandidos estaban usando estos dispositivos para comandar a los Zoids alrededor de este campamento y evitar que se acerquen los soldados.",
     "Logré arrebatarle uno al que se llevó a mi hija. La verdad no se qué sea pero tal vez ese anciano de la aldea sepa qué es."
   ]
 }
