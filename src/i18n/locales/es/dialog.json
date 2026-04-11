@@ -14,7 +14,7 @@
   ],
   "boy": [
     "¡Por favor, tienes que ayudarme! ¡Un bandido vino y se llevó a mi hermana y a mi madre! Se fueron hacia el campamento abandonado del norte... Tengo mucho miedo por ellas.",
-    "¡Pero ten cuidado, el bandido es muy fuerte! Deberías tomar la ruta intermedia para llegar. Encontrarás Zoids Sleepers por el camino — es buena práctica para tus técnicas de combate.",
+    "¡Pero ten cuidado, el bandido es muy fuerte! Deberías tomar la ruta intermedia para llegar. Encontrarás Zoids Sleepers por el camino, es buena práctica para tus técnicas de combate.",
     "¡Por favor, tráelas de vuelta sanas y salvas!"
   ],
   "jenkins": [
@@ -51,9 +51,11 @@
     "No sé qué lo impulsa, pero constantemente se aventura al desierto para enfrentarlos. Bastante imprudente, si me preguntas. Deberías hablar con su hermana. Ella podría saber dónde encontrarlo."
   ],
   "explorer_dungeon_tips": [
-    "¿Vas a entrar a las ruinas? Yo ya he bajado un par de veces. Déjame contarte qué esperar. La mayor parte del tiempo te toparás con Sleepers hostiles cerca de la entrada. Pero con forme vayas avanzando se volverán mas peligrosos",
-    "De hecho hay algunos que son mucho más peligrosos que el resto. Más difíciles de lidiar con ellos, pero generalmente custodian tesoros más valiosos. Las ruinas están llenas de sorpresas. Cosas extrañas pasan ahí abajo... tendrás que tomar decisiones que podrían ayudarte o empeorarte las cosas.",
-    "Y si tienes suerte, podrías encontrar algunos suministros en el camino. Podrían darte una ventaja, pero nada viene sin un costo. Sea lo que sea que busques. No entres a menos que estés listo para una pelea de verdad."
+    "¿Vas a entrar a las ruinas? Yo ya he bajado un par de veces. Déjame contarte qué esperar.",
+    "Si logras inmovilizar a un Zoid para escanear su Zi-Data, aprovecha para recoger un poco de Metal Zi. Lo vas a necesitar para preparar a tus Zoids para las incursiones en las ruinas.",
+    "Una vez adentro, te toparás con Sleepers hostiles cerca de la entrada. Pero conforme vayas avanzando se volverán más peligrosos. Algunos son mucho más peligrosos que el resto, pero generalmente custodian tesoros más valiosos.",
+    "Las ruinas están llenas de sorpresas. Cosas extrañas pasan ahí abajo... tendrás que tomar decisiones que podrían ayudarte o empeorarte las cosas. Y si tienes suerte, podrías encontrar algunos suministros en el camino.",
+    "Sea lo que sea que busques, no entres a menos que estés listo para una pelea de verdad."
   ],
   "captain_debrief": [
     "Gracias por tu ayuda, sabía que había algo especial en ti... Hmmm un artefacto usado por los bandidos? Dejame verlo...",

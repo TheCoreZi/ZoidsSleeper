@@ -14,7 +14,7 @@
   ],
   "boy": [
     "Please, you have to help me! A bandit came and took my sister and my mother! They went toward the abandoned camp to the north... I'm so scared for them.",
-    "But be careful, the bandit is really strong! You should take the intermediate route to get there. You'll encounter Zoids Sleepers along the way — it's good practice for your combat techniques.",
+    "But be careful, the bandit is really strong! You should take the intermediate route to get there. You'll encounter Zoids Sleepers along the way, it's good practice for your combat techniques.",
     "Please, bring them back safely!"
   ],
   "maria_fiona": [
@@ -43,7 +43,7 @@
     "I stopped working with Zoids a long time ago, but back in my day we used traps to catch wild Zoids. Nowadays it's nearly impossible to find them, let alone get one to cooperate with you. So the armies came up with a new method: we learned to incubate Zoid Cores.",
     "As you know, the Zoid Core is the vital nucleus of every Zoid. Each species has a different Core, but they all share the same origin: the metals dissolved in the planet's primordial waters. What we managed to do was recreate the conditions of those ancient waters in a laboratory. If you gather enough Zoid Magnite, or failing that, plenty of Magnis, we can submerge it in that substance and create a brand new Zoid Core.",
     "The next step is shaping that Core into the species you need. For that, you'll need the Zoid's structural data. Here, take this. It's a Core Analyzer. Connect it to an active Zoid Core and you can scan its structure to get the data we need to shape a new Core after that species.",
-    "There are a lot of Zoid Sleepers roaming this region lately. If you come across one, try not to wreck it and analyze its Core instead. Fair warning though — no Zoid will just let you access its Core. You'll have to immobilize it first. I won't lie to you, taking down a Zoid without destroying it is no easy feat.",
+    "There are a lot of Zoid Sleepers roaming this region lately. If you come across one, try not to wreck it and analyze its Core instead. Fair warning though, no Zoid will just let you access its Core. You'll have to immobilize it first. I won't lie to you, taking down a Zoid without destroying it is no easy feat.",
     "Once you've got the data from a Zoid, come see me and we'll start incubating some Cores. With this basic lab, we can only hatch simple Zoids, and I can't promise a high success rate. One last thing: to connect the Analyzer to the Cores you'll need a Probe. They're single-use, so you'll have to stock up. Visit Mrs. Becker's workshop, she should have them."
   ],
   "priest_leon": [
@@ -56,9 +56,11 @@
     "So if you're building your army, variety will be your best weapon... For now. Be careful out there. In these times of war, it's best not to get mixed up in military affairs. But something tells me it's too late for that..."
   ],
   "explorer_dungeon_tips": [
-    "You're heading into the ruins? I've been down there a few times myself. Let me tell you what to expect. Most of the time you'll run into hostile Sleepers near the entrance. But the deeper you go, the more dangerous they become.",
-    "In fact, some are far more dangerous than the rest. Harder to deal with, but they usually guard more valuable treasures. The ruins are full of surprises too. Strange things happen down there... you'll have to make choices that could help you or make things worse.",
-    "And if you're lucky, you might stumble upon some supplies along the way. They could give you an edge, but nothing comes without a cost. Whatever you're looking for, don't go in unless you're ready for a real fight."
+    "You're heading into the ruins? I've been down there a few times myself. Let me tell you what to expect.",
+    "If you manage to immobilize a Zoid to scan its Zi-Data, take the chance to collect some Zi metal too. You'll need it to prepare your Zoids for sorties into the ruins.",
+    "Once inside, you'll run into hostile Sleepers near the entrance. But the deeper you go, the more dangerous they become. Some are far more dangerous than the rest, but they usually guard more valuable treasures.",
+    "The ruins are full of surprises. Strange things happen down there... you'll have to make choices that could help you or make things worse. And if you're lucky, you might stumble upon some supplies along the way.",
+    "Whatever you're looking for, don't go in unless you're ready for a real fight."
   ],
   "captain_debrief": [
     "Thank you for your help, I knew there was something special about you... Hmmm an artifact used by the bandits? Let me take a look...",
