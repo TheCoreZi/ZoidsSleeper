@@ -1108,8 +1108,9 @@ body {
 .campaign-panel {
   align-self: flex-start;
   background: #16213e;
-  border: 2px solid #0f3460;
+  border: 2px solid #00d4ff;
   border-radius: 12px;
+  box-shadow: 0 0 8px rgb(0 212 255 / 30%);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -1119,6 +1120,7 @@ body {
 .campaign-title {
   color: #00d4ff;
   font-size: 1rem;
+  letter-spacing: 0.1em;
   padding: 0.75rem;
   text-align: center;
   text-transform: uppercase;
@@ -1145,7 +1147,7 @@ body {
 }
 
 .campaign-name {
-  color: #fff;
+  color: #ffd700;
   font-size: 0.85rem;
   font-weight: bold;
 }
@@ -1155,9 +1157,20 @@ body {
   font-size: 0.75rem;
 }
 
+.campaign-active {
+  background: rgb(0 212 255 / 5%);
+}
+
+.campaign-mission-name {
+  color: #00d4ff;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
 .campaign-mission-hint {
-  color: #999;
+  color: #fff;
   font-size: 0.75rem;
+  font-style: italic;
 }
 
 .campaign-description {
