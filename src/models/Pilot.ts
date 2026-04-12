@@ -13,7 +13,7 @@ export const PILOTS: Record<string, Pilot> = {
     magnisReward: 3000,
     name: 'Bandit',
     zoids: [
-      { attackOverride: 1, id: 'molga', level: 5, maxHealthOverride: 320 },
+      { attackOverride: 1, id: 'molga', level: 5, maxHealthOverride: 250 },
     ],
   },
   bianco_nero: {
