@@ -25,6 +25,19 @@ describe('Battle', () => {
     loadZoidResearch({});
   });
 
+  it('should not deal auto-damage with empty party', () => {
+    const battle = new Battle(DEFAULT_PLAYER, toughRoute);
+    const initialHealth = battle.enemy.health;
+    const ticksNeeded = BATTLE_TICK / TICK_TIME;
+
+    for (let i = 0; i < ticksNeeded; i++) {
+      battle.gameTick();
+    }
+
+    expect(partyAttack()).toBe(0);
+    expect(battle.enemy.health).toBe(initialHealth);
+  });
+
   it('should auto-attack after accumulating BATTLE_TICK', () => {
     const battle = new Battle(DEFAULT_PLAYER, toughRoute);
     const initialHealth = battle.enemy.health;

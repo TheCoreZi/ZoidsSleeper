@@ -64,7 +64,8 @@ export abstract class BaseBattle {
 
   private autoAttack(): void {
     if (this.enemy.health <= 0) {return;}
-    const damage = Math.max(1, Math.floor(partyAttack() * (playerStats()?.attackMult ?? 1)));
+    const damage = Math.max(0, Math.floor(partyAttack() * (playerStats()?.attackMult ?? 1)));
+    if (damage <= 0) {return;}
     this.dealDamage(damage, 'auto');
   }
 
