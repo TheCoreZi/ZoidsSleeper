@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it } from 'vitest';
-import { BattleBackground, getLandmarkHints, isLandmarkUnlocked, LandmarkType, type Landmark } from '../src/landmark';
+import { BattleBackground, findRouteKillRequirement, getLandmarkHints, isLandmarkUnlocked, LandmarkType, type Landmark } from '../src/landmark';
 import { RouteKillRequirement } from '../src/requirement';
 import { incrementRouteKills, loadStatistics } from '../src/store/statisticsStore';
 
@@ -70,6 +70,47 @@ describe('isLandmarkUnlocked', () => {
     };
 
     expect(isLandmarkUnlocked(landmark)).toBe(false);
+  });
+});
+
+describe('findRouteKillRequirement', () => {
+  beforeEach(() => {
+    loadStatistics({}, {});
+  });
+
+  const baseLandmark: Landmark = {
+    battleBackground: BattleBackground.Grass,
+    id: 'test',
+    name: 'Test',
+    type: LandmarkType.City,
+  };
+
+  it('should find a kill requirement matching the route id', () => {
+    const landmarks: Landmark[] = [
+      { ...baseLandmark, id: 'city_a', requirements: [new RouteKillRequirement('route_a', 10)] },
+      { ...baseLandmark, id: 'city_b', requirements: [new RouteKillRequirement('route_b', 5)] },
+    ];
+
+    const result = findRouteKillRequirement(landmarks, 'route_b');
+
+    expect(result).toBeInstanceOf(RouteKillRequirement);
+    expect(result?.routeId).toBe('route_b');
+    expect(result?.requiredValue).toBe(5);
+  });
+
+  it('should return undefined when no landmark has a matching requirement', () => {
+    const landmarks: Landmark[] = [
+      { ...baseLandmark, id: 'city_a', requirements: [new RouteKillRequirement('route_a', 10)] },
+    ];
+
+    expect(findRouteKillRequirement(landmarks, 'unknown_route')).toBeUndefined();
+  });
+
+  it('should find requirements across different landmark types', () => {
+    const city: Landmark = { ...baseLandmark, id: 'city', requirements: [new RouteKillRequirement('city_route', 10)] };
+    const dungeon: Landmark = { ...baseLandmark, id: 'dungeon', type: LandmarkType.Dungeon, requirements: [new RouteKillRequirement('dungeon_route', 10)] };
+
+    expect(findRouteKillRequirement([city, dungeon], 'dungeon_route')?.routeId).toBe('dungeon_route');
   });
 });
 
