@@ -11,8 +11,8 @@ describe('Pilot', () => {
       expect(molga.attack).toBe(1);
     });
 
-    it('should have Molga with maxHealth of 196', () => {
-      expect(molga.maxHealth).toBe(196);
+    it('should have Molga with maxHealth of 320', () => {
+      expect(molga.maxHealth).toBe(320);
     });
 
     it('should reward 3000 magnis', () => {
