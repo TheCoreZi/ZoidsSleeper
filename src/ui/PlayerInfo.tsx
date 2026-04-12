@@ -1,6 +1,6 @@
 import { Show, type Component } from 'solid-js';
 import { t } from '../i18n';
-import { CITIES, findRouteKillRequirement } from '../landmark';
+import { CITIES, DUNGEONS, findRouteKillRequirement } from '../landmark';
 import { playerStats } from '../store/gameStore';
 import { currentLandmark, isOnRoute } from '../store/landmarkStore';
 import { partyAttack } from '../store/partyStore';
@@ -8,7 +8,7 @@ import { getRouteKills } from '../store/statisticsStore';
 
 const PlayerInfo: Component = () => {
   const pendingKillReq = () => {
-    const req = findRouteKillRequirement(CITIES, currentLandmark().id);
+    const req = findRouteKillRequirement([...CITIES, ...DUNGEONS], currentLandmark().id);
     return req && !req.isCompleted() ? req : null;
   };
 
