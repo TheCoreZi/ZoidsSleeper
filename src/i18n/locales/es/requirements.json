@@ -1,11 +1,14 @@
 {
+  "all_of_joiner": " y ",
   "army_size_required": "Tener al menos {{count}} Zoids en el ejército",
+  "at_least_one_joiner": " o ",
   "complete_campaign": "Completar operación: {{name}}",
   "complete_mission": "Completar misión: {{mission}} de la operación {{campaign}}",
   "defeat_pilot": "Derrota a {{name}}",
   "item_required": "Tener {{count}} {{item}}",
   "defeat_zoids_on_route": "Derrota {{count}} zoids en {{route}}",
   "magnis_required": "Tener {{count}} Magnis",
+  "only_one": "Solo uno de: {{hints}}",
   "talk_to_npc": "Hablar con {{name}}",
   "zi_data_required": "Tener al menos {{count}} Zi-Data"
 }
