@@ -1,4 +1,8 @@
 {
+  "ancient_statue": {
+    "description": "A small ancient statue, its surface covered in strange symbols.",
+    "name": "Ancient Statue"
+  },
   "core_analyzer": {
     "description": "A device that can be used to obtain structural data from Zoid Cores.",
     "name": "Core Analyzer"

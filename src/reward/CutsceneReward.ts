@@ -1,10 +1,10 @@
 import { RewardType } from './Reward';
 
 export interface CutsceneReward {
-  dialogKey: string;
+  cutsceneId: string;
   type: typeof RewardType.Cutscene;
 }
 
-export function cutsceneReward(dialogKey: string): CutsceneReward {
-  return { dialogKey, type: RewardType.Cutscene };
+export function cutsceneReward(cutsceneId: string): CutsceneReward {
+  return { cutsceneId, type: RewardType.Cutscene };
 }

@@ -33,7 +33,7 @@ describe('Save', () => {
     save.store();
     const loaded = save.load();
 
-    expect(loaded?.version).toBe('0.1.0');
+    expect(loaded?.version).toBe(__APP_VERSION__);
   });
 
   it('should persist zoid research data', () => {

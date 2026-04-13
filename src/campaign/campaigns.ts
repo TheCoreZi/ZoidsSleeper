@@ -1,6 +1,6 @@
 import { ArmySizeRequirement, ComparisonCondition, NpcTalkedInCampaignRequirement, PilotDefeatRequirement, RouteKillRequirement, ZiDataRequirement } from '../requirement';
+import { CUTSCENES } from '../cutscene';
 import { enqueueDialog } from '../store/gameStore';
-import { DialogScript } from '../story/Dialog';
 import type { Campaign } from './Campaign';
 
 export const CAMPAIGNS: Record<string, Campaign> = {
@@ -24,7 +24,7 @@ export const CAMPAIGNS: Record<string, Campaign> = {
       { id: 'listen_to_bandits', goals: [new NpcTalkedInCampaignRequirement('sleeper_commander', 'bianco')] },
       { id: 'defeat_bul', goals: [new PilotDefeatRequirement('bul')] },
       { id: 'find_van', goals: [new NpcTalkedInCampaignRequirement('sleeper_commander', 'van')] },
-      { id: 'defeat_bianco_nero', goals: [new PilotDefeatRequirement('bianco_nero')], onComplete: () => enqueueDialog(DialogScript.fromKeys('', 'dialog:narration_shield_liger')) },
+      { id: 'defeat_bianco_nero', goals: [new PilotDefeatRequirement('bianco_nero')], onComplete: () => enqueueDialog(CUTSCENES.narration_shield_liger.toDialogScript()) },
       { id: 'interrogate_bandits', goals: [new NpcTalkedInCampaignRequirement('sleeper_commander', 'bianco')] },
       { id: 'maria_van_status', goals: [new NpcTalkedInCampaignRequirement('sleeper_commander', 'maria_flyheight')] },
     ],

@@ -1,4 +1,8 @@
 {
+  "ancient_statue": {
+    "description": "Una pequeña estatua antigua, su superficie cubierta de extraños símbolos.",
+    "name": "Estatua Antigua"
+  },
   "core_analyzer": {
     "description": "Un dispositivo usado para obtener información estructural de los Zoid Cores",
     "name": "Analizador de Cores"
