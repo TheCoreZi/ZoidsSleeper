@@ -12,6 +12,12 @@
     "Cuando enfrentes a un Zoid Sleeper, haz clic en la sonda antes de que termine la batalla. Si logras debilitarlo lo suficiente, podrás escanear su Core. ¿Vas a pelear contra varios seguidos? Haz doble clic y la sonda se activará automáticamente en cada combate.",
     "Eso sí, las sondas son frágiles. Se rompen con cada intento, aciertes o no. Así que necesitarás una por cada escaneo. Pero por mí no hay problema... ¡mientras más compres, mejor para el negocio!"
   ],
+  "becker_scan_gift": [
+    "¡Bienvenido! Jenkins me dijo que vendrías. Déjame explicarte cómo funcionan las Sondas de Core.",
+    "Cuando enfrentes a un Zoid Sleeper, haz clic en la sonda antes de que termine la batalla. Si logras debilitarlo lo suficiente, podrás escanear su Core. ¿Vas a pelear contra varios seguidos? Haz doble clic y la sonda se activará automáticamente en cada combate.",
+    "Eso sí, las sondas son frágiles. Se rompen con cada intento, aciertes o no. Así que necesitarás una por cada escaneo. Pero por mí no hay problema... ¡mientras más compres, mejor para el negocio!",
+    "Toma, estas 5 Sondas de Core van por cuenta de la casa. Las necesitarás para escanear a esos Sleepers de ahí afuera. ¡Buena suerte!"
+  ],
   "boy": [
     "¡Por favor, tienes que ayudarme! ¡Un bandido vino y se llevó a mi hermana y a mi madre! Se fueron hacia el campamento abandonado del norte... Tengo mucho miedo por ellas.",
     "¡Pero ten cuidado, el bandido es muy fuerte! Deberías tomar la ruta intermedia para llegar. Encontrarás Zoids Sleepers por el camino, es buena práctica para tus técnicas de combate.",
@@ -44,7 +50,8 @@
     "Pero en ese momento algo extraño sucede: Zeke se fusiona con uno de los Zoids destruidos de las ruinas y de pronto este se levanta totalmente restaurado. Y en cuestión de segundos, Van y el Shield Liger ahuyentan a los bandidos."
   ],
   "jenkins_to_work": [
-    "¡Vaya, vaya! Así que lograste obtener los datos estructurales de un Zoid. Nada mal para un novato. Bien, es hora de ponernos a trabajar. Vamos a mi humilde laboratorio, veamos qué podemos crear con lo que tienes."
+    "¡Vaya, vaya! Así que lograste obtener los datos estructurales de un Zoid. Nada mal para un novato. Bien, es hora de ponernos a trabajar. Vamos a mi humilde laboratorio, veamos qué podemos crear con lo que tienes.",
+    "Y no te preocupes por el costo del primero. Considéralo un regalo por tu ayuda a la aldea."
   ],
   "priest_leon": [
     "¿Hmm, una chica perdida, dices? Me temo que no hemos escuchado nada sobre eso aquí en la Colonia del Viento. Pero... si hay alguien que sabe sobre los movimientos de los bandidos, es ese chico que siempre se mete en problemas con ellos.",

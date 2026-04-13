@@ -1,4 +1,5 @@
-import { MissionCompletedRequirement } from '../requirement';
+import { ITEMS } from '../item';
+import { ItemRequirement, MissionCompletedRequirement } from '../requirement';
 import type { Requirement } from '../requirement';
 
 export interface NpcDialog {
@@ -15,7 +16,10 @@ export interface Npc {
 
 export const NPCS: Record<string, Npc> = {
   becker: {
-    dialogs: [{ dialogKey: 'dialog:becker_scan' }],
+    dialogs: [
+      { dialogKey: 'dialog:becker_scan', unlockRequirement: new ItemRequirement(ITEMS.core_probe.id) },
+      { dialogKey: 'dialog:becker_scan_gift' },
+    ],
     id: 'becker',
     nameKey: 'pilots:becker',
   },

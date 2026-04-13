@@ -12,6 +12,12 @@
     "When you're fighting a Zoid Sleeper, click the probe before the battle ends. If you weaken it enough, you'll be able to scan its Core. Planning to fight several in a row? Double-click and the probe will activate automatically in every battle.",
     "Just keep in mind, probes are fragile. They break with each attempt, hit or miss. So you'll need one per scan. But hey, no complaints from me... the more you buy, the better for business!"
   ],
+  "becker_scan_gift": [
+    "Welcome! Jenkins told me you'd be stopping by. Let me explain how Core Probes work.",
+    "When you're fighting a Zoid Sleeper, click the probe before the battle ends. If you weaken it enough, you'll be able to scan its Core. Planning to fight several in a row? Double-click and the probe will activate automatically in every battle.",
+    "Just keep in mind, probes are fragile. They break with each attempt, hit or miss. So you'll need one per scan. But hey, no complaints from me... the more you buy, the better for business!",
+    "Here, take these 5 Core Probes on the house. You'll need them to scan those Sleepers out there. Good luck!"
+  ],
   "boy": [
     "Please, you have to help me! A bandit came and took my sister and my mother! They went toward the abandoned camp to the north... I'm so scared for them.",
     "But be careful, the bandit is really strong! You should take the intermediate route to get there. You'll encounter Zoids Sleepers along the way, it's good practice for your combat techniques.",
@@ -36,7 +42,8 @@
     "But then something strange happens: Zeke fuses with one of the destroyed Zoids from the ruins, and suddenly it rises, fully restored. And in a matter of seconds, Van and the Shield Liger drive the bandits away."
   ],
   "jenkins_to_work": [
-    "Well, well! So you actually managed to get a Zoid's structural data. Not bad for a rookie. Alright, time to get to work. Let's head to my humble lab and see what we can create with what you've got."
+    "Well, well! So you actually managed to get a Zoid's structural data. Not bad for a rookie. Alright, time to get to work. Let's head to my humble lab and see what we can create with what you've got.",
+    "And don't worry about the cost for the first one. Consider it a gift for your help to the village."
   ],
   "jenkins": [
     "So Malinoff sent you? Well, well... I saw how you helped the people of this village, so I'll hear you out. More Zoids, you say? The easiest way is buying them from the army, though they'll only sell you their scraps.",

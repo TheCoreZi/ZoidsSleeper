@@ -3,6 +3,8 @@ import { t } from '../i18n';
 import { FACTIONS } from '../models/Faction';
 import { Currency } from '../models/Currency';
 import { getZoidImage, ZOID_LIST } from '../models/Zoid';
+import { isMissionCompleted } from '../store/campaignStore';
+import { party } from '../store/partyStore';
 import { getZoidDataCount } from '../store/zoidDataStore';
 import { getCurrency } from '../store/walletStore';
 
@@ -40,7 +42,8 @@ const LabPanel: Component<LabPanelProps> = (props) => {
           <div class="archive-grid">
             <For each={availableZoids()}>
               {(entry) => {
-                const canAfford = () => getCurrency(Currency.Magnis) >= entry.data.price;
+                const isFirstFree = () => party().length === 1 && !isMissionCompleted('sleeper_commander', 'grow_army');
+                const canAfford = () => isFirstFree() || getCurrency(Currency.Magnis) >= entry.data.price;
                 return (
                   <button
                     class={`archive-card lab-card ${canAfford() ? '' : 'lab-card--disabled'}`}
@@ -54,10 +57,16 @@ const LabPanel: Component<LabPanelProps> = (props) => {
                       alt={entry.data.name}
                     />
                     <span class="archive-card-name">{entry.data.name}</span>
-                    <div class="lab-card-price">
-                      <img class="shop-price-icon" src="images/items/magnis.png" alt="" />
-                      <span>{entry.data.price.toLocaleString()}</span>
-                    </div>
+                    <Show when={isFirstFree()} fallback={
+                      <div class="lab-card-price">
+                        <img class="shop-price-icon" src="images/items/magnis.png" alt="" />
+                        <span>{entry.data.price.toLocaleString()}</span>
+                      </div>
+                    }>
+                      <div class="lab-card-price">
+                        <span>{t('ui:free')}</span>
+                      </div>
+                    </Show>
                     <span class="lab-card-zdata">Z-Data: {getZoidDataCount(entry.id)}</span>
                   </button>
                 );

@@ -49,7 +49,7 @@ import { Currency } from './models/Currency';
 import { getZoidImage, ZOID_LIST } from './models/Zoid';
 import { buyItem } from './store/inventoryStore';
 import { grantReward } from './reward';
-import { checkCampaigns } from './store/campaignStore';
+import { checkCampaigns, isMissionCompleted } from './store/campaignStore';
 import { addZoidToArmy, party } from './store/partyStore';
 import { addCurrency, getCurrency } from './store/walletStore';
 import { decrementZoidData } from './store/zoidDataStore';
@@ -122,9 +122,11 @@ const App: Component = () => {
           labId={activeLab()!.labId}
           onBuy={(zoidId) => {
             const zoid = ZOID_LIST[zoidId];
-            if (getCurrency(Currency.Magnis) >= zoid.price) {
+            const isFirstFree = party().length === 1 && !isMissionCompleted('sleeper_commander', 'grow_army');
+            const price = isFirstFree ? 0 : zoid.price;
+            if (getCurrency(Currency.Magnis) >= price) {
               const isNew = !party().some((z) => z.id === zoidId);
-              addCurrency(Currency.Magnis, -zoid.price);
+              addCurrency(Currency.Magnis, -price);
               decrementZoidData(zoidId);
               addZoidToArmy(zoidId);
               checkCampaigns();
