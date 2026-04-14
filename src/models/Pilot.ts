@@ -21,8 +21,8 @@ export const PILOTS: Record<string, Pilot> = {
     magnisReward: 1200,
     name: 'Bianco & Nero',
     zoids: [
-      { id: 'command_wolf', level: 15, maxHealthOverride: 800 },
-      { id: 'command_wolf', level: 17, maxHealthOverride: 900 },
+      { attackOverride: 8, id: 'command_wolf', level: 15, maxHealthOverride: 450 },
+      { attackOverride: 8, id: 'command_wolf', level: 17, maxHealthOverride: 550 },
     ],
   },
   bul: {
@@ -30,7 +30,7 @@ export const PILOTS: Record<string, Pilot> = {
     magnisReward: 1000,
     name: 'Bul',
     zoids: [
-      { id: 'guysack', level: 5, imageOverride:'guysack_bs', maxHealthOverride: 2500 },
+      { attackOverride: 5, id: 'guysack', imageOverride: 'guysack_bs', level: 5, maxHealthOverride: 1500 },
     ],
   },
 };
