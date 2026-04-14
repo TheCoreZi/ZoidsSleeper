@@ -38,7 +38,7 @@ export const DUNGEONS: Dungeon[] = [
           { zoidData: { attackOverride: 2, id: 'molga', level: 20, bonusMultiplier: 1.1 } },
         ],
         baseReward: { magnis: 200, zi_metal: 5 },
-        entryCost: 50,
+        entryCost: 3,
         layers: 4,
         nodesPerLayer: [3, 4],
         eventPool: [
