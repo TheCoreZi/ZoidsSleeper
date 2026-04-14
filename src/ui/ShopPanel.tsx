@@ -3,6 +3,7 @@ import { t } from '../i18n';
 import type { ConsumableItem } from '../item';
 import { Currency } from '../models/Currency';
 import { getCurrency } from '../store/walletStore';
+import './shop.css';
 
 export interface ShopData {
   items: ConsumableItem[];

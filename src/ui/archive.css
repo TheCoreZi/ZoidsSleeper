@@ -1,0 +1,159 @@
+.archive-button {
+  align-items: center;
+  background: #16213e;
+  border: 2px solid #0f3460;
+  border-radius: 50%;
+  color: #e0e0e0;
+  cursor: pointer;
+  display: flex;
+  height: 2.5rem;
+  justify-content: center;
+  transition: border-color 0.2s, color 0.2s;
+  width: 2.5rem;
+}
+
+.archive-button:hover {
+  border-color: #00d4ff;
+  color: #00d4ff;
+}
+
+.archive-button-icon {
+  filter: invert(1);
+}
+
+.archive-overlay {
+  align-items: flex-start;
+  background: rgb(0 0 0 / 60%);
+  display: flex;
+  inset: 0;
+  justify-content: center;
+  overflow-y: auto;
+  padding: 5rem 0;
+  position: fixed;
+  z-index: 100;
+}
+
+.archive-panel {
+  background: #0a0a1a;
+  border: 2px solid #0f3460;
+  border-radius: 12px;
+  max-width: 600px;
+  padding: 1rem;
+  width: 90%;
+}
+
+.archive-header {
+  align-items: center;
+  border-bottom: 1px solid #0f3460;
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+}
+
+.archive-title {
+  color: #00d4ff;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.archive-count {
+  color: #999;
+  font-size: 0.85rem;
+  margin-left: auto;
+}
+
+.archive-close {
+  background: none;
+  border: none;
+  color: #999;
+  cursor: pointer;
+  font-size: 1.2rem;
+  margin-left: 0.5rem;
+}
+
+.archive-close:hover {
+  color: #e0e0e0;
+}
+
+.archive-empty {
+  color: #666;
+  font-style: italic;
+  text-align: center;
+}
+
+.archive-grid {
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  padding: 0.5rem;
+}
+
+.archive-card {
+  align-items: center;
+  border: 1px solid #0f3460;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  overflow: visible;
+  padding: 0.5rem;
+  position: relative;
+}
+
+.archive-card-image {
+  height: 50px;
+  object-fit: contain;
+  width: 50px;
+}
+
+.archive-card--seen .archive-card-image {
+  filter: brightness(0);
+}
+
+.archive-card--scanned .archive-card-image {
+  opacity: 0.4;
+}
+
+.archive-card-name {
+  color: #e0e0e0;
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+.archive-card-tooltip {
+  background: #0d1b36;
+  border: 1px solid #0f3460;
+  border-radius: 6px;
+  bottom: calc(100% + 0.4rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  left: 50%;
+  min-width: 140px;
+  opacity: 0;
+  padding: 0.5rem 0.65rem;
+  pointer-events: none;
+  position: absolute;
+  transform: translateX(-50%);
+  transition: opacity 0.15s;
+  visibility: hidden;
+  white-space: normal;
+  z-index: 10;
+}
+
+.archive-card:hover .archive-card-tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+.archive-card-tooltip-desc {
+  color: #999;
+  font-size: 0.7rem;
+}
+
+.archive-card-tooltip-name {
+  color: #e0e0e0;
+  font-size: 0.8rem;
+  font-weight: bold;
+}

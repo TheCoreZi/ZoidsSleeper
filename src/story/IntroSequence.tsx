@@ -10,6 +10,7 @@ import { IntroBattle } from './IntroBattle';
 import IntroText from './IntroText';
 import StarterSelect from './StarterSelect';
 import { CAPTAIN_DIALOG, CHALLENGE_DIALOG, FAREWELL_DIALOG } from './introScript';
+import './story.css';
 
 type IntroStep = 'battle' | 'challenge' | 'dialog' | 'farewell' | 'planet' | 'select';
 

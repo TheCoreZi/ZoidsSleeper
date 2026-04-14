@@ -1,7 +1,7 @@
 import { BATTLE_TICK, CLICK_COOLDOWN, TICK_TIME } from '../constants';
 import { awardExperience, calculateExperienceGain } from '../models/Experience';
 import type { PlayerStats } from '../models/Player';
-import { getOwnedZoidLevel, getZoidById, type SpawnedZoid } from '../models/Zoid';
+import { getOwnedZoidLevel, getZoidById, type SpawnedZoid, ZoidResearchStatus } from '../models/Zoid';
 import {
   damageEvents,
   type DamageSource,
@@ -12,8 +12,14 @@ import {
   setPlayerDamageEvents,
 } from '../store/gameStore';
 import { party, partyAttack, setParty } from '../store/partyStore';
-import { getActiveDeviceId, getActiveScanMode, ScanMode } from '../store/scanStore';
+import { getActiveDeviceId, getActiveScanMode, scanNewOnly, ScanMode } from '../store/scanStore';
+import { getZoidDataCount } from '../store/zoidDataStore';
+import { getZoidResearch } from '../store/zoidResearchStore';
 import { attemptScan } from './Scan';
+
+export function shouldSkipScan(zoidId: string): boolean {
+  return scanNewOnly() && (getZoidDataCount(zoidId) > 0 || getZoidResearch(zoidId) === ZoidResearchStatus.Created);
+}
 
 let damageIdCounter = 0;
 
@@ -56,10 +62,9 @@ export abstract class BaseBattle {
 
   protected tryScan(): boolean {
     const deviceId = getActiveDeviceId();
-    if (deviceId && getActiveScanMode() !== ScanMode.Off) {
-      return attemptScan(this.enemy.id, deviceId);
-    }
-    return false;
+    if (!deviceId || getActiveScanMode() === ScanMode.Off) {return false;}
+    if (shouldSkipScan(this.enemy.id)) {return false;}
+    return attemptScan(this.enemy.id, deviceId);
   }
 
   private autoAttack(): void {

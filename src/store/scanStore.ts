@@ -11,6 +11,7 @@ interface ActiveScan {
 }
 
 const [activeScan, setActiveScan] = createSignal<ActiveScan | null>(null);
+const [scanNewOnly, setScanNewOnly] = createSignal(false);
 
 function getActiveDeviceId(): string | null {
   return activeScan()?.deviceId ?? null;
@@ -26,6 +27,10 @@ function resetScanAfterBattle(): void {
   if (current.mode === ScanMode.Single || !canScan(current.deviceId)) {
     setActiveScan(null);
   }
+}
+
+function toggleScanNewOnly(): void {
+  setScanNewOnly((prev) => !prev);
 }
 
 function toggleScan(deviceId: string): void {
@@ -44,4 +49,4 @@ function toggleScan(deviceId: string): void {
   }
 }
 
-export { activeScan, getActiveDeviceId, getActiveScanMode, resetScanAfterBattle, toggleScan };
+export { activeScan, getActiveDeviceId, getActiveScanMode, resetScanAfterBattle, scanNewOnly, toggleScan, toggleScanNewOnly };

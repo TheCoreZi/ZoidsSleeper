@@ -8,6 +8,7 @@ import {
 } from '../models/Zoid';
 import { getZoidDataCount } from '../store/zoidDataStore';
 import { getZoidResearch } from '../store/zoidResearchStore';
+import './archive.css';
 
 interface ZiArchivePanelProps {
   onClose: () => void;

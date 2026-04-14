@@ -2,6 +2,7 @@ import { createSignal, For, type Component, Show, Switch, Match } from 'solid-js
 import { changeLocale, currentLocale, t } from '../i18n';
 import { Save } from '../game/Save';
 import DevCampaignTools from './DevCampaignTools';
+import './settings.css';
 
 const LANGUAGES = [
   { code: 'en', flag: '🇺🇸', label: 'English' },

@@ -3,6 +3,7 @@ import { CAMPAIGNS } from '../campaign/campaigns';
 import type { Campaign } from '../campaign/Campaign';
 import { t } from '../i18n';
 import { getCampaignState, isCampaignCompleted, isCampaignStarted, startCampaign } from '../store/campaignStore';
+import './campaign.css';
 
 function isUnlocked(campaign: Campaign): boolean {
   return campaign.unlockRequirements?.every((r) => r.isCompleted()) ?? true;

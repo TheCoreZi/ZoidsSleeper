@@ -7,6 +7,7 @@ import { isMissionCompleted } from '../store/campaignStore';
 import { party } from '../store/partyStore';
 import { getZoidDataCount } from '../store/zoidDataStore';
 import { getCurrency } from '../store/walletStore';
+import './lab.css';
 
 interface LabPanelProps {
   labId: string;

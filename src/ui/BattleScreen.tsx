@@ -10,6 +10,7 @@ import HealthBar from './HealthBar';
 import PlayerInfo from './PlayerInfo';
 import RewardNumber from './RewardNumber';
 import ScanToggle from './ScanToggle';
+import './battle.css';
 
 interface BattleScreenProps {
   onClick: () => void;

@@ -3,6 +3,7 @@ import { t } from '../i18n';
 import { ZOID_LIST, getZoidImage } from '../models/Zoid';
 import { inventory } from '../store/inventoryStore';
 import { zoidDataLog } from '../store/zoidDataStore';
+import './supplies.css';
 
 type SuppliesTab = 'items' | 'zdata';
 

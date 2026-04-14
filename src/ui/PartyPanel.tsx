@@ -3,6 +3,7 @@ import { t } from '../i18n';
 import { experienceForLevel, MAX_LEVEL } from '../models/LevelType';
 import { getOwnedZoidLevel, getZoidById, getZoidImage, buildZoid, type OwnedZoid } from '../models/Zoid';
 import { party } from '../store/partyStore';
+import './party.css';
 
 const StatOption = {
   Attack: 'attack',

@@ -17,6 +17,7 @@ import DamageNumber from './DamageNumber';
 import HealthBar from './HealthBar';
 import PlayerHealthBar from './PlayerHealthBar';
 import PlayerInfo from './PlayerInfo';
+import './battle.css';
 
 interface PilotBattleScreenProps {
   onClick: () => void;
