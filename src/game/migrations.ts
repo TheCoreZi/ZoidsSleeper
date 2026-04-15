@@ -6,6 +6,24 @@ export type MigrationData = Partial<SaveData> & Record<string, unknown>;
 type MigrationFn = (data: MigrationData) => void;
 
 const migrations: Record<string, MigrationFn> = {
+  '0.3.0': (data) => {
+    const campaign = data.campaigns?.['sleeper_commander'];
+    if (!campaign) {return;}
+
+    const missions = CAMPAIGNS.sleeper_commander.missions;
+    const targetIndex = missions.findIndex((m) => m.id === 'maria_van_status');
+    const currentIndex = missions.findIndex((m) => m.id === campaign.currentMission);
+    const pastTarget = campaign.status === 'completed' || currentIndex > targetIndex;
+
+    if (pastTarget) {
+      data.campaigns!['sleeper_commander'] = {
+        currentMission: 'maria_van_status',
+        missionNpcFlags: { 'sleeper_commander:maria_flyheight': false },
+        status: 'started',
+      };
+      data.landmarkId = 'wind_colony';
+    }
+  },
   '0.2.1': (data) => {
     const inv = data.inventory as Record<string, number> | undefined;
     if (!inv?.['core_probe']) {return;}

@@ -1,5 +1,6 @@
-import type { Pilot } from '../models/Pilot';
+import { type Pilot, getActiveZoids } from '../models/Pilot';
 import type { PlayerStats } from '../models/Player';
+import type { ZoidBlueprint } from '../models/Zoid';
 import { spawnZoid, buildZoid, ZoidResearchStatus } from '../models/Zoid';
 import { updateZoidResearch } from '../store/zoidResearchStore';
 import {
@@ -20,13 +21,15 @@ export class PilotBattle extends BaseBattle {
   pilot: Pilot;
   playerHealth: number;
   playerMaxHealth: number;
+  zoids: ZoidBlueprint[];
 
   constructor(playerStats: PlayerStats, pilot: Pilot, initialHealth?: number, initialMaxHealth?: number) {
     super(playerStats);
     this.pilot = pilot;
+    this.zoids = getActiveZoids(pilot);
     this.playerMaxHealth = initialMaxHealth ?? (playerStats.baseHealth + partyMaxHealth());
     this.playerHealth = initialHealth ?? this.playerMaxHealth;
-    this.enemy = spawnZoid(buildZoid(pilot.zoids[0]));
+    this.enemy = spawnZoid(buildZoid(this.zoids[0]));
     updateZoidResearch(this.enemy.id, ZoidResearchStatus.Seen);
     this.syncToStore();
   }
@@ -41,7 +44,7 @@ export class PilotBattle extends BaseBattle {
   }
 
   protected onEnemyDefeated(): void {
-    if (this.currentEnemyIndex < this.pilot.zoids.length - 1) {
+    if (this.currentEnemyIndex < this.zoids.length - 1) {
       this.nextEnemy();
     } else {
       this.onVictory?.();
@@ -50,11 +53,11 @@ export class PilotBattle extends BaseBattle {
 
   protected syncToStore(): void {
     setEnemyZoid({ ...this.enemy });
-    setPilotEnemyProgress({ current: this.currentEnemyIndex, total: this.pilot.zoids.length });
+    setPilotEnemyProgress({ current: this.currentEnemyIndex, total: this.zoids.length });
     setPilotInfo({ id: this.pilot.id, name: this.pilot.name });
     setPilotPlayerHealth(this.playerHealth);
     setPilotPlayerMaxHealth(this.playerMaxHealth);
-    setPilotZoidIds(this.pilot.zoids.map((z) => ({ id: z.id, imageOverride: z.imageOverride })));
+    setPilotZoidIds(this.zoids.map((z) => ({ id: z.id, imageOverride: z.imageOverride })));
   }
 
   private enemyAttack(): void {
@@ -69,7 +72,7 @@ export class PilotBattle extends BaseBattle {
 
   private nextEnemy(): void {
     this.currentEnemyIndex++;
-    this.enemy = spawnZoid(buildZoid(this.pilot.zoids[this.currentEnemyIndex]));
+    this.enemy = spawnZoid(buildZoid(this.zoids[this.currentEnemyIndex]));
     updateZoidResearch(this.enemy.id, ZoidResearchStatus.Seen);
     this.syncToStore();
   }

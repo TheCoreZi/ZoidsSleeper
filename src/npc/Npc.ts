@@ -39,15 +39,39 @@ export const NPCS: Record<string, Npc> = {
     nameKey: 'pilots:boy',
   },
   priest_leon: {
-    dialogs: [{ dialogKey: 'dialog:priest_leon' }],
+    dialogs: [
+      { dialogKey: 'dialog:priest_leon_exchange', unlockRequirement: new MissionCompletedRequirement('sleeper_commander', 'repel_attackers') },
+      { dialogKey: 'dialog:priest_leon' },
+    ],
     id: 'priest_leon',
     nameKey: 'pilots:priest_leon',
     portrait: 'images/pilots/priest_leon.png',
+  },
+  rosso: {
+    dialogs: [{ dialogKey: 'dialog:rosso_confrontation' }],
+    id: 'rosso',
+    nameKey: 'pilots:rosso',
+    portrait: 'images/pilots/rosso.png',
   },
   explorer: {
     dialogs: [{ dialogKey: 'dialog:explorer_dungeon_tips' }],
     id: 'explorer',
     nameKey: 'pilots:explorer',
+  },
+  fiona: {
+    dialogs: [
+      { dialogKey: 'dialog:fiona_rescue', unlockRequirement: new MissionCompletedRequirement('sleeper_commander', 'fight_rosso') },
+      { dialogKey: 'dialog:fiona_oasis' },
+    ],
+    id: 'fiona',
+    nameKey: 'pilots:fiona',
+    portrait: 'images/pilots/fiona.png',
+  },
+  girl: {
+    dialogs: [{ dialogKey: 'dialog:girl_thanks' }],
+    id: 'girl',
+    nameKey: 'pilots:girl',
+    portrait: 'images/pilots/girl.png',
   },
   captain_malinoff: {
     dialogs: [
@@ -63,6 +87,7 @@ export const NPCS: Record<string, Npc> = {
   },
   maria_flyheight: {
     dialogs: [
+      { dialogKey: 'dialog:maria_van_fled', unlockRequirement: new MissionCompletedRequirement('sleeper_commander', 'talk_to_girl') },
       { dialogKey: 'dialog:maria_fiona', unlockRequirement: new MissionCompletedRequirement('sleeper_commander', 'interrogate_bandits') },
       { dialogKey: 'dialog:maria_flyheight' },
     ],
@@ -92,7 +117,13 @@ export const NPCS: Record<string, Npc> = {
     nameKey: 'pilots:scrap_dealer',
   },
   van: {
-    dialogs: [{ dialogKey: 'dialog:van_alert' }],
+    dialogs: [
+      { dialogKey: 'dialog:van_challenge', unlockRequirement: new MissionCompletedRequirement('sleeper_commander', 'check_van_colony') },
+      { dialogKey: 'dialog:van_tied', unlockRequirement: new MissionCompletedRequirement('sleeper_commander', 'tell_van_kidnapping') },
+      { dialogKey: 'dialog:van_kidnapping', unlockRequirement: new MissionCompletedRequirement('sleeper_commander', 'repel_attackers') },
+      { dialogKey: 'dialog:van_oasis', unlockRequirement: new MissionCompletedRequirement('sleeper_commander', 'maria_van_status') },
+      { dialogKey: 'dialog:van_alert' },
+    ],
     id: 'van',
     nameKey: 'pilots:van',
     portrait: 'images/pilots/van.png',

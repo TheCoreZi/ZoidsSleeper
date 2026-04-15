@@ -1,4 +1,4 @@
-import { ArmySizeRequirement, ComparisonCondition, NpcTalkedInCampaignRequirement, PilotDefeatRequirement, RouteKillRequirement, ZiDataRequirement } from '../requirement';
+import { AllOfRequirement, ArmySizeRequirement, ComparisonCondition, MissionCompletedRequirement, NpcTalkedInCampaignRequirement, PilotDefeatRequirement, RouteKillRequirement, ZiDataRequirement } from '../requirement';
 import { CUTSCENES } from '../cutscene';
 import { enqueueDialog } from '../store/gameStore';
 import type { Campaign } from './Campaign';
@@ -27,6 +27,22 @@ export const CAMPAIGNS: Record<string, Campaign> = {
       { id: 'defeat_bianco_nero', goals: [new PilotDefeatRequirement('bianco_nero')], onComplete: () => enqueueDialog(CUTSCENES.narration_shield_liger.toDialogScript()) },
       { id: 'interrogate_bandits', goals: [new NpcTalkedInCampaignRequirement('sleeper_commander', 'bianco')] },
       { id: 'maria_van_status', goals: [new NpcTalkedInCampaignRequirement('sleeper_commander', 'maria_flyheight')] },
+      // --- New campaign segment: Wind Oasis & Arcobaleno Camp ---
+      { id: 'talk_to_van_and_fiona', goals: [new NpcTalkedInCampaignRequirement('sleeper_commander', 'van'), new NpcTalkedInCampaignRequirement('sleeper_commander', 'fiona')] },
+      { id: 'check_colony_uproar', goals: [new MissionCompletedRequirement('sleeper_commander', 'check_colony_uproar')] },
+      { id: 'repel_attackers', goals: [new PilotDefeatRequirement('viola_verde_giallo')], onComplete: () => enqueueDialog(CUTSCENES.narration_maria_kidnapped.toDialogScript()) },
+      { id: 'tell_van_kidnapping', goals: [new NpcTalkedInCampaignRequirement('sleeper_commander', 'van')] },
+      { id: 'return_to_colony_leon', goals: [new NpcTalkedInCampaignRequirement('sleeper_commander', 'priest_leon')] },
+      { id: 'talk_to_van_tied', goals: [new NpcTalkedInCampaignRequirement('sleeper_commander', 'van')] },
+      { id: 'scout_arcobaleno', goals: [new MissionCompletedRequirement('sleeper_commander', 'scout_arcobaleno')] },
+      { id: 'ambush_arcobaleno', goals: [new AllOfRequirement([new PilotDefeatRequirement('bul_arcobaleno'), new PilotDefeatRequirement('nero'), new PilotDefeatRequirement('bianco')])] },
+      { id: 'rosso_confrontation', goals: [new NpcTalkedInCampaignRequirement('sleeper_commander', 'rosso')] },
+      { id: 'fight_rosso', goals: [new PilotDefeatRequirement('rosso')], onComplete: () => enqueueDialog(CUTSCENES.narration_turtle_savior.toDialogScript()) },
+      { id: 'fight_rosso_rematch', goals: [new PilotDefeatRequirement('rosso', 2)], onComplete: () => enqueueDialog(CUTSCENES.narration_bandits_flee.toDialogScript()) },
+      { id: 'talk_to_girl', goals: [new NpcTalkedInCampaignRequirement('sleeper_commander', 'girl')] },
+      { id: 'check_van_colony', goals: [new NpcTalkedInCampaignRequirement('sleeper_commander', 'maria_flyheight')] },
+      { id: 'find_van_oasis', goals: [new NpcTalkedInCampaignRequirement('sleeper_commander', 'van')] },
+      { id: 'fight_van', goals: [new PilotDefeatRequirement('van_shield_liger')], onComplete: () => enqueueDialog(CUTSCENES.narration_van_farewell.toDialogScript()) },
     ],
   },
 };

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { AllOfRequirement, AtLeastOneRequirement, OnlyOneRequirement } from '../src/requirement';
+import { AllOfRequirement, AtLeastOneRequirement, NotRequirement, OnlyOneRequirement } from '../src/requirement';
 import type { Requirement } from '../src/requirement';
 
 function fakeRequirement(completed: boolean): Requirement {
@@ -68,6 +68,26 @@ describe('AtLeastOneRequirement', () => {
     const req = new AtLeastOneRequirement([fakeRequirement(true), fakeRequirement(false)]);
 
     expect(req.hint()).toBe('done or pending');
+  });
+});
+
+describe('NotRequirement', () => {
+  it('should be completed when inner requirement is not completed', () => {
+    const req = new NotRequirement(fakeRequirement(false));
+
+    expect(req.isCompleted()).toBe(true);
+  });
+
+  it('should not be completed when inner requirement is completed', () => {
+    const req = new NotRequirement(fakeRequirement(true));
+
+    expect(req.isCompleted()).toBe(false);
+  });
+
+  it('should delegate hint to inner requirement', () => {
+    const req = new NotRequirement(fakeRequirement(false));
+
+    expect(req.hint()).toBe('pending');
   });
 });
 

@@ -23,46 +23,10 @@
     "¡Pero ten cuidado, el bandido es muy fuerte! Deberías tomar la ruta intermedia para llegar. Encontrarás Zoids Sleepers por el camino, es buena práctica para tus técnicas de combate.",
     "¡Por favor, tráelas de vuelta sanas y salvas!"
   ],
-  "jenkins": [
-    "¿Así que Malinoff te envía? Vaya, vaya... Vi cómo ayudaste a la gente de esta aldea, así que por eso acepto hablar contigo. ¿Conseguir más Zoids? La forma más fácil es comprárselos al ejército, aunque solo te darán sus desechos.",
-    "Yo dejé de trabajar con Zoids hace mucho, pero en mis tiempos usábamos trampas para capturar Zoids salvajes. Hoy en día es casi imposible encontrarlos, y más aún lograr que cooperen contigo. Así que los ejércitos idearon una nueva forma: aprendimos a incubar Zoid Cores.",
-    "Como sabes, el Zoid Core es el núcleo vital de cada Zoid. Cada especie tiene un Core distinto, pero todos comparten un mismo origen: los metales disueltos en las aguas primigenias del planeta. Lo que logramos fue recrear las condiciones de esas aguas primitivas en un laboratorio. Si consigues suficiente Zoid Magnite, o en su defecto bastante Magnis, podemos sumergirlo en esa sustancia y crear un Zoid Core nuevo.",
-    "El siguiente paso es moldear ese Core a la especie que necesites. Para eso hacen falta datos estructurales del Zoid. Toma, esto es un Analizador de Cores. Con él, puedes analizar los datos de un Zoid Core preservado y obtener el plano que necesitamos para moldear un Core nuevo según esa especie.",
-    "Últimamente hay muchos Zoid Sleepers por esta región. Si te topas con uno, intenta debilitarlo y preservar su Core antes de que se destruya. Eso sí, ningún Zoid te dará acceso a su Core así como así. Tendrás que inmovilizarlo primero. No te voy a mentir, inmovilizar un Zoid sin destruirlo no es tarea fácil.",
-    "Si consigues los datos del core de un Zoid, ven a verme y podremos clonarlo en el laboratorio. Aunque con este laboratorio tan básico solo podremos crear Zoids simples, y no te garantizo mucho éxito. Solo te falta una pieza importante: para extraer y preservar los Cores necesitarás un Preservador de Core. Son de un solo uso, así que tendrás que invertir en ellos. Visita el taller de la señora Becker, seguro los tiene."
-  ],
-  "maria_fiona": [
-    "¿Así que estabas preocupado por Van? Él se fue temprano con esa chica y ese dinosaurio que encontraron. Creo que le está enseñando la ciudad. Ese chico... siempre metiéndose en estas situaciones.",
-    "¿Pero una chica sin recuerdos? Eso es... preocupante. Si lo ves, por favor dile que tenga cuidado. Y... gracias por tu ayuda."
-  ],
-  "maria_flyheight": [
-    "¿Mi hermano Van? *suspira* Está ahí afuera otra vez, ¿verdad? Siempre ha soñado con ser un gran guerrero como nuestro padre. Se la pasa explorando el Desierto de Elmia, imaginando que está en una gran aventura.",
-    "Seguramente está por allá ahora mismo, rondando por las ruinas. Si vas para allá, por favor cuídalo. Es imprudente, pero tiene buen corazón.",
-    "El desierto está al este de aquí. Ten cuidado, los Sleepers de allá son más fuertes que los de cerca de la aldea."
-  ],
-  "narration_discover_fione": [
-    "Tras el milagro que acabas de presenciar, regresas a las ruinas buscando alguna señal de Van. En lo profundo de los pasajes en ruinas, escuchas que se encuentra en una cámara similar a donde encontraron a Zeke.",
-    "De pronto, otra de las cápsulas se abre y una chica sale de ella. Pero justo en ese momento, debido a la batalla, el suelo sobre el que estás parado se abre y caes a una cámara oculta.",
-    "En el centro se alza una pequeña estatua antigua, su superficie cubierta de extraños símbolos."
-  ],
-  "narration_shield_liger": [
-    "En medio de la batalla, Van sale disparado de las ruinas cargado por Zeke. Bianco y Nero dan la vuelta y lo persiguen. Tus Zoids aún se están reorganizando y no te da tiempo de ayudar a Van, que está acorralado.",
-    "Pero en ese momento algo extraño sucede: Zeke se fusiona con uno de los Zoids destruidos de las ruinas y de pronto este se levanta totalmente restaurado. Y en cuestión de segundos, Van y el Shield Liger ahuyentan a los bandidos."
-  ],
-  "jenkins_to_work": [
-    "¡Vaya, vaya! Así que lograste obtener los datos estructurales de un Zoid. Nada mal para un novato. Bien, es hora de ponernos a trabajar. Vamos a mi humilde laboratorio, veamos qué podemos crear con lo que tienes.",
-    "Y no te preocupes por el costo del primero. Considéralo un regalo por tu ayuda a la aldea."
-  ],
-  "priest_leon": [
-    "¿Hmm, una chica perdida, dices? Me temo que no hemos escuchado nada sobre eso aquí en la Colonia del Viento. Pero... si hay alguien que sabe sobre los movimientos de los bandidos, es ese chico que siempre se mete en problemas con ellos.",
-    "No sé qué lo impulsa, pero constantemente se aventura al desierto para enfrentarlos. Bastante imprudente, si me preguntas. Deberías hablar con su hermana. Ella podría saber dónde encontrarlo."
-  ],
-  "explorer_dungeon_tips": [
-    "¿Vas a entrar a las ruinas? Yo ya he bajado un par de veces. Déjame contarte qué esperar.",
-    "Si logras debilitar a un Zoid lo suficiente como para preservar su Core, aprovecha para recoger un poco de Metal Zi. Lo vas a necesitar para preparar a tus Zoids para las incursiones en las ruinas.",
-    "Una vez adentro, te toparás con Sleepers hostiles cerca de la entrada. Pero conforme vayas avanzando se volverán más peligrosos. Algunos son mucho más peligrosos que el resto, pero generalmente custodian tesoros más valiosos.",
-    "Las ruinas están llenas de sorpresas. Cosas extrañas pasan ahí abajo... tendrás que tomar decisiones que podrían ayudarte o empeorarte las cosas. Y si tienes suerte, podrías encontrar algunos suministros en el camino.",
-    "Sea lo que sea que busques, no entres a menos que estés listo para una pelea de verdad."
+  "captain": [
+    "¡¡¡EEEEEEY!! Necesito tu ayuda. Los bandidos han estado saqueando nuestro pueblo. Cada día se vuelven más agresivos.",
+    "Todos nuestros soldados fueron reclutados para la guerra entre la República y el Imperio. No queda nadie para defendernos. Yo ya estoy muy viejo para luchar. Mi cuerpo no aguanta el esfuerzo de pilotar un Zoid.",
+    "Pero todavía tengo tres Zoids de mis días como soldado. Están anticuados... pero me salvaron la vida. ¿Pilotarías uno de ellos para proteger esta aldea?"
   ],
   "captain_debrief": [
     "Gracias por tu ayuda, sabía que había algo especial en ti... Hmmm un artefacto usado por los bandidos? Dejame verlo...",
@@ -76,33 +40,153 @@
     "Ah, una cosa más. Le eché un vistazo más de cerca a ese módulo Sleeper tuyo. No te recomendaría desplegar más de un Zoid de la misma especie. El módulo no parece permitir el control simultáneo de multiples Zoids de la misma especie.",
     "Así que si estás formando tu ejército la variedad será tu mejor arma.... Por ahora. Ten cuidado, en estos tiempos de guerra lo mejor sería no inmiscuirse en asuntos de los ejércitos. Pero algo me dice que ya es tarde para eso..."
   ],
-  "captain": [
-    "¡¡¡EEEEEEY!! Necesito tu ayuda. Los bandidos han estado saqueando nuestro pueblo. Cada día se vuelven más agresivos.",
-    "Todos nuestros soldados fueron reclutados para la guerra entre la República y el Imperio. No queda nadie para defendernos. Yo ya estoy muy viejo para luchar. Mi cuerpo no aguanta el esfuerzo de pilotar un Zoid.",
-    "Pero todavía tengo tres Zoids de mis días como soldado. Están anticuados... pero me salvaron la vida. ¿Pilotarías uno de ellos para proteger esta aldea?"
-  ],
   "challenge": [
     "¿{{zoidName}}, eh? Buena elección.",
     "Pero elegir un Zoid no es suficiente. El Zoid también debe elegirte a ti. ¡Demuestra tu valía. Sube a la cabina y demuéstrale que tienes espíritu de piloto!"
+  ],
+  "explorer_dungeon_tips": [
+    "¿Vas a entrar a las ruinas? Yo ya he bajado un par de veces. Déjame contarte qué esperar.",
+    "Si logras debilitar a un Zoid lo suficiente como para preservar su Core, aprovecha para recoger un poco de Metal Zi. Lo vas a necesitar para preparar a tus Zoids para las incursiones en las ruinas.",
+    "Una vez adentro, te toparás con Sleepers hostiles cerca de la entrada. Pero conforme vayas avanzando se volverán más peligrosos. Algunos son mucho más peligrosos que el resto, pero generalmente custodian tesoros más valiosos.",
+    "Las ruinas están llenas de sorpresas. Cosas extrañas pasan ahí abajo... tendrás que tomar decisiones que podrían ayudarte o empeorarte las cosas. Y si tienes suerte, podrías encontrar algunos suministros en el camino.",
+    "Sea lo que sea que busques, no entres a menos que estés listo para una pelea de verdad."
   ],
   "farewell": [
     "¡Ja! Sabía que lo tenías. El Zoid te ha aceptado como su piloto.",
     "Ahora ve y ayuda a nuestros vecinos. Los bandidos no esperarán para siempre. Ten cuidado ahí fuera, chico. Y cuida bien de ese Zoid."
   ],
-  "scrap_dealer": [
-    "Galos, Zi-Dollars, Zenys... todas esas monedas, un día valen una fortuna y al otro no compran ni un grano de sal. ¿Quieres un consejo, chico? Guarda tu riqueza en materiales.",
-    "¿Yo? Junto Magnis, pequeños fragmentos de Zoid Magnite que puedes recolectar de Zoids destruidos. Generalmente se concentran en los conductos conectados al Zoid Core.",
-    "La próxima vez que derrotes uno, no olvides revisar los restos. Te sorprendería lo que puedes encontrar."
+  "fiona_oasis": [
+    "Hola... soy Fine. Van me contó que lo ayudaste en las ruinas. ¡Muchas gracias! Es buena persona, y este lugar es muy tranquilo...",
+    "¿Encontraste algo en las ruinas? Déjame ver...",
+    "...",
+    "...Beacon...",
+    "...",
+    "Ughh, ¡mi cabeza!... Lo siento, no sé qué pasó. Ese nombre simplemente vino a mí. No recuerdo qué significa, pero siento que es importante."
+  ],
+  "fiona_rescue": [
+    "Muchas gracias por tu ayuda. Lamento no poder decirte nada útil sobre la estatua, pero sé que no solo eres bueno para pelear, sino que puedes escuchar a tus Zoids.",
+    "Nunca lo olvides: ellos también son seres vivos."
+  ],
+  "girl_thanks": [
+    "¡Gracias por salvarme! Tenía mucho miedo...",
+    "No dejaban de preguntarme por mi padre, pero no les dije nada. Él me dijo que su trabajo es muy importante y que debe mantenerse en secreto de la gente mala.",
+    "No sé dónde está ahora, pero sé que está haciendo algo importante. Gracias de nuevo por rescatarme. ¿Podrías llevarme de vuelta a la aldea?"
+  ],
+  "jenkins": [
+    "¿Así que Malinoff te envía? Vaya, vaya... Vi cómo ayudaste a la gente de esta aldea, así que por eso acepto hablar contigo. ¿Conseguir más Zoids? La forma más fácil es comprárselos al ejército, aunque solo te darán sus desechos.",
+    "Yo dejé de trabajar con Zoids hace mucho, pero en mis tiempos usábamos trampas para capturar Zoids salvajes. Hoy en día es casi imposible encontrarlos, y más aún lograr que cooperen contigo. Así que los ejércitos idearon una nueva forma: aprendimos a incubar Zoid Cores.",
+    "Como sabes, el Zoid Core es el núcleo vital de cada Zoid. Cada especie tiene un Core distinto, pero todos comparten un mismo origen: los metales disueltos en las aguas primigenias del planeta. Lo que logramos fue recrear las condiciones de esas aguas primitivas en un laboratorio. Si consigues suficiente Zoid Magnite, o en su defecto bastante Magnis, podemos sumergirlo en esa sustancia y crear un Zoid Core nuevo.",
+    "El siguiente paso es moldear ese Core a la especie que necesites. Para eso hacen falta datos estructurales del Zoid. Toma, esto es un Analizador de Cores. Con él, puedes analizar los datos de un Zoid Core preservado y obtener el plano que necesitamos para moldear un Core nuevo según esa especie.",
+    "Últimamente hay muchos Zoid Sleepers por esta región. Si te topas con uno, intenta debilitarlo y preservar su Core antes de que se destruya. Eso sí, ningún Zoid te dará acceso a su Core así como así. Tendrás que inmovilizarlo primero. No te voy a mentir, inmovilizar un Zoid sin destruirlo no es tarea fácil.",
+    "Si consigues los datos del core de un Zoid, ven a verme y podremos clonarlo en el laboratorio. Aunque con este laboratorio tan básico solo podremos crear Zoids simples, y no te garantizo mucho éxito. Solo te falta una pieza importante: para extraer y preservar los Cores necesitarás un Preservador de Core. Son de un solo uso, así que tendrás que invertir en ellos. Visita el taller de la señora Becker, seguro los tiene."
+  ],
+  "jenkins_to_work": [
+    "¡Vaya, vaya! Así que lograste obtener los datos estructurales de un Zoid. Nada mal para un novato. Bien, es hora de ponernos a trabajar. Vamos a mi humilde laboratorio, veamos qué podemos crear con lo que tienes.",
+    "Y no te preocupes por el costo del primero. Considéralo un regalo por tu ayuda a la aldea."
+  ],
+  "maria_fiona": [
+    "¿Así que estabas preocupado por Van? Él se fue temprano con esa chica y ese dinosaurio que encontraron. Creo que le está enseñando la ciudad. Ese chico... siempre metiéndose en estas situaciones.",
+    "¿Pero una chica sin recuerdos? Eso es... preocupante. Si lo ves, por favor dile que tenga cuidado. Y... gracias por tu ayuda."
+  ],
+  "maria_flyheight": [
+    "¿Mi hermano Van? *suspira* Está ahí afuera otra vez, ¿verdad? Siempre ha soñado con ser un gran guerrero como nuestro padre. Se la pasa explorando el Desierto de Elmia, imaginando que está en una gran aventura.",
+    "Seguramente está por allá ahora mismo, rondando por las ruinas. Si vas para allá, por favor cuídalo. Es imprudente, pero tiene buen corazón.",
+    "El desierto está al este de aquí. Ten cuidado, los Sleepers de allá son más fuertes que los de cerca de la aldea."
+  ],
+  "maria_van_fled": [
+    "¡Gracias por tu ayuda! Van llegó con Zeke y el Shield Liger y acabaron con esos bandidos. ¡Fue increíble!",
+    "Pero Van... dijo que pone a todos en peligro al quedarse aquí. Que se irá para protegernos.",
+    "Siempre ha querido ser como nuestro padre y cuidarnos a todos, pero sigue siendo mi hermano pequeño. ¡Por favor, tienes que detenerlo! Si te apuras, quizás lo alcances antes de que desaparezca en el desierto."
+  ],
+  "narration_arcobaleno_plan": [
+    "Te escondes entre las tiendas del campamento y escuchas a Rosso hablando con sus hombres.",
+    "\"Con el Zoid plateado y la chica, por fin tendremos lo que necesitamos para volver al ejército imperial. El alto mando nos recibirá como héroes.\"",
+    "\"Bianco, Nero, Blu... id al punto de intercambio y asegúrense de que todo salga según el plan. Si esos pueblerinos intentan algo, ya saben qué hacer.\""
+  ],
+  "narration_bandits_flee": [
+    "El Red Horn de Rosso retrocede tambaleante, gravemente dañado. Aprovechas para recuperar a la niña. Rosso te mira con furia, pero entonces explosiones en el punto de intercambio llaman su atención. Algo no salió de acuerdo a lo planeado.",
+    "\"Esto no ha terminado\", gruñe. \"Encontraremos lo que buscamos, con o sin la chica.\" Los bandidos restantes se retiran al desierto, desapareciendo en una nube de polvo.",
+    "El Campamento Arcobaleno queda en silencio. La chica está a salvo."
+  ],
+  "narration_colony_attack": [
+    "Al acercarte a la Colonia del Viento, escuchas explosiones y el inconfundible rugido de motores de Zoid.",
+    "Más bandidos atacan la colonia, quieren que les entreguen a Zeke y están amenazando al pueblo. Han tomado a María como rehén!!!",
+    "Van y su Shield Liger están demasiado lejos para ayudar. ¡Depende de ti repeler a los atacantes!"
+  ],
+  "narration_discover_fione": [
+    "Tras el milagro que acabas de presenciar, regresas a las ruinas buscando alguna señal de Van. En lo profundo de los pasajes en ruinas, escuchas que se encuentra en una cámara similar a donde encontraron a Zeke.",
+    "De pronto, otra de las cápsulas se abre y una chica sale de ella. Pero justo en ese momento, debido a la batalla, el suelo sobre el que estás parado se abre y caes a una cámara oculta.",
+    "En el centro se alza una pequeña estatua antigua, su superficie cubierta de extraños símbolos."
+  ],
+  "narration_maria_kidnapped": [
+    "La banda del Arcobaleno huye de la colonia al descubrir que no está desprotegida. Pero en medio del caos, han logrado llevarse a María.",
+    "\"¡Entréguennos al Zoid plateado si quieren volver a verla!\" gritan los bandidos mientras se alejan."
+  ],
+  "narration_turtle_savior": [
+    "El Red Horn de Rosso es como una fortaleza andante. Tus Zoids apenas pueden resistir los ataques implacables...",
+    "Tu Zoid está a punto de sucumbir cuando la estatua antigua en tu mochila lanza un pulso con una extraña luz.",
+    "Rosso prepara su Red Horn para un último disparo. Logras esquivarlo por los pelos, pero se lanza en una embestida para terminar el trabajo.",
+    "De pronto, una ráfaga a la distancia golpea al Red Horn de lleno en el costado con tal fuerza que logra derribarlo.",
+    "A lo lejos, entre las dunas del desierto, puedes ver un Cannon Tortoise antiguo y desgastado sumergiéndose de vuelta en la arena.",
+    "El disparo ha destrozado el blindaje del Red Horn y creado un punto débil. ¡Esta es tu oportunidad!"
+  ],
+  "narration_van_farewell": [
+    "Durante la batalla, comprendiste por qué Zeke es especial. Su poder de fusionarse con otros Zoids y restaurarlos es algo que nunca habías visto.",
+    "Un poder así atraerá a muchos que no se detendrán hasta hacerse con él. Mientras Zeke exista, Van nunca estará a salvo en un solo lugar.",
+    "Decides apartarte de su camino. Los ves alejarse juntos hacia el horizonte: Van, Zeke y Fine, listos para enfrentar lo que venga."
+  ],
+  "narration_shield_liger": [
+    "En medio de la batalla, Van sale disparado de las ruinas cargado por Zeke. Bianco y Nero dan la vuelta y lo persiguen. Tus Zoids aún se están reorganizando y no te da tiempo de ayudar a Van, que está acorralado.",
+    "Pero en ese momento algo extraño sucede: Zeke se fusiona con uno de los Zoids destruidos de las ruinas y de pronto este se levanta totalmente restaurado. Y en cuestión de segundos, Van y el Shield Liger ahuyentan a los bandidos."
   ],
   "planet_intro": [
     "En el planeta Zi, mas allá de la Vía Láctea, existen Zoids de acero con destacada capacidad de combate. Los Zoids tienen dentro de si ese espíritu guerrero.",
     "Ellos constituyen el arma mas potente en la guerra entre el Imperio y la Republica del Planeta Zi. Durante décadas, esta guerra ha devastado estas tierras. En medio de este gran conflicto, las aldeas más pequeñas luchan por sobrevivir.",
     "En una de estas aldeas olvidadas, una nueva amenaza se acerca..."
   ],
+  "priest_leon": [
+    "¿Hmm, una chica perdida, dices? Me temo que no hemos escuchado nada sobre eso aquí en la Colonia del Viento. Pero... si hay alguien que sabe sobre los movimientos de los bandidos, es ese chico que siempre se mete en problemas con ellos.",
+    "No sé qué lo impulsa, pero constantemente se aventura al desierto para enfrentarlos. Bastante imprudente, si me preguntas. Deberías hablar con su hermana. Ella podría saber dónde encontrarlo."
+  ],
+  "priest_leon_exchange": [
+    "Lo siento Van, pero la prioridad ahora es María. ¡Entréganos a Zeke! Si te resistes, tendremos que atarte.",
+    "El patriarca y yo iremos a hacer el intercambio."
+  ],
+  "rosso_confrontation": [
+    "Vaya, vaya... parece que tenemos una rata. Así que tú eres quien tomó el módulo Sleeper que le di a ese bueno para nada.",
+    "Es una tecnología increíble, ¿no? Un contacto nos la proporcionó a cambio de un trabajo. Debemos entregarle al padre de esta chica. Al parecer su investigación vale más de lo que puedas imaginar. Así que ella solo es el anzuelo.",
+    "Pero tú... no deberías haberte metido en lo que no te importa. Puede que tengas muchos Zoids bajo tu mando, pero ninguno es rival para un verdadero guerrero como yo. ¡Mi Red Horn te hará pedazos!"
+  ],
+  "scrap_dealer": [
+    "Galos, Zi-Dollars, Zenys... todas esas monedas, un día valen una fortuna y al otro no compran ni un grano de sal. ¿Quieres un consejo, chico? Guarda tu riqueza en materiales.",
+    "¿Yo? Junto Magnis, pequeños fragmentos de Zoid Magnite que puedes recolectar de Zoids destruidos. Generalmente se concentran en los conductos conectados al Zoid Core.",
+    "La próxima vez que derrotes uno, no olvides revisar los restos. Te sorprendería lo que puedes encontrar."
+  ],
   "van_alert": [
     "¿Eh? ¿Quién eres? Espera... no eres uno de esos bandidos, ¿verdad? Me llamo Van. Van Flyheight. Estaba escondiéndome aquí cuando una de esas cápsulas se abrió y ese Zoid salió de ahí y me atacó.",
     "¿Bandidos? ¿Vienen más? Ya me lo imaginaba... ¿Así que tú puedes comandar Zoids? Genial, entonces vamos por ellos y...",
     "¡¡No hay tiempo!! Tal vez pueda engañar a ese tipo del Guysack y escapar. No te preocupes por mí."
+  ],
+  "van_challenge": [
+    "Ohh, eres tú. Gracias por tu ayuda, Fine me desató y logramos vencer a esos desgraciados. Veo que tú también encontraste a la niña que buscabas. ¡Qué bien!",
+    "Sin embargo... no puedo quedarme aquí. Los bandidos buscan a Zeke. Si me quedo, seguro que volverán.",
+    "¿Cómo que no puedo irme solo?! ¿Acaso crees que no soy lo suficientemente fuerte para protegernos? Bien. Te propongo un trato. Si puedes vencerme en un combate uno contra uno, me quedo.",
+    "Pero si gano yo, me dejas ir. Sin rencores. ¿Qué dices? Zeke y yo contra lo mejor que tengas. ¡Hagámoslo!"
+  ],
+  "van_kidnapping": [
+    "¡¿Qué?! ¡¿Se llevaron a María?! Esos cobardes...",
+    "Esto es mi culpa. Debí haber estado ahí.",
+    "Tenemos que volver a la colonia ahora mismo. ¡Vamos, Fine, Zeke!"
+  ],
+  "van_oasis": [
+    "¡Oh, hola! Lamento no haberme presentado antes. Soy Van, y ellos son Zeke y Fine. Son algo peculiares... Fine no recuerda nada de su pasado, pero ¿viste lo que hicieron con el Shield Liger? ¡Ahora somos invencibles!",
+    "¿Los bandidos? Han estado merodeando más de lo normal. ¿Una niña secuestrada? No he visto nada, pero si los bandidos están detrás de esto, seguro la tienen en su campamento. Los he visto moverse hacia el este.",
+    "Déjame ayudarte, te lo debo por las ruinas. Recoge tu equipo en la colonia y nos ponemos en marcha."
+  ],
+  "van_tied": [
+    "¡Agghhh! El Padre León cree que entregar a Zeke es la única forma de salvar a María. ¡Pero no confío en esos bandidos! Son unos canallas, no podemos dejar que se salgan con la suya.",
+    "Discúlpame, pero necesito tu ayuda de nuevo. El Padre León y el patriarca irán al punto de intercambio. Tienes que tomar desprevenido a su jefe mientras se concentran en eso. Es nuestra única oportunidad.",
+    "No te preocupes por mí, yo saldré de aquí y me encargaré de recuperar a Zeke."
   ],
   "watchman_combat_tips": [
     "Oye, tú eres el que se enfrentó a ese bandido ¿verdad? Déjame darte un consejo sobre el uso de armas. Cuando eres un pilotto no lo parece pero mientras más Sleepers derrotes más afilados se vuelven tus instintos de combate, como dicen La práctica hace al maestro",

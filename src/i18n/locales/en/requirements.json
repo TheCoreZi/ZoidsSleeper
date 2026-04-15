@@ -4,6 +4,7 @@
   "at_least_one_joiner": " or ",
   "complete_campaign": "Complete campaign: {{name}}",
   "complete_mission": "Complete mission: {{mission}} of the operation {{campaign}}",
+  "current_mission": "Be on mission: {{mission}} of the operation {{campaign}}",
   "defeat_pilot": "Defeat {{name}}",
   "item_required": "Have {{count}} {{item}}",
   "defeat_zoids_on_route": "Defeat {{count}} zoids on {{route}}",

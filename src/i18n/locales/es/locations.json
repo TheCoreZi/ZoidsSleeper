@@ -1,5 +1,8 @@
 {
   "abandoned_camp": "Campamento Abandonado",
+  "arcobaleno_camp": "Campamento Arcobaleno",
+  "bandit_trail": "Sendero del Bandido",
+  "dustwind_trail": "Sendero de Arena",
   "elmia_desert": "Desierto de Elmia",
   "elmia_ruins": "Ruinas de Elmia",
   "gleam_outskirts": "Afueras de la Aldea Destello",
@@ -8,5 +11,6 @@
   "south_europa": "Sur de Europa",
   "south_europa_subtitle": "Continente occidental: Europa",
   "wind_colony": "Colonia del Viento",
+  "wind_oasis": "Oasis del Viento",
   "wind_road": "Camino del Viento"
 }

@@ -6,77 +6,137 @@
         "description": "Encontraste un campamento abandonado donde un bandido tiene rehenes. Véncelo y rescátalos.",
         "name": "Salva a la chica, salva al mundo"
       },
-      "hone_skills": {
-        "description": "Hay muchos Zoids Sleepers en las afueras de la aldea, son perfectos para mejorar tus habilidades como piloto.",
-        "name": "Entrenamiento de campo"
-      },
-      "report_to_captain": {
-        "description": "Puede ser que el anciano capitán sepa más sobre este artefacto, habla con él en la aldea.",
-        "name": "Reporte de misión"
-      },
       "captain_farewell": {
         "description": "Ahora que tienes refuerzos, repórtate con el capitán en la aldea antes de partir.",
         "name": "Hora de partir"
       },
-      "grow_army": {
-        "description": "Necesitarás más Zoids si piensas enfrentarte a los bandidos. Usa el laboratorio de Jenkins para incubar al menos otro Zoid para tu ejército.",
-        "name": "Reclutamiento"
+      "check_colony_uproar": {
+        "description": "Algo está pasando en la Colonia del Viento. Regresa y averigua qué ocurre.",
+        "name": "Alboroto en la Colonia"
       },
-      "jenkins_to_work": {
-        "description": "Has conseguido datos estructurales de un Zoid. Vuelve a la aldea con Jenkins y comiencen a trabajar en su laboratorio.",
-        "name": "Así se hacen los bebés"
-      },
-      "obtain_zi_data": {
-        "description": "Escanea el Core de un Zoid Sleeper para obtener datos estructurales. Usa el Analizador de Cores y una Sonda.",
-        "name": "Anatomía Zoid"
-      },
-      "talk_to_jenkins": {
-        "description": "El capitán mencionó al viejo Jenkins, un antiguo investigador de laboratorio de Zoids. Encuéntralo y muéstrale el módulo Sleeper.",
-        "name": "El Viejo Jenkins"
-      },
-      "talk_to_boy": {
-        "description": "Hay un chico en la aldea que luce muy desesperado, habla con él.",
-        "name": "Aldea en apuros"
-      },
-      "talk_to_hostage": {
-        "description": "El bandido huyó, pero la rehén se ve alterada. Habla con ella.",
-        "name": "Rehén"
-      },
-      "talk_to_priest_leon": {
-        "description": "Has llegado a la Colonia del Viento. Pregunta al Padre León, el sacerdote local, si sabe algo sobre la chica perdida.",
-        "name": "Plegaria al Viento"
-      },
-      "talk_to_maria": {
-        "description": "El Padre León mencionó a un chico que siempre se mete en problemas con los bandidos. Habla con su hermana María Flyheight.",
-        "name": "El Joven del Planeta Zi"
-      },
-      "elmia_desert_patrol": {
-        "description": "María dice que su hermano Van está en algún lugar del Desierto de Elmia. Abre camino entre los Sleepers para encontrarlo.",
-        "name": "Ruinas del Desierto"
-      },
-      "listen_to_bandits": {
-        "description": "Encontraste unas ruinas en el desierto. Hay bandidos cerca. Escucha lo que dicen.",
-        "name": "Voces entre Ruinas"
-      },
-      "defeat_bul": {
-        "description": "Los bandidos mencionaron a Blu, que intenta deshacerse de un niño. Ayuda a Van deteniendo a Blu y su Guysack incursionando en las Ruinas de Elmia.",
-        "name": "Protector"
-      },
-      "find_van": {
-        "description": "Eso detendrá a Blu por unos minutos. Encuentra a Van en las ruinas y adviértele sobre los bandidos que se acercan.",
-        "name": "El Chico de las Ruinas"
+      "check_van_colony": {
+        "description": "Ve a la Colonia del Viento y pregúntale a María cómo está Van.",
+        "name": "¿Dónde está Van?"
       },
       "defeat_bianco_nero": {
         "description": "Los refuerzos de Blu llegaron, Van no podrá escapar solo. Incursiona en las ruinas y detén a los bandidos mientras Van sale de ahí.",
         "name": "Lobos a las Puertas"
       },
+      "defeat_bul": {
+        "description": "Los bandidos mencionaron a Blu, que intenta deshacerse de un niño. Ayuda a Van deteniendo a Blu y su Guysack incursionando en las Ruinas de Elmia.",
+        "name": "Protector"
+      },
+      "elmia_desert_patrol": {
+        "description": "María dice que su hermano Van está en algún lugar del Desierto de Elmia. Abre camino entre los Sleepers para encontrarlo.",
+        "name": "Ruinas del Desierto"
+      },
+      "ambush_arcobaleno": {
+        "description": "Los bandidos intentarán pasarse de listos en el intercambio. No lo permitas. Embóscalos en su campamento y derrota a Bianco, Nero y Blu.",
+        "name": "Emboscada"
+      },
+      "fight_rosso": {
+        "description": "Rosso y su Red Horn se interponen entre tú y la cautiva. Enfréntalo.",
+        "name": "El Red Horn"
+      },
+      "fight_rosso_rematch": {
+        "description": "El Red Horn de Rosso ha sido debilitado por el estallido. Esta es tu oportunidad. Termina la pelea.",
+        "name": "Cambio de Marea"
+      },
+      "fight_van": {
+        "description": "Van te desafía a un combate uno contra uno con su Shield Liger. Demuestra que eres lo suficientemente fuerte para hacerlo cambiar de opinión.",
+        "name": "El Escudo de los Seres Queridos"
+      },
+      "find_van": {
+        "description": "Eso detendrá a Blu por unos minutos. Encuentra a Van en las ruinas y adviértele sobre los bandidos que se acercan.",
+        "name": "El Chico de las Ruinas"
+      },
+      "find_van_oasis": {
+        "description": "Van está en el Oasis del Viento. Habla con él antes de que se vaya para siempre.",
+        "name": "Última Conversación"
+      },
+      "grow_army": {
+        "description": "Necesitarás más Zoids si piensas enfrentarte a los bandidos. Usa el laboratorio de Jenkins para incubar al menos otro Zoid para tu ejército.",
+        "name": "Reclutamiento"
+      },
+      "hone_skills": {
+        "description": "Hay muchos Zoids Sleepers en las afueras de la aldea, son perfectos para mejorar tus habilidades como piloto.",
+        "name": "Entrenamiento de campo"
+      },
       "interrogate_bandits": {
         "description": "Los bandidos podrían saber a dónde se llevaron a la chica. Interroga a Bianco.",
         "name": "Verdad entre Ladrones"
       },
+      "jenkins_to_work": {
+        "description": "Has conseguido datos estructurales de un Zoid. Vuelve a la aldea con Jenkins y comiencen a trabajar en su laboratorio.",
+        "name": "Así se hacen los bebés"
+      },
+      "listen_to_bandits": {
+        "description": "Encontraste unas ruinas en el desierto. Hay bandidos cerca. Escucha lo que dicen.",
+        "name": "Voces entre Ruinas"
+      },
       "maria_van_status": {
         "description": "Pregúntale a María en la Colonia del Viento cómo se encuentran Van y la misteriosa chica.",
         "name": "¿A qué venía?"
+      },
+      "obtain_zi_data": {
+        "description": "Escanea el Core de un Zoid Sleeper para obtener datos estructurales. Usa el Analizador de Cores y una Sonda.",
+        "name": "Anatomía Zoid"
+      },
+      "repel_attackers": {
+        "description": "Los bandidos del Arcobaleno atacan la Colonia del Viento. Van no llegará a tiempo. ¡Repélelos!",
+        "name": "Colonia Bajo Asedio"
+      },
+      "report_to_captain": {
+        "description": "Puede ser que el anciano capitán sepa más sobre este artefacto, habla con él en la aldea.",
+        "name": "Reporte de misión"
+      },
+      "scout_arcobaleno": {
+        "description": "Lograste ver por dónde huyeron los bandidos. Ábrete camino por el Sendero del Bandido hasta su base e investiga qué están tramando.",
+        "name": "A la Guarida de los Lobos"
+      },
+      "return_to_colony_leon": {
+        "description": "Regresa a la Colonia del Viento y habla con el Padre León sobre la situación.",
+        "name": "Una Decisión Difícil"
+      },
+      "rosso_confrontation": {
+        "description": "El líder de los bandidos, Rosso, se revela. Escucha lo que tiene que decir.",
+        "name": "El Jefe"
+      },
+      "talk_to_boy": {
+        "description": "Hay un chico en la aldea que luce muy desesperado, habla con él.",
+        "name": "Aldea en apuros"
+      },
+      "talk_to_van_and_fiona": {
+        "description": "Dirígete por el Sendero del Viento Polvoriento hasta el Oasis del Viento y habla con Van y Fine. Podrían tener información útil.",
+        "name": "Inteligencia del Desierto"
+      },
+      "talk_to_girl": {
+        "description": "La chica que los bandidos tenían cautiva está a salvo. Habla con ella.",
+        "name": "La Cautiva"
+      },
+      "talk_to_hostage": {
+        "description": "El bandido huyó, pero la rehén se ve alterada. Habla con ella.",
+        "name": "Rehén"
+      },
+      "talk_to_jenkins": {
+        "description": "El capitán mencionó al viejo Jenkins, un antiguo investigador de laboratorio de Zoids. Encuéntralo y muéstrale el módulo Sleeper.",
+        "name": "El Viejo Jenkins"
+      },
+      "talk_to_maria": {
+        "description": "El Padre León mencionó a un chico que siempre se mete en problemas con los bandidos. Habla con su hermana María Flyheight.",
+        "name": "El Joven del Planeta Zi"
+      },
+      "talk_to_priest_leon": {
+        "description": "Has llegado a la Colonia del Viento. Pregunta al Padre León, el sacerdote local, si sabe algo sobre la chica perdida.",
+        "name": "Plegaria al Viento"
+      },
+      "tell_van_kidnapping": {
+        "description": "Ve al Oasis del Viento y dile a Van que los bandidos secuestraron a María.",
+        "name": "Malas Noticias"
+      },
+      "talk_to_van_tied": {
+        "description": "Los pobladores han atado a Van y lo tienen dentro de un almacén. Habla con él por la ventana para buscar una solución.",
+        "name": "Cautivo Aliado"
       }
     },
     "name": "Comandante Sleeper"

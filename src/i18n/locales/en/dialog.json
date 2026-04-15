@@ -23,27 +23,54 @@
     "But be careful, the bandit is really strong! You should take the intermediate route to get there. You'll encounter Zoids Sleepers along the way, it's good practice for your combat techniques.",
     "Please, bring them back safely!"
   ],
-  "maria_fiona": [
-    "You were worried about Van? He left early with that girl and that dinosaur they found. I think he's showing her around the town. That boy... he's always getting himself into these situations.",
-    "But a girl with no memories? That's... concerning. If you see him, please tell him to be careful. And... thank you for your help."
+  "captain": [
+    "HEEEEEEY!! I need your help. Bandits have been raiding our village. They grow bolder each day.",
+    "All our soldiers were recruited for the war between the Republic and the Empire. There is no one left to defend us. I'm too old to fight anymore. My body can't take the strain of piloting a Zoid.",
+    "But I still have three Zoids from my days as a soldier. They're outdated... but they always saved my life. Would you pilot one of them to protect this village?"
   ],
-  "maria_flyheight": [
-    "My brother Van? *sighs* He's out there again, isn't he? He's always dreamed of being a great warrior like our father. He spends his days exploring the Elmia Desert, pretending he's on some grand adventure.",
-    "He's probably out there right now, wandering around the ruins. If you're heading that way, please watch out for him. He's reckless, but he means well.",
-    "The desert is east of here. Be careful, the Sleepers out there are stronger than the ones near the village."
+  "captain_debrief": [
+    "Thank you for your help, I knew there was something special about you... Hmmm an artifact used by the bandits? Let me take a look...",
+    "Ohh back in my days in the army I saw these kinds of artifacts, but this one looks far more advanced than any I knew... If I'm not mistaken, it's a Sleeper module. Some people in the army only care about the number of Zoids available for battle.",
+    "So they invented the Sleeper system as a way for pilots to control multiple Zoids at the same time. It seems these inventions have fallen into the wrong hands, that's why there are so many Zoids Sleepers roaming around here... I'm almost certain the bandits brought them.",
+    "But make no mistake, young pilot, not all army inventions are bad... If you earn its trust, this Sleeper system would allow you to bond with several Zoids at the same time.",
+    "If you really plan to face those bandits, you could use some reinforcements. For that you'll need more Zoids. Why don't you talk to old Jenkins? He used to work in a Zoid laboratory, maybe he can help you."
   ],
-  "narration_discover_fione": [
-    "After the miracle you just witnessed, you return to the ruins searching for any sign of Van. Deep within the crumbling passages, you hear he's in a chamber similar to where they found Zeke.",
-    "Suddenly, another capsule opens and a girl emerges from it. But at that very moment, weakened by the battle, the ground beneath you gives way and you fall into a hidden chamber.",
-    "In the center stands a small ancient statue, its surface covered in strange symbols."
+  "captain_farewell": [
+    "Well, well! Now you actually look like a proper army commander. I can see you're determined to take on those bandits. Good luck, kid.",
+    "Oh, one more thing. I took a closer look at that Sleeper module of yours. I wouldn't recommend deploying more than one Zoid of the same species. The module doesn't seem to allow live control of multiple Zoids of the same kind.",
+    "So if you're building your army, variety will be your best weapon... For now. Be careful out there. In these times of war, it's best not to get mixed up in military affairs. But something tells me it's too late for that..."
   ],
-  "narration_shield_liger": [
-    "In the middle of the battle, Van bursts out of the ruins, carried by Zeke. Bianco and Nero turn around and chase him. Your Zoids are still regrouping and you can't reach Van in time. He's cornered.",
-    "But then something strange happens: Zeke fuses with one of the destroyed Zoids from the ruins, and suddenly it rises, fully restored. And in a matter of seconds, Van and the Shield Liger drive the bandits away."
+  "challenge": [
+    "{{zoidName}}, huh? A fine choice.",
+    "But choosing a Zoid isn't enough. The Zoid must choose you too. Prove your worth. Climb up to the cockpit and show it you have the spirit of a pilot!"
   ],
-  "jenkins_to_work": [
-    "Well, well! So you actually managed to get a Zoid's structural data. Not bad for a rookie. Alright, time to get to work. Let's head to my humble lab and see what we can create with what you've got.",
-    "And don't worry about the cost for the first one. Consider it a gift for your help to the village."
+  "explorer_dungeon_tips": [
+    "You're heading into the ruins? I've been down there a few times myself. Let me tell you what to expect.",
+    "If you manage to weaken a Zoid enough to preserve its Core, take the chance to collect some Zi metal too. You'll need it to prepare your Zoids for sorties into the ruins.",
+    "Once inside, you'll run into hostile Sleepers near the entrance. But the deeper you go, the more dangerous they become. Some are far more dangerous than the rest, but they usually guard more valuable treasures.",
+    "The ruins are full of surprises. Strange things happen down there... you'll have to make choices that could help you or make things worse. And if you're lucky, you might stumble upon some supplies along the way.",
+    "Whatever you're looking for, don't go in unless you're ready for a real fight."
+  ],
+  "farewell": [
+    "Ha! I knew you had it in you. The Zoid has accepted you as its pilot.",
+    "Now go and help our neighbors. The bandits won't wait forever. Be careful out there, kid. And take good care of that Zoid."
+  ],
+  "fiona_oasis": [
+    "Hello... I'm Fine. Van told me you helped him at the ruins. Thank you! He's a good person, and this place is so peaceful...",
+    "You found something at the ruins? Let me see...",
+    "...",
+    "...Beacon...",
+    "...",
+    "Ughh, my head!... I'm sorry, I don't know what happened. That name just came to me. I don't remember what it means, but it feels important."
+  ],
+  "fiona_rescue": [
+    "Thank you so much for your help. I'm sorry I can't tell you anything useful about the statue, but I know you're not just good at fighting — you can listen to your Zoids.",
+    "Never forget: they are living beings too."
+  ],
+  "girl_thanks": [
+    "Thank you for saving me! I was so scared...",
+    "They kept asking me about my father, but I didn't tell them anything. He told me his work is very important and must be kept secret from bad people.",
+    "I don't know where he is right now, but I know he's doing something important. Thank you again for rescuing me. Could you take me back to the village?"
   ],
   "jenkins": [
     "So Malinoff sent you? Well, well... I saw how you helped the people of this village, so I'll hear you out. More Zoids, you say? The easiest way is buying them from the army, though they'll only sell you their scraps.",
@@ -53,56 +80,113 @@
     "There are a lot of Zoid Sleepers roaming this region lately. If you come across one, try to weaken it and preserve its Core before it's destroyed. Fair warning though, no Zoid will just let you access its Core. You'll have to immobilize it first. I won't lie to you, taking down a Zoid without destroying it is no easy feat.",
     "Once you've got the data from a Zoid's core, come see me and we can clone it in the lab. With this basic lab, we can only hatch simple Zoids, and I can't promise a high success rate. One last thing: to extract and preserve the Cores you'll need a Core Preserver. They're single-use, so you'll have to stock up. Visit Mrs. Becker's workshop, she should have them."
   ],
-  "priest_leon": [
-    "Hmm, a missing girl, you say? I'm afraid we haven't heard anything about that here in Wind Colony. But... if anyone would know about the bandits' movements, it's that boy who's always getting himself into trouble with them.",
-    "I don't know what drives him, but he's constantly venturing into the desert to confront them. Quite reckless if you ask me. You should speak with his sister. She might know where to find him."
+  "jenkins_to_work": [
+    "Well, well! So you actually managed to get a Zoid's structural data. Not bad for a rookie. Alright, time to get to work. Let's head to my humble lab and see what we can create with what you've got.",
+    "And don't worry about the cost for the first one. Consider it a gift for your help to the village."
   ],
-  "captain_farewell": [
-    "Well, well! Now you actually look like a proper army commander. I can see you're determined to take on those bandits. Good luck, kid.",
-    "Oh, one more thing. I took a closer look at that Sleeper module of yours. I wouldn't recommend deploying more than one Zoid of the same species. The module doesn't seem to allow live control of multiple Zoids of the same kind.",
-    "So if you're building your army, variety will be your best weapon... For now. Be careful out there. In these times of war, it's best not to get mixed up in military affairs. But something tells me it's too late for that..."
+  "maria_fiona": [
+    "You were worried about Van? He left early with that girl and that dinosaur they found. I think he's showing her around the town. That boy... he's always getting himself into these situations.",
+    "But a girl with no memories? That's... concerning. If you see him, please tell him to be careful. And... thank you for your help."
   ],
-  "explorer_dungeon_tips": [
-    "You're heading into the ruins? I've been down there a few times myself. Let me tell you what to expect.",
-    "If you manage to weaken a Zoid enough to preserve its Core, take the chance to collect some Zi metal too. You'll need it to prepare your Zoids for sorties into the ruins.",
-    "Once inside, you'll run into hostile Sleepers near the entrance. But the deeper you go, the more dangerous they become. Some are far more dangerous than the rest, but they usually guard more valuable treasures.",
-    "The ruins are full of surprises. Strange things happen down there... you'll have to make choices that could help you or make things worse. And if you're lucky, you might stumble upon some supplies along the way.",
-    "Whatever you're looking for, don't go in unless you're ready for a real fight."
+  "maria_flyheight": [
+    "My brother Van? *sighs* He's out there again, isn't he? He's always dreamed of being a great warrior like our father. He spends his days exploring the Elmia Desert, pretending he's on some grand adventure.",
+    "He's probably out there right now, wandering around the ruins. If you're heading that way, please watch out for him. He's reckless, but he means well.",
+    "The desert is east of here. Be careful, the Sleepers out there are stronger than the ones near the village."
   ],
-  "captain_debrief": [
-    "Thank you for your help, I knew there was something special about you... Hmmm an artifact used by the bandits? Let me take a look...",
-    "Ohh back in my days in the army I saw these kinds of artifacts, but this one looks far more advanced than any I knew... If I'm not mistaken, it's a Sleeper module. Some people in the army only care about the number of Zoids available for battle.",
-    "So they invented the Sleeper system as a way for pilots to control multiple Zoids at the same time. It seems these inventions have fallen into the wrong hands, that's why there are so many Zoids Sleepers roaming around here... I'm almost certain the bandits brought them.",
-    "But make no mistake, young pilot, not all army inventions are bad... If you earn its trust, this Sleeper system would allow you to bond with several Zoids at the same time.",
-    "If you really plan to face those bandits, you could use some reinforcements. For that you'll need more Zoids. Why don't you talk to old Jenkins? He used to work in a Zoid laboratory, maybe he can help you."
+  "maria_van_fled": [
+    "Thanks for your help! Van arrived with Zeke and the Shield Liger and took out those bandits. It was incredible!",
+    "But Van... he said he's putting everyone in danger by staying here. That he's leaving to protect us.",
+    "He's always wanted to be like our father and take care of everyone, but he's still my little brother. Please, you have to stop him! If you hurry, you might catch him before he disappears into the desert."
   ],
-  "captain": [
-    "HEEEEEEY!! I need your help. Bandits have been raiding our village. They grow bolder each day.",
-    "All our soldiers were recruited for the war between the Republic and the Empire. There is no one left to defend us. I'm too old to fight anymore. My body can't take the strain of piloting a Zoid.",
-    "But I still have three Zoids from my days as a soldier. They're outdated... but they always saved my life. Would you pilot one of them to protect this village?"
+  "narration_arcobaleno_plan": [
+    "You hide among the camp tents and overhear Rosso talking to his men.",
+    "\"With the silver Zoid and the girl, we'll finally have what we need to return to the Imperial Army. High command will welcome us back as heroes.\"",
+    "\"Bianco, Nero, Blu... head to the exchange point and make sure everything goes according to plan. If those villagers try anything, you know what to do.\""
   ],
-  "challenge": [
-    "{{zoidName}}, huh? A fine choice.",
-    "But choosing a Zoid isn't enough. The Zoid must choose you too. Prove your worth. Climb up to the cockpit and show it you have the spirit of a pilot!"
+  "narration_bandits_flee": [
+    "Rosso's Red Horn staggers back, heavily damaged. You seize the moment to recover the girl. Rosso glares at you with fury, but then explosions at the exchange point catch his attention. Something didn't go according to plan.",
+    "\"This isn't over,\" he growls. \"We'll find what we're looking for, with or without the girl.\" The remaining bandits retreat into the desert, disappearing in a cloud of dust.",
+    "The Arcobaleno Camp falls silent. The girl is safe."
   ],
-  "farewell": [
-    "Ha! I knew you had it in you. The Zoid has accepted you as its pilot.",
-    "Now go and help our neighbors. The bandits won't wait forever. Be careful out there, kid. And take good care of that Zoid."
+  "narration_colony_attack": [
+    "As you approach Wind Colony, you hear explosions and the unmistakable roar of Zoid engines.",
+    "More bandits are attacking the colony. They demand Zeke be handed over and are threatening the townspeople. They've taken Maria hostage!",
+    "Van and his Shield Liger are too far away to help. It's up to you to repel the attackers!"
   ],
-  "scrap_dealer": [
-    "Galos, Zi-Dollars, Zenys... all those currencies, one day they're worth a fortune, and the next they won't buy you a grain of salt. You want some advice, kid? Keep your wealth in materials.",
-    "Me? I collect Magnis, tiny shards of Zoid Magnite you can salvage from destroyed Zoids. They're usually concentrated around the pipes connected to the Zoid Core.",
-    "Next time you take one down, don't forget to check the wreckage. You'd be surprised what you can find."
+  "narration_discover_fione": [
+    "After the miracle you just witnessed, you return to the ruins searching for any sign of Van. Deep within the crumbling passages, you hear he's in a chamber similar to where they found Zeke.",
+    "Suddenly, another capsule opens and a girl emerges from it. But at that very moment, weakened by the battle, the ground beneath you gives way and you fall into a hidden chamber.",
+    "In the center stands a small ancient statue, its surface covered in strange symbols."
+  ],
+  "narration_maria_kidnapped": [
+    "The Arcobaleno gang flees the colony upon discovering it's not unprotected. But in the chaos, they managed to take Maria with them.",
+    "\"Hand over the silver Zoid if you ever want to see her again!\" the bandits shout as they retreat."
+  ],
+  "narration_turtle_savior": [
+    "Rosso's Red Horn is like a walking fortress. Your Zoids can barely withstand the relentless attacks...",
+    "Your Zoid is about to fall when the ancient statue in your pack pulses with a strange light.",
+    "Rosso lines up his Red Horn for a final shot. You dodge by a hair, but he charges in for the kill.",
+    "Suddenly, a blast from the distance strikes Rosso's Red Horn squarely in the side, with enough force to knock it down.",
+    "Far away, among the desert dunes, you can see a Cannon Tortoise, ancient and weathered, sinking back into the sand.",
+    "The blast has shattered the Red Horn's armor and created a weak spot. This is your chance!"
+  ],
+  "narration_van_farewell": [
+    "During the battle, you understood why Zeke is special. His power to fuse with other Zoids and restore them is something you've never seen before.",
+    "A power like that will attract many who won't stop until they claim it for themselves. As long as Zeke exists, Van will never be safe in one place.",
+    "You decide to step aside. You watch them walk away together toward the horizon: Van, Zeke, and Fine, ready to face whatever comes next."
+  ],
+  "narration_shield_liger": [
+    "In the middle of the battle, Van bursts out of the ruins, carried by Zeke. Bianco and Nero turn around and chase him. Your Zoids are still regrouping and you can't reach Van in time. He's cornered.",
+    "But then something strange happens: Zeke fuses with one of the destroyed Zoids from the ruins, and suddenly it rises, fully restored. And in a matter of seconds, Van and the Shield Liger drive the bandits away."
   ],
   "planet_intro": [
     "On Planet Zi, beyond the Milky Way, there exist steel Zoids with outstanding combat capability. The Zoids carry within them a warrior spirit.",
     "They are the most powerful weapon in the war between the Empire and the Republic of Planet Zi. For decades, this war has ravaged these lands. Amidst this great conflict, smaller villages struggle to survive.",
     "In one of these forgotten villages, a new threat approaches..."
   ],
+  "priest_leon": [
+    "Hmm, a missing girl, you say? I'm afraid we haven't heard anything about that here in Wind Colony. But... if anyone would know about the bandits' movements, it's that boy who's always getting himself into trouble with them.",
+    "I don't know what drives him, but he's constantly venturing into the desert to confront them. Quite reckless if you ask me. You should speak with his sister. She might know where to find him."
+  ],
+  "priest_leon_exchange": [
+    "I'm sorry Van, but Maria comes first. Hand over Zeke! If you resist, we'll have to tie you up.",
+    "The patriarch and I will go make the exchange."
+  ],
+  "rosso_confrontation": [
+    "Well, well... looks like we've got a rat. So you're the one who took the Sleeper module I gave that good-for-nothing.",
+    "Incredible technology, isn't it? A contact provided it to us in exchange for a job. We need to deliver this girl's father. His research is apparently worth more than you can imagine. So she's just the bait.",
+    "But you... you shouldn't have stuck your nose where it doesn't belong. You may have many Zoids under your command, but none of them are a match for a true warrior like me. My Red Horn will tear you apart!"
+  ],
+  "scrap_dealer": [
+    "Galos, Zi-Dollars, Zenys... all those currencies, one day they're worth a fortune, and the next they won't buy you a grain of salt. You want some advice, kid? Keep your wealth in materials.",
+    "Me? I collect Magnis, tiny shards of Zoid Magnite you can salvage from destroyed Zoids. They're usually concentrated around the pipes connected to the Zoid Core.",
+    "Next time you take one down, don't forget to check the wreckage. You'd be surprised what you can find."
+  ],
   "van_alert": [
     "Huh? Who are you? Wait... you're not one of those bandits, are you? My name's Van. Van Flyheight. I was hiding in here when one of those capsules opened and that Zoid came out and attacked me.",
     "Bandits? More of them coming? I figured as much... So you can command Zoids? Great, then let's go after them and...",
     "No time!! Maybe I can trick that Guysack guy and escape. Don't worry about me."
+  ],
+  "van_challenge": [
+    "Ohh, it's you. Thanks for your help, Fine untied me and we managed to beat those scoundrels. I see you also found the girl you were looking for. Great!",
+    "However... I can't stay here. The bandits are after Zeke. If I stay, they'll surely come back.",
+    "What do you mean I can't leave on my own?! You think I'm not strong enough to protect us? Fine. I'll make you a deal. If you can beat me one-on-one, I'll stay.",
+    "But if I win, you let me go. No hard feelings. What do you say? Zeke and I against your best. Let's do this!"
+  ],
+  "van_kidnapping": [
+    "What?! They took Maria?! Those cowards...",
+    "This is my fault. I should have been there.",
+    "We need to go back to the colony right now. Let's go, Fine, Zeke!"
+  ],
+  "van_oasis": [
+    "Oh, hey! Sorry I never properly introduced myself. I'm Van, and these are Zeke and Fine. They're a bit... peculiar. Fine doesn't remember anything about her past, but did you see what they did with the Shield Liger? We're unstoppable now!",
+    "The bandits? They've been prowling around more than usual. A kidnapped girl? I haven't seen anything, but if the bandits are behind it, they must have her at their camp. I've spotted them moving east.",
+    "Let me help you, I owe you one for the ruins. Grab your gear from the colony and we'll head out."
+  ],
+  "van_tied": [
+    "Agghhh! Father Leon thinks handing over Zeke is the only way to save Maria. But I don't trust those bandits! They're scoundrels, we can't let them get away with this.",
+    "I'm sorry, but I need your help again. Father Leon and the patriarch are heading to the exchange point. You need to catch their boss off guard while they're focused on that. It's our only chance.",
+    "Don't worry about me, I'll get out of here and take care of getting Zeke back."
   ],
   "watchman_combat_tips": [
     "Hey, you're the one who faced that bandit, right? Let me give you some advice about using weapons. As a pilot it might not seem like it, but the more Sleepers you take down, the sharper your combat instincts get. Practice makes perfect, as they say.",

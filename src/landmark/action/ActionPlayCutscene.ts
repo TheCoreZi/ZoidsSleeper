@@ -1,30 +1,33 @@
 import { t } from '../../i18n';
+import type { Cutscene } from '../../cutscene/Cutscene';
 import type { Requirement } from '../../requirement';
-import type { Pilot } from '../../models/Pilot';
+import type { Reward } from '../../reward';
 import type { CityAction } from './CityAction';
 
-export class ActionFightPilot implements CityAction {
-  unwinnable: boolean;
+export class ActionPlayCutscene implements CityAction {
   completeRequirements?: Requirement[];
+  cutscene: Cutscene;
   id: string;
+  labelKey: string;
   onExecute: (() => void) | null = null;
-  pilot: Pilot;
   requirements?: Requirement[];
+  reward?: Reward;
 
-  constructor(pilot: Pilot, requirements?: Requirement[], completeRequirements?: Requirement[], unwinnable = false) {
-    this.unwinnable = unwinnable;
+  constructor(cutscene: Cutscene, labelKey: string, requirements?: Requirement[], completeRequirements?: Requirement[], reward?: Reward) {
     this.completeRequirements = completeRequirements;
-    this.id = `fight-${pilot.id}`;
-    this.pilot = pilot;
+    this.cutscene = cutscene;
+    this.id = `cutscene-${cutscene.id}`;
+    this.labelKey = labelKey;
     this.requirements = requirements;
-  }
-
-  getLabel(): string {
-    return t('ui:fight_pilot', { name: t(`pilots:${this.pilot.id}`) });
+    this.reward = reward;
   }
 
   execute(): void {
     this.onExecute?.();
+  }
+
+  getLabel(): string {
+    return t(this.labelKey);
   }
 
   isCompleted(): boolean {

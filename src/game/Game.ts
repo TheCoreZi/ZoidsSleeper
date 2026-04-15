@@ -16,8 +16,9 @@ import {
 } from '../dungeon/dungeonStore';
 import { SortieNodeType } from '../dungeon/DungeonGraph';
 import { t } from '../i18n';
+import { DialogScript } from '../story/Dialog';
 import type { City, Landmark, Route } from '../landmark';
-import { ActionFightPilot, ActionTalkToNPC, ActionVisitDepot, ActionVisitLab, getLandmarkById, getLandmarkHints, isLandmarkUnlocked, isRoute, ROUTES } from '../landmark';
+import { ActionFightPilot, ActionPlayCutscene, ActionTalkToNPC, ActionVisitDepot, ActionVisitLab, getLandmarkById, getLandmarkHints, isLandmarkUnlocked, isRoute, ROUTES } from '../landmark';
 import type { Dungeon } from '../landmark';
 import { REGIONS } from '../map/Region';
 import { Currency } from '../models/Currency';
@@ -141,9 +142,15 @@ export class Game {
     setEnemyZoid(null);
   }
 
-  enterPilotBattle(pilot: Pilot): void {
+  enterPilotBattle(pilot: Pilot, unwinnable = false): void {
     const battle = new PilotBattle(DEFAULT_PLAYER, pilot);
-    battle.onDefeat = () => this.endPilotBattle(new PopupMessage(t('ui:not_strong_enough', { name: t(`pilots:${pilot.id}`) }), t('ui:defeated'), PopupType.Defeat));
+    battle.onDefeat = () => {
+      if (unwinnable) {
+        incrementPilotDefeats(pilot.id);
+        checkCampaigns();
+      }
+      this.endPilotBattle(new PopupMessage(t('ui:not_strong_enough', { name: t(`pilots:${pilot.id}`) }), t('ui:defeated'), PopupType.Defeat));
+    };
     battle.onVictory = () => {
       addCurrency(Currency.Magnis, pilot.magnisReward);
       incrementPilotDefeats(pilot.id);
@@ -289,7 +296,11 @@ export class Game {
       if (action instanceof DungeonSortieEvent) {
         action.onExecute = () => this.enterDungeon(action);
       } else if (action instanceof ActionFightPilot) {
-        action.onExecute = () => this.enterPilotBattle(action.pilot);
+        action.onExecute = () => this.enterPilotBattle(action.pilot, action.unwinnable);
+      } else if (action instanceof ActionPlayCutscene) {
+        action.onExecute = () => {
+          setActiveDialog(new DialogScript(action.cutscene.toDialogScript().lines, action.reward));
+        };
       } else if (action instanceof ActionTalkToNPC) {
         action.onExecute = () => {
           markNpcTalked(action.npcId);

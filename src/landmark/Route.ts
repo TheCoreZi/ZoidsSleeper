@@ -62,6 +62,38 @@ export const ROUTES: Route[] = [
     requirements: [new MissionCompletedRequirement('sleeper_commander', 'talk_to_maria')],
     type: LandmarkType.Route,
   },
+  {
+    baseReward: { magnis: 100, zi_metal: 16 },
+    battleBackground: BattleBackground.Desert,
+    connects: ['wind_colony', 'wind_oasis'],
+    enemies: [
+      { id: 'gator', level: 18 },
+      { id: 'malder', level: 16 },
+      { id: 'spiker', level: 18 },
+      { id: 'zatton', level: 20 },
+    ],
+    id: 'dustwind_trail',
+    name: 'Dustwind Trail',
+    routeHealth: 300,
+    requirements: [new MissionCompletedRequirement(CAMPAIGNS.sleeper_commander.id, 'maria_van_status')],
+    type: LandmarkType.Route,
+  },
+  {
+    baseReward: { magnis: 120, zi_metal: 20 },
+    battleBackground: BattleBackground.Desert,
+    connects: ['wind_oasis', 'arcobaleno_camp'],
+    enemies: [
+      { id: 'gorgodos', level: 22 },
+      { id: 'molga', level: 20 },
+      { id: 'spiker', level: 20 },
+      { id: 'zatton', level: 22 },
+    ],
+    id: 'bandit_trail',
+    name: 'Bandit Trail',
+    routeHealth: 400,
+    requirements: [new MissionCompletedRequirement(CAMPAIGNS.sleeper_commander.id, 'talk_to_van_tied')],
+    type: LandmarkType.Route,
+  },
 ];
 
 export function getRoute(id: string): Route | undefined {

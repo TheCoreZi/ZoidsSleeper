@@ -1,5 +1,9 @@
 {
   "desc_elephantus": "Fuerte y resistente, pero lento y difícil de pilotar. Solo para los más valientes.",
   "desc_garius": "Simple y fácil de controlar. Pocas armas ofensivas, pero si lo cuidas bien será imparable.",
-  "desc_glidoler": "Rápido y fuerte, pero muy frágil en combate. Para pilotos experimentados."
+  "desc_glidoler": "Rápido y fuerte, pero muy frágil en combate. Para pilotos experimentados.",
+  "desc_gorgodos": "Un Zoid robusto de la República con armadura gruesa. Lento de entrenar, pero aguanta lo que otros no pueden.",
+  "desc_red_horn": "El tanque definitivo del Imperio. Poder de fuego devastador y armadura casi impenetrable, pero extremadamente difícil de dominar.",
+  "desc_redler": "Un Zoid aéreo veloz del Imperio. Ataque letal, pero su estructura ligera lo hace vulnerable.",
+  "desc_spiker": "Un Zoid ágil de la República, fácil de entrenar y rápido de domar. Perfecto para formar un ejército fuerte rápidamente."
 }

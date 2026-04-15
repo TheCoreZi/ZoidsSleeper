@@ -13,14 +13,14 @@ export interface Region {
 
 export const REGIONS: Region[] = [
   {
-    cityIds: ['abandoned_camp', 'gleam_village', 'wind_colony'],
+    cityIds: ['abandoned_camp', 'arcobaleno_camp', 'gleam_village', 'wind_colony', 'wind_oasis'],
     dungeonIds: ['elmia_ruins'],
     id: 'south_europa',
     image: 'images/map/europa.png',
     imageSize: { h: 1024, w: 1536 },
     initialLandmark: 'gleam_village',
     name: 'Southern Europa',
-    routeIds: ['elmia_desert', 'gleam_outskirts', 'wind_road'],
+    routeIds: ['bandit_trail', 'dustwind_trail', 'elmia_desert', 'gleam_outskirts', 'wind_road'],
     subtitle: 'Western Continent: Europa',
     viewBox: { h: 200, w: 300, x: 700, y: 750 },
   },

@@ -144,6 +144,7 @@ function checkCampaigns(): void {
 }
 
 export {
+  advanceMission,
   campaignStates,
   checkCampaigns,
   forceSetMission,

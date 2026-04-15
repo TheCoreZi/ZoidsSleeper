@@ -6,77 +6,137 @@
         "description": "You found an abandoned camp where a bandit is holding hostages. Defeat him and rescue them.",
         "name": "Save the Girl, Save the World"
       },
-      "hone_skills": {
-        "description": "There are many Zoids Sleepers in the village outskirts, perfect for honing your piloting skills.",
-        "name": "Field Training"
-      },
-      "report_to_captain": {
-        "description": "The old captain might know more about this artifact. Talk to him in the village.",
-        "name": "Mission Report"
-      },
       "captain_farewell": {
         "description": "Now that you have reinforcements, report back to the captain in the village before heading out.",
         "name": "Time to Depart"
       },
-      "grow_army": {
-        "description": "You'll need more Zoids if you plan to face the bandits. Use Jenkins' lab to incubate at least another Zoid for your army.",
-        "name": "Recruitment"
+      "check_colony_uproar": {
+        "description": "Something is happening at Wind Colony. Go back and check what's going on.",
+        "name": "Uproar at the Colony"
       },
-      "jenkins_to_work": {
-        "description": "You've gathered Zoid structural data. Head back to the village with Jenkins and start working in his lab.",
-        "name": "That's How Babies Are Made"
-      },
-      "obtain_zi_data": {
-        "description": "Scan a Zoid Sleeper's Core to obtain structural data. Use the Core Analyzer and a Probe.",
-        "name": "Zoid Anatomy"
-      },
-      "talk_to_jenkins": {
-        "description": "The captain mentioned old Jenkins, a former Zoid lab researcher. Find him and show him the Sleeper module.",
-        "name": "Old Jenkins"
-      },
-      "talk_to_boy": {
-        "description": "There's a boy in the village who looks desperate. Talk to him.",
-        "name": "Village in Peril"
-      },
-      "talk_to_hostage": {
-        "description": "The bandit fled, but the hostage seems shaken. Talk to her.",
-        "name": "Hostage"
-      },
-      "talk_to_priest_leon": {
-        "description": "You've arrived at Wind Colony. Ask the local priest if he knows anything about the missing girl.",
-        "name": "Prayer to the Wind"
-      },
-      "talk_to_maria": {
-        "description": "The priest mentioned a boy who keeps getting into trouble with the bandits. Talk to his sister Maria Flyheight.",
-        "name": "The Boy from Planet Zi"
-      },
-      "elmia_desert_patrol": {
-        "description": "Maria says her brother Van is somewhere in the Elmia Desert. Fight through the Sleepers to find him.",
-        "name": "Desert Ruins"
-      },
-      "listen_to_bandits": {
-        "description": "You found some ruins in the desert. There are bandits nearby. Listen to what they're saying.",
-        "name": "Voices Among Ruins"
-      },
-      "defeat_bul": {
-        "description": "The bandits mentioned Blu, who's trying to get rid of a boy. Help Van by stopping Blu and his Guysack in a sortie through the Elmia Ruins.",
-        "name": "Protector"
-      },
-      "find_van": {
-        "description": "That will hold Blu off for a few minutes. Find Van in the ruins and warn him about the incoming bandits.",
-        "name": "The Boy in the Ruins"
+      "check_van_colony": {
+        "description": "Go to Wind Colony and ask Maria how Van is doing.",
+        "name": "Where's Van?"
       },
       "defeat_bianco_nero": {
         "description": "Blu's reinforcements have arrived. Van can't escape alone. Sortie into the ruins and hold off the bandits while Van gets out.",
         "name": "Wolves at the Gate"
       },
+      "defeat_bul": {
+        "description": "The bandits mentioned Blu, who's trying to get rid of a boy. Help Van by stopping Blu and his Guysack in a sortie through the Elmia Ruins.",
+        "name": "Protector"
+      },
+      "elmia_desert_patrol": {
+        "description": "Maria says her brother Van is somewhere in the Elmia Desert. Fight through the Sleepers to find him.",
+        "name": "Desert Ruins"
+      },
+      "ambush_arcobaleno": {
+        "description": "The bandits will try to double-cross the exchange. Don't let them. Ambush them at their camp and defeat Bianco, Nero, and Blu.",
+        "name": "Ambush"
+      },
+      "fight_rosso": {
+        "description": "Rosso and his Red Horn stand between you and the captive. Face him.",
+        "name": "The Red Horn"
+      },
+      "fight_rosso_rematch": {
+        "description": "Rosso's Red Horn has been weakened by the blast. This is your chance. Finish the fight.",
+        "name": "Turning the Tide"
+      },
+      "fight_van": {
+        "description": "Van challenges you to a one-on-one battle with his Shield Liger. Prove you're strong enough to change his mind.",
+        "name": "The Shield of the Loved Ones"
+      },
+      "find_van": {
+        "description": "That will hold Blu off for a few minutes. Find Van in the ruins and warn him about the incoming bandits.",
+        "name": "The Boy in the Ruins"
+      },
+      "find_van_oasis": {
+        "description": "Van is at the Wind Oasis. Talk to him before he leaves for good.",
+        "name": "One Last Talk"
+      },
+      "grow_army": {
+        "description": "You'll need more Zoids if you plan to face the bandits. Use Jenkins' lab to incubate at least another Zoid for your army.",
+        "name": "Recruitment"
+      },
+      "hone_skills": {
+        "description": "There are many Zoids Sleepers in the village outskirts, perfect for honing your piloting skills.",
+        "name": "Field Training"
+      },
       "interrogate_bandits": {
         "description": "The bandits might know where the girl was taken. Interrogate Bianco.",
         "name": "Truth Among Thieves"
       },
+      "jenkins_to_work": {
+        "description": "You've gathered Zoid structural data. Head back to the village with Jenkins and start working in his lab.",
+        "name": "That's How Babies Are Made"
+      },
+      "listen_to_bandits": {
+        "description": "You found some ruins in the desert. There are bandits nearby. Listen to what they're saying.",
+        "name": "Voices Among Ruins"
+      },
       "maria_van_status": {
         "description": "Ask Maria at Wind Colony how Van and the mysterious girl are doing.",
         "name": "What Was That About?"
+      },
+      "obtain_zi_data": {
+        "description": "Scan a Zoid Sleeper's Core to obtain structural data. Use the Core Analyzer and a Probe.",
+        "name": "Zoid Anatomy"
+      },
+      "repel_attackers": {
+        "description": "Viola, Verde and Giallo are attacking Wind Colony. Van won't make it in time. Repel them!",
+        "name": "Colony Under Siege"
+      },
+      "report_to_captain": {
+        "description": "The old captain might know more about this artifact. Talk to him in the village.",
+        "name": "Mission Report"
+      },
+      "scout_arcobaleno": {
+        "description": "You saw which way the bandits fled. Fight through the Bandit Trail to their base and investigate what they're planning.",
+        "name": "Into the Wolves' Den"
+      },
+      "return_to_colony_leon": {
+        "description": "Return to Wind Colony and talk to Father Leon about the situation.",
+        "name": "A Difficult Choice"
+      },
+      "rosso_confrontation": {
+        "description": "The leader of the bandits, Rosso, reveals himself. Hear what he has to say.",
+        "name": "The Boss"
+      },
+      "talk_to_boy": {
+        "description": "There's a boy in the village who looks desperate. Talk to him.",
+        "name": "Village in Peril"
+      },
+      "talk_to_van_and_fiona": {
+        "description": "Head through the Dustwind Trail to the Wind Oasis and talk to Van and Fine. They might have useful information.",
+        "name": "Desert Intel"
+      },
+      "talk_to_girl": {
+        "description": "The girl the bandits were holding is safe now. Talk to her.",
+        "name": "The Captive"
+      },
+      "talk_to_hostage": {
+        "description": "The bandit fled, but the hostage seems shaken. Talk to her.",
+        "name": "Hostage"
+      },
+      "talk_to_jenkins": {
+        "description": "The captain mentioned old Jenkins, a former Zoid lab researcher. Find him and show him the Sleeper module.",
+        "name": "Old Jenkins"
+      },
+      "talk_to_maria": {
+        "description": "The priest mentioned a boy who keeps getting into trouble with the bandits. Talk to his sister Maria Flyheight.",
+        "name": "The Boy from Planet Zi"
+      },
+      "talk_to_priest_leon": {
+        "description": "You've arrived at Wind Colony. Ask the local priest if he knows anything about the missing girl.",
+        "name": "Prayer to the Wind"
+      },
+      "tell_van_kidnapping": {
+        "description": "Go to the Wind Oasis and tell Van that the bandits kidnapped Maria.",
+        "name": "Bad News"
+      },
+      "talk_to_van_tied": {
+        "description": "The villagers tied Van up and locked him in a warehouse. Talk to him through the window to figure out a plan.",
+        "name": "Captive Ally"
       }
     },
     "name": "Sleeper Commander"

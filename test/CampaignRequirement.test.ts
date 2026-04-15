@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it } from 'vitest';
 import { CampaignStatus, type Campaign } from '../src/campaign/Campaign';
-import { CampaignCompletedRequirement, MissionCompletedRequirement, RouteKillRequirement } from '../src/requirement';
+import { CampaignCompletedRequirement, CurrentMissionRequirement, MissionCompletedRequirement, RouteKillRequirement } from '../src/requirement';
 import { NpcTalkedInCampaignRequirement } from '../src/requirement/NpcTalkedInCampaignRequirement';
 import { loadCampaigns, markNpcTalked, startCampaign, checkCampaigns } from '../src/store/campaignStore';
 import { incrementRouteKills, loadStatistics } from '../src/store/statisticsStore';
@@ -77,6 +77,44 @@ describe('MissionCompletedRequirement', () => {
     const req = new MissionCompletedRequirement('test_campaign', 'm0');
 
     expect(req.isCompleted()).toBe(true);
+  });
+});
+
+describe('CurrentMissionRequirement', () => {
+  beforeEach(() => {
+    loadStatistics({}, {});
+    loadCampaigns({ test_campaign: testCampaign }, {});
+  });
+
+  it('should not be completed when campaign is inactive', () => {
+    const req = new CurrentMissionRequirement('test_campaign', 'm0');
+
+    expect(req.isCompleted()).toBe(false);
+  });
+
+  it('should be completed when player is on that mission', () => {
+    startCampaign('test_campaign');
+    const req = new CurrentMissionRequirement('test_campaign', 'm0');
+
+    expect(req.isCompleted()).toBe(true);
+  });
+
+  it('should not be completed when player has passed that mission', () => {
+    startCampaign('test_campaign');
+    incrementRouteKills('r');
+    checkCampaigns();
+    const req = new CurrentMissionRequirement('test_campaign', 'm0');
+
+    expect(req.isCompleted()).toBe(false);
+  });
+
+  it('should not be completed when campaign is fully completed', () => {
+    loadCampaigns([testCampaign], {
+      test_campaign: { currentMission: '', status: CampaignStatus.Completed },
+    });
+    const req = new CurrentMissionRequirement('test_campaign', 'm0');
+
+    expect(req.isCompleted()).toBe(false);
   });
 });
 
