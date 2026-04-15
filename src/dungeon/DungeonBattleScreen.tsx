@@ -12,6 +12,7 @@ import { battleBackground } from '../store/landmarkStore';
 import { getActiveDeviceId, getActiveScanMode, ScanMode } from '../store/scanStore';
 import DamageNumber from '../ui/DamageNumber';
 import HealthBar from '../ui/HealthBar';
+import RewardNumber from '../ui/RewardNumber';
 import PlayerHealthBar from '../ui/PlayerHealthBar';
 import PlayerInfo from '../ui/PlayerInfo';
 import ScanToggle from '../ui/ScanToggle';
@@ -36,6 +37,7 @@ const DungeonBattleScreen: Component<Props> = (props) => {
             <img class="enemy-image" src={getZoidImage(enemyZoid()!.id)} alt={enemyZoid()!.name} />
           )}
           <DamageNumber />
+          <RewardNumber />
           <div class="battle-bottom">
             <ScanToggle />
             <PlayerHealthBar

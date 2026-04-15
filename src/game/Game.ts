@@ -45,6 +45,7 @@ import {
   setActiveLab,
   setActiveShop,
   setPopupMessage,
+  setRewardEvents,
 } from '../store/gameStore';
 import { setCurrentLandmark } from '../store/landmarkStore';
 import { addZoidToArmy, partyMaxHealth, setParty } from '../store/partyStore';
@@ -143,6 +144,7 @@ export class Game {
     this.battle = null;
     setBattleState(BattleState.Idle);
     setEnemyZoid(null);
+    setRewardEvents([]);
   }
 
   enterPilotBattle(pilot: Pilot, unwinnable = false): void {
