@@ -91,6 +91,9 @@ export class Game {
       setTimeout(() => setPopupMessage(null), 3000);
       return;
     }
+    if (dungeonRun()) {
+      this.endDungeonRun(false);
+    }
     setCurrentLandmark(landmark);
     this.wireCityActions(landmark);
     if (isRoute(landmark)) {
