@@ -36,7 +36,7 @@ describe('getActiveZoids', () => {
   it('should return default (impossible) set for rosso before any defeats', () => {
     const zoids = getActiveZoids(PILOTS['rosso']);
 
-    expect(zoids[0].maxHealthOverride).toBe(8000);
+    expect(zoids[0].maxHealthOverride).toBe(10000);
   });
 
   it('should return debuffed set for rosso after defeat', () => {
@@ -44,6 +44,6 @@ describe('getActiveZoids', () => {
 
     const zoids = getActiveZoids(PILOTS['rosso']);
 
-    expect(zoids[0].maxHealthOverride).toBe(1200);
+    expect(zoids[0].maxHealthOverride).toBe(1800);
   });
 });
