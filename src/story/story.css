@@ -43,14 +43,14 @@
 /* Dialog Box */
 
 .dialog-overlay {
-  left: 50%;
-  max-width: 600px;
-  padding: 1rem;
+  align-items: flex-start;
+  background: rgb(0 0 0 / 60%);
+  display: flex;
+  inset: 0;
+  justify-content: center;
+  padding-top: 4rem;
   position: fixed;
-  top: 4rem;
-  transform: translateX(-50%);
-  width: 100%;
-  z-index: 10;
+  z-index: 100;
 }
 
 .dialog-box {
@@ -58,9 +58,10 @@
   border: 2px solid #0f3460;
   border-radius: 12px;
   cursor: pointer;
+  max-width: 600px;
   padding: 1.5rem;
   user-select: none;
-  width: 100%;
+  width: 90%;
 }
 
 .dialog-content {
