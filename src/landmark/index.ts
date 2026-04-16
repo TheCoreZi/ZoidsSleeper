@@ -1,4 +1,4 @@
-export { ActionFightPilot, ActionPlayCutscene, ActionTalkToNPC, ActionVisitDepot, ActionVisitLab, isCityActionVisible } from './action';
+export { ActionDuelPilot, ActionFightPilot, ActionPlayCutscene, ActionTalkToNPC, ActionVisitDepot, ActionVisitLab, isCityActionVisible } from './action';
 export type { CityAction } from './action';
 export { CITIES, getCity } from './City';
 export type { City } from './City';

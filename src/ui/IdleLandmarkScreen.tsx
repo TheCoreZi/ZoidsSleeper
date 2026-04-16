@@ -4,9 +4,10 @@ import '../dungeon/dungeon.css';
 import { t } from '../i18n';
 import { Currency } from '../models/Currency';
 import type { City, CityAction } from '../landmark';
-import { ActionVisitDepot, ActionVisitLab, isCityActionVisible } from '../landmark';
+import { ActionDuelPilot, ActionVisitDepot, ActionVisitLab, isCityActionVisible } from '../landmark';
 import { currentLandmark, landmarkBackground } from '../store/landmarkStore';
 import { getCurrency } from '../store/walletStore';
+import './duel-battle.css';
 
 const IdleLandmarkScreen: Component = () => {
   const visibleActions = () => ((currentLandmark() as City).actions ?? []).filter(isCityActionVisible);
@@ -52,7 +53,10 @@ const IdleLandmarkScreen: Component = () => {
           <div class="city-actions">
             <For each={otherActions()}>
               {(action) => (
-                <button class="city-action-btn" onClick={() => action.execute()}>
+                <button
+                  class={action instanceof ActionDuelPilot ? 'duel-btn' : 'city-action-btn'}
+                  onClick={() => action.execute()}
+                >
                   {action.getLabel()}
                 </button>
               )}

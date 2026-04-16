@@ -1,5 +1,5 @@
 import { createMemo, createSignal } from 'solid-js';
-import { calculatePartyAttack, calculatePartyMaxHealth, DEFAULT_PARTY, type OwnedZoid, ZoidResearchStatus } from '../models/Zoid';
+import { buildZoid, calculatePartyAttack, calculatePartyMaxHealth, type CustomizedZoid, DEFAULT_PARTY, getOwnedZoidLevel, type OwnedZoid, ZoidResearchStatus } from '../models/Zoid';
 import { incrementClickAttack } from './gameStore';
 import { updateZoidResearch } from './zoidResearchStore';
 
@@ -22,4 +22,11 @@ function addZoidToArmy(zoidId: string, experience = 0): void {
   updateZoidResearch(zoidId, ZoidResearchStatus.Created);
 }
 
-export { addZoidToArmy, party, partyAttack, partyMaxHealth, setParty };
+function findStrongestZoid(): CustomizedZoid {
+  const partyZoids = party();
+  if (partyZoids.length === 0) {throw new Error('Party is empty');}
+  const strongest = partyZoids.reduce((best, z) => z.experience > best.experience ? z : best);
+  return buildZoid({ id: strongest.id, level: getOwnedZoidLevel(strongest) });
+}
+
+export { addZoidToArmy, findStrongestZoid, party, partyAttack, partyMaxHealth, setParty };

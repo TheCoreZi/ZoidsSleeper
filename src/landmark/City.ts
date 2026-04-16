@@ -3,6 +3,7 @@ import { type ConsumableItem, ITEMS } from '../item';
 import { PILOTS } from '../models/Pilot';
 import { COMPOUND_REQUIREMENTS, ItemRequirement, MissionCompletedRequirement, NpcTalkedInCampaignRequirement, PilotDefeatRequirement, RouteKillRequirement } from '../requirement';
 import { itemReward, missionAdvanceReward } from '../reward';
+import { ActionDuelPilot } from './action/ActionDuelPilot';
 import { ActionFightPilot } from './action/ActionFightPilot';
 import { ActionPlayCutscene } from './action/ActionPlayCutscene';
 import { ActionTalkToNPC } from './action/ActionTalkToNPC';
@@ -93,7 +94,7 @@ export const CITIES: City[] = [
       new ActionTalkToNPC('van', [new MissionCompletedRequirement(C, 'maria_van_status')], [new MissionCompletedRequirement(C, 'tell_van_kidnapping')]),
       new ActionTalkToNPC('fiona', [new MissionCompletedRequirement(C, 'maria_van_status')], [new MissionCompletedRequirement(C, 'tell_van_kidnapping')]),
       new ActionTalkToNPC('van', [new MissionCompletedRequirement(C, 'check_van_colony')], [new PilotDefeatRequirement('van_shield_liger')]),
-      new ActionFightPilot(PILOTS['van_shield_liger'], [new MissionCompletedRequirement(C, 'find_van_oasis')], [new PilotDefeatRequirement('van_shield_liger')]),
+      new ActionDuelPilot(PILOTS['van_shield_liger'], [new MissionCompletedRequirement(C, 'find_van_oasis')], [new MissionCompletedRequirement(C, 'fight_van')]),
     ],
     battleBackground: BattleBackground.Desert,
     id: 'wind_oasis',

@@ -38,6 +38,7 @@ import BattleScreen from './ui/BattleScreen';
 import CampaignPanel from './ui/CampaignPanel';
 import IdleLandmarkScreen from './ui/IdleLandmarkScreen';
 import PartyPanel from './ui/PartyPanel';
+import DuelBattleScreen from './ui/DuelBattleScreen';
 import PilotBattleScreen from './ui/PilotBattleScreen';
 import SettingsMenu from './ui/SettingsMenu';
 import LabPanel from './ui/LabPanel';
@@ -68,6 +69,7 @@ const App: Component = () => {
   const isDungeonEvent = createMemo(() => isDungeonActive() && dungeonPhase() === DungeonPhase.Event);
   const isDungeonMap = createMemo(() => isDungeonActive() && dungeonPhase() === DungeonPhase.Map);
   const isDungeonSupply = createMemo(() => isDungeonActive() && dungeonPhase() === DungeonPhase.Supply);
+  const isDuelBattleMode = createMemo(() => battleState() === BattleState.DuelCombat);
   const isPilotBattleMode = createMemo(() =>
     battleState() === BattleState.PilotCombat
   );
@@ -206,6 +208,11 @@ const App: Component = () => {
               </Match>
               <Match when={isDungeonBoss()}>
                 <PilotBattleScreen
+                  onClick={() => game?.battle?.clickAttack()}
+                />
+              </Match>
+              <Match when={isDuelBattleMode()}>
+                <DuelBattleScreen
                   onClick={() => game?.battle?.clickAttack()}
                 />
               </Match>

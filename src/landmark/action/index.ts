@@ -1,3 +1,4 @@
+export { ActionDuelPilot } from './ActionDuelPilot';
 export { ActionFightPilot } from './ActionFightPilot';
 export { ActionPlayCutscene } from './ActionPlayCutscene';
 export { ActionTalkToNPC } from './ActionTalkToNPC';

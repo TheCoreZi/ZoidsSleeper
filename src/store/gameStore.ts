@@ -3,9 +3,10 @@ import type { PlayerStats } from '../models/Player';
 import type { PopupMessage } from '../models/PopupMessage';
 import type { DialogScript } from '../story/Dialog';
 import type { ShopData } from '../ui/ShopPanel';
-import type { SpawnedZoid } from '../models/Zoid';
+import type { CustomizedZoid, SpawnedZoid } from '../models/Zoid';
 
 export const BattleState = {
+  DuelCombat: 'duel-combat',
   DungeonBoss: 'dungeon-boss',
   DungeonCombat: 'dungeon-combat',
   Idle: 'idle',
@@ -39,9 +40,41 @@ export interface RewardEvent {
   id: number;
 }
 
+export const DuelTurnPhase = {
+  EnemyAttack: 'enemy-attack',
+  AimDelay: 'gauge-countdown',
+  PlayerAttack: 'player-attack',
+  PlayerAiming: 'player-gauge',
+  PlayerTapping: 'player-tapping',
+} as const;
+export type DuelTurnPhase = (typeof DuelTurnPhase)[keyof typeof DuelTurnPhase];
+
+export interface DuelBattleState {
+  aimIndicatorPosition: number;
+  aimTimeRemaining: number;
+  isPlayerTurn: boolean;
+  currentPhaseTimer: number;
+  playerZoid: CustomizedZoid | null;
+  powerCharged: number;
+  powerMax: number;
+  turnPhase: DuelTurnPhase;
+}
+
+export const DEFAULT_DUEL_STATE: DuelBattleState = {
+  aimIndicatorPosition: 0,
+  aimTimeRemaining: 0,
+  isPlayerTurn: true,
+  currentPhaseTimer: 0,
+  playerZoid: null,
+  powerCharged: 0,
+  powerMax: 0,
+  turnPhase: DuelTurnPhase.PlayerTapping,
+};
+
 const [battleState, setBattleState] = createSignal<BattleState>(BattleState.WildCombat);
 const [gamePhase, setGamePhase] = createSignal<GamePhase>(GamePhase.Playing);
 const [damageEvents, setDamageEvents] = createSignal<DamageEvent[]>([]);
+const [duelState, setDuelState] = createSignal<DuelBattleState>(DEFAULT_DUEL_STATE);
 const [enemyZoid, setEnemyZoid] = createSignal<SpawnedZoid | null>(null);
 const [rewardEvents, setRewardEvents] = createSignal<RewardEvent[]>([]);
 const [pilotEnemyProgress, setPilotEnemyProgress] = createSignal({ current: 0, total: 0 });
@@ -106,38 +139,40 @@ export {
   battleState,
   damageEvents,
   dequeueDialog,
+  duelState,
   emitRewardEvent,
-  enqueueDialog,
   enemyHealthPercent,
   enemyZoid,
+  enqueueDialog,
   gamePhase,
   incrementClickAttack,
   pilotEnemyProgress,
   pilotInfo,
-  playerDamageEvents,
   pilotPlayerHealth,
   pilotPlayerHealthPercent,
   pilotPlayerMaxHealth,
   pilotZoidIds,
+  playerDamageEvents,
   playerStats,
+  popupMessage,
   rewardEvents,
   setActiveDialog,
   setActiveLab,
   setActiveShop,
   setBattleState,
   setDamageEvents,
-  setGamePhase,
+  setDuelState,
   setEnemyZoid,
-  setPlayerDamageEvents,
+  setGamePhase,
   setPilotEnemyProgress,
   setPilotInfo,
   setPilotPlayerHealth,
-  setRewardEvents,
   setPilotPlayerMaxHealth,
   setPilotZoidIds,
+  setPlayerDamageEvents,
   setPlayerStats,
-  setShowClickHint,
-  popupMessage,
   setPopupMessage,
+  setRewardEvents,
+  setShowClickHint,
   showClickHint,
 };

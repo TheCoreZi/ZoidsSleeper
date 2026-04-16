@@ -1,4 +1,5 @@
 {
+  "aim": "APUNTA!",
   "archive_attack": "ATK: {{value}}",
   "archive_empty": "Aún no se han registrado datos de Zoids",
   "archive_hp": "HP: {{value}}",
@@ -19,6 +20,8 @@
   "defeated": "¡Derrotado!",
   "depot": "Depósito",
   "download_save": "Descargar partida",
+  "duel_pilot": "Duelo contra {{name}}",
+  "enemy_turn": "Turno Enemigo",
   "fight_pilot": "Luchar contra {{name}}",
   "fights_completed": "Zoids Combatidos",
   "free": "GRATIS",
@@ -72,9 +75,10 @@
   "victory": "¡Victoria!",
   "visit_depot": "Visitar Depósito",
   "visit_lab": "Visitar {{name}}",
+  "your_turn": "Tu Turno",
   "zdata_empty": "Aún no has recolectado Z-Data",
-  "zoids_army": "Ejército Zoids",
   "zi_archive": "Archivo Zi",
   "zi_metal": "Metal Zi",
+  "zoids_army": "Ejército Zoids",
   "zoids_defeated": "Zoids derrotados"
 }

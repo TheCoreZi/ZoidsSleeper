@@ -115,6 +115,75 @@ describe('migrate', () => {
     });
   });
 
+  describe('0.4.0 migration', () => {
+    it('should reset completed campaign to find_van_oasis', () => {
+      const data = {
+        campaigns: {
+          sleeper_commander: { currentMission: '', missionNpcFlags: {}, status: 'completed' as const },
+        },
+        landmarkId: 'wind_colony',
+        pilotDefeats: { van_shield_liger: 1 },
+        version: '0.3.0',
+      };
+
+      migrate(data, '0.3.0');
+
+      expect(data.campaigns.sleeper_commander).toEqual({
+        currentMission: 'find_van_oasis',
+        missionNpcFlags: {},
+        status: 'started',
+      });
+      expect(data.landmarkId).toBe('wind_oasis');
+      expect(data.pilotDefeats).not.toHaveProperty('van_shield_liger');
+    });
+
+    it('should reset campaign past find_van_oasis back to it', () => {
+      const data = {
+        campaigns: {
+          sleeper_commander: {
+            currentMission: 'fight_van',
+            missionNpcFlags: {},
+            status: 'started' as const,
+          },
+        },
+        landmarkId: 'wind_oasis',
+        pilotDefeats: { van_shield_liger: 2 },
+        version: '0.3.0',
+      };
+
+      migrate(data, '0.3.0');
+
+      expect(data.campaigns.sleeper_commander.currentMission).toBe('find_van_oasis');
+      expect(data.landmarkId).toBe('wind_oasis');
+      expect(data.pilotDefeats).not.toHaveProperty('van_shield_liger');
+    });
+
+    it('should not affect campaign before find_van_oasis', () => {
+      const data = {
+        campaigns: {
+          sleeper_commander: {
+            currentMission: 'maria_van_status',
+            missionNpcFlags: {},
+            status: 'started' as const,
+          },
+        },
+        landmarkId: 'wind_colony',
+        version: '0.3.0',
+      };
+
+      migrate(data, '0.3.0');
+
+      expect(data.campaigns.sleeper_commander.currentMission).toBe('maria_van_status');
+      expect(data.landmarkId).toBe('wind_colony');
+    });
+
+    it('should not fail when no campaign data exists', () => {
+      const data = { landmarkId: 'test', version: '0.3.0' };
+
+      expect(() => migrate(data, '0.3.0')).not.toThrow();
+    });
+  });
+
   describe('0.2.0 migration', () => {
     it('should reset completed campaign to interrogate_bandits', () => {
       const data = {

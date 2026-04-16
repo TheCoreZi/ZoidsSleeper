@@ -18,7 +18,7 @@ import { SortieNodeType } from '../dungeon/DungeonGraph';
 import { t } from '../i18n';
 import { DialogScript } from '../story/Dialog';
 import type { City, Landmark, Route } from '../landmark';
-import { ActionFightPilot, ActionPlayCutscene, ActionTalkToNPC, ActionVisitDepot, ActionVisitLab, getLandmarkById, getLandmarkHints, isLandmarkUnlocked, isRoute, ROUTES } from '../landmark';
+import { ActionDuelPilot, ActionFightPilot, ActionPlayCutscene, ActionTalkToNPC, ActionVisitDepot, ActionVisitLab, getLandmarkById, getLandmarkHints, isLandmarkUnlocked, isRoute, ROUTES } from '../landmark';
 import type { Dungeon } from '../landmark';
 import { REGIONS } from '../map/Region';
 import { Currency } from '../models/Currency';
@@ -30,6 +30,7 @@ import { loadCampaigns, markNpcTalked, checkCampaigns } from '../store/campaignS
 import {
   BattleState,
   battleState,
+  DEFAULT_DUEL_STATE,
   GamePhase,
   setBattleState,
   setEnemyZoid,
@@ -45,6 +46,7 @@ import {
   setActiveLab,
   setActiveShop,
   emitRewardEvent,
+  setDuelState,
   setPopupMessage,
   setRewardEvents,
 } from '../store/gameStore';
@@ -57,6 +59,7 @@ import { loadZoidData } from '../store/zoidDataStore';
 import { loadZoidResearch, updateZoidResearch } from '../store/zoidResearchStore';
 import { BaseBattle } from './BaseBattle';
 import { Battle } from './Battle';
+import { DuelBattle } from './DuelBattle';
 import { GameLoop } from './GameLoop';
 import { PilotBattle } from './PilotBattle';
 import { Save } from './Save';
@@ -148,6 +151,21 @@ export class Game {
     setRewardEvents([]);
   }
 
+  enterDuelBattle(pilot: Pilot): void {
+    const battle = new DuelBattle(DEFAULT_PLAYER, pilot);
+    battle.onDefeat = () => {
+      this.endDuelBattle(new PopupMessage(t('ui:not_strong_enough', { name: t(`pilots:${pilot.id}`) }), t('ui:defeated'), PopupType.Defeat));
+    };
+    battle.onVictory = () => {
+      addCurrency(Currency.Magnis, pilot.magnisReward);
+      incrementPilotDefeats(pilot.id);
+      checkCampaigns();
+      this.endDuelBattle(new PopupMessage(t('ui:pilot_defeated', { name: t(`pilots:${pilot.id}`) }), t('ui:victory'), PopupType.Victory));
+    };
+    this.battle = battle;
+    setBattleState(BattleState.DuelCombat);
+  }
+
   enterPilotBattle(pilot: Pilot, unwinnable = false): void {
     const battle = new PilotBattle(DEFAULT_PLAYER, pilot);
     battle.onDefeat = () => {
@@ -233,6 +251,18 @@ export class Game {
     this.loop.stop();
   }
 
+  private endDuelBattle(popup: PopupMessage): void {
+    setPilotInfo(null);
+    setPilotPlayerHealth(0);
+    setPilotPlayerMaxHealth(0);
+    setDuelState(DEFAULT_DUEL_STATE);
+    this.battle = null;
+    setBattleState(BattleState.Idle);
+    setEnemyZoid(null);
+    setPopupMessage(popup);
+    setTimeout(() => setPopupMessage(null), 3000);
+  }
+
   private endPilotBattle(popup: PopupMessage): void {
     setPilotInfo(null);
     setPilotEnemyProgress({ current: 0, total: 0 });
@@ -248,6 +278,7 @@ export class Game {
 
   private gameTick(): void {
     switch (battleState()) {
+      case BattleState.DuelCombat:
       case BattleState.DungeonBoss:
       case BattleState.DungeonCombat:
       case BattleState.WildCombat:
@@ -301,7 +332,9 @@ export class Game {
   private wireCityActions(landmark: Landmark): void {
     const city = landmark as City | Dungeon;
     city.actions?.forEach((action) => {
-      if (action instanceof DungeonSortieEvent) {
+      if (action instanceof ActionDuelPilot) {
+        action.onExecute = () => this.enterDuelBattle(action.pilot);
+      } else if (action instanceof DungeonSortieEvent) {
         action.onExecute = () => this.enterDungeon(action);
       } else if (action instanceof ActionFightPilot) {
         action.onExecute = () => this.enterPilotBattle(action.pilot, action.unwinnable);

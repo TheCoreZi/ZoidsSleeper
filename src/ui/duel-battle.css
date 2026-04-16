@@ -1,0 +1,393 @@
+.duel-arena {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  justify-content: space-between;
+  padding: 0 1rem;
+  width: 100%;
+}
+
+.duel-zoid-left,
+.duel-zoid-right {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  z-index: 1;
+}
+
+.duel-zoid-left img,
+.duel-zoid-right img {
+  height: 80px;
+  image-rendering: pixelated;
+  object-fit: contain;
+  width: 80px;
+}
+
+.duel-zoid-left img {
+  transform: scaleX(-1);
+}
+
+.duel-zoid-label {
+  color: #fff;
+  font-size: 0.75rem;
+  text-shadow: 0 0 4px rgb(0 0 0), 1px 1px 3px rgb(0 0 0), -1px -1px 3px rgb(0 0 0);
+}
+
+/* Damage number positioning */
+
+.duel-damage-left {
+  left: 10%;
+  position: absolute;
+  top: 20%;
+  z-index: 4;
+}
+
+.duel-damage-right {
+  position: absolute;
+  right: 10%;
+  top: 20%;
+  z-index: 4;
+}
+
+/* Turn banner */
+
+.duel-turn-banner {
+  background: rgb(0 0 0 / 70%);
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  left: 50%;
+  padding: 0.2rem 0.8rem;
+  position: absolute;
+  text-shadow: 1px 1px 2px rgb(0 0 0 / 80%);
+  top: 8px;
+  transform: translateX(-50%);
+  z-index: 4;
+}
+
+.duel-turn-banner.player-turn {
+  color: #00d4ff;
+}
+
+.duel-turn-banner.enemy-turn {
+  color: #e94560;
+}
+
+/* Gauges panel — both side by side */
+
+.duel-gauges-panel {
+  align-items: center;
+  background: rgb(0 0 0 / 60%);
+  bottom: 28px;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  left: 0;
+  padding: 0.4rem 0.8rem;
+  position: absolute;
+  width: 100%;
+  z-index: 3;
+}
+
+/* Circular timer */
+
+.duel-timer-circle {
+  flex-shrink: 0;
+  height: 28px;
+  position: relative;
+  width: 28px;
+}
+
+.duel-timer-circle svg {
+  height: 100%;
+  transform: rotate(-90deg);
+  width: 100%;
+}
+
+.duel-timer-bg {
+  fill: none;
+  stroke: rgb(255 255 255 / 30%);
+  stroke-width: 2.5;
+}
+
+.duel-timer-fill {
+  fill: none;
+  stroke: #ffd700;
+  stroke-linecap: round;
+  stroke-width: 2.5;
+  transition: stroke-dashoffset 0.1s linear;
+}
+
+.duel-timer-fill.enemy {
+  stroke: #e94560;
+}
+
+.duel-timer-text {
+  color: #fff;
+  font-size: 0.55rem;
+  font-weight: bold;
+  left: 50%;
+  position: absolute;
+  text-shadow: 1px 1px 2px rgb(0 0 0 / 80%);
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Power gauge (tapping phase) — gradient fill over gun silhouette */
+
+.power-gauge-container {
+  height: 28px;
+  overflow: hidden;
+  position: relative;
+  width: fit-content;
+}
+
+.power-gauge-img-base {
+  display: block;
+  filter: grayscale(1) brightness(0.5);
+  height: 100%;
+  image-rendering: pixelated;
+  opacity: 0.4;
+  transform: scaleX(-1);
+}
+
+.power-gauge-container.enemy .power-gauge-img-base {
+  transform: none;
+}
+
+.power-gauge-fill {
+  background: linear-gradient(to left, #ffeb3b, #ff9800, #f44336);
+  height: 100%;
+  left: 0;
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  position: absolute;
+  top: 0;
+  transform: scaleX(-1);
+  transition: clip-path 0.05s ease-out;
+  width: 100%;
+}
+
+.power-gauge-container.enemy .power-gauge-fill {
+  background: linear-gradient(to right, #ffeb3b, #ff9800, #f44336);
+  transform: none;
+}
+
+.power-gauge-text {
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: bold;
+  left: 50%;
+  position: absolute;
+  text-shadow: 1px 1px 2px rgb(0 0 0 / 80%);
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+/* Attack gauge (precision phase) */
+
+.attack-gauge-container {
+  background: #222;
+  border: 1.5px solid rgb(255 255 255 / 20%);
+  border-radius: 4px;
+  height: 24px;
+  overflow: hidden;
+  position: relative;
+  width: 180px;
+}
+
+.attack-gauge-zone {
+  height: 100%;
+  position: absolute;
+  top: 0;
+}
+
+.attack-gauge-zone-ok {
+  background: rgb(255 152 0 / 20%);
+}
+
+.attack-gauge-zone-good {
+  background: rgb(255 215 0 / 30%);
+}
+
+.attack-gauge-zone-perfect {
+  background: rgb(76 175 80 / 45%);
+}
+
+.attack-gauge-indicator {
+  background: #fff;
+  border-radius: 2px;
+  box-shadow: 0 0 6px rgb(255 255 255 / 60%);
+  height: 100%;
+  position: absolute;
+  top: 0;
+  transition: left 0.05s linear;
+  width: 3px;
+  z-index: 2;
+}
+
+.attack-gauge-center {
+  background: rgb(255 255 255 / 30%);
+  height: 100%;
+  left: 50%;
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  width: 1px;
+}
+
+/* Gauge countdown overlay */
+
+.duel-countdown-overlay {
+  align-items: center;
+  background: rgb(0 0 0 / 40%);
+  display: flex;
+  inset: 0;
+  justify-content: center;
+  position: absolute;
+  z-index: 5;
+}
+
+.duel-countdown-text {
+  animation: duel-result-pop 0.6s ease-out forwards;
+  color: #ffd700;
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-shadow: 0 0 10px rgb(255 215 0 / 60%);
+}
+
+/* Projectile animation */
+
+.duel-projectile {
+  border-radius: 50%;
+  height: 8px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  z-index: 4;
+}
+
+.duel-projectile.player {
+  animation: duel-projectile-right 0.5s ease-in forwards;
+  background: #ffd700;
+  box-shadow: 0 0 6px #ffd700, 0 0 14px #ff4500, 0 0 24px rgb(255 69 0 / 50%);
+}
+
+.duel-projectile.enemy {
+  animation: duel-projectile-left 0.5s ease-in forwards;
+  background: #ffd700;
+  box-shadow: 0 0 6px #ffd700, 0 0 14px #ff4500, 0 0 24px rgb(255 69 0 / 50%);
+}
+
+@keyframes duel-projectile-right {
+  0% {
+    left: 20%;
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    left: 80%;
+    opacity: 0;
+  }
+}
+
+@keyframes duel-projectile-left {
+  0% {
+    left: 80%;
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    left: 20%;
+    opacity: 0;
+  }
+}
+
+/* Transition overlay */
+
+.duel-transition-overlay {
+  align-items: center;
+  background: rgb(0 0 0 / 50%);
+  display: flex;
+  inset: 0;
+  justify-content: center;
+  position: absolute;
+  z-index: 5;
+}
+
+.duel-transition-text {
+  animation: duel-result-pop 1s ease-out forwards;
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 0 0 8px rgb(0 0 0 / 80%);
+}
+
+.duel-transition-text.to-player {
+  color: #00d4ff;
+}
+
+.duel-transition-text.to-enemy {
+  color: #e94560;
+}
+
+@keyframes duel-result-pop {
+  0% {
+    opacity: 1;
+    transform: scale(1.4);
+  }
+
+  60% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+}
+
+/* Duel button on idle screen */
+
+.duel-button-container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.duel-btn {
+  background: linear-gradient(180deg, #2a1a0a, #1a0f05);
+  border: 2px solid #ffd700;
+  border-radius: 8px;
+  box-shadow: 0 0 12px rgb(255 215 0 / 30%);
+  color: #ffd700;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: bold;
+  padding: 0.4rem 0.6rem;
+  text-shadow: 0 0 6px rgb(255 215 0 / 40%);
+  transition: all 0.2s;
+}
+
+.duel-btn:hover {
+  background: linear-gradient(180deg, #3a2a1a, #2a1a0a);
+  box-shadow: 0 0 18px rgb(255 215 0 / 50%);
+}

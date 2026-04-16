@@ -74,7 +74,7 @@ export abstract class BaseBattle {
     this.dealDamage(damage, 'auto');
   }
 
-  private awardExperience(): void {
+  protected awardExperience(): void {
     const enemyData = getZoidById(this.enemy.id);
     const xpGain = calculateExperienceGain(enemyData.baseExp, this.enemy.level, this.isPilotBattle);
     const previousLevels = party().map((z) => getOwnedZoidLevel(z));
@@ -102,7 +102,7 @@ export abstract class BaseBattle {
     setPlayerDamageEvents([...playerDamageEvents().slice(-9), event]);
   }
 
-  private emitDamageNumber(amount: number, source: DamageSource): void {
+  protected emitDamageNumber(amount: number, source: DamageSource): void {
     if (amount <= 0) {return;}
     const event = { amount, id: damageIdCounter++, source, timestamp: Date.now() };
     setDamageEvents([...damageEvents().slice(-9), event]);

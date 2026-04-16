@@ -1,4 +1,5 @@
 {
+  "aim": "AIM!",
   "archive_attack": "ATK: {{value}}",
   "archive_empty": "No Zoids data recorded yet",
   "archive_hp": "HP: {{value}}",
@@ -19,6 +20,8 @@
   "defeated": "Defeated!",
   "depot": "Depot",
   "download_save": "Download Save",
+  "duel_pilot": "Duel {{name}}",
+  "enemy_turn": "Enemy Turn",
   "fight_pilot": "Fight {{name}}",
   "fights_completed": "Zoids Fights Completed",
   "free": "FREE",
@@ -72,9 +75,10 @@
   "victory": "Victory!",
   "visit_depot": "Visit Depot",
   "visit_lab": "Visit {{name}}",
+  "your_turn": "Your Turn",
   "zdata_empty": "No Z-Data collected yet",
-  "zoids_army": "Zoids Army",
   "zi_archive": "Zi-Archive",
   "zi_metal": "Zi Metal",
+  "zoids_army": "Zoids Army",
   "zoids_defeated": "Zoids Defeated"
 }

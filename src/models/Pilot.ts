@@ -114,7 +114,7 @@ export const PILOTS: Record<string, Pilot> = {
     name: 'Van',
     zoidSets: [
       new PilotZoidSet([
-        { attackOverride: 20, id: 'shield_liger', level: 30, maxHealthOverride: 4000 },
+        { attackOverride: 10, id: 'shield_liger', level: 30, maxHealthOverride: 4000 },
       ]),
     ],
   },
