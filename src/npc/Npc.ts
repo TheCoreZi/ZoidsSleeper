@@ -3,6 +3,7 @@ import type { Requirement } from '../requirement';
 
 export interface NpcDialog {
   dialogKey: string;
+  images?: Record<number, string>;
   unlockRequirement?: Requirement;
 }
 
@@ -54,14 +55,14 @@ export const NPCS: Record<string, Npc> = {
     portrait: 'images/pilots/rosso.png',
   },
   explorer: {
-    dialogs: [{ dialogKey: 'dialog:explorer_dungeon_tips' }],
+    dialogs: [{ dialogKey: 'dialog:explorer_dungeon_tips', images: {1: 'images/items/zi_metal.png', 2: '' } }],
     id: 'explorer',
     nameKey: 'pilots:explorer',
   },
   fiona: {
     dialogs: [
       { dialogKey: 'dialog:fiona_rescue', unlockRequirement: new MissionCompletedRequirement('sleeper_commander', 'fight_rosso') },
-      { dialogKey: 'dialog:fiona_oasis' },
+      { dialogKey: 'dialog:fiona_oasis', images: {1: 'images/items/ancient_statue.png', 2: '' } },
     ],
     id: 'fiona',
     nameKey: 'pilots:fiona',
@@ -122,7 +123,7 @@ export const NPCS: Record<string, Npc> = {
       { dialogKey: 'dialog:van_tied', unlockRequirement: new MissionCompletedRequirement('sleeper_commander', 'tell_van_kidnapping') },
       { dialogKey: 'dialog:van_kidnapping', unlockRequirement: new MissionCompletedRequirement('sleeper_commander', 'repel_attackers') },
       { dialogKey: 'dialog:van_oasis', unlockRequirement: new MissionCompletedRequirement('sleeper_commander', 'maria_van_status') },
-      { dialogKey: 'dialog:van_alert' },
+      { dialogKey: 'dialog:van_alert', images: { 0: 'images/characters/zeke_full.png' } },
     ],
     id: 'van',
     nameKey: 'pilots:van',

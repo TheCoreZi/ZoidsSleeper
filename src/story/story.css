@@ -64,6 +64,15 @@
   width: 90%;
 }
 
+.dialog-image {
+  border-radius: 8px;
+  display: block;
+  image-rendering: pixelated;
+  margin: 1rem auto 0;
+  max-height: 150px;
+  max-width: 50%;
+}
+
 .dialog-content {
   align-items: center;
   display: flex;

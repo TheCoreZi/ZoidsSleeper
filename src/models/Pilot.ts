@@ -37,7 +37,7 @@ export const PILOTS: Record<string, Pilot> = {
     name: 'Bianco',
     zoidSets: [
       new PilotZoidSet([
-        { attackOverride: 25, id: 'command_wolf', level: 25, maxHealthOverride: 2000 },
+        { attackOverride: 25, id: 'command_wolf_desert', level: 25, maxHealthOverride: 2000 },
       ]),
     ],
   },
@@ -47,8 +47,8 @@ export const PILOTS: Record<string, Pilot> = {
     name: 'Bianco & Nero',
     zoidSets: [
       new PilotZoidSet([
-        { attackOverride: 8, id: 'command_wolf', level: 15, maxHealthOverride: 450 },
-        { attackOverride: 8, id: 'command_wolf', level: 17, maxHealthOverride: 550 },
+        { attackOverride: 8, id: 'command_wolf_desert', level: 15, maxHealthOverride: 450 },
+        { attackOverride: 8, id: 'command_wolf_desert', level: 17, maxHealthOverride: 550 },
       ]),
     ],
   },
@@ -89,7 +89,7 @@ export const PILOTS: Record<string, Pilot> = {
     name: 'Nero',
     zoidSets: [
       new PilotZoidSet([
-        { attackOverride: 15, id: 'command_wolf', level: 24, maxHealthOverride: 2500 },
+        { attackOverride: 15, id: 'command_wolf_desert', level: 24, maxHealthOverride: 2500 },
       ]),
     ],
   },

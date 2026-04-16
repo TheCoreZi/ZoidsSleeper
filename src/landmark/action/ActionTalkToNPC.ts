@@ -27,7 +27,7 @@ export class ActionTalkToNPC implements CityAction {
     const npc = getNpc(this.npcId);
     const dialog = npc.dialogs.find((d) => !d.unlockRequirement || d.unlockRequirement.isCompleted())
       ?? npc.dialogs[npc.dialogs.length - 1];
-    return new DialogScript(buildDialogLines(npc.nameKey, dialog.dialogKey, npc.portrait), this.reward);
+    return new DialogScript(buildDialogLines(npc.nameKey, dialog.dialogKey, npc.portrait, undefined, dialog.images), this.reward);
   }
 
   execute(): void {

@@ -56,6 +56,7 @@ export interface CustomizedZoid {
 
 export const ZOID_LIST: Record<string, ZoidSpecies> = {
   command_wolf: { attack: 200, baseExp: 50, dropRate: 15, faction: Faction.HelicRepublic, id: 'command_wolf', levelType: LevelType.MediumFast, maxHealth: 200, name: 'Command Wolf', price: 40000 },
+  command_wolf_desert: { attack: 200, baseExp: 50, dropRate: 15, faction: Faction.HelicRepublic, id: 'command_wolf_desert', levelType: LevelType.MediumFast, maxHealth: 200, name: 'Command Wolf (Desert)', price: 40000 },
   elephantus: { attack: 100, baseExp: 15, dropRate: -1, faction: Faction.HelicRepublic, id: 'elephantus', levelType: LevelType.MediumSlow, maxHealth: 200, name: 'Elephantus', price: 50000 },
   garius: { attack: 50, baseExp: 10, dropRate: -1, faction: Faction.HelicRepublic, id: 'garius', levelType: LevelType.Fast, maxHealth: 100, name: 'Garius', price: 2000 },
   gator: { attack: 150, baseExp: 35, dropRate: 60, faction: Faction.GuylosEmpire, id: 'gator', levelType: LevelType.MediumFast, maxHealth: 200, name: 'Gator', price: 4000 },

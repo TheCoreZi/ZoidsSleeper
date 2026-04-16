@@ -2,6 +2,7 @@ import { dialogLength } from '../i18n';
 import type { Reward } from '../reward';
 
 export interface DialogLine {
+  image?: string;
   interpolation?: Record<string, number | string>;
   portrait?: string;
   speakerKey: string;
@@ -26,12 +27,20 @@ export function buildDialogLines(
   speakerKey: string,
   dialogKey: string,
   portrait?: string,
-  interpolations?: Record<number, Record<string, number | string>>
+  interpolations?: Record<number, Record<string, number | string>>,
+  images?: Record<number, string>
 ): DialogLine[] {
-  return Array.from({ length: dialogLength(dialogKey) }, (_, i) => ({
-    ...(interpolations?.[i] && { interpolation: interpolations[i] }),
-    ...(portrait && { portrait }),
-    speakerKey,
-    textKey: `${dialogKey}.${i}`,
-  }));
+  let currentImage: string | undefined;
+  return Array.from({ length: dialogLength(dialogKey) }, (_, i) => {
+    if (images && i in images) {
+      currentImage = images[i] || undefined;
+    }
+    return {
+      ...(currentImage && { image: currentImage }),
+      ...(interpolations?.[i] && { interpolation: interpolations[i] }),
+      ...(portrait && { portrait }),
+      speakerKey,
+      textKey: `${dialogKey}.${i}`,
+    };
+  });
 }

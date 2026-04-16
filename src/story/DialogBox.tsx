@@ -33,6 +33,9 @@ const DialogBox: Component<DialogBoxProps> = (props) => {
           <img class="dialog-portrait" src={currentLine().portrait} alt={t(currentLine().speakerKey)} />
         </Show>
       </div>
+      <Show when={currentLine().image}>
+        <img class="dialog-image" src={currentLine().image} alt="" />
+      </Show>
       <div class="dialog-prompt">{t('ui:click_to_continue')}</div>
     </div>
   );

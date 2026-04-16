@@ -30,6 +30,15 @@ describe('Cutscene', () => {
 
     expect(script.reward).toBeUndefined();
   });
+
+  it('should attach images to specific dialog lines', () => {
+    const cutscene = new Cutscene('test', 'dialog:narration_shield_liger', undefined, { 0: 'images/test.png' });
+
+    const script = cutscene.toDialogScript();
+
+    expect(script.lines[0].image).toBe('images/test.png');
+    expect(script.lines[1].image).toBe('images/test.png');
+  });
 });
 
 describe('CUTSCENES catalog', () => {
