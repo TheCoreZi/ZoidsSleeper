@@ -37,12 +37,14 @@
 .party-list {
   display: flex;
   flex-direction: column;
+  max-height: 420px;
   overflow-y: auto;
 }
 
 .party-row {
   align-items: center;
   border-bottom: 1px solid #0f3460;
+  cursor: pointer;
   display: grid;
   gap: 0.25rem;
   grid-template-columns: 40px 1fr 1fr;
@@ -51,6 +53,35 @@
 
 .party-row:last-child {
   border-bottom: none;
+}
+
+.party-row:nth-child(even) {
+  background: rgb(255 255 255 / 3%);
+}
+
+.party-row:hover {
+  background: rgb(0 212 255 / 8%);
+}
+
+.party-row-selected {
+  background: rgb(0 212 255 / 5%);
+  border-left: 2px solid #00d4ff;
+}
+
+.party-row-selected:nth-child(even) {
+  background: rgb(0 212 255 / 5%);
+}
+
+.party-row-commander-badge {
+  background: #00d4ff;
+  border-radius: 3px;
+  color: #1a1a2e;
+  font-size: 0.55rem;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  padding: 1px 4px;
+  text-transform: uppercase;
+  width: fit-content;
 }
 
 .party-row-image {
@@ -105,4 +136,10 @@
   border-radius: 2px;
   height: 100%;
   transition: width 0.3s;
+}
+
+@media (width <= 768px) {
+  .party-list {
+    max-height: 126px;
+  }
 }

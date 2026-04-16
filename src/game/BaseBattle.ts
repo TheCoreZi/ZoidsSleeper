@@ -77,9 +77,9 @@ export abstract class BaseBattle {
   protected awardExperience(): void {
     const enemyData = getZoidById(this.enemy.id);
     const xpGain = calculateExperienceGain(enemyData.baseExp, this.enemy.level, this.isPilotBattle);
-    const previousLevels = party().map((z) => getOwnedZoidLevel(z));
-    setParty(awardExperience(party(), xpGain));
-    const totalGained = party().reduce((sum, z, i) =>
+    const previousLevels = party().zoids.map((z) => getOwnedZoidLevel(z));
+    setParty((prev) => ({ ...prev, zoids: awardExperience(prev.zoids, xpGain) }));
+    const totalGained = party().zoids.reduce((sum, z, i) =>
       sum + Math.floor(getOwnedZoidLevel(z) / 10) - Math.floor(previousLevels[i] / 10), 0);
     if (totalGained > 0) {
       incrementClickAttack(totalGained);

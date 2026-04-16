@@ -116,4 +116,9 @@ export function buildZoid({ attackOverride, bonusMultiplier = 1, id, imageOverri
   };
 }
 
-export const DEFAULT_PARTY: OwnedZoid[] = [];
+export interface PartyData {
+  commanderZoidId: string;
+  zoids: OwnedZoid[];
+}
+
+export const DEFAULT_PARTY: PartyData = { commanderZoidId: '', zoids: [] };

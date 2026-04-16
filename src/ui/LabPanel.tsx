@@ -43,7 +43,7 @@ const LabPanel: Component<LabPanelProps> = (props) => {
           <div class="archive-grid">
             <For each={availableZoids()}>
               {(entry) => {
-                const isFirstFree = () => party().length === 1 && !isMissionCompleted('sleeper_commander', 'grow_army');
+                const isFirstFree = () => party().zoids.length === 1 && !isMissionCompleted('sleeper_commander', 'grow_army');
                 const canAfford = () => isFirstFree() || getCurrency(Currency.Magnis) >= entry.data.price;
                 return (
                   <button

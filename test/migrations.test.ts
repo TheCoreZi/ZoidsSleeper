@@ -184,6 +184,59 @@ describe('migrate', () => {
     });
   });
 
+  describe('0.4.1 migration', () => {
+    it('should convert party array to PartyData', () => {
+      const data = {
+        landmarkId: 'test',
+        party: [{ experience: 1000, id: 'shield_liger' }, { experience: 500, id: 'molga' }],
+        version: '0.4.0',
+      };
+
+      migrate(data, '0.4.0');
+
+      expect(data.party).toEqual({
+        commanderZoidId: 'shield_liger',
+        zoids: [{ experience: 1000, id: 'shield_liger' }, { experience: 500, id: 'molga' }],
+      });
+    });
+
+    it('should pick strongest zoid as commander', () => {
+      const data = {
+        landmarkId: 'test',
+        party: [{ experience: 100, id: 'molga' }, { experience: 999, id: 'gator' }],
+        version: '0.4.0',
+      };
+
+      migrate(data, '0.4.0');
+
+      expect((data.party as { commanderZoidId: string }).commanderZoidId).toBe('gator');
+    });
+
+    it('should handle empty party array', () => {
+      const data = {
+        landmarkId: 'test',
+        party: [],
+        version: '0.4.0',
+      };
+
+      migrate(data, '0.4.0');
+
+      expect(data.party).toEqual({ commanderZoidId: '', zoids: [] });
+    });
+
+    it('should not modify already-migrated party', () => {
+      const data = {
+        landmarkId: 'test',
+        party: { commanderZoidId: 'molga', zoids: [{ experience: 0, id: 'molga' }] },
+        version: '0.4.0',
+      };
+
+      migrate(data, '0.4.0');
+
+      expect(data.party).toEqual({ commanderZoidId: 'molga', zoids: [{ experience: 0, id: 'molga' }] });
+    });
+  });
+
   describe('0.2.0 migration', () => {
     it('should reset completed campaign to interrogate_bandits', () => {
       const data = {

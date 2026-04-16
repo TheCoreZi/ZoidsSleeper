@@ -124,10 +124,10 @@ const App: Component = () => {
           labId={activeLab()!.labId}
           onBuy={(zoidId) => {
             const zoid = ZOID_LIST[zoidId];
-            const isFirstFree = party().length === 1 && !isMissionCompleted('sleeper_commander', 'grow_army');
+            const isFirstFree = party().zoids.length === 1 && !isMissionCompleted('sleeper_commander', 'grow_army');
             const price = isFirstFree ? 0 : zoid.price;
             if (getCurrency(Currency.Magnis) >= price) {
-              const isNew = !party().some((z) => z.id === zoidId);
+              const isNew = !party().zoids.some((z) => z.id === zoidId);
               addCurrency(Currency.Magnis, -price);
               decrementZoidData(zoidId);
               addZoidToArmy(zoidId);

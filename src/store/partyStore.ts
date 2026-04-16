@@ -1,32 +1,43 @@
 import { createMemo, createSignal } from 'solid-js';
-import { buildZoid, calculatePartyAttack, calculatePartyMaxHealth, type CustomizedZoid, DEFAULT_PARTY, getOwnedZoidLevel, type OwnedZoid, ZoidResearchStatus } from '../models/Zoid';
+import { buildZoid, calculatePartyAttack, calculatePartyMaxHealth, type CustomizedZoid, DEFAULT_PARTY, getOwnedZoidLevel, type PartyData, ZoidResearchStatus } from '../models/Zoid';
 import { incrementClickAttack } from './gameStore';
 import { updateZoidResearch } from './zoidResearchStore';
 
-const [party, setParty] = createSignal<OwnedZoid[]>(DEFAULT_PARTY);
+const [party, setParty] = createSignal<PartyData>(DEFAULT_PARTY);
 
-const partyAttack = createMemo(() => calculatePartyAttack(party()));
-const partyMaxHealth = createMemo(() => calculatePartyMaxHealth(party()));
+const partyAttack = createMemo(() => calculatePartyAttack(party().zoids));
+const partyMaxHealth = createMemo(() => calculatePartyMaxHealth(party().zoids));
 
 function addZoidToArmy(zoidId: string, experience = 0): void {
   setParty((prev) => {
-    const existing = prev.find((z) => z.id === zoidId);
+    const existing = prev.zoids.find((z) => z.id === zoidId);
     if (existing) {
-      return prev.map((z) => z.id === zoidId
-        ? { ...z, copies: (z.copies ?? 1) + 1 }
-        : z);
+      return {
+        ...prev,
+        zoids: prev.zoids.map((z) => z.id === zoidId
+          ? { ...z, copies: (z.copies ?? 1) + 1 }
+          : z),
+      };
     }
-    return [...prev, { experience, id: zoidId }];
+    return {
+      commanderZoidId: prev.zoids.length === 0 ? zoidId : prev.commanderZoidId,
+      zoids: [...prev.zoids, { experience, id: zoidId }],
+    };
   });
   incrementClickAttack();
   updateZoidResearch(zoidId, ZoidResearchStatus.Created);
 }
 
 function findStrongestZoid(): CustomizedZoid {
-  const partyZoids = party();
-  if (partyZoids.length === 0) {throw new Error('Party is empty');}
-  const strongest = partyZoids.reduce((best, z) => z.experience > best.experience ? z : best);
-  return buildZoid({ id: strongest.id, level: getOwnedZoidLevel(strongest) });
+  const { commanderZoidId, zoids } = party();
+  if (zoids.length === 0) {throw new Error('Party is empty');}
+  const commander = zoids.find((z) => z.id === commanderZoidId);
+  const chosen = commander ?? zoids.reduce((best, z) => z.experience > best.experience ? z : best);
+  return buildZoid({ id: chosen.id, level: getOwnedZoidLevel(chosen) });
 }
 
-export { addZoidToArmy, findStrongestZoid, party, partyAttack, partyMaxHealth, setParty };
+function selectCommanderZoid(zoidId: string): void {
+  setParty((prev) => ({ ...prev, commanderZoidId: zoidId }));
+}
+
+export { addZoidToArmy, findStrongestZoid, party, partyAttack, partyMaxHealth, selectCommanderZoid, setParty };

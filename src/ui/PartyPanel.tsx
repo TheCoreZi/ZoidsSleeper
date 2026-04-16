@@ -1,8 +1,9 @@
-import { createSignal, For, Show, type Component } from 'solid-js';
+import { createMemo, createSignal, For, Show, type Component } from 'solid-js';
 import { t } from '../i18n';
 import { experienceForLevel, MAX_LEVEL } from '../models/LevelType';
 import { getOwnedZoidLevel, getZoidById, getZoidImage, buildZoid, type OwnedZoid } from '../models/Zoid';
-import { party } from '../store/partyStore';
+import { isMissionCompleted } from '../store/campaignStore';
+import { party, selectCommanderZoid } from '../store/partyStore';
 import './party.css';
 
 const StatOption = {
@@ -55,6 +56,12 @@ interface PartyPanelProps {
 
 const PartyPanel: Component<PartyPanelProps> = (props) => {
   const [selectedStat, setSelectedStat] = createSignal<StatOption>(StatOption.Attack);
+  const isDuelUnlocked = createMemo(() => isMissionCompleted('sleeper_commander', 'find_van_oasis'));
+  const commanderZoidId = createMemo(() => {
+    const zoids = party().zoids;
+    if (zoids.length <= 1 || !isDuelUnlocked()) {return null;}
+    return party().commanderZoidId;
+  });
 
   return (
     <div class="party-panel">
@@ -70,11 +77,16 @@ const PartyPanel: Component<PartyPanelProps> = (props) => {
           </For>
         </select>
         <div class="party-list">
-          <For each={party()}>
+          <For each={party().zoids}>
             {(zoid) => {
               const level = () => getOwnedZoidLevel(zoid);
+              const isCommander = () => zoid.id === commanderZoidId();
               return (
-                <div class="party-row">
+                <div
+                  class="party-row"
+                  classList={{ 'party-row-selected': isCommander() }}
+                  onClick={() => isDuelUnlocked() && selectCommanderZoid(zoid.id)}
+                >
                   <div class="party-row-image-col">
                     <img class="party-row-image" src={getZoidImage(zoid.id)} alt={getZoidById(zoid.id).name} />
                     <Show when={level() < MAX_LEVEL}>
@@ -86,6 +98,9 @@ const PartyPanel: Component<PartyPanelProps> = (props) => {
                   <div class="party-row-info">
                     <span class="party-row-name">{getZoidById(zoid.id).name}</span>
                     <span class="party-row-level">{t('ui:lv')}{level()}</span>
+                    <Show when={isCommander()}>
+                      <span class="party-row-commander-badge">{t('ui:commander_badge')}</span>
+                    </Show>
                   </div>
                   <span class="party-row-stat">{getStatValue(zoid, selectedStat())}</span>
                 </div>

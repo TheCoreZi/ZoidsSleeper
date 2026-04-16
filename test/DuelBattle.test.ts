@@ -11,7 +11,7 @@ import { calculateAimMultiplier, DuelBattle, GaugeDirection } from '../src/game/
 import { PILOTS } from '../src/models/Pilot';
 import { DEFAULT_PLAYER } from '../src/models/Player';
 import { DuelTurnPhase, setPlayerStats } from '../src/store/gameStore';
-import { setParty } from '../src/store/partyStore';
+import { selectCommanderZoid, setParty } from '../src/store/partyStore';
 import { loadStatistics } from '../src/store/statisticsStore';
 import { loadZoidResearch } from '../src/store/zoidResearchStore';
 
@@ -28,7 +28,7 @@ function advanceTicks(battle: DuelBattle, count: number): void {
 describe('DuelBattle', () => {
   beforeEach(() => {
     setPlayerStats(DEFAULT_PLAYER);
-    setParty([{ experience: 1000, id: 'shield_liger' }, { experience: 500, id: 'molga' }]);
+    setParty({ commanderZoidId: 'shield_liger', zoids: [{ experience: 1000, id: 'shield_liger' }, { experience: 500, id: 'molga' }] });
     loadStatistics({}, {});
     loadZoidResearch({});
   });
@@ -37,6 +37,14 @@ describe('DuelBattle', () => {
     const battle = new DuelBattle(DEFAULT_PLAYER, PILOTS['van_shield_liger']);
 
     expect(battle.playerZoid.id).toBe('shield_liger');
+  });
+
+  it('should use commanderZoidId instead of strongest', () => {
+    selectCommanderZoid('molga');
+
+    const battle = new DuelBattle(DEFAULT_PLAYER, PILOTS['van_shield_liger']);
+
+    expect(battle.playerZoid.id).toBe('molga');
   });
 
   it('should start in PlayerTapping phase', () => {

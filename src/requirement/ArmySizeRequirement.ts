@@ -22,6 +22,6 @@ export class ArmySizeRequirement implements Requirement {
   }
 
   progress(): number {
-    return party().length;
+    return party().zoids.length;
   }
 }

@@ -1,4 +1,5 @@
 import { CAMPAIGNS } from '../campaign/campaigns';
+import type { OwnedZoid } from '../models/Zoid';
 import type { SaveData } from './Save';
 
 export type MigrationData = Partial<SaveData> & Record<string, unknown>;
@@ -6,6 +7,15 @@ export type MigrationData = Partial<SaveData> & Record<string, unknown>;
 type MigrationFn = (data: MigrationData) => void;
 
 const migrations: Record<string, MigrationFn> = {
+  '0.4.1': (data) => {
+    if (Array.isArray(data.party)) {
+      const zoids = data.party as OwnedZoid[];
+      const commanderZoidId = zoids.length > 0
+        ? zoids.reduce((best, z) => z.experience > best.experience ? z : best).id
+        : '';
+      data.party = { commanderZoidId, zoids };
+    }
+  },
   '0.4.0': (data) => {
     const campaign = data.campaigns?.['sleeper_commander'];
     if (!campaign) {return;}

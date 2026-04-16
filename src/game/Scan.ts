@@ -17,7 +17,7 @@ export function attemptScan(zoidId: string, probeId: string): boolean {
 
   if (Math.random() * 100 < rate) {
     const isNew = getZoidDataCount(zoidId) === 0;
-    const inParty = party().some((z) => z.id === zoidId);
+    const inParty = party().zoids.some((z) => z.id === zoidId);
     incrementZoidData(zoidId);
     updateZoidResearch(zoidId, ZoidResearchStatus.Scanned);
     if (isNew && !inParty) {

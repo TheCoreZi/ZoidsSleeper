@@ -111,7 +111,9 @@ describe('Save', () => {
       const result = await Save.importSave(file);
 
       expect(result).toBe(true);
-      expect(localStorage.getItem('zoids-sleeper-save')).toBe(saveJson);
+      const stored = JSON.parse(localStorage.getItem('zoids-sleeper-save')!);
+      expect(stored.landmarkId).toBe('test_city');
+      expect(stored.party).toEqual({ commanderZoidId: '', zoids: [] });
       expect(location.reload).toHaveBeenCalledOnce();
     });
 

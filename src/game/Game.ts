@@ -359,7 +359,7 @@ export class Game {
     const data = this.save.load();
     if (data) {
       setShowClickHint(false);
-      if (data.party?.length) {
+      if (data.party?.zoids?.length) {
         setParty(data.party);
       }
       if (data.routeKills || data.pilotDefeats) {
@@ -380,7 +380,7 @@ export class Game {
       if (data.zoidResearch) {
         loadZoidResearch(data.zoidResearch);
       }
-      data.party?.forEach((z) => updateZoidResearch(z.id, ZoidResearchStatus.Created));
+      data.party?.zoids.forEach((z) => updateZoidResearch(z.id, ZoidResearchStatus.Created));
       loadCampaigns(CAMPAIGNS, data.campaigns ?? {});
       return true;
     }
