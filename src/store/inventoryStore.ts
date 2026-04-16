@@ -4,7 +4,7 @@ import { type ConsumableItem, ItemType } from '../item';
 import { ITEMS } from '../item';
 import { Currency } from '../models/Currency';
 import { PopupMessage, PopupType } from '../models/PopupMessage';
-import { setPopupMessage } from './gameStore';
+import { showPopup } from './gameStore';
 import { addCurrency, getCurrency } from './walletStore';
 
 const [inventory, setInventory] = createSignal<Record<string, number>>({});
@@ -28,13 +28,12 @@ function addItem(itemId: string, amount: number, unique = false): void {
     return;
   }
   if (getItemCount(itemId) === 0) {
-    setPopupMessage(new PopupMessage(
+    showPopup(new PopupMessage(
       t(`items:${itemId}.name`),
       t('ui:new_item'),
       PopupType.Item,
       `images/items/${itemId}.png`
     ));
-    setTimeout(() => setPopupMessage(null), 3000);
   }
   setInventory((prev) => ({ ...prev, [itemId]: (prev[itemId] ?? 0) + amount }));
 }

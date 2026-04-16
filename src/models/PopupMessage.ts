@@ -1,4 +1,4 @@
-export const PopupType = { Defeat: 'defeat', Item: 'item', Victory: 'victory' } as const;
+export const PopupType = { Defeat: 'defeat', Item: 'item', Mission: 'mission', Victory: 'victory' } as const;
 export type PopupType = (typeof PopupType)[keyof typeof PopupType];
 
 export class PopupMessage {

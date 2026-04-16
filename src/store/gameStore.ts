@@ -110,6 +110,26 @@ export interface LabData {
 const [activeLab, setActiveLab] = createSignal<LabData | null>(null);
 const [activeShop, setActiveShop] = createSignal<ShopData | null>(null);
 const [popupMessage, setPopupMessage] = createSignal<PopupMessage | null>(null);
+const popupQueue: PopupMessage[] = [];
+
+function clearCurrentPopup(): void {
+  const next = popupQueue.shift();
+  if (next) {
+    setPopupMessage(next);
+    setTimeout(clearCurrentPopup, 3000);
+  } else {
+    setPopupMessage(null);
+  }
+}
+
+function showPopup(popup: PopupMessage): void {
+  if (popupMessage()) {
+    popupQueue.push(popup);
+  } else {
+    setPopupMessage(popup);
+    setTimeout(clearCurrentPopup, 3000);
+  }
+}
 
 function incrementClickAttack(amount = 1): void {
   setPlayerStats((prev) => prev ? { ...prev, clickAttack: prev.clickAttack + amount } : prev);
@@ -171,7 +191,7 @@ export {
   setPilotZoidIds,
   setPlayerDamageEvents,
   setPlayerStats,
-  setPopupMessage,
+  showPopup,
   setRewardEvents,
   setShowClickHint,
   showClickHint,
