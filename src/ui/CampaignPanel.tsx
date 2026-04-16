@@ -1,4 +1,4 @@
-import { For, Show, type Component } from 'solid-js';
+import { createEffect, For, on, Show, type Component } from 'solid-js';
 import { CAMPAIGNS } from '../campaign/campaigns';
 import type { Campaign } from '../campaign/Campaign';
 import { t } from '../i18n';
@@ -25,16 +25,29 @@ function currentMissionInfo(campaign: Campaign): MissionInfo | undefined {
 
 const CampaignEntry: Component<{ campaign: Campaign }> = (props) => {
   const mission = () => currentMissionInfo(props.campaign);
+  let missionRef: HTMLDivElement | undefined;
+
+  createEffect(on(
+    () => getCampaignState(props.campaign.id).currentMission,
+    (current, prev) => {
+      if (prev && prev !== current && missionRef) {
+        missionRef.classList.remove('campaign-mission-transition');
+        void missionRef.offsetWidth;
+        missionRef.classList.add('campaign-mission-transition');
+      }
+    }
+  ));
+
   return (
     <div class="campaign-entry campaign-active">
       <div class="campaign-header">
         <span class="campaign-name">{t(`campaigns:${props.campaign.id}.name`)}</span>
       </div>
       <Show when={mission()}>
-        {(m) => <>
+        {(m) => <div ref={missionRef} class="campaign-mission-content">
           <div class="campaign-mission-name">{m().name}</div>
           <div class="campaign-mission-hint">{m().description}</div>
-        </>}
+        </div>}
       </Show>
     </div>
   );

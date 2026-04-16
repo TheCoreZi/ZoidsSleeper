@@ -54,6 +54,12 @@
   background: rgb(0 212 255 / 5%);
 }
 
+.campaign-mission-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
 .campaign-mission-name {
   color: #00d4ff;
   font-size: 0.8rem;
@@ -64,6 +70,29 @@
   color: #fff;
   font-size: 0.75rem;
   font-style: italic;
+}
+
+.campaign-mission-transition {
+  animation: mission-change 1.2s ease-out;
+}
+
+@keyframes mission-change {
+  0% {
+    opacity: 0;
+    text-shadow: 0 0 8px #00d4ff;
+    transform: translateY(-4px);
+  }
+
+  30% {
+    opacity: 1;
+    text-shadow: 0 0 12px #00d4ff, 0 0 24px rgb(0 212 255 / 40%);
+  }
+
+  100% {
+    opacity: 1;
+    text-shadow: none;
+    transform: translateY(0);
+  }
 }
 
 .campaign-description {

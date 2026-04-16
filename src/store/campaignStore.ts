@@ -1,34 +1,42 @@
 import { createSignal } from 'solid-js';
 import { CampaignStatus, type Campaign, type CampaignSaveData } from '../campaign/Campaign';
+import { t } from '../i18n';
+import { PopupMessage, PopupType } from '../models/PopupMessage';
 import { NpcTalkedInCampaignRequirement } from '../requirement/NpcTalkedInCampaignRequirement';
+import { showPopup } from './gameStore';
 
 let campaigns: Record<string, Campaign> = {};
 
 const [campaignStates, setCampaignStates] = createSignal<Record<string, CampaignSaveData>>({});
 
 function advanceMission(campaignId: string): void {
-  setCampaignStates((prev) => {
-    const state = prev[campaignId];
-    if (!state || state.status !== CampaignStatus.Started) {return prev;}
+  const state = campaignStates()[campaignId];
+  if (!state || state.status !== CampaignStatus.Started) {return;}
 
-    const campaign = campaigns[campaignId];
-    if (!campaign) {return prev;}
+  const campaign = campaigns[campaignId];
+  if (!campaign) {return;}
 
-    const currentIndex = getMissionIndex(campaign, state.currentMission);
-    if (currentIndex < 0) {return prev;}
+  const currentIndex = getMissionIndex(campaign, state.currentMission);
+  if (currentIndex < 0) {return;}
 
-    campaign.missions[currentIndex]?.onComplete?.();
+  const completedMissionId = state.currentMission;
+  campaign.missions[currentIndex]?.onComplete?.();
 
-    const nextIndex = currentIndex + 1;
-    const completed = nextIndex >= campaign.missions.length;
-    const nextMissionId = campaign.missions[nextIndex]?.id ?? '';
+  const nextIndex = currentIndex + 1;
+  const completed = nextIndex >= campaign.missions.length;
+  const nextMissionId = campaign.missions[nextIndex]?.id ?? '';
 
-    const newState: CampaignSaveData = completed
-      ? { currentMission: '', status: CampaignStatus.Completed }
-      : { currentMission: nextMissionId, missionNpcFlags: buildNpcFlags(campaign, nextIndex), status: CampaignStatus.Started };
+  const newState: CampaignSaveData = completed
+    ? { currentMission: '', status: CampaignStatus.Completed }
+    : { currentMission: nextMissionId, missionNpcFlags: buildNpcFlags(campaign, nextIndex), status: CampaignStatus.Started };
 
-    return { ...prev, [campaignId]: newState };
-  });
+  setCampaignStates((prev) => ({ ...prev, [campaignId]: newState }));
+
+  showPopup(new PopupMessage(
+    t(`campaigns:${campaignId}.missions.${completedMissionId}.name`),
+    t('ui:mission_completed'),
+    PopupType.Mission
+  ));
 }
 
 function buildNpcFlags(campaign: Campaign, missionIndex: number): Record<string, boolean> {

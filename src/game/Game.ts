@@ -47,7 +47,7 @@ import {
   setActiveShop,
   emitRewardEvent,
   setDuelState,
-  setPopupMessage,
+  showPopup,
   setRewardEvents,
 } from '../store/gameStore';
 import { setCurrentLandmark } from '../store/landmarkStore';
@@ -92,8 +92,7 @@ export class Game {
   changeLocation(landmark: Landmark): void {
     if (!isLandmarkUnlocked(landmark)) {
       const hints = getLandmarkHints(landmark);
-      setPopupMessage(new PopupMessage(hints.join('\n'), t('ui:locked'), PopupType.Defeat));
-      setTimeout(() => setPopupMessage(null), 3000);
+      showPopup(new PopupMessage(hints.join('\n'), t('ui:locked'), PopupType.Defeat));
       return;
     }
     if (dungeonRun()) {
@@ -133,12 +132,12 @@ export class Game {
     setPilotZoidIds([]);
     if (victory) {
       checkCampaigns();
-      setPopupMessage(new PopupMessage(t('ui:sortie_complete'), t('ui:victory'), PopupType.Victory));
+      showPopup(new PopupMessage(t('ui:sortie_complete'), t('ui:victory'), PopupType.Victory));
     } else {
-      setPopupMessage(new PopupMessage(t('ui:sortie_failed'), t('ui:defeated'), PopupType.Defeat));
+      showPopup(new PopupMessage(t('ui:sortie_failed'), t('ui:defeated'), PopupType.Defeat));
     }
     endDungeon();
-    setTimeout(() => setPopupMessage(null), 3000);
+
   }
 
   enterDungeon(sortieEvent: DungeonSortieEvent): void {
@@ -259,8 +258,8 @@ export class Game {
     this.battle = null;
     setBattleState(BattleState.Idle);
     setEnemyZoid(null);
-    setPopupMessage(popup);
-    setTimeout(() => setPopupMessage(null), 3000);
+    showPopup(popup);
+
   }
 
   private endPilotBattle(popup: PopupMessage): void {
@@ -272,8 +271,8 @@ export class Game {
     this.battle = null;
     setBattleState(BattleState.Idle);
     setEnemyZoid(null);
-    setPopupMessage(popup);
-    setTimeout(() => setPopupMessage(null), 3000);
+    showPopup(popup);
+
   }
 
   private gameTick(): void {

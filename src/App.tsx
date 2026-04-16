@@ -30,7 +30,7 @@ import {
   setActiveDialog,
   setActiveLab,
   setActiveShop,
-  setPopupMessage,
+  showPopup,
 } from './store/gameStore';
 import DialogBox from './story/DialogBox';
 import IntroSequence from './story/IntroSequence';
@@ -133,8 +133,7 @@ const App: Component = () => {
               addZoidToArmy(zoidId);
               checkCampaigns();
               if (isNew) {
-                setPopupMessage(new PopupMessage(zoid.name, t('ui:new_zoid'), PopupType.Item, getZoidImage(zoidId)));
-                setTimeout(() => setPopupMessage(null), 3000);
+                showPopup(new PopupMessage(zoid.name, t('ui:new_zoid'), PopupType.Item, getZoidImage(zoidId)));
               }
             }
           }}
@@ -234,22 +233,22 @@ const App: Component = () => {
           </div>
         </div>
       </Show>
-      <Show when={popupMessage()}>
-        <div
-          class={`popup-message ${popupMessage()!.type === PopupType.Defeat ? 'popup-defeat' : popupMessage()!.type === PopupType.Item ? 'popup-item' : ''}`}
-        >
-          <Show when={popupMessage()!.image}>
-            <img
-              class="popup-message-img"
-              src={popupMessage()!.image}
-              alt=""
-            />
-          </Show>
-          <div>
-            <h2>{popupMessage()!.title}</h2>
-            <p>{popupMessage()!.content}</p>
+      <Show when={popupMessage()} keyed>
+        {(popup) => (
+          <div class={`popup-message popup-${popup.type}`}>
+            <Show when={popup.image}>
+              <img
+                class="popup-message-img"
+                src={popup.image}
+                alt=""
+              />
+            </Show>
+            <div>
+              <h2>{popup.title}</h2>
+              <p>{popup.content}</p>
+            </div>
           </div>
-        </div>
+        )}
       </Show>
     </div>
   );
