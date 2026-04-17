@@ -1,7 +1,7 @@
 import { For, Show, type Component } from 'solid-js';
 import { t } from '../i18n';
-import type { Landmark } from '../landmark';
-import { getCity, getDungeon, isLandmarkUnlocked } from '../landmark';
+import type { Landmark, Route } from '../landmark';
+import { LandmarkType, getCity, getDungeon, isLandmarkUnlocked } from '../landmark';
 import {
   citiesForRegion,
   currentLandmark,
@@ -53,8 +53,20 @@ const WorldMap: Component<WorldMapProps> = (props) => {
             const scale = currentRegion().viewBox.w / currentRegion().imageSize.w;
             const cityRadius = 15 * scale;
             const fontSize = 28 * scale;
-            const strokeWidth = 3 * scale;
             const routeStrokeWidth = 15 * scale;
+            const spriteSize = currentRegion().viewBox.w * 0.06;
+            const strokeWidth = 3 * scale;
+
+            const playerPos = () => {
+              const landmark = currentLandmark();
+              if (landmark.type === LandmarkType.Route) {
+                const route = landmark as Route;
+                const from = cityPosition(route.connects[0]);
+                const to = cityPosition(route.connects[1]);
+                return { x: (from.x + to.x) / 2, y: (from.y + to.y) / 2 };
+              }
+              return cityPosition(landmark.id);
+            };
 
             return (
               <>
@@ -146,6 +158,14 @@ const WorldMap: Component<WorldMapProps> = (props) => {
                     );
                   }}
                 </For>
+                <image
+                  class="map-player-sprite"
+                  href="images/characters/player_full.png"
+                  x={playerPos().x - spriteSize / 2}
+                  y={playerPos().y - spriteSize}
+                  width={spriteSize}
+                  height={spriteSize}
+                />
               </>
             );
           })()}

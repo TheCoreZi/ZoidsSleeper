@@ -90,27 +90,14 @@
 
 /* Player marker */
 .player-marker {
-  animation: marker-pulse 1.5s ease-in-out infinite;
-  background: #e94560;
-  border: 2px solid #fff;
-  border-radius: 50%;
-  box-shadow: 0 0 8px rgb(233 69 96 / 60%);
-  height: 14px;
+  filter: drop-shadow(0 0 6px #e94560);
+  height: 40px;
+  image-rendering: pixelated;
   pointer-events: none;
   position: absolute;
   transform: translate(-50%, -50%);
-  width: 14px;
+  width: 40px;
   z-index: 2;
-}
-
-@keyframes marker-pulse {
-  0%, 100% {
-    box-shadow: 0 0 8px rgb(233 69 96 / 60%);
-  }
-
-  50% {
-    box-shadow: 0 0 16px rgb(233 69 96 / 90%);
-  }
 }
 
 /* Node styles */

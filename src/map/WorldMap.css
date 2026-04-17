@@ -98,6 +98,12 @@
 }
 
 
+.map-player-sprite {
+  filter: drop-shadow(0 0 4px #00d4ff);
+  image-rendering: pixelated;
+  pointer-events: none;
+}
+
 @keyframes map-pulse {
   0%,
   100% {

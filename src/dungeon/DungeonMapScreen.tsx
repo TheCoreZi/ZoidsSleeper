@@ -23,7 +23,7 @@ const NODE_ICONS: Record<SortieNodeType, string> = {
 
 const DungeonMapScreen: Component<Props> = (props) => {
   let layersRef: HTMLDivElement | undefined;
-  let markerRef: HTMLDivElement | undefined;
+  let markerRef: HTMLImageElement | undefined;
   let svgRef: SVGSVGElement | undefined;
 
   const run = createMemo(() => dungeonRun());
@@ -171,7 +171,12 @@ const DungeonMapScreen: Component<Props> = (props) => {
       >
         <div class="dungeon-layers" ref={layersRef}>
           <svg class="dungeon-connections" ref={svgRef} />
-          <div class="player-marker" ref={markerRef} />
+          <img
+            class="player-marker"
+            ref={markerRef}
+            src="images/characters/player_full.png"
+            alt="Player"
+          />
           <For each={visibleLayers()}>
             {(layer) => {
               const r = run()!;
