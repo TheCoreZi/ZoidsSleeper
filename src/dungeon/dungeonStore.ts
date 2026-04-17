@@ -10,7 +10,7 @@ import { SortieNodeType } from './DungeonGraph';
 import type { SortieLayer, SortieNode } from './DungeonGraph';
 import { SupplyCostType, SupplyType } from './DungeonSupply';
 import type { SupplyOption } from './DungeonSupply';
-import { generateSortie } from './generateSortie';
+import { ENTRY_NODE_ID, generateSortie } from './generateSortie';
 
 export const DungeonPhase = {
   Boss: 'boss',
@@ -34,6 +34,7 @@ export interface DungeonRunState {
 
 const [dungeonPhase, setDungeonPhase] = createSignal<DungeonPhase>(DungeonPhase.Map);
 const [dungeonRun, setDungeonRun] = createSignal<DungeonRunState | null>(null);
+const [isLayerAdvancing, setIsLayerAdvancing] = createSignal(false);
 
 const isDungeonActive = createMemo(() => dungeonRun() !== null);
 
@@ -108,6 +109,7 @@ function changePlayerHealth(delta: number, minHealth = 0): void {
 }
 
 function endDungeon(): void {
+  setIsLayerAdvancing(false);
   resetBuffs();
   setDungeonRun(null);
   setDungeonPhase(DungeonPhase.Map);
@@ -153,10 +155,10 @@ function startSortie(config: DungeonSortieEvent, playerHealth: number, playerMax
   setDungeonRun({
     bossPilot: config.resolveBoss(),
     config,
-    currentDepth: 0,
+    currentDepth: 1,
     currentNodeId: null,
     graph,
-    nodeResults: {},
+    nodeResults: { [ENTRY_NODE_ID]: 'completed' },
     playerHealth,
     playerMaxHealth,
   });
@@ -175,9 +177,11 @@ export {
   findNode,
   getPlayerHealth,
   isDungeonActive,
+  isLayerAdvancing,
   isPlayerDead,
   markNodeCompleted,
   selectNode,
   setDungeonPhase,
+  setIsLayerAdvancing,
   startSortie,
 };

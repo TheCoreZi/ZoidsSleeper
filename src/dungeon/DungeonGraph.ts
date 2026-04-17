@@ -2,6 +2,7 @@ export const SortieNodeType = {
   Boss: 'boss',
   Combat: 'combat',
   Elite: 'elite',
+  Entry: 'entry',
   Event: 'event',
   Supply: 'supply',
 } as const;

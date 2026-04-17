@@ -5,22 +5,30 @@ interface GenerateOptions {
   nodesPerLayer: [number, number];
 }
 
+export const ENTRY_NODE_ID = 'entry';
+
 export function generateSortie({ layers, nodesPerLayer }: GenerateOptions): SortieLayer[] {
   const result: SortieLayer[] = [];
 
-  for (let depth = 0; depth < layers; depth++) {
+  result.push({
+    depth: 0,
+    nodes: [{ connectsTo: [], eventSeed: 0, id: ENTRY_NODE_ID, type: SortieNodeType.Entry }],
+  });
+
+  for (let i = 0; i < layers; i++) {
+    const depth = i + 1;
     const count = randomBetween(nodesPerLayer[0], nodesPerLayer[1]);
-    const nodes: SortieNode[] = Array.from({ length: count }, (_, i) => ({
+    const nodes: SortieNode[] = Array.from({ length: count }, (_, j) => ({
       connectsTo: [],
       eventSeed: randomBetween(1, 100),
-      id: `node_${depth}_${i}`,
-      type: pickNodeType(depth, layers),
+      id: `node_${depth}_${j}`,
+      type: pickNodeType(i, layers),
     }));
     result.push({ depth, nodes });
   }
 
   result.push({
-    depth: layers,
+    depth: layers + 1,
     nodes: [{ connectsTo: [], eventSeed: 0, id: 'boss', type: SortieNodeType.Boss }],
   });
 
