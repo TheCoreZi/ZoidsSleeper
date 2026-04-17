@@ -4,7 +4,7 @@ import { getPilotImage } from '../models/Pilot';
 import { playerStats } from '../store/gameStore';
 import { landmarkBackground } from '../store/landmarkStore';
 import { type SortieNode, SortieNodeType } from './DungeonGraph';
-import { type DungeonRunState, dungeonRun } from './dungeonStore';
+import { type DungeonRunState, dungeonRun, isLayerAdvancing, setIsLayerAdvancing } from './dungeonStore';
 import './dungeon.css';
 
 interface Props {
@@ -16,12 +16,14 @@ const NODE_ICONS: Record<SortieNodeType, string> = {
   [SortieNodeType.Boss]: '\u{1F480}',
   [SortieNodeType.Combat]: '\u{1F4A5}',
   [SortieNodeType.Elite]: '\u{2B50}',
+  [SortieNodeType.Entry]: '\u{1F6AA}',
   [SortieNodeType.Event]: '\u{2753}',
   [SortieNodeType.Supply]: '\u{1F4E6}',
 };
 
 const DungeonMapScreen: Component<Props> = (props) => {
-  let containerRef: HTMLDivElement | undefined;
+  let layersRef: HTMLDivElement | undefined;
+  let markerRef: HTMLDivElement | undefined;
   let svgRef: SVGSVGElement | undefined;
 
   const run = createMemo(() => dungeonRun());
@@ -29,7 +31,14 @@ const DungeonMapScreen: Component<Props> = (props) => {
   const visibleLayers = createMemo(() => {
     const r = run();
     if (!r) {return [];}
-    return r.graph.slice(r.currentDepth);
+    return r.graph.slice(Math.max(0, r.currentDepth - 1));
+  });
+
+  const lastCompletedNodeId = createMemo(() => {
+    const r = run();
+    if (!r) {return null;}
+    const prevLayer = r.graph[r.currentDepth - 1];
+    return prevLayer?.nodes.find((n) => r.nodeResults[n.id] === 'completed')?.id ?? null;
   });
 
   const possibleBosses = createMemo(() => {
@@ -47,6 +56,7 @@ const DungeonMapScreen: Component<Props> = (props) => {
   });
 
   function isNodeSelectable(node: SortieNode, state: DungeonRunState): boolean {
+    if (isLayerAdvancing()) {return false;}
     if (state.nodeResults[node.id]) {return false;}
     if (state.currentDepth === 0) {return true;}
     const prevLayer = state.graph[state.currentDepth - 1];
@@ -55,7 +65,7 @@ const DungeonMapScreen: Component<Props> = (props) => {
   }
 
   function drawConnections(): void {
-    if (!svgRef || !containerRef) {return;}
+    if (!svgRef || !layersRef) {return;}
     const r = run();
     if (!r) {return;}
 
@@ -63,21 +73,21 @@ const DungeonMapScreen: Component<Props> = (props) => {
       svgRef.removeChild(svgRef.firstChild);
     }
 
-    const containerRect = containerRef.getBoundingClientRect();
+    const containerRect = layersRef.getBoundingClientRect();
     const layers = visibleLayers();
 
     for (let i = 0; i < layers.length - 1; i++) {
       for (const node of layers[i].nodes) {
-        const fromEl = containerRef.querySelector(`[data-node-id="${node.id}"]`);
+        const fromEl = layersRef.querySelector(`[data-node-id="${node.id}"]`);
         if (!fromEl) {continue;}
         const fromRect = fromEl.getBoundingClientRect();
 
         for (const targetId of node.connectsTo) {
-          const toEl = containerRef.querySelector(`[data-node-id="${targetId}"]`);
+          const toEl = layersRef.querySelector(`[data-node-id="${targetId}"]`);
           if (!toEl) {continue;}
           const toRect = toEl.getBoundingClientRect();
 
-          const isFirstLayer = i === 0;
+          const isFirstLayer = layers[i].depth === r.currentDepth;
 
           const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
           line.setAttribute('x1', String(fromRect.left + fromRect.width / 2 - containerRect.left));
@@ -91,9 +101,64 @@ const DungeonMapScreen: Component<Props> = (props) => {
     }
   }
 
+  function positionMarkerOn(nodeId: string, animate: boolean): void {
+    if (!markerRef || !layersRef) {return;}
+    const nodeEl = layersRef.querySelector(`[data-node-id="${nodeId}"]`);
+    if (!nodeEl) {return;}
+
+    const layersRect = layersRef.getBoundingClientRect();
+    const nodeRect = nodeEl.getBoundingClientRect();
+
+    markerRef.style.transition = animate ? 'left 0.3s ease-out, top 0.3s ease-out' : 'none';
+    markerRef.style.left = `${nodeRect.left + nodeRect.width / 2 - layersRect.left}px`;
+    markerRef.style.top = `${nodeRect.top + nodeRect.height / 2 - layersRect.top}px`;
+  }
+
+  function handleNodeSelect(nodeId: string): void {
+    const el = layersRef;
+    if (!el || !markerRef) {
+      props.onNodeSelect(nodeId);
+      return;
+    }
+
+    setIsLayerAdvancing(true);
+
+    positionMarkerOn(nodeId, true);
+
+    const onMarkerEnd = (): void => {
+      markerRef!.removeEventListener('transitionend', onMarkerEnd);
+
+      const layerWidth = el.offsetWidth / visibleLayers().length;
+      el.style.transition = 'transform 0.5s ease-out';
+      el.style.transform = `translateX(-${layerWidth}px)`;
+
+      const onSlideEnd = (): void => {
+        el.removeEventListener('transitionend', onSlideEnd);
+        setIsLayerAdvancing(false);
+        props.onNodeSelect(nodeId);
+      };
+      el.addEventListener('transitionend', onSlideEnd, { once: true });
+    };
+    markerRef.addEventListener('transitionend', onMarkerEnd, { once: true });
+  }
+
   createEffect(() => {
     visibleLayers();
-    requestAnimationFrame(() => requestAnimationFrame(drawConnections));
+    if (!isLayerAdvancing()) {
+      const el = layersRef;
+      if (el) {
+        el.style.width = '';
+        el.style.transform = '';
+        el.style.transition = 'none';
+      }
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          drawConnections();
+          const nodeId = lastCompletedNodeId();
+          if (nodeId) {positionMarkerOn(nodeId, false);}
+        });
+      });
+    }
   });
 
   return (
@@ -102,35 +167,37 @@ const DungeonMapScreen: Component<Props> = (props) => {
       <p class="dungeon-subtitle">{t('ui:select_path')}</p>
       <div
         class="dungeon-graph-container"
-        ref={containerRef}
         style={{ 'background-image': `url('${landmarkBackground()}')`, 'background-size': 'cover' }}
       >
-        <svg class="dungeon-connections" ref={svgRef} />
-        <div class="dungeon-layers">
+        <div class="dungeon-layers" ref={layersRef}>
+          <svg class="dungeon-connections" ref={svgRef} />
+          <div class="player-marker" ref={markerRef} />
           <For each={visibleLayers()}>
-            {(layer) => (
-              <div class="dungeon-layer">
-                <For each={layer.nodes}>
-                  {(node) => {
-                    const r = run()!;
-                    const isCompleted = () => r.nodeResults[node.id] === 'completed';
-                    const isCurrent = () => layer.depth === r.currentDepth;
-                    const selectable = () => isCurrent() && isNodeSelectable(node, r);
-                    return (
-                      <button
-                        class={`dungeon-node dungeon-node-${node.type}${isCompleted() ? ' completed' : ''}${selectable() ? ' selectable' : ''}`}
-                        data-node-id={node.id}
-                        disabled={!selectable()}
-                        onClick={() => props.onNodeSelect(node.id)}
-                        title={node.type}
-                      >
-                        <span class="node-icon">{NODE_ICONS[node.type]}</span>
-                      </button>
-                    );
-                  }}
-                </For>
-              </div>
-            )}
+            {(layer) => {
+              const r = run()!;
+              const isCurrent = () => layer.depth === r.currentDepth;
+              return (
+                <div class="dungeon-layer">
+                  <For each={layer.nodes}>
+                    {(node) => {
+                      const isCompleted = () => r.nodeResults[node.id] === 'completed';
+                      const selectable = () => isCurrent() && isNodeSelectable(node, r);
+                      return (
+                        <button
+                          class={`dungeon-node dungeon-node-${node.type}${isCompleted() ? ' completed' : ''}${selectable() ? ' selectable' : ''}`}
+                          data-node-id={node.id}
+                          disabled={!selectable()}
+                          onClick={() => handleNodeSelect(node.id)}
+                          title={node.type}
+                        >
+                          <span class="node-icon">{NODE_ICONS[node.type]}</span>
+                        </button>
+                      );
+                    }}
+                  </For>
+                </div>
+              );
+            }}
           </For>
         </div>
         <div class="dungeon-boss-previews">
