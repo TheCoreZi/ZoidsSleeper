@@ -54,14 +54,14 @@ const WorldMap: Component<WorldMapProps> = (props) => {
             />
             {(() => {
               const scale = currentRegion().viewBox.w / currentRegion().imageSize.w;
-              const cityRadius = 18 * scale;
+              const cityRadius = 25 * scale;
               const fontSize = 28 * scale;
               const minHitSize = 24;
               const routeHitWidth = Math.max(15 * scale, minHitSize);
               const routeStrokeWidth = 15 * scale;
               const spriteSize = currentRegion().viewBox.w * 0.06;
               const cityIconSize = cityRadius * 3;
-              const cityHitRadius = Math.max(cityRadius, minHitSize / 4);
+              const cityHitRadius = Math.max(cityRadius, minHitSize / 2);
 
               const playerPos = () => {
                 const landmark = currentLandmark();
