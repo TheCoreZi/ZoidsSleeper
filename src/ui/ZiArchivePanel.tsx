@@ -1,5 +1,6 @@
 import { type Component, createMemo, For, Show } from 'solid-js';
 import { t } from '../i18n';
+import { getZoidLocations } from '../landmark';
 import { FACTIONS } from '../models/Faction';
 import {
   getZoidImage,
@@ -49,12 +50,14 @@ const ZiArchivePanel: Component<ZiArchivePanelProps> = (props) => {
   );
 };
 
-const ArchiveCard: Component<{ id: string; status: ZoidResearchStatus }> = (props) => {
+export const ArchiveCard: Component<{ id: string; status: ZoidResearchStatus | null }> = (props) => {
   const zoid = () => ZOID_LIST[props.id];
+  const locations = () => getZoidLocations(props.id);
+  const statusClass = () => props.status ? `archive-card--${props.status}` : 'archive-card--seen';
 
   return (
     <div
-      class={`archive-card archive-card--${props.status}`}
+      class={`archive-card ${statusClass()}`}
       style={{ 'background-color': `${FACTIONS[zoid().faction].color}33`, 'border-color': FACTIONS[zoid().faction].color }}
     >
       <img
@@ -62,17 +65,27 @@ const ArchiveCard: Component<{ id: string; status: ZoidResearchStatus }> = (prop
         src={getZoidImage(props.id)}
         alt={zoid().name}
       />
-      <span class="archive-card-name">{zoid().name}</span>
+      <span class="archive-card-name">{props.status ? zoid().name : '???'}</span>
       <div class="archive-card-tooltip">
-        <span class="archive-card-tooltip-name">{t(`ui:archive_status_${props.status}`)}</span>
-        <Show when={props.status === ZoidResearchStatus.Scanned}>
-          <span class="archive-card-tooltip-desc">
-            {t('ui:archive_scans', { count: getZoidDataCount(props.id) })}
-          </span>
+        <Show when={props.status}>
+          <span class="archive-card-tooltip-name">{t(`ui:archive_status_${props.status}`)}</span>
+          <Show when={props.status === ZoidResearchStatus.Scanned}>
+            <span class="archive-card-tooltip-desc">
+              {t('ui:archive_scans', { count: getZoidDataCount(props.id) })}
+            </span>
+          </Show>
+          <Show when={props.status === ZoidResearchStatus.Created}>
+            <span class="archive-card-tooltip-desc">{t('ui:archive_attack', { value: zoid().attack })}</span>
+            <span class="archive-card-tooltip-desc">{t('ui:archive_hp', { value: zoid().maxHealth })}</span>
+          </Show>
         </Show>
-        <Show when={props.status === ZoidResearchStatus.Created}>
-          <span class="archive-card-tooltip-desc">{t('ui:archive_attack', { value: zoid().attack })}</span>
-          <span class="archive-card-tooltip-desc">{t('ui:archive_hp', { value: zoid().maxHealth })}</span>
+        <span class="archive-card-tooltip-name">{t('ui:locations')}</span>
+        <Show when={locations().length > 0} fallback={<span class="archive-card-tooltip-desc">???</span>}>
+          <div class="archive-card-locations">
+            <For each={locations()}>
+              {(locId) => <span class="archive-card-location">• {t(`locations:${locId}`)}</span>}
+            </For>
+          </div>
         </Show>
       </div>
     </div>

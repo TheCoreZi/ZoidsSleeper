@@ -1,8 +1,11 @@
-import { type Component, createEffect, createMemo, For } from 'solid-js';
+import { type Component, createEffect, createMemo, createSignal, For, Show } from 'solid-js';
 import { t } from '../i18n';
 import { getPilotImage } from '../models/Pilot';
 import { playerStats } from '../store/gameStore';
 import { landmarkBackground } from '../store/landmarkStore';
+import { getZoidResearch } from '../store/zoidResearchStore';
+import { ArchiveCard } from '../ui/ZiArchivePanel';
+import '../ui/archive.css';
 import { type SortieNode, SortieNodeType } from './DungeonGraph';
 import { type DungeonRunState, dungeonRun, isLayerAdvancing, setIsLayerAdvancing } from './dungeonStore';
 import './dungeon.css';
@@ -40,6 +43,11 @@ const DungeonMapScreen: Component<Props> = (props) => {
     const prevLayer = r.graph[r.currentDepth - 1];
     return prevLayer?.nodes.find((n) => r.nodeResults[n.id] === 'completed')?.id ?? null;
   });
+
+  const [showInfo, setShowInfo] = createSignal(false);
+
+  const enemies = createMemo(() => run()?.config.enemies ?? []);
+  const eliteEnemies = createMemo(() => run()?.config.eliteEnemies ?? []);
 
   const possibleBosses = createMemo(() => {
     const r = run();
@@ -163,7 +171,11 @@ const DungeonMapScreen: Component<Props> = (props) => {
 
   return (
     <div class="dungeon-map-screen">
-      <h2 class="dungeon-title">{t(`locations:${run()?.config.id.replace('_sortie', '') ?? ''}`)}</h2>
+      <div class="dungeon-header">
+        <div />
+        <h2 class="dungeon-title">{t(`locations:${run()?.config.id.replace('_sortie', '') ?? ''}`)}</h2>
+        <button class="archive-button" onClick={() => setShowInfo(true)}>i</button>
+      </div>
       <p class="dungeon-subtitle">{t('ui:select_path')}</p>
       <div
         class="dungeon-graph-container"
@@ -236,6 +248,28 @@ const DungeonMapScreen: Component<Props> = (props) => {
           {t('dungeon:retreat')}
         </button>
       </div>
+      <Show when={showInfo()}>
+        <div class="archive-overlay" onClick={() => setShowInfo(false)}>
+          <div class="archive-panel" onClick={(e) => e.stopPropagation()}>
+            <div class="archive-header">
+              <span class="archive-title">{t(`locations:${run()?.config.id.replace('_sortie', '') ?? ''}`)}</span>
+              <button class="archive-close" onClick={() => setShowInfo(false)}>✕</button>
+            </div>
+            <div class="archive-grid">
+              <span class="info-section-title">{t('ui:enemies')}</span>
+              <For each={enemies()}>
+                {(enemy) => <ArchiveCard id={enemy.zoidData.id} status={getZoidResearch(enemy.zoidData.id)} />}
+              </For>
+              <Show when={eliteEnemies().length > 0}>
+                <span class="info-section-title">{t('ui:elite_enemies')}</span>
+                <For each={eliteEnemies()}>
+                  {(enemy) => <ArchiveCard id={enemy.zoidData.id} status={getZoidResearch(enemy.zoidData.id)} />}
+                </For>
+              </Show>
+            </div>
+          </div>
+        </div>
+      </Show>
     </div>
   );
 };
