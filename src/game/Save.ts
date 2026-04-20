@@ -11,6 +11,8 @@ import { pilotDefeats, routeKills } from '../store/statisticsStore';
 import { inventory } from '../store/inventoryStore';
 import { wallet } from '../store/walletStore';
 import { zoidDataLog } from '../store/zoidDataStore';
+import type { ActiveScan } from '../store/scanStore';
+import { activeScan } from '../store/scanStore';
 import { zoidResearch } from '../store/zoidResearchStore';
 import { migrate } from './migrations';
 const SAVE_KEY = 'zoids-sleeper-save';
@@ -24,6 +26,7 @@ export interface SaveData {
   pilotDefeats?: Record<string, number>;
   playerStats?: PlayerStats;
   routeKills?: Record<string, number>;
+  scanSetup?: ActiveScan;
   version: string;
   wallet?: Record<string, number>;
   zoidData?: Record<string, number>;
@@ -108,6 +111,7 @@ export class Save {
       pilotDefeats: pilotDefeats(),
       playerStats: playerStats() ?? undefined,
       routeKills: routeKills(),
+      scanSetup: activeScan() ?? undefined,
       wallet: wallet(),
       zoidData: zoidDataLog(),
       zoidResearch: zoidResearch(),

@@ -54,6 +54,7 @@ import { setCurrentLandmark } from '../store/landmarkStore';
 import { addZoidToArmy, partyMaxHealth, setParty } from '../store/partyStore';
 import { incrementPilotDefeats, loadStatistics } from '../store/statisticsStore';
 import { loadInventory } from '../store/inventoryStore';
+import { loadScanSetup } from '../store/scanStore';
 import { addCurrency, loadWallet } from '../store/walletStore';
 import { loadZoidData } from '../store/zoidDataStore';
 import { loadZoidResearch, updateZoidResearch } from '../store/zoidResearchStore';
@@ -375,6 +376,9 @@ export class Game {
       }
       if (data.playerStats) {
         setPlayerStats({ ...data.playerStats, attackMult: data.playerStats.attackMult ?? 1 });
+      }
+      if (data.scanSetup) {
+        loadScanSetup(data.scanSetup);
       }
       if (data.zoidResearch) {
         loadZoidResearch(data.zoidResearch);
