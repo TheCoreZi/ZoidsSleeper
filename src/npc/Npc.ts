@@ -1,9 +1,11 @@
 import { COMPOUND_REQUIREMENTS, MissionCompletedRequirement } from '../requirement';
 import type { Requirement } from '../requirement';
+import type { SpeakerOverride } from '../story/Dialog';
 
 export interface NpcDialog {
   dialogKey: string;
   images?: Record<number, string>;
+  speakers?: Record<number, SpeakerOverride>;
   unlockRequirement?: Requirement;
 }
 
@@ -122,7 +124,11 @@ export const NPCS: Record<string, Npc> = {
       { dialogKey: 'dialog:van_challenge', unlockRequirement: new MissionCompletedRequirement('sleeper_commander', 'check_van_colony') },
       { dialogKey: 'dialog:van_tied', unlockRequirement: new MissionCompletedRequirement('sleeper_commander', 'tell_van_kidnapping') },
       { dialogKey: 'dialog:van_kidnapping', unlockRequirement: new MissionCompletedRequirement('sleeper_commander', 'repel_attackers') },
-      { dialogKey: 'dialog:van_oasis', unlockRequirement: new MissionCompletedRequirement('sleeper_commander', 'maria_van_status') },
+      {
+        dialogKey: 'dialog:van_oasis',
+        speakers: { 1: { speakerKey: 'pilots:zeke' }, 2: { speakerKey: '' } },
+        unlockRequirement: new MissionCompletedRequirement('sleeper_commander', 'maria_van_status'),
+      },
       { dialogKey: 'dialog:van_alert', images: { 0: 'images/characters/zeke_full.png' } },
     ],
     id: 'van',
@@ -141,9 +147,31 @@ export const NPCS: Record<string, Npc> = {
     id: 'woman',
     nameKey: 'pilots:woman',
   },
+  zeke: {
+    dialogs: [],
+    id: 'zeke',
+    nameKey: 'pilots:zeke',
+    portrait: 'images/pilots/zeke.png',
+  },
 };
 
 export function getNpc(id: string): Npc {
   return NPCS[id];
+}
+
+export function resolvePortrait(speakerKey: string): string | undefined {
+  return Object.values(NPCS).find((n) => n.nameKey === speakerKey)?.portrait;
+}
+
+export function resolveSpeakerPortraits(speakers: Record<number, SpeakerOverride>): Record<number, SpeakerOverride> {
+  return Object.fromEntries(
+    Object.entries(speakers).map(([key, override]) => {
+      if (override.portrait || !override.speakerKey) {
+        return [key, override];
+      }
+      const portrait = resolvePortrait(override.speakerKey);
+      return [key, portrait ? { ...override, portrait } : override];
+    })
+  );
 }
 

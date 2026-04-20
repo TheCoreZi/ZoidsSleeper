@@ -1,5 +1,5 @@
 import { t } from '../../i18n';
-import { getNpc } from '../../npc/Npc';
+import { getNpc, resolveSpeakerPortraits } from '../../npc/Npc';
 import type { Requirement } from '../../requirement';
 import type { Reward } from '../../reward';
 import { buildDialogLines, DialogScript } from '../../story/Dialog';
@@ -27,7 +27,8 @@ export class ActionTalkToNPC implements CityAction {
     const npc = getNpc(this.npcId);
     const dialog = npc.dialogs.find((d) => !d.unlockRequirement || d.unlockRequirement.isCompleted())
       ?? npc.dialogs[npc.dialogs.length - 1];
-    return new DialogScript(buildDialogLines(npc.nameKey, dialog.dialogKey, npc.portrait, undefined, dialog.images), this.reward);
+    const speakers = dialog.speakers && resolveSpeakerPortraits(dialog.speakers);
+    return new DialogScript(buildDialogLines(npc.nameKey, dialog.dialogKey, npc.portrait, undefined, dialog.images, speakers), this.reward);
   }
 
   execute(): void {
