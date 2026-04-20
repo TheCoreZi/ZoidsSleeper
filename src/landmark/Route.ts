@@ -1,3 +1,4 @@
+import type { Drop } from '../item/Drop';
 import { MissionCompletedRequirement } from '../requirement';
 import type { CurrencyReward } from '../models/Currency';
 import type { Landmark } from './Landmark';
@@ -9,6 +10,7 @@ export interface Route extends Landmark {
   baseReward: CurrencyReward;
   connects: [string, string];
   enemies: ZoidBlueprint[];
+  itemDrops?: Drop[];
   routeHealth: number;
   type: typeof LandmarkType.Route;
 }

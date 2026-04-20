@@ -22,6 +22,7 @@
   "commander_badge": "COMMANDER",
   "download_save": "Download Save",
   "duel_pilot": "Duel {{name}}",
+  "enemy_drop": "The enemy has dropped something!",
   "enemy_turn": "Enemy Turn",
   "fight_pilot": "Fight {{name}}",
   "fights_completed": "Zoids Fights Completed",

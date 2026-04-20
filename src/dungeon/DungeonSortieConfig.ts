@@ -1,3 +1,4 @@
+import type { Drop } from '../item/Drop';
 import type { ZoidBlueprint } from '../models/Zoid';
 import type { Requirement } from '../requirement';
 
@@ -7,6 +8,7 @@ export interface BossTier {
 }
 
 export interface DungeonEnemy {
-  zoidData: ZoidBlueprint;
+  itemDrops?: Drop[];
   requirement?: Requirement;
+  zoidData: ZoidBlueprint;
 }

@@ -1,4 +1,5 @@
 import { t } from '../i18n';
+import type { Drop } from '../item/Drop';
 import type { CurrencyReward } from '../models/Currency';
 import type { Pilot } from '../models/Pilot';
 import { PILOTS } from '../models/Pilot';
@@ -17,6 +18,7 @@ export interface DungeonSortieConfig {
   entryCost: number;
   eventPool: DungeonEvent[];
   id: string;
+  itemDrops?: Drop[];
   layers: number;
   nodesPerLayer: [number, number];
   requirements?: Requirement[];
@@ -32,6 +34,7 @@ export class DungeonSortieEvent implements CityAction {
   entryCost: number;
   eventPool: DungeonEvent[];
   id: string;
+  itemDrops?: Drop[];
   layers: number;
   nodesPerLayer: [number, number];
   onExecute: (() => void) | null = null;
@@ -47,6 +50,7 @@ export class DungeonSortieEvent implements CityAction {
     this.entryCost = config.entryCost;
     this.eventPool = config.eventPool;
     this.id = config.id;
+    this.itemDrops = config.itemDrops;
     this.layers = config.layers;
     this.nodesPerLayer = config.nodesPerLayer;
     this.requirements = config.requirements;

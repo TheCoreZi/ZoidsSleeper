@@ -3,6 +3,7 @@ import { DungeonSortieEvent } from '../dungeon/DungeonSortieEvent';
 import { DUNGEON_EVENTS } from '../dungeon/dungeonEvents';
 import type { BossTier } from '../dungeon/DungeonSortieConfig';
 import { DUNGEON_SUPPLIES } from '../dungeon/dungeonSupplies';
+import { ItemDrop } from '../item';
 import { MissionCompletedRequirement, PilotDefeatRequirement, RouteKillRequirement } from '../requirement';
 import { cutsceneReward } from '../reward';
 import { ActionTalkToNPC } from './action/ActionTalkToNPC';
@@ -23,6 +24,7 @@ export const DUNGEONS: Dungeon[] = [
     actions: [
       new DungeonSortieEvent({
         id: 'elmia_ruins_sortie',
+        itemDrops: [new ItemDrop('core_preserver', 10)],
         bossTiers: [
           { pilots: ['bul'] },
           { pilots: ['bianco_nero'], requirements: [new MissionCompletedRequirement(C.id, 'find_van')] },

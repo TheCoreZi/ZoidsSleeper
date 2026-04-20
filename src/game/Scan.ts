@@ -10,7 +10,7 @@ import { updateZoidResearch } from '../store/zoidResearchStore';
 
 export function attemptScan(zoidId: string, probeId: string): boolean {
   const zoid = getZoidById(zoidId);
-  if (!canScan(probeId) || zoid.dropRate < 0) {return false;}
+  if (!canScan(probeId) || zoid.scanRate < 0) {return false;}
 
   removeItem(probeId, 1);
   const rate = calculateScanRate(zoidId, probeId);
@@ -31,10 +31,10 @@ export function attemptScan(zoidId: string, probeId: string): boolean {
 
 export function calculateScanRate(zoidId: string, probeId: string): number {
   const zoid = getZoidById(zoidId);
-  if (zoid.dropRate < 0) {return 0;}
+  if (zoid.scanRate < 0) {return 0;}
   const probe = ITEMS[probeId];
   const bonus = probe instanceof SyncDeviceItem ? probe.successBonus : 0;
-  return Math.min(100, Math.max(0, zoid.dropRate + bonus));
+  return Math.min(100, Math.max(0, zoid.scanRate + bonus));
 }
 
 export function canScan(probeId: string): boolean {

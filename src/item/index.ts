@@ -1,6 +1,10 @@
 export { ConsumableItem } from './ConsumableItem';
+export { Drop, DropType } from './Drop';
 export { ImportantItem } from './ImportantItem';
 export type { ItemDefinition } from './Item';
+export { ItemDrop } from './ItemDrop';
 export { ItemType } from './Item';
 export { ITEMS } from './items';
+export { buildDropPool, rollDrops } from './rollDrops';
 export { SyncDeviceItem } from './SyncDeviceItem';
+export { ZiDataDrop } from './ZiDataDrop';

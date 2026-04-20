@@ -1,3 +1,5 @@
+import type { Drop } from '../item/Drop';
+import { ZiDataDrop } from '../item/ZiDataDrop';
 import { Faction } from './Faction';
 import { LevelType, levelFromExperience } from './LevelType';
 
@@ -8,19 +10,14 @@ export interface OwnedZoid {
   id: string;
 }
 
-export const ZoidResearchStatus = {
-  Created: 'created',
-  Scanned: 'scanned',
-  Seen: 'seen',
-} as const;
-
-export type ZoidResearchStatus = (typeof ZoidResearchStatus)[keyof typeof ZoidResearchStatus];
+export { ZoidResearchStatus } from './ZoidResearchStatus';
 
 /** Static base template for a zoid species (attack, health, faction, price, etc.) */
 export interface ZoidSpecies {
   attack: number;
   baseExp: number;
-  dropRate: number;
+  itemDrops?: Drop[];
+  scanRate: number;
   faction: Faction;
   id: string;
   levelType: LevelType;
@@ -55,23 +52,24 @@ export interface CustomizedZoid {
 }
 
 export const ZOID_LIST: Record<string, ZoidSpecies> = {
-  command_wolf: { attack: 200, baseExp: 50, dropRate: 15, faction: Faction.HelicRepublic, id: 'command_wolf', levelType: LevelType.MediumFast, maxHealth: 200, name: 'Command Wolf', price: 40000 },
-  command_wolf_desert: { attack: 200, baseExp: 50, dropRate: 15, faction: Faction.HelicRepublic, id: 'command_wolf_desert', levelType: LevelType.MediumFast, maxHealth: 200, name: 'Command Wolf (Desert)', price: 40000 },
-  elephantus: { attack: 100, baseExp: 15, dropRate: -1, faction: Faction.HelicRepublic, id: 'elephantus', levelType: LevelType.MediumSlow, maxHealth: 200, name: 'Elephantus', price: 50000 },
-  garius: { attack: 50, baseExp: 10, dropRate: -1, faction: Faction.HelicRepublic, id: 'garius', levelType: LevelType.Fast, maxHealth: 100, name: 'Garius', price: 2000 },
-  gator: { attack: 150, baseExp: 35, dropRate: 60, faction: Faction.GuylosEmpire, id: 'gator', levelType: LevelType.MediumFast, maxHealth: 200, name: 'Gator', price: 4000 },
-  glidoler: { attack: 100, baseExp: 10, dropRate: -1, faction: Faction.HelicRepublic, id: 'glidoler', levelType: LevelType.MediumFast, maxHealth: 40, name: 'Glidoler', price: 2000 },
-  gorgodos: { attack: 140, baseExp: 50, dropRate: 20, faction: Faction.HelicRepublic, id: 'gorgodos', levelType: LevelType.Slow, maxHealth: 400, name: 'Gorgodos', price: 12000 },
-  guysack: { attack: 180, baseExp: 45, dropRate: 10, faction: Faction.GuylosEmpire, id: 'guysack', levelType: LevelType.MediumFast, maxHealth: 500, name: 'Guysack', price: 20000 },
-  malder: { attack: 20, baseExp: 40, dropRate: 50, faction: Faction.ZenebasEmpire, id: 'malder', levelType: LevelType.Erratic, maxHealth: 700, name: 'Malder', price: 8000 },
-  merda: { attack: 50, baseExp: 20, dropRate: 75, faction: Faction.ZenebasEmpire, id: 'merda', levelType: LevelType.Fast, maxHealth: 100, name: 'Merda', price: 2000 },
-  molga: { attack: 100, baseExp: 35, dropRate: 20, faction: Faction.ZenebasEmpire, id: 'molga', levelType: LevelType.Fast, maxHealth: 400, name: 'Molga', price: 20000 },
-  red_horn: { attack: 280, baseExp: 120, dropRate: 10, faction: Faction.GuylosEmpire, id: 'red_horn', levelType: LevelType.Fluctuating, maxHealth: 800, name: 'Red Horn', price: 100000 },
-  redler: { attack: 300, baseExp: 55, dropRate: 20, faction: Faction.GuylosEmpire, id: 'redler', levelType: LevelType.MediumFast, maxHealth: 150, name: 'Redler', price: 55000 },
-  shield_liger: { attack: 250, baseExp: 100, dropRate: 1, faction: Faction.HelicRepublic, id: 'shield_liger', levelType: LevelType.MediumFast, maxHealth: 600, name: 'Shield Liger', price: 100000 },
-  spiker: { attack: 150, baseExp: 35, dropRate: 55, faction: Faction.HelicRepublic, id: 'spiker', levelType: LevelType.Fast, maxHealth: 180, name: 'Spiker', price: 4000 },
-  tortoise: { attack: 100, baseExp: 30, dropRate: 20, faction: Faction.ZenebasEmpire, id: 'tortoise', levelType: LevelType.Fast, maxHealth: 700, name: 'Cannon Tortoise', price: 9000 },
-  zatton: { attack: 120, baseExp: 40, dropRate: 30, faction: Faction.ZenebasEmpire, id: 'zatton', levelType: LevelType.MediumSlow, maxHealth: 350, name: 'Zatton', price: 10000 },
+  command_wolf: { attack: 200, baseExp: 50, scanRate: 15, faction: Faction.HelicRepublic, id: 'command_wolf', levelType: LevelType.MediumFast, maxHealth: 200, name: 'Command Wolf', price: 40000 },
+  command_wolf_desert: { attack: 200, baseExp: 50, scanRate: 15, faction: Faction.HelicRepublic, id: 'command_wolf_desert', levelType: LevelType.MediumFast, maxHealth: 200, name: 'Command Wolf (Desert)', price: 40000 },
+  elephantus: { attack: 100, baseExp: 15, scanRate: -1, faction: Faction.HelicRepublic, id: 'elephantus', levelType: LevelType.MediumSlow, maxHealth: 200, name: 'Elephantus', price: 50000 },
+  garius: { attack: 50, baseExp: 10, scanRate: -1, faction: Faction.HelicRepublic, id: 'garius', levelType: LevelType.Fast, maxHealth: 100, name: 'Garius', price: 2000 },
+  gator: { attack: 150, baseExp: 35, scanRate: 60, faction: Faction.GuylosEmpire, id: 'gator', levelType: LevelType.MediumFast, maxHealth: 200, name: 'Gator', price: 4000 },
+  glidoler: { attack: 100, baseExp: 10, scanRate: -1, faction: Faction.HelicRepublic, id: 'glidoler', levelType: LevelType.MediumFast, maxHealth: 40, name: 'Glidoler', price: 2000 },
+  gorgodos: { attack: 140, baseExp: 50, scanRate: 20, faction: Faction.HelicRepublic, id: 'gorgodos', levelType: LevelType.Slow, maxHealth: 400, name: 'Gorgodos', price: 12000 },
+  gurantula: { attack: 120, baseExp: 35, scanRate: -1, faction: Faction.HelicRepublic, id: 'gurantula', levelType: LevelType.Fast, maxHealth: 300, name: 'Gurantula', price: 4000 },
+  guysack: { attack: 180, baseExp: 45, itemDrops: [new ZiDataDrop('gurantula', 30)], scanRate: -1, faction: Faction.HelicRepublic, id: 'guysack', levelType: LevelType.MediumFast, maxHealth: 500, name: 'Guysack', price: 20000 },
+  malder: { attack: 20, baseExp: 40, scanRate: 50, faction: Faction.ZenebasEmpire, id: 'malder', levelType: LevelType.Erratic, maxHealth: 700, name: 'Malder', price: 8000 },
+  merda: { attack: 50, baseExp: 20, scanRate: 75, faction: Faction.ZenebasEmpire, id: 'merda', levelType: LevelType.Fast, maxHealth: 100, name: 'Merda', price: 2000 },
+  molga: { attack: 100, baseExp: 35, scanRate: 20, faction: Faction.ZenebasEmpire, id: 'molga', levelType: LevelType.Fast, maxHealth: 400, name: 'Molga', price: 20000 },
+  red_horn: { attack: 280, baseExp: 120, scanRate: 10, faction: Faction.GuylosEmpire, id: 'red_horn', levelType: LevelType.Fluctuating, maxHealth: 800, name: 'Red Horn', price: 100000 },
+  redler: { attack: 300, baseExp: 55, scanRate: 20, faction: Faction.GuylosEmpire, id: 'redler', levelType: LevelType.MediumFast, maxHealth: 150, name: 'Redler', price: 55000 },
+  shield_liger: { attack: 250, baseExp: 100, scanRate: 1, faction: Faction.HelicRepublic, id: 'shield_liger', levelType: LevelType.MediumFast, maxHealth: 600, name: 'Shield Liger', price: 100000 },
+  spiker: { attack: 150, baseExp: 35, scanRate: 55, faction: Faction.HelicRepublic, id: 'spiker', levelType: LevelType.Fast, maxHealth: 180, name: 'Spiker', price: 4000 },
+  tortoise: { attack: 100, baseExp: 30, scanRate: 20, faction: Faction.ZenebasEmpire, id: 'tortoise', levelType: LevelType.Fast, maxHealth: 700, name: 'Cannon Tortoise', price: 9000 },
+  zatton: { attack: 120, baseExp: 40, scanRate: 30, faction: Faction.ZenebasEmpire, id: 'zatton', levelType: LevelType.MediumSlow, maxHealth: 350, name: 'Zatton', price: 10000 },
 };
 
 export function calculatePartyAttack(party: OwnedZoid[]): number {

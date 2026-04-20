@@ -22,6 +22,7 @@
   "commander_badge": "COMANDANTE",
   "download_save": "Descargar partida",
   "duel_pilot": "Duelo contra {{name}}",
+  "enemy_drop": "¡El enemigo ha soltado algo!",
   "enemy_turn": "Turno Enemigo",
   "fight_pilot": "Luchar contra {{name}}",
   "fights_completed": "Zoids Combatidos",

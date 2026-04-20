@@ -1,5 +1,5 @@
 import { createSignal } from 'solid-js';
-import { ZoidResearchStatus } from '../models/Zoid';
+import { ZoidResearchStatus } from '../models/ZoidResearchStatus';
 
 const PRIORITY: Record<ZoidResearchStatus, number> = {
   [ZoidResearchStatus.Seen]: 0,

@@ -23,17 +23,17 @@ function buyItem(itemId: string, amount: number): boolean {
   return true;
 }
 
-function addItem(itemId: string, amount: number, unique = false): void {
+function addItem(itemId: string, amount: number, unique = false, fromDrop = false): void {
   if (unique && getItemCount(itemId) > 0) {
     return;
   }
+  const image = `images/items/${itemId}.png`;
+  const name = t(`items:${itemId}.name`);
+  if (fromDrop) {
+    showPopup(new PopupMessage(name, t('ui:enemy_drop'), PopupType.Item, image));
+  }
   if (getItemCount(itemId) === 0) {
-    showPopup(new PopupMessage(
-      t(`items:${itemId}.name`),
-      t('ui:new_item'),
-      PopupType.Item,
-      `images/items/${itemId}.png`
-    ));
+    showPopup(new PopupMessage(name, t('ui:new_item'), PopupType.Item, image));
   }
   setInventory((prev) => ({ ...prev, [itemId]: (prev[itemId] ?? 0) + amount }));
 }
