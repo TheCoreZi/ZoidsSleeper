@@ -9,6 +9,7 @@ export const CampaignStatus = {
 export type CampaignStatus = typeof CampaignStatus[keyof typeof CampaignStatus];
 
 export interface Mission {
+  devOnly?: boolean;
   goals: Requirement[];
   id: string;
   onComplete?: () => void;
@@ -16,6 +17,7 @@ export interface Mission {
 
 export interface Campaign {
   autoStart?: boolean;
+  devOnly?: boolean;
   id: string;
   missions: Mission[];
   unlockRequirements?: Requirement[];

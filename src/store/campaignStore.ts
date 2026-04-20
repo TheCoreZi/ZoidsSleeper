@@ -37,6 +37,14 @@ function advanceMission(campaignId: string): void {
     t('ui:mission_completed'),
     PopupType.Mission
   ));
+
+  if (completed) {
+    showPopup(new PopupMessage(
+      t(`campaigns:${campaignId}.name`),
+      t('ui:campaign_completed'),
+      PopupType.Campaign
+    ));
+  }
 }
 
 function buildNpcFlags(campaign: Campaign, missionIndex: number): Record<string, boolean> {
@@ -127,9 +135,15 @@ function forceSetMission(campaignId: string, missionId: string): void {
   }));
 }
 
+function isDevMode(): boolean {
+  return import.meta.env.DEV;
+}
+
 function checkCampaigns(): void {
   const states = campaignStates();
   for (const campaign of Object.values(campaigns)) {
+    if (campaign.devOnly && !isDevMode()) {continue;}
+
     const state = states[campaign.id];
 
     if (campaign.autoStart && (!state || state.status === CampaignStatus.Inactive)) {

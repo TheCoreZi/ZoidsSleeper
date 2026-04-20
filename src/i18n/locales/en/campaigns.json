@@ -1,4 +1,14 @@
 {
+  "shells_of_time": {
+    "description": "A father researching Zoids, a mysterious Dr T, and a family torn apart. Head to Porto Nido to find answers.",
+    "missions": {
+      "head_to_porto_nido": {
+        "description": "The girl's father is in Porto Nido. Head south to find him and warn him about the pursuers.",
+        "name": "The Road to Porto Nido"
+      }
+    },
+    "name": "Breaking the Shell"
+  },
   "sleeper_commander": {
     "description": "Gleam Village is under attack by Zoids Sleepers. Prove your skill as a pilot and uncover the culprits.",
     "missions": {
@@ -25,6 +35,10 @@
       "defeat_bul": {
         "description": "The bandits mentioned Blu, who's trying to get rid of a boy. Help Van by stopping Blu and his Guysack in a sortie through the Elmia Ruins.",
         "name": "Protector"
+      },
+      "deliver_girl": {
+        "description": "Take the girl back to her mother in Gleam Village.",
+        "name": "The Road Home"
       },
       "elmia_desert_patrol": {
         "description": "Maria says her brother Van is somewhere in the Elmia Desert. Fight through the Sleepers to find him.",

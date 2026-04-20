@@ -79,6 +79,10 @@ export const NPCS: Record<string, Npc> = {
   captain_malinoff: {
     dialogs: [
       {
+        dialogKey: 'dialog:captain_pride',
+        unlockRequirement: new MissionCompletedRequirement('sleeper_commander', 'fight_van'),
+      },
+      {
         dialogKey: 'dialog:captain_farewell',
         unlockRequirement: new MissionCompletedRequirement('sleeper_commander', 'grow_army'),
       },
@@ -142,6 +146,11 @@ export const NPCS: Record<string, Npc> = {
   },
   woman: {
     dialogs: [
+      {
+        dialogKey: 'dialog:woman_reunion',
+        speakers: { 1: { speakerKey: 'pilots:girl' }, 2: { speakerKey: '' }, 3: { speakerKey: 'pilots:girl' }, 4: { speakerKey: '' }, 6: { speakerKey: 'pilots:girl' }, 7: { speakerKey: '' } },
+        unlockRequirement: new MissionCompletedRequirement('sleeper_commander', 'fight_van'),
+      },
       { dialogKey: 'dialog:woman' },
     ],
     id: 'woman',

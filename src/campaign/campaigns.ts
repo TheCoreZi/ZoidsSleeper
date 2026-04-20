@@ -1,9 +1,18 @@
-import { AllOfRequirement, ArmySizeRequirement, ComparisonCondition, MissionCompletedRequirement, NpcTalkedInCampaignRequirement, PilotDefeatRequirement, RouteKillRequirement, ZiDataRequirement } from '../requirement';
+import { AllOfRequirement, ArmySizeRequirement, CampaignCompletedRequirement, ComparisonCondition, MissionCompletedRequirement, NpcTalkedInCampaignRequirement, PilotDefeatRequirement, RouteKillRequirement, ZiDataRequirement } from '../requirement';
 import { CUTSCENES } from '../cutscene';
 import { enqueueDialog } from '../store/gameStore';
 import type { Campaign } from './Campaign';
 
 export const CAMPAIGNS: Record<string, Campaign> = {
+  shells_of_time: {
+    autoStart: true,
+    devOnly: true,
+    id: 'shells_of_time',
+    missions: [
+      { id: 'head_to_porto_nido', goals: [new NpcTalkedInCampaignRequirement('shells_of_time', 'girl_father')] },
+    ],
+    unlockRequirements: [new CampaignCompletedRequirement('sleeper_commander')],
+  },
   sleeper_commander: {
     autoStart: true,
     id: 'sleeper_commander',
@@ -43,6 +52,7 @@ export const CAMPAIGNS: Record<string, Campaign> = {
       { id: 'check_van_colony', goals: [new NpcTalkedInCampaignRequirement('sleeper_commander', 'maria_flyheight')] },
       { id: 'find_van_oasis', goals: [new NpcTalkedInCampaignRequirement('sleeper_commander', 'van')] },
       { id: 'fight_van', goals: [new PilotDefeatRequirement('van_shield_liger')], onComplete: () => enqueueDialog(CUTSCENES.narration_van_farewell.toDialogScript()) },
+      { id: 'deliver_girl', goals: [new NpcTalkedInCampaignRequirement('sleeper_commander', 'woman')] },
     ],
   },
 };

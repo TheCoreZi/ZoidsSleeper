@@ -64,6 +64,7 @@ export const CITIES: City[] = [
       new ActionTalkToNPC('captain_malinoff', [new MissionCompletedRequirement(C, 'grow_army')]),
       new ActionTalkToNPC('jenkins', [new MissionCompletedRequirement(C, 'report_to_captain')], [new MissionCompletedRequirement(C, 'jenkins_to_work')], itemReward(ITEMS.core_analyzer.id, 1, true)),
       new ActionTalkToNPC('scrap_dealer'),
+      new ActionTalkToNPC('woman', [new MissionCompletedRequirement(C, 'fight_van')]),
     ],
     battleBackground: BattleBackground.Grass,
     id: 'gleam_village',

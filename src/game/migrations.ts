@@ -7,6 +7,18 @@ export type MigrationData = Partial<SaveData> & Record<string, unknown>;
 type MigrationFn = (data: MigrationData) => void;
 
 const migrations: Record<string, MigrationFn> = {
+  '0.4.2': (data) => {
+    const campaign = data.campaigns?.['sleeper_commander'];
+    if (!campaign) {return;}
+
+    if (campaign.status === 'completed') {
+      data.campaigns!['sleeper_commander'] = {
+        currentMission: 'deliver_girl',
+        missionNpcFlags: {},
+        status: 'started',
+      };
+    }
+  },
   '0.4.1': (data) => {
     if (Array.isArray(data.party)) {
       const zoids = data.party as OwnedZoid[];
