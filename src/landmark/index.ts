@@ -13,6 +13,6 @@ export {
   LandmarkType,
 } from './Landmark';
 export type { Landmark } from './Landmark';
-export { getLandmarkById } from './registry';
+export { getLandmarkById, getZoidLocations } from './registry';
 export { getRoute, randomEnemy, ROUTES } from './Route';
 export type { Route } from './Route';

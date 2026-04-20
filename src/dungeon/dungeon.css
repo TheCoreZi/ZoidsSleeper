@@ -11,6 +11,13 @@
   width: 100%;
 }
 
+.dungeon-header {
+  align-items: center;
+  display: grid;
+  grid-template-columns: 2.5rem 1fr 2.5rem;
+  width: 100%;
+}
+
 .dungeon-title {
   color: #e94560;
   font-size: 1.3rem;
@@ -430,6 +437,7 @@
 .sortie-button-container {
   align-items: center;
   display: flex;
+  flex-direction: column;
   height: 100%;
   justify-content: center;
   left: 0;
@@ -471,6 +479,27 @@
 .sortie-cost-icon {
   height: 14px;
   width: 14px;
+}
+
+.sortie-boss-img {
+  height: 32px;
+  image-rendering: pixelated;
+  object-fit: contain;
+  opacity: 0.8;
+  width: 32px;
+}
+
+.sortie-boss-previews {
+  display: flex;
+  gap: 0.3rem;
+  justify-content: center;
+}
+
+.sortie-boss-section {
+  align-items: center;
+  display: flex;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
 }
 
 .sortie-btn:disabled {
