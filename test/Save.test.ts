@@ -2,6 +2,7 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { Save } from '../src/game/Save';
 import { Currency } from '../src/models/Currency';
 import { DEFAULT_PARTY, ZoidResearchStatus } from '../src/models/Zoid';
+import { loadScanSetup, ScanMode } from '../src/store/scanStore';
 import { incrementRouteKills, loadStatistics } from '../src/store/statisticsStore';
 import { addCurrency, loadWallet } from '../src/store/walletStore';
 import { loadZoidResearch, updateZoidResearch } from '../src/store/zoidResearchStore';
@@ -60,6 +61,16 @@ describe('Save', () => {
     const loaded = save.load();
 
     expect(loaded?.wallet?.zi_metal).toBe(25);
+  });
+
+  it('should persist scan setup', () => {
+    loadScanSetup({ deviceId: 'core_preserver', mode: ScanMode.Permanent });
+    const save = new Save();
+
+    save.store();
+    const loaded = save.load();
+
+    expect(loaded?.scanSetup).toEqual({ deviceId: 'core_preserver', mode: ScanMode.Permanent });
   });
 
   it('should persist route kills', () => {
