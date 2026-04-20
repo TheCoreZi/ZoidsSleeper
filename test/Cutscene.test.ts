@@ -39,6 +39,18 @@ describe('Cutscene', () => {
     expect(script.lines[0].image).toBe('images/test.png');
     expect(script.lines[1].image).toBe('images/test.png');
   });
+
+  it('should pass speaker overrides to dialog lines', () => {
+    const cutscene = new Cutscene('test', 'dialog:narration_shield_liger', undefined, undefined, {
+      1: { speakerKey: 'pilots:captain_malinoff', portrait: 'images/pilots/malinoff.png' },
+    });
+
+    const script = cutscene.toDialogScript();
+
+    expect(script.lines[0].speakerKey).toBe('');
+    expect(script.lines[1].speakerKey).toBe('pilots:captain_malinoff');
+    expect(script.lines[1].portrait).toBe('images/pilots/malinoff.png');
+  });
 });
 
 describe('CUTSCENES catalog', () => {

@@ -9,6 +9,11 @@ export interface DialogLine {
   textKey: string;
 }
 
+export interface SpeakerOverride {
+  portrait?: string;
+  speakerKey: string;
+}
+
 export class DialogScript {
   readonly lines: DialogLine[];
   readonly reward?: Reward;
@@ -28,18 +33,24 @@ export function buildDialogLines(
   dialogKey: string,
   portrait?: string,
   interpolations?: Record<number, Record<string, number | string>>,
-  images?: Record<number, string>
+  images?: Record<number, string>,
+  speakers?: Record<number, SpeakerOverride>
 ): DialogLine[] {
   let currentImage: string | undefined;
+  let currentSpeaker: SpeakerOverride | undefined;
   return Array.from({ length: dialogLength(dialogKey) }, (_, i) => {
     if (images && i in images) {
       currentImage = images[i] || undefined;
     }
+    if (speakers && i in speakers) {
+      currentSpeaker = speakers[i].speakerKey ? speakers[i] : undefined;
+    }
+    const linePortrait = currentSpeaker ? currentSpeaker.portrait : portrait;
     return {
       ...(currentImage && { image: currentImage }),
       ...(interpolations?.[i] && { interpolation: interpolations[i] }),
-      ...(portrait && { portrait }),
-      speakerKey,
+      ...(linePortrait && { portrait: linePortrait }),
+      speakerKey: currentSpeaker?.speakerKey ?? speakerKey,
       textKey: `${dialogKey}.${i}`,
     };
   });
