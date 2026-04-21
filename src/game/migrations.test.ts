@@ -72,4 +72,22 @@ describe('migration 0.4.2', () => {
 
     expect(data.campaigns).toBeUndefined();
   });
+
+  it('renames girl npc flag to kara in missionNpcFlags', () => {
+    const data = baseSave({
+      campaigns: {
+        sleeper_commander: {
+          currentMission: 'talk_to_girl',
+          missionNpcFlags: { 'sleeper_commander:girl': false },
+          status: 'started',
+        },
+      },
+    });
+
+    migrate(data, '0.4.1');
+
+    const flags = data.campaigns!['sleeper_commander'].missionNpcFlags!;
+    expect(flags['sleeper_commander:kara']).toBe(false);
+    expect(flags['sleeper_commander:girl']).toBeUndefined();
+  });
 });

@@ -17,6 +17,13 @@ const migrations: Record<string, MigrationFn> = {
         missionNpcFlags: {},
         status: 'started',
       };
+      return;
+    }
+
+    const flags = campaign.missionNpcFlags;
+    if (flags?.['sleeper_commander:girl'] !== undefined) {
+      flags['sleeper_commander:kara'] = flags['sleeper_commander:girl'];
+      delete flags['sleeper_commander:girl'];
     }
   },
   '0.4.1': (data) => {

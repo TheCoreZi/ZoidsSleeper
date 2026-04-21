@@ -44,7 +44,7 @@ export const CITIES: City[] = [
       new ActionTalkToNPC('rosso', [new MissionCompletedRequirement(C, 'ambush_arcobaleno')], [new MissionCompletedRequirement(C, 'rosso_confrontation')]),
       new ActionFightPilot(PILOTS['rosso'], [new MissionCompletedRequirement(C, 'rosso_confrontation')], [new PilotDefeatRequirement('rosso')], true),
       new ActionFightPilot(PILOTS['rosso'], [new PilotDefeatRequirement('rosso')], [new PilotDefeatRequirement('rosso', 2)]),
-      new ActionTalkToNPC('girl', [new MissionCompletedRequirement(C, 'fight_rosso_rematch')], [new NpcTalkedInCampaignRequirement(C, 'girl')]),
+      new ActionTalkToNPC('kara', [new MissionCompletedRequirement(C, 'fight_rosso_rematch')], [new MissionCompletedRequirement(C, 'deliver_girl')]),
     ],
     battleBackground: BattleBackground.Desert,
     id: 'arcobaleno_camp',

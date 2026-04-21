@@ -48,7 +48,7 @@ export const CAMPAIGNS: Record<string, Campaign> = {
       { id: 'rosso_confrontation', goals: [new NpcTalkedInCampaignRequirement('sleeper_commander', 'rosso')] },
       { id: 'fight_rosso', goals: [new PilotDefeatRequirement('rosso')], onComplete: () => enqueueDialog(CUTSCENES.narration_turtle_savior.toDialogScript()) },
       { id: 'fight_rosso_rematch', goals: [new PilotDefeatRequirement('rosso', 2)], onComplete: () => enqueueDialog(CUTSCENES.narration_bandits_flee.toDialogScript()) },
-      { id: 'talk_to_girl', goals: [new NpcTalkedInCampaignRequirement('sleeper_commander', 'girl')] },
+      { id: 'talk_to_girl', goals: [new NpcTalkedInCampaignRequirement('sleeper_commander', 'kara')] },
       { id: 'check_van_colony', goals: [new NpcTalkedInCampaignRequirement('sleeper_commander', 'maria_flyheight')] },
       { id: 'find_van_oasis', goals: [new NpcTalkedInCampaignRequirement('sleeper_commander', 'van')] },
       { id: 'fight_van', goals: [new PilotDefeatRequirement('van_shield_liger')], onComplete: () => enqueueDialog(CUTSCENES.narration_van_farewell.toDialogScript()) },
