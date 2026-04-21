@@ -1,11 +1,11 @@
 import { createSignal, For, Show, type Component } from 'solid-js';
-import { calculateScanRate } from '../game/Scan';
+import { getActiveScanRate } from '../game/Scan';
 import { t } from '../i18n';
 import type { Route } from '../landmark';
 import { getZoidImage } from '../models/Zoid';
 import { enemyZoid, showClickHint } from '../store/gameStore';
 import { battleBackground, currentLandmark, isOnRoute } from '../store/landmarkStore';
-import { getActiveDeviceId, getActiveScanMode, ScanMode } from '../store/scanStore';
+import { getActiveDeviceId, getActiveScanMode } from '../store/scanStore';
 import { getZoidResearch } from '../store/zoidResearchStore';
 import { ArchiveCard } from './ZiArchivePanel';
 import './archive.css';
@@ -22,6 +22,8 @@ interface BattleScreenProps {
 
 const BattleScreen: Component<BattleScreenProps> = (props) => {
   const [showInfo, setShowInfo] = createSignal(false);
+
+  const scanRate = () => getActiveScanRate(getActiveScanMode(), getActiveDeviceId(), enemyZoid()?.id ?? null);
 
   const routeEnemies = () => {
     if (!isOnRoute()) { return []; }
@@ -41,9 +43,9 @@ const BattleScreen: Component<BattleScreenProps> = (props) => {
         </div>
         <HealthBar />
         <div class={`battle-area bg-${battleBackground()}`} onClick={() => props.onClick()}>
-          <Show when={getActiveScanMode() !== ScanMode.Off && getActiveDeviceId() && enemyZoid() && calculateScanRate(enemyZoid()!.id, getActiveDeviceId()!) > 0}>
+          <Show when={scanRate() > 0}>
             <p class="scan-rate">
-              {t('ui:scan_rate', { rate: calculateScanRate(enemyZoid()!.id, getActiveDeviceId()!) })}
+              {t('ui:scan_rate', { rate: scanRate() })}
             </p>
           </Show>
           {enemyZoid()?.id && (
