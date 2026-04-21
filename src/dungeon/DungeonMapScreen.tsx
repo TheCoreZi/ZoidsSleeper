@@ -24,7 +24,10 @@ const NODE_ICONS: Record<SortieNodeType, string> = {
   [SortieNodeType.Supply]: '\u{1F4E6}',
 };
 
+const MIN_LAYER_WIDTH = 60;
+
 const DungeonMapScreen: Component<Props> = (props) => {
+  let containerRef: HTMLDivElement | undefined;
   let layersRef: HTMLDivElement | undefined;
   let markerRef: HTMLImageElement | undefined;
   let svgRef: SVGSVGElement | undefined;
@@ -150,17 +153,49 @@ const DungeonMapScreen: Component<Props> = (props) => {
     markerRef.addEventListener('transitionend', onMarkerEnd, { once: true });
   }
 
+  let scrollOffset = 0;
+  let touchStartX = 0;
+  let startOffset = 0;
+
+  function getMaxScroll(): number {
+    if (!layersRef || !containerRef) {return 0;}
+    const layerCount = visibleLayers().length;
+    const minLayerWidth = MIN_LAYER_WIDTH;
+    const neededWidth = layerCount * minLayerWidth;
+    const containerWidth = containerRef.clientWidth;
+    return Math.max(0, neededWidth - containerWidth);
+  }
+
+  function applyScroll(): void {
+    if (!layersRef) {return;}
+    layersRef.style.left = `${-scrollOffset}px`;
+    layersRef.style.width = `calc(100% + ${scrollOffset}px)`;
+  }
+
+  function handleTouchStart(e: TouchEvent): void {
+    touchStartX = e.touches[0].clientX;
+    startOffset = scrollOffset;
+  }
+
+  function handleTouchMove(e: TouchEvent): void {
+    const dx = touchStartX - e.touches[0].clientX;
+    scrollOffset = Math.max(0, Math.min(getMaxScroll(), startOffset + dx));
+    applyScroll();
+    drawConnections();
+  }
+
   createEffect(() => {
     visibleLayers();
     if (!isLayerAdvancing()) {
       const el = layersRef;
       if (el) {
-        el.style.width = '';
         el.style.transform = '';
         el.style.transition = 'none';
       }
+      scrollOffset = 0;
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
+          applyScroll();
           drawConnections();
           const nodeId = lastCompletedNodeId();
           if (nodeId) {positionMarkerOn(nodeId, false);}
@@ -179,6 +214,9 @@ const DungeonMapScreen: Component<Props> = (props) => {
       <p class="dungeon-subtitle">{t('ui:select_path')}</p>
       <div
         class="dungeon-graph-container"
+        ref={containerRef}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
         style={{ 'background-image': `url('${landmarkBackground()}')`, 'background-size': 'cover' }}
       >
         <div class="dungeon-layers" ref={layersRef}>
@@ -194,7 +232,7 @@ const DungeonMapScreen: Component<Props> = (props) => {
               const r = run()!;
               const isCurrent = () => layer.depth === r.currentDepth;
               return (
-                <div class="dungeon-layer">
+                <div class="dungeon-layer" style={{ 'min-width': `${MIN_LAYER_WIDTH}px` }}>
                   <For each={layer.nodes}>
                     {(node) => {
                       const isCompleted = () => r.nodeResults[node.id] === 'completed';

@@ -48,10 +48,10 @@ const DungeonSupplyScreen: Component<Props> = (props) => {
             </button>
           )}
         </For>
-        <button class="supply-option-btn supply-skip-btn" onClick={() => props.onComplete()}>
-          {t('dungeon:supply_skip')}
-        </button>
       </div>
+      <button class="supply-skip-btn" onClick={() => props.onComplete()}>
+        {t('dungeon:supply_skip')}
+      </button>
     </div>
   );
 };
