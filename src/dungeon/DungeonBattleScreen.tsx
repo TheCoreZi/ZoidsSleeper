@@ -1,5 +1,5 @@
 import { type Component, Show } from 'solid-js';
-import { calculateScanRate } from '../game/Scan';
+import { getActiveScanRate } from '../game/Scan';
 import { t } from '../i18n';
 import { getZoidImage } from '../models/Zoid';
 import {
@@ -9,7 +9,7 @@ import {
   pilotPlayerMaxHealth,
 } from '../store/gameStore';
 import { battleBackground } from '../store/landmarkStore';
-import { getActiveDeviceId, getActiveScanMode, ScanMode } from '../store/scanStore';
+import { getActiveDeviceId, getActiveScanMode } from '../store/scanStore';
 import DamageNumber from '../ui/DamageNumber';
 import HealthBar from '../ui/HealthBar';
 import RewardNumber from '../ui/RewardNumber';
@@ -22,15 +22,17 @@ interface Props {
 }
 
 const DungeonBattleScreen: Component<Props> = (props) => {
+  const scanRate = () => getActiveScanRate(getActiveScanMode(), getActiveDeviceId(), enemyZoid()?.id ?? null);
+
   return (
     <div class="battle-screen">
       <div class="enemy-section">
         <h2 class="enemy-name">{enemyZoid()?.name ?? t('ui:unknown')}</h2>
         <HealthBar />
         <div class={`battle-area bg-${battleBackground()}`} onClick={() => props.onClick()}>
-          <Show when={getActiveScanMode() !== ScanMode.Off && getActiveDeviceId() && enemyZoid() && calculateScanRate(enemyZoid()!.id, getActiveDeviceId()!) > 0}>
+          <Show when={scanRate() > 0}>
             <p class="scan-rate">
-              {t('ui:scan_rate', { rate: calculateScanRate(enemyZoid()!.id, getActiveDeviceId()!) })}
+              {t('ui:scan_rate', { rate: scanRate() })}
             </p>
           </Show>
           {enemyZoid()?.id && (

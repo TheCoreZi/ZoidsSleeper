@@ -5,6 +5,7 @@ import { getZoidById, getZoidImage, ZoidResearchStatus } from '../models/Zoid';
 import { showPopup } from '../store/gameStore';
 import { getItemCount, inventory, removeItem } from '../store/inventoryStore';
 import { party } from '../store/partyStore';
+import { ScanMode } from '../store/scanStore';
 import { getZoidDataCount, incrementZoidData } from '../store/zoidDataStore';
 import { updateZoidResearch } from '../store/zoidResearchStore';
 
@@ -39,6 +40,11 @@ export function calculateScanRate(zoidId: string, probeId: string): number {
 
 export function canScan(probeId: string): boolean {
   return getItemCount(probeId) > 0;
+}
+
+export function getActiveScanRate(mode: ScanMode, deviceId: string | null, enemyId: string | null): number {
+  if (mode === ScanMode.Off || !deviceId || !canScan(deviceId) || !enemyId) {return 0;}
+  return calculateScanRate(enemyId, deviceId);
 }
 
 export function getAvailableProbe(): string | null {
