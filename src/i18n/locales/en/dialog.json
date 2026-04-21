@@ -35,6 +35,11 @@
     "But make no mistake, young pilot, not all army inventions are bad... If you earn its trust, this Sleeper system would allow you to bond with several Zoids at the same time.",
     "If you really plan to face those bandits, you could use some reinforcements. For that you'll need more Zoids. Why don't you talk to old Jenkins? He used to work in a Zoid laboratory, maybe he can help you."
   ],
+  "captain_pride": [
+    "I've been hearing stories about you, kid. Helping villagers, taking on bandits, protecting people you don't even know... You've become someone this region can count on.",
+    "You know, when I gave you that old Zoid of mine, I wasn't sure what to expect. But seeing what you've done with it... it fills this old soldier with pride.",
+    "These are dangerous times. The war between the Republic and the Empire is far from over, and people like you tend to attract attention from both sides. Watch your back out there."
+  ],
   "captain_farewell": [
     "Well, well! Now you actually look like a proper army commander. I can see you're determined to take on those bandits. Good luck, kid.",
     "Oh, one more thing. I took a closer look at that Sleeper module of yours. I wouldn't recommend deploying more than one Zoid of the same species. The module doesn't seem to allow live control of multiple Zoids of the same kind.",
@@ -199,5 +204,16 @@
     "I'm desperate... she's just a child. Please, you have to save her! Wind Colony is to the north. Be careful, the road is dangerous.",
     "Take this, it might be useful to you. Those bandits were using these devices to command the Zoids around this camp and keep soldiers from getting close.",
     "I managed to snatch one from the bandit who took my daughter. I don't really know what it is, but maybe that old man in the village would know."
+  ],
+  "woman_reunion": [
+    "My baby! You brought her back! I can't believe it... I thought I'd never see her again. Thank you... truly, thank you. I'll never forget what you've done for us.",
+    "Mom! I missed you so much! I was so scared, but this dude saved me!",
+    "Kara! Mind your manners, that's no way to speak about someone who helped us.",
+    "...",
+    "Listen... I need to ask you another favor. My husband has been researching Zoids for a long time. He says his work is very important. I don't know the details, but it seems it all started when he met someone called Dr. T.",
+    "The bandits were after him... and I don't think they'll stop. So please... take my daughter with you. I know it's a lot to ask, but it's the safest thing for her. If you could bring her to her father...",
+    "But Mom! I don't want to leave without you!",
+    "My darling, listen to me... I've already asked the Captain to keep your brother safe through his contacts in the army. He'll be working with one of the engineers. And I'll be leaving too, somewhere else... If we split up, it'll be much harder for them to find us.",
+    "I promise we'll see each other again. But right now I need you to be brave for me... Please, take care of my daughter. And tell my husband that dangerous people are after him, but that we're safe. Last I heard from him, he was working somewhere near Porto Nido."
   ]
 }

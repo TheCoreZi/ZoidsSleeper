@@ -1,4 +1,14 @@
 {
+  "shells_of_time": {
+    "description": "Un padre investigando Zoids, un misterioso Dr T y una familia separada. Dirígete a Porto Nido para encontrar respuestas.",
+    "missions": {
+      "head_to_porto_nido": {
+        "description": "El padre de la niña está en Porto Nido. Ve hacia el sur para encontrarlo y advertirle sobre los perseguidores.",
+        "name": "El Camino a Porto Nido"
+      }
+    },
+    "name": "Saliendo del Caparazón"
+  },
   "sleeper_commander": {
     "description": "La Aldea Destello es atacada por Zoids Sleepers, muestra tu habilidad como piloto y descubre a los culpables.",
     "missions": {
@@ -25,6 +35,10 @@
       "defeat_bul": {
         "description": "Los bandidos mencionaron a Blu, que intenta deshacerse de un niño. Ayuda a Van deteniendo a Blu y su Guysack incursionando en las Ruinas de Elmia.",
         "name": "Protector"
+      },
+      "deliver_girl": {
+        "description": "Lleva a la niña de vuelta con su madre en la Aldea Gleam.",
+        "name": "El Camino a Casa"
       },
       "elmia_desert_patrol": {
         "description": "María dice que su hermano Van está en algún lugar del Desierto de Elmia. Abre camino entre los Sleepers para encontrarlo.",

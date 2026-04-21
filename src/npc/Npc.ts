@@ -70,14 +70,18 @@ export const NPCS: Record<string, Npc> = {
     nameKey: 'pilots:fiona',
     portrait: 'images/pilots/fiona.png',
   },
-  girl: {
-    dialogs: [{ dialogKey: 'dialog:girl_thanks' }],
-    id: 'girl',
-    nameKey: 'pilots:girl',
+  kara: {
+    dialogs: [{ dialogKey: 'dialog:girl_thanks', speakers: { 0: { speakerKey: 'pilots:girl' } } }],
+    id: 'kara',
+    nameKey: 'pilots:kara',
     portrait: 'images/pilots/girl.png',
   },
   captain_malinoff: {
     dialogs: [
+      {
+        dialogKey: 'dialog:captain_pride',
+        unlockRequirement: new MissionCompletedRequirement('sleeper_commander', 'fight_van'),
+      },
       {
         dialogKey: 'dialog:captain_farewell',
         unlockRequirement: new MissionCompletedRequirement('sleeper_commander', 'grow_army'),
@@ -142,6 +146,11 @@ export const NPCS: Record<string, Npc> = {
   },
   woman: {
     dialogs: [
+      {
+        dialogKey: 'dialog:woman_reunion',
+        speakers: { 1: { speakerKey: 'pilots:girl' }, 2: { speakerKey: '' }, 3: { speakerKey: 'pilots:kara' }, 4: { speakerKey: '' }, 6: { speakerKey: 'pilots:kara' }, 7: { speakerKey: '' } },
+        unlockRequirement: new MissionCompletedRequirement('sleeper_commander', 'fight_van'),
+      },
       { dialogKey: 'dialog:woman' },
     ],
     id: 'woman',

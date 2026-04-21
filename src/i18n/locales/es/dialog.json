@@ -35,6 +35,11 @@
     "Pero no te equivoques joven piloto, no todos los inventos del ejercito son malos... Si te ganas su confianza, este sistema Sleeper te permitiría crear lazos con varios Zoids al mismo tiempo",
     "Si de verdad piensas enfrentarte a esos bandidos te vendrían bien refuerzos. Para eso necesitarás más Zoids, por qué no hablas con el viejo Jenkins, el solía trabajar en un laboratorio de Zoids, tal vez pueda ayudarte."
   ],
+  "captain_pride": [
+    "He escuchado historias sobre ti, muchacho. Ayudando a los aldeanos, enfrentando bandidos, protegiendo a gente que ni conoces... Te has convertido en alguien con quien esta región puede contar.",
+    "Sabes, cuando te di ese viejo Zoid mío, no sabía qué esperar. Pero ver lo que has logrado con él... llena de orgullo a este viejo soldado.",
+    "Son tiempos peligrosos. La guerra entre la República y el Imperio está lejos de terminar, y la gente como tú tiende a atraer la atención de ambos bandos. Cuídate mucho ahí fuera."
+  ],
   "captain_farewell": [
     "¡Vaya! Ahora sí pareces todo un comandante con tu propia armada. Veo que estás decidido a hacerle frente a esos bandidos. Buena suerte, muchacho.",
     "Ah, una cosa más. Le eché un vistazo más de cerca a ese módulo Sleeper tuyo. No te recomendaría desplegar más de un Zoid de la misma especie. El módulo no parece permitir el control simultáneo de multiples Zoids de la misma especie.",
@@ -199,5 +204,16 @@
     "Estoy desesperada... es solo una niña. ¡Por favor, tienes que salvarla! La Colonia del Viento está al norte. Ten cuidado, el camino es peligroso.",
     "Toma esto, tal vez te sea útil. Esos bandidos estaban usando estos dispositivos para comandar a los Zoids alrededor de este campamento y evitar que se acerquen los soldados.",
     "Logré arrebatarle uno al que se llevó a mi hija. La verdad no se qué sea pero tal vez ese anciano de la aldea sepa qué es."
+  ],
+  "woman_reunion": [
+    "¡Mi niña! ¡La trajiste de vuelta! No puedo creerlo... pensé que nunca la volvería a ver. Gracias... de verdad, gracias. Nunca olvidaré lo que has hecho por nosotras.",
+    "¡Mamá! ¡Te extrañé mucho! Tenía mucho miedo, pero este tipo me salvó.",
+    "¡Kara! Sé educada, no es forma de hablarle a quien nos ha ayudado.",
+    "...",
+    "Escucha... necesito pedirte otro favor. Mi esposo lleva mucho tiempo investigando sobre Zoids. Dice que su trabajo es muy importante, no sé de qué se trate pero al parecer todo empezó cuando conoció a alguien llamado Dr. T.",
+    "Los bandidos lo buscaban a él... y no creo que esto se detenga. Así que... por favor, llévate a mi hija. Sé que es mucho pedir, pero es lo más seguro para ella. Si pudieras llevarla con su padre...",
+    "¡Pero mamá! ¡No me quiero ir sin ti!",
+    "Mi amor, escúchame... ya le pedí al Capitán que ponga a tu hermano a salvo con sus contactos en el ejército, él estará trabajando con uno de los ingenieros. Y yo también me iré, a otro lugar... Si nos separamos, será mucho más difícil que nos encuentren.",
+    "Te prometo que nos volveremos a ver. Pero ahora necesito que seas valiente por mí... Por favor, cuida a mi hija. Y dile a mi esposo que gente peligrosa lo está buscando, pero que estamos a salvo. La última vez que lo contacté se encontraba trabajando cerca de Porto Nido."
   ]
 }
