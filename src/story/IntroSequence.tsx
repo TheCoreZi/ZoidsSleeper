@@ -5,7 +5,7 @@ import { DEFAULT_PLAYER } from '../models/Player';
 import { getZoidById } from '../models/Zoid';
 import { BattleState, setBattleState } from '../store/gameStore';
 import BattleScreen from '../ui/BattleScreen';
-import DialogBox from './DialogBox';
+import DialogBox from '../dialog/DialogBox';
 import { IntroBattle } from './IntroBattle';
 import IntroText from './IntroText';
 import StarterSelect from './StarterSelect';

@@ -215,5 +215,23 @@
     "But Mom! I don't want to leave without you!",
     "My darling, listen to me... I've already asked the Captain to keep your brother safe through his contacts in the army. He'll be working with one of the engineers. And I'll be leaving too, somewhere else... If we split up, it'll be much harder for them to find us.",
     "I promise we'll see each other again. But right now I need you to be brave for me... Please, take care of my daughter. And tell my husband that dangerous people are after him, but that we're safe. Last I heard from him, he was working somewhere near Porto Nido."
+  ],
+  "arthur_intro": [
+    "Halt! I am Major Arthur Borgman of the Helic Republic Army. Reports came in about bandits in this area. Normally it's not a Major's job to deal with highway robbers, but I can't call myself a pilot if I turn my back on people who need help.",
+    "However, I arrive to find that someone already resolved the whole situation... controlling multiple Zoids at once. That means you possess a Sleeper module. Classified Republican army technology. As a Major, it is my duty to confiscate it."
+  ],
+  "arthur_post_battle": [
+    "Ha ha... Not bad, kid! It's true that my duty is to stop you and confiscate that module. The rules are clear. But I've fought enough wars to know that rules aren't always right.",
+    "If that technology is in the hands of someone who uses it to protect others, then that's exactly where it should be. Let's pretend this fight never happened.",
+    "Although... I have a better proposition. How about joining the Republican Army? If you enlist, that module stops being stolen technology and becomes official equipment. I'd personally recommend you."
+  ],
+  "arthur_decision": [
+    "Would you join the Helic Republic Army?"
+  ],
+  "arthur_accept": [
+    "That's what I like to hear! This is the kind of spirit the Republican army needs. Your first order is to report to the Republican camp. They'll give you your official assignment there. I'll handle the paperwork, you just worry about getting there. Who knows, maybe one day you'll make it into our special unit."
+  ],
+  "arthur_decline": [
+    "Hmm... I understand. Not everyone wants to follow orders, and there's nothing wrong with that. But remember: there are forces out there far more dangerous than a few bandits. If you ever change your mind, look me up. The offer stands."
   ]
 }

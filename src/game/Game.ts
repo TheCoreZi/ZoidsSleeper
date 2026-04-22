@@ -16,7 +16,7 @@ import {
 } from '../dungeon/dungeonStore';
 import { SortieNodeType } from '../dungeon/DungeonGraph';
 import { t } from '../i18n';
-import { DialogScript } from '../story/Dialog';
+import { DialogScript } from '../dialog/Dialog';
 import type { City, Landmark, Route } from '../landmark';
 import { ActionDuelPilot, ActionFightPilot, ActionPlayCutscene, ActionTalkToNPC, ActionVisitDepot, ActionVisitLab, getLandmarkById, getLandmarkHints, isLandmarkUnlocked, isRoute, ROUTES } from '../landmark';
 import type { Dungeon } from '../landmark';

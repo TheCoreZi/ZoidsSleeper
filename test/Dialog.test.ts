@@ -1,6 +1,6 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import '../src/i18n';
-import { buildDialogLines } from '../src/story/Dialog';
+import { buildDialogLines, DialogChoice, DialogDecision, DialogScript } from '../src/dialog/Dialog';
 
 describe('buildDialogLines', () => {
   it('should create lines with image on specific indexes', () => {
@@ -76,5 +76,79 @@ describe('buildDialogLines', () => {
 
     expect(lines[1].speakerKey).toBe('pilots:narrator');
     expect(lines[1].portrait).toBeUndefined();
+  });
+});
+
+describe('DialogChoice', () => {
+  it('should store all fields correctly', () => {
+    const followUp = new DialogScript([]);
+    const onChoose = vi.fn();
+    const choice = new DialogChoice('ui:yes', followUp, 'images/icon.png', onChoose);
+
+    expect(choice.followUp).toBe(followUp);
+    expect(choice.image).toBe('images/icon.png');
+    expect(choice.labelKey).toBe('ui:yes');
+    expect(choice.onChoose).toBe(onChoose);
+  });
+
+  it('should allow optional image and onChoose', () => {
+    const followUp = new DialogScript([]);
+    const choice = new DialogChoice('ui:no', followUp);
+
+    expect(choice.image).toBeUndefined();
+    expect(choice.onChoose).toBeUndefined();
+  });
+});
+
+describe('DialogDecision', () => {
+  it('should store question, choices, and portrait', () => {
+    const choices = [
+      new DialogChoice('ui:yes', new DialogScript([])),
+      new DialogChoice('ui:no', new DialogScript([])),
+    ];
+    const decision = new DialogDecision('dialog:join_question', choices, 'images/pilots/npc.png');
+
+    expect(decision.choices).toBe(choices);
+    expect(decision.portrait).toBe('images/pilots/npc.png');
+    expect(decision.questionKey).toBe('dialog:join_question');
+  });
+
+  it('should allow optional portrait', () => {
+    const decision = new DialogDecision('dialog:question', []);
+
+    expect(decision.portrait).toBeUndefined();
+  });
+});
+
+describe('DialogScript', () => {
+  it('should be backward compatible without decision', () => {
+    const script = new DialogScript([{ speakerKey: 'test', textKey: 'test.0' }]);
+
+    expect(script.decision).toBeUndefined();
+    expect(script.lines).toHaveLength(1);
+    expect(script.reward).toBeUndefined();
+  });
+
+  it('should store decision when provided', () => {
+    const decision = new DialogDecision('dialog:question', [
+      new DialogChoice('ui:yes', new DialogScript([])),
+    ]);
+    const script = new DialogScript(
+      [{ speakerKey: 'test', textKey: 'test.0' }],
+      undefined,
+      decision,
+    );
+
+    expect(script.decision).toBe(decision);
+    expect(script.lines).toHaveLength(1);
+  });
+
+  it('should store both reward and decision', () => {
+    const reward = { type: 'test' } as never;
+    const decision = new DialogDecision('dialog:q', []);
+    const script = new DialogScript([], reward, decision);
+
+    expect(script.decision).toBe(decision);
+    expect(script.reward).toBe(reward);
   });
 });

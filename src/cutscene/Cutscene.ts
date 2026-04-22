@@ -1,6 +1,6 @@
 import { resolveSpeakerPortraits } from '../npc/Npc';
 import type { Reward } from '../reward';
-import { buildDialogLines, DialogScript, type SpeakerOverride } from '../story/Dialog';
+import { buildDialogLines, DialogScript, type SpeakerOverride } from '../dialog/Dialog';
 
 export class Cutscene {
   readonly dialogKey: string;

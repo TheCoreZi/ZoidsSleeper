@@ -32,7 +32,9 @@ import {
   setActiveShop,
   showPopup,
 } from './store/gameStore';
-import DialogBox from './story/DialogBox';
+import type { DialogDecision } from './dialog/Dialog';
+import DialogBox from './dialog/DialogBox';
+import DecisionScreen from './dialog/DecisionScreen';
 import IntroSequence from './story/IntroSequence';
 import BattleScreen from './ui/BattleScreen';
 import CampaignPanel from './ui/CampaignPanel';
@@ -57,6 +59,7 @@ import { decrementZoidData } from './store/zoidDataStore';
 
 const App: Component = () => {
   let game: Game;
+  const [activeDecision, setActiveDecision] = createSignal<DialogDecision | null>(null);
   const [showParty, setShowParty] = createSignal(true);
   const [showArchive, setShowArchive] = createSignal(false);
   const [showSupplies, setShowSupplies] = createSignal(false);
@@ -153,6 +156,21 @@ const App: Component = () => {
       <Show when={showSupplies()}>
         <SuppliesPanel onClose={() => setShowSupplies(false)} />
       </Show>
+      <Show when={activeDecision()} keyed>
+        {(decision) => (
+          <div class="dialog-overlay">
+            <DecisionScreen
+              decision={decision}
+              onChoose={(choice) => {
+                choice.onChoose?.();
+                checkCampaigns();
+                setActiveDecision(null);
+                setActiveDialog(choice.followUp);
+              }}
+            />
+          </div>
+        )}
+      </Show>
       <Show when={activeDialog()} keyed>
         {(dialog) => (
           <div class="dialog-overlay">
@@ -161,7 +179,12 @@ const App: Component = () => {
               onComplete={() => {
                 if (dialog.reward) {grantReward(dialog.reward);}
                 checkCampaigns();
-                setActiveDialog(dequeueDialog() ?? null);
+                if (dialog.decision) {
+                  setActiveDialog(null);
+                  setActiveDecision(dialog.decision);
+                } else {
+                  setActiveDialog(dequeueDialog() ?? null);
+                }
               }}
             />
           </div>

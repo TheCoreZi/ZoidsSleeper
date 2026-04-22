@@ -14,11 +14,39 @@ export interface SpeakerOverride {
   speakerKey: string;
 }
 
+export class DialogChoice {
+  readonly followUp: DialogScript;
+  readonly image?: string;
+  readonly labelKey: string;
+  readonly onChoose?: () => void;
+
+  constructor(labelKey: string, followUp: DialogScript, image?: string, onChoose?: () => void) {
+    this.followUp = followUp;
+    this.image = image;
+    this.labelKey = labelKey;
+    this.onChoose = onChoose;
+  }
+}
+
+export class DialogDecision {
+  readonly choices: DialogChoice[];
+  readonly portrait?: string;
+  readonly questionKey: string;
+
+  constructor(questionKey: string, choices: DialogChoice[], portrait?: string) {
+    this.choices = choices;
+    this.portrait = portrait;
+    this.questionKey = questionKey;
+  }
+}
+
 export class DialogScript {
+  readonly decision?: DialogDecision;
   readonly lines: DialogLine[];
   readonly reward?: Reward;
 
-  constructor(lines: DialogLine[], reward?: Reward) {
+  constructor(lines: DialogLine[], reward?: Reward, decision?: DialogDecision) {
+    this.decision = decision;
     this.lines = lines;
     this.reward = reward;
   }

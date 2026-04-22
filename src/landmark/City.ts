@@ -27,6 +27,7 @@ export const CITIES: City[] = [
       new ActionFightPilot(PILOTS['bandit1'], undefined, [new PilotDefeatRequirement('bandit1')]),
       new ActionTalkToNPC('watchman', [new MissionCompletedRequirement(C, 'talk_to_jenkins')]),
       new ActionTalkToNPC('woman', [new PilotDefeatRequirement('bandit1')], [new MissionCompletedRequirement(C, 'report_to_captain')], itemReward('sleeper_module', 1, true)),
+      new ActionTalkToNPC('arthur', [new MissionCompletedRequirement(C, 'fight_van')]),
     ],
     battleBackground: BattleBackground.Grass,
     id: 'abandoned_camp',

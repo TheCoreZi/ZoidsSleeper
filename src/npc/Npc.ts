@@ -1,8 +1,10 @@
 import { COMPOUND_REQUIREMENTS, MissionCompletedRequirement } from '../requirement';
 import type { Requirement } from '../requirement';
-import type { SpeakerOverride } from '../story/Dialog';
+import { DECISIONS } from '../dialog/decisions';
+import type { DialogDecision, SpeakerOverride } from '../dialog/Dialog';
 
 export interface NpcDialog {
+  decision?: DialogDecision;
   dialogKey: string;
   images?: Record<number, string>;
   speakers?: Record<number, SpeakerOverride>;
@@ -17,6 +19,14 @@ export interface Npc {
 }
 
 export const NPCS: Record<string, Npc> = {
+  arthur: {
+    dialogs: [
+      { decision: DECISIONS.arthur_join_republic, dialogKey: 'dialog:arthur_post_battle' },
+    ],
+    id: 'arthur',
+    nameKey: 'pilots:arthur',
+    portrait: 'images/pilots/arthur.png',
+  },
   becker: {
     dialogs: [
       { dialogKey: 'dialog:becker_scan', unlockRequirement: COMPOUND_REQUIREMENTS.becker_probes },
