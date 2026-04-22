@@ -1,4 +1,4 @@
-import { buildDialogLines, DialogScript } from './Dialog';
+import { buildDialogLines, DialogScript } from '../dialog/Dialog';
 
 const MALINOFF_PORTRAIT = 'images/pilots/malinoff.png';
 const MALINOFF_KEY = 'pilots:captain_malinoff';

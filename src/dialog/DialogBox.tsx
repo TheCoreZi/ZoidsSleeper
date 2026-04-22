@@ -1,6 +1,7 @@
 import { createSignal, Show, type Component } from 'solid-js';
 import { t } from '../i18n';
 import type { DialogScript } from './Dialog';
+import './dialog.css';
 
 interface DialogBoxProps {
   onComplete: () => void;

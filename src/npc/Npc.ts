@@ -1,8 +1,10 @@
-import { COMPOUND_REQUIREMENTS, MissionCompletedRequirement } from '../requirement';
+import { COMPOUND_REQUIREMENTS, MissionCompletedRequirement, PilotDefeatRequirement } from '../requirement';
 import type { Requirement } from '../requirement';
-import type { SpeakerOverride } from '../story/Dialog';
+import { DECISIONS } from '../dialog/decisions';
+import type { DialogDecision, SpeakerOverride } from '../dialog/Dialog';
 
 export interface NpcDialog {
+  decision?: DialogDecision;
   dialogKey: string;
   images?: Record<number, string>;
   speakers?: Record<number, SpeakerOverride>;
@@ -17,6 +19,15 @@ export interface Npc {
 }
 
 export const NPCS: Record<string, Npc> = {
+  arthur: {
+    dialogs: [
+      { decision: DECISIONS.arthur_join_republic, dialogKey: 'dialog:arthur_post_battle', unlockRequirement: new PilotDefeatRequirement('arthur') },
+      { dialogKey: 'dialog:arthur_intro' },
+    ],
+    id: 'arthur',
+    nameKey: 'pilots:arthur',
+    portrait: 'images/pilots/arthur.png',
+  },
   becker: {
     dialogs: [
       { dialogKey: 'dialog:becker_scan', unlockRequirement: COMPOUND_REQUIREMENTS.becker_probes },
@@ -148,7 +159,7 @@ export const NPCS: Record<string, Npc> = {
     dialogs: [
       {
         dialogKey: 'dialog:woman_reunion',
-        speakers: { 1: { speakerKey: 'pilots:girl' }, 2: { speakerKey: '' }, 3: { speakerKey: 'pilots:kara' }, 4: { speakerKey: '' }, 6: { speakerKey: 'pilots:kara' }, 7: { speakerKey: '' } },
+        speakers: { 1: { speakerKey: 'pilots:girl', portrait: 'images/pilots/girl.png' }, 2: { speakerKey: '' }, 3: { speakerKey: 'pilots:kara' }, 4: { speakerKey: '' }, 6: { speakerKey: 'pilots:kara' }, 7: { speakerKey: '' } },
         unlockRequirement: new MissionCompletedRequirement('sleeper_commander', 'fight_van'),
       },
       { dialogKey: 'dialog:woman' },

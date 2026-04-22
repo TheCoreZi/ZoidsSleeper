@@ -1,7 +1,7 @@
 import { createMemo, createSignal } from 'solid-js';
 import type { PlayerStats } from '../models/Player';
 import type { PopupMessage } from '../models/PopupMessage';
-import type { DialogScript } from '../story/Dialog';
+import type { DialogScript } from '../dialog/Dialog';
 import type { ShopData } from '../ui/ShopPanel';
 import type { CustomizedZoid, SpawnedZoid } from '../models/Zoid';
 

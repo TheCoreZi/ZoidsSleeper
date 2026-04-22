@@ -215,5 +215,23 @@
     "¡Pero mamá! ¡No me quiero ir sin ti!",
     "Mi amor, escúchame... ya le pedí al Capitán que ponga a tu hermano a salvo con sus contactos en el ejército, él estará trabajando con uno de los ingenieros. Y yo también me iré, a otro lugar... Si nos separamos, será mucho más difícil que nos encuentren.",
     "Te prometo que nos volveremos a ver. Pero ahora necesito que seas valiente por mí... Por favor, cuida a mi hija. Y dile a mi esposo que gente peligrosa lo está buscando, pero que estamos a salvo. La última vez que lo contacté se encontraba trabajando cerca de Porto Nido."
+  ],
+  "arthur_intro": [
+    "¡Alto ahí! Soy el Mayor Arthur Borgman, del Ejército de la República de Helic. Llegaron informes de bandidos en esta zona. Normalmente no es tarea de un Mayor lidiar con asaltacaminos, pero no puedo llamarme piloto si le doy la espalda a gente que necesita ayuda.",
+    "Sin embargo, al llegar me entero de que alguien ya resolvió todo el problema... controlando a varios Zoids a la vez. Eso significa que posees un módulo Sleeper. Tecnología clasificada del ejército republicano. Como Mayor, mi deber es confiscarlo."
+  ],
+  "arthur_post_battle": [
+    "Ja ja... ¡Nada mal, muchacho! Es verdad que mi deber es detenerte y confiscar ese módulo. Las reglas son claras. Pero he peleado guerras suficientes como para saber que las reglas no siempre tienen razón.",
+    "Si esa tecnología está en manos de alguien que la usa para proteger a otros, entonces ahí es exactamente donde debe estar. Hagamos como que esta pelea nunca pasó.",
+    "Aunque... tengo una propuesta mejor. ¿Qué dirías de unirte al Ejército Republicano? Si te enlistas, ese módulo deja de ser tecnología robada y pasa a ser equipo oficial. Yo mismo te recomendaría."
+  ],
+  "arthur_decision": [
+    "¿Te unirías al Ejército de la República de Helic?"
+  ],
+  "arthur_accept": [
+    "¡Así me gusta! Este es el tipo de espíritu que el ejercito republicano requiere. Tu primera orden es reportarte en el campamento republicano. Ahí te darán tu asignación oficial. Yo me encargo del papeleo, tú solo preocúpate por llegar. Quién sabe quizá algún día llegues a nuestra unidad especial"
+  ],
+  "arthur_decline": [
+    "Hmm... entiendo. No todos quieren seguir órdenes, y eso no tiene nada de malo. Pero recuerda: ahí afuera hay fuerzas mucho más peligrosas que unos bandidos. Si algún día cambias de opinión, búscame. La oferta sigue en pie."
   ]
 }

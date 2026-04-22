@@ -1,8 +1,8 @@
 import { CUTSCENES } from '../cutscene';
 import { type ConsumableItem, ITEMS } from '../item';
 import { PILOTS } from '../models/Pilot';
-import { COMPOUND_REQUIREMENTS, ItemRequirement, MissionCompletedRequirement, NpcTalkedInCampaignRequirement, PilotDefeatRequirement, RouteKillRequirement } from '../requirement';
-import { itemReward, missionAdvanceReward } from '../reward';
+import { COMPOUND_REQUIREMENTS, DevRequirement, ImpossibleRequirement, ItemRequirement, MissionCompletedRequirement, NpcTalkedInCampaignRequirement, PilotDefeatRequirement, RouteKillRequirement } from '../requirement';
+import { activateCityActionReward, itemReward, missionAdvanceReward } from '../reward';
 import { ActionDuelPilot } from './action/ActionDuelPilot';
 import { ActionFightPilot } from './action/ActionFightPilot';
 import { ActionPlayCutscene } from './action/ActionPlayCutscene';
@@ -21,12 +21,25 @@ export interface City extends Landmark {
 
 const C = 'sleeper_commander';
 
+const AUTOMATIC_ACTIONS: Record<string, CityAction[]> = {
+  arthur_talk_fight_decide: (() => {
+    const requirements = [new DevRequirement(), new MissionCompletedRequirement(C, 'fight_van')];
+    const completeRequirements = [new PilotDefeatRequirement('arthur')];
+    const hidden = [new ImpossibleRequirement()];
+    const decision = new ActionTalkToNPC('arthur', hidden, completeRequirements);
+    const fight = new ActionFightPilot(PILOTS['arthur'], hidden, completeRequirements, false, activateCityActionReward(decision));
+    const intro = new ActionTalkToNPC('arthur', requirements, completeRequirements, activateCityActionReward(fight));
+    return [intro, fight, decision];
+  })(),
+};
+
 export const CITIES: City[] = [
   {
     actions: [
       new ActionFightPilot(PILOTS['bandit1'], undefined, [new PilotDefeatRequirement('bandit1')]),
       new ActionTalkToNPC('watchman', [new MissionCompletedRequirement(C, 'talk_to_jenkins')]),
       new ActionTalkToNPC('woman', [new PilotDefeatRequirement('bandit1')], [new MissionCompletedRequirement(C, 'report_to_captain')], itemReward('sleeper_module', 1, true)),
+      ...AUTOMATIC_ACTIONS.arthur_talk_fight_decide,
     ],
     battleBackground: BattleBackground.Grass,
     id: 'abandoned_camp',

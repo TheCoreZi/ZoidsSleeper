@@ -6,6 +6,9 @@ import { type Reward, RewardType } from './Reward';
 
 export function grantReward(reward: Reward): void {
   switch (reward.type) {
+    case RewardType.ActivateCityAction:
+      reward.action.execute();
+      break;
     case RewardType.Cutscene:
       enqueueDialog(CUTSCENES[reward.cutsceneId].toDialogScript());
       break;

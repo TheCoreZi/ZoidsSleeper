@@ -1,0 +1,133 @@
+/* Dialog Box */
+
+.dialog-overlay {
+  align-items: flex-start;
+  background: rgb(0 0 0 / 60%);
+  display: flex;
+  inset: 0;
+  justify-content: center;
+  padding-top: 4rem;
+  position: fixed;
+  z-index: 100;
+}
+
+.dialog-box {
+  background: #16213e;
+  border: 2px solid #0f3460;
+  border-radius: 12px;
+  cursor: pointer;
+  max-width: 600px;
+  padding: 1.5rem;
+  user-select: none;
+  width: 90%;
+}
+
+.dialog-image {
+  border-radius: 8px;
+  display: block;
+  image-rendering: pixelated;
+  margin: 1rem auto 0;
+  max-height: 150px;
+  max-width: 50%;
+}
+
+.dialog-content {
+  align-items: center;
+  display: flex;
+  gap: 1rem;
+}
+
+.dialog-portrait {
+  border-radius: 8px;
+  flex-shrink: 0;
+  height: 64px;
+  image-rendering: pixelated;
+  width: 64px;
+}
+
+.dialog-text-area {
+  flex: 1;
+}
+
+.dialog-prompt {
+  animation: pulse 2s infinite;
+  color: #666;
+  font-size: 0.8rem;
+  margin-top: 1rem;
+  text-align: right;
+}
+
+.dialog-speaker {
+  color: #00d4ff;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.dialog-text {
+  color: #e0e0e0;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Decision Screen */
+
+.decision-card {
+  align-items: center;
+  background: #0f3460;
+  border: 2px solid #00d4ff;
+  border-radius: 6px;
+  color: #00d4ff;
+  cursor: pointer;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  font-weight: bold;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  transition: background 0.2s;
+}
+
+.decision-card:hover {
+  background: #1a4a8a;
+}
+
+.decision-card img {
+  height: 80px;
+  image-rendering: pixelated;
+  object-fit: contain;
+}
+
+.decision-card-label {
+  color: #00d4ff;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.decision-grid {
+  display: flex;
+  gap: 1rem;
+}
+
+.decision-question {
+  align-items: center;
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.decision-question-text {
+  color: #e0e0e0;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+.decision-screen {
+  background: #16213e;
+  border: 2px solid #0f3460;
+  border-radius: 12px;
+  max-width: 600px;
+  padding: 1.5rem;
+  width: 90%;
+}

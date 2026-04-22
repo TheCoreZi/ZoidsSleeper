@@ -16,7 +16,7 @@ import {
 } from '../dungeon/dungeonStore';
 import { SortieNodeType } from '../dungeon/DungeonGraph';
 import { t } from '../i18n';
-import { DialogScript } from '../story/Dialog';
+import { DialogScript } from '../dialog/Dialog';
 import type { City, Landmark, Route } from '../landmark';
 import { ActionDuelPilot, ActionFightPilot, ActionPlayCutscene, ActionTalkToNPC, ActionVisitDepot, ActionVisitLab, getLandmarkById, getLandmarkHints, isLandmarkUnlocked, isRoute, ROUTES } from '../landmark';
 import type { Dungeon } from '../landmark';
@@ -26,6 +26,7 @@ import type { Pilot } from '../models/Pilot';
 import { DEFAULT_PLAYER } from '../models/Player';
 import { PopupMessage, PopupType } from '../models/PopupMessage';
 import { ZoidResearchStatus } from '../models/Zoid';
+import { grantReward, type Reward } from '../reward';
 import { loadCampaigns, markNpcTalked, checkCampaigns } from '../store/campaignStore';
 import {
   BattleState,
@@ -166,7 +167,7 @@ export class Game {
     setBattleState(BattleState.DuelCombat);
   }
 
-  enterPilotBattle(pilot: Pilot, unwinnable = false): void {
+  enterPilotBattle(pilot: Pilot, unwinnable = false, reward?: Reward): void {
     const battle = new PilotBattle(DEFAULT_PLAYER, pilot);
     battle.onDefeat = () => {
       if (unwinnable) {
@@ -180,6 +181,7 @@ export class Game {
       incrementPilotDefeats(pilot.id);
       checkCampaigns();
       this.endPilotBattle(new PopupMessage(t('ui:pilot_defeated', { name: t(`pilots:${pilot.id}`) }), t('ui:victory'), PopupType.Victory));
+      if (reward) { grantReward(reward); }
     };
     this.battle = battle;
     setBattleState(BattleState.PilotCombat);
@@ -337,7 +339,7 @@ export class Game {
       } else if (action instanceof DungeonSortieEvent) {
         action.onExecute = () => this.enterDungeon(action);
       } else if (action instanceof ActionFightPilot) {
-        action.onExecute = () => this.enterPilotBattle(action.pilot, action.unwinnable);
+        action.onExecute = () => this.enterPilotBattle(action.pilot, action.unwinnable, action.reward);
       } else if (action instanceof ActionPlayCutscene) {
         action.onExecute = () => {
           setActiveDialog(new DialogScript(action.cutscene.toDialogScript().lines, action.reward));
