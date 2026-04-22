@@ -1,4 +1,5 @@
 import { createMemo, createSignal } from 'solid-js';
+import type { Faction } from '../models/Faction';
 import type { PlayerStats } from '../models/Player';
 import type { PopupMessage } from '../models/PopupMessage';
 import type { DialogScript } from '../dialog/Dialog';
@@ -135,6 +136,10 @@ function incrementClickAttack(amount = 1): void {
   setPlayerStats((prev) => prev ? { ...prev, clickAttack: prev.clickAttack + amount } : prev);
 }
 
+function setPlayerFaction(faction: Faction): void {
+  setPlayerStats((prev) => prev ? { ...prev, faction } : prev);
+}
+
 let rewardIdCounter = 0;
 
 function emitRewardEvent(amount: number, currency: string): void {
@@ -190,6 +195,7 @@ export {
   setPilotPlayerMaxHealth,
   setPilotZoidIds,
   setPlayerDamageEvents,
+  setPlayerFaction,
   setPlayerStats,
   showPopup,
   setRewardEvents,

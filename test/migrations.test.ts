@@ -237,6 +237,38 @@ describe('migrate', () => {
     });
   });
 
+  describe('0.4.3 migration', () => {
+    it('should add neutral faction to playerStats', () => {
+      const data = {
+        landmarkId: 'test',
+        playerStats: { attackMult: 1, baseHealth: 10, clickAttack: 1 },
+        version: '0.4.2',
+      };
+
+      migrate(data, '0.4.2');
+
+      expect((data.playerStats as Record<string, unknown>).faction).toBe('neutral');
+    });
+
+    it('should not overwrite existing faction', () => {
+      const data = {
+        landmarkId: 'test',
+        playerStats: { attackMult: 1, baseHealth: 10, clickAttack: 1, faction: 'helic_republic' },
+        version: '0.4.2',
+      };
+
+      migrate(data, '0.4.2');
+
+      expect((data.playerStats as Record<string, unknown>).faction).toBe('helic_republic');
+    });
+
+    it('should not fail when no playerStats exists', () => {
+      const data = { landmarkId: 'test', version: '0.4.2' };
+
+      expect(() => migrate(data, '0.4.2')).not.toThrow();
+    });
+  });
+
   describe('0.2.0 migration', () => {
     it('should reset completed campaign to interrogate_bandits', () => {
       const data = {

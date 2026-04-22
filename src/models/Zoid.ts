@@ -1,6 +1,6 @@
 import type { Drop } from '../item/Drop';
 import { ZiDataDrop } from '../item/ZiDataDrop';
-import { Faction } from './Faction';
+import { Faction, getFactionBonus } from './Faction';
 import { LevelType, levelFromExperience } from './LevelType';
 
 /** A zoid owned by the player, tracking accumulated experience. */
@@ -72,12 +72,18 @@ export const ZOID_LIST: Record<string, ZoidSpecies> = {
   zatton: { attack: 120, baseExp: 40, scanRate: 30, faction: Faction.ZenebasEmpire, id: 'zatton', levelType: LevelType.MediumSlow, maxHealth: 350, name: 'Zatton', price: 10000 },
 };
 
-export function calculatePartyAttack(party: OwnedZoid[]): number {
-  return party.reduce((sum, z) => sum + buildZoid({ id: z.id, level: getOwnedZoidLevel(z) }).attack, 0);
+export function calculatePartyAttack(party: OwnedZoid[], playerFaction: Faction = Faction.Neutral): number {
+  return party.reduce((sum, z) => {
+    const bonus = getFactionBonus(playerFaction, getZoidById(z.id).faction);
+    return sum + buildZoid({ bonusMultiplier: bonus, id: z.id, level: getOwnedZoidLevel(z) }).attack;
+  }, 0);
 }
 
-export function calculatePartyMaxHealth(party: OwnedZoid[]): number {
-  return party.reduce((sum, z) => sum + buildZoid({ id: z.id, level: getOwnedZoidLevel(z) }).maxHealth, 0);
+export function calculatePartyMaxHealth(party: OwnedZoid[], playerFaction: Faction = Faction.Neutral): number {
+  return party.reduce((sum, z) => {
+    const bonus = getFactionBonus(playerFaction, getZoidById(z.id).faction);
+    return sum + buildZoid({ bonusMultiplier: bonus, id: z.id, level: getOwnedZoidLevel(z) }).maxHealth;
+  }, 0);
 }
 
 export function calculateStat(baseStat: number, level: number, bonusMultiplier = 1): number {
