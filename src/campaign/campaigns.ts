@@ -6,7 +6,7 @@ import type { Campaign } from './Campaign';
 
 export const CAMPAIGNS: Record<string, Campaign> = {
   olympus_guylos: {
-    autoStart: true,
+    hidden: true,
     id: 'olympus_guylos',
     missions: [
       { id: 'report_to_imperial_hq', goals: [new MissionCompletedRequirement('olympus_guylos', 'report_to_imperial_hq')] },
@@ -14,7 +14,7 @@ export const CAMPAIGNS: Record<string, Campaign> = {
     unlockRequirements: [new FactionRequirement(Faction.GuylosEmpire)],
   },
   olympus_threat: {
-    autoStart: true,
+    hidden: true,
     id: 'olympus_threat',
     missions: [
       { id: 'report_to_republican_camp', goals: [new MissionCompletedRequirement('olympus_threat', 'report_to_republican_camp')] },

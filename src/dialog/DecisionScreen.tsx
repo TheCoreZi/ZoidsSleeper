@@ -16,6 +16,9 @@ const DecisionScreen: Component<DecisionScreenProps> = (props) => (
       </Show>
       <div class="decision-question-text">{t(props.decision.questionKey)}</div>
     </div>
+    <Show when={props.decision.alertKey}>
+      <div class="decision-alert">{t(props.decision.alertKey!)}</div>
+    </Show>
     <div class="decision-grid">
       <For each={props.decision.choices}>
         {(choice) => (

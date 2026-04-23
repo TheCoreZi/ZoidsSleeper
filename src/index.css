@@ -105,6 +105,14 @@ body {
   color: #f44;
 }
 
+.popup-faction {
+  border-color: var(--theme-accent);
+}
+
+.popup-faction h2 {
+  color: var(--theme-accent);
+}
+
 .popup-item {
   border-color: var(--theme-accent);
 }

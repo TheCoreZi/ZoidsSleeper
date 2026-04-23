@@ -117,11 +117,10 @@
   background: var(--theme-button-hover);
 }
 
-.campaign-completed .campaign-name {
-  color: #666;
-}
-
-.campaign-status-check {
-  color: #4caf50;
-  font-size: 0.75rem;
+.campaign-empty {
+  color: #999;
+  font-size: 0.8rem;
+  font-style: italic;
+  padding: 0.75rem;
+  text-align: center;
 }

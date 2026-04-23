@@ -205,7 +205,7 @@ const App: Component = () => {
               expanded={showParty()}
               onToggle={() => setShowParty((v) => !v)}
             />
-            <Show when={playerStats()}>
+            <Show when={import.meta.env.DEV && playerStats()}>
               <FactionPanel faction={playerStats()!.faction} />
             </Show>
           </div>

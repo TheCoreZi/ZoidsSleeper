@@ -86,7 +86,7 @@ export const FACTION_THEMES: Record<Faction, FactionTheme> = {
   },
   [Faction.Neutral]: {
     accent: '#b388c9', accentHover: '#d1a8e0', accentRgb: '179 136 201',
-    accentSubtle: '#8e57a8', border: '#3a1060', buttonBg: '#3a1060', buttonHover: '#501880',
+    accentSubtle: '#c090d8', border: '#3a1060', buttonBg: '#3a1060', buttonHover: '#501880',
     deepBg: '#0a0410', panelBg: '#150c22', panelBgRgb: '21 12 34', surfaceBg: '#110a1c', tooltipBg: '#180d28',
   },
   [Faction.NeoZenebas]: {
@@ -96,7 +96,7 @@ export const FACTION_THEMES: Record<Faction, FactionTheme> = {
   },
   [Faction.ZenebasEmpire]: {
     accent: '#a0a0a0', accentHover: '#c0c0c0', accentRgb: '160 160 160',
-    accentSubtle: '#888888', border: '#4a1515', buttonBg: '#4a1515', buttonHover: '#6a2020',
+    accentSubtle: '#b0b0b0', border: '#4a1515', buttonBg: '#4a1515', buttonHover: '#6a2020',
     deepBg: '#10060a', panelBg: '#2a1218', panelBgRgb: '42 18 24', surfaceBg: '#200c10', tooltipBg: '#250e14',
   },
 };

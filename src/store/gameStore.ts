@@ -1,7 +1,8 @@
 import { createMemo, createSignal } from 'solid-js';
-import type { Faction } from '../models/Faction';
+import { FACTIONS, type Faction } from '../models/Faction';
+import { PopupMessage, PopupType } from '../models/PopupMessage';
+import { t } from '../i18n';
 import type { PlayerStats } from '../models/Player';
-import type { PopupMessage } from '../models/PopupMessage';
 import type { DialogScript } from '../dialog/Dialog';
 import type { ShopData } from '../ui/ShopPanel';
 import type { CustomizedZoid, SpawnedZoid } from '../models/Zoid';
@@ -138,6 +139,13 @@ function incrementClickAttack(amount = 1): void {
 
 function setPlayerFaction(faction: Faction): void {
   setPlayerStats((prev) => prev ? { ...prev, faction } : prev);
+  const factionData = FACTIONS[faction];
+  showPopup(new PopupMessage(
+    t(`factions:${faction}`),
+    t('ui:faction_changed'),
+    PopupType.Faction,
+    factionData.image
+  ));
 }
 
 let rewardIdCounter = 0;

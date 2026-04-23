@@ -1,45 +1,32 @@
 .faction-panel {
+  align-items: center;
   align-self: flex-start;
   background: var(--theme-panel-bg);
   border: 2px solid var(--theme-border);
   border-radius: 12px;
   display: flex;
-  flex-direction: column;
-  overflow: hidden;
+  gap: 0.5rem;
+  padding: 0.4rem 0.75rem;
   width: 100%;
 }
 
-.faction-panel-header {
-  align-items: center;
-  display: flex;
-  padding: 0.5rem 0.75rem;
-}
-
-.faction-panel-title {
+.faction-panel-label {
   color: var(--theme-accent);
-  flex: 1;
-  font-size: 1rem;
-  text-align: center;
+  font-size: 0.85rem;
+  font-weight: bold;
   text-transform: uppercase;
 }
 
-.faction-panel-content {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-  padding: 0.5rem 0.75rem 0.75rem;
-}
-
 .faction-panel-image {
-  height: 48px;
+  height: 28px;
   image-rendering: pixelated;
   object-fit: contain;
-  width: 48px;
+  width: 28px;
 }
 
 .faction-panel-name {
   color: #e0e0e0;
+  flex: 1;
   font-size: 0.85rem;
 }
 

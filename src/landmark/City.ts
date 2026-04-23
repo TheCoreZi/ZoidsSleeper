@@ -23,7 +23,7 @@ const C = 'sleeper_commander';
 
 const AUTOMATIC_ACTIONS: Record<string, CityAction[]> = {
   arthur_talk_fight_decide: (() => {
-    const requirements = [new MissionCompletedRequirement(C, 'fight_van')];
+    const requirements = [new MissionCompletedRequirement(C, 'deliver_girl')];
     const completeRequirements = [new PilotDefeatRequirement('arthur')];
     const hidden = [new ImpossibleRequirement()];
     const decision = new ActionTalkToNPC('arthur', [new PilotDefeatRequirement('arthur')]);

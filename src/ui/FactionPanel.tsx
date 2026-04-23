@@ -15,24 +15,20 @@ const FactionPanel: Component<FactionPanelProps> = (props) => {
   return (
     <>
       <div class="faction-panel">
-        <div class="faction-panel-header">
-          <h3 class="faction-panel-title">{t('ui:faction')}</h3>
-          <button
-            class="faction-panel-info"
-            onClick={() => setShowBonus(true)}
-            title={t('ui:faction_bonus_table')}
-          >
-            ℹ
-          </button>
-        </div>
-        <div class="faction-panel-content">
-          <img
-            class="faction-panel-image"
-            src={factionData().image}
-            alt={t(`factions:${props.faction}`)}
-          />
-          <span class="faction-panel-name">{t(`factions:${props.faction}`)}</span>
-        </div>
+        <span class="faction-panel-label">{t('ui:faction')}:</span>
+        <img
+          class="faction-panel-image"
+          src={factionData().image}
+          alt={t(`factions:${props.faction}`)}
+        />
+        <span class="faction-panel-name">{t(`factions:${props.faction}`)}</span>
+        <button
+          class="faction-panel-info"
+          onClick={() => setShowBonus(true)}
+          title={t('ui:faction_bonus_table')}
+        >
+          ℹ
+        </button>
       </div>
       <Show when={showBonus()}>
         <FactionBonusPopup

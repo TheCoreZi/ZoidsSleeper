@@ -57,40 +57,34 @@ const CampaignPanel: Component = () => {
   const all = () => Object.values(CAMPAIGNS);
   const activeCampaigns = () => all().filter((c) => isCampaignStarted(c.id));
   const availableCampaigns = () => all().filter((c) =>
-    !c.autoStart && !isCampaignStarted(c.id) && !isCampaignCompleted(c.id) && isUnlocked(c)
+    !c.autoStart && !c.hidden && !isCampaignStarted(c.id) && !isCampaignCompleted(c.id) && isUnlocked(c)
   );
-  const completedCampaigns = () => all().filter((c) => isCampaignCompleted(c.id));
+  const isEmpty = () => activeCampaigns().length === 0 && availableCampaigns().length === 0;
 
   return (
     <div class="campaign-panel">
       <h3 class="campaign-title">{t('ui:operations')}</h3>
       <div class="campaign-list">
-        <For each={activeCampaigns()}>
-          {(campaign) => <CampaignEntry campaign={campaign} />}
-        </For>
-        <For each={availableCampaigns()}>
-          {(campaign) => (
-            <div class="campaign-entry campaign-available">
-              <div class="campaign-header">
-                <span class="campaign-name">{t(`campaigns:${campaign.id}.name`)}</span>
+        <Show when={!isEmpty()} fallback={
+          <div class="campaign-empty">{t('ui:no_missions')}</div>
+        }>
+          <For each={activeCampaigns()}>
+            {(campaign) => <CampaignEntry campaign={campaign} />}
+          </For>
+          <For each={availableCampaigns()}>
+            {(campaign) => (
+              <div class="campaign-entry campaign-available">
+                <div class="campaign-header">
+                  <span class="campaign-name">{t(`campaigns:${campaign.id}.name`)}</span>
+                </div>
+                <div class="campaign-description">{t(`campaigns:${campaign.id}.description`)}</div>
+                <button class="campaign-deploy-btn" onClick={() => startCampaign(campaign.id)}>
+                  {t('ui:deploy')}
+                </button>
               </div>
-              <div class="campaign-description">{t(`campaigns:${campaign.id}.description`)}</div>
-              <button class="campaign-deploy-btn" onClick={() => startCampaign(campaign.id)}>
-                {t('ui:deploy')}
-              </button>
-            </div>
-          )}
-        </For>
-        <For each={completedCampaigns()}>
-          {(campaign) => (
-            <div class="campaign-entry campaign-completed">
-              <div class="campaign-header">
-                <span class="campaign-name">{t(`campaigns:${campaign.id}.name`)}</span>
-                <span class="campaign-status-check">{t('ui:campaign_completed')}</span>
-              </div>
-            </div>
-          )}
-        </For>
+            )}
+          </For>
+        </Show>
       </div>
     </div>
   );
