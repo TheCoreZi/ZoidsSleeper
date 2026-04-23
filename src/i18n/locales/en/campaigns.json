@@ -1,4 +1,24 @@
 {
+  "olympus_guylos": {
+    "description": "The Empire is planning a secret weapon that could shift the balance of power forever. As a new recruit, report to headquarters and join the operation.",
+    "missions": {
+      "report_to_imperial_hq": {
+        "description": "Head to the Imperial recruitment headquarters and register as a new recruit.",
+        "name": "Imperial Enlistment"
+      }
+    },
+    "name": "The Beast of Olympus"
+  },
+  "olympus_threat": {
+    "description": "Intelligence suggests the Guylos Empire is mobilizing for something big. As a new member of the Republic, report to camp and help uncover what they're planning.",
+    "missions": {
+      "report_to_republican_camp": {
+        "description": "Head to the Republican camp and report for duty. Major Arthur has already put in a good word for you.",
+        "name": "Reporting to the Republic"
+      }
+    },
+    "name": "The Olympus Threat"
+  },
   "shells_of_time": {
     "description": "A father researching Zoids, a mysterious Dr T, and a family torn apart. Head to Porto Nido to find answers.",
     "missions": {

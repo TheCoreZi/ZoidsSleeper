@@ -9,6 +9,26 @@
     },
     "name": "Saliendo del Caparazón"
   },
+  "olympus_guylos": {
+    "description": "El Imperio planea un arma secreta que podría cambiar el equilibrio de poder para siempre. Como nuevo recluta, repórtate en la sede y únete a la operación.",
+    "missions": {
+      "report_to_imperial_hq": {
+        "description": "Dirígete a la sede de reclutamiento imperial y regístrate como nuevo recluta.",
+        "name": "Alistamiento Imperial"
+      }
+    },
+    "name": "La Bestia del Olympus"
+  },
+  "olympus_threat": {
+    "description": "La inteligencia sugiere que el Imperio de Guylos se está movilizando para algo grande. Como nuevo miembro de la República, repórtate en el campamento y ayuda a descubrir qué están planeando.",
+    "missions": {
+      "report_to_republican_camp": {
+        "description": "Dirígete al campamento republicano y repórtate. El Mayor Arthur ya habló bien de ti.",
+        "name": "Reportándose a la República"
+      }
+    },
+    "name": "La Amenaza del Olympus"
+  },
   "sleeper_commander": {
     "description": "La Aldea Destello es atacada por Zoids Sleepers, muestra tu habilidad como piloto y descubre a los culpables.",
     "missions": {

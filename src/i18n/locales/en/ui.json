@@ -77,6 +77,7 @@
   "reset_confirm": "Are you sure? All progress will be lost.",
   "reset_game": "Reset Game",
   "route_enemies": "Route Enemies",
+  "talk_to_girl": "Talk to the Girl",
   "talk_to_npc": "Talk to {{name}}",
   "total": "Total",
   "total_attack": "Total Zoids Attack",

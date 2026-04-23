@@ -41,6 +41,17 @@ export const PILOTS: Record<string, Pilot> = {
       ]),
     ],
   },
+  concho_cancer: {
+    id: 'concho_cancer',
+    imageId: 'concho',
+    magnisReward: 12000,
+    name: 'Concho Cancer',
+    zoidSets: [
+      new PilotZoidSet([
+        { attackOverride: 30, id: 'heldigunner', level: 40, maxHealthOverride: 5500 },
+      ]),
+    ],
+  },
   bianco: {
     id: 'bianco',
     magnisReward: 1500,

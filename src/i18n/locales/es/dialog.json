@@ -231,7 +231,36 @@
   "arthur_accept": [
     "¡Así me gusta! Este es el tipo de espíritu que el ejercito republicano requiere. Tu primera orden es reportarte en el campamento republicano. Ahí te darán tu asignación oficial. Yo me encargo del papeleo, tú solo preocúpate por llegar. Quién sabe quizá algún día llegues a nuestra unidad especial"
   ],
+  "arthur_already_faction": [
+    "Así que ya elegiste un bando. No voy a fingir que no me decepciona, pero un piloto que se mantiene firme en sus convicciones tiene mi respeto. Espero que tus comandantes sean dignos de tu lealtad. Pase lo que pase, recuerda: la guerra tiene una forma de poner a prueba las alianzas. Mantente alerta."
+  ],
+  "arthur_same_faction": [
+    "Bienvenido a bordo, soldado. Repórtate en el campamento republicano lo antes posible. Te están esperando."
+  ],
   "arthur_decline": [
     "Hmm... entiendo. No todos quieren seguir órdenes, y eso no tiene nada de malo. Pero recuerda: ahí afuera hay fuerzas mucho más peligrosas que unos bandidos. Si algún día cambias de opinión, búscame. La oferta sigue en pie."
+  ],
+  "concho_accept": [
+    "Je. Chico listo. Ve a la sede de reclutamiento del Imperio y enlístate. Diles que te manda Concho. O no. Me da igual, ellos se darán cuenta."
+  ],
+  "concho_already_faction": [
+    "Que lamentable que hayas elegido a la nación perdedora. Esa chatarra Sleeper siempre fue basura. Pero bueno... la próxima vez que nos veamos será en el campo de batalla. Y no me voy a contener."
+  ],
+  "concho_same_faction": [
+    "Je, así que te interesa la oferta. Entonces ve a la sede imperial y regístrate. Ahora lárgate, tengo cosas mejores que hacer."
+  ],
+  "concho_decision": [
+    "Al Imperio de Guylos le vendría bien alguien que luche con esa fuerza. ¿Te interesa o qué?"
+  ],
+  "concho_decline": [
+    "Tch. Ya me lo esperaba. El Imperio no ruega, chico. Quédate con tu modulito, nunca me importó esa chatarra. Solo no te metas en el camino del Imperio, o te aplastaré yo mismo."
+  ],
+  "concho_intro": [
+    "Así que tú eres el mocoso que anda causando problemas por aquí. Controlando un montón de Zoids con un aparatejo. Gran cosa. Soy Concho Cancer, Imperio de Guylos. Me mandaron a revisar el desastre de esta zona, pero parece que alguien ya se encargó.",
+    "Aunque eso no importa. Andas por ahí con equipo militar y se supone que debo hacer algo al respecto. Así que acabemos con esto. Muéstrame lo que tienes, chico."
+  ],
+  "concho_post_battle": [
+    "¡Ja! Bueno, bueno. Peleas lo suficientemente fuerte como para entretenerme. La mayoría de los idiotas caen en cinco segundos contra mi Heldigunner.",
+    "Mira, odio los discursos, así que voy al grano. ¿Ese módulo? Sinceramente, siempre pensé que la tecnología Sleeper era basura inútil. Pero tú no eres basura. El Imperio de Guylos quiere pilotos fuertes. No nos importa tu pasado, tus métodos ni tus ideales. Solo si sabes pelear."
   ]
 }

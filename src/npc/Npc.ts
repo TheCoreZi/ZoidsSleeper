@@ -1,4 +1,5 @@
-import { COMPOUND_REQUIREMENTS, MissionCompletedRequirement, PilotDefeatRequirement } from '../requirement';
+import { Faction } from '../models/Faction';
+import { AllOfRequirement, COMPOUND_REQUIREMENTS, FactionRequirement, MissionCompletedRequirement, NotRequirement, PilotDefeatRequirement } from '../requirement';
 import type { Requirement } from '../requirement';
 import { DECISIONS } from '../dialog/decisions';
 import type { DialogDecision, SpeakerOverride } from '../dialog/Dialog';
@@ -21,6 +22,8 @@ export interface Npc {
 export const NPCS: Record<string, Npc> = {
   arthur: {
     dialogs: [
+      { dialogKey: 'dialog:arthur_same_faction', unlockRequirement: new AllOfRequirement([new PilotDefeatRequirement('arthur'), new FactionRequirement(Faction.HelicRepublic)]) },
+      { dialogKey: 'dialog:arthur_already_faction', unlockRequirement: new AllOfRequirement([new PilotDefeatRequirement('arthur'), new NotRequirement(new FactionRequirement(Faction.Neutral))]) },
       { decision: DECISIONS.arthur_join_republic, dialogKey: 'dialog:arthur_post_battle', unlockRequirement: new PilotDefeatRequirement('arthur') },
       { dialogKey: 'dialog:arthur_intro' },
     ],
@@ -44,6 +47,17 @@ export const NPCS: Record<string, Npc> = {
     id: 'bianco',
     nameKey: 'pilots:bianco',
     portrait: 'images/pilots/bianco.png',
+  },
+  concho_cancer: {
+    dialogs: [
+      { dialogKey: 'dialog:concho_same_faction', unlockRequirement: new AllOfRequirement([new PilotDefeatRequirement('concho_cancer'), new FactionRequirement(Faction.GuylosEmpire)]) },
+      { dialogKey: 'dialog:concho_already_faction', unlockRequirement: new AllOfRequirement([new PilotDefeatRequirement('concho_cancer'), new NotRequirement(new FactionRequirement(Faction.Neutral))]) },
+      { decision: DECISIONS.concho_join_guylos, dialogKey: 'dialog:concho_post_battle', unlockRequirement: new PilotDefeatRequirement('concho_cancer') },
+      { dialogKey: 'dialog:concho_intro' },
+    ],
+    id: 'concho_cancer',
+    nameKey: 'pilots:concho_cancer',
+    portrait: 'images/pilots/concho.png',
   },
   boy: {
     dialogs: [
@@ -82,7 +96,7 @@ export const NPCS: Record<string, Npc> = {
     portrait: 'images/pilots/fiona.png',
   },
   kara: {
-    dialogs: [{ dialogKey: 'dialog:girl_thanks', speakers: { 0: { speakerKey: 'pilots:girl' } } }],
+    dialogs: [{ dialogKey: 'dialog:girl_thanks', speakers: { 0: { portrait: 'images/pilots/girl.png', speakerKey: 'pilots:girl' } } }],
     id: 'kara',
     nameKey: 'pilots:kara',
     portrait: 'images/pilots/girl.png',

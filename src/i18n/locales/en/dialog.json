@@ -231,7 +231,36 @@
   "arthur_accept": [
     "That's what I like to hear! This is the kind of spirit the Republican army needs. Your first order is to report to the Republican camp. They'll give you your official assignment there. I'll handle the paperwork, you just worry about getting there. Who knows, maybe one day you'll make it into our special unit."
   ],
+  "arthur_already_faction": [
+    "So you've already chosen a side. I won't pretend I'm not disappointed, but a pilot who stands by their convictions has my respect. I hope your commanders are worthy of your loyalty. Whatever happens next, remember: war has a way of testing alliances. Stay sharp out there."
+  ],
+  "arthur_same_faction": [
+    "Welcome aboard, soldier. Report to the Republican camp as soon as you can. They're expecting you."
+  ],
   "arthur_decline": [
     "Hmm... I understand. Not everyone wants to follow orders, and there's nothing wrong with that. But remember: there are forces out there far more dangerous than a few bandits. If you ever change your mind, look me up. The offer stands."
+  ],
+  "concho_accept": [
+    "Heh. Smart kid. Get yourself to the Imperial recruitment headquarters and enlist. Tell them Concho sent you. Or don't. I don't care either way, they'll figure it out."
+  ],
+  "concho_already_faction": [
+    "How pathetic that you chose the losing side. That Sleeper junk was always trash anyway. But hey... next time we meet, it'll be on the battlefield. And I won't go easy on you."
+  ],
+  "concho_same_faction": [
+    "Heh, so you're interested in the offer. Then go to the Imperial headquarters and register. Now get lost, I've got better things to do."
+  ],
+  "concho_decision": [
+    "The Guylos Empire could use someone who fights with that kind of strength. You in or what?"
+  ],
+  "concho_decline": [
+    "Tch. Figures. The Empire doesn't beg, kid. Keep your little module, I never gave a damn about that scrap tech anyway. Just don't get in the Empire's way, or I'll crush you myself."
+  ],
+  "concho_intro": [
+    "So you're the brat who's been causing trouble around here. Controlling a bunch of Zoids with some gadget. Big deal. I'm Concho Cancer, Guylos Empire. They sent me to check on the mess in this area, but looks like someone already cleaned it up.",
+    "Doesn't matter though. You're walking around with military hardware and I'm supposed to care about that. So let's get this over with. Show me what you've got, kid."
+  ],
+  "concho_post_battle": [
+    "Hah! Alright, alright. You actually fight hard enough to be entertaining. Most idiots fold in five seconds against my Heldigunner.",
+    "Look, I hate speeches, so here's the deal. That module? Honestly, I always thought Sleeper tech was worthless garbage. But you're not garbage. The Guylos Empire wants strong pilots. We don't care about your past, your methods, or your ideals. Just whether you can fight."
   ]
 }

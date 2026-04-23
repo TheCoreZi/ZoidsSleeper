@@ -61,6 +61,7 @@ export const ZOID_LIST: Record<string, ZoidSpecies> = {
   gorgodos: { attack: 140, baseExp: 50, scanRate: 20, faction: Faction.HelicRepublic, id: 'gorgodos', levelType: LevelType.Slow, maxHealth: 400, name: 'Gorgodos', price: 12000 },
   gurantula: { attack: 120, baseExp: 35, scanRate: -1, faction: Faction.HelicRepublic, id: 'gurantula', levelType: LevelType.Fast, maxHealth: 300, name: 'Gurantula', price: 4000 },
   guysack: { attack: 180, baseExp: 45, itemDrops: [new ZiDataDrop('gurantula', 30)], scanRate: -1, faction: Faction.HelicRepublic, id: 'guysack', levelType: LevelType.MediumFast, maxHealth: 500, name: 'Guysack', price: 20000 },
+  heldigunner: { attack: 200, baseExp: 70, scanRate: 10, faction: Faction.GuylosEmpire, id: 'heldigunner', levelType: LevelType.MediumFast, maxHealth: 400, name: 'Heldigunner', price: 30000 },
   malder: { attack: 20, baseExp: 40, scanRate: 50, faction: Faction.ZenebasEmpire, id: 'malder', levelType: LevelType.Erratic, maxHealth: 700, name: 'Malder', price: 8000 },
   merda: { attack: 50, baseExp: 20, scanRate: 75, faction: Faction.ZenebasEmpire, id: 'merda', levelType: LevelType.Fast, maxHealth: 100, name: 'Merda', price: 2000 },
   molga: { attack: 100, baseExp: 35, scanRate: 20, faction: Faction.ZenebasEmpire, id: 'molga', levelType: LevelType.Fast, maxHealth: 400, name: 'Molga', price: 20000 },

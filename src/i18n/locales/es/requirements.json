@@ -8,6 +8,7 @@
   "defeat_pilot": "Derrota a {{name}}",
   "item_required": "Tener {{count}} {{item}}",
   "defeat_zoids_on_route": "Derrota {{count}} zoids en {{route}}",
+  "join_faction": "Unirse a {{name}}",
   "magnis_required": "Tener {{count}} Magnis",
   "only_one": "Solo uno de: {{hints}}",
   "talk_to_npc": "Hablar con {{name}}",
