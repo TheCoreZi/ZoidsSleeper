@@ -252,8 +252,6 @@ const App: Component = () => {
                 <BattleScreen onClick={() => game?.battle?.clickAttack()} />
               </Match>
             </Switch>
-          </div>
-          <div class="map-column">
             <WorldMap onLocationChange={(l) => game?.changeLocation(l)} />
           </div>
           <div class="right-column">

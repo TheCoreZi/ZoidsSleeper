@@ -1,7 +1,7 @@
 /* Dungeon Map Screen */
 .dungeon-map-screen {
-  background: #16213e;
-  border: 2px solid #0f3460;
+  background: var(--theme-panel-bg);
+  border: 2px solid var(--theme-border);
   border-radius: 12px;
   display: flex;
   flex-direction: column;
@@ -296,8 +296,8 @@
 /* Event Screen */
 .dungeon-event-screen {
   align-items: center;
-  background: #16213e;
-  border: 2px solid #0f3460;
+  background: var(--theme-panel-bg);
+  border: 2px solid var(--theme-border);
   border-radius: 12px;
   display: flex;
   flex-direction: column;
@@ -323,7 +323,7 @@
 }
 
 .event-choice-btn {
-  background: linear-gradient(180deg, #2a2a4a, #1a1a2e);
+  background: linear-gradient(180deg, #2a2a4a, var(--theme-surface-bg));
   border: 2px solid #3498db;
   border-radius: 8px;
   color: #e0e0e0;
@@ -370,8 +370,8 @@
 /* Supply Screen */
 .dungeon-supply-screen {
   align-items: center;
-  background: #16213e;
-  border: 2px solid #0f3460;
+  background: var(--theme-panel-bg);
+  border: 2px solid var(--theme-border);
   border-radius: 12px;
   display: flex;
   flex-direction: column;

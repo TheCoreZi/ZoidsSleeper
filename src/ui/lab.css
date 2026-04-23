@@ -12,7 +12,7 @@
 
 .lab-card {
   background: none;
-  border: 1px solid #0f3460;
+  border: 1px solid var(--theme-border);
   color: inherit;
   cursor: pointer;
   font: inherit;

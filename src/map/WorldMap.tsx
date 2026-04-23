@@ -2,6 +2,8 @@ import { createSignal, For, Show, type Component } from 'solid-js';
 import { t } from '../i18n';
 import type { Landmark, Route } from '../landmark';
 import { LandmarkType, getCity, getDungeon, isLandmarkUnlocked } from '../landmark';
+import { Faction, FACTION_THEMES } from '../models/Faction';
+import { playerStats } from '../store/gameStore';
 import {
   citiesForRegion,
   currentLandmark,
@@ -113,7 +115,7 @@ const WorldMap: Component<WorldMapProps> = (props) => {
                             y1={from().y}
                             x2={to().x}
                             y2={to().y}
-                            stroke={locked() ? '#444' : isCurrent() ? '#00d4ff' : '#ffc107'}
+                            stroke={locked() ? '#444' : isCurrent() ? FACTION_THEMES[playerStats()?.faction ?? Faction.Neutral].accent : '#ffc107'}
                             stroke-width={routeStrokeWidth}
                             stroke-linecap="round"
                           />

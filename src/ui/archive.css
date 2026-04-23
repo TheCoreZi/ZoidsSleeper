@@ -1,7 +1,7 @@
 .archive-button {
   align-items: center;
-  background: #16213e;
-  border: 2px solid #0f3460;
+  background: var(--theme-panel-bg);
+  border: 2px solid var(--theme-border);
   border-radius: 50%;
   color: #e0e0e0;
   cursor: pointer;
@@ -13,8 +13,8 @@
 }
 
 .archive-button:hover {
-  border-color: #00d4ff;
-  color: #00d4ff;
+  border-color: var(--theme-accent);
+  color: var(--theme-accent);
 }
 
 .archive-button-icon {
@@ -34,8 +34,8 @@
 }
 
 .archive-panel {
-  background: #0a0a1a;
-  border: 2px solid #0f3460;
+  background: var(--theme-deep-bg);
+  border: 2px solid var(--theme-border);
   border-radius: 12px;
   max-width: 600px;
   padding: 1rem;
@@ -44,7 +44,7 @@
 
 .archive-header {
   align-items: center;
-  border-bottom: 1px solid #0f3460;
+  border-bottom: 1px solid var(--theme-border);
   display: flex;
   gap: 0.5rem;
   margin-bottom: 0.75rem;
@@ -52,7 +52,7 @@
 }
 
 .archive-title {
-  color: #00d4ff;
+  color: var(--theme-accent);
   font-size: 1.1rem;
   font-weight: bold;
 }
@@ -91,7 +91,7 @@
 
 .archive-card {
   align-items: center;
-  border: 1px solid #0f3460;
+  border: 1px solid var(--theme-border);
   border-radius: 8px;
   display: flex;
   flex-direction: column;
@@ -122,8 +122,8 @@
 }
 
 .archive-card-tooltip {
-  background: #0d1b36;
-  border: 1px solid #0f3460;
+  background: var(--theme-tooltip-bg);
+  border: 1px solid var(--theme-border);
   border-radius: 6px;
   bottom: calc(100% + 0.4rem);
   display: flex;
@@ -171,7 +171,7 @@
 }
 
 .info-section-title {
-  color: #00d4ff;
+  color: var(--theme-accent);
   font-size: 0.9rem;
   font-weight: bold;
   grid-column: 1 / -1;

@@ -12,8 +12,8 @@
 }
 
 .dialog-box {
-  background: #16213e;
-  border: 2px solid #0f3460;
+  background: var(--theme-panel-bg);
+  border: 2px solid var(--theme-border);
   border-radius: 12px;
   cursor: pointer;
   max-width: 600px;
@@ -58,7 +58,7 @@
 }
 
 .dialog-speaker {
-  color: #00d4ff;
+  color: var(--theme-accent);
   font-size: 1.1rem;
   font-weight: bold;
   margin-bottom: 0.5rem;
@@ -74,10 +74,10 @@
 
 .decision-card {
   align-items: center;
-  background: #0f3460;
-  border: 2px solid #00d4ff;
+  background: var(--theme-border);
+  border: 2px solid var(--theme-accent);
   border-radius: 6px;
-  color: #00d4ff;
+  color: var(--theme-accent);
   cursor: pointer;
   display: flex;
   flex: 1;
@@ -89,7 +89,7 @@
 }
 
 .decision-card:hover {
-  background: #1a4a8a;
+  background: var(--theme-button-hover);
 }
 
 .decision-card img {
@@ -99,7 +99,7 @@
 }
 
 .decision-card-label {
-  color: #00d4ff;
+  color: var(--theme-accent);
   font-size: 1rem;
   font-weight: bold;
   text-align: center;
@@ -124,8 +124,8 @@
 }
 
 .decision-screen {
-  background: #16213e;
-  border: 2px solid #0f3460;
+  background: var(--theme-panel-bg);
+  border: 2px solid var(--theme-border);
   border-radius: 12px;
   max-width: 600px;
   padding: 1.5rem;

@@ -67,7 +67,7 @@
 }
 
 .duel-turn-banner.player-turn {
-  color: #00d4ff;
+  color: var(--theme-accent);
 }
 
 .duel-turn-banner.enemy-turn {
@@ -335,7 +335,7 @@
 }
 
 .duel-transition-text.to-player {
-  color: #00d4ff;
+  color: var(--theme-accent);
 }
 
 .duel-transition-text.to-enemy {

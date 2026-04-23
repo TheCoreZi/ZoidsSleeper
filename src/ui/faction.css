@@ -1,7 +1,7 @@
 .faction-panel {
   align-self: flex-start;
-  background: #16213e;
-  border: 2px solid #0f3460;
+  background: var(--theme-panel-bg);
+  border: 2px solid var(--theme-border);
   border-radius: 12px;
   display: flex;
   flex-direction: column;
@@ -16,7 +16,7 @@
 }
 
 .faction-panel-title {
-  color: #00d4ff;
+  color: var(--theme-accent);
   flex: 1;
   font-size: 1rem;
   text-align: center;
@@ -45,9 +45,9 @@
 
 .faction-panel-info {
   background: none;
-  border: 1px solid #0f3460;
+  border: 1px solid var(--theme-border);
   border-radius: 50%;
-  color: #00d4ff;
+  color: var(--theme-accent);
   cursor: pointer;
   font-size: 0.75rem;
   font-weight: bold;
@@ -58,8 +58,8 @@
 }
 
 .faction-panel-info:hover {
-  border-color: #00d4ff;
-  color: #5be0ff;
+  border-color: var(--theme-accent);
+  color: var(--theme-accent-hover);
 }
 
 .faction-bonus-overlay {
@@ -75,8 +75,8 @@
 }
 
 .faction-bonus-panel {
-  background: #0a0a1a;
-  border: 2px solid #0f3460;
+  background: var(--theme-deep-bg);
+  border: 2px solid var(--theme-border);
   border-radius: 12px;
   max-width: 800px;
   padding: 1rem;
@@ -85,7 +85,7 @@
 
 .faction-bonus-header {
   align-items: center;
-  border-bottom: 1px solid #0f3460;
+  border-bottom: 1px solid var(--theme-border);
   display: flex;
   gap: 0.5rem;
   margin-bottom: 0.75rem;
@@ -93,7 +93,7 @@
 }
 
 .faction-bonus-title {
-  color: #00d4ff;
+  color: var(--theme-accent);
   flex: 1;
   font-size: 1.1rem;
   font-weight: bold;
@@ -119,13 +119,13 @@
 
 .faction-bonus-table th,
 .faction-bonus-table td {
-  border: 1px solid #0f3460;
+  border: 1px solid var(--theme-border);
   padding: 0.4rem 0.3rem;
   text-align: center;
 }
 
 .faction-bonus-table th {
-  background: #16213e;
+  background: var(--theme-panel-bg);
   color: #e0e0e0;
   font-size: 0.8rem;
   font-weight: bold;
@@ -180,8 +180,8 @@
 }
 
 .faction-bonus-table .faction-bonus-corner {
-  background: #0a0a1a;
-  border-color: #0f3460;
+  background: var(--theme-deep-bg);
+  border-color: var(--theme-border);
   position: relative;
 }
 
@@ -202,19 +202,19 @@
 }
 
 .faction-bonus-table .faction-bonus-row-header {
-  background: #16213e;
+  background: var(--theme-panel-bg);
   color: #e0e0e0;
   font-weight: bold;
   text-align: center;
 }
 
 .faction-bonus-table .faction-bonus-current-row {
-  background: rgb(0 212 255 / 10%);
+  background: rgb(var(--theme-accent-rgb) / 10%);
 }
 
 .faction-bonus-table .faction-bonus-current-row .faction-bonus-row-header {
-  background: rgb(0 212 255 / 15%);
-  color: #00d4ff;
+  background: rgb(var(--theme-accent-rgb) / 15%);
+  color: var(--theme-accent);
 }
 
 .faction-bonus-cell--positive {

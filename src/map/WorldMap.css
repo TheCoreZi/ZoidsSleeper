@@ -1,6 +1,6 @@
 .world-map {
-  background: #16213e;
-  border: 2px solid #0f3460;
+  background: var(--theme-panel-bg);
+  border: 2px solid var(--theme-border);
   border-radius: 12px;
   margin-top: 0;
   overflow: hidden;
@@ -28,7 +28,7 @@
 }
 
 .world-map-title {
-  color: #00d4ff;
+  color: var(--theme-accent);
   cursor: pointer;
   font-size: 1.1rem;
   letter-spacing: 0.1em;
@@ -39,7 +39,7 @@
 }
 
 .world-map-title:hover {
-  color: #5be0ff;
+  color: var(--theme-accent-hover);
 }
 
 .world-map-subtitle {
@@ -109,7 +109,7 @@
 }
 
 .map-route:hover {
-  filter: drop-shadow(0 0 8px #00d4ff);
+  filter: drop-shadow(0 0 8px var(--theme-accent));
 }
 
 .map-route--locked {
@@ -127,7 +127,7 @@
 
 
 .map-player-sprite {
-  filter: drop-shadow(0 0 4px #00d4ff);
+  filter: drop-shadow(0 0 4px var(--theme-accent));
   image-rendering: pixelated;
   pointer-events: none;
 }
