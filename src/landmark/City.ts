@@ -1,7 +1,7 @@
 import { CUTSCENES } from '../cutscene';
 import { type ConsumableItem, ITEMS } from '../item';
 import { PILOTS } from '../models/Pilot';
-import { COMPOUND_REQUIREMENTS, DevRequirement, ImpossibleRequirement, ItemRequirement, MissionCompletedRequirement, NpcTalkedInCampaignRequirement, PilotDefeatRequirement, RouteKillRequirement } from '../requirement';
+import { COMPOUND_REQUIREMENTS, ImpossibleRequirement, ItemRequirement, MissionCompletedRequirement, NpcTalkedInCampaignRequirement, PilotDefeatRequirement, RouteKillRequirement } from '../requirement';
 import { activateCityActionReward, itemReward, missionAdvanceReward } from '../reward';
 import { ActionDuelPilot } from './action/ActionDuelPilot';
 import { ActionFightPilot } from './action/ActionFightPilot';
@@ -23,12 +23,21 @@ const C = 'sleeper_commander';
 
 const AUTOMATIC_ACTIONS: Record<string, CityAction[]> = {
   arthur_talk_fight_decide: (() => {
-    const requirements = [new DevRequirement(), new MissionCompletedRequirement(C, 'fight_van')];
+    const requirements = [new MissionCompletedRequirement(C, 'deliver_girl')];
     const completeRequirements = [new PilotDefeatRequirement('arthur')];
     const hidden = [new ImpossibleRequirement()];
-    const decision = new ActionTalkToNPC('arthur', hidden, completeRequirements);
+    const decision = new ActionTalkToNPC('arthur', [new PilotDefeatRequirement('arthur')]);
     const fight = new ActionFightPilot(PILOTS['arthur'], hidden, completeRequirements, false, activateCityActionReward(decision));
     const intro = new ActionTalkToNPC('arthur', requirements, completeRequirements, activateCityActionReward(fight));
+    return [intro, fight, decision];
+  })(),
+  concho_talk_fight_decide: (() => {
+    const requirements = [new MissionCompletedRequirement(C, 'deliver_girl')];
+    const completeRequirements = [new PilotDefeatRequirement('concho_cancer')];
+    const hidden = [new ImpossibleRequirement()];
+    const decision = new ActionTalkToNPC('concho_cancer', [new PilotDefeatRequirement('concho_cancer')]);
+    const fight = new ActionFightPilot(PILOTS['concho_cancer'], hidden, completeRequirements, false, activateCityActionReward(decision));
+    const intro = new ActionTalkToNPC('concho_cancer', requirements, completeRequirements, activateCityActionReward(fight));
     return [intro, fight, decision];
   })(),
 };
@@ -57,7 +66,8 @@ export const CITIES: City[] = [
       new ActionTalkToNPC('rosso', [new MissionCompletedRequirement(C, 'ambush_arcobaleno')], [new MissionCompletedRequirement(C, 'rosso_confrontation')]),
       new ActionFightPilot(PILOTS['rosso'], [new MissionCompletedRequirement(C, 'rosso_confrontation')], [new PilotDefeatRequirement('rosso')], true),
       new ActionFightPilot(PILOTS['rosso'], [new PilotDefeatRequirement('rosso')], [new PilotDefeatRequirement('rosso', 2)]),
-      new ActionTalkToNPC('kara', [new MissionCompletedRequirement(C, 'fight_rosso_rematch')], [new MissionCompletedRequirement(C, 'deliver_girl')]),
+      new ActionTalkToNPC('kara', [new MissionCompletedRequirement(C, 'fight_rosso_rematch')], [new MissionCompletedRequirement(C, 'deliver_girl')], undefined, 'ui:talk_to_girl'),
+      ...AUTOMATIC_ACTIONS.concho_talk_fight_decide,
     ],
     battleBackground: BattleBackground.Desert,
     id: 'arcobaleno_camp',

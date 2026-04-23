@@ -5,6 +5,7 @@ export { CampaignCompletedRequirement } from './CampaignCompletedRequirement';
 export { ComparisonCondition, evaluateCondition } from './ComparisonCondition';
 export { CurrentMissionRequirement } from './CurrentMissionRequirement';
 export { DevRequirement } from './DevRequirement';
+export { FactionRequirement } from './FactionRequirement';
 export { COMPOUND_REQUIREMENTS } from './CompoundRequirements';
 export { ImpossibleRequirement } from './ImpossibleRequirement';
 export { ItemRequirement } from './ItemRequirement';

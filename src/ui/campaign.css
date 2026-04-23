@@ -1,9 +1,9 @@
 .campaign-panel {
   align-self: flex-start;
-  background: #16213e;
-  border: 2px solid #00d4ff;
+  background: var(--theme-panel-bg);
+  border: 2px solid var(--theme-accent);
   border-radius: 12px;
-  box-shadow: 0 0 8px rgb(0 212 255 / 30%);
+  box-shadow: 0 0 8px rgb(var(--theme-accent-rgb) / 30%);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -11,7 +11,7 @@
 }
 
 .campaign-title {
-  color: #00d4ff;
+  color: var(--theme-accent);
   font-size: 1rem;
   letter-spacing: 0.1em;
   padding: 0.75rem;
@@ -25,7 +25,7 @@
 }
 
 .campaign-entry {
-  border-top: 1px solid #0f3460;
+  border-top: 1px solid var(--theme-border);
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
@@ -46,12 +46,12 @@
 }
 
 .campaign-progress {
-  color: #00d4ff;
+  color: var(--theme-accent);
   font-size: 0.75rem;
 }
 
 .campaign-active {
-  background: rgb(0 212 255 / 5%);
+  background: rgb(var(--theme-accent-rgb) / 5%);
 }
 
 .campaign-mission-content {
@@ -61,7 +61,7 @@
 }
 
 .campaign-mission-name {
-  color: #00d4ff;
+  color: var(--theme-accent);
   font-size: 0.8rem;
   font-weight: bold;
 }
@@ -79,13 +79,13 @@
 @keyframes mission-change {
   0% {
     opacity: 0;
-    text-shadow: 0 0 8px #00d4ff;
+    text-shadow: 0 0 8px var(--theme-accent);
     transform: translateY(-4px);
   }
 
   30% {
     opacity: 1;
-    text-shadow: 0 0 12px #00d4ff, 0 0 24px rgb(0 212 255 / 40%);
+    text-shadow: 0 0 12px var(--theme-accent), 0 0 24px rgb(var(--theme-accent-rgb) / 40%);
   }
 
   100% {
@@ -101,10 +101,10 @@
 }
 
 .campaign-deploy-btn {
-  background: #0f3460;
-  border: 1px solid #00d4ff;
+  background: var(--theme-border);
+  border: 1px solid var(--theme-accent);
   border-radius: 4px;
-  color: #00d4ff;
+  color: var(--theme-accent);
   cursor: pointer;
   font-size: 0.8rem;
   font-weight: bold;
@@ -114,14 +114,13 @@
 }
 
 .campaign-deploy-btn:hover {
-  background: #1a4a8a;
+  background: var(--theme-button-hover);
 }
 
-.campaign-completed .campaign-name {
-  color: #666;
-}
-
-.campaign-status-check {
-  color: #4caf50;
-  font-size: 0.75rem;
+.campaign-empty {
+  color: #999;
+  font-size: 0.8rem;
+  font-style: italic;
+  padding: 0.75rem;
+  text-align: center;
 }

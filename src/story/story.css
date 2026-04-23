@@ -10,8 +10,8 @@
 }
 
 .intro-text {
-  background: #16213e;
-  border: 2px solid #0f3460;
+  background: var(--theme-panel-bg);
+  border: 2px solid var(--theme-border);
   border-radius: 12px;
   cursor: pointer;
   padding: 2rem;
@@ -35,7 +35,7 @@
 
 .intro-continue {
   animation: pulse 2s infinite;
-  color: #00d4ff;
+  color: var(--theme-accent);
   font-size: 0.9rem;
   margin-top: 1.5rem;
 }
@@ -44,8 +44,8 @@
 
 .starter-card {
   align-items: center;
-  background: #16213e;
-  border: 2px solid #0f3460;
+  background: var(--theme-panel-bg);
+  border: 2px solid var(--theme-border);
   border-radius: 12px;
   cursor: pointer;
   display: flex;
@@ -56,7 +56,7 @@
 }
 
 .starter-card:hover {
-  border-color: #00d4ff;
+  border-color: var(--theme-accent);
 }
 
 .starter-card img {
@@ -67,10 +67,10 @@
 
 /* stylelint-disable-next-line no-descending-specificity */
 .starter-card button {
-  background: #0f3460;
-  border: 2px solid #00d4ff;
+  background: var(--theme-border);
+  border: 2px solid var(--theme-accent);
   border-radius: 6px;
-  color: #00d4ff;
+  color: var(--theme-accent);
   cursor: pointer;
   font-weight: bold;
   margin-top: auto;
@@ -79,7 +79,7 @@
 }
 
 .starter-card button:hover {
-  background: #1a4a8a;
+  background: var(--theme-button-hover);
 }
 
 .starter-card-desc {
@@ -107,7 +107,7 @@
 }
 
 .starter-heading {
-  color: #00d4ff;
+  color: var(--theme-accent);
   font-size: 1.3rem;
   margin-bottom: 1rem;
   text-align: center;

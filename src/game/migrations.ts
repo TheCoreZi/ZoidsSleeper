@@ -7,6 +7,12 @@ export type MigrationData = Partial<SaveData> & Record<string, unknown>;
 type MigrationFn = (data: MigrationData) => void;
 
 const migrations: Record<string, MigrationFn> = {
+  '0.4.3': (data) => {
+    const stats = data.playerStats as Record<string, unknown> | undefined;
+    if (stats && !stats.faction) {
+      stats.faction = 'neutral';
+    }
+  },
   '0.4.2': (data) => {
     const campaign = data.campaigns?.['sleeper_commander'];
     if (!campaign) {return;}

@@ -25,6 +25,7 @@ import {
   battleState,
   GamePhase,
   gamePhase,
+  playerStats,
   popupMessage,
   dequeueDialog,
   setActiveDialog,
@@ -41,6 +42,7 @@ import CampaignPanel from './ui/CampaignPanel';
 import IdleLandmarkScreen from './ui/IdleLandmarkScreen';
 import PartyPanel from './ui/PartyPanel';
 import DuelBattleScreen from './ui/DuelBattleScreen';
+import FactionPanel from './ui/FactionPanel';
 import PilotBattleScreen from './ui/PilotBattleScreen';
 import SettingsMenu from './ui/SettingsMenu';
 import LabPanel from './ui/LabPanel';
@@ -203,6 +205,9 @@ const App: Component = () => {
               expanded={showParty()}
               onToggle={() => setShowParty((v) => !v)}
             />
+            <Show when={import.meta.env.DEV && playerStats()}>
+              <FactionPanel faction={playerStats()!.faction} />
+            </Show>
           </div>
           <div class="battle-column">
             <Switch fallback={<IdleLandmarkScreen />}>
@@ -247,8 +252,6 @@ const App: Component = () => {
                 <BattleScreen onClick={() => game?.battle?.clickAttack()} />
               </Match>
             </Switch>
-          </div>
-          <div class="map-column">
             <WorldMap onLocationChange={(l) => game?.changeLocation(l)} />
           </div>
           <div class="right-column">

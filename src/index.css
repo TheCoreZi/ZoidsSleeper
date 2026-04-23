@@ -1,3 +1,18 @@
+:root {
+  --theme-accent: #00d4ff;
+  --theme-accent-hover: #5be0ff;
+  --theme-accent-rgb: 0 212 255;
+  --theme-accent-subtle: #4fc3f7;
+  --theme-border: #0f3460;
+  --theme-button-bg: #0f3460;
+  --theme-button-hover: #1a4a8a;
+  --theme-deep-bg: #0a0a1a;
+  --theme-panel-bg: #16213e;
+  --theme-panel-bg-rgb: 22 33 62;
+  --theme-surface-bg: #1a1a2e;
+  --theme-tooltip-bg: #0d1b36;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -60,7 +75,7 @@ body {
 }
 
 .divider {
-  background: #0f3460;
+  background: var(--theme-border);
   height: 1px;
   margin: 0.3rem 0;
   width: 100%;
@@ -90,20 +105,28 @@ body {
   color: #f44;
 }
 
+.popup-faction {
+  border-color: var(--theme-accent);
+}
+
+.popup-faction h2 {
+  color: var(--theme-accent);
+}
+
 .popup-item {
-  border-color: #00d4ff;
+  border-color: var(--theme-accent);
 }
 
 .popup-item h2 {
-  color: #00d4ff;
+  color: var(--theme-accent);
 }
 
 .popup-mission {
-  border-color: #00d4ff;
+  border-color: var(--theme-accent);
 }
 
 .popup-mission h2 {
-  color: #00d4ff;
+  color: var(--theme-accent);
 }
 
 .popup-message h2 {
@@ -152,6 +175,7 @@ body {
 /* Main Layout */
 
 .main-layout {
+  align-items: flex-start;
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
@@ -167,22 +191,14 @@ body {
 }
 
 .battle-column {
+  display: flex;
   flex: 2;
+  flex-direction: column;
+  gap: 0.5rem;
   min-width: 0;
   position: relative;
 }
 
-.map-column {
-  display: flex;
-  justify-content: center;
-  order: 1;
-  width: 100%;
-}
-
-.map-column > * {
-  flex: 2;
-  max-width: calc(50% - 0.5rem);
-}
 
 .right-column {
   flex: 1;
@@ -190,8 +206,8 @@ body {
 
 .wallet-indicator {
   align-items: center;
-  background: rgb(22 33 62 / 90%);
-  border: 1px solid #0f3460;
+  background: rgb(var(--theme-panel-bg-rgb) / 90%);
+  border: 1px solid var(--theme-border);
   border-radius: 8px;
   display: flex;
   gap: 0.4rem;
@@ -264,17 +280,10 @@ body {
   }
 
   .battle-column {
-    max-width: 95vw;
     order: 1;
+    width: 100%;
   }
 
-  .map-column > * {
-    max-width: 100%;
-  }
-
-  .map-column {
-    order: 2;
-  }
 
   .left-column {
     order: 3;
@@ -337,7 +346,7 @@ body {
   }
 
   .battle-column {
-    max-width: 100vw;
+    width: 100%;
   }
 
   .battle-screen {

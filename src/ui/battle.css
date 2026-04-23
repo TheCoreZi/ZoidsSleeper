@@ -1,6 +1,6 @@
 .battle-screen {
-  background: #16213e;
-  border: 2px solid #0f3460;
+  background: var(--theme-panel-bg);
+  border: 2px solid var(--theme-border);
   border-radius: 12px;
   display: flex;
   flex-direction: column;
@@ -68,7 +68,7 @@
 .battle-area {
   -webkit-tap-highlight-color: transparent;
   align-items: center;
-  border: 2px dashed #0f3460;
+  border: 2px dashed var(--theme-border);
   border-radius: 8px;
   cursor: pointer;
   display: flex;
@@ -93,17 +93,17 @@
 }
 
 .battle-area:hover {
-  border-color: #00d4ff;
+  border-color: var(--theme-accent);
 }
 
 .battle-area:active {
-  border-color: #00d4ff;
+  border-color: var(--theme-accent);
 }
 
 .scan-rate {
   background: rgb(0 0 0 / 60%);
   border-radius: 4px;
-  color: #4fc3f7;
+  color: var(--theme-accent-subtle);
   font-size: 0.85rem;
   left: 50%;
   margin: 0;
@@ -170,7 +170,7 @@
 }
 
 .player-stat-value {
-  color: #00d4ff;
+  color: var(--theme-accent);
   font-size: 0.7rem;
   font-weight: bold;
 }
@@ -221,14 +221,14 @@
 }
 
 .scan-toggle-btn.scan-single {
-  background: rgb(0 80 120 / 40%);
-  border-color: #00d4ff;
+  background: rgb(var(--theme-accent-rgb) / 15%);
+  border-color: var(--theme-accent);
 }
 
 .scan-toggle-btn.scan-permanent {
-  background: rgb(0 80 120 / 50%);
-  border-color: #00d4ff;
-  box-shadow: 0 0 6px rgb(0 212 255 / 30%);
+  background: rgb(var(--theme-accent-rgb) / 35%);
+  border-color: var(--theme-accent);
+  box-shadow: 0 0 8px rgb(var(--theme-accent-rgb) / 45%);
 }
 
 .scan-toggle-count {
@@ -259,9 +259,9 @@
 }
 
 .scan-new-only-label.checked .scan-checkbox {
-  background: #00d4ff;
-  border-color: #00d4ff;
-  box-shadow: 0 0 4px rgb(0 212 255 / 40%);
+  background: var(--theme-accent);
+  border-color: var(--theme-accent);
+  box-shadow: 0 0 4px rgb(var(--theme-accent-rgb) / 40%);
 }
 
 .damage-numbers {
@@ -286,7 +286,7 @@
 }
 
 .damage-click {
-  color: #00d4ff;
+  color: var(--theme-accent);
 }
 
 @keyframes float-up {
@@ -465,10 +465,10 @@
 }
 
 .defeat-content button {
-  background: #0f3460;
-  border: 2px solid #00d4ff;
+  background: var(--theme-border);
+  border: 2px solid var(--theme-accent);
   border-radius: 6px;
-  color: #00d4ff;
+  color: var(--theme-accent);
   cursor: pointer;
   font-size: 1rem;
   font-weight: bold;
@@ -477,7 +477,7 @@
 }
 
 .defeat-content button:hover {
-  background: #1a4a8a;
+  background: var(--theme-button-hover);
 }
 
 /* City Actions */
@@ -485,6 +485,7 @@
 .city-actions {
   bottom: 1rem;
   display: flex;
+  flex-wrap: wrap;
   gap: 0.5rem;
   justify-content: center;
   left: 0;
@@ -492,11 +493,15 @@
   right: 0;
 }
 
+.city-actions > * {
+  max-width: calc((100% - 1rem) / 3);
+}
+
 .city-action-btn {
-  background: #0f3460;
-  border: 2px solid #00d4ff;
+  background: var(--theme-border);
+  border: 2px solid var(--theme-accent);
   border-radius: 6px;
-  color: #00d4ff;
+  color: var(--theme-accent);
   cursor: pointer;
   font-size: 0.8rem;
   font-weight: bold;
@@ -505,5 +510,5 @@
 }
 
 .city-action-btn:hover {
-  background: #1a4a8a;
+  background: var(--theme-button-hover);
 }

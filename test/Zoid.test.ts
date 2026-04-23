@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { Faction, FACTIONS } from '../src/models/Faction';
-import { getZoidById, spawnZoid, buildZoid, ZOID_LIST } from '../src/models/Zoid';
+import { calculatePartyAttack, calculatePartyMaxHealth, getZoidById, spawnZoid, buildZoid, ZOID_LIST } from '../src/models/Zoid';
 
 describe('Zoid', () => {
   it('should create a zoid instance with full health', () => {
@@ -32,6 +32,24 @@ describe('Zoid', () => {
     expect(zoid).toBeDefined();
     expect(zoid.attack).toBeGreaterThan(0);
     expect(zoid.maxHealth).toBeGreaterThan(0);
+  });
+
+  it('should apply faction bonus to party attack calculation', () => {
+    const party = [{ experience: 1000, id: 'shield_liger' }];
+    const neutralAttack = calculatePartyAttack(party);
+    const helicAttack = calculatePartyAttack(party, Faction.HelicRepublic);
+    const guylosAttack = calculatePartyAttack(party, Faction.GuylosEmpire);
+
+    expect(helicAttack).toBeGreaterThan(neutralAttack);
+    expect(guylosAttack).toBeLessThan(neutralAttack);
+  });
+
+  it('should apply faction bonus to party max health calculation', () => {
+    const party = [{ experience: 1000, id: 'shield_liger' }];
+    const neutralHealth = calculatePartyMaxHealth(party);
+    const helicHealth = calculatePartyMaxHealth(party, Faction.HelicRepublic);
+
+    expect(helicHealth).toBeGreaterThan(neutralHealth);
   });
 
   it('should create independent instances from the same stats', () => {

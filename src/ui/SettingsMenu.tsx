@@ -2,6 +2,7 @@ import { createSignal, For, type Component, Show, Switch, Match } from 'solid-js
 import { changeLocale, currentLocale, t } from '../i18n';
 import { Save } from '../game/Save';
 import DevCampaignTools from './DevCampaignTools';
+import DevFactionTools from './DevFactionTools';
 import './settings.css';
 
 const LANGUAGES = [
@@ -9,7 +10,7 @@ const LANGUAGES = [
   { code: 'es', flag: '🇪🇸', label: 'Español' },
 ];
 
-type MenuView = 'dev-campaign' | 'language' | 'main';
+type MenuView = 'dev' | 'language' | 'main';
 
 const SettingsMenu: Component = () => {
   const [isOpen, setIsOpen] = createSignal(false);
@@ -33,7 +34,7 @@ const SettingsMenu: Component = () => {
               <button class="settings-back" onClick={() => setView('main')}>◂</button>
             </Show>
             <span class="settings-section-title">
-              {view() === 'main' ? t('ui:settings') : view() === 'dev-campaign' ? 'Dev: Campaign' : t('ui:language')}
+              {view() === 'main' ? t('ui:settings') : view() === 'dev' ? 'Dev Tools' : t('ui:language')}
             </span>
             <button class="settings-close" onClick={close}>✕</button>
           </div>
@@ -56,9 +57,9 @@ const SettingsMenu: Component = () => {
                 {t('ui:reset_game')}
               </button>
               <Show when={import.meta.env.DEV}>
-                <button class="settings-menu-option" onClick={() => setView('dev-campaign')}>
+                <button class="settings-menu-option" onClick={() => setView('dev')}>
                   <span class="settings-menu-icon">🔧</span>
-                  Dev: Campaign
+                  Dev Tools
                 </button>
               </Show>
             </Match>
@@ -75,8 +76,10 @@ const SettingsMenu: Component = () => {
                 )}
               </For>
             </Match>
-            <Match when={view() === 'dev-campaign'}>
+            <Match when={view() === 'dev'}>
               <DevCampaignTools />
+              <div class="divider" />
+              <DevFactionTools />
             </Match>
           </Switch>
         </div>

@@ -7,6 +7,7 @@
   "current_mission": "Be on mission: {{mission}} of the operation {{campaign}}",
   "defeat_pilot": "Defeat {{name}}",
   "item_required": "Have {{count}} {{item}}",
+  "join_faction": "Join the {{name}}",
   "defeat_zoids_on_route": "Defeat {{count}} zoids on {{route}}",
   "magnis_required": "Have {{count}} Magnis",
   "only_one": "Only one of: {{hints}}",

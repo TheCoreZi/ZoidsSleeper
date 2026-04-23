@@ -18,6 +18,7 @@ export interface Mission {
 export interface Campaign {
   autoStart?: boolean;
   devOnly?: boolean;
+  hidden?: boolean;
   id: string;
   missions: Mission[];
   unlockRequirements?: Requirement[];

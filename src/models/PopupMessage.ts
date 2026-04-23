@@ -1,4 +1,4 @@
-export const PopupType = { Campaign: 'campaign', Defeat: 'defeat', Item: 'item', Mission: 'mission', Victory: 'victory' } as const;
+export const PopupType = { Campaign: 'campaign', Defeat: 'defeat', Faction: 'faction', Item: 'item', Mission: 'mission', Victory: 'victory' } as const;
 export type PopupType = (typeof PopupType)[keyof typeof PopupType];
 
 export class PopupMessage {

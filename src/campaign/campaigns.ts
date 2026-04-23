@@ -1,9 +1,26 @@
-import { AllOfRequirement, ArmySizeRequirement, CampaignCompletedRequirement, ComparisonCondition, MissionCompletedRequirement, NpcTalkedInCampaignRequirement, PilotDefeatRequirement, RouteKillRequirement, ZiDataRequirement } from '../requirement';
+import { Faction } from '../models/Faction';
+import { AllOfRequirement, ArmySizeRequirement, CampaignCompletedRequirement, ComparisonCondition, FactionRequirement, MissionCompletedRequirement, NpcTalkedInCampaignRequirement, PilotDefeatRequirement, RouteKillRequirement, ZiDataRequirement } from '../requirement';
 import { CUTSCENES } from '../cutscene';
 import { enqueueDialog } from '../store/gameStore';
 import type { Campaign } from './Campaign';
 
 export const CAMPAIGNS: Record<string, Campaign> = {
+  olympus_guylos: {
+    hidden: true,
+    id: 'olympus_guylos',
+    missions: [
+      { id: 'report_to_imperial_hq', goals: [new MissionCompletedRequirement('olympus_guylos', 'report_to_imperial_hq')] },
+    ],
+    unlockRequirements: [new FactionRequirement(Faction.GuylosEmpire)],
+  },
+  olympus_threat: {
+    hidden: true,
+    id: 'olympus_threat',
+    missions: [
+      { id: 'report_to_republican_camp', goals: [new MissionCompletedRequirement('olympus_threat', 'report_to_republican_camp')] },
+    ],
+    unlockRequirements: [new FactionRequirement(Faction.HelicRepublic)],
+  },
   shells_of_time: {
     autoStart: true,
     devOnly: true,

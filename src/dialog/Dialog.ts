@@ -29,11 +29,13 @@ export class DialogChoice {
 }
 
 export class DialogDecision {
+  readonly alertKey?: string;
   readonly choices: DialogChoice[];
   readonly portrait?: string;
   readonly questionKey: string;
 
-  constructor(questionKey: string, choices: DialogChoice[], portrait?: string) {
+  constructor(questionKey: string, choices: DialogChoice[], portrait?: string, alertKey?: string) {
+    this.alertKey = alertKey;
     this.choices = choices;
     this.portrait = portrait;
     this.questionKey = questionKey;
