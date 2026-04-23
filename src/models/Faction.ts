@@ -12,18 +12,21 @@ export type Faction = (typeof Faction)[keyof typeof Faction];
 export interface FactionData {
   color: string;
   id: Faction;
+  image: string;
 }
 
 export const FACTIONS: Record<Faction, FactionData> = {
-  [Faction.DarkArmy]: { color: '#2a942f', id: Faction.DarkArmy },
-  [Faction.GuylosEmpire]: { color: '#da1919', id: Faction.GuylosEmpire },
-  [Faction.HelicRepublic]: { color: '#3192d2', id: Faction.HelicRepublic },
-  [Faction.Neutral]: { color: '#9e9e9e', id: Faction.Neutral },
-  [Faction.NeoZenebas]: { color: '#cfd8dc', id: Faction.NeoZenebas },
-  [Faction.ZenebasEmpire]: { color: '#6e1d1d', id: Faction.ZenebasEmpire },
+  [Faction.DarkArmy]: { color: '#2a942f', id: Faction.DarkArmy, image: 'images/faction/dark_army.png' },
+  [Faction.GuylosEmpire]: { color: '#da1919', id: Faction.GuylosEmpire, image: 'images/faction/guylos.png' },
+  [Faction.HelicRepublic]: { color: '#3192d2', id: Faction.HelicRepublic, image: 'images/faction/helic.png' },
+  [Faction.Neutral]: { color: '#9e9e9e', id: Faction.Neutral, image: 'images/faction/neutral.png' },
+  [Faction.NeoZenebas]: { color: '#cfd8dc', id: Faction.NeoZenebas, image: 'images/faction/neo_zenebas.png' },
+  [Faction.ZenebasEmpire]: { color: '#6e1d1d', id: Faction.ZenebasEmpire, image: 'images/faction/zenebas.png' },
 };
 
-const FACTION_BONUS_TABLE: Record<Faction, Record<Faction, number>> = {
+export const ALL_FACTIONS: Faction[] = Object.values(Faction);
+
+export const FACTION_BONUS_TABLE: Record<Faction, Record<Faction, number>> = {
   [Faction.DarkArmy]: {
     [Faction.DarkArmy]: 1.20, [Faction.GuylosEmpire]: 1.05, [Faction.HelicRepublic]: 0.85,
     [Faction.Neutral]: 1, [Faction.NeoZenebas]: 0.85, [Faction.ZenebasEmpire]: 1.05,
