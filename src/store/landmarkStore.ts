@@ -14,16 +14,20 @@ const landmarkBackground = createMemo<string | undefined>(() => {
   return isRoute(landmark) ? undefined : `images/towns/${landmark.id}.jpg`;
 });
 
+function isVisible(landmark: Landmark): boolean {
+  return !landmark.devOnly || import.meta.env.DEV;
+}
+
 function citiesForRegion(region: Region): City[] {
-  return region.cityIds.map((id) => getCity(id)).filter((c): c is City => c !== undefined);
+  return region.cityIds.map((id) => getCity(id)).filter((c): c is City => c !== undefined && isVisible(c));
 }
 
 function dungeonsForRegion(region: Region): Dungeon[] {
-  return region.dungeonIds.map((id) => getDungeon(id)).filter((d): d is Dungeon => d !== undefined);
+  return region.dungeonIds.map((id) => getDungeon(id)).filter((d): d is Dungeon => d !== undefined && isVisible(d));
 }
 
 function routesForRegion(region: Region): Route[] {
-  return region.routeIds.map((id) => getRoute(id)).filter((r): r is Route => r !== undefined);
+  return region.routeIds.map((id) => getRoute(id)).filter((r): r is Route => r !== undefined && isVisible(r));
 }
 
 export {

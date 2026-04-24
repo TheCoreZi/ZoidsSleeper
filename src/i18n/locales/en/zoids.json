@@ -1,9 +1,20 @@
 {
+  "desc_aquadon": "A small amphibious Zoid. Weak in direct combat, but easy to train and surprisingly quick.",
+  "desc_command_wolf": "A versatile Republic wolf-type Zoid. Well-balanced stats make it reliable in any situation.",
+  "desc_dcsj": "The ultimate evolution of the Shield Liger line. Unmatched power and defense, but extremely difficult to master.",
   "desc_elephantus": "Strong and tough, but slow and hard to pilot. Only for the bravest.",
   "desc_garius": "Simple and easy to control. Few offensive weapons, but if you take good care of him he will be unstoppable.",
+  "desc_giraffsworder": "A swift Zoid with blade-like extensions. Devastating attacks, but its thin armor makes it fragile.",
   "desc_glidoler": "Fast and strong, but fragile in combat. For experienced pilots.",
   "desc_gorgodos": "A sturdy Republic Zoid with thick armor. Slow to train, but it can endure what others cannot.",
+  "desc_gunbeetle": "A sturdy insect-type Zoid with solid defenses. Not the strongest, but reliable and easy to deploy.",
+  "desc_hammerrock": "A heavy Empire Zoid that strikes with devastating force. Slow but incredibly tough.",
+  "desc_helcat": "A stealthy Empire Zoid built for ambushes. Fast and agile with sharp claws, but not very durable.",
+  "desc_hidocker": "A large transport Zoid with thick armor. Very low attack power, but it can take a beating and provides good experience.",
   "desc_red_horn": "The Empire's ultimate tank. Devastating firepower and nearly impenetrable armor, but extremely hard to master.",
   "desc_redler": "A fast aerial Zoid of the Empire. Deadly attack power, but its light frame makes it vulnerable.",
-  "desc_spiker": "A nimble Republic Zoid that's easy to train and quick to bond with. Perfect for building a strong army fast."
+  "desc_sea_panther": "An amphibious Empire Zoid designed for coastal operations. Tough and resilient, though not particularly fast.",
+  "desc_sinker": "A sleek aquatic Zoid with high firepower. Glass cannon — hits hard but breaks easily.",
+  "desc_spiker": "A nimble Republic Zoid that's easy to train and quick to bond with. Perfect for building a strong army fast.",
+  "desc_stealth_viper": "A snake-type Republic Zoid that excels at quick strikes. Fast and deadly, with moderate durability."
 }

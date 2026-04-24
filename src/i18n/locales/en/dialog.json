@@ -1,4 +1,7 @@
 {
+  "arcadia_guard": [
+    "Dr. T...? Hold it right there. Who are you and where did you hear that name? You'd better start talking, or my Zoid will do the asking."
+  ],
   "bianco_interrogation": [
     "Alright, alright! I'll talk! Just... keep that dinosaur away from me. We were hired to find a girl. We thought it could be that kid, so we took her to our boss.",
     "...you don't want to mess with him. That's all I know, I swear!"
@@ -239,6 +242,16 @@
   ],
   "arthur_decline": [
     "Hmm... I understand. Not everyone wants to follow orders, and there's nothing wrong with that. But remember: there are forces out there far more dangerous than a few bandits. If you ever change your mind, look me up. The offer stands."
+  ],
+  "dr_t_intro": [
+    "I see you've met one of the local guards. I apologize for his behavior. He's been... on edge lately.",
+    "My name is Dr. T. I'm a researcher studying Zoid evolution. You mentioned a friend's father? Tell me more.",
+    "...I see. So they're after him too. This is worse than I thought. Thank you for telling me. I'll do what I can to help."
+  ],
+  "narration_dr_t_appears": [
+    "The clash of metal echoes across the port. Merchants scatter, crates topple, and a crowd gathers around the wreckage of the battle.",
+    "Then, a voice rises above the commotion. \"That's enough! This is a port, not a battlefield.\" The guard pulls back his Zoid without a word.",
+    "Something about that soldier was off. His armor, his uniform... as if he belonged to another time entirely."
   ],
   "concho_accept": [
     "Heh. Smart kid. Get yourself to the Imperial recruitment headquarters and enlist. Tell them Concho sent you. Or don't. I don't care either way, they'll figure it out."

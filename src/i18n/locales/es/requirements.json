@@ -3,6 +3,7 @@
   "army_size_required": "Tener al menos {{count}} Zoids en el ejército",
   "at_least_one_joiner": " o ",
   "complete_campaign": "Completar operación: {{name}}",
+  "start_campaign": "Iniciar operación: {{name}}",
   "complete_mission": "Completar misión: {{mission}} de la operación {{campaign}}",
   "current_mission": "Estar en la misión: {{mission}} de la operación {{campaign}}",
   "defeat_pilot": "Derrota a {{name}}",

@@ -87,8 +87,23 @@
   background-repeat: repeat;
 }
 
+.battle-area.bg-dirt {
+  background-image: url('/images/scenario/dirt.png');
+  background-repeat: repeat;
+}
+
 .battle-area.bg-grass {
   background-image: url('/images/scenario/grass.png');
+  background-repeat: repeat;
+}
+
+.battle-area.bg-plain {
+  background-image: url('/images/scenario/plain.png');
+  background-repeat: repeat;
+}
+
+.battle-area.bg-rock {
+  background-image: url('/images/scenario/rock.png');
   background-repeat: repeat;
 }
 

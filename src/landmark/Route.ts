@@ -1,5 +1,5 @@
 import type { Drop } from '../item/Drop';
-import { MissionCompletedRequirement } from '../requirement';
+import { CampaignStartedRequirement, MissionCompletedRequirement, RouteKillRequirement } from '../requirement';
 import type { CurrencyReward } from '../models/Currency';
 import type { Landmark } from './Landmark';
 import { BattleBackground, LandmarkType } from './Landmark';
@@ -94,6 +94,41 @@ export const ROUTES: Route[] = [
     name: 'Bandit Trail',
     routeHealth: 400,
     requirements: [new MissionCompletedRequirement(CAMPAIGNS.sleeper_commander.id, 'talk_to_van_tied')],
+    type: LandmarkType.Route,
+  },
+  {
+    baseReward: { magnis: 150, zi_metal: 22 },
+    battleBackground: BattleBackground.Plain,
+    connects: ['gleam_village', 'tauros_grotto'],
+    enemies: [
+      { id: 'stealth_viper', level: 24 },
+      { id: 'gunbeetle', level: 24 },
+      { id: 'spiker', level: 24 },
+      { id: 'molga', level: 25 },
+      { id: 'malder', level: 24 },
+    ],
+    devOnly: true,
+    id: 'tauros_edge',
+    name: 'Tauros Edge',
+    routeHealth: 600,
+    requirements: [new CampaignStartedRequirement(CAMPAIGNS.shells_of_time.id)],
+    type: LandmarkType.Route,
+  },
+  {
+    baseReward: { magnis: 155, zi_metal: 22 },
+    battleBackground: BattleBackground.Dirt,
+    connects: ['tauros_grotto', 'porto_nido'],
+    enemies: [
+      { id: 'giraffsworder', level: 26 },
+      { id: 'sea_panther', level: 27 },
+      { id: 'zatton', level: 26 },
+      { id: 'gator', level: 28 },
+    ],
+    devOnly: true,
+    id: 'south_coast',
+    name: 'South Coast',
+    routeHealth: 700,
+    requirements: [new RouteKillRequirement('tauros_edge', 10)],
     type: LandmarkType.Route,
   },
 ];

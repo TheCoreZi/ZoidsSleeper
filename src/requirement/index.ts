@@ -2,6 +2,7 @@ export { AllOfRequirement } from './AllOfRequirement';
 export { ArmySizeRequirement } from './ArmySizeRequirement';
 export { AtLeastOneRequirement } from './AtLeastOneRequirement';
 export { CampaignCompletedRequirement } from './CampaignCompletedRequirement';
+export { CampaignStartedRequirement } from './CampaignStartedRequirement';
 export { ComparisonCondition, evaluateCondition } from './ComparisonCondition';
 export { CurrentMissionRequirement } from './CurrentMissionRequirement';
 export { DevRequirement } from './DevRequirement';

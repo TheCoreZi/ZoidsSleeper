@@ -21,6 +21,16 @@ export function getPilotImage(id: string): string {
 }
 
 export const PILOTS: Record<string, Pilot> = {
+  arcadia_guard: {
+    id: 'arcadia_guard',
+    magnisReward: 5000,
+    name: 'Guard',
+    zoidSets: [
+      new PilotZoidSet([
+        { attackOverride: 25, id: 'hammerrock', imageOverride: 'hammerrock_zenebas', level: 28, maxHealthOverride: 5000 },
+      ]),
+    ],
+  },
   arthur: {
     id: 'arthur',
     magnisReward: 12000,

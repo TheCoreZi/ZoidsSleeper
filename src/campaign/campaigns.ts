@@ -26,7 +26,9 @@ export const CAMPAIGNS: Record<string, Campaign> = {
     devOnly: true,
     id: 'shells_of_time',
     missions: [
-      { id: 'head_to_porto_nido', goals: [new NpcTalkedInCampaignRequirement('shells_of_time', 'girl_father')] },
+      { id: 'head_to_porto_nido', goals: [new NpcTalkedInCampaignRequirement('shells_of_time', 'arcadia_guard')] },
+      { id: 'fight_arcadia_guard', goals: [new PilotDefeatRequirement('arcadia_guard')], onComplete: () => enqueueDialog(CUTSCENES.narration_dr_t_appears.toDialogScript()) },
+      { id: 'meet_dr_t', goals: [new NpcTalkedInCampaignRequirement('shells_of_time', 'dr_t')] },
     ],
     unlockRequirements: [new CampaignCompletedRequirement('sleeper_commander')],
   },

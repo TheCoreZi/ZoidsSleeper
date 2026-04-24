@@ -2,9 +2,17 @@
   "shells_of_time": {
     "description": "Un padre investigando Zoids, un misterioso Dr T y una familia separada. Dirígete a Porto Nido para encontrar respuestas.",
     "missions": {
+      "fight_arcadia_guard": {
+        "description": "El guardia se ha puesto agresivo. Tranquilízalo venciéndolo en combate.",
+        "name": "¿Pues qué pregunté?"
+      },
       "head_to_porto_nido": {
         "description": "El padre de la niña está en Porto Nido. Ve hacia el sur para encontrarlo y advertirle sobre los perseguidores.",
         "name": "El Camino a Porto Nido"
+      },
+      "meet_dr_t": {
+        "description": "Un hombre misterioso apareció tras la pelea y calmó al guardia. Habla con él y averigua qué sabe.",
+        "name": "El Encantador de Guardias"
       }
     },
     "name": "Saliendo del Caparazón"
