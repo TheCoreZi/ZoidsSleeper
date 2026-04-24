@@ -1,7 +1,7 @@
 import { CAMPAIGNS } from '../campaign/campaigns';
 import { DungeonSortieEvent } from '../dungeon/DungeonSortieEvent';
 import { DUNGEON_EVENTS } from '../dungeon/dungeonEvents';
-import type { BossTier } from '../dungeon/DungeonSortieConfig';
+import { BossTier, PilotBossEntry, WildBossEntry } from '../dungeon/DungeonSortieConfig';
 import { DUNGEON_SUPPLIES } from '../dungeon/dungeonSupplies';
 import { ItemDrop } from '../item';
 import { MissionCompletedRequirement, PilotDefeatRequirement, RouteKillRequirement } from '../requirement';
@@ -26,10 +26,10 @@ export const DUNGEONS: Dungeon[] = [
         id: 'elmia_ruins_sortie',
         itemDrops: [new ItemDrop('core_preserver', 10)],
         bossTiers: [
-          { pilots: ['bul'] },
-          { pilots: ['bianco_nero'], requirements: [new MissionCompletedRequirement(C.id, 'find_van')] },
-          { pilots: ['bianco_nero', 'bul'], requirements: [new MissionCompletedRequirement(C.id, 'defeat_bianco_nero')] },
-        ] satisfies BossTier[],
+          new BossTier([new PilotBossEntry('bul')]),
+          new BossTier([new PilotBossEntry('bianco_nero')], [new MissionCompletedRequirement(C.id, 'find_van')]),
+          new BossTier([new PilotBossEntry('bianco_nero'), new PilotBossEntry('bul')], [new MissionCompletedRequirement(C.id, 'defeat_bianco_nero')]),
+        ],
         enemies: [
           { zoidData: { attackOverride: 1, id: 'gator', level: 14, maxHealthOverride: 80 } },
           { zoidData: { attackOverride: 1, id: 'malder', level: 12, maxHealthOverride: 100 } },
@@ -70,15 +70,16 @@ export const DUNGEONS: Dungeon[] = [
         id: 'tauros_grotto_sortie',
         itemDrops: [new ItemDrop('core_preserver', 10)],
         bossTiers: [
-          { pilots: ['arcadia_guard'] },
-        ] satisfies BossTier[],
+          new BossTier([new WildBossEntry({ id: 'sinker', level: 40, maxHealthOverride: 2000, attackOverride: 20 })]),
+        ],
         enemies: [
           { zoidData: { attackOverride: 10, id: 'gorgodos', level: 24, maxHealthOverride: 500 } },
           { zoidData: { attackOverride: 15, id: 'gunbeetle', level: 24, maxHealthOverride: 400 } },
           { zoidData: { attackOverride: 12, id: 'gator', level: 25, maxHealthOverride: 480 } },
         ],
         eliteEnemies: [
-          { zoidData: { id: 'sinker', level: 30, maxHealthOverride: 400 } },
+          { zoidData: { id: 'giraffsworder', level: 30, maxHealthOverride: 800 } },
+          { zoidData: { id: 'gunbeetle', level: 30, maxHealthOverride: 800 } },
         ],
         baseReward: { magnis: 300, zi_metal: 10 },
         entryCost: 30,

@@ -1,7 +1,6 @@
 import { createSignal, Match, onCleanup, Switch, type Component } from 'solid-js';
 import { TICK_TIME } from '../constants';
 import { GameLoop } from '../game/GameLoop';
-import { DEFAULT_PLAYER } from '../models/Player';
 import { getZoidById } from '../models/Zoid';
 import { BattleState, setBattleState } from '../store/gameStore';
 import BattleScreen from '../ui/BattleScreen';
@@ -30,7 +29,7 @@ const IntroSequence: Component<IntroSequenceProps> = (props) => {
   };
 
   const handleStartBattle = () => {
-    battle = new IntroBattle(DEFAULT_PLAYER, selectedZoidId!);
+    battle = new IntroBattle(selectedZoidId!);
     battle.onVictory = () => {
       loop?.stop();
       setBattleState(BattleState.Idle);

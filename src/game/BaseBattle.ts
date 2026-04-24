@@ -1,6 +1,5 @@
 import { BATTLE_TICK, CLICK_COOLDOWN, TICK_TIME } from '../constants';
 import { awardExperience, calculateExperienceGain } from '../models/Experience';
-import type { PlayerStats } from '../models/Player';
 import { getOwnedZoidLevel, getZoidById, type SpawnedZoid, ZoidResearchStatus } from '../models/Zoid';
 import {
   damageEvents,
@@ -27,11 +26,6 @@ export abstract class BaseBattle {
   counter = 0;
   enemy!: SpawnedZoid;
   lastClickAttack = 0;
-  playerStats: PlayerStats;
-
-  constructor(playerStats: PlayerStats) {
-    this.playerStats = playerStats;
-  }
 
   clickAttack(): void {
     const now = Date.now();

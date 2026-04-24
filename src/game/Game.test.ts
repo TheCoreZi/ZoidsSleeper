@@ -1,5 +1,6 @@
 import { afterEach, describe, expect, it } from 'vitest';
 
+import { BossTier, PilotBossEntry } from '../dungeon/DungeonSortieConfig';
 import { DungeonSortieEvent } from '../dungeon/DungeonSortieEvent';
 import { dungeonRun, endDungeon, startSortie } from '../dungeon/dungeonStore';
 import { DungeonEvent, DungeonEventChoice, HealOutcome } from '../dungeon/DungeonEventOutcome';
@@ -10,7 +11,7 @@ const DUMMY_EVENT = new DungeonEvent('e1', 'test', [new DungeonEventChoice('ok',
 
 const DUMMY_SORTIE = new DungeonSortieEvent({
   baseReward: { magnis: 100 },
-  bossTiers: [{ pilots: ['bandit1'] }],
+  bossTiers: [new BossTier([new PilotBossEntry('bandit1')])],
   eliteEnemies: [],
   enemies: [{ zoidData: { id: 'gator', level: 1 } }],
   entryCost: 0,

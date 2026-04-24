@@ -3,7 +3,8 @@ import { DungeonSortieEvent } from '../dungeon/DungeonSortieEvent';
 import '../dungeon/dungeon.css';
 import { t } from '../i18n';
 import { Currency } from '../models/Currency';
-import { getPilotImage } from '../models/Pilot';
+import type { BossPreview } from '../dungeon/DungeonSortieConfig';
+import { getZoidResearch } from '../store/zoidResearchStore';
 import type { City, CityAction } from '../landmark';
 import { ActionDuelPilot, ActionVisitDepot, ActionVisitLab, isCityActionVisible } from '../landmark';
 import { currentLandmark, landmarkBackground } from '../store/landmarkStore';
@@ -42,8 +43,12 @@ const IdleLandmarkScreen: Component = () => {
                 <div class="sortie-boss-section">
                   <span class="dungeon-boss-title">{t('dungeon:possible_bosses')}</span>
                   <For each={action().getPossibleBosses()}>
-                    {(pilotId) => (
-                      <img class="sortie-boss-img" src={getPilotImage(pilotId)} alt={pilotId} />
+                    {(preview: BossPreview) => (
+                      <img
+                        class={`sortie-boss-img${preview.isZoid && !getZoidResearch(preview.id) ? ' boss-silhouette' : ''}`}
+                        src={preview.imageUrl}
+                        alt={preview.label}
+                      />
                     )}
                   </For>
                 </div>

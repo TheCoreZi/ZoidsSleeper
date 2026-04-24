@@ -1,13 +1,12 @@
 import { BaseBattle } from '../game/BaseBattle';
 import { buildDropPool, rollDrops } from '../item/rollDrops';
 import { grantCurrencyReward } from '../store/walletStore';
-import type { PlayerStats } from '../models/Player';
 import { spawnZoid, buildZoid, getZoidById, ZoidResearchStatus } from '../models/Zoid';
 
 import { emitRewardEvent, setEnemyZoid, setPilotPlayerHealth, setPilotPlayerMaxHealth } from '../store/gameStore';
 import { resetScanAfterBattle } from '../store/scanStore';
 import { updateZoidResearch } from '../store/zoidResearchStore';
-import type { DungeonEnemy } from './DungeonSortieConfig';
+import { WildDungeonBoss, type DungeonEnemy } from './DungeonSortieConfig';
 import type { DungeonSortieEvent } from './DungeonSortieEvent';
 import { changePlayerHealth, dungeonRun, isPlayerDead } from './dungeonStore';
 import { SortieNodeType, type SortieNodeType as SortieNodeTypeValue } from './DungeonGraph';
@@ -21,8 +20,8 @@ export class DungeonBattle extends BaseBattle {
   private config: DungeonSortieEvent;
   private nodeType: SortieNodeTypeValue;
 
-  constructor(playerStats: PlayerStats, config: DungeonSortieEvent, nodeType: SortieNodeTypeValue) {
-    super(playerStats);
+  constructor(config: DungeonSortieEvent, nodeType: SortieNodeTypeValue) {
+    super();
     this.config = config;
     this.nodeType = nodeType;
     this.enemies = this.buildEnemyList(nodeType);
@@ -48,8 +47,8 @@ export class DungeonBattle extends BaseBattle {
   }
 
   protected onEnemyDefeated(): void {
-    const rewardMultiplier = this.nodeType === SortieNodeType.Elite ? 3 : 1;
-    const scanned = this.nodeType !== SortieNodeType.Boss && this.tryScan();
+    const rewardMultiplier = this.getRewardMultiplier();
+    const scanned = this.tryScan();
     const reward = grantCurrencyReward(this.config.baseReward, rewardMultiplier, scanned);
     emitRewardEvent(reward.magnis, 'magnis');
     emitRewardEvent(reward.ziMetal, 'zi_metal');
@@ -79,12 +78,27 @@ export class DungeonBattle extends BaseBattle {
     setPilotPlayerHealth(run.playerHealth);
   }
 
+  private buildBossEnemy(): DungeonEnemy[] {
+    const boss = dungeonRun()?.boss;
+    if (boss instanceof WildDungeonBoss) {return [{ zoidData: boss.zoidData }];}
+    return [];
+  }
+
   private buildEnemyList(nodeType: SortieNodeTypeValue): DungeonEnemy[] {
+    if (nodeType === SortieNodeType.Boss) {return this.buildBossEnemy();}
     const pool = nodeType === SortieNodeType.Elite ? this.config.eliteEnemies : this.config.enemies;
     const available = pool.filter((e) => e.requirement?.isCompleted() ?? true);
     const source = available.length > 0 ? available : pool.slice(0, 1);
     const count = nodeType === SortieNodeType.Elite ? randomBetween(1, 3) : 1;
     return Array.from({ length: count }, () => pickRandom(source));
+  }
+
+  private getRewardMultiplier(): number {
+    switch (this.nodeType) {
+      case SortieNodeType.Boss: return 5;
+      case SortieNodeType.Elite: return 3;
+      default: return 1;
+    }
   }
 
   private nextEnemy(): void {
