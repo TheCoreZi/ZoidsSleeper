@@ -12,7 +12,7 @@ import { getZoidResearch, loadZoidResearch } from '../src/store/zoidResearchStor
 const toughRoute: Route = {
   battleBackground: BattleBackground.Grass,
   connects: ['test-a', 'test-b'],
-  enemies: [{ id: 'molga', level: 50 }],
+  enemies: [{ blueprint: { id: 'molga', level: 50 } }],
   id: 'test-route',
   name: 'Test',
   type: LandmarkType.Route,

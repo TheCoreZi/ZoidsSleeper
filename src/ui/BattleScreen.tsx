@@ -28,7 +28,7 @@ const BattleScreen: Component<BattleScreenProps> = (props) => {
   const routeEnemies = () => {
     if (!isOnRoute()) { return []; }
     const route = currentLandmark() as Route;
-    return [...new Map(route.enemies.map((e) => [e.id, e])).values()];
+    return [...new Map(route.enemies.map((e) => [e.blueprint.id, e.blueprint])).values()];
   };
 
   return (
