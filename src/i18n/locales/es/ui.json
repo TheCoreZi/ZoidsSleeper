@@ -74,6 +74,7 @@
   "no_missions": "No tienes ninguna misión asignada.",
   "decline": "Rechazar",
   "deploy": "Desplegar",
+  "campaign_completed": "¡Campaña completada!",
   "mission_completed": "¡Misión cumplida!",
   "mission_progress": "Misión {{current}}/{{total}}",
   "new_item": "¡Nuevo objeto obtenido!",

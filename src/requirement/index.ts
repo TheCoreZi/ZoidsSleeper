@@ -19,3 +19,4 @@ export { PilotDefeatRequirement } from './PilotDefeatRequirement';
 export type { Requirement } from './Requirement';
 export { RouteKillRequirement } from './RouteKillRequirement';
 export { ZiDataRequirement } from './ZiDataRequirement';
+export { ZoidCreatedRequirement } from './ZoidCreatedRequirement';

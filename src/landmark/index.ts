@@ -14,5 +14,5 @@ export {
 } from './Landmark';
 export type { Landmark } from './Landmark';
 export { getLandmarkById, getZoidLocations } from './registry';
-export { getRoute, randomEnemy, ROUTES } from './Route';
+export { getRoute, getUnlockedEnemies, randomEnemy, ROUTES } from './Route';
 export type { Route, RouteEnemy } from './Route';

@@ -139,30 +139,40 @@ function isDevMode(): boolean {
   return import.meta.env.DEV;
 }
 
-function checkCampaigns(): void {
+function advanceCompletedMissions(): void {
   const states = campaignStates();
   for (const campaign of Object.values(campaigns)) {
     if (campaign.devOnly && !isDevMode()) {continue;}
 
     const state = states[campaign.id];
-
-    if (campaign.autoStart && (!state || state.status === CampaignStatus.Inactive)) {
-      const unlocked = campaign.unlockRequirements?.every((r) => r.isCompleted()) ?? true;
-      if (unlocked) {startCampaign(campaign.id);}
-      continue;
-    }
-
     if (!state || state.status !== CampaignStatus.Started) {continue;}
 
     const currentIndex = getMissionIndex(campaign, state.currentMission);
     const mission = campaign.missions[currentIndex];
     if (!mission) {continue;}
 
-    const allCompleted = mission.goals.every((r) => r.isCompleted());
-    if (allCompleted) {
+    if (mission.goals.every((r) => r.isCompleted())) {
       advanceMission(campaign.id);
     }
   }
+}
+
+function autoStartCampaigns(): void {
+  const states = campaignStates();
+  for (const campaign of Object.values(campaigns)) {
+    if (campaign.devOnly && !isDevMode()) {continue;}
+
+    const state = states[campaign.id];
+    if (!campaign.autoStart || (state && state.status !== CampaignStatus.Inactive)) {continue;}
+
+    const unlocked = campaign.unlockRequirements?.every((r) => r.isCompleted()) ?? true;
+    if (unlocked) {startCampaign(campaign.id);}
+  }
+}
+
+function checkCampaigns(): void {
+  advanceCompletedMissions();
+  autoStartCampaigns();
 }
 
 export {

@@ -1,5 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { CampaignStatus, type Campaign } from '../src/campaign/Campaign';
+import { PopupType } from '../src/models/PopupMessage';
 import { RouteKillRequirement } from '../src/requirement';
 import { NpcTalkedInCampaignRequirement } from '../src/requirement/NpcTalkedInCampaignRequirement';
 import {
@@ -11,6 +12,7 @@ import {
   startCampaign,
   checkCampaigns,
 } from '../src/store/campaignStore';
+import * as gameStore from '../src/store/gameStore';
 import { incrementRouteKills, loadStatistics } from '../src/store/statisticsStore';
 
 const testCampaign: Campaign = {
@@ -68,6 +70,24 @@ describe('Campaign Store', () => {
     checkCampaigns();
 
     expect(isCampaignCompleted('test_campaign')).toBe(true);
+  });
+
+  it('should show campaign completed popup with correct title', () => {
+    const spy = vi.spyOn(gameStore, 'showPopup');
+    startCampaign('test_campaign');
+    incrementRouteKills('test_route');
+    incrementRouteKills('test_route');
+    incrementRouteKills('test_route');
+    checkCampaigns();
+
+    markNpcTalked('boy');
+    checkCampaigns();
+
+    const campaignPopup = spy.mock.calls.find(([msg]) => msg.type === PopupType.Campaign);
+    expect(campaignPopup).toBeDefined();
+    expect(campaignPopup![0].title).toBe('Campaign Completed!');
+
+    spy.mockRestore();
   });
 
   it('should fire onComplete callback when mission completes', () => {

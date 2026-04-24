@@ -1,7 +1,7 @@
 import { createSignal, For, Show, type Component } from 'solid-js';
 import { getActiveScanRate } from '../game/Scan';
 import { t } from '../i18n';
-import type { Route } from '../landmark';
+import { getUnlockedEnemies, type Route } from '../landmark';
 import { getZoidImage } from '../models/Zoid';
 import { resolveProbabilities } from '../utils/probabilityRandom';
 import { enemyZoid, showClickHint } from '../store/gameStore';
@@ -36,7 +36,7 @@ const BattleScreen: Component<BattleScreenProps> = (props) => {
   const routeEnemies = () => {
     if (!isOnRoute()) { return []; }
     const route = currentLandmark() as Route;
-    const resolved = resolveProbabilities(route.enemies, (e) => e.probability);
+    const resolved = resolveProbabilities(getUnlockedEnemies(route), (e) => e.probability);
     const grouped = new Map<string, number>();
     for (const entry of resolved) {
       const id = entry.item.blueprint.id;

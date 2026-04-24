@@ -74,6 +74,7 @@
   "no_missions": "You have no assigned missions.",
   "decline": "Decline",
   "deploy": "Deploy",
+  "campaign_completed": "Campaign Completed!",
   "mission_completed": "Mission Completed!",
   "mission_progress": "Mission {{current}}/{{total}}",
   "new_item": "New Item Obtained!",
