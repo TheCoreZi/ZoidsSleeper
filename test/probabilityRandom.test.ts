@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { probabilityRandom } from '../src/utils/probabilityRandom';
+import { probabilityRandom, resolveProbabilities } from '../src/utils/probabilityRandom';
 
 interface Item { name: string; probability?: number }
 
@@ -90,5 +90,57 @@ describe('probabilityRandom', () => {
     expect(ratioC).toBeLessThan(0.05);
     expect(ratioD).toBeGreaterThan(0);
     expect(ratioD).toBeLessThan(0.05);
+  });
+});
+
+describe('resolveProbabilities', () => {
+  const getProbability = (item: Item) => item.probability;
+
+  it('should return objects with item and probability', () => {
+    const items: Item[] = [{ name: 'A' }, { name: 'B' }];
+    const result = resolveProbabilities(items, getProbability);
+    expect(result[0].item).toBe(items[0]);
+    expect(result[0]).toHaveProperty('probability');
+    expect(result[1].item).toBe(items[1]);
+  });
+
+  it('should return equal probabilities when none are set', () => {
+    const items: Item[] = [{ name: 'A' }, { name: 'B' }, { name: 'C' }];
+    const result = resolveProbabilities(items, getProbability);
+    expect(result.map((r) => r.probability)).toEqual([1 / 3, 1 / 3, 1 / 3]);
+  });
+
+  it('should split remainder among undefined items', () => {
+    const items: Item[] = [
+      { name: 'A', probability: 0.5 },
+      { name: 'B' },
+      { name: 'C' },
+    ];
+    const result = resolveProbabilities(items, getProbability);
+    expect(result[0].probability).toBeCloseTo(0.5);
+    expect(result[1].probability).toBeCloseTo(0.25);
+    expect(result[2].probability).toBeCloseTo(0.25);
+  });
+
+  it('should normalize when all probabilities are explicit', () => {
+    const items: Item[] = [
+      { name: 'A', probability: 0.6 },
+      { name: 'B', probability: 0.4 },
+    ];
+    const result = resolveProbabilities(items, getProbability);
+    expect(result[0].probability).toBeCloseTo(0.6);
+    expect(result[1].probability).toBeCloseTo(0.4);
+  });
+
+  it('should sum to 1', () => {
+    const items: Item[] = [
+      { name: 'A', probability: 0.01 },
+      { name: 'B' },
+      { name: 'C' },
+      { name: 'D' },
+    ];
+    const result = resolveProbabilities(items, getProbability);
+    const sum = result.reduce((s, r) => s + r.probability, 0);
+    expect(sum).toBeCloseTo(1);
   });
 });

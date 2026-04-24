@@ -32,6 +32,22 @@
   text-align: center;
 }
 
+.route-enemy-probability {
+  background: rgb(0 0 0 / 60%);
+  border-radius: 4px;
+  color: #e0e0e0;
+  font-size: 0.65rem;
+  padding: 0.1rem 0.3rem;
+  position: absolute;
+  right: 0.2rem;
+  top: 0.2rem;
+  z-index: 1;
+}
+
+.route-enemy-wrapper {
+  position: relative;
+}
+
 .route-label {
   color: #aaa;
   font-size: 0.85rem;
