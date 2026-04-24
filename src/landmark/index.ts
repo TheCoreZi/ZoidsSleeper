@@ -15,4 +15,4 @@ export {
 export type { Landmark } from './Landmark';
 export { getLandmarkById, getZoidLocations } from './registry';
 export { getRoute, randomEnemy, ROUTES } from './Route';
-export type { Route } from './Route';
+export type { Route, RouteEnemy } from './Route';

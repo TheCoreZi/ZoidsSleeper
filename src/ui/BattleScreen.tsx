@@ -3,6 +3,7 @@ import { getActiveScanRate } from '../game/Scan';
 import { t } from '../i18n';
 import type { Route } from '../landmark';
 import { getZoidImage } from '../models/Zoid';
+import { resolveProbabilities } from '../utils/probabilityRandom';
 import { enemyZoid, showClickHint } from '../store/gameStore';
 import { battleBackground, currentLandmark, isOnRoute } from '../store/landmarkStore';
 import { getActiveDeviceId, getActiveScanMode } from '../store/scanStore';
@@ -20,6 +21,13 @@ interface BattleScreenProps {
   onClick: () => void;
 }
 
+function formatProbability(value: number): string {
+  const percent = value * 100;
+  if (percent >= 1) { return `${Math.round(percent)}%`; }
+  const decimals = percent >= 0.1 ? 1 : 2;
+  return `${percent.toFixed(decimals)}%`;
+}
+
 const BattleScreen: Component<BattleScreenProps> = (props) => {
   const [showInfo, setShowInfo] = createSignal(false);
 
@@ -28,7 +36,13 @@ const BattleScreen: Component<BattleScreenProps> = (props) => {
   const routeEnemies = () => {
     if (!isOnRoute()) { return []; }
     const route = currentLandmark() as Route;
-    return [...new Map(route.enemies.map((e) => [e.id, e])).values()];
+    const resolved = resolveProbabilities(route.enemies, (e) => e.probability);
+    const grouped = new Map<string, number>();
+    for (const entry of resolved) {
+      const id = entry.item.blueprint.id;
+      grouped.set(id, (grouped.get(id) ?? 0) + entry.probability);
+    }
+    return [...grouped.entries()].map(([id, probability]) => ({ id, probability }));
   };
 
   return (
@@ -72,7 +86,12 @@ const BattleScreen: Component<BattleScreenProps> = (props) => {
             </div>
             <div class="archive-grid">
               <For each={routeEnemies()}>
-                {(enemy) => <ArchiveCard id={enemy.id} status={getZoidResearch(enemy.id)} />}
+                {(enemy) => (
+                  <div class="route-enemy-wrapper">
+                    <span class="route-enemy-probability">{formatProbability(enemy.probability)}</span>
+                    <ArchiveCard id={enemy.id} status={getZoidResearch(enemy.id)} />
+                  </div>
+                )}
               </For>
             </div>
           </div>

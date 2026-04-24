@@ -21,7 +21,7 @@ function buildZoidLocationMap(): Map<string, string[]> {
   };
   for (const route of ROUTES) {
     for (const enemy of route.enemies) {
-      add(enemy.id, route.id);
+      add(enemy.blueprint.id, route.id);
     }
   }
   for (const dungeon of DUNGEONS) {
