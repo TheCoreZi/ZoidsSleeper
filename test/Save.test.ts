@@ -2,7 +2,7 @@ import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { Save } from '../src/game/Save';
 import { Currency } from '../src/models/Currency';
 import { DEFAULT_PARTY, ZoidResearchStatus } from '../src/models/Zoid';
-import { loadScanSetup, ScanMode } from '../src/store/scanStore';
+import { loadScanSetup, ScanMode, toggleScanNewOnly } from '../src/store/scanStore';
 import { incrementRouteKills, loadStatistics } from '../src/store/statisticsStore';
 import { addCurrency, loadWallet } from '../src/store/walletStore';
 import { loadZoidResearch, updateZoidResearch } from '../src/store/zoidResearchStore';
@@ -64,13 +64,24 @@ describe('Save', () => {
   });
 
   it('should persist scan setup', () => {
-    loadScanSetup({ deviceId: 'core_preserver', mode: ScanMode.Permanent });
+    loadScanSetup({ deviceId: 'core_preserver', mode: ScanMode.Permanent, newOnly: false });
     const save = new Save();
 
     save.store();
     const loaded = save.load();
 
-    expect(loaded?.scanSetup).toEqual({ deviceId: 'core_preserver', mode: ScanMode.Permanent });
+    expect(loaded?.scanSetup).toEqual({ deviceId: 'core_preserver', mode: ScanMode.Permanent, newOnly: false });
+  });
+
+  it('should persist scan new only', () => {
+    loadScanSetup({ deviceId: 'core_preserver', mode: ScanMode.Permanent, newOnly: false });
+    toggleScanNewOnly();
+    const save = new Save();
+
+    save.store();
+    const loaded = save.load();
+
+    expect(loaded?.scanSetup?.newOnly).toBe(true);
   });
 
   it('should persist route kills', () => {

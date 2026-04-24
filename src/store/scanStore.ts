@@ -6,10 +6,10 @@ export type ScanMode = (typeof ScanMode)[keyof typeof ScanMode];
 export interface ActiveScan {
   deviceId: string;
   mode: ScanMode;
+  newOnly: boolean;
 }
 
 const [activeScan, setActiveScan] = createSignal<ActiveScan | null>(null);
-const [scanNewOnly, setScanNewOnly] = createSignal(false);
 
 function getActiveDeviceId(): string | null {
   return activeScan()?.deviceId ?? null;
@@ -20,7 +20,7 @@ function getActiveScanMode(): ScanMode {
 }
 
 function loadScanSetup(data: ActiveScan): void {
-  setActiveScan(data);
+  setActiveScan({ ...data, newOnly: data.newOnly ?? false });
 }
 
 function resetScanAfterBattle(): void {
@@ -31,19 +31,25 @@ function resetScanAfterBattle(): void {
   }
 }
 
+function scanNewOnly(): boolean {
+  return activeScan()?.newOnly ?? false;
+}
+
 function toggleScanNewOnly(): void {
-  setScanNewOnly((prev) => !prev);
+  const current = activeScan();
+  if (!current) {return;}
+  setActiveScan({ ...current, newOnly: !current.newOnly });
 }
 
 function toggleScan(deviceId: string): void {
   const current = activeScan();
   if (!current || current.deviceId !== deviceId) {
-    setActiveScan({ deviceId, mode: ScanMode.Single });
+    setActiveScan({ deviceId, mode: ScanMode.Single, newOnly: current?.newOnly ?? false });
     return;
   }
   switch (current.mode) {
     case ScanMode.Single:
-      setActiveScan({ deviceId, mode: ScanMode.Permanent });
+      setActiveScan({ ...current, mode: ScanMode.Permanent });
       break;
     case ScanMode.Permanent:
       setActiveScan(null);

@@ -9,6 +9,7 @@ describe('scanStore', () => {
     });
 
     it('toggles to true and back', () => {
+      loadScanSetup({ deviceId: 'core_preserver', mode: ScanMode.Permanent, newOnly: false });
       toggleScanNewOnly();
       expect(scanNewOnly()).toBe(true);
       toggleScanNewOnly();
@@ -18,15 +19,15 @@ describe('scanStore', () => {
 
   describe('loadScanSetup', () => {
     it('restores active scan from saved data', () => {
-      loadScanSetup({ deviceId: 'core_preserver', mode: ScanMode.Permanent });
+      loadScanSetup({ deviceId: 'core_preserver', mode: ScanMode.Permanent, newOnly: false });
 
-      expect(activeScan()).toEqual({ deviceId: 'core_preserver', mode: ScanMode.Permanent });
+      expect(activeScan()).toEqual({ deviceId: 'core_preserver', mode: ScanMode.Permanent, newOnly: false });
     });
   });
 
   describe('resetScanAfterBattle', () => {
     it('clears single mode after battle', () => {
-      loadScanSetup({ deviceId: 'core_preserver', mode: ScanMode.Single });
+      loadScanSetup({ deviceId: 'core_preserver', mode: ScanMode.Single, newOnly: false });
 
       resetScanAfterBattle();
 
@@ -34,11 +35,11 @@ describe('scanStore', () => {
     });
 
     it('keeps permanent mode after battle even without stock', () => {
-      loadScanSetup({ deviceId: 'core_preserver', mode: ScanMode.Permanent });
+      loadScanSetup({ deviceId: 'core_preserver', mode: ScanMode.Permanent, newOnly: false });
 
       resetScanAfterBattle();
 
-      expect(activeScan()).toEqual({ deviceId: 'core_preserver', mode: ScanMode.Permanent });
+      expect(activeScan()).toEqual({ deviceId: 'core_preserver', mode: ScanMode.Permanent, newOnly: false });
     });
   });
 });
