@@ -1,7 +1,7 @@
 import { CUTSCENES } from '../cutscene';
 import { type ConsumableItem, ITEMS } from '../item';
 import { PILOTS } from '../models/Pilot';
-import { COMPOUND_REQUIREMENTS, ImpossibleRequirement, ItemRequirement, MissionCompletedRequirement, NpcTalkedInCampaignRequirement, PilotDefeatRequirement, RouteKillRequirement } from '../requirement';
+import { COMPOUND_REQUIREMENTS, DevRequirement, ImpossibleRequirement, ItemRequirement, MissionCompletedRequirement, NpcTalkedInCampaignRequirement, PilotDefeatRequirement, RouteKillRequirement } from '../requirement';
 import { activateCityActionReward, itemReward, missionAdvanceReward } from '../reward';
 import { ActionDuelPilot } from './action/ActionDuelPilot';
 import { ActionFightPilot } from './action/ActionFightPilot';
@@ -24,7 +24,7 @@ const S = 'shells_of_time';
 
 const AUTOMATIC_ACTIONS: Record<string, CityAction[]> = {
   arthur_talk_fight_decide: (() => {
-    const requirements = [new MissionCompletedRequirement(C, 'deliver_girl')];
+    const requirements = [new DevRequirement(), new MissionCompletedRequirement(C, 'deliver_girl')];
     const completeRequirements = [new PilotDefeatRequirement('arthur')];
     const hidden = [new ImpossibleRequirement()];
     const decision = new ActionTalkToNPC('arthur', [new PilotDefeatRequirement('arthur')]);
@@ -33,7 +33,7 @@ const AUTOMATIC_ACTIONS: Record<string, CityAction[]> = {
     return [intro, fight, decision];
   })(),
   concho_talk_fight_decide: (() => {
-    const requirements = [new MissionCompletedRequirement(C, 'deliver_girl')];
+    const requirements = [new DevRequirement(), new MissionCompletedRequirement(C, 'deliver_girl')];
     const completeRequirements = [new PilotDefeatRequirement('concho_cancer')];
     const hidden = [new ImpossibleRequirement()];
     const decision = new ActionTalkToNPC('concho_cancer', [new PilotDefeatRequirement('concho_cancer')]);
