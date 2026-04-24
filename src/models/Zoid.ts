@@ -59,7 +59,7 @@ export const ZOID_LIST: Record<string, ZoidSpecies> = {
   elephantus: { id: 'elephantus', name: 'Elephantus', attack: 100, maxHealth: 200, baseExp: 15, scanRate: -1, price: 50000, faction: Faction.HelicRepublic, levelType: LevelType.MediumSlow },
   garius: { id: 'garius', name: 'Garius', attack: 50, maxHealth: 100, baseExp: 10, scanRate: -1, price: 2000, faction: Faction.HelicRepublic, levelType: LevelType.Fast },
   gator: { id: 'gator', name: 'Gator', attack: 150, maxHealth: 200, baseExp: 35, scanRate: 60, price: 4000, faction: Faction.GuylosEmpire, levelType: LevelType.MediumFast },
-  giraffsworder: { id: 'giraffsworder', name: 'Giraffsworder', attack: 180, maxHealth: 150, baseExp: 35, scanRate: 40, price: 5000, faction: Faction.Neutral, levelType: LevelType.Fast },
+  giraffsworder: { id: 'giraffsworder', name: 'Girafsworder', attack: 180, maxHealth: 150, baseExp: 35, scanRate: 40, price: 5000, faction: Faction.Neutral, levelType: LevelType.Fast },
   glidoler: { id: 'glidoler', name: 'Glidoler', attack: 100, maxHealth: 40, baseExp: 10, scanRate: -1, price: 2000, faction: Faction.HelicRepublic, levelType: LevelType.MediumFast },
   gorgodos: { id: 'gorgodos', name: 'Gorgodos', attack: 140, maxHealth: 400, baseExp: 50, scanRate: 20, price: 12000, faction: Faction.HelicRepublic, levelType: LevelType.Slow },
   gunbeetle: { id: 'gunbeetle', name: 'Gunbeetle', attack: 120, maxHealth: 200, baseExp: 35, scanRate: 40, price: 5000, faction: Faction.Neutral, levelType: LevelType.Fast },

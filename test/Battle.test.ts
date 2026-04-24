@@ -26,7 +26,7 @@ describe('Battle', () => {
   });
 
   it('should not deal auto-damage with empty party', () => {
-    const battle = new Battle(DEFAULT_PLAYER, toughRoute);
+    const battle = new Battle(toughRoute);
     const initialHealth = battle.enemy.health;
     const ticksNeeded = BATTLE_TICK / TICK_TIME;
 
@@ -39,7 +39,7 @@ describe('Battle', () => {
   });
 
   it('should auto-attack after accumulating BATTLE_TICK', () => {
-    const battle = new Battle(DEFAULT_PLAYER, toughRoute);
+    const battle = new Battle(toughRoute);
     const initialHealth = battle.enemy.health;
     const ticksNeeded = BATTLE_TICK / TICK_TIME;
 
@@ -51,7 +51,7 @@ describe('Battle', () => {
   });
 
   it('should not auto-attack before BATTLE_TICK', () => {
-    const battle = new Battle(DEFAULT_PLAYER, toughRoute);
+    const battle = new Battle(toughRoute);
     const initialHealth = battle.enemy.health;
     const ticksNeeded = BATTLE_TICK / TICK_TIME;
 
@@ -63,7 +63,7 @@ describe('Battle', () => {
   });
 
   it('should deal click damage using player click attack', () => {
-    const battle = new Battle(DEFAULT_PLAYER, toughRoute);
+    const battle = new Battle(toughRoute);
     const initialHealth = battle.enemy.health;
 
     battle.clickAttack();
@@ -72,7 +72,7 @@ describe('Battle', () => {
   });
 
   it('should rate-limit click attacks', () => {
-    const battle = new Battle(DEFAULT_PLAYER, toughRoute);
+    const battle = new Battle(toughRoute);
     const initialHealth = battle.enemy.health;
 
     battle.clickAttack();
@@ -82,7 +82,7 @@ describe('Battle', () => {
   });
 
   it('should calculate click and auto damage independently', () => {
-    const battle = new Battle(DEFAULT_PLAYER, toughRoute);
+    const battle = new Battle(toughRoute);
     const initialHealth = battle.enemy.health;
 
     battle.clickAttack();
@@ -97,7 +97,7 @@ describe('Battle', () => {
   });
 
   it('should auto-spawn new enemy when enemy health reaches 0', () => {
-    const battle = new Battle(DEFAULT_PLAYER, ROUTES[0]);
+    const battle = new Battle(ROUTES[0]);
     battle.enemy.health = 1;
 
     battle.clickAttack();
@@ -106,7 +106,7 @@ describe('Battle', () => {
   });
 
   it('should spawn enemy with full health', () => {
-    const battle = new Battle(DEFAULT_PLAYER, ROUTES[0]);
+    const battle = new Battle(ROUTES[0]);
 
     battle.spawnEnemy();
 
@@ -115,13 +115,13 @@ describe('Battle', () => {
   });
 
   it('should mark enemy zoid as seen on construction', () => {
-    const battle = new Battle(DEFAULT_PLAYER, ROUTES[0]);
+    const battle = new Battle(ROUTES[0]);
 
     expect(getZoidResearch(battle.enemy.id)).toBe(ZoidResearchStatus.Seen);
   });
 
   it('should mark enemy zoid as seen on spawn', () => {
-    const battle = new Battle(DEFAULT_PLAYER, ROUTES[0]);
+    const battle = new Battle(ROUTES[0]);
     loadZoidResearch({});
 
     battle.spawnEnemy();
@@ -130,7 +130,7 @@ describe('Battle', () => {
   });
 
   it('should increment route kills when enemy is defeated', () => {
-    const battle = new Battle(DEFAULT_PLAYER, ROUTES[0]);
+    const battle = new Battle(ROUTES[0]);
     battle.enemy.health = 1;
 
     battle.clickAttack();

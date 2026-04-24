@@ -1,6 +1,7 @@
 import { TICK_TIME } from '../constants';
 import { CAMPAIGNS } from '../campaign/campaigns';
 import { DungeonBattle } from '../dungeon/DungeonBattle';
+import { PilotDungeonBoss, WildDungeonBoss } from '../dungeon/DungeonSortieConfig';
 import { DungeonSortieEvent } from '../dungeon/DungeonSortieEvent';
 import {
   advanceLayer,
@@ -50,6 +51,7 @@ import {
   setDuelState,
   showPopup,
   setRewardEvents,
+  playerStats,
 } from '../store/gameStore';
 import { setCurrentLandmark } from '../store/landmarkStore';
 import { addZoidToArmy, partyMaxHealth, setParty } from '../store/partyStore';
@@ -153,7 +155,7 @@ export class Game {
   }
 
   enterDuelBattle(pilot: Pilot): void {
-    const battle = new DuelBattle(DEFAULT_PLAYER, pilot);
+    const battle = new DuelBattle(playerStats()!, pilot);
     battle.onDefeat = () => {
       this.endDuelBattle(new PopupMessage(t('ui:not_strong_enough', { name: t(`pilots:${pilot.id}`) }), t('ui:defeated'), PopupType.Defeat));
     };
@@ -168,7 +170,7 @@ export class Game {
   }
 
   enterPilotBattle(pilot: Pilot, unwinnable = false, reward?: Reward): void {
-    const battle = new PilotBattle(DEFAULT_PLAYER, pilot);
+    const battle = new PilotBattle(playerStats()!, pilot);
     battle.onDefeat = () => {
       if (unwinnable) {
         incrementPilotDefeats(pilot.id);
@@ -294,17 +296,21 @@ export class Game {
   private startDungeonBoss(): void {
     const run = dungeonRun();
     if (!run) {return;}
-    const boss = run.bossPilot;
-    const battle = new PilotBattle(
-      DEFAULT_PLAYER,
-      boss,
-      run.playerHealth,
-      run.playerMaxHealth
-    );
+    const boss = run.boss;
+    if (boss instanceof PilotDungeonBoss) {
+      this.startPilotDungeonBoss(boss, run.playerHealth, run.playerMaxHealth);
+    } else if (boss instanceof WildDungeonBoss) {
+      this.startWildDungeonBoss(run.config);
+    }
+  }
+
+  private startPilotDungeonBoss(boss: PilotDungeonBoss, playerHealth: number, playerMaxHealth: number): void {
+    const { pilot } = boss;
+    const battle = new PilotBattle(playerStats()!, pilot, playerHealth, playerMaxHealth);
     battle.onVictory = () => {
-      addCurrency(Currency.Magnis, boss.magnisReward);
-      emitRewardEvent(boss.magnisReward, 'magnis');
-      incrementPilotDefeats(boss.id);
+      addCurrency(Currency.Magnis, pilot.magnisReward);
+      emitRewardEvent(pilot.magnisReward, 'magnis');
+      incrementPilotDefeats(pilot.id);
       this.completeDungeonNode();
     };
     battle.onDefeat = () => {
@@ -315,8 +321,19 @@ export class Game {
     setDungeonPhase(DungeonPhase.Boss);
   }
 
+  private startWildDungeonBoss(config: DungeonSortieEvent): void {
+    const battle = new DungeonBattle(config, SortieNodeType.Boss);
+    battle.onNodeComplete = () => this.completeDungeonNode();
+    battle.onDefeat = () => {
+      this.endDungeonRun(false);
+    };
+    this.battle = battle;
+    setBattleState(BattleState.DungeonCombat);
+    setDungeonPhase(DungeonPhase.Boss);
+  }
+
   private startDungeonCombat(config: DungeonSortieEvent, nodeType: SortieNodeType): void {
-    const battle = new DungeonBattle(DEFAULT_PLAYER, config, nodeType);
+    const battle = new DungeonBattle(config, nodeType);
     battle.onNodeComplete = () => this.completeDungeonNode();
     battle.onDefeat = () => {
       this.endDungeonRun(false);
@@ -327,7 +344,7 @@ export class Game {
   }
 
   private startBattle(route: Route): void {
-    this.battle = new Battle(DEFAULT_PLAYER, route);
+    this.battle = new Battle(route);
     setBattleState(BattleState.WildCombat);
   }
 

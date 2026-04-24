@@ -24,7 +24,7 @@ export class PilotBattle extends BaseBattle {
   zoids: ZoidBlueprint[];
 
   constructor(playerStats: PlayerStats, pilot: Pilot, initialHealth?: number, initialMaxHealth?: number) {
-    super(playerStats);
+    super();
     this.pilot = pilot;
     this.zoids = getActiveZoids(pilot);
     this.playerMaxHealth = initialMaxHealth ?? (playerStats.baseHealth + partyMaxHealth());

@@ -63,7 +63,7 @@ export class DuelBattle extends BaseBattle {
   enemyZoids: ZoidBlueprint[];
 
   constructor(playerStats: PlayerStats, pilot: Pilot) {
-    super(playerStats);
+    super();
     this.pilot = pilot;
     this.enemyZoids = getActiveZoids(pilot);
     this.playerZoid = findStrongestZoid();

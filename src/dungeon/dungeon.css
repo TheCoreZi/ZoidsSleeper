@@ -222,6 +222,10 @@
   width: 32px;
 }
 
+.boss-silhouette {
+  filter: brightness(0) drop-shadow(0 0 3px rgb(233 69 96 / 60%));
+}
+
 /* Buff stats */
 .dungeon-buffs {
   display: flex;
@@ -491,11 +495,11 @@
 }
 
 .sortie-boss-img {
-  height: 32px;
+  height: 40px;
   image-rendering: pixelated;
   object-fit: contain;
   opacity: 0.8;
-  width: 32px;
+  width: 40px;
 }
 
 .sortie-boss-previews {
@@ -506,9 +510,12 @@
 
 .sortie-boss-section {
   align-items: center;
+  background: rgb(0 0 0 / 60%);
+  border-radius: 6px;
   display: flex;
   gap: 0.4rem;
   margin-top: 0.5rem;
+  padding: 0.3rem 0.6rem;
 }
 
 .sortie-btn:disabled {

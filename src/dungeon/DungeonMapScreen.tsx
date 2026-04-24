@@ -1,11 +1,11 @@
 import { type Component, createEffect, createMemo, createSignal, For, Show } from 'solid-js';
 import { t } from '../i18n';
-import { getPilotImage } from '../models/Pilot';
 import { playerStats } from '../store/gameStore';
 import { landmarkBackground } from '../store/landmarkStore';
 import { getZoidResearch } from '../store/zoidResearchStore';
 import { ArchiveCard } from '../ui/ZiArchivePanel';
 import '../ui/archive.css';
+import type { BossPreview } from './DungeonSortieConfig';
 import { type SortieNode, SortieNodeType } from './DungeonGraph';
 import { type DungeonRunState, dungeonRun, isLayerAdvancing, setIsLayerAdvancing } from './dungeonStore';
 import './dungeon.css';
@@ -259,11 +259,11 @@ const DungeonMapScreen: Component<Props> = (props) => {
           <span class="dungeon-boss-title">{t('dungeon:possible_bosses')}</span>
           <div class="dungeon-boss-images">
             <For each={possibleBosses()}>
-              {(pilotId) => (
+              {(preview: BossPreview) => (
                 <img
-                  class="dungeon-boss-preview"
-                  src={getPilotImage(pilotId)}
-                  alt={pilotId}
+                  class={`dungeon-boss-preview${preview.isZoid && !getZoidResearch(preview.id) ? ' boss-silhouette' : ''}`}
+                  src={preview.imageUrl}
+                  alt={preview.label}
                 />
               )}
             </For>

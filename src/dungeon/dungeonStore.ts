@@ -1,6 +1,6 @@
 import { createMemo, createSignal } from 'solid-js';
-import type { Pilot } from '../models/Pilot';
 import { emitRewardEvent, setPlayerStats } from '../store/gameStore';
+import type { DungeonBoss } from './DungeonSortieConfig';
 import { Currency } from '../models/Currency';
 import { addCurrency } from '../store/walletStore';
 import type { DungeonSortieEvent } from './DungeonSortieEvent';
@@ -22,7 +22,7 @@ export const DungeonPhase = {
 export type DungeonPhase = (typeof DungeonPhase)[keyof typeof DungeonPhase];
 
 export interface DungeonRunState {
-  bossPilot: Pilot;
+  boss: DungeonBoss;
   config: DungeonSortieEvent;
   currentDepth: number;
   currentNodeId: string | null;
@@ -153,7 +153,7 @@ function startSortie(config: DungeonSortieEvent, playerHealth: number, playerMax
   resetBuffs();
   const graph = generateSortie({ layers: config.layers, nodesPerLayer: config.nodesPerLayer });
   setDungeonRun({
-    bossPilot: config.resolveBoss(),
+    boss: config.resolveBoss(),
     config,
     currentDepth: 1,
     currentNodeId: null,
