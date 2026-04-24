@@ -108,6 +108,11 @@
   background-repeat: repeat;
 }
 
+.battle-area.bg-forest {
+  background-image: url('/images/scenario/forest.png');
+  background-repeat: repeat;
+}
+
 .battle-area.bg-grass {
   background-image: url('/images/scenario/grass.png');
   background-repeat: repeat;
@@ -120,6 +125,11 @@
 
 .battle-area.bg-rock {
   background-image: url('/images/scenario/rock.png');
+  background-repeat: repeat;
+}
+
+.battle-area.bg-ruin {
+  background-image: url('/images/scenario/ruin.png');
   background-repeat: repeat;
 }
 

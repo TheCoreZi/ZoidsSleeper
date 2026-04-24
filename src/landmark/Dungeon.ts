@@ -4,7 +4,7 @@ import { DUNGEON_EVENTS } from '../dungeon/dungeonEvents';
 import { BossTier, PilotBossEntry, WildBossEntry } from '../dungeon/DungeonSortieConfig';
 import { DUNGEON_SUPPLIES } from '../dungeon/dungeonSupplies';
 import { ItemDrop } from '../item';
-import { MissionCompletedRequirement, PilotDefeatRequirement, RouteKillRequirement } from '../requirement';
+import { MissionCompletedRequirement, PilotDefeatRequirement, RouteKillRequirement, ZoidCreatedRequirement } from '../requirement';
 import { cutsceneReward } from '../reward';
 import { ActionTalkToNPC } from './action/ActionTalkToNPC';
 import type { CityAction } from './action/CityAction';
@@ -29,6 +29,7 @@ export const DUNGEONS: Dungeon[] = [
           new BossTier([new PilotBossEntry('bul')]),
           new BossTier([new PilotBossEntry('bianco_nero')], [new MissionCompletedRequirement(C.id, 'find_van')]),
           new BossTier([new PilotBossEntry('bianco_nero'), new PilotBossEntry('bul')], [new MissionCompletedRequirement(C.id, 'defeat_bianco_nero')]),
+          new BossTier([new PilotBossEntry('bianco_nero'), new PilotBossEntry('bul'), new WildBossEntry({id:'glidoler', level:40, maxHealthOverride: 4000, attackOverride: 30})], [new MissionCompletedRequirement(C.id, 'defeat_bianco_nero'), new ZoidCreatedRequirement('glidoler')]),
         ],
         enemies: [
           { zoidData: { attackOverride: 1, id: 'gator', level: 14, maxHealthOverride: 80 } },
@@ -71,6 +72,7 @@ export const DUNGEONS: Dungeon[] = [
         itemDrops: [new ItemDrop('core_preserver', 10)],
         bossTiers: [
           new BossTier([new WildBossEntry({ id: 'sinker', level: 40, maxHealthOverride: 2000, attackOverride: 20 })]),
+          new BossTier([new WildBossEntry({ id: 'sinker', level: 40, maxHealthOverride: 2000, attackOverride: 20 }), new WildBossEntry({ id: 'elephantus', level: 24, maxHealthOverride: 2000 })], [new ZoidCreatedRequirement('elephantus')]),
         ],
         enemies: [
           { zoidData: { attackOverride: 10, id: 'gorgodos', level: 24, maxHealthOverride: 500 } },

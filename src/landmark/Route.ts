@@ -62,7 +62,6 @@ export const ROUTES: Route[] = [
     connects: ['wind_colony', 'elmia_ruins'],
     enemies: [
       { blueprint: { id: 'gator', level: 14 } },
-      { blueprint: { id: 'glidoler', level: 12, maxHealthOverride: 1000 }, probability:.05, unlockRequirement: new ZoidCreatedRequirement('glidoler') },
       { blueprint: { id: 'malder', level: 12 } },
       { blueprint: { id: 'merda', level: 12 } },
       { blueprint: { id: 'molga', level: 14 } },
@@ -111,7 +110,6 @@ export const ROUTES: Route[] = [
     battleBackground: BattleBackground.Plain,
     connects: ['gleam_village', 'tauros_grotto'],
     enemies: [
-      { blueprint: { id: 'elephantus', level: 24, maxHealthOverride: 2000 }, probability:.05, unlockRequirement: new ZoidCreatedRequirement('elephantus') },
       { blueprint: { id: 'stealth_viper', level: 24 } },
       { blueprint: { id: 'gunbeetle', level: 24 } },
       { blueprint: { id: 'spiker', level: 24 } },
