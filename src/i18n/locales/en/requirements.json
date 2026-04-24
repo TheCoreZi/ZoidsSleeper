@@ -13,5 +13,6 @@
   "magnis_required": "Have {{count}} Magnis",
   "only_one": "Only one of: {{hints}}",
   "talk_to_npc": "Talk to {{name}}",
-  "zi_data_required": "Have at least {{count}} Zi-Data"
+  "zi_data_required": "Have at least {{count}} Zi-Data",
+  "zoid_created": "Deploy one {{zoid}}"
 }

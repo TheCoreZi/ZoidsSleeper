@@ -1,5 +1,6 @@
 import type { Drop } from '../item/Drop';
-import { CampaignStartedRequirement, MissionCompletedRequirement, RouteKillRequirement } from '../requirement';
+import type { Requirement } from '../requirement';
+import { CampaignStartedRequirement, MissionCompletedRequirement, RouteKillRequirement, ZoidCreatedRequirement } from '../requirement';
 import type { CurrencyReward } from '../models/Currency';
 import type { Landmark } from './Landmark';
 import { BattleBackground, LandmarkType } from './Landmark';
@@ -10,6 +11,7 @@ import { CAMPAIGNS } from '../campaign/campaigns';
 export interface RouteEnemy {
   blueprint: ZoidBlueprint;
   probability?: number;
+  unlockRequirement?: Requirement;
 }
 
 export interface Route extends Landmark {
@@ -41,6 +43,7 @@ export const ROUTES: Route[] = [
     battleBackground: BattleBackground.Desert,
     connects: ['abandoned_camp', 'wind_colony'],
     enemies: [
+      { blueprint: { id: 'garius', level: 8, maxHealthOverride: 1000 }, probability:.05, unlockRequirement: new ZoidCreatedRequirement('garius') },
       { blueprint: { id: 'merda', level: 8 } },
       { blueprint: { id: 'gator', level: 8 } },
       { blueprint: { id: 'malder', level: 8 } },
@@ -59,6 +62,7 @@ export const ROUTES: Route[] = [
     connects: ['wind_colony', 'elmia_ruins'],
     enemies: [
       { blueprint: { id: 'gator', level: 14 } },
+      { blueprint: { id: 'glidoler', level: 12, maxHealthOverride: 1000 }, probability:.05, unlockRequirement: new ZoidCreatedRequirement('glidoler') },
       { blueprint: { id: 'malder', level: 12 } },
       { blueprint: { id: 'merda', level: 12 } },
       { blueprint: { id: 'molga', level: 14 } },
@@ -107,6 +111,7 @@ export const ROUTES: Route[] = [
     battleBackground: BattleBackground.Plain,
     connects: ['gleam_village', 'tauros_grotto'],
     enemies: [
+      { blueprint: { id: 'elephantus', level: 24, maxHealthOverride: 2000 }, probability:.05, unlockRequirement: new ZoidCreatedRequirement('elephantus') },
       { blueprint: { id: 'stealth_viper', level: 24 } },
       { blueprint: { id: 'gunbeetle', level: 24 } },
       { blueprint: { id: 'spiker', level: 24 } },
@@ -143,11 +148,17 @@ export function getRoute(id: string): Route | undefined {
   return ROUTES.find((r) => r.id === id);
 }
 
+export function getUnlockedEnemies(route: Route): RouteEnemy[] {
+  return route.enemies.filter((e) => e.unlockRequirement?.isCompleted() ?? true);
+}
+
 export function randomEnemy(route: Route): CustomizedZoid {
-  const enemy = probabilityRandom(route.enemies, (e) => e.probability);
+  const enemies = getUnlockedEnemies(route);
+  const enemy = probabilityRandom(enemies, (e) => e.probability);
   const ref = enemy.blueprint;
   const stats = buildZoid(ref);
+  if (ref.maxHealthOverride) { return stats; }
   const baseHp = getZoidById(ref.id).maxHealth;
-  const avgHp = route.enemies.reduce((sum, e) => sum + getZoidById(e.blueprint.id).maxHealth, 0) / route.enemies.length;
+  const avgHp = enemies.reduce((sum, e) => sum + getZoidById(e.blueprint.id).maxHealth, 0) / enemies.length;
   return { ...stats, maxHealth: Math.max(1, Math.round(route.routeHealth * (0.6 + baseHp / avgHp / 2 ))) };
 }
