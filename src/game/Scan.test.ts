@@ -36,6 +36,6 @@ describe('getActiveScanRate', () => {
   it('returns 0 for unscannable zoid', () => {
     addItem('core_preserver', 1);
 
-    expect(getActiveScanRate(ScanMode.Permanent, 'core_preserver', 'elephantus')).toBe(0);
+    expect(getActiveScanRate(ScanMode.Permanent, 'core_preserver', 'gurantula')).toBe(0);
   });
 });
