@@ -22,9 +22,17 @@
   "shells_of_time": {
     "description": "A father researching Zoids, a mysterious Dr T, and a family torn apart. Head to Porto Nido to find answers.",
     "missions": {
+      "fight_arcadia_guard": {
+        "description": "The guard has turned aggressive. Calm him down by defeating him in battle.",
+        "name": "What Did I Say?"
+      },
       "head_to_porto_nido": {
         "description": "The girl's father is in Porto Nido. Head south to find him and warn him about the pursuers.",
         "name": "The Road to Porto Nido"
+      },
+      "meet_dr_t": {
+        "description": "A mysterious man appeared after the fight and calmed the guard down. Talk to him and find out what he knows.",
+        "name": "The Guard Whisperer"
       }
     },
     "name": "Breaking the Shell"

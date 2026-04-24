@@ -1,9 +1,20 @@
 {
+  "desc_aquadon": "Un pequeño Zoid anfibio. Débil en combate directo, pero fácil de entrenar y sorprendentemente rápido.",
+  "desc_command_wolf": "Un Zoid tipo lobo versátil de la República. Sus estadísticas equilibradas lo hacen confiable en cualquier situación.",
+  "desc_dcsj": "La evolución definitiva de la línea Shield Liger. Poder y defensa inigualables, pero extremadamente difícil de dominar.",
   "desc_elephantus": "Fuerte y resistente, pero lento y difícil de pilotar. Solo para los más valientes.",
   "desc_garius": "Simple y fácil de controlar. Pocas armas ofensivas, pero si lo cuidas bien será imparable.",
+  "desc_giraffsworder": "Un Zoid veloz con extensiones en forma de cuchilla. Ataques devastadores, pero su fina armadura lo hace frágil.",
   "desc_glidoler": "Rápido y fuerte, pero muy frágil en combate. Para pilotos experimentados.",
   "desc_gorgodos": "Un Zoid robusto de la República con armadura gruesa. Lento de entrenar, pero aguanta lo que otros no pueden.",
+  "desc_gunbeetle": "Un Zoid tipo insecto resistente con buenas defensas. No el más fuerte, pero confiable y fácil de desplegar.",
+  "desc_hammerrock": "Un Zoid pesado del Imperio que golpea con fuerza devastadora. Lento pero increíblemente resistente.",
+  "desc_helcat": "Un Zoid sigiloso del Imperio diseñado para emboscadas. Rápido y ágil con garras afiladas, pero poco duradero.",
+  "desc_hidocker": "Un gran Zoid de transporte con armadura gruesa. Muy bajo poder de ataque, pero aguanta mucho y da buena experiencia.",
   "desc_red_horn": "El tanque definitivo del Imperio. Poder de fuego devastador y armadura casi impenetrable, pero extremadamente difícil de dominar.",
   "desc_redler": "Un Zoid aéreo veloz del Imperio. Ataque letal, pero su estructura ligera lo hace vulnerable.",
-  "desc_spiker": "Un Zoid ágil de la República, fácil de entrenar y rápido de domar. Perfecto para formar un ejército fuerte rápidamente."
+  "desc_sea_panther": "Un Zoid anfibio del Imperio diseñado para operaciones costeras. Resistente y duro, aunque no particularmente rápido.",
+  "desc_sinker": "Un Zoid acuático elegante con gran poder de fuego. Cañón de cristal: golpea fuerte pero se rompe fácil.",
+  "desc_spiker": "Un Zoid ágil de la República, fácil de entrenar y rápido de domar. Perfecto para formar un ejército fuerte rápidamente.",
+  "desc_stealth_viper": "Un Zoid tipo serpiente de la República que destaca en ataques rápidos. Veloz y letal, con durabilidad moderada."
 }

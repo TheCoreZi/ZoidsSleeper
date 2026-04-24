@@ -1,4 +1,7 @@
 {
+  "arcadia_guard": [
+    "¿Dr. T...? Alto ahí. ¿Quién eres y dónde escuchaste ese nombre? Más te vale empezar a hablar, o mi Zoid te sacará la verdad."
+  ],
   "bianco_interrogation": [
     "¡Está bien, está bien! ¡Hablaré! Solo... no dejes que ese dinosaurio se me acerque. Nos contrataron para encontrar a una chica. Pensamos que podía tratarse de esa niña, así que se la llevamos a nuestro jefe.",
     "...no querrás meterte con él. ¡Eso es todo lo que sé, lo juro!"
@@ -239,6 +242,15 @@
   ],
   "arthur_decline": [
     "Hmm... entiendo. No todos quieren seguir órdenes, y eso no tiene nada de malo. Pero recuerda: ahí afuera hay fuerzas mucho más peligrosas que unos bandidos. Si algún día cambias de opinión, búscame. La oferta sigue en pie."
+  ],
+  "dr_t_intro": [
+    "Lamento lo sucedido, solo intentaba protegerme. Me conocen como Dr. T. Déjame adivinar... esa joven es familia del Dr. Thrun, ¿verdad? El parecido es inconfundible. Díganme, ¿qué los trae hasta aquí?",
+    "...Ya veo. Así que su familia está en peligro. Me gustaría poder hacer más, pero lo que sí puedo es llevar a esta joven dama con su padre, si su leal protector me lo permite."
+  ],
+  "narration_dr_t_appears": [
+    "El estruendo de la batalla retumba por todo el puerto. Los mercaderes se refugian, las mercancías se desploman y una multitud se arremolina alrededor de la pelea. Entonces, una voz se alza entre el gentío.",
+    "\"¡Ya basta! Esto es un puerto, no un campo de batalla.\"",
+    "El guardia detiene a su Zoid sin decir una palabra. Algo en ese soldado resulta extraño. Su armadura, su uniforme... como si perteneciera a otra época."
   ],
   "concho_accept": [
     "Je. Chico listo. Ve a la sede de reclutamiento del Imperio y enlístate. Diles que te manda Concho. O no. Me da igual, ellos se darán cuenta."

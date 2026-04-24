@@ -20,6 +20,12 @@ export interface Npc {
 }
 
 export const NPCS: Record<string, Npc> = {
+  arcadia_guard: {
+    dialogs: [{ dialogKey: 'dialog:arcadia_guard' }],
+    id: 'arcadia_guard',
+    nameKey: 'pilots:arcadia_guard',
+    portrait: 'images/pilots/arcadia_guard.png',
+  },
   arthur: {
     dialogs: [
       { dialogKey: 'dialog:arthur_same_faction', unlockRequirement: new AllOfRequirement([new PilotDefeatRequirement('arthur'), new FactionRequirement(Faction.HelicRepublic)]) },
@@ -47,6 +53,12 @@ export const NPCS: Record<string, Npc> = {
     id: 'bianco',
     nameKey: 'pilots:bianco',
     portrait: 'images/pilots/bianco.png',
+  },
+  dr_t: {
+    dialogs: [{ dialogKey: 'dialog:dr_t_intro' }],
+    id: 'dr_t',
+    nameKey: 'pilots:dr_t',
+    portrait: 'images/pilots/dr_t.png',
   },
   concho_cancer: {
     dialogs: [

@@ -20,6 +20,7 @@ export interface City extends Landmark {
 }
 
 const C = 'sleeper_commander';
+const S = 'shells_of_time';
 
 const AUTOMATIC_ACTIONS: Record<string, CityAction[]> = {
   arthur_talk_fight_decide: (() => {
@@ -39,6 +40,13 @@ const AUTOMATIC_ACTIONS: Record<string, CityAction[]> = {
     const fight = new ActionFightPilot(PILOTS['concho_cancer'], hidden, completeRequirements, false, activateCityActionReward(decision));
     const intro = new ActionTalkToNPC('concho_cancer', requirements, completeRequirements, activateCityActionReward(fight));
     return [intro, fight, decision];
+  })(),
+  porto_nido_ask_doctor: (() => {
+    const completeRequirements = [new PilotDefeatRequirement('arcadia_guard')];
+    const hidden = [new ImpossibleRequirement()];
+    const fight = new ActionFightPilot(PILOTS['arcadia_guard'], hidden, completeRequirements);
+    const ask = new ActionTalkToNPC('arcadia_guard', undefined, completeRequirements, activateCityActionReward(fight), 'ui:ask_around');
+    return [ask, fight];
   })(),
 };
 
@@ -93,6 +101,19 @@ export const CITIES: City[] = [
     id: 'gleam_village',
     mapPosition: { x: 30, y: 45 },
     name: 'Gleam Village',
+    type: LandmarkType.City,
+  },
+  {
+    actions: [
+      ...AUTOMATIC_ACTIONS.porto_nido_ask_doctor,
+      new ActionTalkToNPC('dr_t', [new PilotDefeatRequirement('arcadia_guard')], [new NpcTalkedInCampaignRequirement(S, 'dr_t')]),
+    ],
+    battleBackground: BattleBackground.Dirt,
+    devOnly: true,
+    id: 'porto_nido',
+    mapPosition: { x: 37, y: 45 },
+    name: 'Porto Nido',
+    requirements: [new RouteKillRequirement('south_coast', 10)],
     type: LandmarkType.City,
   },
   {

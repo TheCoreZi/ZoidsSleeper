@@ -57,11 +57,49 @@ export const DUNGEONS: Dungeon[] = [
       new ActionTalkToNPC('van', [new PilotDefeatRequirement('bul')], [new PilotDefeatRequirement('bianco_nero')]),
       new ActionTalkToNPC('bianco', [new MissionCompletedRequirement(C.id, 'defeat_bianco_nero')], [new MissionCompletedRequirement(C.id, 'interrogate_bandits')], cutsceneReward('narration_discover_fione'), 'ui:interrogate_bandits'),
     ],
-    battleBackground: BattleBackground.Desert,
+    battleBackground: BattleBackground.Ruin,
     id: 'elmia_ruins',
     mapPosition: { x: 32, y: 28 },
     name: 'Elmia Ruins',
     requirements: [new RouteKillRequirement('elmia_desert', 10)],
+    type: LandmarkType.Dungeon,
+  },
+  {
+    actions: [
+      new DungeonSortieEvent({
+        id: 'tauros_grotto_sortie',
+        itemDrops: [new ItemDrop('core_preserver', 10)],
+        bossTiers: [
+          { pilots: ['arcadia_guard'] },
+        ] satisfies BossTier[],
+        enemies: [
+          { zoidData: { attackOverride: 10, id: 'gorgodos', level: 24, maxHealthOverride: 500 } },
+          { zoidData: { attackOverride: 15, id: 'gunbeetle', level: 24, maxHealthOverride: 400 } },
+          { zoidData: { attackOverride: 12, id: 'gator', level: 25, maxHealthOverride: 480 } },
+        ],
+        eliteEnemies: [
+          { zoidData: { id: 'sinker', level: 30, maxHealthOverride: 400 } },
+        ],
+        baseReward: { magnis: 300, zi_metal: 10 },
+        entryCost: 30,
+        layers: 4,
+        nodesPerLayer: [3, 4],
+        eventPool: [
+          DUNGEON_EVENTS.mysterious_device,
+          DUNGEON_EVENTS.mysterious_creature,
+        ],
+        supplyOptions: [
+          DUNGEON_SUPPLIES.field_repair,
+          DUNGEON_SUPPLIES.overclock,
+        ],
+      }),
+    ],
+    battleBackground: BattleBackground.Rock,
+    devOnly: true,
+    id: 'tauros_grotto',
+    mapPosition: { x: 33.5, y: 42 },
+    name: 'Tauros Grotto',
+    requirements: [new RouteKillRequirement('tauros_edge', 10)],
     type: LandmarkType.Dungeon,
   },
 ];

@@ -2,7 +2,7 @@ import type { Requirement } from '../requirement';
 import { RouteKillRequirement } from '../requirement';
 import type { Route } from './Route';
 
-export const BattleBackground = { Desert: 'desert', Grass: 'grass' } as const;
+export const BattleBackground = { Desert: 'desert', Dirt: 'dirt', Forest: 'forest', Grass: 'grass', Plain: 'plain', Rock: 'rock', Ruin: 'ruin' } as const;
 export type BattleBackground = (typeof BattleBackground)[keyof typeof BattleBackground];
 
 export const LandmarkType = { City: 'city', Dungeon: 'dungeon', Route: 'route' } as const;
@@ -10,6 +10,7 @@ export type LandmarkType = (typeof LandmarkType)[keyof typeof LandmarkType];
 
 export interface Landmark {
   battleBackground: BattleBackground;
+  devOnly?: boolean;
   id: string;
   name: string;
   requirements?: Requirement[];
