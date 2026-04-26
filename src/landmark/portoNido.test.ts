@@ -9,6 +9,8 @@ import { ZOID_LIST, getZoidById } from '../models/Zoid';
 import { PILOTS } from '../models/Pilot';
 import { NPCS } from '../npc/Npc';
 import { CampaignStartedRequirement } from '../requirement/CampaignStartedRequirement';
+import { MissionCompletedRequirement } from '../requirement/MissionCompletedRequirement';
+import { RouteKillRequirement } from '../requirement/RouteKillRequirement';
 
 describe('Porto Nido landmarks', () => {
   it('porto_nido city exists with correct structure', () => {
@@ -45,6 +47,34 @@ describe('Porto Nido landmarks', () => {
     const route = getRoute('tauros_edge');
     expect(route!.requirements).toBeDefined();
     expect(route!.requirements!.some((r) => r instanceof CampaignStartedRequirement)).toBe(true);
+  });
+
+  it('sommerso_trail route exists and connects porto_nido to sommerso_ruins', () => {
+    const route = getRoute('sommerso_trail');
+    expect(route).toBeDefined();
+    expect(route!.connects).toEqual(['porto_nido', 'sommerso_ruins']);
+    expect(route!.enemies.length).toBeGreaterThan(0);
+    expect(route!.routeHealth).toBe(1200);
+  });
+
+  it('sommerso_trail unlocks after meet_dr_t mission', () => {
+    const route = getRoute('sommerso_trail');
+    expect(route!.requirements).toBeDefined();
+    expect(route!.requirements!.some((r) => r instanceof MissionCompletedRequirement)).toBe(true);
+  });
+
+  it('sommerso_ruins dungeon exists with sortie', () => {
+    const dungeon = getDungeon('sommerso_ruins');
+    expect(dungeon).toBeDefined();
+    expect(dungeon!.type).toBe(LandmarkType.Dungeon);
+    expect(dungeon!.actions).toBeDefined();
+    expect(dungeon!.actions!.length).toBeGreaterThanOrEqual(1);
+  });
+
+  it('sommerso_ruins unlocks after sommerso_trail kills', () => {
+    const dungeon = getDungeon('sommerso_ruins');
+    expect(dungeon!.requirements).toBeDefined();
+    expect(dungeon!.requirements!.some((r) => r instanceof RouteKillRequirement)).toBe(true);
   });
 });
 

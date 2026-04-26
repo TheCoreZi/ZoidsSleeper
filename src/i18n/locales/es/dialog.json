@@ -245,7 +245,9 @@
   ],
   "dr_t_intro": [
     "Lamento lo sucedido, solo intentaba protegerme. Me conocen como Dr. T. Déjame adivinar... esa joven es familia del Dr. Thrun, ¿verdad? El parecido es inconfundible. Díganme, ¿qué los trae hasta aquí?",
-    "...Ya veo. Así que su familia está en peligro. Me gustaría poder hacer más, pero lo que sí puedo es llevar a esta joven dama con su padre, si su leal protector me lo permite."
+    "...Ya veo. Así que su familia está en peligro. Me gustaría poder hacer más, pero lo que sí puedo es llevar a esta joven dama con su padre, si su leal protector me lo permite.",
+    "Hay unas ruinas antiguas parcialmente sumergidas en la costa, no lejos de aquí. Los lugareños las llaman Sommerso. Nadie se atreve a acercarse... pero él se adentró sin dudarlo para continuar su investigación.",
+    "El problema es que se ha obsesionado tanto con su trabajo que se niega a salir. He intentado convencerlo, pero es inútil. Si quieren hablar con él, tendrán que adentrarse en las ruinas y llegar hasta donde está. Les advierto, el camino no será fácil."
   ],
   "narration_dr_t_appears": [
     "El estruendo de la batalla retumba por todo el puerto. Los mercaderes se refugian, las mercancías se desploman y una multitud se arremolina alrededor de la pelea. Entonces, una voz se alza entre el gentío.",

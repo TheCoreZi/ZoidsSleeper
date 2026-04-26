@@ -105,6 +105,46 @@ export const DUNGEONS: Dungeon[] = [
     requirements: [new RouteKillRequirement('tauros_edge', 10)],
     type: LandmarkType.Dungeon,
   },
+  {
+    actions: [
+      new DungeonSortieEvent({
+        baseReward: { magnis: 400, zi_metal: 15 },
+        bossTiers: [
+          new BossTier([new WildBossEntry({ attackOverride: 30, id: 'hidocker', level: 45, maxHealthOverride: 3500 })]),
+          new BossTier([new WildBossEntry({ attackOverride: 30, id: 'helcat', level: 45, maxHealthOverride: 3500 })]),
+        ],
+        eliteEnemies: [
+          { zoidData: { id: 'aquadon', level: 38, maxHealthOverride: 1000 } },
+          { zoidData: { id: 'stealth_viper', level: 36, maxHealthOverride: 1200 } },
+        ],
+        enemies: [
+          { zoidData: { attackOverride: 15, id: 'giraffsworder', level: 32, maxHealthOverride: 700 } },
+          { zoidData: { attackOverride: 18, id: 'gunbeetle', level: 32, maxHealthOverride: 600 } },
+          { zoidData: { attackOverride: 12, id: 'gorgodos', level: 30, maxHealthOverride: 650 } },
+        ],
+        entryCost: 50,
+        eventPool: [
+          DUNGEON_EVENTS.mysterious_device,
+          DUNGEON_EVENTS.mysterious_creature,
+        ],
+        id: 'sommerso_ruins_sortie',
+        itemDrops: [new ItemDrop('core_preserver', 10)],
+        layers: 4,
+        nodesPerLayer: [3, 4],
+        supplyOptions: [
+          DUNGEON_SUPPLIES.field_repair,
+          DUNGEON_SUPPLIES.overclock,
+        ],
+      }),
+    ],
+    battleBackground: BattleBackground.Ruin,
+    devOnly: true,
+    id: 'sommerso_ruins',
+    mapPosition: { x: 40, y: 42 },
+    name: 'Sommerso Ruins',
+    requirements: [new RouteKillRequirement('sommerso_trail', 10)],
+    type: LandmarkType.Dungeon,
+  },
 ];
 
 export function getDungeon(id: string): Dungeon | undefined {

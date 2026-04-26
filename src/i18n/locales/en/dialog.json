@@ -244,9 +244,10 @@
     "Hmm... I understand. Not everyone wants to follow orders, and there's nothing wrong with that. But remember: there are forces out there far more dangerous than a few bandits. If you ever change your mind, look me up. The offer stands."
   ],
   "dr_t_intro": [
-    "I see you've met one of the local guards. I apologize for his behavior. He's been... on edge lately.",
-    "My name is Dr. T. I'm a researcher studying Zoid evolution. You mentioned a friend's father? Tell me more.",
-    "...I see. So they're after him too. This is worse than I thought. Thank you for telling me. I'll do what I can to help."
+    "I'm sorry about what happened, I was only trying to protect myself. They call me Dr. T. Let me guess... this young lady is Dr. Thrun's family, isn't she? The resemblance is unmistakable. Tell me, what brings you here?",
+    "...I see. So her family is in danger. I wish I could do more, but what I can do is take this young lady to her father, if her loyal protector will allow me.",
+    "There are ancient ruins partially submerged along the shore, not far from here. The locals call them Sommerso. No one dares go near them... but he ventured in without hesitation to continue his research.",
+    "The problem is he's become so obsessed with his work that he refuses to come out. I've tried to convince him, but it's no use. If you want to talk to him, you'll have to venture into the ruins and reach him yourselves. I warn you, the path won't be easy."
   ],
   "narration_dr_t_appears": [
     "The clash of metal echoes across the port. Merchants scatter, crates topple, and a crowd gathers around the wreckage of the battle.",
