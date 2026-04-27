@@ -4,7 +4,7 @@ import { incrementPilotDefeats, loadStatistics } from '../src/store/statisticsSt
 
 describe('PilotDefeatRequirement', () => {
   beforeEach(() => {
-    loadStatistics({}, {});
+    loadStatistics({}, {}, {});
   });
 
   it('should not be completed when defeats are insufficient', () => {
@@ -14,7 +14,7 @@ describe('PilotDefeatRequirement', () => {
   });
 
   it('should be completed when defeats reach required value', () => {
-    loadStatistics({}, { bandit1: 1 });
+    loadStatistics({}, { bandit1: 1 }, {});
     const req = new PilotDefeatRequirement('bandit1');
 
     expect(req.isCompleted()).toBe(true);
@@ -36,7 +36,7 @@ describe('PilotDefeatRequirement', () => {
   });
 
   it('should support custom required defeats', () => {
-    loadStatistics({}, { bandit1: 2 });
+    loadStatistics({}, { bandit1: 2 }, {});
     const req = new PilotDefeatRequirement('bandit1', 3);
 
     expect(req.isCompleted()).toBe(false);

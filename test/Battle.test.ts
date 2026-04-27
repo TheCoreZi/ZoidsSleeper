@@ -21,7 +21,7 @@ const toughRoute: Route = {
 describe('Battle', () => {
   beforeEach(() => {
     setPlayerStats(DEFAULT_PLAYER);
-    loadStatistics({}, {});
+    loadStatistics({}, {}, {});
     loadZoidResearch({});
   });
 

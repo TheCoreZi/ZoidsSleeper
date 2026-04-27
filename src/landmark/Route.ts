@@ -1,6 +1,6 @@
 import type { Drop } from '../item/Drop';
 import type { Requirement } from '../requirement';
-import { CampaignStartedRequirement, MissionCompletedRequirement, RouteKillRequirement, ZoidCreatedRequirement } from '../requirement';
+import { CampaignStartedRequirement, DungeonCompletionRequirement, MissionCompletedRequirement, ZoidCreatedRequirement } from '../requirement';
 import type { CurrencyReward } from '../models/Currency';
 import type { Landmark } from './Landmark';
 import { BattleBackground, LandmarkType } from './Landmark';
@@ -124,6 +124,24 @@ export const ROUTES: Route[] = [
     type: LandmarkType.Route,
   },
   {
+    baseReward: { magnis: 200, zi_metal: 40 },
+    battleBackground: BattleBackground.Ruin,
+    connects: ['porto_nido', 'sommerso_ruins'],
+    devOnly: true,
+    enemies: [
+      { blueprint: { id: 'giraffsworder', level: 30 } },
+      { blueprint: { id: 'gunbeetle', level: 32 } },
+      { blueprint: { id: 'stealth_viper', level: 32 } },
+      { blueprint: { id: 'zatton', level: 36 } },
+      { blueprint: { id: 'sea_panther', level: 27 }, probability: .01 },
+    ],
+    id: 'sommerso_trail',
+    name: 'Sommerso Trail',
+    routeHealth: 1200,
+    requirements: [new MissionCompletedRequirement('shells_of_time', 'meet_dr_t')],
+    type: LandmarkType.Route,
+  },
+  {
     baseReward: { magnis: 155, zi_metal: 22 },
     battleBackground: BattleBackground.Dirt,
     connects: ['tauros_grotto', 'porto_nido'],
@@ -137,7 +155,7 @@ export const ROUTES: Route[] = [
     id: 'south_coast',
     name: 'South Coast',
     routeHealth: 700,
-    requirements: [new RouteKillRequirement('tauros_edge', 10)],
+    requirements: [new DungeonCompletionRequirement('tauros_grotto_sortie', 1)],
     type: LandmarkType.Route,
   },
 ];

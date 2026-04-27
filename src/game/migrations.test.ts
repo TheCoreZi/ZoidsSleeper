@@ -18,6 +18,17 @@ function baseSave(overrides: Partial<MigrationData> = {}): MigrationData {
   };
 }
 
+describe('migration 0.4.5', () => {
+  it('preserves existing save data without dungeonCompletions', () => {
+    const data = baseSave({ version: '0.4.4' });
+
+    migrate(data, '0.4.4');
+
+    expect(data.dungeonCompletions).toBeUndefined();
+    expect(data.campaigns!['sleeper_commander'].currentMission).toBe('talk_to_boy');
+  });
+});
+
 describe('migration 0.4.2', () => {
   it('resets completed campaign to deliver_girl', () => {
     const data = baseSave({

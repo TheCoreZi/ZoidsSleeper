@@ -23,7 +23,7 @@ describe('PilotZoidSet', () => {
 
 describe('getActiveZoids', () => {
   beforeEach(() => {
-    loadStatistics({}, {});
+    loadStatistics({}, {}, {});
   });
 
   it('should return the only set for a single-set pilot', () => {

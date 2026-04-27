@@ -39,6 +39,7 @@ export interface ZoidBlueprint {
   imageOverride?: string;
   level: number;
   maxHealthOverride?: number;
+  scannable?: boolean;
 }
 
 /** Computed stats for a zoid at a specific level, built from a ZoidBlueprint. */
@@ -49,6 +50,7 @@ export interface CustomizedZoid {
   level: number;
   maxHealth: number;
   name: string;
+  scannable: boolean;
 }
 
 export const ZOID_LIST: Record<string, ZoidSpecies> = {
@@ -67,6 +69,7 @@ export const ZOID_LIST: Record<string, ZoidSpecies> = {
   guysack: { id: 'guysack', name: 'Guysack', attack: 180, maxHealth: 500, baseExp: 45, scanRate: -1, price: 20000, faction: Faction.HelicRepublic, itemDrops: [new ZiDataDrop('gurantula', 30)], levelType: LevelType.MediumFast },
   hammerrock: { id: 'hammerrock', name: 'Hammerrock', attack: 180, maxHealth: 350, baseExp: 70, scanRate: 15, price: 30000, faction: Faction.ZenebasEmpire, levelType: LevelType.MediumSlow },
   helcat: { id: 'helcat', name: 'Helcat', attack: 160, maxHealth: 250, baseExp: 50, scanRate: 30, price: 35000, faction: Faction.GuylosEmpire, levelType: LevelType.MediumFast },
+  helcat_stray: { id: 'helcat_stray', name: 'Stray Helcat', attack: 200, maxHealth: 200, baseExp: 70, scanRate: 30, price: 50000, faction: Faction.Neutral, levelType: LevelType.MediumFast },
   heldigunner: { id: 'heldigunner', name: 'Heldigunner', attack: 200, maxHealth: 400, baseExp: 70, scanRate: 10, price: 30000, faction: Faction.GuylosEmpire, levelType: LevelType.MediumFast },
   hidocker: { id: 'hidocker', name: 'Hidocker', attack: 60, maxHealth: 250, baseExp: 50, scanRate: 30, price: 30000, faction: Faction.HelicRepublic, levelType: LevelType.MediumSlow },
   malder: { id: 'malder', name: 'Malder', attack: 20, maxHealth: 700, baseExp: 40, scanRate: 50, price: 8000, faction: Faction.ZenebasEmpire, levelType: LevelType.Erratic },
@@ -120,7 +123,7 @@ export function getZoidImage(id: string, imageOverride?: string): string {
   return `images/zoids/${imageOverride ?? id}.png`;
 }
 
-export function buildZoid({ attackOverride, bonusMultiplier = 1, id, imageOverride, level, maxHealthOverride }: ZoidBlueprint): CustomizedZoid {
+export function buildZoid({ attackOverride, bonusMultiplier = 1, id, imageOverride, level, maxHealthOverride, scannable = true }: ZoidBlueprint): CustomizedZoid {
   const base = getZoidById(id);
   return {
     attack: attackOverride ?? calculateStat(base.attack, level, bonusMultiplier),
@@ -129,6 +132,7 @@ export function buildZoid({ attackOverride, bonusMultiplier = 1, id, imageOverri
     level,
     maxHealth: maxHealthOverride ?? calculateStat(base.maxHealth, level, bonusMultiplier),
     name: base.name,
+    scannable,
   };
 }
 

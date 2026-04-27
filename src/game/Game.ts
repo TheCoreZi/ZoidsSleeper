@@ -55,7 +55,7 @@ import {
 } from '../store/gameStore';
 import { setCurrentLandmark } from '../store/landmarkStore';
 import { addZoidToArmy, partyMaxHealth, setParty } from '../store/partyStore';
-import { incrementPilotDefeats, loadStatistics } from '../store/statisticsStore';
+import { incrementDungeonCompletions, incrementPilotDefeats, loadStatistics } from '../store/statisticsStore';
 import { loadInventory } from '../store/inventoryStore';
 import { loadScanSetup } from '../store/scanStore';
 import { addCurrency, loadWallet } from '../store/walletStore';
@@ -135,6 +135,10 @@ export class Game {
     setPilotPlayerMaxHealth(0);
     setPilotZoidIds([]);
     if (victory) {
+      const configId = dungeonRun()?.config.id;
+      if (configId) {
+        incrementDungeonCompletions(configId);
+      }
       checkCampaigns();
       showPopup(new PopupMessage(t('ui:sortie_complete'), t('ui:victory'), PopupType.Victory));
     } else {
@@ -381,8 +385,8 @@ export class Game {
       if (data.party?.zoids?.length) {
         setParty(data.party);
       }
-      if (data.routeKills || data.pilotDefeats) {
-        loadStatistics(data.routeKills ?? {}, data.pilotDefeats ?? {});
+      if (data.dungeonCompletions || data.pilotDefeats || data.routeKills) {
+        loadStatistics(data.dungeonCompletions ?? {}, data.pilotDefeats ?? {}, data.routeKills ?? {});
       }
       if (data.inventory) {
         loadInventory(data.inventory);

@@ -7,7 +7,7 @@ import { campaignStates } from '../store/campaignStore';
 import { playerStats } from '../store/gameStore';
 import { currentLandmark } from '../store/landmarkStore';
 import { party } from '../store/partyStore';
-import { pilotDefeats, routeKills } from '../store/statisticsStore';
+import { dungeonCompletions, pilotDefeats, routeKills } from '../store/statisticsStore';
 import { inventory } from '../store/inventoryStore';
 import { wallet } from '../store/walletStore';
 import { zoidDataLog } from '../store/zoidDataStore';
@@ -20,6 +20,7 @@ const SAVE_KEY = 'zoids-sleeper-save';
 // When changing this interface, bump version (npm version patch) and add a migration in migrations.ts
 export interface SaveData {
   campaigns?: Record<string, CampaignSaveData>;
+  dungeonCompletions?: Record<string, number>;
   inventory?: Record<string, number>;
   landmarkId: string;
   party?: PartyData;
@@ -104,6 +105,7 @@ export class Save {
   store(): void {
     const data: SaveData = {
       campaigns: campaignStates(),
+      dungeonCompletions: dungeonCompletions(),
       inventory: inventory(),
       landmarkId: currentLandmark().id,
       party: party(),

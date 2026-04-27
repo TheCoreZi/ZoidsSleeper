@@ -20,7 +20,7 @@ const ScanToggle: Component = () => {
 
   return (
     <Show when={ownedDevices().length > 0}>
-      <div class="scan-panel">
+      <div class="scan-panel" onClick={(e) => e.stopPropagation()}>
         <div class="scan-panel-devices">
           <For each={ownedDevices()}>
             {(deviceId) => (

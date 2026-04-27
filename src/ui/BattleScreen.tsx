@@ -23,15 +23,14 @@ interface BattleScreenProps {
 
 function formatProbability(value: number): string {
   const percent = value * 100;
-  if (percent >= 1) { return `${Math.round(percent)}%`; }
-  const decimals = percent >= 0.1 ? 1 : 2;
-  return `${percent.toFixed(decimals)}%`;
+  const truncated = Math.floor(percent * 10) / 10;
+  return truncated === Math.floor(truncated) ? `${Math.floor(truncated)}%` : `${truncated.toFixed(1)}%`;
 }
 
 const BattleScreen: Component<BattleScreenProps> = (props) => {
   const [showInfo, setShowInfo] = createSignal(false);
 
-  const scanRate = () => getActiveScanRate(getActiveScanMode(), getActiveDeviceId(), enemyZoid()?.id ?? null);
+  const scanRate = () => getActiveScanRate(getActiveScanMode(), getActiveDeviceId(), enemyZoid()?.id ?? null, enemyZoid()?.scannable);
 
   const routeEnemies = () => {
     if (!isOnRoute()) { return []; }

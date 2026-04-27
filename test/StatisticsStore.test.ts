@@ -12,7 +12,7 @@ import {
 describe('StatisticsStore - routeKills', () => {
   beforeEach(() => {
     setPlayerStats(DEFAULT_PLAYER);
-    loadStatistics({}, {});
+    loadStatistics({}, {}, {});
   });
 
   it('should return 0 for a route with no kills', () => {
@@ -34,14 +34,14 @@ describe('StatisticsStore - routeKills', () => {
   });
 
   it('should load statistics from saved data', () => {
-    loadStatistics({ 'route-a': 10, 'route-b': 25 }, {});
+    loadStatistics({}, {}, { 'route-a': 10, 'route-b': 25 });
 
     expect(getRouteKills('route-a')).toBe(10);
     expect(getRouteKills('route-b')).toBe(25);
   });
 
   it('should add to loaded values when incrementing', () => {
-    loadStatistics({ 'test-route': 5 }, {});
+    loadStatistics({}, {}, { 'test-route': 5 });
 
     incrementRouteKills('test-route');
 
@@ -49,7 +49,7 @@ describe('StatisticsStore - routeKills', () => {
   });
 
   it('should increment click attack every 200 kills', () => {
-    loadStatistics({ 'test-route': 199 }, {});
+    loadStatistics({}, {}, { 'test-route': 199 });
 
     incrementRouteKills('test-route');
 
@@ -57,7 +57,7 @@ describe('StatisticsStore - routeKills', () => {
   });
 
   it('should not increment click attack before 200 kills', () => {
-    loadStatistics({ 'test-route': 198 }, {});
+    loadStatistics({}, {}, { 'test-route': 198 });
 
     incrementRouteKills('test-route');
 
@@ -65,7 +65,7 @@ describe('StatisticsStore - routeKills', () => {
   });
 
   it('should not mix kills across routes for click attack', () => {
-    loadStatistics({ 'route-a': 100 }, {});
+    loadStatistics({}, {}, { 'route-a': 100 });
 
     for (let i = 0; i < 100; i++) {
       incrementRouteKills('route-b');
@@ -77,7 +77,7 @@ describe('StatisticsStore - routeKills', () => {
 
 describe('StatisticsStore - pilotDefeats', () => {
   beforeEach(() => {
-    loadStatistics({}, {});
+    loadStatistics({}, {}, {});
   });
 
   it('should return 0 for a pilot with no defeats', () => {
@@ -99,14 +99,14 @@ describe('StatisticsStore - pilotDefeats', () => {
   });
 
   it('should load pilot defeats from saved data', () => {
-    loadStatistics({}, { bandit1: 2, bandit2: 5 });
+    loadStatistics({}, { bandit1: 2, bandit2: 5 }, {});
 
     expect(getPilotDefeats('bandit1')).toBe(2);
     expect(getPilotDefeats('bandit2')).toBe(5);
   });
 
   it('should add to loaded values when incrementing', () => {
-    loadStatistics({}, { bandit1: 3 });
+    loadStatistics({}, { bandit1: 3 }, {});
 
     incrementPilotDefeats('bandit1');
 

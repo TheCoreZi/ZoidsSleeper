@@ -5,7 +5,7 @@ import { loadStatistics } from '../src/store/statisticsStore';
 
 describe('ActionVisitLab', () => {
   beforeEach(() => {
-    loadStatistics({}, {});
+    loadStatistics({}, {}, {});
   });
 
   it('should return true for isUnlocked with no requirements', () => {
@@ -21,7 +21,7 @@ describe('ActionVisitLab', () => {
   });
 
   it('should return true for isUnlocked with fulfilled requirements', () => {
-    loadStatistics({ 'test-route': 10 }, {});
+    loadStatistics({}, {}, { 'test-route': 10 });
     const action = new ActionVisitLab('test_lab', [new RouteKillRequirement('test-route', 10)]);
 
     expect(action.isUnlocked()).toBe(true);

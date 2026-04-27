@@ -4,7 +4,7 @@ import { DUNGEON_EVENTS } from '../dungeon/dungeonEvents';
 import { BossTier, PilotBossEntry, WildBossEntry } from '../dungeon/DungeonSortieConfig';
 import { DUNGEON_SUPPLIES } from '../dungeon/dungeonSupplies';
 import { ItemDrop } from '../item';
-import { MissionCompletedRequirement, PilotDefeatRequirement, RouteKillRequirement, ZoidCreatedRequirement } from '../requirement';
+import { DungeonCompletionRequirement, MissionCompletedRequirement, PilotDefeatRequirement, RouteKillRequirement, ZoidCreatedRequirement } from '../requirement';
 import { cutsceneReward } from '../reward';
 import { ActionTalkToNPC } from './action/ActionTalkToNPC';
 import type { CityAction } from './action/CityAction';
@@ -71,8 +71,8 @@ export const DUNGEONS: Dungeon[] = [
         id: 'tauros_grotto_sortie',
         itemDrops: [new ItemDrop('core_preserver', 10)],
         bossTiers: [
-          new BossTier([new WildBossEntry({ id: 'sinker', level: 40, maxHealthOverride: 2000, attackOverride: 20 })]),
-          new BossTier([new WildBossEntry({ id: 'sinker', level: 40, maxHealthOverride: 2000, attackOverride: 20 }), new WildBossEntry({ id: 'elephantus', level: 24, maxHealthOverride: 2000 })], [new ZoidCreatedRequirement('elephantus')]),
+          new BossTier([new WildBossEntry({ id: 'sinker', level: 40, maxHealthOverride: 6000, attackOverride: 20 })]),
+          new BossTier([new WildBossEntry({ id: 'sinker', level: 40, maxHealthOverride: 6000, attackOverride: 20 }), new WildBossEntry({ id: 'elephantus', level: 24, maxHealthOverride: 8000 })], [new ZoidCreatedRequirement('elephantus')]),
         ],
         enemies: [
           { zoidData: { attackOverride: 10, id: 'gorgodos', level: 24, maxHealthOverride: 500 } },
@@ -103,6 +103,47 @@ export const DUNGEONS: Dungeon[] = [
     mapPosition: { x: 33.5, y: 42 },
     name: 'Tauros Grotto',
     requirements: [new RouteKillRequirement('tauros_edge', 10)],
+    type: LandmarkType.Dungeon,
+  },
+  {
+    actions: [
+      new DungeonSortieEvent({
+        baseReward: { magnis: 400, zi_metal: 15 },
+        bossTiers: [
+          new BossTier([new WildBossEntry({ attackOverride: 25, id: 'hidocker', level: 45, maxHealthOverride: 10000 })]),
+          new BossTier([new WildBossEntry({ attackOverride: 30, id: 'helcat', level: 45, maxHealthOverride: 8000 })], [new DungeonCompletionRequirement('sommerso_ruins_sortie', 1)]),
+          new BossTier([new WildBossEntry({ attackOverride: 60, id: 'helcat_stray', level: 50, maxHealthOverride: 15000, scannable: false })], [new DungeonCompletionRequirement('sommerso_ruins_sortie', 2)]),
+        ],
+        eliteEnemies: [
+          { zoidData: { id: 'aquadon', level: 38, maxHealthOverride: 1000 } },
+          { zoidData: { id: 'stealth_viper', level: 36, maxHealthOverride: 1200 } },
+        ],
+        enemies: [
+          { zoidData: { attackOverride: 15, id: 'giraffsworder', level: 32, maxHealthOverride: 700 } },
+          { zoidData: { attackOverride: 18, id: 'gunbeetle', level: 32, maxHealthOverride: 600 } },
+          { zoidData: { attackOverride: 12, id: 'gorgodos', level: 30, maxHealthOverride: 650 } },
+        ],
+        entryCost: 50,
+        eventPool: [
+          DUNGEON_EVENTS.mysterious_device,
+          DUNGEON_EVENTS.mysterious_creature,
+        ],
+        id: 'sommerso_ruins_sortie',
+        itemDrops: [new ItemDrop('core_preserver', 10)],
+        layers: 4,
+        nodesPerLayer: [3, 4],
+        supplyOptions: [
+          DUNGEON_SUPPLIES.field_repair,
+          DUNGEON_SUPPLIES.overclock,
+        ],
+      }),
+    ],
+    battleBackground: BattleBackground.Ruin,
+    devOnly: true,
+    id: 'sommerso_ruins',
+    mapPosition: { x: 40, y: 42 },
+    name: 'Sommerso Ruins',
+    requirements: [new RouteKillRequirement('sommerso_trail', 10)],
     type: LandmarkType.Dungeon,
   },
 ];
