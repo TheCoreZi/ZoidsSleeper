@@ -243,6 +243,19 @@
   "arthur_decline": [
     "Hmm... entiendo. No todos quieren seguir órdenes, y eso no tiene nada de malo. Pero recuerda: ahí afuera hay fuerzas mucho más peligrosas que unos bandidos. Si algún día cambias de opinión, búscame. La oferta sigue en pie."
   ],
+  "dr_thrun_ruins": [
+    "¿¡Kara!? ¿Qué haces aquí? ¿Cómo llegaste a este lugar?",
+    "¡Tú! ¿Qué haces con mi hija? ¡Aléjate de ella ahora mismo!",
+    "¡No, papá! ¡Él me ayudó!",
+    "¿Y por qué un extraño como tú le ayudaría a mi hija? ¿Qué es lo que quieres? Kara, ven aquí. No confío en él.",
+    "¡Ya basta, papá! ¡Escucha! Él nos salvó. Mamá me pidió que viniera contigo. Hay gente peligrosa buscándote..., ¡Solo escucha! ....",
+    "...",
+    "Ya veo... Discúlpame, Kara. No debí ponerlos en esa situación. Y discúlpame tú también, no sé qué hubiera hecho si algo le pasaba a mi familia. Estoy en deuda contigo.",
+    "Así que entonces tienes uno de los módulos Sleeper de esos bandidos... ¿Me dejarías verlo?",
+    "... Mmm. Justo lo que me temía.",
+    "Si me lo permiten... Creo que deberías contarles sobre tu trabajo. He visto lo suficiente para saber que este joven es alguien de confianza.",
+    "Tienes razón. Pero no aquí. Estas ruinas son más peligrosas de lo que aprece. Vayamos a la ciudad, allí les contaré todo."
+  ],
   "dr_t_intro": [
     "Lamento lo sucedido, solo intentaba protegerme. Me conocen como Dr. T. Déjame adivinar... esa joven es familia del Dr. Thrun, ¿verdad? El parecido es inconfundible. Díganme, ¿qué los trae hasta aquí?",
     "...Ya veo. Así que su familia está en peligro. Me gustaría poder hacer más, pero lo que sí puedo es llevar a esta joven dama con su padre, si su leal protector me lo permite.",

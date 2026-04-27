@@ -10,9 +10,17 @@
         "description": "El padre de la niña está en Porto Nido. Ve hacia el sur para encontrarlo y advertirle sobre los perseguidores.",
         "name": "El Camino a Porto Nido"
       },
+      "clear_ruins": {
+        "description": "Dr. T dijo que el padre de Kara está en lo profundo de las Ruinas Sommerso. Completa una incursión para llegar hasta él.",
+        "name": "Hacia las Profundidades"
+      },
       "meet_dr_t": {
         "description": "Un hombre misterioso apareció tras la pelea y calmó al guardia. Habla con él y averigua qué sabe.",
         "name": "El Encantador de Guardias"
+      },
+      "meet_father": {
+        "description": "Has llegado al corazón de las ruinas. Habla con el Dr. Thrun y entrégale a su hija sana y salva.",
+        "name": "La Última Milla"
       }
     },
     "name": "Saliendo del Caparazón"
