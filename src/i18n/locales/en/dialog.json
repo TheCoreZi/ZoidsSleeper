@@ -243,6 +243,19 @@
   "arthur_decline": [
     "Hmm... I understand. Not everyone wants to follow orders, and there's nothing wrong with that. But remember: there are forces out there far more dangerous than a few bandits. If you ever change your mind, look me up. The offer stands."
   ],
+  "dr_thrun_ruins": [
+    "Kara!? What are you doing here? How did you get to this place?",
+    "You! What are you doing with my daughter? Get away from her right now!",
+    "No, Dad! He helped me!",
+    "And why would a stranger like you help my daughter? What do you want? Kara, come here. I don't trust him.",
+    "Enough, Dad! Listen! He saved us. Mom asked me to come find you. There are dangerous people looking for you... Just listen! ....",
+    "...",
+    "I see... Forgive me, Kara. I shouldn't have put you through that. And forgive me too, I don't know what I would have done if something had happened to my family. I owe you a great debt.",
+    "So you have one of those Sleeper modules from the bandits... May I take a look?",
+    "... Hmm. Just as I feared.",
+    "If you'll allow me... I believe you should tell them about your work. I've seen enough to know this young man can be trusted.",
+    "You're right. But not here. These ruins are more dangerous than they seem. Let's head to the city, I'll tell you everything there."
+  ],
   "dr_t_intro": [
     "I'm sorry about what happened, I was only trying to protect myself. They call me Dr. T. Let me guess... this young lady is Dr. Thrun's family, isn't she? The resemblance is unmistakable. Tell me, what brings you here?",
     "...I see. So her family is in danger. I wish I could do more, but what I can do is take this young lady to her father, if her loyal protector will allow me.",

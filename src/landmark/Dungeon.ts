@@ -18,6 +18,7 @@ export interface Dungeon extends Landmark {
 }
 
 const C = CAMPAIGNS.sleeper_commander;
+const S = CAMPAIGNS.shells_of_time;
 
 export const DUNGEONS: Dungeon[] = [
   {
@@ -111,7 +112,7 @@ export const DUNGEONS: Dungeon[] = [
         baseReward: { magnis: 400, zi_metal: 15 },
         bossTiers: [
           new BossTier([new WildBossEntry({ attackOverride: 25, id: 'hidocker', level: 45, maxHealthOverride: 10000 })]),
-          new BossTier([new WildBossEntry({ attackOverride: 30, id: 'helcat', level: 45, maxHealthOverride: 8000 })], [new DungeonCompletionRequirement('sommerso_ruins_sortie', 1)]),
+          new BossTier([new WildBossEntry({ attackOverride: 30, id: 'helcat', level: 45, maxHealthOverride: 8000 })], [new MissionCompletedRequirement(S.id, 'meet_father')]),
           new BossTier([new WildBossEntry({ attackOverride: 60, id: 'helcat_stray', level: 50, maxHealthOverride: 15000, scannable: false })], [new DungeonCompletionRequirement('sommerso_ruins_sortie', 2)]),
         ],
         eliteEnemies: [
@@ -137,6 +138,7 @@ export const DUNGEONS: Dungeon[] = [
           DUNGEON_SUPPLIES.overclock,
         ],
       }),
+      new ActionTalkToNPC('dr_thrun', [new DungeonCompletionRequirement('sommerso_ruins_sortie', 1)], [new MissionCompletedRequirement(S.id, 'meet_father')]),
     ],
     battleBackground: BattleBackground.Ruin,
     devOnly: true,

@@ -30,9 +30,17 @@
         "description": "The girl's father is in Porto Nido. Head south to find him and warn him about the pursuers.",
         "name": "The Road to Porto Nido"
       },
+      "clear_ruins": {
+        "description": "Dr. T said Kara's father is deep inside the Sommerso Ruins. Complete a sortie to reach him.",
+        "name": "Into the Deep"
+      },
       "meet_dr_t": {
         "description": "A mysterious man appeared after the fight and calmed the guard down. Talk to him and find out what he knows.",
         "name": "The Guard Whisperer"
+      },
+      "meet_father": {
+        "description": "You've reached the heart of the ruins. Talk to Dr. Thrun and deliver his daughter safely.",
+        "name": "Last Mile"
       }
     },
     "name": "Breaking the Shell"

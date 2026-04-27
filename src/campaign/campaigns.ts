@@ -1,5 +1,5 @@
 import { Faction } from '../models/Faction';
-import { AllOfRequirement, ArmySizeRequirement, CampaignCompletedRequirement, ComparisonCondition, FactionRequirement, MissionCompletedRequirement, NpcTalkedInCampaignRequirement, PilotDefeatRequirement, RouteKillRequirement, ZiDataRequirement } from '../requirement';
+import { AllOfRequirement, ArmySizeRequirement, CampaignCompletedRequirement, ComparisonCondition, DungeonCompletionRequirement, FactionRequirement, MissionCompletedRequirement, NpcTalkedInCampaignRequirement, PilotDefeatRequirement, RouteKillRequirement, ZiDataRequirement } from '../requirement';
 import { CUTSCENES } from '../cutscene';
 import { enqueueDialog } from '../store/gameStore';
 import type { Campaign } from './Campaign';
@@ -29,6 +29,8 @@ export const CAMPAIGNS: Record<string, Campaign> = {
       { id: 'head_to_porto_nido', goals: [new NpcTalkedInCampaignRequirement('shells_of_time', 'arcadia_guard')] },
       { id: 'fight_arcadia_guard', goals: [new PilotDefeatRequirement('arcadia_guard')], onComplete: () => enqueueDialog(CUTSCENES.narration_dr_t_appears.toDialogScript()) },
       { id: 'meet_dr_t', goals: [new NpcTalkedInCampaignRequirement('shells_of_time', 'dr_t')] },
+      { id: 'clear_ruins', goals: [new DungeonCompletionRequirement('sommerso_ruins_sortie', 1)] },
+      { id: 'meet_father', goals: [new NpcTalkedInCampaignRequirement('shells_of_time', 'dr_thrun')] },
     ],
     unlockRequirements: [new CampaignCompletedRequirement('sleeper_commander')],
   },

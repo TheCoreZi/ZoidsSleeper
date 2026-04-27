@@ -60,6 +60,23 @@ export const NPCS: Record<string, Npc> = {
     nameKey: 'pilots:dr_t',
     portrait: 'images/pilots/dr_t.png',
   },
+  dr_thrun: {
+    dialogs: [{
+      dialogKey: 'dialog:dr_thrun_ruins',
+      images: { 7: 'images/items/sleeper_module.png', 8: '' },
+      speakers: {
+        2: { speakerKey: 'pilots:kara', portrait: 'images/pilots/girl.png' },
+        3: { speakerKey: '' },
+        4: { speakerKey: 'pilots:kara', portrait: 'images/pilots/girl.png' },
+        5: { speakerKey: '' },
+        9: { speakerKey: 'pilots:dr_t', portrait: 'images/pilots/dr_t.png' },
+        10: { speakerKey: '' },
+      },
+    }],
+    id: 'dr_thrun',
+    nameKey: 'pilots:dr_thrun',
+    portrait: 'images/pilots/dr_thrun.png',
+  },
   concho_cancer: {
     dialogs: [
       { dialogKey: 'dialog:concho_same_faction', unlockRequirement: new AllOfRequirement([new PilotDefeatRequirement('concho_cancer'), new FactionRequirement(Faction.GuylosEmpire)]) },
