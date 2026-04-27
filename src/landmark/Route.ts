@@ -1,6 +1,6 @@
 import type { Drop } from '../item/Drop';
 import type { Requirement } from '../requirement';
-import { CampaignStartedRequirement, MissionCompletedRequirement, RouteKillRequirement, ZoidCreatedRequirement } from '../requirement';
+import { CampaignStartedRequirement, DungeonCompletionRequirement, MissionCompletedRequirement, ZoidCreatedRequirement } from '../requirement';
 import type { CurrencyReward } from '../models/Currency';
 import type { Landmark } from './Landmark';
 import { BattleBackground, LandmarkType } from './Landmark';
@@ -155,7 +155,7 @@ export const ROUTES: Route[] = [
     id: 'south_coast',
     name: 'South Coast',
     routeHealth: 700,
-    requirements: [new RouteKillRequirement('tauros_edge', 10)],
+    requirements: [new DungeonCompletionRequirement('tauros_grotto_sortie', 1)],
     type: LandmarkType.Route,
   },
 ];
