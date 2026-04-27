@@ -9,9 +9,9 @@ import { ScanMode } from '../store/scanStore';
 import { getZoidDataCount, incrementZoidData } from '../store/zoidDataStore';
 import { updateZoidResearch } from '../store/zoidResearchStore';
 
-export function attemptScan(zoidId: string, probeId: string): boolean {
+export function attemptScan(zoidId: string, probeId: string, scannable = true): boolean {
   const zoid = getZoidById(zoidId);
-  if (!canScan(probeId) || zoid.scanRate < 0) {return false;}
+  if (!canScan(probeId) || !scannable || zoid.scanRate < 0) {return false;}
 
   removeItem(probeId, 1);
   const rate = calculateScanRate(zoidId, probeId);
@@ -30,7 +30,8 @@ export function attemptScan(zoidId: string, probeId: string): boolean {
   return false;
 }
 
-export function calculateScanRate(zoidId: string, probeId: string): number {
+export function calculateScanRate(zoidId: string, probeId: string, scannable = true): number {
+  if (!scannable) {return 0;}
   const zoid = getZoidById(zoidId);
   if (zoid.scanRate < 0) {return 0;}
   const probe = ITEMS[probeId];
@@ -42,9 +43,9 @@ export function canScan(probeId: string): boolean {
   return getItemCount(probeId) > 0;
 }
 
-export function getActiveScanRate(mode: ScanMode, deviceId: string | null, enemyId: string | null): number {
+export function getActiveScanRate(mode: ScanMode, deviceId: string | null, enemyId: string | null, scannable = true): number {
   if (mode === ScanMode.Off || !deviceId || !canScan(deviceId) || !enemyId) {return 0;}
-  return calculateScanRate(enemyId, deviceId);
+  return calculateScanRate(enemyId, deviceId, scannable);
 }
 
 export function getAvailableProbe(): string | null {

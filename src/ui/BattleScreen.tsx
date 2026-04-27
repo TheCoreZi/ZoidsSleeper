@@ -30,7 +30,7 @@ function formatProbability(value: number): string {
 const BattleScreen: Component<BattleScreenProps> = (props) => {
   const [showInfo, setShowInfo] = createSignal(false);
 
-  const scanRate = () => getActiveScanRate(getActiveScanMode(), getActiveDeviceId(), enemyZoid()?.id ?? null);
+  const scanRate = () => getActiveScanRate(getActiveScanMode(), getActiveDeviceId(), enemyZoid()?.id ?? null, enemyZoid()?.scannable);
 
   const routeEnemies = () => {
     if (!isOnRoute()) { return []; }

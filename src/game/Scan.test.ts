@@ -38,4 +38,16 @@ describe('getActiveScanRate', () => {
 
     expect(getActiveScanRate(ScanMode.Permanent, 'core_preserver', 'gurantula')).toBe(0);
   });
+
+  it('returns 0 when scannable is false', () => {
+    addItem('core_preserver', 1);
+
+    expect(getActiveScanRate(ScanMode.Permanent, 'core_preserver', 'merda', false)).toBe(0);
+  });
+
+  it('returns normal rate when scannable is not provided', () => {
+    addItem('core_preserver', 1);
+
+    expect(getActiveScanRate(ScanMode.Permanent, 'core_preserver', 'merda')).toBe(75);
+  });
 });

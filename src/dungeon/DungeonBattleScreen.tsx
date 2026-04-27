@@ -22,7 +22,7 @@ interface Props {
 }
 
 const DungeonBattleScreen: Component<Props> = (props) => {
-  const scanRate = () => getActiveScanRate(getActiveScanMode(), getActiveDeviceId(), enemyZoid()?.id ?? null);
+  const scanRate = () => getActiveScanRate(getActiveScanMode(), getActiveDeviceId(), enemyZoid()?.id ?? null, enemyZoid()?.scannable);
 
   return (
     <div class="battle-screen">
@@ -36,7 +36,7 @@ const DungeonBattleScreen: Component<Props> = (props) => {
             </p>
           </Show>
           {enemyZoid()?.id && (
-            <img class="enemy-image" src={getZoidImage(enemyZoid()!.id)} alt={enemyZoid()!.name} />
+            <img class="enemy-image" src={getZoidImage(enemyZoid()!.id, enemyZoid()!.imageOverride)} alt={enemyZoid()!.name} />
           )}
           <DamageNumber />
           <RewardNumber />

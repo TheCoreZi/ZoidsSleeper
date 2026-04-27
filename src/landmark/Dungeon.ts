@@ -110,8 +110,9 @@ export const DUNGEONS: Dungeon[] = [
       new DungeonSortieEvent({
         baseReward: { magnis: 400, zi_metal: 15 },
         bossTiers: [
-          new BossTier([new WildBossEntry({ attackOverride: 30, id: 'hidocker', level: 45, maxHealthOverride: 3500 })]),
-          new BossTier([new WildBossEntry({ attackOverride: 30, id: 'helcat', level: 45, maxHealthOverride: 3500 })], [new DungeonCompletionRequirement('sommerso_ruins_sortie', 1)]),
+          new BossTier([new WildBossEntry({ attackOverride: 25, id: 'hidocker', level: 45, maxHealthOverride: 12000 })]),
+          new BossTier([new WildBossEntry({ attackOverride: 30, id: 'helcat', level: 45, maxHealthOverride: 10000 })], [new DungeonCompletionRequirement('sommerso_ruins_sortie', 1)]),
+          new BossTier([new WildBossEntry({ attackOverride: 60, id: 'helcat_stray', level: 50, maxHealthOverride: 20000, scannable: false })], [new DungeonCompletionRequirement('sommerso_ruins_sortie', 2)]),
         ],
         eliteEnemies: [
           { zoidData: { id: 'aquadon', level: 38, maxHealthOverride: 1000 } },

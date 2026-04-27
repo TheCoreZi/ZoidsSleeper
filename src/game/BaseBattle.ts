@@ -58,7 +58,7 @@ export abstract class BaseBattle {
     const deviceId = getActiveDeviceId();
     if (!deviceId || getActiveScanMode() === ScanMode.Off) {return false;}
     if (shouldSkipScan(this.enemy.id)) {return false;}
-    return attemptScan(this.enemy.id, deviceId);
+    return attemptScan(this.enemy.id, deviceId, this.enemy.scannable);
   }
 
   private autoAttack(): void {
