@@ -3,6 +3,7 @@
   "army_size_required": "Have at least {{count}} zoids in army",
   "at_least_one_joiner": " or ",
   "complete_campaign": "Complete campaign: {{name}}",
+  "complete_dungeon": "Complete {{dungeon}} {{count}} times",
   "start_campaign": "Start campaign: {{name}}",
   "complete_mission": "Complete mission: {{mission}} of the operation {{campaign}}",
   "current_mission": "Be on mission: {{mission}} of the operation {{campaign}}",
