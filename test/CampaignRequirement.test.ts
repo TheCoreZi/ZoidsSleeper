@@ -15,7 +15,7 @@ const testCampaign: Campaign = {
 
 describe('CampaignCompletedRequirement', () => {
   beforeEach(() => {
-    loadStatistics({}, {});
+    loadStatistics({}, {}, {});
     loadCampaigns({ test_campaign: testCampaign }, {});
   });
 
@@ -33,7 +33,7 @@ describe('CampaignCompletedRequirement', () => {
   });
 
   it('should be completed for completed campaign', () => {
-    loadCampaigns([testCampaign], {
+    loadCampaigns({ test_campaign: testCampaign }, {
       test_campaign: { currentMission: '', status: CampaignStatus.Completed },
     });
     const req = new CampaignCompletedRequirement('test_campaign');
@@ -44,7 +44,7 @@ describe('CampaignCompletedRequirement', () => {
 
 describe('MissionCompletedRequirement', () => {
   beforeEach(() => {
-    loadStatistics({}, {});
+    loadStatistics({}, {}, {});
     loadCampaigns({ test_campaign: testCampaign }, {});
   });
 
@@ -71,7 +71,7 @@ describe('MissionCompletedRequirement', () => {
   });
 
   it('should be completed when campaign is fully completed', () => {
-    loadCampaigns([testCampaign], {
+    loadCampaigns({ test_campaign: testCampaign }, {
       test_campaign: { currentMission: '', status: CampaignStatus.Completed },
     });
     const req = new MissionCompletedRequirement('test_campaign', 'm0');
@@ -82,7 +82,7 @@ describe('MissionCompletedRequirement', () => {
 
 describe('CurrentMissionRequirement', () => {
   beforeEach(() => {
-    loadStatistics({}, {});
+    loadStatistics({}, {}, {});
     loadCampaigns({ test_campaign: testCampaign }, {});
   });
 
@@ -109,7 +109,7 @@ describe('CurrentMissionRequirement', () => {
   });
 
   it('should not be completed when campaign is fully completed', () => {
-    loadCampaigns([testCampaign], {
+    loadCampaigns({ test_campaign: testCampaign }, {
       test_campaign: { currentMission: '', status: CampaignStatus.Completed },
     });
     const req = new CurrentMissionRequirement('test_campaign', 'm0');
@@ -120,7 +120,7 @@ describe('CurrentMissionRequirement', () => {
 
 describe('NpcTalkedInCampaignRequirement', () => {
   beforeEach(() => {
-    loadStatistics({}, {});
+    loadStatistics({}, {}, {});
     loadCampaigns({ test_campaign: testCampaign }, {});
   });
 

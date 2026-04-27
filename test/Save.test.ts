@@ -85,7 +85,7 @@ describe('Save', () => {
   });
 
   it('should persist route kills', () => {
-    loadStatistics({}, {});
+    loadStatistics({}, {}, {});
     incrementRouteKills('test-route');
     incrementRouteKills('test-route');
     const save = new Save();

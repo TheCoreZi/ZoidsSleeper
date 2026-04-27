@@ -29,7 +29,7 @@ describe('DuelBattle', () => {
   beforeEach(() => {
     setPlayerStats(DEFAULT_PLAYER);
     setParty({ commanderZoidId: 'shield_liger', zoids: [{ experience: 1000, id: 'shield_liger' }, { experience: 500, id: 'molga' }] });
-    loadStatistics({}, {});
+    loadStatistics({}, {}, {});
     loadZoidResearch({});
   });
 

@@ -25,7 +25,7 @@ const testCampaign: Campaign = {
 
 describe('Campaign Store', () => {
   beforeEach(() => {
-    loadStatistics({}, {});
+    loadStatistics({}, {}, {});
     loadCampaigns({ test_campaign: testCampaign }, {});
   });
 
@@ -118,7 +118,7 @@ describe('Campaign Store', () => {
 
 describe('NPC Talk Flags', () => {
   beforeEach(() => {
-    loadStatistics({}, {});
+    loadStatistics({}, {}, {});
     loadCampaigns({ test_campaign: testCampaign }, {});
   });
 

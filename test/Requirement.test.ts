@@ -5,7 +5,7 @@ import { incrementRouteKills, loadStatistics } from '../src/store/statisticsStor
 
 describe('RouteKillRequirement', () => {
   beforeEach(() => {
-    loadStatistics({}, {});
+    loadStatistics({}, {}, {});
   });
 
   it('should not be completed when kills are insufficient', () => {
@@ -15,7 +15,7 @@ describe('RouteKillRequirement', () => {
   });
 
   it('should be completed when kills reach required value', () => {
-    loadStatistics({ 'test_route': 10 }, {});
+    loadStatistics({}, {}, { 'test_route': 10 });
     const req = new RouteKillRequirement('test_route', 10);
 
     expect(req.isCompleted()).toBe(true);
@@ -39,7 +39,7 @@ describe('RouteKillRequirement', () => {
 
 describe('isLandmarkUnlocked', () => {
   beforeEach(() => {
-    loadStatistics({}, {});
+    loadStatistics({}, {}, {});
   });
 
   const baseLandmark: Landmark = {
@@ -54,7 +54,7 @@ describe('isLandmarkUnlocked', () => {
   });
 
   it('should return true when all requirements are completed', () => {
-    loadStatistics({ 'test_route': 10 }, {});
+    loadStatistics({}, {}, { 'test_route': 10 });
     const landmark: Landmark = {
       ...baseLandmark,
       requirements: [new RouteKillRequirement('test_route', 10)],
@@ -75,7 +75,7 @@ describe('isLandmarkUnlocked', () => {
 
 describe('findRouteKillRequirement', () => {
   beforeEach(() => {
-    loadStatistics({}, {});
+    loadStatistics({}, {}, {});
   });
 
   const baseLandmark: Landmark = {
@@ -116,7 +116,7 @@ describe('findRouteKillRequirement', () => {
 
 describe('getLandmarkHints', () => {
   beforeEach(() => {
-    loadStatistics({}, {});
+    loadStatistics({}, {}, {});
   });
 
   it('should return hints for incomplete requirements', () => {
