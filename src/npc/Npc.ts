@@ -158,6 +158,7 @@ export const NPCS: Record<string, Npc> = {
   },
   maria_flyheight: {
     dialogs: [
+      { dialogKey: 'dialog:maria_van_gone', unlockRequirement: new MissionCompletedRequirement('sleeper_commander', 'fight_van') },
       { dialogKey: 'dialog:maria_van_fled', unlockRequirement: new MissionCompletedRequirement('sleeper_commander', 'talk_to_girl') },
       { dialogKey: 'dialog:maria_fiona', unlockRequirement: new MissionCompletedRequirement('sleeper_commander', 'interrogate_bandits') },
       { dialogKey: 'dialog:maria_flyheight' },
