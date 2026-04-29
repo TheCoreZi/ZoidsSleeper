@@ -104,12 +104,15 @@ describe('shells_of_time campaign', () => {
   it('has 3 missions', () => {
     const campaign = CAMPAIGNS['shells_of_time'];
     expect(campaign).toBeDefined();
-    expect(campaign.missions.length).toBe(5);
+    expect(campaign.missions.length).toBe(9);
   });
 
   it('missions are in correct order', () => {
     const ids = CAMPAIGNS['shells_of_time'].missions.map((m) => m.id);
-    expect(ids).toEqual(['head_to_porto_nido', 'fight_arcadia_guard', 'meet_dr_t', 'clear_ruins', 'meet_father']);
+    expect(ids).toEqual([
+      'head_to_porto_nido', 'fight_arcadia_guard', 'meet_dr_t', 'clear_ruins', 'meet_father',
+      'father_backstory', 'clear_ruins_demo', 'clear_ruins_stray', 'survive_stray',
+    ]);
   });
 
   it('fight_arcadia_guard has onComplete callback', () => {

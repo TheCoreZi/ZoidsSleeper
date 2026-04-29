@@ -75,9 +75,8 @@ const App: Component = () => {
   const isDungeonMap = createMemo(() => isDungeonActive() && dungeonPhase() === DungeonPhase.Map);
   const isDungeonSupply = createMemo(() => isDungeonActive() && dungeonPhase() === DungeonPhase.Supply);
   const isDuelBattleMode = createMemo(() => battleState() === BattleState.DuelCombat);
-  const isPilotBattleMode = createMemo(() =>
-    battleState() === BattleState.PilotCombat
-  );
+  const isPilotBattleMode = createMemo(() => battleState() === BattleState.PilotCombat);
+  const isWildBossCombat = createMemo(() => battleState() === BattleState.WildBossCombat);
 
   onMount(() => {
     game = new Game();
@@ -229,6 +228,11 @@ const App: Component = () => {
                 />
               </Match>
               <Match when={isDungeonCombat()}>
+                <DungeonBattleScreen
+                  onClick={() => game?.battle?.clickAttack()}
+                />
+              </Match>
+              <Match when={isWildBossCombat()}>
                 <DungeonBattleScreen
                   onClick={() => game?.battle?.clickAttack()}
                 />

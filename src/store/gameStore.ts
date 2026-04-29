@@ -13,6 +13,7 @@ export const BattleState = {
   DungeonCombat: 'dungeon-combat',
   Idle: 'idle',
   PilotCombat: 'pilot-combat',
+  WildBossCombat: 'wild-boss-combat',
   WildCombat: 'wild-combat',
 } as const;
 export type BattleState = (typeof BattleState)[keyof typeof BattleState];

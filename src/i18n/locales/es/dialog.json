@@ -289,5 +289,46 @@
   "concho_post_battle": [
     "¡Ja! Bueno, bueno. Peleas lo suficientemente fuerte como para entretenerme. La mayoría de los idiotas caen en cinco segundos contra mi Heldigunner.",
     "Mira, odio los discursos, así que voy al grano. ¿Ese módulo? Sinceramente, siempre pensé que la tecnología Sleeper era basura inútil. Pero tú no eres basura. El Imperio de Guylos quiere pilotos fuertes. No nos importa tu pasado, tus métodos ni tus ideales. Solo si sabes pelear."
+  ],
+  "dr_thrun_backstory": [
+    "Creo que mereces saber toda la verdad. Mi nombre es Konrad Thrun. Soy investigador de Zoids. Hace años desarrollé algo llamado Módulo Sleeper, diseñado para darles a los Zoids una forma de autonomía.",
+    "Pero la investigación cuesta dinero. Acudí a la República de Helic y al Imperio de Guylos para obtener financiamiento. Al principio les interesó la ciencia, pero pronto se convirtió en una carrera. Un Zoid autónomo significa menos pilotos en riesgo y mayor potencia de fuego. Cada bando quería la tecnología para sus propios fines.",
+    "Lo que estaba creando no se iba a convertir en un arma. Ya lo era. Así que les entregué a ambos lados una versión incompleta. Suficiente para ser útil, pero no lo bastante para ser peligrosa.",
+    "Por ese entonces conocí al Dr. T. Él no es de esta dimensión. Una falla en la tecnología Zoid de su mundo lo envió aquí. Cuando comparamos nuestras notas, descubrimos algo inquietante.",
+    "En su mundo, la tecnología Sleeper también existe. Pero allá son cajas negras que reemplazan completamente al piloto. Los Zoids obedecen sin cuestionar.",
+    "Dos mundos, la misma tecnología, desarrollada de forma independiente. Eso no puede ser coincidencia. Es como si los propios Zoids estuvieran hechos para adoptar esta tecnología.",
+    "Sabía que era cuestión de tiempo antes de que los ejércitos descubrieran lo que el Módulo Sleeper completo realmente podía hacer. Así que desaparecí. Traje mi investigación aquí, a estas ruinas olvidadas.",
+    "Sé lo que piensas. Que desde el principio esto era una mala idea. Pero para que entiendas el verdadero motivo de mi investigación, te lo tengo que demostrar. Vayamos de nuevo a las ruinas, hasta el fondo. Prepárate, esta vez será más peligroso."
+  ],
+  "dr_thrun_stray_intro": [
+    "¿Viste eso? Ese Zoid no tiene Módulo Sleeper. Apenas intentó defenderse, ¿no es así? Hace mucho tiempo, los Zoids eran criaturas salvajes con sus propios instintos. Cazaban, sobrevivían, vivían según su propia naturaleza.",
+    "Luego los humanos comenzaron a domesticarlos, a modificarlos para la batalla. A cambio, los Zoids ya no necesitaban cazar. Los humanos los alimentaban, los mantenían en forma, los reparaban. Pero a medida que las guerras escalaban, los ejércitos querían armas más eficientes.",
+    "Eliminaron las necesidades biológicas de los Zoids y las reemplazaron con combustible sintético y partes artificiales. Para los Zoids, fue el fin de su naturaleza. Se volvieron dependientes de nosotros y su único propósito pasó a ser seguir órdenes. Pero esto implica un problema...",
+    "¿Qué sucede con los Zoids que ya no pueden luchar? ¿O aquellos que pierden a sus pilotos? ¿O simplemente los que ya no son útiles? Justo lo que sucedió con ese Helcat. Sin sus instintos salvajes, los Zoids Errantes no pueden alimentarse por sí mismos ni saciar sus necesidades de forma autónoma. Simplemente... esperan su muerte.",
+    "El Módulo Sleeper nunca fue pensado como un arma. Lo diseñé para restaurar lo que les fue arrebatado. Su autonomía. Su voluntad de sobrevivir.",
+    "Tus Zoids, por ejemplo, pueden seguir tus órdenes mediante sus instintos gracias al Módulo Sleeper. Sin embargo, este está incompleto. Es solo un fragmento de lo que el sistema completo puede hacer. Unos instintos aún atados a un amo.",
+    "Ahora vamos. Más adentro de estas ruinas hay otro Zoid que debes ver."
+  ],
+  "narration_stray_helcat": [
+    "El Helcat Salvaje tenía una velocidad aterradora. Sus ojos ardían con una intensidad que jamás habías visto en un Zoid.",
+    "¿Viste eso? Ese Helcat tiene un Módulo Sleeper avanzado. Sus instintos están completamente restaurados. Pelea como una bestia salvaje, como eran los Zoids antes de que los humanos los domesticaran.",
+    "El Módulo Sleeper puede devolverles su autonomía. Hacerlos más rápidos, más fuertes, más agresivos que cualquier Zoid de laboratorio. Se convierten en verdaderos depredadores otra vez.",
+    "La escasez de Zoids salvajes es una de las grandes limitantes de los ejércitos. Si descubren esto, querrán este poder. Imagina una flota entera de Zoids con la ferocidad de bestias salvajes pero bajo sus órdenes. Eso es lo que intentarán lograr.",
+    "Pero estos Zoids no se pueden controlar. Mientras más tiempo usan el sistema Sleeper avanzado, más feroces se vuelven. No obedecen. No se detienen. No reconocen amigos ni enemigos.",
+    "A los ejércitos no les importará. Experimentarán hasta encontrar la forma de doblegar a estas criaturas bajo su voluntad. Y cuando fracasen... la destrucción será inconmensurable.",
+    "P-papá... se... se está levantando...",
+    "¡No! ¡Tenemos que salir de aquí, ahora!"
+  ],
+  "narration_stray_gets_up": [
+    "El Helcat Salvaje cae... pero solo por un momento. Sus extremidades tiemblan y se tensan. Se levanta de nuevo, más agresivo que antes.",
+    "¡Se está levantando de nuevo! Su Módulo Sleeper lo está empujando más allá de sus límites. ¡Rápido, no se detendrá!"
+  ],
+  "narration_ancient_pulse": [
+    "El Helcat Salvaje se levanta una vez más. Su cuerpo tiembla con una energía antinatural, listo para atacar de nuevo.",
+    "Se abalanza sobre ustedes, pero antes de que pueda alcanzarlos, la estatua antigua en el centro de las ruinas comienza a brillar. Un pulso profundo irradia hacia afuera, como el latido del corazón de la propia piedra.",
+    "El Helcat se congela a medio paso. Sus ojos se apagan. Sus extremidades se aflojan. Da la vuelta y se pierde en las profundidades de las ruinas.",
+    "¿Qué... qué acaba de pasar? ¿Esa estatua reaccionó al Helcat?",
+    "No tengo idea. En todos mis años estudiando estas ruinas, nunca había visto algo así. Ese pulso... desactivó sus instintos por completo.",
+    "Necesitamos irnos de aquí. No es seguro. Hablaremos de esto en la ciudad."
   ]
 }

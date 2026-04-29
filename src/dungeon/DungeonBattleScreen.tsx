@@ -41,7 +41,9 @@ const DungeonBattleScreen: Component<Props> = (props) => {
           <DamageNumber />
           <RewardNumber />
           <div class="battle-bottom">
-            <ScanToggle />
+            <Show when={scanRate() >= 0}>
+              <ScanToggle />
+            </Show>
             <PlayerHealthBar
               health={pilotPlayerHealth()}
               maxHealth={pilotPlayerMaxHealth()}

@@ -61,18 +61,28 @@ export const NPCS: Record<string, Npc> = {
     portrait: 'images/pilots/dr_t.png',
   },
   dr_thrun: {
-    dialogs: [{
-      dialogKey: 'dialog:dr_thrun_ruins',
-      images: { 7: 'images/items/sleeper_module.png', 8: '' },
-      speakers: {
-        2: { speakerKey: 'pilots:kara', portrait: 'images/pilots/girl.png' },
-        3: { speakerKey: '' },
-        4: { speakerKey: 'pilots:kara', portrait: 'images/pilots/girl.png' },
-        5: { speakerKey: '' },
-        9: { speakerKey: 'pilots:dr_t', portrait: 'images/pilots/dr_t.png' },
-        10: { speakerKey: '' },
+    dialogs: [
+      {
+        dialogKey: 'dialog:dr_thrun_stray_intro',
+        unlockRequirement: new MissionCompletedRequirement('shells_of_time', 'clear_ruins_demo'),
       },
-    }],
+      {
+        dialogKey: 'dialog:dr_thrun_backstory',
+        unlockRequirement: new MissionCompletedRequirement('shells_of_time', 'meet_father'),
+      },
+      {
+        dialogKey: 'dialog:dr_thrun_ruins',
+        images: { 7: 'images/items/sleeper_module.png', 8: '' },
+        speakers: {
+          2: { speakerKey: 'pilots:kara', portrait: 'images/pilots/girl.png' },
+          3: { speakerKey: '' },
+          4: { speakerKey: 'pilots:kara', portrait: 'images/pilots/girl.png' },
+          5: { speakerKey: '' },
+          9: { speakerKey: 'pilots:dr_t', portrait: 'images/pilots/dr_t.png' },
+          10: { speakerKey: '' },
+        },
+      },
+    ],
     id: 'dr_thrun',
     nameKey: 'pilots:dr_thrun',
     portrait: 'images/pilots/dr_thrun.png',

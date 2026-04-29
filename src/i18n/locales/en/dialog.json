@@ -289,5 +289,46 @@
   "concho_post_battle": [
     "Hah! Alright, alright. You actually fight hard enough to be entertaining. Most idiots fold in five seconds against my Heldigunner.",
     "Look, I hate speeches, so here's the deal. That module? Honestly, I always thought Sleeper tech was worthless garbage. But you're not garbage. The Guylos Empire wants strong pilots. We don't care about your past, your methods, or your ideals. Just whether you can fight."
+  ],
+  "dr_thrun_backstory": [
+    "I think you deserve the full truth. My name is Konrad Thrun. I am a Zoid researcher. Years ago, I developed something called the Sleeper Module, designed to give Zoids a form of autonomy.",
+    "But research costs money. I approached both the Helic Republic and the Guylos Empire for funding. At first they were interested in the science, but soon it became a race. An autonomous Zoid means fewer pilots at risk and greater firepower. Each side wanted the technology for their own ends.",
+    "What I was creating was not going to become a weapon. It already was one. So I delivered both sides an incomplete version. Enough to be useful, but not enough to be dangerous.",
+    "Around that time, I met Dr. T. He is not from this dimension. A Zoid technology malfunction in his world sent him here. When we compared notes, we discovered something unsettling.",
+    "In his world, Sleeper technology also exists. But there, they are black boxes that completely replace the pilot. The Zoids obey without question.",
+    "Two worlds, the same technology, developed independently. That cannot be a coincidence. It is as if the Zoids themselves were made to adopt this technology.",
+    "I knew it was only a matter of time before the armies discovered what the full Sleeper Module could really do. So I disappeared. Brought my research here, to these forgotten ruins.",
+    "I know what you are thinking. That this was a bad idea from the start. But for you to understand the true purpose of my research, I need to show you. Let us go back to the ruins, all the way to the bottom. Be prepared, it will be more dangerous this time."
+  ],
+  "dr_thrun_stray_intro": [
+    "Did you see that? That Zoid has no Sleeper Module. It barely tried to defend itself, did it? Long ago, Zoids were wild creatures with their own instincts. They hunted, they survived, they lived by their own nature.",
+    "Then humans began to domesticate them, to modify them for battle. In return, the Zoids no longer needed to hunt. Humans fed them, kept them in shape, repaired them. But as wars escalated, the armies wanted more efficient weapons.",
+    "They stripped away the Zoids' biological needs and replaced them with synthetic fuel and artificial parts. For the Zoids, it was the end of their nature. They became dependent on us and their only purpose became following orders. But this poses a problem...",
+    "What happens to Zoids that can no longer fight? Or those that lose their pilots? Or simply the ones that are no longer useful? Exactly what happened to that Helcat. Without their wild instincts, Stray Zoids cannot feed themselves or sustain their own needs. They simply... await their death.",
+    "The Sleeper Module was never meant to be a weapon. I designed it to restore what was taken from them. Their autonomy. Their will to survive.",
+    "Your Zoids, for example, can follow your commands through instinct thanks to the Sleeper Module. However, it is incomplete. Just a fragment of what the full system can do. Instincts still tethered to a master.",
+    "Now come. Deeper in these ruins, there is another Zoid you need to see."
+  ],
+  "narration_stray_helcat": [
+    "The Stray Helcat moved with terrifying speed. Its eyes burned with an intensity you had never seen in a Zoid before.",
+    "Did you see that? That Helcat has an advanced Sleeper Module. Its instincts are fully restored. It fights like a wild beast, the way Zoids were before humans domesticated them.",
+    "The Sleeper Module can restore their autonomy. Make them faster, stronger, more aggressive than any laboratory-bred Zoid. They become true predators once again.",
+    "The scarcity of wild Zoids is one of the armies' greatest limitations. If they discover this, they will want this power. Imagine an entire fleet of Zoids with the ferocity of wild beasts but under their command. That is what they will try to achieve.",
+    "But these Zoids cannot be controlled. The longer the advanced Sleeper Module runs, the more ferocious they become. They do not obey. They do not stop. They do not recognize friend or foe.",
+    "The armies will not care. They will experiment until they find a way to bend these creatures to their will. And when they fail... the destruction will be immeasurable.",
+    "D-dad... it... it is getting back up...",
+    "No! We need to get out of here, now!"
+  ],
+  "narration_stray_gets_up": [
+    "The Stray Helcat collapses... but only for a moment. Its limbs twitch, then lock into place. It rises again, more aggressive than before.",
+    "It is getting back up! Its Sleeper Module is pushing it beyond its limits. Quick, it will not stop!"
+  ],
+  "narration_ancient_pulse": [
+    "The Stray Helcat rises once more. Its body trembles with unnatural energy, ready to strike again.",
+    "It lunges at you, but before it can reach you, the ancient statue at the center of the ruins begins to glow. A deep pulse radiates outward, like a heartbeat from the stone itself.",
+    "The Helcat freezes mid-step. Its eyes dim. Its limbs go slack. It turns and vanishes into the depths of the ruins.",
+    "What... what just happened? Did that statue react to the Helcat?",
+    "I have no idea. In all my years studying these ruins, I have never seen anything like that. That pulse... it shut down its instincts completely.",
+    "We need to leave. It is not safe. We will talk about this in town."
   ]
 }
