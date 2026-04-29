@@ -11,6 +11,10 @@
     "description": "A device to preserve the Core of a weakened Zoid in order to extract structural data.",
     "name": "Core Preserver"
   },
+  "core_saver": {
+    "description": "An advanced preservation unit that stabilizes the Zoid Core during extraction, improving the chances of obtaining structural data.",
+    "name": "Core Saver"
+  },
   "core_probe": {
     "description": "A probe to connect to the Zoid Core. Can obtain structural data.",
     "name": "Core Probe"

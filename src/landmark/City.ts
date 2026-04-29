@@ -105,6 +105,8 @@ export const CITIES: City[] = [
   },
   {
     actions: [
+      new ActionVisitDepot([ITEMS.core_preserver as ConsumableItem, ITEMS.core_saver as ConsumableItem], undefined, 'ui:visit_shop'),
+      new ActionVisitLab('porto_nido_lab'),
       ...AUTOMATIC_ACTIONS.porto_nido_ask_doctor,
       new ActionTalkToNPC('dr_t', [new PilotDefeatRequirement('arcadia_guard')], [new MissionCompletedRequirement(S, 'meet_father')]),
       new ActionTalkToNPC('dr_thrun', [new MissionCompletedRequirement(S, 'meet_father')], [new MissionCompletedRequirement(S, 'clear_ruins_demo')]),

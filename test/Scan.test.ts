@@ -19,8 +19,20 @@ describe('calculateScanRate', () => {
   });
 
   it('should clamp scan rate to 100', () => {
-    // Merda has 75 scanRate; even with a hypothetical large bonus, rate should cap at 100
     const rate = calculateScanRate('merda', 'core_preserver');
+    expect(rate).toBeLessThanOrEqual(100);
+    expect(rate).toBeGreaterThanOrEqual(0);
+  });
+
+  it('should add core_saver bonus to scan rate', () => {
+    expect(calculateScanRate('merda', 'core_saver')).toBe(80);
+    expect(calculateScanRate('gator', 'core_saver')).toBe(65);
+    expect(calculateScanRate('malder', 'core_saver')).toBe(55);
+    expect(calculateScanRate('zatton', 'core_saver')).toBe(35);
+  });
+
+  it('should clamp core_saver scan rate to 100', () => {
+    const rate = calculateScanRate('merda', 'core_saver');
     expect(rate).toBeLessThanOrEqual(100);
     expect(rate).toBeGreaterThanOrEqual(0);
   });
