@@ -1,9 +1,22 @@
 import type { Requirement } from '../requirement';
 import { RouteKillRequirement } from '../requirement';
+import { TerrainType } from '../models/Terrain';
 import type { Route } from './Route';
 
-export const BattleBackground = { Desert: 'desert', Dirt: 'dirt', Forest: 'forest', Grass: 'grass', Plain: 'plain', Rock: 'rock', Ruin: 'ruin' } as const;
+export const BattleBackground = { Air: 'air', Desert: 'desert', Dirt: 'dirt', Forest: 'forest', Grass: 'grass', Plain: 'plain', Rock: 'rock', Ruin: 'ruin', Water: 'water' } as const;
 export type BattleBackground = (typeof BattleBackground)[keyof typeof BattleBackground];
+
+export const BattleBackgroundTerrain: Record<BattleBackground, TerrainType> = {
+  [BattleBackground.Air]: TerrainType.Air,
+  [BattleBackground.Desert]: TerrainType.Land,
+  [BattleBackground.Dirt]: TerrainType.Land,
+  [BattleBackground.Forest]: TerrainType.Land,
+  [BattleBackground.Grass]: TerrainType.Land,
+  [BattleBackground.Plain]: TerrainType.Land,
+  [BattleBackground.Rock]: TerrainType.Land,
+  [BattleBackground.Ruin]: TerrainType.Land,
+  [BattleBackground.Water]: TerrainType.Water,
+};
 
 export const LandmarkType = { City: 'city', Dungeon: 'dungeon', Route: 'route' } as const;
 export type LandmarkType = (typeof LandmarkType)[keyof typeof LandmarkType];
