@@ -41,6 +41,22 @@
       "meet_father": {
         "description": "You've reached the heart of the ruins. Talk to Dr. Thrun and deliver his daughter safely.",
         "name": "Last Mile"
+      },
+      "father_backstory": {
+        "name": "The Sleeper's Origin",
+        "description": "Dr. Thrun has a story to tell. Find him in Porto Nido."
+      },
+      "clear_ruins_demo": {
+        "name": "Without a Soul",
+        "description": "Complete a sortie in Sommerso Ruins to understand Dr. Thrun's work."
+      },
+      "clear_ruins_stray": {
+        "name": "Unleashed",
+        "description": "Complete another sortie in Sommerso Ruins to witness the effect of Sleeper technology."
+      },
+      "survive_stray": {
+        "name": "Unstoppable",
+        "description": "The Stray Helcat won't stay down. Defend yourself!"
       }
     },
     "name": "Breaking the Shell"

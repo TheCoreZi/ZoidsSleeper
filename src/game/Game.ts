@@ -19,14 +19,16 @@ import { SortieNodeType } from '../dungeon/DungeonGraph';
 import { t } from '../i18n';
 import { DialogScript } from '../dialog/Dialog';
 import type { City, Landmark, Route } from '../landmark';
-import { ActionDuelPilot, ActionFightPilot, ActionPlayCutscene, ActionTalkToNPC, ActionVisitDepot, ActionVisitLab, getLandmarkById, getLandmarkHints, isLandmarkUnlocked, isRoute, ROUTES } from '../landmark';
+import { ActionDuelPilot, ActionFightPilot, ActionFightWild, ActionPlayCutscene, ActionTalkToNPC, ActionVisitDepot, ActionVisitLab, getLandmarkById, getLandmarkHints, isLandmarkUnlocked, isRoute, ROUTES } from '../landmark';
 import type { Dungeon } from '../landmark';
 import { REGIONS } from '../map/Region';
 import { Currency } from '../models/Currency';
+import type { CurrencyReward } from '../models/Currency';
 import type { Pilot } from '../models/Pilot';
 import { DEFAULT_PLAYER } from '../models/Player';
 import { PopupMessage, PopupType } from '../models/PopupMessage';
-import { ZoidResearchStatus } from '../models/Zoid';
+import { getZoidById, ZoidResearchStatus } from '../models/Zoid';
+import type { ZoidBlueprint } from '../models/Zoid';
 import { grantReward, type Reward } from '../reward';
 import { loadCampaigns, markNpcTalked, checkCampaigns } from '../store/campaignStore';
 import {
@@ -58,7 +60,7 @@ import { addZoidToArmy, partyMaxHealth, setParty } from '../store/partyStore';
 import { incrementDungeonCompletions, incrementPilotDefeats, loadStatistics } from '../store/statisticsStore';
 import { loadInventory } from '../store/inventoryStore';
 import { loadScanSetup } from '../store/scanStore';
-import { addCurrency, loadWallet } from '../store/walletStore';
+import { addCurrency, grantCurrencyReward, loadWallet } from '../store/walletStore';
 import { loadZoidData } from '../store/zoidDataStore';
 import { loadZoidResearch, updateZoidResearch } from '../store/zoidResearchStore';
 import { BaseBattle } from './BaseBattle';
@@ -67,6 +69,7 @@ import { DuelBattle } from './DuelBattle';
 import { GameLoop } from './GameLoop';
 import { PilotBattle } from './PilotBattle';
 import { Save } from './Save';
+import { WildBossBattle } from './WildBossBattle';
 
 export class Game {
   battle: BaseBattle | null = null;
@@ -181,6 +184,7 @@ export class Game {
         checkCampaigns();
       }
       this.endPilotBattle(new PopupMessage(t('ui:not_strong_enough', { name: t(`pilots:${pilot.id}`) }), t('ui:defeated'), PopupType.Defeat));
+      if (unwinnable && reward) { grantReward(reward); }
     };
     battle.onVictory = () => {
       addCurrency(Currency.Magnis, pilot.magnisReward);
@@ -191,6 +195,28 @@ export class Game {
     };
     this.battle = battle;
     setBattleState(BattleState.PilotCombat);
+  }
+
+  enterWildBossBattle(wildId: string, zoids: ZoidBlueprint[], currencyReward: CurrencyReward, unwinnable = false, reward?: Reward): void {
+    const zoidName = getZoidById(zoids[0].id).name;
+    const battle = new WildBossBattle(playerStats()!, zoids);
+    battle.onDefeat = () => {
+      if (unwinnable) {
+        incrementPilotDefeats(wildId);
+        checkCampaigns();
+      }
+      this.endWildBossBattle(new PopupMessage(t('ui:not_strong_enough', { name: zoidName }), t('ui:defeated'), PopupType.Defeat));
+      if (unwinnable && reward) { grantReward(reward); }
+    };
+    battle.onVictory = () => {
+      grantCurrencyReward(currencyReward, 1, true);
+      incrementPilotDefeats(wildId);
+      checkCampaigns();
+      this.endWildBossBattle(new PopupMessage(t('ui:wild_defeated', { name: zoidName }), t('ui:victory'), PopupType.Victory));
+      if (reward) { grantReward(reward); }
+    };
+    this.battle = battle;
+    setBattleState(BattleState.WildBossCombat);
   }
 
   selectDungeonNode(nodeId: string): void {
@@ -271,6 +297,15 @@ export class Game {
 
   }
 
+  private endWildBossBattle(popup: PopupMessage): void {
+    setPilotPlayerHealth(0);
+    setPilotPlayerMaxHealth(0);
+    this.battle = null;
+    setBattleState(BattleState.Idle);
+    setEnemyZoid(null);
+    showPopup(popup);
+  }
+
   private endPilotBattle(popup: PopupMessage): void {
     setPilotInfo(null);
     setPilotEnemyProgress({ current: 0, total: 0 });
@@ -289,6 +324,7 @@ export class Game {
       case BattleState.DuelCombat:
       case BattleState.DungeonBoss:
       case BattleState.DungeonCombat:
+      case BattleState.WildBossCombat:
       case BattleState.WildCombat:
       case BattleState.PilotCombat:
         this.battle?.gameTick();
@@ -361,6 +397,8 @@ export class Game {
         action.onExecute = () => this.enterDungeon(action);
       } else if (action instanceof ActionFightPilot) {
         action.onExecute = () => this.enterPilotBattle(action.pilot, action.unwinnable, action.reward);
+      } else if (action instanceof ActionFightWild) {
+        action.onExecute = () => this.enterWildBossBattle(action.wildId, action.zoids, action.currencyReward, action.unwinnable, action.reward);
       } else if (action instanceof ActionPlayCutscene) {
         action.onExecute = () => {
           setActiveDialog(new DialogScript(action.cutscene.toDialogScript().lines, action.reward));

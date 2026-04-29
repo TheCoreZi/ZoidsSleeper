@@ -19,5 +19,6 @@ export { OnlyOneRequirement } from './OnlyOneRequirement';
 export { PilotDefeatRequirement } from './PilotDefeatRequirement';
 export type { Requirement } from './Requirement';
 export { RouteKillRequirement } from './RouteKillRequirement';
+export { WildDefeatRequirement } from './WildDefeatRequirement';
 export { ZiDataRequirement } from './ZiDataRequirement';
 export { ZoidCreatedRequirement } from './ZoidCreatedRequirement';

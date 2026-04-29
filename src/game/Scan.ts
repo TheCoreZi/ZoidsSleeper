@@ -31,7 +31,7 @@ export function attemptScan(zoidId: string, probeId: string, scannable = true): 
 }
 
 export function calculateScanRate(zoidId: string, probeId: string, scannable = true): number {
-  if (!scannable) {return 0;}
+  if (!scannable) {return -1;}
   const zoid = getZoidById(zoidId);
   if (zoid.scanRate < 0) {return 0;}
   const probe = ITEMS[probeId];

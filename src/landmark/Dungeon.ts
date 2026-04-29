@@ -10,6 +10,7 @@ import { ActionTalkToNPC } from './action/ActionTalkToNPC';
 import type { CityAction } from './action/CityAction';
 import type { Landmark } from './Landmark';
 import { BattleBackground, LandmarkType } from './Landmark';
+import { STRAY_CHAIN_ACTIONS } from '../story/eventchains/strayChain';
 
 export interface Dungeon extends Landmark {
   actions?: CityAction[];
@@ -112,8 +113,9 @@ export const DUNGEONS: Dungeon[] = [
         baseReward: { magnis: 400, zi_metal: 15 },
         bossTiers: [
           new BossTier([new WildBossEntry({ attackOverride: 25, id: 'hidocker', level: 45, maxHealthOverride: 10000 })]),
-          new BossTier([new WildBossEntry({ attackOverride: 30, id: 'helcat', level: 45, maxHealthOverride: 8000 })], [new MissionCompletedRequirement(S.id, 'meet_father')]),
-          new BossTier([new WildBossEntry({ attackOverride: 60, id: 'helcat_stray', level: 50, maxHealthOverride: 15000, scannable: false })], [new DungeonCompletionRequirement('sommerso_ruins_sortie', 2)]),
+          new BossTier([new WildBossEntry({ attackOverride: 30, id: 'helcat', level: 45, maxHealthOverride: 8000 })], [new MissionCompletedRequirement(S.id, 'father_backstory')]),
+          new BossTier([new WildBossEntry({ attackOverride: 65, id: 'helcat_stray', level: 50, maxHealthOverride: 15000, scannable: false })], [new MissionCompletedRequirement(S.id, 'clear_ruins_demo')]),
+          new BossTier([new WildBossEntry({ attackOverride: 25, id: 'hidocker', level: 45, maxHealthOverride: 10000 }), new WildBossEntry({ attackOverride: 30, id: 'helcat', level: 45, maxHealthOverride: 8000 })], [new MissionCompletedRequirement(S.id, 'survive_stray')]),
         ],
         eliteEnemies: [
           { zoidData: { id: 'aquadon', level: 38, maxHealthOverride: 1000 } },
@@ -139,6 +141,7 @@ export const DUNGEONS: Dungeon[] = [
         ],
       }),
       new ActionTalkToNPC('dr_thrun', [new DungeonCompletionRequirement('sommerso_ruins_sortie', 1)], [new MissionCompletedRequirement(S.id, 'meet_father')]),
+      ...STRAY_CHAIN_ACTIONS,
     ],
     battleBackground: BattleBackground.Ruin,
     devOnly: true,

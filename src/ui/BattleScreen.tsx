@@ -67,7 +67,9 @@ const BattleScreen: Component<BattleScreenProps> = (props) => {
           <DamageNumber />
           <RewardNumber />
           <div class="battle-bottom">
-            <ScanToggle />
+            <Show when={scanRate() >= 0}>
+              <ScanToggle />
+            </Show>
             <Show when={showClickHint()}>
               <p class="click-hint">{t('ui:click_hint')}</p>
             </Show>

@@ -8,6 +8,7 @@
   "complete_mission": "Completar misión: {{mission}} de la operación {{campaign}}",
   "current_mission": "Estar en la misión: {{mission}} de la operación {{campaign}}",
   "defeat_pilot": "Derrota a {{name}}",
+  "defeat_wild": "Derrota a {{name}}",
   "item_required": "Tener {{count}} {{item}}",
   "defeat_zoids_on_route": "Derrota {{count}} zoids en {{route}}",
   "join_faction": "Unirse a {{name}}",

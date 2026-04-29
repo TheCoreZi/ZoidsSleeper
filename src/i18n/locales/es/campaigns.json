@@ -21,6 +21,22 @@
       "meet_father": {
         "description": "Has llegado al corazón de las ruinas. Habla con el Dr. Thrun y entrégale a su hija sana y salva.",
         "name": "La Última Milla"
+      },
+      "father_backstory": {
+        "name": "El Origen del Sleeper",
+        "description": "El Dr. Thrun tiene algo que contarte. Encuéntralo en Porto Nido."
+      },
+      "clear_ruins_demo": {
+        "name": "Sin Alma",
+        "description": "Completa una incursión en las Ruinas Sommerso para entender el trabajo del Dr. Thrun."
+      },
+      "clear_ruins_stray": {
+        "name": "Desatado",
+        "description": "Completa otra incursión en las Ruinas Sommerso para presenciar el efecto de la tecnología Sleeper."
+      },
+      "survive_stray": {
+        "name": "Imparable",
+        "description": "El Helcat Salvaje no se quedará abajo. ¡Defiéndete!"
       }
     },
     "name": "Saliendo del Caparazón"

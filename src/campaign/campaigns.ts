@@ -1,7 +1,9 @@
 import { Faction } from '../models/Faction';
 import { AllOfRequirement, ArmySizeRequirement, CampaignCompletedRequirement, ComparisonCondition, DungeonCompletionRequirement, FactionRequirement, MissionCompletedRequirement, NpcTalkedInCampaignRequirement, PilotDefeatRequirement, RouteKillRequirement, ZiDataRequirement } from '../requirement';
 import { CUTSCENES } from '../cutscene';
+import { activateCityActionReward, grantReward } from '../reward';
 import { enqueueDialog } from '../store/gameStore';
+import { POST_DEMO_TALK, STRAY_CHAIN_TRIGGER } from '../story/eventchains/strayChain';
 import type { Campaign } from './Campaign';
 
 export const CAMPAIGNS: Record<string, Campaign> = {
@@ -31,6 +33,10 @@ export const CAMPAIGNS: Record<string, Campaign> = {
       { id: 'meet_dr_t', goals: [new NpcTalkedInCampaignRequirement('shells_of_time', 'dr_t')] },
       { id: 'clear_ruins', goals: [new DungeonCompletionRequirement('sommerso_ruins_sortie', 1)] },
       { id: 'meet_father', goals: [new NpcTalkedInCampaignRequirement('shells_of_time', 'dr_thrun')] },
+      { id: 'father_backstory', goals: [new NpcTalkedInCampaignRequirement('shells_of_time', 'dr_thrun')] },
+      { id: 'clear_ruins_demo', goals: [new DungeonCompletionRequirement('sommerso_ruins_sortie', 2)], onComplete: () => grantReward(activateCityActionReward(POST_DEMO_TALK)) },
+      { id: 'clear_ruins_stray', goals: [new DungeonCompletionRequirement('sommerso_ruins_sortie', 3)], onComplete: () => grantReward(activateCityActionReward(STRAY_CHAIN_TRIGGER)) },
+      { id: 'survive_stray', goals: [new MissionCompletedRequirement('shells_of_time', 'survive_stray')] },
     ],
     unlockRequirements: [new CampaignCompletedRequirement('sleeper_commander')],
   },

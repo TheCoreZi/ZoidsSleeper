@@ -20,7 +20,6 @@ function advanceMission(campaignId: string): void {
   if (currentIndex < 0) {return;}
 
   const completedMissionId = state.currentMission;
-  campaign.missions[currentIndex]?.onComplete?.();
 
   const nextIndex = currentIndex + 1;
   const completed = nextIndex >= campaign.missions.length;
@@ -31,6 +30,8 @@ function advanceMission(campaignId: string): void {
     : { currentMission: nextMissionId, missionNpcFlags: buildNpcFlags(campaign, nextIndex), status: CampaignStatus.Started };
 
   setCampaignStates((prev) => ({ ...prev, [campaignId]: newState }));
+
+  campaign.missions[currentIndex]?.onComplete?.();
 
   showPopup(new PopupMessage(
     t(`campaigns:${campaignId}.missions.${completedMissionId}.name`),
