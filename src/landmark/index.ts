@@ -6,6 +6,7 @@ export { DUNGEONS, getDungeon } from './Dungeon';
 export type { Dungeon } from './Dungeon';
 export {
   BattleBackground,
+  BattleBackgroundTerrain,
   findRouteKillRequirement,
   getLandmarkHints,
   isLandmarkUnlocked,

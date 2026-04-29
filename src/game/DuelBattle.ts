@@ -21,8 +21,9 @@ export const GaugeDirection = {
 type GaugeDirection = (typeof GaugeDirection)[keyof typeof GaugeDirection];
 import { getActiveZoids } from '../models/Pilot';
 import type { PlayerStats } from '../models/Player';
+import { getTerrainBonus } from '../models/Terrain';
 import type { CustomizedZoid, ZoidBlueprint } from '../models/Zoid';
-import { buildZoid, spawnZoid, ZoidResearchStatus } from '../models/Zoid';
+import { buildZoid, getZoidById, spawnZoid, ZoidResearchStatus } from '../models/Zoid';
 import {
   DuelTurnPhase,
   setDuelState,
@@ -31,6 +32,7 @@ import {
   setPilotPlayerHealth,
   setPilotPlayerMaxHealth,
 } from '../store/gameStore';
+import { currentTerrain } from '../store/terrainStore';
 import { findStrongestZoid } from '../store/partyStore';
 import { updateZoidResearch } from '../store/zoidResearchStore';
 import { BaseBattle } from './BaseBattle';
@@ -59,6 +61,7 @@ export class DuelBattle extends BaseBattle {
   playerZoid: CustomizedZoid;
   powerCharged = 0;
   powerMax: number;
+  terrainMultiplier: number;
   turnPhase: DuelTurnPhase = DuelTurnPhase.PlayerTapping;
   enemyZoids: ZoidBlueprint[];
 
@@ -67,7 +70,8 @@ export class DuelBattle extends BaseBattle {
     this.pilot = pilot;
     this.enemyZoids = getActiveZoids(pilot);
     this.playerZoid = findStrongestZoid();
-    this.powerMax = this.playerZoid.attack * DUEL_POWER_MAX_TAPS;
+    this.terrainMultiplier = getTerrainBonus(currentTerrain(), getZoidById(this.playerZoid.id).terrainTypes);
+    this.powerMax = Math.floor(this.playerZoid.attack * DUEL_POWER_MAX_TAPS * this.terrainMultiplier);
     this.playerMaxHealth = playerStats.baseHealth + this.playerZoid.maxHealth;
     this.playerHealth = this.playerMaxHealth;
     this.enemy = spawnZoid(buildZoid(this.enemyZoids[0]));
@@ -82,7 +86,7 @@ export class DuelBattle extends BaseBattle {
 
     switch (this.turnPhase) {
       case DuelTurnPhase.PlayerTapping:
-        this.powerCharged = Math.min(this.powerMax, this.powerCharged + this.playerZoid.attack);
+        this.powerCharged = Math.min(this.powerMax, this.powerCharged + Math.floor(this.playerZoid.attack * this.terrainMultiplier));
         this.syncToStore();
         break;
       case DuelTurnPhase.PlayerAiming:

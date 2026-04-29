@@ -98,6 +98,11 @@
   width: 100%;
 }
 
+.battle-area.bg-air {
+  background-image: url('/images/scenario/air.png');
+  background-repeat: repeat;
+}
+
 .battle-area.bg-desert {
   background-image: url('/images/scenario/desert.png');
   background-repeat: repeat;
@@ -130,6 +135,11 @@
 
 .battle-area.bg-ruin {
   background-image: url('/images/scenario/ruin.png');
+  background-repeat: repeat;
+}
+
+.battle-area.bg-water {
+  background-image: url('/images/scenario/water.png');
   background-repeat: repeat;
 }
 

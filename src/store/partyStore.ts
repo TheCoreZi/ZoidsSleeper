@@ -2,11 +2,12 @@ import { createMemo, createSignal } from 'solid-js';
 import { Faction } from '../models/Faction';
 import { buildZoid, calculatePartyAttack, calculatePartyMaxHealth, type CustomizedZoid, DEFAULT_PARTY, getOwnedZoidLevel, type PartyData, ZoidResearchStatus } from '../models/Zoid';
 import { incrementClickAttack, playerStats } from './gameStore';
+import { currentTerrain } from './terrainStore';
 import { updateZoidResearch } from './zoidResearchStore';
 
 const [party, setParty] = createSignal<PartyData>(DEFAULT_PARTY);
 
-const partyAttack = createMemo(() => calculatePartyAttack(party().zoids, playerStats()?.faction ?? Faction.Neutral));
+const partyAttack = createMemo(() => calculatePartyAttack(party().zoids, playerStats()?.faction ?? Faction.Neutral, currentTerrain()));
 const partyMaxHealth = createMemo(() => calculatePartyMaxHealth(party().zoids, playerStats()?.faction ?? Faction.Neutral));
 
 function addZoidToArmy(zoidId: string, experience = 0): void {

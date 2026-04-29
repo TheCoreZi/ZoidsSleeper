@@ -1,11 +1,17 @@
 import { createMemo, createSignal } from 'solid-js';
 import type { BattleBackground, City, Dungeon, Landmark, Route } from '../landmark';
-import { getCity, getDungeon, getRoute, isRoute, ROUTES } from '../landmark';
+import { BattleBackgroundTerrain, getCity, getDungeon, getRoute, isRoute, ROUTES } from '../landmark';
 import type { Region } from '../map/Region';
 import { REGIONS } from '../map/Region';
+import { setCurrentTerrain } from './terrainStore';
 
-const [currentLandmark, setCurrentLandmark] = createSignal<Landmark>(ROUTES[0]);
+const [currentLandmark, _setCurrentLandmark] = createSignal<Landmark>(ROUTES[0]);
 const [currentRegion, setCurrentRegion] = createSignal<Region>(REGIONS[0]);
+
+function setCurrentLandmark(landmark: Landmark): void {
+  _setCurrentLandmark(landmark);
+  setCurrentTerrain(BattleBackgroundTerrain[landmark.battleBackground]);
+}
 
 const battleBackground = createMemo<BattleBackground>(() => currentLandmark().battleBackground);
 const isOnRoute = createMemo(() => isRoute(currentLandmark()));
