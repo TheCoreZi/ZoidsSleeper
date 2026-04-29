@@ -3,7 +3,7 @@ import type { PlayerStats } from '../models/Player';
 import type { ZoidBlueprint } from '../models/Zoid';
 import { WildBossBattle } from './WildBossBattle';
 
-const PLAYER_STATS: PlayerStats = { attackMult: 1, baseHealth: 100, clickAttack: 10, faction: 'neutral' };
+const PLAYER_STATS: PlayerStats = { attackMult: 1, baseHealth: 100, clickAttack: 10, faction: 'neutral', reinforcementsEnabled: false };
 const ZOIDS: ZoidBlueprint[] = [
   { attackOverride: 5, id: 'gator', level: 10, maxHealthOverride: 50 },
   { attackOverride: 8, id: 'molga', level: 12, maxHealthOverride: 80 },

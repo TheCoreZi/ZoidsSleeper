@@ -5,6 +5,7 @@ export interface PlayerStats {
   baseHealth: number;
   clickAttack: number;
   faction: Faction;
+  reinforcementsEnabled: boolean;
 }
 
 export const DEFAULT_PLAYER: PlayerStats = {
@@ -12,4 +13,5 @@ export const DEFAULT_PLAYER: PlayerStats = {
   baseHealth: 10,
   clickAttack: 1,
   faction: 'neutral',
+  reinforcementsEnabled: false,
 };

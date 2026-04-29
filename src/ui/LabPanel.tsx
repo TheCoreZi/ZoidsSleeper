@@ -4,6 +4,7 @@ import { FACTIONS } from '../models/Faction';
 import { Currency } from '../models/Currency';
 import { getZoidImage, ZOID_LIST } from '../models/Zoid';
 import { isMissionCompleted } from '../store/campaignStore';
+import { playerStats } from '../store/gameStore';
 import { party } from '../store/partyStore';
 import { getZoidDataCount } from '../store/zoidDataStore';
 import { getCurrency } from '../store/walletStore';
@@ -44,11 +45,13 @@ const LabPanel: Component<LabPanelProps> = (props) => {
             <For each={availableZoids()}>
               {(entry) => {
                 const isFirstFree = () => party().zoids.length === 1 && !isMissionCompleted('sleeper_commander', 'grow_army');
+                const isDeployed = () => party().zoids.some((z) => z.id === entry.id) && !playerStats()?.reinforcementsEnabled;
                 const canAfford = () => isFirstFree() || getCurrency(Currency.Magnis) >= entry.data.price;
+                const isDisabled = () => isDeployed() || !canAfford();
                 return (
                   <button
-                    class={`archive-card lab-card ${canAfford() ? '' : 'lab-card--disabled'}`}
-                    disabled={!canAfford()}
+                    class={`archive-card lab-card ${isDisabled() ? 'lab-card--disabled' : ''}`}
+                    disabled={isDisabled()}
                     style={{ 'background-color': `${FACTIONS[entry.data.faction].color}33`, 'border-color': FACTIONS[entry.data.faction].color }}
                     onClick={() => props.onBuy(entry.id)}
                   >
@@ -58,15 +61,22 @@ const LabPanel: Component<LabPanelProps> = (props) => {
                       alt={entry.data.name}
                     />
                     <span class="archive-card-name">{entry.data.name}</span>
-                    <Show when={isFirstFree()} fallback={
+                    <Show when={isDeployed()}>
                       <div class="lab-card-price">
-                        <img class="shop-price-icon" src="images/items/magnis.png" alt="" />
-                        <span>{entry.data.price.toLocaleString()}</span>
+                        <span>{t('ui:deployed')}</span>
                       </div>
-                    }>
-                      <div class="lab-card-price">
-                        <span>{t('ui:free')}</span>
-                      </div>
+                    </Show>
+                    <Show when={!isDeployed()}>
+                      <Show when={isFirstFree()} fallback={
+                        <div class="lab-card-price">
+                          <img class="shop-price-icon" src="images/items/magnis.png" alt="" />
+                          <span>{entry.data.price.toLocaleString()}</span>
+                        </div>
+                      }>
+                        <div class="lab-card-price">
+                          <span>{t('ui:free')}</span>
+                        </div>
+                      </Show>
                     </Show>
                     <span class="lab-card-zdata">Z-Data: {getZoidDataCount(entry.id)}</span>
                   </button>
