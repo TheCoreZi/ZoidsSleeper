@@ -90,15 +90,42 @@
 }
 
 .archive-card {
-  align-items: center;
+  background: none;
   border: 1px solid var(--theme-border);
   border-radius: 8px;
+  color: inherit;
+  cursor: pointer;
   display: flex;
   flex-direction: column;
-  gap: 0.3rem;
+  font: inherit;
   overflow: visible;
+  position: relative;
+  text-align: left;
+}
+
+.archive-card:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.archive-card-inner {
+  align-items: center;
+  border-radius: 7px;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.3rem;
+  overflow: hidden;
   padding: 0.5rem;
   position: relative;
+}
+
+.archive-card-terrain {
+  bottom: 0;
+  height: 4px;
+  left: 0;
+  position: absolute;
+  right: 0;
 }
 
 .archive-card-image {

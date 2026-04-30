@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { getTerrainBonus, TerrainType } from './Terrain';
+import { getTerrainBorderStyle, getTerrainBonus, TERRAIN_COLORS, TerrainType } from './Terrain';
 
 describe('getTerrainBonus', () => {
   it('returns 1.0 for matching single terrain type', () => {
@@ -30,5 +30,26 @@ describe('getTerrainBonus', () => {
     expect(getTerrainBonus(TerrainType.Water, [TerrainType.Air])).toBe(0.25);
     expect(getTerrainBonus(TerrainType.Air, [TerrainType.Water])).toBe(0.10);
     expect(getTerrainBonus(TerrainType.Land, [TerrainType.Water])).toBe(0.25);
+  });
+});
+
+describe('getTerrainBorderStyle', () => {
+  it('returns solid color for single terrain', () => {
+    expect(getTerrainBorderStyle([TerrainType.Land])).toBe(TERRAIN_COLORS[TerrainType.Land]);
+    expect(getTerrainBorderStyle([TerrainType.Water])).toBe(TERRAIN_COLORS[TerrainType.Water]);
+    expect(getTerrainBorderStyle([TerrainType.Air])).toBe(TERRAIN_COLORS[TerrainType.Air]);
+  });
+
+  it('returns gradient for multiple terrains', () => {
+    const result = getTerrainBorderStyle([TerrainType.Water, TerrainType.Land]);
+    expect(result).toContain('linear-gradient');
+    expect(result).toContain(TERRAIN_COLORS[TerrainType.Land]);
+    expect(result).toContain(TERRAIN_COLORS[TerrainType.Water]);
+  });
+
+  it('sorts terrain colors alphabetically for consistency', () => {
+    const a = getTerrainBorderStyle([TerrainType.Water, TerrainType.Air]);
+    const b = getTerrainBorderStyle([TerrainType.Air, TerrainType.Water]);
+    expect(a).toBe(b);
   });
 });

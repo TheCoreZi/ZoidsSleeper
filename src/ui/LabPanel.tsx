@@ -1,13 +1,13 @@
 import { type Component, createMemo, For, Show } from 'solid-js';
 import { t } from '../i18n';
-import { FACTIONS } from '../models/Faction';
 import { Currency } from '../models/Currency';
-import { getZoidImage, ZOID_LIST } from '../models/Zoid';
+import { ZOID_LIST, ZoidResearchStatus } from '../models/Zoid';
 import { isMissionCompleted } from '../store/campaignStore';
 import { playerStats } from '../store/gameStore';
 import { party } from '../store/partyStore';
 import { getZoidDataCount } from '../store/zoidDataStore';
 import { getCurrency } from '../store/walletStore';
+import { ArchiveCard } from './ZiArchivePanel';
 import './lab.css';
 
 interface LabPanelProps {
@@ -49,18 +49,14 @@ const LabPanel: Component<LabPanelProps> = (props) => {
                 const canAfford = () => isFirstFree() || getCurrency(Currency.Magnis) >= entry.data.price;
                 const isDisabled = () => isDeployed() || !canAfford();
                 return (
-                  <button
-                    class={`archive-card lab-card ${isDisabled() ? 'lab-card--disabled' : ''}`}
+                  <ArchiveCard
+                    class="lab-card"
                     disabled={isDisabled()}
-                    style={{ 'background-color': `${FACTIONS[entry.data.faction].color}33`, 'border-color': FACTIONS[entry.data.faction].color }}
+                    id={entry.id}
                     onClick={() => props.onBuy(entry.id)}
+                    showTooltip={false}
+                    status={ZoidResearchStatus.Created}
                   >
-                    <img
-                      class="archive-card-image"
-                      src={getZoidImage(entry.id)}
-                      alt={entry.data.name}
-                    />
-                    <span class="archive-card-name">{entry.data.name}</span>
                     <Show when={isDeployed()}>
                       <div class="lab-card-price">
                         <span>{t('ui:deployed')}</span>
@@ -79,7 +75,7 @@ const LabPanel: Component<LabPanelProps> = (props) => {
                       </Show>
                     </Show>
                     <span class="lab-card-zdata">Z-Data: {getZoidDataCount(entry.id)}</span>
-                  </button>
+                  </ArchiveCard>
                 );
               }}
             </For>
