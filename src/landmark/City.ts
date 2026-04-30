@@ -110,6 +110,7 @@ export const CITIES: City[] = [
       ...AUTOMATIC_ACTIONS.porto_nido_ask_doctor,
       new ActionTalkToNPC('dr_t', [new PilotDefeatRequirement('arcadia_guard')], [new MissionCompletedRequirement(S, 'meet_father')]),
       new ActionTalkToNPC('dr_thrun', [new MissionCompletedRequirement(S, 'meet_father')], [new MissionCompletedRequirement(S, 'clear_ruins_demo')]),
+      new ActionTalkToNPC('dr_thrun', [new MissionCompletedRequirement(S, 'survive_stray')], undefined, undefined, 'ui:talk_to_doctors'),
     ],
     battleBackground: BattleBackground.Dirt,
     devOnly: true,

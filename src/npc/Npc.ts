@@ -63,6 +63,17 @@ export const NPCS: Record<string, Npc> = {
   dr_thrun: {
     dialogs: [
       {
+        dialogKey: 'dialog:dr_thrun_return_to_city',
+        speakers: {
+          0: { speakerKey: 'pilots:kara', portrait: 'images/pilots/girl.png' },
+          1: { speakerKey: 'pilots:dr_t', portrait: 'images/pilots/dr_t.png' },
+          2: { speakerKey: '' },
+          3: { speakerKey: 'pilots:dr_t', portrait: 'images/pilots/dr_t.png' },
+          4: { speakerKey: '' },
+        },
+        unlockRequirement: new MissionCompletedRequirement('shells_of_time', 'survive_stray'),
+      },
+      {
         dialogKey: 'dialog:dr_thrun_stray_intro',
         unlockRequirement: new MissionCompletedRequirement('shells_of_time', 'clear_ruins_demo'),
       },

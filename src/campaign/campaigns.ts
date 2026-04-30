@@ -37,6 +37,7 @@ export const CAMPAIGNS: Record<string, Campaign> = {
       { id: 'clear_ruins_demo', goals: [new DungeonCompletionRequirement('sommerso_ruins_sortie', 2)], onComplete: () => grantReward(activateCityActionReward(POST_DEMO_TALK)) },
       { id: 'clear_ruins_stray', goals: [new DungeonCompletionRequirement('sommerso_ruins_sortie', 3)], onComplete: () => grantReward(activateCityActionReward(STRAY_CHAIN_TRIGGER)) },
       { id: 'survive_stray', goals: [new MissionCompletedRequirement('shells_of_time', 'survive_stray')] },
+      { id: 'discuss_in_lab', goals: [new NpcTalkedInCampaignRequirement('shells_of_time', 'dr_thrun')] },
     ],
     unlockRequirements: [new CampaignCompletedRequirement('sleeper_commander')],
   },

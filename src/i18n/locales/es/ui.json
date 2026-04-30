@@ -87,6 +87,7 @@
   "reset_confirm": "¿Estás seguro? Se perderá todo el progreso.",
   "reset_game": "Reiniciar partida",
   "route_enemies": "Enemigos de Ruta",
+  "talk_to_doctors": "Hablar con los doctores",
   "talk_to_girl": "Hablar con la Niña",
   "talk_to_npc": "Hablar con {{name}}",
   "total": "Total",

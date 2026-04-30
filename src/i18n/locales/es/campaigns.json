@@ -34,6 +34,10 @@
         "name": "Desatado",
         "description": "Completa otra incursión en las Ruinas Sommerso para presenciar el efecto de la tecnología Sleeper."
       },
+      "discuss_in_lab": {
+        "name": "La Reliquia",
+        "description": "Regresa a Porto Nido y discute lo que acaba de pasar con los doctores."
+      },
       "survive_stray": {
         "name": "Imparable",
         "description": "El Helcat Salvaje no se quedará abajo. ¡Defiéndete!"
