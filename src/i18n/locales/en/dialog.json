@@ -59,6 +59,11 @@
     "The ruins are full of surprises. Strange things happen down there... you'll have to make choices that could help you or make things worse. And if you're lucky, you might stumble upon some supplies along the way.",
     "Whatever you're looking for, don't go in unless you're ready for a real fight."
   ],
+  "fisherman_docks": [
+    "Heading out to sea? Watch yourselves. There have been Zoid attacks on ships lately. The waters around here are crawling with wild aquatic Zoids.",
+    "Remember, not every Zoid can handle the water. A land-based Zoid won't be able to fight at sea, so don't count on its firepower out there. An air Zoid might hold its own, but its attack power will drop to about a quarter of what it normally packs. You'll be sitting ducks.",
+    "Make sure you've got aquatic Zoids in your ranks before you set sail. Trust me, you don't want to learn that lesson the hard way."
+  ],
   "farewell": [
     "Ha! I knew you had it in you. The Zoid has accepted you as its pilot.",
     "Now go and help our neighbors. The bandits won't wait forever. Be careful out there, kid. And take good care of that Zoid."

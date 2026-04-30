@@ -63,6 +63,11 @@
     "¡Ja! Sabía que lo tenías. El Zoid te ha aceptado como su piloto.",
     "Ahora ve y ayuda a nuestros vecinos. Los bandidos no esperarán para siempre. Ten cuidado ahí fuera, chico. Y cuida bien de ese Zoid."
   ],
+  "fisherman_docks": [
+    "¿Vas a hacerte a la mar? Ten cuidado. Últimamente ha habido ataques de Zoids a embarcaciones. Las aguas por aquí están plagadas de Zoids acuáticos salvajes.",
+    "Recuerden, no todos los Zoids pueden desplazarse en el agua. A un Zoid terrestre le será imposible pelear en el agua, así que no cuentes con su fuerza, por otro lado un Zoid aéreo tal vez pueda defenderse pero su poder de fuego se verá disminuido yo diría a una cuarta parte de su poder normal. Serán presa fácil.",
+    "Asegúrate de tener Zoids acuáticos en tus filas antes de zarpar. Créeme, no querrás aprender eso por las malas."
+  ],
   "fiona_oasis": [
     "Hola... soy Fine. Van me contó que lo ayudaste en las ruinas. ¡Muchas gracias! Es buena persona, y este lugar es muy tranquilo...",
     "¿Encontraste algo en las ruinas? Déjame ver...",

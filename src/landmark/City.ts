@@ -111,6 +111,7 @@ export const CITIES: City[] = [
       new ActionTalkToNPC('dr_t', [new PilotDefeatRequirement('arcadia_guard')], [new MissionCompletedRequirement(S, 'meet_father')]),
       new ActionTalkToNPC('dr_thrun', [new MissionCompletedRequirement(S, 'meet_father')], [new MissionCompletedRequirement(S, 'clear_ruins_demo')]),
       new ActionTalkToNPC('dr_thrun', [new MissionCompletedRequirement(S, 'survive_stray')], undefined, undefined, 'ui:talk_to_doctors'),
+      new ActionTalkToNPC('fisherman', [new MissionCompletedRequirement(S, 'discuss_in_lab')]),
     ],
     battleBackground: BattleBackground.Dirt,
     devOnly: true,
