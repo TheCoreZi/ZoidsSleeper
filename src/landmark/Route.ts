@@ -1,7 +1,8 @@
 import type { Drop } from '../item/Drop';
 import type { Requirement } from '../requirement';
-import { CampaignStartedRequirement, DungeonCompletionRequirement, MissionCompletedRequirement, ZoidCreatedRequirement } from '../requirement';
+import { CampaignStartedRequirement, DungeonCompletionRequirement, MissionCompletedRequirement, OwnZoidForTerrainRequirement, ZoidCreatedRequirement } from '../requirement';
 import type { CurrencyReward } from '../models/Currency';
+import { TerrainType } from '../models/Terrain';
 import type { Landmark } from './Landmark';
 import { BattleBackground, LandmarkType } from './Landmark';
 import { type ZoidBlueprint, type CustomizedZoid, getZoidById, buildZoid } from '../models/Zoid';
@@ -37,6 +38,25 @@ export const ROUTES: Route[] = [
     routeHealth: 20,
     name: 'Gleam Outskirts',
     requirements: [new MissionCompletedRequirement(CAMPAIGNS.sleeper_commander.id, 'talk_to_boy')],
+    type: LandmarkType.Route,
+  },
+  {
+    baseReward: { magnis: 220, zi_metal: 45 },
+    battleBackground: BattleBackground.Water,
+    connects: ['porto_nido', 'chimera_island'],
+    devOnly: true,
+    enemies: [
+      { blueprint: { id: 'aquadon', level: 35 } },
+      { blueprint: { id: 'barigator', level: 38 }, probability: .05 },
+      { blueprint: { id: 'crablaster', level: 36 } },
+      { blueprint: { id: 'helldiver', level: 38 } },
+      { blueprint: { id: 'hyperscissors', level: 36 } },
+      { blueprint: { id: 'sea_batoras', level: 37 } },
+    ],
+    id: 'conservation_archipelago',
+    name: 'Chimera Archipelago',
+    requirements: [new MissionCompletedRequirement('shells_of_time', 'discuss_in_lab'), new OwnZoidForTerrainRequirement(TerrainType.Water)],
+    routeHealth: 1400,
     type: LandmarkType.Route,
   },
   {

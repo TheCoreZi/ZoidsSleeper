@@ -148,6 +148,7 @@ body {
   color: #ccc;
   font-size: 0.85rem;
   margin: 0;
+  white-space: pre-line;
 }
 
 @keyframes popup-fade {

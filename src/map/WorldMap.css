@@ -82,7 +82,7 @@
 
 .map-node--locked {
   cursor: pointer;
-  opacity: 0.4;
+  opacity: 0.55;
 }
 
 .map-node--locked:hover {
@@ -114,7 +114,7 @@
 
 .map-route--locked {
   cursor: pointer;
-  opacity: 0.4;
+  opacity: 0.55;
 }
 
 .map-route--locked:hover {

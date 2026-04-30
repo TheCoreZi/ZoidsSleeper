@@ -15,6 +15,7 @@ export { MagnisRequirement } from './MagnisRequirement';
 export { MissionCompletedRequirement } from './MissionCompletedRequirement';
 export { NotRequirement } from './NotRequirement';
 export { NpcTalkedInCampaignRequirement } from './NpcTalkedInCampaignRequirement';
+export { OwnZoidForTerrainRequirement } from './OwnZoidForTerrainRequirement';
 export { OnlyOneRequirement } from './OnlyOneRequirement';
 export { PilotDefeatRequirement } from './PilotDefeatRequirement';
 export type { Requirement } from './Requirement';
