@@ -178,6 +178,11 @@ export const NPCS: Record<string, Npc> = {
     nameKey: 'pilots:maria_flyheight',
     portrait: 'images/pilots/maria.png',
   },
+  fisherman: {
+    dialogs: [{ dialogKey: 'dialog:fisherman_docks' }],
+    id: 'fisherman',
+    nameKey: 'pilots:fisherman',
+  },
   jenkins: {
     dialogs: [
       {
@@ -198,6 +203,31 @@ export const NPCS: Record<string, Npc> = {
     ],
     id: 'scrap_dealer',
     nameKey: 'pilots:scrap_dealer',
+  },
+  unia_corin: {
+    dialogs: [
+      {
+        dialogKey: 'dialog:unia_corin_summary',
+        unlockRequirement: new MissionCompletedRequirement('shells_of_time', 'meet_unia_corin'),
+      },
+      {
+        dialogKey: 'dialog:unia_corin_meeting',
+        images: { 5: 'images/items/ancient_statue.png', 6: '' },
+        speakers: {
+          1: { speakerKey: 'pilots:dr_thrun', portrait: 'images/pilots/dr_thrun.png' },
+          2: { speakerKey: '' },
+          3: { speakerKey: 'pilots:dr_thrun', portrait: 'images/pilots/dr_thrun.png' },
+          4: { speakerKey: '' },
+          5: { speakerKey: 'pilots:kara', portrait: 'images/pilots/girl.png' },
+          6: { speakerKey: '' },
+          7: { speakerKey: 'pilots:kara', portrait: 'images/pilots/girl.png' },
+          8: { speakerKey: '' },
+        },
+      },
+    ],
+    id: 'unia_corin',
+    nameKey: 'pilots:unia_corin',
+    portrait: 'images/pilots/unia.png',
   },
   van: {
     dialogs: [

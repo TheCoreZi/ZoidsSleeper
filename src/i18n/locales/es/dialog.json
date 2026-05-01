@@ -63,6 +63,11 @@
     "¡Ja! Sabía que lo tenías. El Zoid te ha aceptado como su piloto.",
     "Ahora ve y ayuda a nuestros vecinos. Los bandidos no esperarán para siempre. Ten cuidado ahí fuera, chico. Y cuida bien de ese Zoid."
   ],
+  "fisherman_docks": [
+    "¿Vas a hacerte a la mar? Ten cuidado. Últimamente ha habido ataques de Zoids a embarcaciones. Las aguas por aquí están plagadas de Zoids acuáticos salvajes.",
+    "Recuerden, no todos los Zoids pueden desplazarse en el agua. A un Zoid terrestre le será imposible pelear en el agua, así que no cuentes con su fuerza, por otro lado un Zoid aéreo tal vez pueda defenderse pero su poder de fuego se verá disminuido yo diría a una cuarta parte de su poder normal. Serán presa fácil.",
+    "Asegúrate de tener Zoids acuáticos en tus filas antes de zarpar. Créeme, no querrás aprender eso por las malas."
+  ],
   "fiona_oasis": [
     "Hola... soy Fine. Van me contó que lo ayudaste en las ruinas. ¡Muchas gracias! Es buena persona, y este lugar es muy tranquilo...",
     "¿Encontraste algo en las ruinas? Déjame ver...",
@@ -172,6 +177,23 @@
     "Galos, Zi-Dollars, Zenys... todas esas monedas, un día valen una fortuna y al otro no compran ni un grano de sal. ¿Quieres un consejo, chico? Guarda tu riqueza en materiales.",
     "¿Yo? Junto Magnis, pequeños fragmentos de Zoid Magnite que puedes recolectar de Zoids destruidos. Generalmente se concentran en los conductos conectados al Zoid Core.",
     "La próxima vez que derrotes uno, no olvides revisar los restos. Te sorprendería lo que puedes encontrar."
+  ],
+  "unia_corin_meeting": [
+    "¡Esta es un área restringida! ¿Quién autorizó su presencia aquí? Identifíquense de inmediato.",
+    "Ha pasado mucho tiempo, Señorita Corin. Disculpe la visita repentina.",
+    "¿¡Dr. Thrun!? No... no lo esperaba. Podría haber avisado antes. Disculpen la reacción, adelante, los conocidos del doctor son bienvenidos.",
+    "Permítanme presentarla como es debido. Ella es Unia Corin. Una extraordinaria piloto que sirvió en la República de Helic. Dejó el ejército para dedicarse a algo mucho más importante: la cría y conservación de especies de Zoids.",
+    "Bienvenidos. Así es, mi familia lleva generaciones dedicada a la cría de Zoids. Fui piloto de la República de Helic, pero mi misión es más grande que eso. Los Zoids jamás deberían ser reducidos a simples herramientas de guerra. Este santuario garantiza su futuro.",
+    "Señorita Corin, hemos venido desde muy lejos. En las ruinas encontramos algo que no logramos entender. El Dr. Thrun dijo que usted podría ayudarnos. ¿Podría echarle un vistazo?",
+    "Hmm... Veamos... Interesante. Desde ciertos ángulos podría parecerse a un Zoid Core, pero es antiquísimo. Yo lo llamaría la momia de un Core. ¡No puedo creerlo! ¡Llevo toda mi vida estudiando Cores y jamás había visto algo así! ¿De dónde lo sacaron? ¿Dónde lo encontraron?",
+    "Lo encontramos en las Ruinas de Elmia. Un par de veces ha emitido pulsos de energía que nos han salvado en situaciones desesperadas.",
+    "Esperen... ¿Pulsos de energía? Yo pensé que esto era una momia, un fósil... pero si ha emitido pulsos entonces está vivo. Un Core de esta antigüedad, vivo... Ahora entiendo por qué vinieron a verme. Quieren despertarlo.",
+    "En primer lugar, ni siquiera sé si podría hacerlo. Jamás he trabajado con algo así. Si fuera por mí... me encantaría quedármelo. Daría lo que fuera por estudiar un Core así e intentar revivirlo. Pero sé que no me lo dejarán. Así que llévenlo con ustedes, pero no puedo ayudarles a despertarlo. No en tiempos de guerra. Mi familia ha acumulado conocimientos sobre los Cores durante generaciones, y compartirlos ahora podría darle a cualquier bando una ventaja devastadora.",
+    "Lo siento, de verdad. Ojalá pudiera hacer más. Pero si ese Core ha sobrevivido eras enteras esperando en silencio... tal vez así es como debería quedarse. Ahora les pido que se marchen. Los Zoids de este santuario no están acostumbrados a la presencia humana, y cuanto más tiempo permanezcan aquí, más inquietos se pondrán. Cuando esta guerra termine, si aún lo necesitan, saben dónde encontrarme."
+  ],
+  "unia_corin_summary": [
+    "Ya se los dije, no puedo ayudarles a despertar ese Core. No mientras esta guerra continúe. Mi familia ha resguardado estos secretos por generaciones y no seré yo quien rompa ese juramento.",
+    "Lo que sí puedo decirles es que lo que llevan no es una reliquia cualquiera. Si ha reaccionado por su cuenta, significa que aún tiene voluntad. Trátenlo con respeto. Cuando la guerra termine, regresen y hablaremos."
   ],
   "van_alert": [
     "¿Eh? ¿Quién eres? Espera... no eres uno de esos bandidos, ¿verdad? Me llamo Van. Van Flyheight. Estaba escondiéndome aquí cuando una de esas cápsulas se abrió y ese Zoid salió de ahí y me atacó.",

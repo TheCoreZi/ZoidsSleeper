@@ -15,6 +15,7 @@
   "magnis_required": "Have {{count}} Magnis",
   "only_one": "Only one of: {{hints}}",
   "talk_to_npc": "Talk to {{name}}",
+  "terrain_zoid_required": "Have a {{terrain}} Zoid in your army",
   "zi_data_required": "Have at least {{count}} Zi-Data",
   "zoid_created": "Deploy one {{zoid}}"
 }
