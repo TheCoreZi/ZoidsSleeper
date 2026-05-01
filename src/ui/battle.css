@@ -39,13 +39,9 @@
   font-size: 0.65rem;
   padding: 0.1rem 0.3rem;
   position: absolute;
-  right: 0.2rem;
-  top: 0.2rem;
+  right: 0.3rem;
+  top: 0.3rem;
   z-index: 1;
-}
-
-.route-enemy-wrapper {
-  position: relative;
 }
 
 .route-label {

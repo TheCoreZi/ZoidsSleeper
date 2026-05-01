@@ -37,7 +37,9 @@
   background: var(--theme-deep-bg);
   border: 2px solid var(--theme-border);
   border-radius: 12px;
+  max-height: 80vh;
   max-width: 600px;
+  overflow-y: auto;
   padding: 1rem;
   width: 90%;
 }
