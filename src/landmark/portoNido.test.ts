@@ -84,7 +84,7 @@ describe('Chimera Island', () => {
     expect(city).toBeDefined();
     expect(city!.type).toBe(LandmarkType.City);
     expect(city!.actions).toBeDefined();
-    expect(city!.actions!.length).toBe(2);
+    expect(city!.actions!.length).toBe(7);
   });
 });
 
@@ -114,13 +114,19 @@ describe('new NPCs', () => {
     expect(NPCS['unia_corin'].dialogs.length).toBe(2);
     expect(NPCS['unia_corin'].portrait).toBe('images/pilots/unia.png');
   });
+
+  it('republican_officer NPC exists with dialogs', () => {
+    expect(NPCS['republican_officer']).toBeDefined();
+    expect(NPCS['republican_officer'].dialogs.length).toBe(4);
+    expect(NPCS['republican_officer'].portrait).toBe('images/pilots/republican_officer.png');
+  });
 });
 
 describe('shells_of_time campaign', () => {
   it('has 3 missions', () => {
     const campaign = CAMPAIGNS['shells_of_time'];
     expect(campaign).toBeDefined();
-    expect(campaign.missions.length).toBe(11);
+    expect(campaign.missions.length).toBe(15);
   });
 
   it('missions are in correct order', () => {
@@ -128,6 +134,7 @@ describe('shells_of_time campaign', () => {
     expect(ids).toEqual([
       'head_to_porto_nido', 'fight_arcadia_guard', 'meet_dr_t', 'clear_ruins', 'meet_father',
       'father_backstory', 'clear_ruins_demo', 'clear_ruins_stray', 'survive_stray', 'discuss_in_lab', 'meet_unia_corin',
+      'check_outside', 'confront_officer', 'challenge_officer', 'republican_intervention',
     ]);
   });
 

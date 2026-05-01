@@ -151,6 +151,11 @@
     "A power like that will attract many who won't stop until they claim it for themselves. As long as Zeke exists, Van will never be safe in one place.",
     "You decide to step aside. You watch them walk away together toward the horizon: Van, Zeke, and Fine, ready to face whatever comes next."
   ],
+  "narration_republican_intervention": [
+    "The Zoids in the sanctuary grow restless. Their movements become erratic, agitated by something approaching from beyond the trees.",
+    "Something is wrong. The Zoids can sense it... they are frightened. Did you bring more people with you?!",
+    "No one followed us. This is not our doing."
+  ],
   "narration_shield_liger": [
     "In the middle of the battle, Van bursts out of the ruins, carried by Zeke. Bianco and Nero turn around and chase him. Your Zoids are still regrouping and you can't reach Van in time. He's cornered.",
     "But then something strange happens: Zeke fuses with one of the destroyed Zoids from the ruins, and suddenly it rises, fully restored. And in a matter of seconds, Van and the Shield Liger drive the bandits away."
@@ -168,6 +173,49 @@
     "I'm sorry Van, but Maria comes first. Hand over Zeke! If you resist, we'll have to tie you up.",
     "The patriarch and I will go make the exchange."
   ],
+  "republican_officer_imperial": [
+    "Now hold on. You cannot just barge in here and threaten people.",
+    "Surely there is a more civilized way to handle this.",
+    "Stay out of this. This is official Republic business.",
+    "Wait... Imperial insignia?! What is the Guylos Empire doing on this island? So that is why you refuse to cooperate, Corin. You have already sided with the enemy.",
+    "That is absurd! I have not sided with anyone!",
+    "Save your excuses. I will deal with all of you at once!",
+    "Enough! I will not tolerate fighting on this island! The Zoids have suffered enough already!",
+    "*sniff*... The Zoids... they are so scared... Please, can we help them? We have to do something!",
+    "Wait. Officer, there is no need for violence. Miss Corin will go with you.",
+    "What?! Thrun, what are you doing?!",
+    "Trust me. We need to get them away from the sanctuary before the Zoids get hurt.",
+    "Once they reach the coast, far from here... that will be your moment to act.",
+    "Finally, someone with sense. Move out."
+  ],
+  "republican_officer_neutral": [
+    "Now hold on. You cannot just barge in here and threaten people.",
+    "Surely there is a more civilized way to handle this.",
+    "Stay out of this. This is official Republic business.",
+    "And who are the rest of you? What are you doing here? This is an official matter of the Helic Republic. No unauthorized personnel should be present.",
+    "I do not know who you are or what you want with Corin, but I will not tolerate any more interference. Step aside or face the consequences!",
+    "Enough! I will not tolerate fighting on this island! The Zoids have suffered enough already!",
+    "*sniff*... The Zoids... they are so scared... Please, can we help them? We have to do something!",
+    "Wait. Officer, there is no need for violence. Miss Corin will go with you.",
+    "What?! Thrun, what are you doing?!",
+    "Trust me. We need to get them away from the sanctuary before the Zoids get hurt.",
+    "Once they reach the coast, far from here... that will be your moment to act.",
+    "Finally, someone with sense. Move out."
+  ],
+  "republican_officer_republican": [
+    "Now hold on. You cannot just barge in here and threaten people.",
+    "Surely there is a more civilized way to handle this.",
+    "Stay out of this. This is official Republic business.",
+    "Wait... I know you. You serve the Republic. Were you sent to complete this mission before me? Trying to take the credit?",
+    "It does not matter. I was given this order, and I will carry it out. Stand aside, or I will consider this insubordination!",
+    "Enough! I will not tolerate fighting on this island! The Zoids have suffered enough already!",
+    "*sniff*... The Zoids... they are so scared... Please, can we help them? We have to do something!",
+    "Wait. Officer, there is no need for violence. Miss Corin will go with you.",
+    "What?! Thrun, what are you doing?!",
+    "Trust me. We need to get them away from the sanctuary before the Zoids get hurt.",
+    "Once they reach the coast, far from here... that will be your moment to act.",
+    "Finally, someone with sense. Move out."
+  ],
   "rosso_confrontation": [
     "Well, well... looks like we've got a rat. So you're the one who took the Sleeper module I gave that good-for-nothing.",
     "Incredible technology, isn't it? A contact provided it to us in exchange for a job. We need to deliver this girl's father. His research is apparently worth more than you can imagine. So she's just the bait.",
@@ -177,6 +225,15 @@
     "Galos, Zi-Dollars, Zenys... all those currencies, one day they're worth a fortune, and the next they won't buy you a grain of salt. You want some advice, kid? Keep your wealth in materials.",
     "Me? I collect Magnis, tiny shards of Zoid Magnite you can salvage from destroyed Zoids. They're usually concentrated around the pipes connected to the Zoid Core.",
     "Next time you take one down, don't forget to check the wreckage. You'd be surprised what you can find."
+  ],
+  "unia_officer_confrontation": [
+    "What do you think you are doing?! You are scaring the Zoids! This is a protected sanctuary!",
+    "Unia Corin. By order of the Helic Republic Army, you are to report to Central Command immediately.",
+    "I already told your superiors. I have no interest in rejoining the military. I have work to do here.",
+    "These are direct orders from President Camford herself.",
+    "The President...? I... Despite everything, I still have the deepest respect for that woman. But she knows better than anyone that I will not take part in this war.",
+    "I have my orders, and I will not return empty-handed. You will come with us, one way or another.",
+    "Stop! Do not take another step! Can you not see what you are doing?! The Zoids are panicking! If you keep pushing forward you will cause a stampede! These creatures are under my protection and I will NOT let you harm them!"
   ],
   "unia_corin_meeting": [
     "This is a restricted area! Who authorized your presence here? State your business immediately.",
@@ -355,6 +412,18 @@
   "narration_stray_gets_up": [
     "The Stray Helcat collapses... but only for a moment. Its limbs twitch, then lock into place. It rises again, more aggressive than before.",
     "It is getting back up! Its Sleeper Module is pushing it beyond its limits. Quick, it will not stop!"
+  ],
+  "coast_duel_challenge": [
+    "It is a good thing you agreed to come quietly, Miss Corin. Can you imagine the scandal if the army found out one of their officers was beaten on a simple escort mission?",
+    "To be fair, the capable pilots I knew in the Republic have all retired by now. I suppose that is why they send this kind of officer these days.",
+    "What did you just say?! You think I am some second-rate soldier?! I have commanded more operations than you can count!",
+    "Then you would have no problem proving it. A duel. One Zoid against one Zoid. If we win, you leave this island and Miss Corin stays. If you win, she goes with you without resistance.",
+    "I was not sent here to play games. My mission is to bring Corin back, not to entertain challenges from strangers.",
+    "Of course. I would not expect someone like you to accept. After all, it would be terribly embarrassing if you lost, would it not? Better to hide behind your orders.",
+    "...You will regret those words. Fine! I accept! Name the place!",
+    "The coast. We settle this in the water.",
+    "In the water?! Ha! That is MY element! The finest aquatic units in the Republic are at my command. There is absolutely no way you can win!",
+    "This will be safer for the island Zoids, but much harder for us. Prepare your best aquatic Zoid."
   ],
   "narration_ancient_pulse": [
     "The Stray Helcat rises once more. Its body trembles with unnatural energy, ready to strike again.",

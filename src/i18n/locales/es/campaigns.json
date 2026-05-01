@@ -38,9 +38,25 @@
         "name": "La Reliquia",
         "description": "Regresa a Porto Nido y discute lo que acaba de pasar con los doctores."
       },
+      "challenge_officer": {
+        "name": "Orgullo y Costa",
+        "description": "Lleva al oficial a la costa y busquen una manera de proteger a Unia y al santuario."
+      },
+      "check_outside": {
+        "name": "Santuario Inquieto",
+        "description": "Algo está alterando a los Zoids. Sal a investigar."
+      },
+      "confront_officer": {
+        "name": "¿Y este quién se cree?",
+        "description": "Un oficial republicano está causando problemas en la isla. Enfréntalo."
+      },
       "meet_unia_corin": {
         "name": "Déjame llamar a un experto",
         "description": "Cruza el mar hasta la Isla Quimera y encuentra al contacto del Dr. Thrun."
+      },
+      "republican_intervention": {
+        "name": "Mareas de Guerra",
+        "description": "Derrota al Oficial Republicano en un duelo acuático para proteger el santuario."
       },
       "survive_stray": {
         "name": "Imparable",

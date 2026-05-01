@@ -23,7 +23,6 @@ import DamageNumber from './DamageNumber';
 import HealthBar from './HealthBar';
 import PlayerDamageNumber from './PlayerDamageNumber';
 import PlayerHealthBar from './PlayerHealthBar';
-import PlayerInfo from './PlayerInfo';
 import './battle.css';
 import './duel-battle.css';
 
@@ -182,7 +181,6 @@ const DuelBattleScreen: Component<DuelBattleScreenProps> = (props) => {
         </div>
       </div>
       <div class="divider" />
-      <PlayerInfo />
     </div>
   );
 };

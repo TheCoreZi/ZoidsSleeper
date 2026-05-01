@@ -54,9 +54,14 @@ export const CITIES: City[] = [
   {
     actions: [
       new ActionTalkToNPC('unia_corin', [new MissionCompletedRequirement(S, 'discuss_in_lab')], [new MissionCompletedRequirement(S, 'meet_unia_corin')], undefined, 'ui:find_contact'),
-      new ActionTalkToNPC('unia_corin', [new MissionCompletedRequirement(S, 'meet_unia_corin')]),
+      new ActionTalkToNPC('unia_corin', [new MissionCompletedRequirement(S, 'meet_unia_corin')], [new MissionCompletedRequirement(S, 'confront_officer')]),
+      new ActionTalkToNPC('republican_officer', [new MissionCompletedRequirement(S, 'meet_unia_corin')], [new MissionCompletedRequirement(S, 'check_outside')], undefined, 'ui:check_outside'),
+      new ActionTalkToNPC('republican_officer', [new MissionCompletedRequirement(S, 'check_outside')], [new MissionCompletedRequirement(S, 'confront_officer')]),
+      new ActionTalkToNPC('dr_t', [new MissionCompletedRequirement(S, 'confront_officer')], [new MissionCompletedRequirement(S, 'challenge_officer')], undefined, 'ui:challenge_officer'),
+      new ActionDuelPilot(PILOTS['republican_officer'], [new MissionCompletedRequirement(S, 'challenge_officer')], [new PilotDefeatRequirement('republican_officer')]),
+      new ActionTalkToNPC('unia_corin', [new MissionCompletedRequirement(S, 'republican_intervention')]),
     ],
-    battleBackground: BattleBackground.Grass,
+    battleBackground: BattleBackground.Water,
     devOnly: true,
     id: 'chimera_island',
     mapPosition: { x: 23, y: 48 },

@@ -151,6 +151,11 @@
     "Un poder así atraerá a muchos que no se detendrán hasta hacerse con él. Mientras Zeke exista, Van nunca estará a salvo en un solo lugar.",
     "Decides apartarte de su camino. Los ves alejarse juntos hacia el horizonte: Van, Zeke y Fine, listos para enfrentar lo que venga."
   ],
+  "narration_republican_intervention": [
+    "Los Zoids del santuario se inquietan. Sus movimientos se vuelven erráticos, agitados por algo que se acerca desde más allá de los árboles.",
+    "Algo anda mal. Los Zoids lo sienten... están asustados. ¡¿Trajeron más gente con ustedes?!",
+    "Nadie nos siguió. Esto no es cosa nuestra."
+  ],
   "narration_shield_liger": [
     "En medio de la batalla, Van sale disparado de las ruinas cargado por Zeke. Bianco y Nero dan la vuelta y lo persiguen. Tus Zoids aún se están reorganizando y no te da tiempo de ayudar a Van, que está acorralado.",
     "Pero en ese momento algo extraño sucede: Zeke se fusiona con uno de los Zoids destruidos de las ruinas y de pronto este se levanta totalmente restaurado. Y en cuestión de segundos, Van y el Shield Liger ahuyentan a los bandidos."
@@ -168,6 +173,49 @@
     "Lo siento Van, pero la prioridad ahora es María. ¡Entréganos a Zeke! Si te resistes, tendremos que atarte.",
     "El patriarca y yo iremos a hacer el intercambio."
   ],
+  "republican_officer_imperial": [
+    "Un momento. No pueden irrumpir aquí y amenazar a la gente.",
+    "Seguramente hay una forma más civilizada de manejar esto.",
+    "No se metan en esto. Este es un asunto oficial de la República.",
+    "Esperen... ¡¿Insignias imperiales?! ¿Qué hace el Imperio de Guylos en esta isla? Así que por eso te niegas a cooperar, Corin. Ya te aliaste con el enemigo.",
+    "¡Eso es absurdo! ¡No me he aliado con nadie!",
+    "Guárdate las excusas. ¡Me encargaré de todos ustedes a la vez!",
+    "¡Basta! ¡No toleraré peleas en esta isla! ¡Los Zoids ya han sufrido suficiente!",
+    "*sniff*... Los Zoids... están tan asustados... Por favor, ¿podemos ayudarlos? ¡Tenemos que hacer algo!",
+    "Espere. Oficial, no hay necesidad de violencia. La señorita Corin irá con usted.",
+    "¡¿Qué?! ¡Thrun, ¿qué estás haciendo?!",
+    "Confía en mí. Necesitamos alejarlos del santuario antes de que los Zoids salgan lastimados.",
+    "Una vez que lleguen a la costa, lejos de aquí... ese será tu momento de actuar.",
+    "Por fin alguien con sentido común. En marcha."
+  ],
+  "republican_officer_neutral": [
+    "Un momento. No pueden irrumpir aquí y amenazar a la gente.",
+    "Seguramente hay una forma más civilizada de manejar esto.",
+    "No se metan en esto. Este es un asunto oficial de la República.",
+    "¿Y quiénes son ustedes? ¿Qué hacen aquí? Este es un asunto oficial de la República Hélica. No debería haber personal no autorizado presente.",
+    "No sé quiénes son ni qué quieren con Corin, pero no toleraré más interferencias. ¡Apártense o atengan las consecuencias!",
+    "¡Basta! ¡No toleraré peleas en esta isla! ¡Los Zoids ya han sufrido suficiente!",
+    "*sniff*... Los Zoids... están tan asustados... Por favor, ¿podemos ayudarlos? ¡Tenemos que hacer algo!",
+    "Espere. Oficial, no hay necesidad de violencia. La señorita Corin irá con usted.",
+    "¡¿Qué?! ¡Thrun, ¿qué estás haciendo?!",
+    "Confía en mí. Necesitamos alejarlos del santuario antes de que los Zoids salgan lastimados.",
+    "Una vez que lleguen a la costa, lejos de aquí... ese será tu momento de actuar.",
+    "Por fin alguien con sentido común. En marcha."
+  ],
+  "republican_officer_republican": [
+    "Un momento. No pueden irrumpir aquí y amenazar a la gente.",
+    "Seguramente hay una forma más civilizada de manejar esto.",
+    "No se metan en esto. Este es un asunto oficial de la República.",
+    "Espera... Te conozco. Sirves a la República. ¿Te enviaron a completar esta misión antes que yo? ¿Intentas quedarte con el crédito?",
+    "No importa. A mí me dieron esta orden y yo la cumpliré. ¡Apártate o lo consideraré insubordinación!",
+    "¡Basta! ¡No toleraré peleas en esta isla! ¡Los Zoids ya han sufrido suficiente!",
+    "*sniff*... Los Zoids... están tan asustados... Por favor, ¿podemos ayudarlos? ¡Tenemos que hacer algo!",
+    "Espere. Oficial, no hay necesidad de violencia. La señorita Corin irá con usted.",
+    "¡¿Qué?! ¡Thrun, ¿qué estás haciendo?!",
+    "Confía en mí. Necesitamos alejarlos del santuario antes de que los Zoids salgan lastimados.",
+    "Una vez que lleguen a la costa, lejos de aquí... ese será tu momento de actuar.",
+    "Por fin alguien con sentido común. En marcha."
+  ],
   "rosso_confrontation": [
     "Vaya, vaya... parece que tenemos una rata. Así que tú eres quien tomó el módulo Sleeper que le di a ese bueno para nada.",
     "Es una tecnología increíble, ¿no? Un contacto nos la proporcionó a cambio de un trabajo. Debemos entregarle al padre de esta chica. Al parecer su investigación vale más de lo que puedas imaginar. Así que ella solo es el anzuelo.",
@@ -177,6 +225,15 @@
     "Galos, Zi-Dollars, Zenys... todas esas monedas, un día valen una fortuna y al otro no compran ni un grano de sal. ¿Quieres un consejo, chico? Guarda tu riqueza en materiales.",
     "¿Yo? Junto Magnis, pequeños fragmentos de Zoid Magnite que puedes recolectar de Zoids destruidos. Generalmente se concentran en los conductos conectados al Zoid Core.",
     "La próxima vez que derrotes uno, no olvides revisar los restos. Te sorprendería lo que puedes encontrar."
+  ],
+  "unia_officer_confrontation": [
+    "¡¿Qué creen que están haciendo?! ¡Están asustando a los Zoids! ¡Este es un santuario protegido!",
+    "Unia Corin. Por orden del Ejército de la República Hélica, debe presentarse en el Comando Central de inmediato.",
+    "Ya les dije a sus superiores. No tengo interés en volver al ejército. Tengo trabajo que hacer aquí.",
+    "Son órdenes directas de la Presidenta Camford.",
+    "¿La Presidenta...? Yo... A pesar de todo, todavía siento el más profundo respeto por esa mujer. Pero ella sabe mejor que nadie que no participaré en esta guerra.",
+    "Tengo mis órdenes y no volveré con las manos vacías. Vendrá con nosotros, por las buenas o por las malas.",
+    "¡Deténganse! ¡No den un paso más! ¡¿No ven lo que están haciendo?! ¡Los Zoids están entrando en pánico! ¡Si siguen avanzando provocarán una estampida! ¡Estas criaturas están bajo mi protección y NO dejaré que les hagan daño!"
   ],
   "unia_corin_meeting": [
     "¡Esta es un área restringida! ¿Quién autorizó su presencia aquí? Identifíquense de inmediato.",
@@ -355,6 +412,18 @@
   "narration_stray_gets_up": [
     "El Helcat Salvaje cae... pero solo por un momento. Sus extremidades tiemblan y se tensan. Se levanta de nuevo, más agresivo que antes.",
     "¡Se está levantando de nuevo! Su Módulo Sleeper lo está empujando más allá de sus límites. ¡Rápido, no se detendrá!"
+  ],
+  "coast_duel_challenge": [
+    "Menos mal que aceptó venir por las buenas, señorita Corin. ¿Se imagina el escándalo si el ejército se enterara de que uno de sus oficiales fue derrotado en una simple misión de escolta?",
+    "Para ser justos, los pilotos capaces que conocí en la República ya se retiraron hace tiempo. Supongo que por eso envían a este tipo de oficiales ahora.",
+    "¡¿Qué acabas de decir?! ¡¿Crees que soy un soldado de segunda?! ¡He comandado más operaciones de las que puedes contar!",
+    "Entonces no tendrás problema en demostrarlo. Un duelo. Un Zoid contra un Zoid. Si ganamos, te vas de esta isla y la señorita Corin se queda. Si ganas tú, ella se va contigo sin resistencia.",
+    "No me enviaron aquí a jugar. Mi misión es llevar a Corin, no entretener desafíos de desconocidos.",
+    "Por supuesto. No esperaba que alguien como tú aceptara. Después de todo, sería terriblemente vergonzoso si perdieras, ¿no? Mejor esconderse detrás de las órdenes.",
+    "...Te arrepentirás de esas palabras. ¡Está bien! ¡Acepto! ¡Digan el lugar!",
+    "La costa. Esto se resuelve en el agua.",
+    "¡¿En el agua?! ¡Ja! ¡Ese es MI elemento! Las mejores unidades acuáticas de la República están bajo mi mando. ¡No hay absolutamente ninguna forma de que puedan ganar!",
+    "Esto será más seguro para los Zoids de la isla, pero mucho más difícil para nosotros. Prepara tu mejor Zoid acuático."
   ],
   "narration_ancient_pulse": [
     "El Helcat Salvaje se levanta una vez más. Su cuerpo tiembla con una energía antinatural, listo para atacar de nuevo.",

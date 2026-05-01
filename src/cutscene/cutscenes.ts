@@ -21,6 +21,10 @@ export const CUTSCENES: Record<string, Cutscene> = {
   narration_stray_gets_up: new Cutscene('narration_stray_gets_up', 'dialog:narration_stray_gets_up', undefined, undefined, {
     1: { speakerKey: 'pilots:dr_thrun', portrait: 'images/pilots/dr_thrun.png' },
   }),
+  narration_republican_intervention: new Cutscene('narration_republican_intervention', 'dialog:narration_republican_intervention', undefined, undefined, {
+    1: { speakerKey: 'pilots:unia_corin', portrait: 'images/pilots/unia.png' },
+    2: { speakerKey: 'pilots:dr_t', portrait: 'images/pilots/dr_t.png' },
+  }),
   narration_shield_liger: new Cutscene('narration_shield_liger', 'dialog:narration_shield_liger', undefined, {0: 'images/cutscenes/van_zeke_escape.jpg',1:'images/cutscenes/shield_liger.jpg'}),
   narration_turtle_savior: new Cutscene('narration_turtle_savior', 'dialog:narration_turtle_savior', undefined, {0: 'images/cutscenes/red_horn.jpg', 1: 'images/items/ancient_statue.png', 2: 'images/cutscenes/red_horn_shoot.jpg', 3: 'images/cutscenes/turtle_shot.jpg'}),
   narration_van_farewell: new Cutscene('narration_van_farewell', 'dialog:narration_van_farewell', undefined, {0: 'images/cutscenes/van_farewell.jpg'}),
