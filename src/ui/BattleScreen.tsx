@@ -88,10 +88,9 @@ const BattleScreen: Component<BattleScreenProps> = (props) => {
             <div class="archive-grid">
               <For each={routeEnemies()}>
                 {(enemy) => (
-                  <div class="route-enemy-wrapper">
+                  <ArchiveCard id={enemy.id} status={getZoidResearch(enemy.id)}>
                     <span class="route-enemy-probability">{formatProbability(enemy.probability)}</span>
-                    <ArchiveCard id={enemy.id} status={getZoidResearch(enemy.id)} />
-                  </div>
+                  </ArchiveCard>
                 )}
               </For>
             </div>
