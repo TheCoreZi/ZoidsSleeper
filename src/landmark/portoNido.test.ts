@@ -78,6 +78,16 @@ describe('Porto Nido landmarks', () => {
   });
 });
 
+describe('Chimera Island', () => {
+  it('chimera_island city exists with actions', () => {
+    const city = getCity('chimera_island');
+    expect(city).toBeDefined();
+    expect(city!.type).toBe(LandmarkType.City);
+    expect(city!.actions).toBeDefined();
+    expect(city!.actions!.length).toBe(2);
+  });
+});
+
 describe('arcadia_guard pilot', () => {
   it('exists with correct zoid', () => {
     const pilot = PILOTS['arcadia_guard'];
@@ -98,20 +108,26 @@ describe('new NPCs', () => {
     expect(NPCS['dr_t']).toBeDefined();
     expect(NPCS['dr_t'].dialogs.length).toBeGreaterThan(0);
   });
+
+  it('unia_corin NPC exists with portrait', () => {
+    expect(NPCS['unia_corin']).toBeDefined();
+    expect(NPCS['unia_corin'].dialogs.length).toBe(2);
+    expect(NPCS['unia_corin'].portrait).toBe('images/pilots/unia.png');
+  });
 });
 
 describe('shells_of_time campaign', () => {
   it('has 3 missions', () => {
     const campaign = CAMPAIGNS['shells_of_time'];
     expect(campaign).toBeDefined();
-    expect(campaign.missions.length).toBe(10);
+    expect(campaign.missions.length).toBe(11);
   });
 
   it('missions are in correct order', () => {
     const ids = CAMPAIGNS['shells_of_time'].missions.map((m) => m.id);
     expect(ids).toEqual([
       'head_to_porto_nido', 'fight_arcadia_guard', 'meet_dr_t', 'clear_ruins', 'meet_father',
-      'father_backstory', 'clear_ruins_demo', 'clear_ruins_stray', 'survive_stray', 'discuss_in_lab',
+      'father_backstory', 'clear_ruins_demo', 'clear_ruins_stray', 'survive_stray', 'discuss_in_lab', 'meet_unia_corin',
     ]);
   });
 

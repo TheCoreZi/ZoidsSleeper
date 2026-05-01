@@ -38,6 +38,10 @@
         "name": "La Reliquia",
         "description": "Regresa a Porto Nido y discute lo que acaba de pasar con los doctores."
       },
+      "meet_unia_corin": {
+        "name": "Déjame llamar a un experto",
+        "description": "Cruza el mar hasta la Isla Quimera y encuentra al contacto del Dr. Thrun."
+      },
       "survive_stray": {
         "name": "Imparable",
         "description": "El Helcat Salvaje no se quedará abajo. ¡Defiéndete!"

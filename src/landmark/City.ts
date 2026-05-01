@@ -52,6 +52,10 @@ const AUTOMATIC_ACTIONS: Record<string, CityAction[]> = {
 
 export const CITIES: City[] = [
   {
+    actions: [
+      new ActionTalkToNPC('unia_corin', [new MissionCompletedRequirement(S, 'discuss_in_lab')], [new MissionCompletedRequirement(S, 'meet_unia_corin')], undefined, 'ui:find_contact'),
+      new ActionTalkToNPC('unia_corin', [new MissionCompletedRequirement(S, 'meet_unia_corin')]),
+    ],
     battleBackground: BattleBackground.Grass,
     devOnly: true,
     id: 'chimera_island',

@@ -31,6 +31,7 @@
   "faction_changed": "Cambio de Facción",
   "faction_zoid_origin": "Origen del Zoid",
   "enemy_turn": "Turno Enemigo",
+  "find_contact": "Buscar al Contacto",
   "fight_pilot": "Luchar contra {{name}}",
   "fight_wild": "Pelear contra {{name}}",
   "fights_completed": "Zoids Combatidos",

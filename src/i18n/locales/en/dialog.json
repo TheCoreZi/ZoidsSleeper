@@ -178,6 +178,23 @@
     "Me? I collect Magnis, tiny shards of Zoid Magnite you can salvage from destroyed Zoids. They're usually concentrated around the pipes connected to the Zoid Core.",
     "Next time you take one down, don't forget to check the wreckage. You'd be surprised what you can find."
   ],
+  "unia_corin_meeting": [
+    "This is a restricted area! Who authorized your presence here? State your business immediately.",
+    "It has been a long time, Miss Corin. Forgive the sudden visit.",
+    "Dr. Thrun?! I... I was not expecting you. You could have sent word ahead. Forgive my reaction, please come in. Any acquaintance of the doctor is welcome here.",
+    "Allow me to introduce her properly. This is Unia Corin. An extraordinary pilot who served in the Helic Republic. She left the military to dedicate herself to something far more important: breeding and conserving Zoid species.",
+    "Welcome. That is right, my family has been breeding Zoids for generations. I served as a pilot for the Helic Republic, but my mission is greater than that. Zoids should never be reduced to mere tools of war. This sanctuary ensures their future.",
+    "Miss Corin, we have come a long way. We found something in the ruins that we cannot understand. Dr. Thrun said you might be able to help us. Would you take a look?",
+    "Hmm... Let me see... Interesting. From certain angles this could resemble a Zoid Core, but it is ancient beyond measure. I would call it the mummy of a Core. I cannot believe this! I have spent my entire life studying Cores and I have never seen anything like it! Where on Zi did you find this?",
+    "We found it in the Elmia Ruins. A couple of times it has emitted energy pulses that saved us in desperate situations.",
+    "Wait... Energy pulses? I thought this was a mummy, a fossil... but if it has emitted pulses then it is alive. A Core this ancient, alive... Now I understand why you came to see me. You want to awaken it.",
+    "First of all, I do not even know if I could. I have never worked with anything like this. If it were up to me... I would love to keep it. I would give anything to study a Core like this and try to revive it. But I know you will not leave it with me. So take it with you, but I cannot help you awaken it. Not during wartime. My family has accumulated knowledge about Cores over generations, and sharing it now could give any side a devastating advantage.",
+    "I am sorry, truly. I wish I could do more. But if that Core has survived entire eras waiting in silence... perhaps that is how it should remain. Now I must ask you to leave. The Zoids in this sanctuary are not accustomed to human presence, and the longer you stay, the more restless they will become. When this war is over, if you still need me, you know where to find me."
+  ],
+  "unia_corin_summary": [
+    "I already told you, I cannot help you awaken that Core. Not while this war continues. My family has guarded these secrets for generations and I will not be the one to break that oath.",
+    "What I can tell you is that what you carry is no ordinary relic. If it has reacted on its own, it means it still has a will. Treat it with respect. When the war ends, come back and we will talk."
+  ],
   "van_alert": [
     "Huh? Who are you? Wait... you're not one of those bandits, are you? My name's Van. Van Flyheight. I was hiding in here when one of those capsules opened and that Zoid came out and attacked me.",
     "Bandits? More of them coming? I figured as much... So you can command Zoids? Great, then let's go after them and...",
