@@ -114,6 +114,16 @@ export const PILOTS: Record<string, Pilot> = {
       ]),
     ],
   },
+  republican_officer: {
+    id: 'republican_officer',
+    magnisReward: 8000,
+    name: 'Republican Officer',
+    zoidSets: [
+      new PilotZoidSet([
+        { attackOverride: 40, id: 'barigator', level: 40, maxHealthOverride: 8000 },
+      ]),
+    ],
+  },
   nero: {
     id: 'nero',
     magnisReward: 1600,

@@ -58,9 +58,25 @@
         "name": "The Relic",
         "description": "Return to Porto Nido and discuss what just happened with the doctors."
       },
+      "challenge_officer": {
+        "name": "Pride and the Coast",
+        "description": "Lure the officer to the coast and find a way to protect Unia and the sanctuary."
+      },
+      "check_outside": {
+        "name": "Restless Sanctuary",
+        "description": "Something is upsetting the Zoids. Go outside and investigate."
+      },
+      "confront_officer": {
+        "name": "Who Does He Think He Is?",
+        "description": "A Republican officer is causing trouble on the island. Confront him."
+      },
       "meet_unia_corin": {
         "name": "Let Me Call an Expert",
         "description": "Cross the sea to Chimera Island and find Dr. Thrun's contact."
+      },
+      "republican_intervention": {
+        "name": "Tides of War",
+        "description": "Defeat the Republican Officer in a water duel to protect the sanctuary."
       },
       "survive_stray": {
         "name": "Unstoppable",
