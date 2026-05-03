@@ -95,6 +95,59 @@
   }
 }
 
+.campaign-progress-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.35rem;
+}
+
+.campaign-progress-item {
+  align-items: flex-end;
+  color: #ccc;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 0.7rem;
+  gap: 0.15rem;
+}
+
+.campaign-progress-bar {
+  background: var(--theme-border);
+  border-radius: 2px;
+  height: 4px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.campaign-progress-bar-fill {
+  background: var(--theme-accent);
+  border-radius: 2px;
+  height: 100%;
+  transition: width 0.3s;
+}
+
+.campaign-progress-hint {
+  flex: 1;
+  text-align: left;
+}
+
+.campaign-progress-item.completed {
+  color: #4caf50;
+}
+
+.campaign-progress-item.completed .campaign-progress-bar-fill {
+  background: #4caf50;
+}
+
+.campaign-progress-item.completed .campaign-progress-hint {
+  text-decoration: line-through;
+}
+
+.campaign-progress-value {
+  font-weight: bold;
+  margin-left: 0.5rem;
+}
+
 .campaign-description {
   color: #999;
   font-size: 0.75rem;

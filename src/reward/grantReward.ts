@@ -1,13 +1,18 @@
 import { CUTSCENES } from '../cutscene';
 import { advanceMission } from '../store/campaignStore';
-import { addItem } from '../store/inventoryStore';
+import { addItem, removeItem } from '../store/inventoryStore';
 import { enqueueDialog } from '../store/gameStore';
+import { removeZoidFromArmy } from '../store/partyStore';
+import { removeZoidData } from '../store/zoidDataStore';
 import { type Reward, RewardType } from './Reward';
 
 export function grantReward(reward: Reward): void {
   switch (reward.type) {
     case RewardType.ActivateCityAction:
       reward.action.execute();
+      break;
+    case RewardType.Composite:
+      reward.rewards.forEach(grantReward);
       break;
     case RewardType.Cutscene:
       enqueueDialog(CUTSCENES[reward.cutsceneId].toDialogScript());
@@ -17,6 +22,15 @@ export function grantReward(reward: Reward): void {
       break;
     case RewardType.MissionAdvance:
       advanceMission(reward.campaignId);
+      break;
+    case RewardType.RemoveItem:
+      removeItem(reward.itemId, reward.amount);
+      break;
+    case RewardType.RemoveZiData:
+      removeZoidData(reward.zoidId, reward.amount);
+      break;
+    case RewardType.RemoveZoid:
+      removeZoidFromArmy(reward.zoidId);
       break;
   }
 }

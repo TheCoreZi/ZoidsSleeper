@@ -78,6 +78,18 @@
         "name": "Tides of War",
         "description": "Defeat the Republican Officer in a water duel to protect the sanctuary."
       },
+      "unia_trials_talk": {
+        "name": "Begging for Trust",
+        "description": "Talk to Unia Corin after driving off the officer."
+      },
+      "unia_trials": {
+        "name": "The Price of Trust",
+        "description": "Complete Unia's three conservation challenges to earn her trust."
+      },
+      "unia_trials_accepted": {
+        "name": "One of Us",
+        "description": "Return to Unia and deliver what she asked for."
+      },
       "survive_stray": {
         "name": "Unstoppable",
         "description": "The Stray Helcat won't stay down. Defend yourself!"

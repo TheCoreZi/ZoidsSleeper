@@ -13,6 +13,7 @@ export interface Mission {
   goals: Requirement[];
   id: string;
   onComplete?: () => void;
+  showProgress?: boolean;
 }
 
 export interface Campaign {

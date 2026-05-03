@@ -1,7 +1,9 @@
 import { createEffect, For, on, Show, type Component } from 'solid-js';
 import { CAMPAIGNS } from '../campaign/campaigns';
-import type { Campaign } from '../campaign/Campaign';
+import type { Campaign, Mission } from '../campaign/Campaign';
 import { t } from '../i18n';
+import { AllOfRequirement } from '../requirement/AllOfRequirement';
+import type { Requirement } from '../requirement/Requirement';
 import { getCampaignState, isCampaignCompleted, isCampaignStarted, startCampaign } from '../store/campaignStore';
 import './campaign.css';
 
@@ -23,8 +25,25 @@ function currentMissionInfo(campaign: Campaign): MissionInfo | undefined {
   };
 }
 
+function currentMissionObj(campaign: Campaign): Mission | undefined {
+  const missionId = getCampaignState(campaign.id).currentMission;
+  return campaign.missions.find((m) => m.id === missionId);
+}
+
+function getProgressRequirements(mission: Mission): Requirement[] | undefined {
+  if (!mission.showProgress) { return undefined; }
+  const goal = mission.goals[0];
+  if (goal instanceof AllOfRequirement) { return goal.requirements; }
+  return [goal];
+}
+
 const CampaignEntry: Component<{ campaign: Campaign }> = (props) => {
   const mission = () => currentMissionInfo(props.campaign);
+  const missionObj = () => currentMissionObj(props.campaign);
+  const progressReqs = () => {
+    const m = missionObj();
+    return m ? getProgressRequirements(m) : undefined;
+  };
   let missionRef: HTMLDivElement | undefined;
 
   createEffect(on(
@@ -47,6 +66,23 @@ const CampaignEntry: Component<{ campaign: Campaign }> = (props) => {
         {(m) => <div ref={missionRef} class="campaign-mission-content">
           <div class="campaign-mission-name">{m().name}</div>
           <div class="campaign-mission-hint">{m().description}</div>
+          <Show when={progressReqs()}>
+            {(reqs) => (
+              <div class="campaign-progress-list">
+                <For each={reqs()}>
+                  {(req) => (
+                    <div class="campaign-progress-item" classList={{ 'completed': req.isCompleted() }}>
+                      <span class="campaign-progress-hint">{req.hint()}</span>
+                      <span class="campaign-progress-value">{Math.min(req.progress(), req.requiredValue)}/{req.requiredValue}</span>
+                      <div class="campaign-progress-bar">
+                        <div class="campaign-progress-bar-fill" style={{ width: `${Math.min(100, (req.progress() / req.requiredValue) * 100)}%` }} />
+                      </div>
+                    </div>
+                  )}
+                </For>
+              </div>
+            )}
+          </Show>
         </div>}
       </Show>
     </div>

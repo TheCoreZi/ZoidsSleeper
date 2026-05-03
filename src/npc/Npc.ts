@@ -298,6 +298,26 @@ export const NPCS: Record<string, Npc> = {
   unia_corin: {
     dialogs: [
       {
+        dialogKey: 'dialog:unia_trials_accepted',
+        speakers: {
+          2: { speakerKey: 'pilots:kara', portrait: 'images/pilots/girl.png' },
+          3: { speakerKey: '' },
+          5: { speakerKey: 'pilots:kara', portrait: 'images/pilots/girl.png' },
+          6: { speakerKey: '' },
+          7: { speakerKey: 'pilots:dr_thrun', portrait: 'images/pilots/dr_thrun.png' },
+        },
+        unlockRequirement: new MissionCompletedRequirement('shells_of_time', 'unia_trials'),
+      },
+      {
+        dialogKey: 'dialog:unia_trials_intro',
+        speakers: {
+          1: { speakerKey: 'pilots:kara', portrait: 'images/pilots/girl.png' },
+          2: { speakerKey: '' },
+          8: { speakerKey: 'pilots:kara', portrait: 'images/pilots/girl.png' },
+        },
+        unlockRequirement: new MissionCompletedRequirement('shells_of_time', 'republican_intervention'),
+      },
+      {
         dialogKey: 'dialog:unia_corin_summary',
         unlockRequirement: new MissionCompletedRequirement('shells_of_time', 'meet_unia_corin'),
       },

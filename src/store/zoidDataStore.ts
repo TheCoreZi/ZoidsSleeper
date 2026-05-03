@@ -31,4 +31,17 @@ function loadZoidData(data: Record<string, number>): void {
   setZoidDataLog(data);
 }
 
-export { decrementZoidData, getTotalZoidDataCount, getZoidDataCount, incrementZoidData, loadZoidData, zoidDataLog };
+function removeZoidData(zoidId: string, amount: number): void {
+  setZoidDataLog((prev) => {
+    const current = prev[zoidId] ?? 0;
+    const remaining = current - amount;
+    if (remaining <= 0) {
+      const next = { ...prev };
+      delete next[zoidId];
+      return next;
+    }
+    return { ...prev, [zoidId]: remaining };
+  });
+}
+
+export { decrementZoidData, getTotalZoidDataCount, getZoidDataCount, incrementZoidData, loadZoidData, removeZoidData, zoidDataLog };
