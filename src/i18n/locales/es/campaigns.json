@@ -58,6 +58,18 @@
         "name": "Mareas de Guerra",
         "description": "Derrota al Oficial Republicano en un duelo acuático para proteger el santuario."
       },
+      "unia_trials_talk": {
+        "name": "Mendigando Confianza",
+        "description": "Habla con Unia Corin después de ahuyentar al oficial."
+      },
+      "unia_trials": {
+        "name": "El Precio de la Confianza",
+        "description": "Completa los tres desafíos de conservación de Unia para ganarte su confianza."
+      },
+      "unia_trials_accepted": {
+        "name": "Uno de Nosotros",
+        "description": "Regresa con Unia y entrégale lo que pidió."
+      },
       "survive_stray": {
         "name": "Imparable",
         "description": "El Helcat Salvaje no se quedará abajo. ¡Defiéndete!"

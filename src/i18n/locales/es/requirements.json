@@ -17,5 +17,6 @@
   "talk_to_npc": "Hablar con {{name}}",
   "terrain_zoid_required": "Tener un Zoid de {{terrain}} en tu ejército",
   "zi_data_required": "Tener al menos {{count}} Zi-Data",
+  "zi_data_species_required": "Recolectar {{count}} Zi-Data de {{zoid}}",
   "zoid_created": "Desplegar un {{zoid}}"
 }

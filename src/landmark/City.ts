@@ -1,8 +1,8 @@
 import { CUTSCENES } from '../cutscene';
 import { type ConsumableItem, ITEMS } from '../item';
 import { PILOTS } from '../models/Pilot';
-import { COMPOUND_REQUIREMENTS, DevRequirement, ImpossibleRequirement, ItemRequirement, MissionCompletedRequirement, NpcTalkedInCampaignRequirement, PilotDefeatRequirement, RouteKillRequirement } from '../requirement';
-import { activateCityActionReward, itemReward, missionAdvanceReward } from '../reward';
+import { ArmySizeRequirement, COMPOUND_REQUIREMENTS, ComparisonCondition, DevRequirement, ImpossibleRequirement, ItemRequirement, MissionCompletedRequirement, NpcTalkedInCampaignRequirement, PilotDefeatRequirement, RouteKillRequirement } from '../requirement';
+import { activateCityActionReward, compositeReward, itemReward, missionAdvanceReward, removeItemReward, removeZiDataReward, removeZoidReward } from '../reward';
 import { ActionDuelPilot } from './action/ActionDuelPilot';
 import { ActionFightPilot } from './action/ActionFightPilot';
 import { ActionPlayCutscene } from './action/ActionPlayCutscene';
@@ -59,7 +59,8 @@ export const CITIES: City[] = [
       new ActionTalkToNPC('republican_officer', [new MissionCompletedRequirement(S, 'check_outside')], [new MissionCompletedRequirement(S, 'confront_officer')]),
       new ActionTalkToNPC('dr_t', [new MissionCompletedRequirement(S, 'confront_officer')], [new MissionCompletedRequirement(S, 'challenge_officer')], undefined, 'ui:challenge_officer'),
       new ActionDuelPilot(PILOTS['republican_officer'], [new MissionCompletedRequirement(S, 'challenge_officer')], [new PilotDefeatRequirement('republican_officer')]),
-      new ActionTalkToNPC('unia_corin', [new MissionCompletedRequirement(S, 'republican_intervention')]),
+      new ActionTalkToNPC('unia_corin', [new MissionCompletedRequirement(S, 'republican_intervention')], [new MissionCompletedRequirement(S, 'unia_trials')]),
+      new ActionTalkToNPC('unia_corin', [new MissionCompletedRequirement(S, 'unia_trials'), new ArmySizeRequirement(ComparisonCondition.AtLeast, 2)], [new MissionCompletedRequirement(S, 'unia_trials_accepted')], compositeReward(removeItemReward('core_saver', 50), removeZiDataReward('barigator', 5), removeZoidReward('sea_panther'))),
     ],
     battleBackground: BattleBackground.Water,
     devOnly: true,
@@ -128,7 +129,7 @@ export const CITIES: City[] = [
       ...AUTOMATIC_ACTIONS.porto_nido_ask_doctor,
       new ActionTalkToNPC('dr_t', [new PilotDefeatRequirement('arcadia_guard')], [new MissionCompletedRequirement(S, 'meet_father')]),
       new ActionTalkToNPC('dr_thrun', [new MissionCompletedRequirement(S, 'meet_father')], [new MissionCompletedRequirement(S, 'clear_ruins_demo')]),
-      new ActionTalkToNPC('dr_thrun', [new MissionCompletedRequirement(S, 'survive_stray')], undefined, undefined, 'ui:talk_to_doctors'),
+      new ActionTalkToNPC('dr_thrun', [new MissionCompletedRequirement(S, 'survive_stray')], [new MissionCompletedRequirement(S, 'meet_unia_corin')], undefined, 'ui:talk_to_doctors'),
       new ActionTalkToNPC('fisherman', [new MissionCompletedRequirement(S, 'discuss_in_lab')]),
     ],
     battleBackground: BattleBackground.Dirt,

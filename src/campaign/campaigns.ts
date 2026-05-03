@@ -1,8 +1,8 @@
 import { Faction } from '../models/Faction';
-import { AllOfRequirement, ArmySizeRequirement, CampaignCompletedRequirement, ComparisonCondition, DungeonCompletionRequirement, FactionRequirement, MissionCompletedRequirement, NpcTalkedInCampaignRequirement, PilotDefeatRequirement, RouteKillRequirement, ZiDataRequirement } from '../requirement';
+import { AllOfRequirement, ArmySizeRequirement, CampaignCompletedRequirement, ComparisonCondition, DungeonCompletionRequirement, FactionRequirement, ItemRequirement, MissionCompletedRequirement, NpcTalkedInCampaignRequirement, PilotDefeatRequirement, RouteKillRequirement, SpeciesZiDataRequirement, ZiDataRequirement, ZoidCreatedRequirement } from '../requirement';
 import { CUTSCENES } from '../cutscene';
 import { activateCityActionReward, grantReward } from '../reward';
-import { enqueueDialog } from '../store/gameStore';
+import { enqueueDialog, playerStats } from '../store/gameStore';
 import { POST_DEMO_TALK, STRAY_CHAIN_TRIGGER } from '../story/eventchains/strayChain';
 import type { Campaign } from './Campaign';
 
@@ -42,7 +42,23 @@ export const CAMPAIGNS: Record<string, Campaign> = {
       { id: 'check_outside', goals: [new NpcTalkedInCampaignRequirement('shells_of_time', 'republican_officer')] },
       { id: 'confront_officer', goals: [new NpcTalkedInCampaignRequirement('shells_of_time', 'republican_officer')] },
       { id: 'challenge_officer', goals: [new NpcTalkedInCampaignRequirement('shells_of_time', 'dr_t')] },
-      { id: 'republican_intervention', goals: [new PilotDefeatRequirement('republican_officer')] },
+      { id: 'republican_intervention', goals: [new PilotDefeatRequirement('republican_officer')], onComplete: () => {
+        const faction = playerStats()?.faction;
+        if (faction === Faction.HelicRepublic) {
+          enqueueDialog(CUTSCENES.narration_officer_deal_republican.toDialogScript());
+        } else if (faction === Faction.GuylosEmpire) {
+          enqueueDialog(CUTSCENES.narration_officer_deal_imperial.toDialogScript());
+        } else {
+          enqueueDialog(CUTSCENES.narration_officer_deal_neutral.toDialogScript());
+        }
+      } },
+      { id: 'unia_trials_talk', goals: [new NpcTalkedInCampaignRequirement('shells_of_time', 'unia_corin')] },
+      { id: 'unia_trials', showProgress: true, goals: [new AllOfRequirement([
+        new SpeciesZiDataRequirement('barigator', 5),
+        new ItemRequirement('core_saver', 50),
+        new ZoidCreatedRequirement('sea_panther'),
+      ])] },
+      { id: 'unia_trials_accepted', goals: [new NpcTalkedInCampaignRequirement('shells_of_time', 'unia_corin')] },
     ],
     unlockRequirements: [new CampaignCompletedRequirement('sleeper_commander')],
   },

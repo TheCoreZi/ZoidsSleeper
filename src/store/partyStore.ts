@@ -30,6 +30,26 @@ function addZoidToArmy(zoidId: string, experience = 0): void {
   updateZoidResearch(zoidId, ZoidResearchStatus.Created);
 }
 
+function removeZoidFromArmy(zoidId: string): void {
+  setParty((prev) => {
+    const existing = prev.zoids.find((z) => z.id === zoidId);
+    if (!existing) {return prev;}
+    if ((existing.copies ?? 1) > 1) {
+      return {
+        ...prev,
+        zoids: prev.zoids.map((z) => z.id === zoidId
+          ? { ...z, copies: (z.copies ?? 1) - 1 }
+          : z),
+      };
+    }
+    const filtered = prev.zoids.filter((z) => z.id !== zoidId);
+    const commanderZoidId = prev.commanderZoidId === zoidId
+      ? (filtered[0]?.id ?? '')
+      : prev.commanderZoidId;
+    return { commanderZoidId, zoids: filtered };
+  });
+}
+
 function findStrongestZoid(): CustomizedZoid {
   const { commanderZoidId, zoids } = party();
   if (zoids.length === 0) {throw new Error('Party is empty');}
@@ -42,4 +62,4 @@ function selectCommanderZoid(zoidId: string): void {
   setParty((prev) => ({ ...prev, commanderZoidId: zoidId }));
 }
 
-export { addZoidToArmy, findStrongestZoid, party, partyAttack, partyMaxHealth, selectCommanderZoid, setParty };
+export { addZoidToArmy, findStrongestZoid, party, partyAttack, partyMaxHealth, removeZoidFromArmy, selectCommanderZoid, setParty };

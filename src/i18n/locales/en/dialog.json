@@ -138,6 +138,37 @@
     "The Arcobaleno gang flees the colony upon discovering it's not unprotected. But in the chaos, they managed to take Maria with them.",
     "\"Hand over the silver Zoid if you ever want to see her again!\" the bandits shout as they retreat."
   ],
+  "narration_officer_deal_imperial": [
+    "The Republican Officer's Barigator collapses onto the shore. He stumbles out of the cockpit, drenched and furious.",
+    "Defeated... by Imperial scum?! This is an act of war! I will report this to Central Command and they will send an entire battalion!",
+    "You will do no such thing. Sit down and listen.",
+    "Do you realize what you have done, Corin?! You let an Imperial soldier fight on your behalf! This is collaboration with the enemy! They will brand you a traitor!",
+    "This island is neutral ground. It has been for decades. No faction has jurisdiction here. The only traitor here is someone who would threaten endangered Zoids to further his career. And you accepted this duel willingly, in front of witnesses. A report would ruin you, not me.",
+    "So here is what happens. You leave this island and forget what you saw. We will not report your defeat, and I will contact President Camford directly. That should satisfy your orders well enough.",
+    "...Enjoy this while it lasts, Imperial scum. Next time, there will be no duel. No deal. Just the full might of the Republic.",
+    "The officer climbs back into his battered Barigator and retreats across the water. As the sound of its engines fades into the distance, the island falls silent once more."
+  ],
+  "narration_officer_deal_neutral": [
+    "The Republican Officer's Barigator collapses onto the shore. He stumbles out of the cockpit, drenched and furious.",
+    "Impossible...! I was given direct orders from President Camford herself! I will NOT return empty-handed! I am calling reinforcements!",
+    "And what will you tell them? That you lost a duel you accepted willingly? That you caused a stampede in a protected sanctuary? I doubt the President would be pleased to hear any of that.",
+    "You think you can just make this go away?! I have a duty to fulfill!",
+    "Then listen carefully. You leave this island and forget everything you saw here. In return, we will not report this incident to your superiors. No defeat on your record, no disciplinary hearing.",
+    "You expect me to abandon my mission and pretend none of this happened?!",
+    "Your mission was to bring me before the President. I will contact President Camford directly, on my own terms. That should satisfy your orders well enough.",
+    "...Fine. But mark my words, this is not over. The Republic does not forget.",
+    "The officer climbs back into his battered Barigator and retreats across the water. As the sound of its engines fades into the distance, the island falls silent once more."
+  ],
+  "narration_officer_deal_republican": [
+    "The Republican Officer's Barigator collapses onto the shore. He stumbles out of the cockpit, drenched and furious.",
+    "Defeated... by one of our own?! This is treason! You attacked a superior officer carrying out a direct order from President Camford! I will have you court-martialed!",
+    "Enough. No one is getting court-martialed today.",
+    "This soldier defied a direct order and humiliated the Republic! I will make sure Command hears every detail!",
+    "And I will make sure they hear how you terrorized a protected sanctuary, provoked a stampede, and then lost a duel you accepted of your own free will. How do you think that report will end for you?",
+    "Here is what is going to happen. You leave this island and forget everything you saw. We will not mention your defeat, and you will not mention any of this. I will contact President Camford myself. That should satisfy your orders well enough.",
+    "...You will regret this. All of you. The Republic does not forget, and neither will I.",
+    "The officer climbs back into his battered Barigator and retreats across the water. As the sound of its engines fades into the distance, the island falls silent once more."
+  ],
   "narration_turtle_savior": [
     "Rosso's Red Horn is like a walking fortress. Your Zoids can barely withstand the relentless attacks...",
     "Your Zoid is about to fall when the ancient statue in your pack pulses with a strange light.",
@@ -251,6 +282,27 @@
   "unia_corin_summary": [
     "I already told you, I cannot help you awaken that Core. Not while this war continues. My family has guarded these secrets for generations and I will not be the one to break that oath.",
     "What I can tell you is that what you carry is no ordinary relic. If it has reacted on its own, it means it still has a will. Treat it with respect. When the war ends, come back and we will talk."
+  ],
+  "unia_trials_accepted": [
+    "I must admit... I did not think you would make it. Most would have given up after the first task. But here you are, with everything I asked for.",
+    "Perhaps you truly are worthy of my trust.",
+    "We could not have done it without you. Really, thank you.",
+    "However... there is a problem. The knowledge my family guards has never been shared with anyone outside this sanctuary. It is an oath that has been kept for generations, and I will not be the one to break it.",
+    "...Unless... if you were to become guardians of this sanctuary, sharing my knowledge with you would not break any oath. But let me be clear: becoming a guardian is a lifelong commitment. This oath stands above any army, any nation, any war. When I summon you, you will report. No questions, no delays. Think carefully before you accept.",
+    "We will. Whatever it takes, Miss Corin.",
+    "Then welcome to the Corin Sanctuary. From this day forward, you are one of us. You, little one, will be the Voice of the Sanctuary. And you, pilot, its Shield. As for you, doctors... do not take offense. I respect your research, Dr. Thrun, I truly do. But I know the mind of a scientist. The first thing you would do is apply these methods to your experiments, and that is exactly what this oath compels me to prevent.",
+    "I understand, Miss Corin. And you are right, I cannot promise that curiosity would not get the better of me. Your secret will be safer with them. We will return to Porto Nido, there is much to analyze with what we already know. Would you mind looking after Kara? I trust you, and in any case, I doubt she would agree to come back with me at this point."
+  ],
+  "unia_trials_intro": [
+    "I owe you my thanks. Regardless of your allegiance, you put yourself on the line to protect the Zoids on this island. Not many would have done that. But gratitude is not the same as trust. I will not hand over generations of knowledge to a stranger.",
+    "Miss Corin... please. We came all this way because we need your help. Will you not at least give us a chance?",
+    "...When the officer barged into the sanctuary and the Zoids panicked, everyone was focused on the confrontation. Everyone except you. You were crying for them. You wanted to help them before anything else. That kind of instinct cannot be taught.",
+    "I still have my doubts about the rest of you. But if this girl is the one who wishes to awaken that Core, then perhaps I was wrong to refuse so quickly. I will give you a chance to earn my trust. Three tasks. Complete them, and we will talk.",
+    "The Barigator is one of the rarest species in these waters. I need structural data from five of them, obtained without harming them. That will prove you have the patience to study a Zoid, not just fight it.",
+    "Every conservation effort depends on proper Core handling. Bring me fifty Core Savers. That will prove you understand that preserving a Zoid requires care, resources, and dedication.",
+    "And finally... the Sea Panther. Nearly extinct because of this war. Both the Republic and the Empire would pay a fortune for one. If you acquire one and surrender it to me, giving up a Zoid that valuable... that will prove where your loyalties truly lie. Not with any army, but with the Zoids themselves.",
+    "Complete these three tasks and we will talk. I will be watching closely.",
+    "We will do it, Miss Corin. All of it. I promise you will not regret giving us this chance."
   ],
   "van_alert": [
     "Huh? Who are you? Wait... you're not one of those bandits, are you? My name's Van. Van Flyheight. I was hiding in here when one of those capsules opened and that Zoid came out and attacked me.",
