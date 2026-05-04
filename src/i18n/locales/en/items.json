@@ -3,6 +3,9 @@
     "description": "A small ancient statue, its surface covered in strange symbols.",
     "name": "Ancient Statue"
   },
+  "core_mini_core": {
+    "name": "Mini Core"
+  },
   "core_analyzer": {
     "description": "A device that can be used to obtain structural data from Zoid Cores.",
     "name": "Core Analyzer"
@@ -11,13 +14,13 @@
     "description": "A device to preserve the Core of a weakened Zoid in order to extract structural data.",
     "name": "Core Preserver"
   },
-  "core_saver": {
-    "description": "An advanced preservation unit that stabilizes the Zoid Core during extraction, improving the chances of obtaining structural data.",
-    "name": "Core Saver"
-  },
   "core_probe": {
     "description": "A probe to connect to the Zoid Core. Can obtain structural data.",
     "name": "Core Probe"
+  },
+  "core_saver": {
+    "description": "An advanced preservation unit that stabilizes the Zoid Core during extraction, improving the chances of obtaining structural data.",
+    "name": "Core Saver"
   },
   "sleeper_module": {
     "description": "A strange module that allows to control multiple Sleepers behavior at the same time.",

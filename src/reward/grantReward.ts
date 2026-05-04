@@ -3,6 +3,7 @@ import { advanceMission } from '../store/campaignStore';
 import { addItem, removeItem } from '../store/inventoryStore';
 import { enqueueDialog } from '../store/gameStore';
 import { removeZoidFromArmy } from '../store/partyStore';
+import { addCore, addTypedCore } from '../store/zoidCoreStore';
 import { removeZoidData } from '../store/zoidDataStore';
 import { type Reward, RewardType } from './Reward';
 
@@ -31,6 +32,12 @@ export function grantReward(reward: Reward): void {
       break;
     case RewardType.RemoveZoid:
       removeZoidFromArmy(reward.zoidId);
+      break;
+    case RewardType.TypedZoidCore:
+      addTypedCore(reward.coreType);
+      break;
+    case RewardType.ZoidCore:
+      addCore(reward.zoidSpeciesId);
       break;
   }
 }

@@ -61,6 +61,7 @@ import { incrementDungeonCompletions, incrementPilotDefeats, loadStatistics } fr
 import { loadInventory } from '../store/inventoryStore';
 import { loadScanSetup } from '../store/scanStore';
 import { addCurrency, grantCurrencyReward, loadWallet } from '../store/walletStore';
+import { loadZoidCores } from '../store/zoidCoreStore';
 import { loadZoidData } from '../store/zoidDataStore';
 import { loadZoidResearch, updateZoidResearch } from '../store/zoidResearchStore';
 import { BaseBattle } from './BaseBattle';
@@ -440,6 +441,9 @@ export class Game {
       }
       if (data.scanSetup) {
         loadScanSetup(data.scanSetup);
+      }
+      if (data.zoidCores) {
+        loadZoidCores(data.zoidCores);
       }
       if (data.zoidResearch) {
         loadZoidResearch(data.zoidResearch);

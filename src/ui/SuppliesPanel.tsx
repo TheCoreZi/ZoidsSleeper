@@ -1,11 +1,15 @@
 import { type Component, createSignal, For, Show } from 'solid-js';
 import { t } from '../i18n';
+import { CoreType } from '../item/ZoidCore';
 import { ZOID_LIST, getZoidImage } from '../models/Zoid';
 import { inventory } from '../store/inventoryStore';
+import { zoidCores } from '../store/zoidCoreStore';
 import { zoidDataLog } from '../store/zoidDataStore';
 import './supplies.css';
 
-type SuppliesTab = 'items' | 'zdata';
+const CORE_TYPE_VALUES = new Set<string>(Object.values(CoreType));
+
+type SuppliesTab = 'cores' | 'items' | 'zdata';
 
 interface SuppliesPanelProps {
   onClose: () => void;
@@ -23,6 +27,16 @@ const SuppliesPanel: Component<SuppliesPanelProps> = (props) => {
     Object.entries(zoidDataLog())
       .filter(([, count]) => count > 0)
       .map(([id, count]) => ({ count, id, name: ZOID_LIST[id]?.name ?? id }));
+
+  const ownedCores = () =>
+    Object.entries(zoidCores())
+      .filter(([, count]) => count > 0)
+      .map(([id, count]) => {
+        const isTyped = CORE_TYPE_VALUES.has(id);
+        const image = isTyped ? `images/icons/${id}.png` : getZoidImage(id);
+        const name = isTyped ? t(`items:core_${id}.name`) : (ZOID_LIST[id]?.name ?? id);
+        return { count, id, image, name };
+      });
 
   return (
     <div class="supplies-overlay" onClick={() => props.onClose()}>
@@ -45,6 +59,12 @@ const SuppliesPanel: Component<SuppliesPanelProps> = (props) => {
             onClick={() => setActiveTab('zdata')}
           >
             {t('ui:tab_zdata')}
+          </button>
+          <button
+            class={`supplies-tab ${activeTab() === 'cores' ? 'supplies-tab--active' : ''}`}
+            onClick={() => setActiveTab('cores')}
+          >
+            {t('ui:tab_cores')}
           </button>
         </div>
         <Show when={activeTab() === 'items'}>
@@ -93,6 +113,30 @@ const SuppliesPanel: Component<SuppliesPanelProps> = (props) => {
                     <span class="supplies-item-count">×{entry.count}</span>
                     <div class="supplies-tooltip">
                       <span class="supplies-tooltip-name">{entry.name}</span>
+                    </div>
+                  </div>
+                )}
+              </For>
+            </div>
+          </Show>
+        </Show>
+        <Show when={activeTab() === 'cores'}>
+          <Show
+            when={ownedCores().length > 0}
+            fallback={<p class="supplies-empty">{t('ui:cores_empty')}</p>}
+          >
+            <div class="supplies-grid">
+              <For each={ownedCores()}>
+                {(core) => (
+                  <div class="supplies-item">
+                    <img
+                      class="supplies-item-icon"
+                      src={core.image}
+                      alt={core.name}
+                    />
+                    <span class="supplies-item-count">×{core.count}</span>
+                    <div class="supplies-tooltip">
+                      <span class="supplies-tooltip-name">{core.name}</span>
                     </div>
                   </div>
                 )}

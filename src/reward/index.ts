@@ -8,3 +8,5 @@ export { removeItemReward } from './RemoveItemReward';
 export { removeZiDataReward } from './RemoveZiDataReward';
 export { removeZoidReward } from './RemoveZoidReward';
 export { type Reward } from './Reward';
+export { typedZoidCoreReward } from './TypedZoidCoreReward';
+export { zoidCoreReward } from './ZoidCoreReward';
