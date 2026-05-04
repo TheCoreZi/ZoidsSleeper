@@ -8,3 +8,5 @@ export { ITEMS } from './items';
 export { buildDropPool, rollDrops } from './rollDrops';
 export { SyncDeviceItem } from './SyncDeviceItem';
 export { ZiDataDrop } from './ZiDataDrop';
+export { CORE_EMERGE_POOLS, CoreProgress, CoreType, getCoreProgress, resolveTypedCore } from './ZoidCore';
+export type { CorePoolEntry, CoreTypeData, ZoidCoreState } from './ZoidCore';

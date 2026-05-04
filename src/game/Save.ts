@@ -13,6 +13,7 @@ import { wallet } from '../store/walletStore';
 import { zoidDataLog } from '../store/zoidDataStore';
 import type { ActiveScan } from '../store/scanStore';
 import { activeScan } from '../store/scanStore';
+import { zoidCores } from '../store/zoidCoreStore';
 import { zoidResearch } from '../store/zoidResearchStore';
 import { migrate } from './migrations';
 const SAVE_KEY = 'zoids-sleeper-save';
@@ -30,6 +31,7 @@ export interface SaveData {
   scanSetup?: ActiveScan;
   version: string;
   wallet?: Record<string, number>;
+  zoidCores?: Record<string, number>;
   zoidData?: Record<string, number>;
   zoidResearch?: Record<string, ZoidResearchStatus>;
 }
@@ -115,6 +117,7 @@ export class Save {
       routeKills: routeKills(),
       scanSetup: activeScan() ?? undefined,
       wallet: wallet(),
+      zoidCores: zoidCores(),
       zoidData: zoidDataLog(),
       zoidResearch: zoidResearch(),
     };
