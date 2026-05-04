@@ -7,6 +7,7 @@ export type MigrationData = Partial<SaveData> & Record<string, unknown>;
 type MigrationFn = (data: MigrationData) => void;
 
 const migrations: Record<string, MigrationFn> = {
+  '0.4.6': () => {},
   '0.4.5': () => {},
   '0.4.4': () => {},
   '0.4.3': (data) => {

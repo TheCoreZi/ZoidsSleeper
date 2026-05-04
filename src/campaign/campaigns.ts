@@ -2,7 +2,7 @@ import { Faction } from '../models/Faction';
 import { AllOfRequirement, ArmySizeRequirement, CampaignCompletedRequirement, ComparisonCondition, DungeonCompletionRequirement, FactionRequirement, ItemRequirement, MissionCompletedRequirement, NpcTalkedInCampaignRequirement, PilotDefeatRequirement, RouteKillRequirement, SpeciesZiDataRequirement, ZiDataRequirement, ZoidCreatedRequirement } from '../requirement';
 import { CUTSCENES } from '../cutscene';
 import { activateCityActionReward, grantReward } from '../reward';
-import { enqueueDialog, playerStats } from '../store/gameStore';
+import { enqueueDialog, playerStats, setPlayerStats } from '../store/gameStore';
 import { POST_DEMO_TALK, STRAY_CHAIN_TRIGGER } from '../story/eventchains/strayChain';
 import type { Campaign } from './Campaign';
 
@@ -59,6 +59,9 @@ export const CAMPAIGNS: Record<string, Campaign> = {
         new ZoidCreatedRequirement('sea_panther'),
       ])] },
       { id: 'unia_trials_accepted', goals: [new NpcTalkedInCampaignRequirement('shells_of_time', 'unia_corin')] },
+      { id: 'sanctuary_secrets', goals: [new NpcTalkedInCampaignRequirement('shells_of_time', 'unia_corin')],
+        onComplete: () => setPlayerStats((prev) => prev ? { ...prev, coreNurturingEnabled: true } : prev) },
+      { id: 'nurture_first_core', goals: [new ZoidCreatedRequirement('dragon_horse')] },
     ],
     unlockRequirements: [new CampaignCompletedRequirement('sleeper_commander')],
   },

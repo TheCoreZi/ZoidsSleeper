@@ -298,6 +298,26 @@ export const NPCS: Record<string, Npc> = {
   unia_corin: {
     dialogs: [
       {
+        dialogKey: 'dialog:sanctuary_secrets_summary',
+        unlockRequirement: new MissionCompletedRequirement('shells_of_time', 'sanctuary_secrets'),
+      },
+      {
+        dialogKey: 'dialog:sanctuary_secrets',
+        images: { 0: 'images/cores/mini_core.png', 2: '', 4: 'images/lore/zoid_life_cycle.png', 6: '' },
+        speakers: {
+          1: { speakerKey: 'pilots:kara', portrait: 'images/pilots/girl.png' },
+          2: { speakerKey: '' },
+          3: { speakerKey: 'pilots:kara', portrait: 'images/pilots/girl.png' },
+          4: { speakerKey: '' },
+          6: { speakerKey: 'pilots:kara', portrait: 'images/pilots/girl.png' },
+          7: { speakerKey: '' },
+          10: { speakerKey: 'pilots:kara', portrait: 'images/pilots/girl.png' },
+          11: { speakerKey: '' },
+          16: { speakerKey: 'pilots:kara', portrait: 'images/pilots/girl.png' },
+        },
+        unlockRequirement: new MissionCompletedRequirement('shells_of_time', 'unia_trials_accepted'),
+      },
+      {
         dialogKey: 'dialog:unia_trials_accepted',
         speakers: {
           2: { speakerKey: 'pilots:kara', portrait: 'images/pilots/girl.png' },

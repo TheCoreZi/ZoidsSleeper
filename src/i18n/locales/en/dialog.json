@@ -283,6 +283,28 @@
     "I already told you, I cannot help you awaken that Core. Not while this war continues. My family has guarded these secrets for generations and I will not be the one to break that oath.",
     "What I can tell you is that what you carry is no ordinary relic. If it has reacted on its own, it means it still has a will. Treat it with respect. When the war ends, come back and we will talk."
   ],
+  "sanctuary_secrets": [
+    "I promised to share my family's knowledge with you, and I will. But knowledge without experience is just words. So we are going to do this the other way around. Hold this. This is a living Zoid Core. Small, dormant, but alive. Every Zoid you have ever seen began as something like this.",
+    "It is... warm. I can feel it humming, like a tiny heartbeat.",
+    "Good. That means it is healthy. Your first duty as guardians of this sanctuary: bring this Core to life. Nurture it until it grows into a Zoid.",
+    "Nurture it...? How do we do that?",
+    "That is what I am about to teach you. In ancient times, Zoid Cores were born in the primordial seas of Planet Zi, waters rich in dissolved metal ions found nowhere else. As a Core absorbed those metals, it grew. Pits formed on its surface, and from those pits, skeletal parts began to sprout. The number and shape of those parts determined the species.",
+    "Once their skeletons were sturdy enough, some climbed onto land. There they fed on metal-rich soil, ore, even scrap, and grew steadily over decades. Each generation stronger, better adapted to its environment than the last. That is how the cycle continued for millions of years.",
+    "Continued...? What happened?",
+    "The primordial seas changed. The waters that gave birth to Zoids no longer exist in nature, and wild Cores became impossibly rare. When the armies discovered they could clone Cores in laboratories... why bother preserving what nature built?",
+    "Cloning keeps the war machine running, but it comes at a cost. A cloned Core is a copy, frozen in place. It will never grow beyond what it already is. No new traits, no adaptation, no improvement across generations. They are tools, not living creatures.",
+    "And when humans remodel them into Combat Zoids, adding cockpits, weapons, synthetic armor... the Core can never produce new Cores again. Every Combat Zoid on this planet is the last of its line. The armies have been sterilizing Zoids for generations without even realizing it. That is why I left the military. That is why this sanctuary exists.",
+    "That is horrible... All those Zoids out there fighting... none of them can ever...",
+    "Now you understand why this sanctuary exists. My family kept a secret for generations: the exact composition of the primordial waters. Every mineral, every trace element, in the precise balance that once filled the ancient seas. That knowledge is what makes us different from every laboratory on this planet.",
+    "Follow me. This is a nurturing tank. It replicates those primordial conditions. A Zoid born this way grows as nature intended. Not as a frozen copy, but as a living creature that adapts and strengthens with every cycle. And when it matures and produces new Cores, its offspring will carry everything their parent became, and surpass it. That is the true power of the natural cycle.",
+    "Maybe you have seen something like this in cartoons... feeding a Core with the energy of others. The difference is we do not destroy Zoids to do it. To nurture a Core, you need Core Fragments, pieces of living metal that concentrate wherever Zoids have fought. With the war raging, you will find plenty.",
+    "The sanctuary used to have a Gustav for mobile conservation work, but its Core died of old age last year. No replacement, no offspring. A Combat Zoid to the very end. What remains is the platform. Strap it to one of your Zoids to carry the tank while you travel. If you ever find a proper transport Zoid, it would work much better.",
+    "Now go. Collect fragments, feed that Core, and bring it to life. Show me what it means to be a guardian.",
+    "We will not let you down, Miss Corin. I promise."
+  ],
+  "sanctuary_secrets_summary": [
+    "Remember, the nurturing tank replicates the primordial waters my family preserved for generations. Feed Core Fragments to your Cores and let nature do the rest. A Zoid born this way will grow stronger than anything the armies can clone."
+  ],
   "unia_trials_accepted": [
     "I must admit... I did not think you would make it. Most would have given up after the first task. But here you are, with everything I asked for.",
     "Perhaps you truly are worthy of my trust.",

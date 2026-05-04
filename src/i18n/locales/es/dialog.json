@@ -283,6 +283,28 @@
     "Ya se los dije, no puedo ayudarles a despertar ese Core. No mientras esta guerra continúe. Mi familia ha resguardado estos secretos por generaciones y no seré yo quien rompa ese juramento.",
     "Lo que sí puedo decirles es que lo que llevan no es una reliquia cualquiera. Si ha reaccionado por su cuenta, significa que aún tiene voluntad. Trátenlo con respeto. Cuando la guerra termine, regresen y hablaremos."
   ],
+  "sanctuary_secrets": [
+    "Prometí compartir el conocimiento de mi familia con ustedes, y lo haré. Pero el conocimiento sin experiencia no son más que palabras. Así que lo haremos al revés. Tomen esto. Este es un Zoid Core vivo. Pequeño, inactivo, pero vivo. Todo Zoid que hayan visto alguna vez comenzó como algo así.",
+    "Es... tibio. Puedo sentirlo vibrar, como un pequeño latido.",
+    "Bien. Eso significa que está sano. Su primer deber como guardianes de este santuario: darle vida a este Core. Nútranlo hasta que se convierta en un Zoid.",
+    "¿Nutrirlo...? ¿Cómo se hace eso?",
+    "Eso es lo que estoy por enseñarles. En la antigüedad, los Zoid Cores nacían en los mares primordiales del Planeta Zi, aguas ricas en iones metálicos disueltos que no existían en ningún otro lugar. A medida que un Core absorbía esos metales, crecía. Se formaban cavidades en su superficie, y de esas cavidades brotaban partes del esqueleto. El número y la forma de esas partes determinaban la especie.",
+    "Una vez que sus esqueletos eran lo suficientemente resistentes, algunos subían a tierra. Allí se alimentaban de suelo rico en metales, minerales, incluso chatarra, y crecían de forma constante durante décadas. Cada generación más fuerte, mejor adaptada a su entorno que la anterior. Así continuó el ciclo durante millones de años.",
+    "¿Continuó...? ¿Qué pasó?",
+    "Los mares primordiales cambiaron. Las aguas que daban vida a los Zoids ya no existen en la naturaleza, y los Cores salvajes se volvieron increíblemente raros. Cuando los ejércitos descubrieron que podían clonar Cores en laboratorios... ¿para qué molestarse en preservar lo que la naturaleza construyó?",
+    "La clonación mantiene la maquinaria de guerra funcionando, pero tiene un costo. Un Core clonado es una copia, congelada en el tiempo. Nunca crecerá más allá de lo que ya es. Sin nuevos rasgos, sin adaptación, sin mejora entre generaciones. Son herramientas, no criaturas vivas.",
+    "Y cuando los humanos los remodelan en Zoids de Combate, añadiendo cabinas, armas, blindaje sintético... el Core ya nunca puede producir nuevos Cores. Cada Zoid de Combate en este planeta es el último de su linaje. Los ejércitos han estado esterilizando Zoids por generaciones sin siquiera darse cuenta. Por eso dejé el ejército. Por eso existe este santuario.",
+    "Eso es horrible... Todos esos Zoids peleando allá afuera... ninguno de ellos puede jamás...",
+    "Ahora entienden por qué existe este santuario. Mi familia guardó un secreto por generaciones: la composición exacta de las aguas primordiales. Cada mineral, cada oligoelemento, en el balance preciso que alguna vez llenó los mares antiguos. Ese conocimiento es lo que nos diferencia de cualquier laboratorio en este planeta.",
+    "Síganme. Este es un tanque de nutrición. Replica esas condiciones primordiales. Un Zoid nacido de esta forma crece como la naturaleza pretendía. No como una copia congelada, sino como una criatura viva que se adapta y se fortalece con cada ciclo. Y cuando madura y produce nuevos Cores, sus crías llevarán consigo todo lo que su progenitor llegó a ser, y lo superarán. Ese es el verdadero poder del ciclo natural.",
+    "Tal vez hayan visto algo parecido en caricaturas... alimentar un Core con la energía de otros. La diferencia es que nosotros no destruimos Zoids para hacerlo. Para nutrir un Core, necesitan Fragmentos de Core, trozos de metal vivo que se concentran donde sea que los Zoids hayan luchado. Con la guerra en curso, encontrarán de sobra.",
+    "El santuario solía tener un Gustav para trabajo de conservación móvil, pero su Core murió de viejo el año pasado. Sin reemplazo, sin descendencia. Un Zoid de Combate hasta el final. Lo que queda es la plataforma. Amárrenla a uno de sus Zoids para llevar el tanque mientras viajan. Si algún día encuentran un Zoid de transporte apropiado, funcionaría mucho mejor.",
+    "Ahora vayan. Recojan fragmentos de los campos de batalla, alimenten ese Core y tráiganlo a la vida. Muéstrenme lo que significa ser un guardián.",
+    "No le fallaremos, señorita Corin. Se lo prometo."
+  ],
+  "sanctuary_secrets_summary": [
+    "Recuerden, el tanque de nutrición replica las aguas primordiales que mi familia preservó por generaciones. Alimenten con Fragmentos de Core a sus Cores y dejen que la naturaleza haga el resto. Un Zoid nacido así crecerá más fuerte que cualquier cosa que los ejércitos puedan clonar."
+  ],
   "unia_trials_accepted": [
     "Debo admitir... no creí que lo lograrían. La mayoría habría abandonado en la primera tarea. Pero aquí están, con todo lo que pedí.",
     "Quizás realmente son dignos de mi confianza.",

@@ -437,7 +437,7 @@ export class Game {
         loadZoidData(data.zoidData);
       }
       if (data.playerStats) {
-        setPlayerStats({ ...data.playerStats, attackMult: data.playerStats.attackMult ?? 1, reinforcementsEnabled: data.playerStats.reinforcementsEnabled ?? false });
+        setPlayerStats({ ...data.playerStats, attackMult: data.playerStats.attackMult ?? 1, coreNurturingEnabled: data.playerStats.coreNurturingEnabled ?? false, reinforcementsEnabled: data.playerStats.reinforcementsEnabled ?? false });
       }
       if (data.scanSetup) {
         loadScanSetup(data.scanSetup);

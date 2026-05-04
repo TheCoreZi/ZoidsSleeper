@@ -1,8 +1,9 @@
 import { CUTSCENES } from '../cutscene';
 import { type ConsumableItem, ITEMS } from '../item';
+import { CoreType } from '../item/ZoidCore';
 import { PILOTS } from '../models/Pilot';
 import { ArmySizeRequirement, COMPOUND_REQUIREMENTS, ComparisonCondition, DevRequirement, ImpossibleRequirement, ItemRequirement, MissionCompletedRequirement, NpcTalkedInCampaignRequirement, PilotDefeatRequirement, RouteKillRequirement } from '../requirement';
-import { activateCityActionReward, compositeReward, itemReward, missionAdvanceReward, removeItemReward, removeZiDataReward, removeZoidReward } from '../reward';
+import { activateCityActionReward, compositeReward, itemReward, missionAdvanceReward, removeItemReward, removeZiDataReward, removeZoidReward, typedZoidCoreReward } from '../reward';
 import { ActionDuelPilot } from './action/ActionDuelPilot';
 import { ActionFightPilot } from './action/ActionFightPilot';
 import { ActionPlayCutscene } from './action/ActionPlayCutscene';
@@ -61,6 +62,8 @@ export const CITIES: City[] = [
       new ActionDuelPilot(PILOTS['republican_officer'], [new MissionCompletedRequirement(S, 'challenge_officer')], [new PilotDefeatRequirement('republican_officer')]),
       new ActionTalkToNPC('unia_corin', [new MissionCompletedRequirement(S, 'republican_intervention')], [new MissionCompletedRequirement(S, 'unia_trials')]),
       new ActionTalkToNPC('unia_corin', [new MissionCompletedRequirement(S, 'unia_trials'), new ArmySizeRequirement(ComparisonCondition.AtLeast, 2)], [new MissionCompletedRequirement(S, 'unia_trials_accepted')], compositeReward(removeItemReward('core_saver', 50), removeZiDataReward('barigator', 5), removeZoidReward('sea_panther'))),
+      new ActionTalkToNPC('unia_corin', [new MissionCompletedRequirement(S, 'unia_trials_accepted')], [new MissionCompletedRequirement(S, 'sanctuary_secrets')], typedZoidCoreReward(CoreType.MiniCore)),
+      new ActionTalkToNPC('unia_corin', [new MissionCompletedRequirement(S, 'sanctuary_secrets')]),
     ],
     battleBackground: BattleBackground.Water,
     devOnly: true,
