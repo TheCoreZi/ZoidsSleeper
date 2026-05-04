@@ -70,6 +70,14 @@
         "name": "Uno de Nosotros",
         "description": "Regresa con Unia y entrégale lo que pidió."
       },
+      "nurture_first_core": {
+        "name": "Prueba de Vida",
+        "description": "Nutre el Core Zoid que Unia te dio hasta que se convierta en un Zoid."
+      },
+      "sanctuary_secrets": {
+        "name": "Secretos del Santuario",
+        "description": "Unia ha prometido compartir el conocimiento ancestral de su familia. Escucha lo que tiene que decir."
+      },
       "survive_stray": {
         "name": "Imparable",
         "description": "El Helcat Salvaje no se quedará abajo. ¡Defiéndete!"

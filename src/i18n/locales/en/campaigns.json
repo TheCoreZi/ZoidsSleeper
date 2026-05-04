@@ -90,6 +90,14 @@
         "name": "One of Us",
         "description": "Return to Unia and deliver what she asked for."
       },
+      "nurture_first_core": {
+        "name": "Proof of Life",
+        "description": "Nurture the Zoid Core Unia gave you until it grows into a Zoid."
+      },
+      "sanctuary_secrets": {
+        "name": "Sanctuary Secrets",
+        "description": "Unia has promised to share her family's ancient knowledge. Listen to what she has to say."
+      },
       "survive_stray": {
         "name": "Unstoppable",
         "description": "The Stray Helcat won't stay down. Defend yourself!"

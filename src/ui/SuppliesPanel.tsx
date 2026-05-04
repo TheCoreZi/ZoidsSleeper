@@ -33,7 +33,7 @@ const SuppliesPanel: Component<SuppliesPanelProps> = (props) => {
       .filter(([, count]) => count > 0)
       .map(([id, count]) => {
         const isTyped = CORE_TYPE_VALUES.has(id);
-        const image = isTyped ? `images/icons/${id}.png` : getZoidImage(id);
+        const image = isTyped ? `images/cores/${id}.png` : getZoidImage(id);
         const name = isTyped ? t(`items:core_${id}.name`) : (ZOID_LIST[id]?.name ?? id);
         return { count, id, image, name };
       });
