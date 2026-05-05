@@ -46,6 +46,7 @@ import FactionPanel from './ui/FactionPanel';
 import PilotBattleScreen from './ui/PilotBattleScreen';
 import SettingsMenu from './ui/SettingsMenu';
 import LabPanel from './ui/LabPanel';
+import NurturingPanel from './ui/NurturingPanel';
 import ShopPanel from './ui/ShopPanel';
 import SuppliesPanel from './ui/SuppliesPanel';
 import ZiArchivePanel from './ui/ZiArchivePanel';
@@ -55,6 +56,7 @@ import { getZoidImage, ZOID_LIST } from './models/Zoid';
 import { buyItem } from './store/inventoryStore';
 import { grantReward } from './reward';
 import { checkCampaigns, isMissionCompleted } from './store/campaignStore';
+import { isSpeciesInTank } from './store/nurturingStore';
 import { addZoidToArmy, party } from './store/partyStore';
 import { addCurrency, getCurrency } from './store/walletStore';
 import { decrementZoidData } from './store/zoidDataStore';
@@ -130,6 +132,7 @@ const App: Component = () => {
             const zoid = ZOID_LIST[zoidId];
             const isFirstFree = party().zoids.length === 1 && !isMissionCompleted('sleeper_commander', 'grow_army');
             const price = isFirstFree ? 0 : zoid.price;
+            if (isSpeciesInTank(zoidId)) {return;}
             if (getCurrency(Currency.Magnis) >= price) {
               const isNew = !party().zoids.some((z) => z.id === zoidId);
               addCurrency(Currency.Magnis, -price);
@@ -260,6 +263,9 @@ const App: Component = () => {
           </div>
           <div class="right-column">
             <CampaignPanel />
+            <Show when={(playerStats()?.nurturingSlots ?? 0) > 0}>
+              <NurturingPanel />
+            </Show>
           </div>
         </div>
       </Show>

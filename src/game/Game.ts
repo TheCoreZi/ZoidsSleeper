@@ -61,6 +61,7 @@ import { incrementDungeonCompletions, incrementPilotDefeats, loadStatistics } fr
 import { loadInventory } from '../store/inventoryStore';
 import { loadScanSetup } from '../store/scanStore';
 import { addCurrency, grantCurrencyReward, loadWallet } from '../store/walletStore';
+import { loadTankSlots } from '../store/nurturingStore';
 import { loadZoidCores } from '../store/zoidCoreStore';
 import { loadZoidData } from '../store/zoidDataStore';
 import { loadZoidResearch, updateZoidResearch } from '../store/zoidResearchStore';
@@ -198,9 +199,9 @@ export class Game {
     setBattleState(BattleState.PilotCombat);
   }
 
-  enterWildBossBattle(wildId: string, zoids: ZoidBlueprint[], currencyReward: CurrencyReward, unwinnable = false, reward?: Reward): void {
+  enterWildBossBattle(wildId: string, zoids: ZoidBlueprint[], currencyReward: CurrencyReward, fragmentYield = 0, unwinnable = false, reward?: Reward): void {
     const zoidName = getZoidById(zoids[0].id).name;
-    const battle = new WildBossBattle(playerStats()!, zoids);
+    const battle = new WildBossBattle(playerStats()!, zoids, fragmentYield);
     battle.onDefeat = () => {
       if (unwinnable) {
         incrementPilotDefeats(wildId);
@@ -399,7 +400,7 @@ export class Game {
       } else if (action instanceof ActionFightPilot) {
         action.onExecute = () => this.enterPilotBattle(action.pilot, action.unwinnable, action.reward);
       } else if (action instanceof ActionFightWild) {
-        action.onExecute = () => this.enterWildBossBattle(action.wildId, action.zoids, action.currencyReward, action.unwinnable, action.reward);
+        action.onExecute = () => this.enterWildBossBattle(action.wildId, action.zoids, action.currencyReward, action.fragmentYield, action.unwinnable, action.reward);
       } else if (action instanceof ActionPlayCutscene) {
         action.onExecute = () => {
           setActiveDialog(new DialogScript(action.cutscene.toDialogScript().lines, action.reward));
@@ -437,13 +438,16 @@ export class Game {
         loadZoidData(data.zoidData);
       }
       if (data.playerStats) {
-        setPlayerStats({ ...data.playerStats, attackMult: data.playerStats.attackMult ?? 1, coreNurturingEnabled: data.playerStats.coreNurturingEnabled ?? false, reinforcementsEnabled: data.playerStats.reinforcementsEnabled ?? false });
+        setPlayerStats({ ...data.playerStats, attackMult: data.playerStats.attackMult ?? 1, nurturingSlots: data.playerStats.nurturingSlots ?? 0, reinforcementsEnabled: data.playerStats.reinforcementsEnabled ?? false });
       }
       if (data.scanSetup) {
         loadScanSetup(data.scanSetup);
       }
       if (data.zoidCores) {
         loadZoidCores(data.zoidCores);
+      }
+      if (data.nurturingTank) {
+        loadTankSlots(data.nurturingTank);
       }
       if (data.zoidResearch) {
         loadZoidResearch(data.zoidResearch);

@@ -19,6 +19,7 @@ export interface Route extends Landmark {
   baseReward: CurrencyReward;
   connects: [string, string];
   enemies: RouteEnemy[];
+  fragmentYield: number;
   itemDrops?: Drop[];
   routeHealth: number;
   type: typeof LandmarkType.Route;
@@ -33,6 +34,7 @@ export const ROUTES: Route[] = [
       { blueprint: { id: 'gator', level: 5 } },
       { blueprint: { id: 'malder', level: 5 } },
     ],
+    fragmentYield: 1,
     id: 'gleam_outskirts',
     baseReward: { magnis: 30, zi_metal: 4 },
     routeHealth: 20,
@@ -53,6 +55,7 @@ export const ROUTES: Route[] = [
       { blueprint: { id: 'hyperscissors', level: 36 } },
       { blueprint: { id: 'sea_batoras', level: 37 } },
     ],
+    fragmentYield: 3,
     id: 'conservation_archipelago',
     name: 'Chimera Archipelago',
     requirements: [new MissionCompletedRequirement('shells_of_time', 'discuss_in_lab'), new OwnZoidForTerrainRequirement(TerrainType.Water)],
@@ -69,6 +72,7 @@ export const ROUTES: Route[] = [
       { blueprint: { id: 'malder', level: 8 } },
       { blueprint: { id: 'zatton', level: 10 } },
     ],
+    fragmentYield: 1,
     id: 'wind_road',
     baseReward: { magnis: 50, zi_metal: 8 },
     routeHealth: 66,
@@ -87,6 +91,7 @@ export const ROUTES: Route[] = [
       { blueprint: { id: 'molga', level: 14 } },
       { blueprint: { id: 'zatton', level: 15 } },
     ],
+    fragmentYield: 2,
     id: 'elmia_desert',
     name: 'Elmia Desert',
     routeHealth: 200,
@@ -103,6 +108,7 @@ export const ROUTES: Route[] = [
       { blueprint: { id: 'spiker', level: 18 } },
       { blueprint: { id: 'zatton', level: 20 } },
     ],
+    fragmentYield: 2,
     id: 'dustwind_trail',
     name: 'Dustwind Trail',
     routeHealth: 300,
@@ -119,6 +125,7 @@ export const ROUTES: Route[] = [
       { blueprint: { id: 'spiker', level: 20 } },
       { blueprint: { id: 'zatton', level: 22 } },
     ],
+    fragmentYield: 2,
     id: 'bandit_trail',
     name: 'Bandit Trail',
     routeHealth: 400,
@@ -137,6 +144,7 @@ export const ROUTES: Route[] = [
       { blueprint: { id: 'malder', level: 24 } },
     ],
     devOnly: true,
+    fragmentYield: 2,
     id: 'tauros_edge',
     name: 'Tauros Edge',
     routeHealth: 600,
@@ -155,6 +163,7 @@ export const ROUTES: Route[] = [
       { blueprint: { id: 'zatton', level: 36 } },
       { blueprint: { id: 'sea_panther', level: 27 }, probability: .01 },
     ],
+    fragmentYield: 3,
     id: 'sommerso_trail',
     name: 'Sommerso Trail',
     routeHealth: 1200,
@@ -172,6 +181,7 @@ export const ROUTES: Route[] = [
       { blueprint: { id: 'gator', level: 28 } },
     ],
     devOnly: true,
+    fragmentYield: 3,
     id: 'south_coast',
     name: 'South Coast',
     routeHealth: 700,

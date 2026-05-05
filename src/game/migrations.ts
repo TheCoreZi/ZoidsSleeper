@@ -7,6 +7,15 @@ export type MigrationData = Partial<SaveData> & Record<string, unknown>;
 type MigrationFn = (data: MigrationData) => void;
 
 const migrations: Record<string, MigrationFn> = {
+  '0.4.7': (data) => {
+    const stats = data.playerStats as Record<string, unknown> | undefined;
+    if (stats) {
+      if (stats.coreNurturingEnabled && (stats.nurturingSlots === undefined || stats.nurturingSlots === 0)) {
+        stats.nurturingSlots = 1;
+      }
+      delete stats.coreNurturingEnabled;
+    }
+  },
   '0.4.6': () => {},
   '0.4.5': () => {},
   '0.4.4': () => {},

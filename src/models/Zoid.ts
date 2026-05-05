@@ -6,6 +6,7 @@ import { TerrainType, getTerrainBonus } from './Terrain';
 
 /** A zoid owned by the player, tracking accumulated experience. */
 export interface OwnedZoid {
+  rebornBonusPercent?: number;
   copies?: number;
   experience: number;
   id: string;
@@ -42,6 +43,7 @@ export interface ZoidBlueprint {
   imageOverride?: string;
   level: number;
   maxHealthOverride?: number;
+  rebornBonusPercent?: number;
   scannable?: boolean;
 }
 
@@ -100,16 +102,16 @@ export function calculatePartyAttack(party: OwnedZoid[], playerFaction: Faction 
   return party.reduce((sum, z) => {
     const species = getZoidById(z.id);
     const factionBonus = getFactionBonus(playerFaction, species.faction);
-    const attack = buildZoid({ bonusMultiplier: factionBonus, id: z.id, level: getOwnedZoidLevel(z) }).attack;
+    const built = buildZoid({ bonusMultiplier: factionBonus, id: z.id, level: getOwnedZoidLevel(z), rebornBonusPercent: z.rebornBonusPercent });
     const terrainBonus = getTerrainBonus(terrain, species.terrainTypes);
-    return sum + Math.floor(attack * terrainBonus);
+    return sum + Math.floor(built.attack * terrainBonus);
   }, 0);
 }
 
 export function calculatePartyMaxHealth(party: OwnedZoid[], playerFaction: Faction = Faction.Neutral): number {
   return party.reduce((sum, z) => {
     const bonus = getFactionBonus(playerFaction, getZoidById(z.id).faction);
-    return sum + buildZoid({ bonusMultiplier: bonus, id: z.id, level: getOwnedZoidLevel(z) }).maxHealth;
+    return sum + buildZoid({ bonusMultiplier: bonus, id: z.id, level: getOwnedZoidLevel(z), rebornBonusPercent: z.rebornBonusPercent }).maxHealth;
   }, 0);
 }
 
@@ -136,14 +138,15 @@ export function getZoidImage(id: string, imageOverride?: string): string {
   return `images/zoids/${imageOverride ?? id}.png`;
 }
 
-export function buildZoid({ attackOverride, bonusMultiplier = 1, id, imageOverride, level, maxHealthOverride, scannable = true }: ZoidBlueprint): CustomizedZoid {
+export function buildZoid({ attackOverride, bonusMultiplier = 1, id, imageOverride, level, maxHealthOverride, rebornBonusPercent = 0, scannable = true }: ZoidBlueprint): CustomizedZoid {
   const base = getZoidById(id);
+  const rebornMultiplier = 1 + rebornBonusPercent / 100;
   return {
-    attack: attackOverride ?? calculateStat(base.attack, level, bonusMultiplier),
+    attack: attackOverride ?? Math.floor(calculateStat(base.attack, level, bonusMultiplier) * rebornMultiplier),
     id: base.id,
     imageOverride,
     level,
-    maxHealth: maxHealthOverride ?? calculateStat(base.maxHealth, level, bonusMultiplier),
+    maxHealth: maxHealthOverride ?? Math.floor(calculateStat(base.maxHealth, level, bonusMultiplier) * rebornMultiplier),
     name: base.name,
     scannable,
   };

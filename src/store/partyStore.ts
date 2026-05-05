@@ -55,7 +55,7 @@ function findStrongestZoid(): CustomizedZoid {
   if (zoids.length === 0) {throw new Error('Party is empty');}
   const commander = zoids.find((z) => z.id === commanderZoidId);
   const chosen = commander ?? zoids.reduce((best, z) => z.experience > best.experience ? z : best);
-  return buildZoid({ id: chosen.id, level: getOwnedZoidLevel(chosen) });
+  return buildZoid({ id: chosen.id, level: getOwnedZoidLevel(chosen), rebornBonusPercent: chosen.rebornBonusPercent });
 }
 
 function selectCommanderZoid(zoidId: string): void {

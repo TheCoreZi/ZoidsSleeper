@@ -20,6 +20,7 @@ function makeSortie(bossTiers: BossTier[]): DungeonSortieEvent {
     enemies: [{ zoidData: { id: 'gator', level: 1 } }],
     entryCost: 0,
     eventPool: [DUMMY_EVENT],
+    fragmentYield: 2,
     id: 'test_sortie',
     layers: 2,
     nodesPerLayer: [2, 3],

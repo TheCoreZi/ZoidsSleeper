@@ -1,9 +1,18 @@
 import { createSignal } from 'solid-js';
-import type { CoreType } from '../item/ZoidCore';
+import { t } from '../i18n';
+import { CoreType } from '../item/ZoidCore';
+import { PopupMessage, PopupType } from '../models/PopupMessage';
+import { getZoidImage, ZOID_LIST } from '../models/Zoid';
+import { showPopup } from './gameStore';
 
+const CORE_TYPE_VALUES = new Set<string>(Object.values(CoreType));
 const [zoidCores, setZoidCores] = createSignal<Record<string, number>>({});
 
 function addCore(coreId: string): void {
+  const isTyped = CORE_TYPE_VALUES.has(coreId);
+  const image = isTyped ? `images/cores/${coreId}.png` : getZoidImage(coreId);
+  const name = isTyped ? t(`items:core_${coreId}.name`) : (ZOID_LIST[coreId]?.name ?? coreId);
+  showPopup(new PopupMessage(name, t('ui:new_core'), PopupType.Item, image));
   setZoidCores((prev) => ({ ...prev, [coreId]: (prev[coreId] ?? 0) + 1 }));
 }
 
