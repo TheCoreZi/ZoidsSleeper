@@ -72,6 +72,22 @@
   width: 36px;
 }
 
+.core-visual {
+  mask-repeat: no-repeat;
+  position: relative;
+}
+
+.core-visual-color {
+  mix-blend-mode: multiply;
+  position: absolute;
+}
+
+.core-visual-pattern {
+  inset: 0;
+  mix-blend-mode: overlay;
+  position: absolute;
+}
+
 .nurturing-slot-image--ready {
   animation: nurturing-glow 1.5s ease-in-out infinite;
 }

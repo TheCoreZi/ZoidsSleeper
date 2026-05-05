@@ -5,9 +5,9 @@ import { getOwnedZoidLevel, getZoidImage, ZOID_LIST, ZoidResearchStatus } from '
 import { playerStats } from '../store/gameStore';
 import { completeSlot, getAvailableSlotCount, placeCore, placeReborn, tankSlots } from '../store/nurturingStore';
 import { party } from '../store/partyStore';
-import type { NurturingSlot, TankSlot } from '../store/TankSlot';
-import { TankSlotSource } from '../store/TankSlot';
+import type { TankSlot } from '../store/TankSlot';
 import { zoidCores } from '../store/zoidCoreStore';
+import CoreVisual from './CoreVisual';
 import { ArchiveCard } from './ZiArchivePanel';
 import './nurturing.css';
 
@@ -40,14 +40,6 @@ const NurturingPanel: Component = () => {
     party().zoids.filter((z) => getOwnedZoidLevel(z) >= 100)
   );
 
-  const getSlotImage = (slot: TankSlot) => {
-    if (slot.source === TankSlotSource.Core) {
-      const coreId = (slot as NurturingSlot).coreId;
-      return CORE_TYPE_VALUES.has(coreId) ? `images/cores/${coreId}.png` : getZoidImage(coreId);
-    }
-    return getZoidImage(slot.zoidSpeciesId);
-  };
-
   const isReady = (slot: TankSlot) => slot.fragments >= slot.fragmentsRequired;
   const progress = (slot: TankSlot) => Math.min(100, Math.floor(slot.fragments / slot.fragmentsRequired * 100));
 
@@ -69,10 +61,9 @@ const NurturingPanel: Component = () => {
         <For each={tankSlots()}>
           {(slot, index) => (
             <div class="nurturing-slot">
-              <img
-                class={`nurturing-slot-image ${isReady(slot) ? 'nurturing-slot-image--ready' : ''}`}
-                src={getSlotImage(slot)}
-                alt={ZOID_LIST[slot.zoidSpeciesId]?.name ?? slot.zoidSpeciesId}
+              <CoreVisual
+                class={isReady(slot) ? 'nurturing-slot-image--ready' : ''}
+                speciesId={slot.zoidSpeciesId}
               />
               <Show when={isReady(slot)} fallback={
                 <>
