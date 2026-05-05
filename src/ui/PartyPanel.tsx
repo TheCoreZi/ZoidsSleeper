@@ -42,13 +42,13 @@ function getStatValue(zoid: OwnedZoid, stat: StatOption): number {
   const level = getOwnedZoidLevel(zoid);
   const bonusMultiplier = getFactionBonus(playerStats()?.faction ?? 'neutral', getZoidById(zoid.id).faction);
   switch (stat) {
-    case StatOption.Attack: return buildZoid({ bonusMultiplier, id: zoid.id, level }).attack;
-    case StatOption.Attack100: return buildZoid({ bonusMultiplier, id: zoid.id, level: 100 }).attack;
+    case StatOption.Attack: return buildZoid({ bonusMultiplier, id: zoid.id, level, rebornBonusPercent: zoid.rebornBonusPercent }).attack;
+    case StatOption.Attack100: return buildZoid({ bonusMultiplier, id: zoid.id, level: 100, rebornBonusPercent: zoid.rebornBonusPercent }).attack;
     case StatOption.BaseAttack: return getZoidById(zoid.id).attack;
     case StatOption.BaseHp: return getZoidById(zoid.id).maxHealth;
     case StatOption.Experience: return zoid.experience;
-    case StatOption.Hp: return buildZoid({ bonusMultiplier, id: zoid.id, level }).maxHealth;
-    case StatOption.Hp100: return buildZoid({ bonusMultiplier, id: zoid.id, level: 100 }).maxHealth;
+    case StatOption.Hp: return buildZoid({ bonusMultiplier, id: zoid.id, level, rebornBonusPercent: zoid.rebornBonusPercent }).maxHealth;
+    case StatOption.Hp100: return buildZoid({ bonusMultiplier, id: zoid.id, level: 100, rebornBonusPercent: zoid.rebornBonusPercent }).maxHealth;
   }
 }
 

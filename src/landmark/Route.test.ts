@@ -23,6 +23,7 @@ function makeRoute(enemies: Route['enemies']): Route {
     battleBackground: BattleBackground.Grass,
     connects: ['a', 'b'],
     enemies,
+    fragmentYield: 1,
     id: 'test_route',
     name: 'Test Route',
     routeHealth: 50,

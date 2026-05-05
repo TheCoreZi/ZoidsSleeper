@@ -1,6 +1,7 @@
 import type { PlayerStats } from '../models/Player';
 import type { ZoidBlueprint } from '../models/Zoid';
 import { spawnZoid, buildZoid, ZoidResearchStatus } from '../models/Zoid';
+import { addFragments } from '../store/nurturingStore';
 import { updateZoidResearch } from '../store/zoidResearchStore';
 import {
   setEnemyZoid,
@@ -12,14 +13,16 @@ import { BaseBattle } from './BaseBattle';
 
 export class WildBossBattle extends BaseBattle {
   currentEnemyIndex = 0;
+  fragmentYield: number;
   onDefeat: (() => void) | null = null;
   onVictory: (() => void) | null = null;
   playerHealth: number;
   playerMaxHealth: number;
   zoids: ZoidBlueprint[];
 
-  constructor(playerStats: PlayerStats, zoids: ZoidBlueprint[]) {
+  constructor(playerStats: PlayerStats, zoids: ZoidBlueprint[], fragmentYield = 0) {
     super();
+    this.fragmentYield = fragmentYield;
     this.zoids = zoids;
     this.playerMaxHealth = playerStats.baseHealth + partyMaxHealth();
     this.playerHealth = this.playerMaxHealth;
@@ -38,6 +41,7 @@ export class WildBossBattle extends BaseBattle {
   }
 
   protected onEnemyDefeated(): void {
+    addFragments(this.fragmentYield);
     if (this.currentEnemyIndex < this.zoids.length - 1) {
       this.nextEnemy();
     } else {

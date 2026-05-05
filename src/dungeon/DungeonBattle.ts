@@ -4,6 +4,7 @@ import { grantCurrencyReward } from '../store/walletStore';
 import { spawnZoid, buildZoid, getZoidById, ZoidResearchStatus } from '../models/Zoid';
 
 import { emitRewardEvent, setEnemyZoid, setPilotPlayerHealth, setPilotPlayerMaxHealth } from '../store/gameStore';
+import { addFragments } from '../store/nurturingStore';
 import { resetScanAfterBattle } from '../store/scanStore';
 import { updateZoidResearch } from '../store/zoidResearchStore';
 import { WildDungeonBoss, type DungeonEnemy } from './DungeonSortieConfig';
@@ -47,6 +48,7 @@ export class DungeonBattle extends BaseBattle {
   }
 
   protected onEnemyDefeated(): void {
+    addFragments(this.config.fragmentYield * this.getFragmentMultiplier());
     const rewardMultiplier = this.getRewardMultiplier();
     const scanned = this.tryScan();
     const reward = grantCurrencyReward(this.config.baseReward, rewardMultiplier, scanned);
@@ -91,6 +93,14 @@ export class DungeonBattle extends BaseBattle {
     const source = available.length > 0 ? available : pool.slice(0, 1);
     const count = nodeType === SortieNodeType.Elite ? randomBetween(1, 3) : 1;
     return Array.from({ length: count }, () => pickRandom(source));
+  }
+
+  private getFragmentMultiplier(): number {
+    switch (this.nodeType) {
+      case SortieNodeType.Boss: return 3;
+      case SortieNodeType.Elite: return 2;
+      default: return 1;
+    }
   }
 
   private getRewardMultiplier(): number {

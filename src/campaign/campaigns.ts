@@ -60,7 +60,7 @@ export const CAMPAIGNS: Record<string, Campaign> = {
       ])] },
       { id: 'unia_trials_accepted', goals: [new NpcTalkedInCampaignRequirement('shells_of_time', 'unia_corin')] },
       { id: 'sanctuary_secrets', goals: [new NpcTalkedInCampaignRequirement('shells_of_time', 'unia_corin')],
-        onComplete: () => setPlayerStats((prev) => prev ? { ...prev, coreNurturingEnabled: true } : prev) },
+        onComplete: () => setPlayerStats((prev) => prev ? { ...prev, nurturingSlots: Math.max(prev.nurturingSlots, 1) } : prev) },
       { id: 'nurture_first_core', goals: [new ZoidCreatedRequirement('dragon_horse')] },
     ],
     unlockRequirements: [new CampaignCompletedRequirement('sleeper_commander')],

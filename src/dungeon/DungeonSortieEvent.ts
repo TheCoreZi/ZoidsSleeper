@@ -15,6 +15,7 @@ export interface DungeonSortieConfig {
   enemies: DungeonEnemy[];
   entryCost: number;
   eventPool: DungeonEvent[];
+  fragmentYield: number;
   id: string;
   itemDrops?: Drop[];
   layers: number;
@@ -31,6 +32,7 @@ export class DungeonSortieEvent implements CityAction {
   enemies: DungeonEnemy[];
   entryCost: number;
   eventPool: DungeonEvent[];
+  fragmentYield: number;
   id: string;
   itemDrops?: Drop[];
   layers: number;
@@ -47,6 +49,7 @@ export class DungeonSortieEvent implements CityAction {
     this.enemies = config.enemies;
     this.entryCost = config.entryCost;
     this.eventPool = config.eventPool;
+    this.fragmentYield = config.fragmentYield;
     this.id = config.id;
     this.itemDrops = config.itemDrops;
     this.layers = config.layers;

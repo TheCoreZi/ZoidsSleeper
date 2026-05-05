@@ -34,6 +34,7 @@ import {
 } from '../store/gameStore';
 import { currentTerrain } from '../store/terrainStore';
 import { findStrongestZoid } from '../store/partyStore';
+import { addFragments } from '../store/nurturingStore';
 import { updateZoidResearch } from '../store/zoidResearchStore';
 import { BaseBattle } from './BaseBattle';
 
@@ -122,6 +123,7 @@ export class DuelBattle extends BaseBattle {
   protected onBattleTick(): void {}
 
   protected onEnemyDefeated(): void {
+    addFragments(this.pilot.fragmentYield);
     if (this.currentEnemyIndex < this.enemyZoids.length - 1) {
       this.nextEnemy();
     } else {

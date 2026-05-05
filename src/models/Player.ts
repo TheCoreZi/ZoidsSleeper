@@ -4,8 +4,8 @@ export interface PlayerStats {
   attackMult: number;
   baseHealth: number;
   clickAttack: number;
-  coreNurturingEnabled: boolean;
   faction: Faction;
+  nurturingSlots: number;
   reinforcementsEnabled: boolean;
 }
 
@@ -13,7 +13,7 @@ export const DEFAULT_PLAYER: PlayerStats = {
   attackMult: 1,
   baseHealth: 10,
   clickAttack: 1,
-  coreNurturingEnabled: false,
   faction: 'neutral',
+  nurturingSlots: 0,
   reinforcementsEnabled: false,
 };

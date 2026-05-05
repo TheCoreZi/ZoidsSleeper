@@ -19,7 +19,7 @@ describe('ActionFightWild', () => {
 
   it('is not unlocked when requirements are not met', () => {
     loadStatistics({}, {}, {});
-    const action = new ActionFightWild('stray_helcat_wild', zoids, reward, [new WildDefeatRequirement('other', 'helcat_stray')]);
+    const action = new ActionFightWild('stray_helcat_wild', zoids, reward, 0, [new WildDefeatRequirement('other', 'helcat_stray')]);
     expect(action.isUnlocked()).toBe(false);
   });
 
@@ -30,7 +30,7 @@ describe('ActionFightWild', () => {
 
   it('is completed when completeRequirements are met', () => {
     loadStatistics({}, { stray_helcat_wild: 2 }, {});
-    const action = new ActionFightWild('stray_helcat_wild', zoids, reward, undefined, [new WildDefeatRequirement('stray_helcat_wild', 'helcat_stray', 2)]);
+    const action = new ActionFightWild('stray_helcat_wild', zoids, reward, 0, undefined, [new WildDefeatRequirement('stray_helcat_wild', 'helcat_stray', 2)]);
     expect(action.isCompleted()).toBe(true);
   });
 

@@ -8,6 +8,7 @@ import type { CityAction } from './CityAction';
 export class ActionFightWild implements CityAction {
   completeRequirements?: Requirement[];
   currencyReward: CurrencyReward;
+  fragmentYield: number;
   id: string;
   onExecute: (() => void) | null = null;
   requirements?: Requirement[];
@@ -16,9 +17,10 @@ export class ActionFightWild implements CityAction {
   wildId: string;
   zoids: ZoidBlueprint[];
 
-  constructor(wildId: string, zoids: ZoidBlueprint[], currencyReward: CurrencyReward, requirements?: Requirement[], completeRequirements?: Requirement[], unwinnable = false, reward?: Reward) {
+  constructor(wildId: string, zoids: ZoidBlueprint[], currencyReward: CurrencyReward, fragmentYield = 0, requirements?: Requirement[], completeRequirements?: Requirement[], unwinnable = false, reward?: Reward) {
     this.completeRequirements = completeRequirements;
     this.currencyReward = currencyReward;
+    this.fragmentYield = fragmentYield;
     this.id = `wild-${wildId}`;
     this.requirements = requirements;
     this.reward = reward;

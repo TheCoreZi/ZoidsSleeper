@@ -10,6 +10,7 @@ import { incrementRouteKills } from '../store/statisticsStore';
 import { ZoidResearchStatus } from '../models/Zoid';
 import { updateZoidResearch } from '../store/zoidResearchStore';
 
+import { addFragments } from '../store/nurturingStore';
 import { resetScanAfterBattle } from '../store/scanStore';
 import { BaseBattle } from './BaseBattle';
 
@@ -46,6 +47,7 @@ export class Battle extends BaseBattle {
     const drop = rollDrops(drops);
     if (drop) {drop.grant();}
 
+    addFragments(this.route.fragmentYield);
     incrementRouteKills(this.route.id);
     resetScanAfterBattle();
     checkCampaigns();

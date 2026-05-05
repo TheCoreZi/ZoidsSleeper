@@ -16,6 +16,7 @@ const DUMMY_SORTIE = new DungeonSortieEvent({
   enemies: [{ zoidData: { id: 'gator', level: 1 } }],
   entryCost: 0,
   eventPool: [DUMMY_EVENT],
+  fragmentYield: 2,
   id: 'test_sortie',
   layers: 2,
   nodesPerLayer: [2, 3],

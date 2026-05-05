@@ -13,6 +13,8 @@ import { wallet } from '../store/walletStore';
 import { zoidDataLog } from '../store/zoidDataStore';
 import type { ActiveScan } from '../store/scanStore';
 import { activeScan } from '../store/scanStore';
+import { tankSlots } from '../store/nurturingStore';
+import type { TankSlot } from '../store/TankSlot';
 import { zoidCores } from '../store/zoidCoreStore';
 import { zoidResearch } from '../store/zoidResearchStore';
 import { migrate } from './migrations';
@@ -24,6 +26,7 @@ export interface SaveData {
   dungeonCompletions?: Record<string, number>;
   inventory?: Record<string, number>;
   landmarkId: string;
+  nurturingTank?: TankSlot[];
   party?: PartyData;
   pilotDefeats?: Record<string, number>;
   playerStats?: PlayerStats;
@@ -110,6 +113,7 @@ export class Save {
       dungeonCompletions: dungeonCompletions(),
       inventory: inventory(),
       landmarkId: currentLandmark().id,
+      nurturingTank: tankSlots(),
       party: party(),
       version: __APP_VERSION__,
       pilotDefeats: pilotDefeats(),

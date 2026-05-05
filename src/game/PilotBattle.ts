@@ -2,6 +2,7 @@ import { type Pilot, getActiveZoids } from '../models/Pilot';
 import type { PlayerStats } from '../models/Player';
 import type { ZoidBlueprint } from '../models/Zoid';
 import { spawnZoid, buildZoid, ZoidResearchStatus } from '../models/Zoid';
+import { addFragments } from '../store/nurturingStore';
 import { updateZoidResearch } from '../store/zoidResearchStore';
 import {
   setEnemyZoid,
@@ -44,6 +45,7 @@ export class PilotBattle extends BaseBattle {
   }
 
   protected onEnemyDefeated(): void {
+    addFragments(this.pilot.fragmentYield);
     if (this.currentEnemyIndex < this.zoids.length - 1) {
       this.nextEnemy();
     } else {

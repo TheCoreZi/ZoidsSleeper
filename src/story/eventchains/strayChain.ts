@@ -19,7 +19,7 @@ const cutsceneStatue = new ActionPlayCutscene(
 );
 
 const fight2 = new ActionFightWild(
-  'stray_helcat_wild', Array.from({ length: 10 }, () => STRAY_HELCAT_BLUEPRINT), STRAY_REWARD, hidden,
+  'stray_helcat_wild', Array.from({ length: 10 }, () => STRAY_HELCAT_BLUEPRINT), STRAY_REWARD, 3, hidden,
   [new MissionCompletedRequirement(S, 'survive_stray')],
   true, activateCityActionReward(cutsceneStatue)
 );
@@ -31,7 +31,7 @@ const cutsceneGetsUp = new ActionPlayCutscene(
 );
 
 const fight1 = new ActionFightWild(
-  'stray_helcat_wild', [STRAY_HELCAT_BLUEPRINT], STRAY_REWARD, hidden,
+  'stray_helcat_wild', [STRAY_HELCAT_BLUEPRINT], STRAY_REWARD, 3, hidden,
   [new MissionCompletedRequirement(S, 'survive_stray')],
   false, activateCityActionReward(cutsceneGetsUp)
 );

@@ -3,6 +3,7 @@ import type { ZoidBlueprint } from '../models/Zoid';
 import { PilotZoidSet } from './PilotZoidSet';
 
 export interface Pilot {
+  fragmentYield: number;
   id: string;
   imageId?: string;
   magnisReward: number;
@@ -22,6 +23,7 @@ export function getPilotImage(id: string): string {
 
 export const PILOTS: Record<string, Pilot> = {
   arcadia_guard: {
+    fragmentYield: 7,
     id: 'arcadia_guard',
     magnisReward: 5000,
     name: 'Guard',
@@ -32,6 +34,7 @@ export const PILOTS: Record<string, Pilot> = {
     ],
   },
   arthur: {
+    fragmentYield: 7,
     id: 'arthur',
     magnisReward: 12000,
     name: 'Arthur',
@@ -42,6 +45,7 @@ export const PILOTS: Record<string, Pilot> = {
     ],
   },
   bandit1: {
+    fragmentYield: 4,
     id: 'bandit1',
     magnisReward: 3000,
     name: 'Bandit',
@@ -52,6 +56,7 @@ export const PILOTS: Record<string, Pilot> = {
     ],
   },
   concho_cancer: {
+    fragmentYield: 7,
     id: 'concho_cancer',
     imageId: 'concho',
     magnisReward: 12000,
@@ -63,6 +68,7 @@ export const PILOTS: Record<string, Pilot> = {
     ],
   },
   bianco: {
+    fragmentYield: 4,
     id: 'bianco',
     magnisReward: 1500,
     name: 'Bianco',
@@ -73,6 +79,7 @@ export const PILOTS: Record<string, Pilot> = {
     ],
   },
   bianco_nero: {
+    fragmentYield: 4,
     id: 'bianco_nero',
     magnisReward: 1200,
     name: 'Bianco & Nero',
@@ -84,6 +91,7 @@ export const PILOTS: Record<string, Pilot> = {
     ],
   },
   bul: {
+    fragmentYield: 4,
     id: 'bul',
     magnisReward: 1000,
     name: 'Bul',
@@ -94,6 +102,7 @@ export const PILOTS: Record<string, Pilot> = {
     ],
   },
   bul_arcobaleno: {
+    fragmentYield: 4,
     id: 'bul_arcobaleno',
     imageId: 'bul',
     magnisReward: 1500,
@@ -105,6 +114,7 @@ export const PILOTS: Record<string, Pilot> = {
     ],
   },
   giallo: {
+    fragmentYield: 4,
     id: 'giallo',
     magnisReward: 1400,
     name: 'Giallo',
@@ -115,6 +125,7 @@ export const PILOTS: Record<string, Pilot> = {
     ],
   },
   republican_officer: {
+    fragmentYield: 10,
     id: 'republican_officer',
     magnisReward: 8000,
     name: 'Republican Officer',
@@ -125,6 +136,7 @@ export const PILOTS: Record<string, Pilot> = {
     ],
   },
   nero: {
+    fragmentYield: 4,
     id: 'nero',
     magnisReward: 1600,
     name: 'Nero',
@@ -135,6 +147,7 @@ export const PILOTS: Record<string, Pilot> = {
     ],
   },
   rosso: {
+    fragmentYield: 4,
     id: 'rosso',
     magnisReward: 8000,
     name: 'Rosso',
@@ -149,6 +162,7 @@ export const PILOTS: Record<string, Pilot> = {
     ],
   },
   van_shield_liger: {
+    fragmentYield: 4,
     id: 'van_shield_liger',
     imageId: 'van',
     magnisReward: 10000,
@@ -160,6 +174,7 @@ export const PILOTS: Record<string, Pilot> = {
     ],
   },
   verde: {
+    fragmentYield: 4,
     id: 'verde',
     magnisReward: 1300,
     name: 'Verde',
@@ -170,6 +185,7 @@ export const PILOTS: Record<string, Pilot> = {
     ],
   },
   viola: {
+    fragmentYield: 4,
     id: 'viola',
     magnisReward: 2000,
     name: 'Viola',
@@ -180,6 +196,7 @@ export const PILOTS: Record<string, Pilot> = {
     ],
   },
   viola_verde_giallo: {
+    fragmentYield: 4,
     id: 'viola_verde_giallo',
     magnisReward: 4000,
     name: 'Viola, Verde & Giallo',

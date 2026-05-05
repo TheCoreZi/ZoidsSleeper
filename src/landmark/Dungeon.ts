@@ -25,6 +25,7 @@ export const DUNGEONS: Dungeon[] = [
   {
     actions: [
       new DungeonSortieEvent({
+        fragmentYield: 2,
         id: 'elmia_ruins_sortie',
         itemDrops: [new ItemDrop('core_preserver', 10)],
         bossTiers: [
@@ -70,6 +71,7 @@ export const DUNGEONS: Dungeon[] = [
   {
     actions: [
       new DungeonSortieEvent({
+        fragmentYield: 2,
         id: 'tauros_grotto_sortie',
         itemDrops: [new ItemDrop('core_preserver', 10)],
         bossTiers: [
@@ -131,6 +133,7 @@ export const DUNGEONS: Dungeon[] = [
           DUNGEON_EVENTS.mysterious_device,
           DUNGEON_EVENTS.mysterious_creature,
         ],
+        fragmentYield: 3,
         id: 'sommerso_ruins_sortie',
         itemDrops: [new ItemDrop('core_preserver', 10)],
         layers: 4,
