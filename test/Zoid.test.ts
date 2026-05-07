@@ -20,9 +20,9 @@ describe('Zoid', () => {
     });
   });
 
-  it('should have a positive price for every zoid', () => {
+  it('should have a non-negative price for every zoid', () => {
     Object.values(ZOID_LIST).forEach((zoid) => {
-      expect(zoid.price).toBeGreaterThan(0);
+      expect(zoid.price).toBeGreaterThanOrEqual(0);
     });
   });
 

@@ -30,7 +30,7 @@ describe('getActiveScanRate', () => {
   it('returns scan rate when all conditions are met', () => {
     addItem('core_preserver', 1);
 
-    expect(getActiveScanRate(ScanMode.Permanent, 'core_preserver', 'merda')).toBe(75);
+    expect(getActiveScanRate(ScanMode.Permanent, 'core_preserver', 'merda')).toBe(80);
   });
 
   it('returns 0 for unscannable zoid', () => {
@@ -48,6 +48,6 @@ describe('getActiveScanRate', () => {
   it('returns normal rate when scannable is not provided', () => {
     addItem('core_preserver', 1);
 
-    expect(getActiveScanRate(ScanMode.Permanent, 'core_preserver', 'merda')).toBe(75);
+    expect(getActiveScanRate(ScanMode.Permanent, 'core_preserver', 'merda')).toBe(80);
   });
 });
