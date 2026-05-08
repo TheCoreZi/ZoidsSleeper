@@ -55,6 +55,17 @@ export const PILOTS: Record<string, Pilot> = {
       ]),
     ],
   },
+  gale_task: {
+    fragmentYield: 12,
+    id: 'gale_task',
+    magnisReward: 14000,
+    name: 'Gale Task',
+    zoidSets: [
+      new PilotZoidSet([
+        { attackOverride: 60, id: 'iron_kong', level: 55, maxHealthOverride: 60000 },
+      ]),
+    ],
+  },
   concho_cancer: {
     fragmentYield: 7,
     id: 'concho_cancer',
@@ -135,6 +146,18 @@ export const PILOTS: Record<string, Pilot> = {
       ]),
     ],
   },
+  opis_kerone: {
+    fragmentYield: 12,
+    id: 'opis_kerone',
+    imageId: 'opis',
+    magnisReward: 14000,
+    name: 'Opis Kerone',
+    zoidSets: [
+      new PilotZoidSet([
+        { attackOverride: 60, id: 'cannon_tortoise_os', level: 55, maxHealthOverride: 15000 },
+      ]),
+    ],
+  },
   nero: {
     fragmentYield: 4,
     id: 'nero',
@@ -143,6 +166,18 @@ export const PILOTS: Record<string, Pilot> = {
     zoidSets: [
       new PilotZoidSet([
         { attackOverride: 15, id: 'command_wolf_desert', level: 24, maxHealthOverride: 2500 },
+      ]),
+    ],
+  },
+  raven: {
+    fragmentYield: 15,
+    id: 'raven',
+    magnisReward: 18000,
+    name: 'Raven',
+    zoidSets: [
+      new PilotZoidSet([
+        { attackOverride: 80, id: 'saber_tiger', level: 50, maxHealthOverride: 40000 },
+        { attackOverride: 800, id: 'saber_tiger', level: 50, maxHealthOverride: 400000 },
       ]),
     ],
   },

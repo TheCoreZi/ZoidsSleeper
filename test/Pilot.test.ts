@@ -21,8 +21,8 @@ describe('Pilot', () => {
   });
 
   it.each([
-    'bianco', 'bul_arcobaleno', 'giallo', 'nero',
-    'rosso', 'van_shield_liger', 'verde', 'viola', 'viola_verde_giallo',
+    'bianco', 'bul_arcobaleno', 'gale_task', 'giallo', 'nero',
+    'opis_kerone', 'raven', 'rosso', 'van_shield_liger', 'verde', 'viola', 'viola_verde_giallo',
   ])('should have pilot %s with valid zoid sets', (id) => {
     const pilot = PILOTS[id];
 
@@ -33,6 +33,21 @@ describe('Pilot', () => {
 
   it('should have rosso with two zoid sets', () => {
     expect(PILOTS['rosso'].zoidSets).toHaveLength(2);
+  });
+
+  it('should have gale_task with one zoid set', () => {
+    expect(PILOTS['gale_task'].zoidSets).toHaveLength(1);
+  });
+
+  it('should have opis_kerone with one zoid set', () => {
+    expect(PILOTS['opis_kerone'].zoidSets).toHaveLength(1);
+  });
+
+  it('should have raven with two zoids in a single set', () => {
+    const zoids = getActiveZoids(PILOTS['raven']);
+
+    expect(PILOTS['raven'].zoidSets).toHaveLength(1);
+    expect(zoids).toHaveLength(2);
   });
 
   it('should have viola_verde_giallo with three zoids', () => {
