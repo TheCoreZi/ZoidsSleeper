@@ -1,4 +1,4 @@
-import { type Pilot, getActiveZoids } from '../models/Pilot';
+import { type Pilot, getActiveOrganoid, getActiveZoids } from '../models/Pilot';
 import type { PlayerStats } from '../models/Player';
 import type { ZoidBlueprint } from '../models/Zoid';
 import { spawnZoid, buildZoid, ZoidResearchStatus } from '../models/Zoid';
@@ -26,6 +26,7 @@ export class PilotBattle extends BaseBattle {
 
   constructor(playerStats: PlayerStats, pilot: Pilot, initialHealth?: number, initialMaxHealth?: number) {
     super();
+    this.organoid = getActiveOrganoid(pilot);
     this.pilot = pilot;
     this.zoids = getActiveZoids(pilot);
     this.playerMaxHealth = initialMaxHealth ?? (playerStats.baseHealth + partyMaxHealth());
@@ -37,6 +38,10 @@ export class PilotBattle extends BaseBattle {
 
   protected get isPilotBattle() {
     return true;
+  }
+
+  protected isLastEnemy(): boolean {
+    return this.currentEnemyIndex >= this.zoids.length - 1;
   }
 
   protected onBattleTick(): void {

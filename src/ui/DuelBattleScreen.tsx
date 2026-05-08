@@ -7,12 +7,14 @@ import {
   DUEL_TAPPING_PHASE_DURATION,
 } from '../constants';
 import { t } from '../i18n';
+import { formatOrganoidCry } from '../models/Organoid';
 import { getPilotImage } from '../models/Pilot';
 import { getZoidImage } from '../models/Zoid';
 import {
   DuelTurnPhase,
   duelState,
   enemyZoid,
+  organoidAnimating,
   pilotInfo,
   pilotPlayerHealth,
   pilotPlayerHealthPercent,
@@ -148,6 +150,26 @@ const DuelBattleScreen: Component<DuelBattleScreenProps> = (props) => {
               <span class="pilot-name">{t(`pilots:${pilotInfo()!.id}`)}</span>
               <div class="pilot-portrait-row">
                 <img src={getPilotImage(pilotInfo()!.id)} alt={pilotInfo()!.name} />
+              </div>
+            </div>
+          </Show>
+          <Show when={organoidAnimating()}>
+            <div class="organoid-overlay">
+              <div class="organoid-streak organoid-streak-h" />
+              <div class="organoid-streak organoid-streak-diag" />
+              <div class="organoid-streak organoid-streak-v" style={{ '--streak-v-left': '85%' }} />
+              <div class="organoid-dialog dialog-box">
+                <div class="dialog-content">
+                  <div class="dialog-text-area">
+                    <Show when={pilotInfo()}>
+                      <div class="dialog-speaker">{t(`pilots:${pilotInfo()!.id}`)}</div>
+                    </Show>
+                    <div class="dialog-text">{t('ui:organoid_cry', { name: formatOrganoidCry(t(organoidAnimating()!)) })}</div>
+                  </div>
+                  <Show when={pilotInfo()}>
+                    <img class="dialog-portrait" src={getPilotImage(pilotInfo()!.id)} alt="" />
+                  </Show>
+                </div>
               </div>
             </div>
           </Show>

@@ -559,3 +559,125 @@
 .city-action-btn:hover {
   background: var(--theme-button-hover);
 }
+
+/* Organoid activation overlay */
+
+.organoid-overlay {
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  position: absolute;
+  z-index: 10;
+}
+
+.organoid-streak {
+  background: linear-gradient(var(--streak-angle, 90deg), transparent 0%, rgb(100 180 255 / 20%) 20%, rgb(100 180 255 / 60%) 40%, #fff 50%, rgb(100 180 255 / 60%) 60%, rgb(100 180 255 / 20%) 80%, transparent 100%);
+  box-shadow: 0 0 24px 8px rgb(100 180 255 / 40%);
+  position: absolute;
+}
+
+.organoid-streak-h {
+  animation: organoid-sweep-h 0.6s ease-in-out forwards;
+  height: 6px;
+  right: -120%;
+  top: 50%;
+  width: 120%;
+}
+
+.organoid-streak-diag {
+  animation: organoid-sweep-diag 0.6s 0.5s ease-in-out both;
+  height: 6px;
+  left: -50%;
+  top: 100%;
+  width: 120%;
+}
+
+@keyframes organoid-sweep-h {
+  0% {
+    opacity: 0;
+    right: -120%;
+  }
+
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+
+  100% {
+    opacity: 0;
+    right: 120%;
+  }
+}
+
+.organoid-streak-v {
+  --streak-angle: 180deg;
+
+  animation: organoid-sweep-v 0.4s 1s ease-in both;
+  box-shadow: 0 0 32px 12px rgb(100 180 255 / 60%);
+  height: 120%;
+  left: var(--streak-v-left, 50%);
+  top: -120%;
+  width: 10px;
+}
+
+@keyframes organoid-sweep-diag {
+  0% {
+    opacity: 0;
+    transform: rotate(-45deg) translateX(-100%);
+  }
+
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+
+  100% {
+    opacity: 0;
+    transform: rotate(-45deg) translateX(100%);
+  }
+}
+
+.organoid-dialog {
+  animation: organoid-text-fade 1.6s ease-out both;
+  bottom: 1rem;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+  width: fit-content;
+  z-index: 11;
+}
+
+.organoid-dialog.dialog-box {
+  padding: 0.75rem 1rem;
+}
+
+.organoid-dialog .dialog-portrait {
+  height: 40px;
+  width: 40px;
+}
+
+.organoid-dialog .dialog-speaker {
+  font-size: 0.85rem;
+  margin-bottom: 0.25rem;
+}
+
+.organoid-dialog .dialog-text {
+  font-size: 0.85rem;
+}
+
+@keyframes organoid-text-fade {
+  0% { opacity: 0; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100%  { opacity: 0; }
+}
+
+@keyframes organoid-sweep-v {
+  0% {
+    opacity: 0;
+    top: -120%;
+  }
+
+  10% { opacity: 1; }
+
+  100% {
+    opacity: 0;
+    top: -30%;
+  }
+}

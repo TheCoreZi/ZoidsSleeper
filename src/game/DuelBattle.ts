@@ -19,7 +19,7 @@ export const GaugeDirection = {
   Right: 1,
 } as const;
 type GaugeDirection = (typeof GaugeDirection)[keyof typeof GaugeDirection];
-import { getActiveZoids } from '../models/Pilot';
+import { getActiveOrganoid, getActiveZoids } from '../models/Pilot';
 import type { PlayerStats } from '../models/Player';
 import { getTerrainBonus } from '../models/Terrain';
 import type { CustomizedZoid, ZoidBlueprint } from '../models/Zoid';
@@ -28,6 +28,7 @@ import {
   DuelTurnPhase,
   setDuelState,
   setEnemyZoid,
+  setOrganoidAnimating,
   setPilotInfo,
   setPilotPlayerHealth,
   setPilotPlayerMaxHealth,
@@ -66,11 +67,12 @@ export class DuelBattle extends BaseBattle {
   turnPhase: DuelTurnPhase = DuelTurnPhase.PlayerTapping;
   enemyZoids: ZoidBlueprint[];
 
-  constructor(playerStats: PlayerStats, pilot: Pilot) {
+  constructor(playerStats: PlayerStats, pilot: Pilot, forcedZoid?: ZoidBlueprint) {
     super();
+    this.organoid = getActiveOrganoid(pilot);
     this.pilot = pilot;
     this.enemyZoids = getActiveZoids(pilot);
-    this.playerZoid = findStrongestZoid();
+    this.playerZoid = forcedZoid ? buildZoid(forcedZoid) : findStrongestZoid();
     this.terrainMultiplier = getTerrainBonus(currentTerrain(), getZoidById(this.playerZoid.id).terrainTypes);
     this.powerMax = Math.floor(this.playerZoid.attack * DUEL_POWER_MAX_TAPS * this.terrainMultiplier);
     this.playerMaxHealth = playerStats.baseHealth + this.playerZoid.maxHealth;
@@ -97,6 +99,11 @@ export class DuelBattle extends BaseBattle {
   }
 
   override gameTick(): void {
+    if (this.organoidAnimationTimer > 0) {
+      this.organoidAnimationTimer -= TICK_TIME;
+      if (this.organoidAnimationTimer <= 0) { setOrganoidAnimating(null); }
+      return;
+    }
     switch (this.turnPhase) {
       case DuelTurnPhase.EnemyAttack:
         this.tickEnemyAttack();
@@ -118,6 +125,10 @@ export class DuelBattle extends BaseBattle {
 
   protected get isPilotBattle(): boolean {
     return true;
+  }
+
+  protected isLastEnemy(): boolean {
+    return this.currentEnemyIndex >= this.enemyZoids.length - 1;
   }
 
   protected onBattleTick(): void {}
@@ -233,6 +244,7 @@ export class DuelBattle extends BaseBattle {
     if (this.currentPhaseTimer <= 0) {
       this.enemy.health = Math.max(0, this.enemy.health - this.nextDamage);
       this.emitDamageNumber(this.nextDamage, 'click');
+      this.checkOrganoidActivation();
 
       if (this.enemy.health <= 0) {
         this.awardExperience();

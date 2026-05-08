@@ -1,4 +1,6 @@
 import { PilotDefeatRequirement } from '../requirement';
+import type { Organoid } from './Organoid';
+import { ORGANOIDS } from './Organoid';
 import type { ZoidBlueprint } from '../models/Zoid';
 import { PilotZoidSet } from './PilotZoidSet';
 
@@ -9,6 +11,11 @@ export interface Pilot {
   magnisReward: number;
   name: string;
   zoidSets: PilotZoidSet[];
+}
+
+export function getActiveOrganoid(pilot: Pilot): Organoid | undefined {
+  const active = pilot.zoidSets.find((s) => s.isActive());
+  return (active ?? pilot.zoidSets[pilot.zoidSets.length - 1]).organoid;
 }
 
 export function getActiveZoids(pilot: Pilot): ZoidBlueprint[] {
@@ -204,8 +211,8 @@ export const PILOTS: Record<string, Pilot> = {
     name: 'Van',
     zoidSets: [
       new PilotZoidSet([
-        { attackOverride: 10, id: 'shield_liger', level: 30, maxHealthOverride: 4000 },
-      ]),
+        { attackOverride: 5, id: 'shield_liger', level: 30, maxHealthOverride: 1800 },
+      ], undefined, ORGANOIDS.shadow),
     ],
   },
   verde: {

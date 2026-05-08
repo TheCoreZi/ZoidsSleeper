@@ -163,16 +163,22 @@ export class Game {
     setRewardEvents([]);
   }
 
-  enterDuelBattle(pilot: Pilot): void {
-    const battle = new DuelBattle(playerStats()!, pilot);
+  enterDuelBattle(pilot: Pilot, unwinnable = false, reward?: Reward, forcedZoid?: ZoidBlueprint): void {
+    const battle = new DuelBattle(playerStats()!, pilot, forcedZoid);
     battle.onDefeat = () => {
+      if (unwinnable) {
+        incrementPilotDefeats(pilot.id);
+        checkCampaigns();
+      }
       this.endDuelBattle(new PopupMessage(t('ui:not_strong_enough', { name: t(`pilots:${pilot.id}`) }), t('ui:defeated'), PopupType.Defeat));
+      if (unwinnable && reward) { grantReward(reward); }
     };
     battle.onVictory = () => {
       addCurrency(Currency.Magnis, pilot.magnisReward);
       incrementPilotDefeats(pilot.id);
       checkCampaigns();
       this.endDuelBattle(new PopupMessage(t('ui:pilot_defeated', { name: t(`pilots:${pilot.id}`) }), t('ui:victory'), PopupType.Victory));
+      if (reward) { grantReward(reward); }
     };
     this.battle = battle;
     setBattleState(BattleState.DuelCombat);
@@ -394,7 +400,7 @@ export class Game {
     const city = landmark as City | Dungeon;
     city.actions?.forEach((action) => {
       if (action instanceof ActionDuelPilot) {
-        action.onExecute = () => this.enterDuelBattle(action.pilot);
+        action.onExecute = () => this.enterDuelBattle(action.pilot, action.unwinnable, action.reward, action.forcedZoid);
       } else if (action instanceof DungeonSortieEvent) {
         action.onExecute = () => this.enterDungeon(action);
       } else if (action instanceof ActionFightPilot) {
