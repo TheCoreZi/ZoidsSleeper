@@ -79,6 +79,7 @@ const [gamePhase, setGamePhase] = createSignal<GamePhase>(GamePhase.Playing);
 const [damageEvents, setDamageEvents] = createSignal<DamageEvent[]>([]);
 const [duelState, setDuelState] = createSignal<DuelBattleState>(DEFAULT_DUEL_STATE);
 const [enemyZoid, setEnemyZoid] = createSignal<SpawnedZoid | null>(null);
+const [organoidAnimating, setOrganoidAnimating] = createSignal<string | null>(null);
 const [rewardEvents, setRewardEvents] = createSignal<RewardEvent[]>([]);
 const [pilotEnemyProgress, setPilotEnemyProgress] = createSignal({ current: 0, total: 0 });
 const [pilotInfo, setPilotInfo] = createSignal<PilotInfo | null>(null);
@@ -180,6 +181,7 @@ export {
   enqueueDialog,
   gamePhase,
   incrementClickAttack,
+  organoidAnimating,
   pilotEnemyProgress,
   pilotInfo,
   pilotPlayerHealth,
@@ -198,6 +200,7 @@ export {
   setDuelState,
   setEnemyZoid,
   setGamePhase,
+  setOrganoidAnimating,
   setPilotEnemyProgress,
   setPilotInfo,
   setPilotPlayerHealth,

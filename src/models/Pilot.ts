@@ -1,5 +1,6 @@
 import { PilotDefeatRequirement } from '../requirement';
-import { Organoid } from './Organoid';
+import type { Organoid } from './Organoid';
+import { ORGANOIDS } from './Organoid';
 import type { ZoidBlueprint } from '../models/Zoid';
 import { PilotZoidSet } from './PilotZoidSet';
 
@@ -210,8 +211,8 @@ export const PILOTS: Record<string, Pilot> = {
     name: 'Van',
     zoidSets: [
       new PilotZoidSet([
-        { attackOverride: 2, id: 'shield_liger', level: 30, maxHealthOverride: 700 },
-      ], undefined, new Organoid(5)),
+        { attackOverride: 5, id: 'shield_liger', level: 30, maxHealthOverride: 1800 },
+      ], undefined, ORGANOIDS.shadow),
     ],
   },
   verde: {

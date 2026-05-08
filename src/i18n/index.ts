@@ -7,6 +7,7 @@ import enDungeon from './locales/en/dungeon.json';
 import enFactions from './locales/en/factions.json';
 import enItems from './locales/en/items.json';
 import enLocations from './locales/en/locations.json';
+import enOrganoids from './locales/en/organoids.json';
 import enPilots from './locales/en/pilots.json';
 import enRequirements from './locales/en/requirements.json';
 import enUi from './locales/en/ui.json';
@@ -17,12 +18,13 @@ import esDungeon from './locales/es/dungeon.json';
 import esFactions from './locales/es/factions.json';
 import esItems from './locales/es/items.json';
 import esLocations from './locales/es/locations.json';
+import esOrganoids from './locales/es/organoids.json';
 import esPilots from './locales/es/pilots.json';
 import esRequirements from './locales/es/requirements.json';
 import esUi from './locales/es/ui.json';
 import esZoids from './locales/es/zoids.json';
 
-const NAMESPACES = ['campaigns', 'dialog', 'dungeon', 'factions', 'items', 'locations', 'pilots', 'requirements', 'ui', 'zoids'] as const;
+const NAMESPACES = ['campaigns', 'dialog', 'dungeon', 'factions', 'items', 'locations', 'organoids', 'pilots', 'requirements', 'ui', 'zoids'] as const;
 
 i18next.init({
   defaultNS: 'ui',
@@ -31,8 +33,8 @@ i18next.init({
   lng: localStorage.getItem('locale') ?? 'en',
   ns: [...NAMESPACES],
   resources: {
-    en: { campaigns: enCampaigns, dialog: enDialog, dungeon: enDungeon, factions: enFactions, items: enItems, locations: enLocations, pilots: enPilots, requirements: enRequirements, ui: enUi, zoids: enZoids },
-    es: { campaigns: esCampaigns, dialog: esDialog, dungeon: esDungeon, factions: esFactions, items: esItems, locations: esLocations, pilots: esPilots, requirements: esRequirements, ui: esUi, zoids: esZoids },
+    en: { campaigns: enCampaigns, dialog: enDialog, dungeon: enDungeon, factions: enFactions, items: enItems, locations: enLocations, organoids: enOrganoids, pilots: enPilots, requirements: enRequirements, ui: enUi, zoids: enZoids },
+    es: { campaigns: esCampaigns, dialog: esDialog, dungeon: esDungeon, factions: esFactions, items: esItems, locations: esLocations, organoids: esOrganoids, pilots: esPilots, requirements: esRequirements, ui: esUi, zoids: esZoids },
   },
 });
 

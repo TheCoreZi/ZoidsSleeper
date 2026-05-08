@@ -1,9 +1,11 @@
 import { For, Show, type Component } from 'solid-js';
 import { t } from '../i18n';
+import { formatOrganoidCry } from '../models/Organoid';
 import { getPilotImage } from '../models/Pilot';
 import { getZoidImage } from '../models/Zoid';
 import {
   enemyZoid,
+  organoidAnimating,
   pilotEnemyProgress,
   pilotInfo,
   pilotPlayerHealth,
@@ -34,6 +36,26 @@ const PilotBattleScreen: Component<PilotBattleScreenProps> = (props) => {
             <img class="enemy-image" src={getZoidImage(enemyZoid()!.id, enemyZoid()!.imageOverride)} alt={enemyZoid()!.name} />
           )}
           <DamageNumber />
+          <Show when={organoidAnimating()}>
+            <div class="organoid-overlay">
+              <div class="organoid-streak organoid-streak-h" />
+              <div class="organoid-streak organoid-streak-diag" />
+              <div class="organoid-streak organoid-streak-v" />
+              <div class="organoid-dialog dialog-box">
+                <div class="dialog-content">
+                  <div class="dialog-text-area">
+                    <Show when={pilotInfo()}>
+                      <div class="dialog-speaker">{t(`pilots:${pilotInfo()!.id}`)}</div>
+                    </Show>
+                    <div class="dialog-text">{t('ui:organoid_cry', { name: formatOrganoidCry(t(organoidAnimating()!)) })}</div>
+                  </div>
+                  <Show when={pilotInfo()}>
+                    <img class="dialog-portrait" src={getPilotImage(pilotInfo()!.id)} alt="" />
+                  </Show>
+                </div>
+              </div>
+            </div>
+          </Show>
           <Show when={pilotInfo()}>
             <div class="pilot-portrait">
               <span class="pilot-name">{t(`pilots:${pilotInfo()!.id}`)}</span>

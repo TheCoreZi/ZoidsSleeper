@@ -1,4 +1,4 @@
-import { BATTLE_TICK, CLICK_COOLDOWN, ORGANOID_ACTIVATION_THRESHOLD, TICK_TIME } from '../constants';
+import { BATTLE_TICK, CLICK_COOLDOWN, ORGANOID_ACTIVATION_THRESHOLD, ORGANOID_ANIMATION_DURATION, TICK_TIME } from '../constants';
 import { awardExperience, calculateExperienceGain } from '../models/Experience';
 import type { Organoid } from '../models/Organoid';
 import { getOwnedZoidLevel, getZoidById, type SpawnedZoid, ZoidResearchStatus } from '../models/Zoid';
@@ -8,6 +8,7 @@ import {
   incrementClickAttack,
   playerDamageEvents,
   playerStats,
+  setOrganoidAnimating,
   setDamageEvents,
   setPlayerDamageEvents,
 } from '../store/gameStore';
@@ -29,6 +30,7 @@ export abstract class BaseBattle {
   lastClickAttack = 0;
   organoid?: Organoid;
   organoidActivated = false;
+  organoidAnimationTimer = 0;
 
   clickAttack(): void {
     const now = Date.now();
@@ -41,6 +43,11 @@ export abstract class BaseBattle {
   }
 
   gameTick(): void {
+    if (this.organoidAnimationTimer > 0) {
+      this.organoidAnimationTimer -= TICK_TIME;
+      if (this.organoidAnimationTimer <= 0) { setOrganoidAnimating(null); }
+      return;
+    }
     this.counter += TICK_TIME;
     if (this.counter >= BATTLE_TICK) {
       this.counter = 0;
@@ -85,9 +92,11 @@ export abstract class BaseBattle {
 
   private activateOrganoid(): void {
     this.organoidActivated = true;
+    this.organoidAnimationTimer = ORGANOID_ANIMATION_DURATION;
     this.enemy.attack = Math.floor(this.enemy.attack * this.organoid!.multiplier);
     this.enemy.maxHealth = Math.floor(this.enemy.maxHealth * this.organoid!.multiplier);
     this.enemy.health = this.enemy.maxHealth;
+    setOrganoidAnimating(this.organoid!.nameKey);
     this.syncToStore();
   }
 

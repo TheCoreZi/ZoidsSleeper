@@ -30,7 +30,7 @@ describe('PilotBattle organoid', () => {
   });
 
   it('should activate organoid when last zoid drops below 25% HP', () => {
-    const organoid = new Organoid(2);
+    const organoid = new Organoid(2, 'organoids:zeke');
     const pilot = createPilot([new PilotZoidSet([{ attackOverride: 10, id: 'molga', level: 5, maxHealthOverride: 100 }], undefined, organoid)]);
     const battle = new PilotBattle(DEFAULT_PLAYER, pilot);
     const initialMaxHealth = battle.enemy.maxHealth;
@@ -47,7 +47,7 @@ describe('PilotBattle organoid', () => {
   });
 
   it('should not activate organoid if not on last zoid', () => {
-    const organoid = new Organoid(2);
+    const organoid = new Organoid(2, 'organoids:zeke');
     const pilot = createPilot([new PilotZoidSet([
       { attackOverride: 10, id: 'molga', level: 5, maxHealthOverride: 100 },
       { attackOverride: 10, id: 'molga', level: 5, maxHealthOverride: 100 },
@@ -62,7 +62,7 @@ describe('PilotBattle organoid', () => {
   });
 
   it('should only activate organoid once', () => {
-    const organoid = new Organoid(2);
+    const organoid = new Organoid(2, 'organoids:zeke');
     const pilot = createPilot([new PilotZoidSet([{ attackOverride: 10, id: 'molga', level: 5, maxHealthOverride: 100 }], undefined, organoid)]);
     const battle = new PilotBattle(DEFAULT_PLAYER, pilot);
 
@@ -90,7 +90,7 @@ describe('PilotBattle organoid', () => {
   });
 
   it('should call onVictory after organoid zoid is defeated', () => {
-    const organoid = new Organoid(2);
+    const organoid = new Organoid(2, 'organoids:zeke');
     const pilot = createPilot([new PilotZoidSet([{ attackOverride: 10, id: 'molga', level: 5, maxHealthOverride: 100 }], undefined, organoid)]);
     const battle = new PilotBattle(DEFAULT_PLAYER, pilot);
     const onVictory = vi.fn();

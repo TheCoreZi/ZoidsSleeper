@@ -28,6 +28,7 @@ import {
   DuelTurnPhase,
   setDuelState,
   setEnemyZoid,
+  setOrganoidAnimating,
   setPilotInfo,
   setPilotPlayerHealth,
   setPilotPlayerMaxHealth,
@@ -98,6 +99,11 @@ export class DuelBattle extends BaseBattle {
   }
 
   override gameTick(): void {
+    if (this.organoidAnimationTimer > 0) {
+      this.organoidAnimationTimer -= TICK_TIME;
+      if (this.organoidAnimationTimer <= 0) { setOrganoidAnimating(null); }
+      return;
+    }
     switch (this.turnPhase) {
       case DuelTurnPhase.EnemyAttack:
         this.tickEnemyAttack();

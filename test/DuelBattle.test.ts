@@ -315,7 +315,7 @@ describe('DuelBattle', () => {
     }
 
     it('should activate organoid when last enemy drops below 25% HP', () => {
-      const organoid = new Organoid(2);
+      const organoid = new Organoid(2, 'organoids:zeke');
       const pilot = createPilotWithOrganoid(organoid);
       const battle = new DuelBattle(DEFAULT_PLAYER, pilot);
       const initialMaxHealth = battle.enemy.maxHealth;
@@ -337,7 +337,7 @@ describe('DuelBattle', () => {
     });
 
     it('should only activate organoid once', () => {
-      const organoid = new Organoid(2);
+      const organoid = new Organoid(2, 'organoids:zeke');
       const pilot = createPilotWithOrganoid(organoid);
       const battle = new DuelBattle(DEFAULT_PLAYER, pilot);
 
