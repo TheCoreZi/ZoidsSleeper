@@ -8,8 +8,13 @@ import {
   TICK_TIME,
 } from '../src/constants';
 import { calculateAimMultiplier, DuelBattle, GaugeDirection } from '../src/game/DuelBattle';
+import { Organoid } from '../src/models/Organoid';
+import type { Pilot } from '../src/models/Pilot';
 import { PILOTS } from '../src/models/Pilot';
 import { DEFAULT_PLAYER } from '../src/models/Player';
+import { PilotZoidSet } from '../src/models/PilotZoidSet';
+import type { ZoidBlueprint } from '../src/models/Zoid';
+import { calculateStat, getZoidById } from '../src/models/Zoid';
 import { DuelTurnPhase, setPlayerStats } from '../src/store/gameStore';
 import { selectCommanderZoid, setParty } from '../src/store/partyStore';
 import { loadStatistics } from '../src/store/statisticsStore';
@@ -188,6 +193,7 @@ describe('DuelBattle', () => {
     const battle = new DuelBattle(DEFAULT_PLAYER, PILOTS['van_shield_liger']);
     const onVictory = vi.fn();
     battle.onVictory = onVictory;
+    battle.organoidActivated = true;
     battle.enemy.health = 1;
     battle.powerCharged = 1;
     battle.turnPhase = DuelTurnPhase.PlayerAiming;
@@ -271,5 +277,91 @@ describe('DuelBattle', () => {
     advanceTicks(battle, ticksFor(DUEL_ATTACK_ANIMATION_DURATION));
     expect(battle.turnPhase).toBe(DuelTurnPhase.PlayerTapping);
     expect(battle.isPlayerTurn).toBe(true);
+  });
+
+  it('should use forced zoid instead of party zoid', () => {
+    const forcedZoid: ZoidBlueprint = { id: 'cannon_tortoise', level: 10 };
+    const battle = new DuelBattle(DEFAULT_PLAYER, PILOTS['van_shield_liger'], forcedZoid);
+
+    expect(battle.playerZoid.id).toBe('cannon_tortoise');
+    expect(battle.playerZoid.level).toBe(10);
+  });
+
+  it('should calculate forced zoid stats from species base stats', () => {
+    const level = 50;
+    const forcedZoid: ZoidBlueprint = { id: 'cannon_tortoise', level };
+    const battle = new DuelBattle(DEFAULT_PLAYER, PILOTS['van_shield_liger'], forcedZoid);
+    const species = getZoidById('cannon_tortoise');
+
+    expect(battle.playerZoid.attack).toBe(calculateStat(species.attack, level));
+    expect(battle.playerZoid.maxHealth).toBe(calculateStat(species.maxHealth, level));
+  });
+
+  it('should still use party zoid when no forced zoid is provided', () => {
+    const battle = new DuelBattle(DEFAULT_PLAYER, PILOTS['van_shield_liger']);
+
+    expect(battle.playerZoid.id).toBe('shield_liger');
+  });
+
+  describe('organoid', () => {
+    function createPilotWithOrganoid(organoid: Organoid): Pilot {
+      return {
+        fragmentYield: 1,
+        id: 'test_pilot',
+        magnisReward: 100,
+        name: 'Test',
+        zoidSets: [new PilotZoidSet([{ attackOverride: 10, id: 'molga', level: 5, maxHealthOverride: 100 }], undefined, organoid)],
+      };
+    }
+
+    it('should activate organoid when last enemy drops below 25% HP', () => {
+      const organoid = new Organoid(2);
+      const pilot = createPilotWithOrganoid(organoid);
+      const battle = new DuelBattle(DEFAULT_PLAYER, pilot);
+      const initialMaxHealth = battle.enemy.maxHealth;
+      const initialAttack = battle.enemy.attack;
+
+      battle.enemy.health = 1;
+      battle.powerCharged = 1;
+      battle.turnPhase = DuelTurnPhase.PlayerAiming;
+      battle.aimTimeRemaining = DUEL_GAUGE_PHASE_DURATION;
+      battle.aimIndicatorPosition = 0.5;
+      battle.lastClickAttack = 0;
+      battle.clickAttack();
+      advanceTicks(battle, ticksFor(DUEL_ATTACK_ANIMATION_DURATION));
+
+      expect(battle.organoidActivated).toBe(true);
+      expect(battle.enemy.maxHealth).toBe(Math.floor(initialMaxHealth * organoid.multiplier));
+      expect(battle.enemy.attack).toBe(Math.floor(initialAttack * organoid.multiplier));
+      expect(battle.enemy.health).toBe(battle.enemy.maxHealth);
+    });
+
+    it('should only activate organoid once', () => {
+      const organoid = new Organoid(2);
+      const pilot = createPilotWithOrganoid(organoid);
+      const battle = new DuelBattle(DEFAULT_PLAYER, pilot);
+
+      battle.enemy.health = 1;
+      battle.powerCharged = 1;
+      battle.turnPhase = DuelTurnPhase.PlayerAiming;
+      battle.aimTimeRemaining = DUEL_GAUGE_PHASE_DURATION;
+      battle.aimIndicatorPosition = 0.5;
+      battle.lastClickAttack = 0;
+      battle.clickAttack();
+      advanceTicks(battle, ticksFor(DUEL_ATTACK_ANIMATION_DURATION));
+
+      const maxHealthAfterFirst = battle.enemy.maxHealth;
+
+      battle.enemy.health = 1;
+      battle.powerCharged = 1;
+      battle.turnPhase = DuelTurnPhase.PlayerAiming;
+      battle.aimTimeRemaining = DUEL_GAUGE_PHASE_DURATION;
+      battle.aimIndicatorPosition = 0.5;
+      battle.lastClickAttack = 0;
+      battle.clickAttack();
+      advanceTicks(battle, ticksFor(DUEL_ATTACK_ANIMATION_DURATION));
+
+      expect(battle.enemy.maxHealth).toBe(maxHealthAfterFirst);
+    });
   });
 });
