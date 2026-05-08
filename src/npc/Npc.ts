@@ -137,6 +137,12 @@ export const NPCS: Record<string, Npc> = {
     id: 'boy',
     nameKey: 'pilots:boy',
   },
+  raven: {
+    dialogs: [],
+    id: 'raven',
+    nameKey: 'pilots:raven',
+    portrait: 'images/pilots/raven.png',
+  },
   republican_officer: {
     dialogs: [
       {
@@ -207,6 +213,12 @@ export const NPCS: Record<string, Npc> = {
     nameKey: 'pilots:republican_officer',
     portrait: 'images/pilots/republican_officer.png',
   },
+  opis_kerone: {
+    dialogs: [],
+    id: 'opis_kerone',
+    nameKey: 'pilots:opis_kerone',
+    portrait: 'images/pilots/opis.png',
+  },
   priest_leon: {
     dialogs: [
       { dialogKey: 'dialog:priest_leon_exchange', unlockRequirement: new MissionCompletedRequirement('sleeper_commander', 'repel_attackers') },
@@ -221,6 +233,12 @@ export const NPCS: Record<string, Npc> = {
     id: 'rosso',
     nameKey: 'pilots:rosso',
     portrait: 'images/pilots/rosso.png',
+  },
+  gale_task: {
+    dialogs: [],
+    id: 'gale_task',
+    nameKey: 'pilots:gale_task',
+    portrait: 'images/pilots/gale_task.png',
   },
   explorer: {
     dialogs: [{ dialogKey: 'dialog:explorer_dungeon_tips', images: {1: 'images/items/zi_metal.png', 2: '' } }],
