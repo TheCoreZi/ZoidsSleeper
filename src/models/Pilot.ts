@@ -212,7 +212,7 @@ export const PILOTS: Record<string, Pilot> = {
     zoidSets: [
       new PilotZoidSet([
         { attackOverride: 5, id: 'shield_liger', level: 30, maxHealthOverride: 1800 },
-      ], undefined, ORGANOIDS.shadow),
+      ], undefined, ORGANOIDS.zeke_shield_liger),
     ],
   },
   verde: {
