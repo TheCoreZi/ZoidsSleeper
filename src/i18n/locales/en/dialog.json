@@ -85,6 +85,13 @@
     "They kept asking me about my father, but I didn't tell them anything. He told me his work is very important and must be kept secret from bad people.",
     "I don't know where he is right now, but I know he's doing something important. Thank you again for rescuing me. Could you take me back to the village?"
   ],
+  "kara_care_creature": [
+    "It resembles an Organoid — like Zeke. But I ran the same tests I would on others and it does not seem to share the same internal structures. Its behavior does not match either — it does not respond to stimuli, does not interact. Whatever this creature is, it is something else entirely.",
+    "It has been at the sanctuary for a while. It ignores the other Zoids completely — does not interact, does not follow them. The only thing it seems to want to do is feed on metals. Some of the Zoids even attacked it and it did not even try to defend itself.",
+    "Thank you for looking after it, Miss Unia. I don't care what it is or what it can't do. Have you already forgotten it saved our lives against Rosso? And that it stopped the Stray Helcat in the ruins? I think Beacon is amazing. It just woke up in a world that is nothing like the one it knew — of course it is confused. Give it time.",
+    "...",
+    "You might be right, little one. By the way, I heard your father returned to Porto Nido yesterday. Why don't you go see him? I'm sure he'd love to meet Beacon."
+  ],
   "jenkins": [
     "So Malinoff sent you? Well, well... I saw how you helped the people of this village, so I'll hear you out. More Zoids, you say? The easiest way is buying them from the army, though they'll only sell you their scraps.",
     "I stopped working with Zoids a long time ago, but back in my day we used traps to catch wild Zoids. Nowadays it's nearly impossible to find them, let alone get one to cooperate with you. So the armies came up with a new method: we learned to incubate Zoid Cores.",
@@ -118,6 +125,19 @@
     "You hide among the camp tents and overhear Rosso talking to his men.",
     "\"With the silver Zoid and the girl, we'll finally have what we need to return to the Imperial Army. High command will welcome us back as heroes.\"",
     "\"Bianco, Nero, Blu... head to the exchange point and make sure everything goes according to plan. If those villagers try anything, you know what to do.\""
+  ],
+  "narration_beacon_emerges": [
+    "The Ancient Tortoise raises its cannon, ready to fire again. But then it stops. Its eyes lock onto Kara — or rather, onto what she carries.",
+    "Kara steps forward, trembling, holding the ancient statue against her chest. The Ancient Tortoise lowers its cannon slowly and lets out a deep, mournful sound — like a call it has not made in centuries.",
+    "The statue answers. A pulse of light erupts from within, then another, stronger, faster. The stone-like crust that covered the statue begins to shift — pieces rearranging themselves, stretching into thin metallic threads that wrap around the Core and begin to give it shape.",
+    "The threads finish weaving. Something small and strange stands where the statue once was. It moves — but it is unlike anything they have ever seen.",
+    "Is that... a Zoid? It is so small. It does not look like any Zoid I have ever seen.",
+    "The creature turns toward the Ancient Tortoise. For a moment, neither moves. Then the creature lets out a faint sound — and the Cannon Tortoise answers with a low, gentle rumble. Like old friends meeting after a long sleep.",
+    "The Ancient Tortoise, exhausted from the battle, lowers itself into the sand. Its eyes close slowly as the desert swallows it — not fleeing, but resting. Returning to a sleep it has earned.",
+    "The creature watches it go. Then it stands still, trembling, unsure of anything around it.",
+    "You told me Fine said a name when she saw the statue... Beacon, right?",
+    "The creature's ears twitch. It turns toward Kara.",
+    "It is okay, Beacon. You are scared, aren't you? It is okay. I am here."
   ],
   "narration_bandits_flee": [
     "Rosso's Red Horn staggers back, heavily damaged. You seize the moment to recover the girl. Rosso glares at you with fury, but then explosions at the exchange point catch his attention. Something didn't go according to plan.",
@@ -168,6 +188,11 @@
     "Here is what is going to happen. You leave this island and forget everything you saw. We will not mention your defeat, and you will not mention any of this. I will contact President Camford myself. That should satisfy your orders well enough.",
     "...You will regret this. All of you. The Republic does not forget, and neither will I.",
     "The officer climbs back into his battered Barigator and retreats across the water. As the sound of its engines fades into the distance, the island falls silent once more."
+  ],
+  "narration_tortoise_appears": [
+    "The last Cannon Tortoise retreats into the sand. The desert falls silent — too silent. Then, from atop a weathered dune near the Arcobaleno Camp, a massive silhouette rises. A Cannon Tortoise unlike any other — its shell scarred by centuries, its cannon worn by battles long forgotten.",
+    "That's the one! I remember it — the same markings, the same scars. It saved us from Rosso's Red Horn!",
+    "It looks angry... really angry. But we need it — if we have to fight it to get close, then we fight it!"
   ],
   "narration_turtle_savior": [
     "Rosso's Red Horn is like a walking fortress. Your Zoids can barely withstand the relentless attacks...",
@@ -265,6 +290,21 @@
     "The President...? I... Despite everything, I still have the deepest respect for that woman. But she knows better than anyone that I will not take part in this war.",
     "I have my orders, and I will not return empty-handed. You will come with us, one way or another.",
     "Stop! Do not take another step! Can you not see what you are doing?! The Zoids are panicking! If you keep pushing forward you will cause a stampede! These creatures are under my protection and I will NOT let you harm them!"
+  ],
+  "unia_show_dragon_horse": [
+    "Miss Unia, Miss Unia! Come look! The Core — it worked! Little pieces started growing out of it and they kept forming and forming until... look! It's a Zoid!",
+    "A Dragon Horse. It has been a long time since I've seen one. They were mounts in the old world, before the armies built cockpits and needed bigger Zoids to pilot. Too small for war, too free-spirited to control. The armies discarded them, and the wars destroyed their habitats. They are nearly extinct now.",
+    "And yet here one is. Not stamped out of a cloning lab — this is how a Zoid should come into the world. You must take good care of it. A species this rare deserves better than what the world gave it.",
+    "We will! I promise!",
+    "Good. Now — we have waited long enough. The statue. The mummy of a Core I told you about. We have seen it pulse twice. Whatever is inside, it is alive, and this method can make Zoids emerge from a Core.",
+    "I do not know if it will work with something this ancient, but we must try."
+  ],
+  "unia_statue_wont_emerge": [
+    "The statue has absorbed every fragment we have given it. It seems fully nurtured — but it will not respond. No growth, no formation, nothing. I was afraid of this. Whatever is inside, it is far older than any Core my family has documented.",
+    "I went through my grandmother's notes again last night and found a passage about something she called 'resonance bonds.' Some ancient Cores could not develop alone — they needed the presence of a bonded Zoid, a living creature tied to the Core through shared experience. Without that presence, the Core refuses to awaken.",
+    "A bonded Zoid...? Wait! The turtle! In the desert, when we fought Rosso, the statue glowed and a Cannon Tortoise appeared out of nowhere and saved us!",
+    "The statue reacted to a Cannon Tortoise? And it appeared right when the statue pulsed? That could be exactly the kind of resonance bond my grandmother described.",
+    "But that was months ago, in the middle of the Elmia Desert. We do not even know if the creature is still alive. Dr. T and your father know more about Zoid behavior in the wild than any of us — perhaps they know something."
   ],
   "unia_corin_meeting": [
     "This is a restricted area! Who authorized your presence here? State your business immediately.",
@@ -411,6 +451,12 @@
     "... Hmm. Just as I feared.",
     "If you'll allow me... I believe you should tell them about your work. I've seen enough to know this young man can be trusted.",
     "You're right. But not here. These ruins are more dangerous than they seem. Let's head to the city, I'll tell you everything there."
+  ],
+  "dr_t_find_tortoise": [
+    "Dr. Thrun? He went back to the Sommerso Ruins — he is convinced there is more to learn about the ancient Core and its connection to the Sleeper system. He will be gone for a while. I am sorry, but I can try to help you...",
+    "So you want to attract an Ancient Tortoise? Interesting. Cannon Tortoise are fascinating creatures — highly social, they form tight clusters and the older ones watch over the group from elevated ground. If something were to disturb the younger ones — frighten them enough to flee — the eldest would emerge to guide them to safety. It is a guardian instinct that runs deeper than anything the armies could breed out of them.",
+    "You would have to cause enough commotion to scare a group into retreating. I will not pretend it is an elegant approach, but Zoids are resilient — a few honest battles will not cause them harm. It is how they test boundaries in the wild.",
+    "Head to Elmia Desert — a group of Cannon Tortoise has been spotted there recently. If your Ancient Tortoise is still out there, it will come out to protect them. But be warned — when it does, it will not be happy. An elder defending its own is not something to take lightly."
   ],
   "dr_t_intro": [
     "I'm sorry about what happened, I was only trying to protect myself. They call me Dr. T. Let me guess... this young lady is Dr. Thrun's family, isn't she? The resemblance is unmistakable. Tell me, what brings you here?",

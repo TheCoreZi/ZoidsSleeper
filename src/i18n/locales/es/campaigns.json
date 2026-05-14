@@ -74,6 +74,38 @@
         "name": "Prueba de Vida",
         "description": "Nutre el Core Zoid que Unia te dio hasta que se convierta en un Zoid."
       },
+      "show_dragon_horse": {
+        "name": "Nacido, No Fabricado",
+        "description": "Muéstrale a Unia el Dragon Horse que emergió del Core."
+      },
+      "nurture_statue": {
+        "name": "Alimento Ancestral",
+        "description": "Llena la estatua antigua con fragmentos en el tanque primordial."
+      },
+      "statue_wont_emerge": {
+        "name": "Resonancia",
+        "description": "La estatua ya no puede absorber más fragmentos pero no responde. Habla con Unia."
+      },
+      "consult_dr_t": {
+        "name": "Más sabe el doctor por sus viajes que por su doctorado",
+        "description": "El profesor Thrun o el Dr. T podrían saber cómo encontrar a la antigua Cannon Tortoise. Búscalos en Porto Nido."
+      },
+      "hunt_cannon_tortoise": {
+        "name": "Sacudiendo el Desierto",
+        "description": "Derrota 20 Cannon Tortoise en el Desierto de Elmia para atraer a la Ancient Tortoise."
+      },
+      "fight_ancient_tortoise": {
+        "name": "El Centinela Ancestral",
+        "description": "La Ancient Tortoise ha aparecido cerca del Campamento Arcobaleno, pero no está muy contenta. Cálmala para tratar de acercarte."
+      },
+      "care_for_creature": {
+        "name": "Extraña Criatura",
+        "description": "Habla con Unia y el Dr. T. en el santuario sobre la criatura que emergió de la estatua ."
+      },
+      "visit_father": {
+        "name": "De Vuelta a Casa",
+        "description": "El Dr. Thrun regresó a Porto Nido. Visítalo y preséntale a Beacon."
+      },
       "sanctuary_secrets": {
         "name": "Secretos del Santuario",
         "description": "Unia ha prometido compartir el conocimiento ancestral de su familia. Escucha lo que tiene que decir."

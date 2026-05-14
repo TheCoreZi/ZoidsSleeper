@@ -6,6 +6,7 @@ import { playerStats } from '../store/gameStore';
 import { completeSlot, getAvailableSlotCount, placeCore, placeReborn, tankSlots } from '../store/nurturingStore';
 import { party } from '../store/partyStore';
 import type { TankSlot } from '../store/TankSlot';
+import { TankSlotSource } from '../store/TankSlot';
 import { zoidCores } from '../store/zoidCoreStore';
 import CoreVisual from './CoreVisual';
 import { ArchiveCard } from './ZiArchivePanel';
@@ -43,6 +44,12 @@ const NurturingPanel: Component = () => {
   const isReady = (slot: TankSlot) => slot.fragments >= slot.fragmentsRequired;
   const progress = (slot: TankSlot) => Math.min(100, Math.floor(slot.fragments / slot.fragmentsRequired * 100));
 
+  const getSlotImage = (slot: TankSlot): string | null => {
+    if (slot.source === TankSlotSource.Core) {return `images/cores/${slot.coreId}.png`;}
+    if (slot.source === TankSlotSource.Statue) {return `images/items/${slot.zoidSpeciesId}.png`;}
+    return null;
+  };
+
   const handlePlaceCore = (coreId: string, zoidSpeciesId: string) => {
     placeCore(coreId, zoidSpeciesId);
   };
@@ -61,11 +68,15 @@ const NurturingPanel: Component = () => {
         <For each={tankSlots()}>
           {(slot, index) => (
             <div class="nurturing-slot">
-              <CoreVisual
-                class={isReady(slot) ? 'nurturing-slot-image--ready' : ''}
-                speciesId={slot.zoidSpeciesId}
-              />
-              <Show when={isReady(slot)} fallback={
+              <Show when={getSlotImage(slot)} fallback={
+                <CoreVisual
+                  class={isReady(slot) ? 'nurturing-slot-image--ready' : ''}
+                  speciesId={slot.zoidSpeciesId}
+                />
+              }>
+                {(src) => <img class={`nurturing-slot-image ${isReady(slot) ? 'nurturing-slot-image--ready' : ''}`} src={src()} alt="" />}
+              </Show>
+              <Show when={isReady(slot) && slot.source !== TankSlotSource.Statue} fallback={
                 <>
                   <div class="nurturing-progress-bar">
                     <div

@@ -432,7 +432,7 @@ export class Game {
         setParty(data.party);
       }
       if (data.dungeonCompletions || data.pilotDefeats || data.routeKills) {
-        loadStatistics(data.dungeonCompletions ?? {}, data.pilotDefeats ?? {}, data.routeKills ?? {});
+        loadStatistics(data.dungeonCompletions ?? {}, data.pilotDefeats ?? {}, data.routeKills ?? {}, data.speciesDefeats ?? {});
       }
       if (data.inventory) {
         loadInventory(data.inventory);

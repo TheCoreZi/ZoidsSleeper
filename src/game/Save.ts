@@ -7,7 +7,7 @@ import { campaignStates } from '../store/campaignStore';
 import { playerStats } from '../store/gameStore';
 import { currentLandmark } from '../store/landmarkStore';
 import { party } from '../store/partyStore';
-import { dungeonCompletions, pilotDefeats, routeKills } from '../store/statisticsStore';
+import { dungeonCompletions, pilotDefeats, routeKills, speciesDefeats } from '../store/statisticsStore';
 import { inventory } from '../store/inventoryStore';
 import { wallet } from '../store/walletStore';
 import { zoidDataLog } from '../store/zoidDataStore';
@@ -32,6 +32,7 @@ export interface SaveData {
   playerStats?: PlayerStats;
   routeKills?: Record<string, number>;
   scanSetup?: ActiveScan;
+  speciesDefeats?: Record<string, number>;
   version: string;
   wallet?: Record<string, number>;
   zoidCores?: Record<string, number>;
@@ -119,6 +120,7 @@ export class Save {
       pilotDefeats: pilotDefeats(),
       playerStats: playerStats() ?? undefined,
       routeKills: routeKills(),
+      speciesDefeats: speciesDefeats(),
       scanSetup: activeScan() ?? undefined,
       wallet: wallet(),
       zoidCores: zoidCores(),

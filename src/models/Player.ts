@@ -6,6 +6,7 @@ export interface PlayerStats {
   clickAttack: number;
   faction: Faction;
   nurturingSlots: number;
+  organoidId?: string;
   reinforcementsEnabled: boolean;
 }
 

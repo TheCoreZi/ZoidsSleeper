@@ -8,8 +8,8 @@ import { getZoidById, getZoidImage, ZOID_LIST } from '../models/Zoid';
 import { playerStats, showPopup } from './gameStore';
 import { addZoidToArmy, party, setParty } from './partyStore';
 import type { TankSlot } from './TankSlot';
-import { TankSlotSource } from './TankSlot';
-import { removeCore } from './zoidCoreStore';
+import { STATUE_SLOT, TankSlotSource } from './TankSlot';
+import { addCore, removeCore } from './zoidCoreStore';
 
 const [tankSlots, setTankSlots] = createSignal<TankSlot[]>([]);
 
@@ -32,7 +32,7 @@ function completeSlot(index: number): void {
 
   if (slot.source === TankSlotSource.Core) {
     addZoidToArmy(slot.zoidSpeciesId);
-  } else {
+  } else if (slot.source === TankSlotSource.Reborn) {
     const reborn: OwnedZoid = {
       ...slot.ownedZoid,
       rebornBonusPercent: (slot.ownedZoid.rebornBonusPercent ?? 0) + REBORN_ATTACK_BONUS_PERCENT,
@@ -103,4 +103,33 @@ function placeReborn(zoidId: string): void {
   }]);
 }
 
-export { addFragments, completeSlot, getAvailableSlotCount, isSpeciesInTank, loadTankSlots, placeCore, placeReborn, tankSlots };
+function isCoreNurtured(zoidSpeciesId: string): boolean {
+  return tankSlots().some((slot) => slot.zoidSpeciesId === zoidSpeciesId && slot.fragments >= slot.fragmentsRequired);
+}
+
+function placeStatue(): void {
+  const stats = playerStats();
+  const maxSlots = stats?.nurturingSlots ?? 1;
+  const slots = tankSlots();
+
+  if (slots.length >= maxSlots) {
+    const displaced = slots[slots.length - 1];
+    if (displaced.source === TankSlotSource.Core) {
+      addCore(displaced.coreId);
+    } else if (displaced.source === TankSlotSource.Reborn) {
+      setParty((prev) => ({
+        ...prev,
+        zoids: [...prev.zoids, displaced.ownedZoid],
+      }));
+    }
+    setTankSlots((prev) => prev.slice(0, -1));
+  }
+
+  setTankSlots((prev) => [...prev, { ...STATUE_SLOT }]);
+}
+
+function removeStatueSlot(): void {
+  setTankSlots((prev) => prev.filter((slot) => slot.source !== TankSlotSource.Statue));
+}
+
+export { addFragments, completeSlot, getAvailableSlotCount, isCoreNurtured, isSpeciesInTank, loadTankSlots, placeCore, placeReborn, placeStatue, removeStatueSlot, tankSlots };
