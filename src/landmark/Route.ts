@@ -87,6 +87,7 @@ export const ROUTES: Route[] = [
     enemies: [
       { blueprint: { id: 'gator', level: 14 } },
       { blueprint: { id: 'malder', level: 12 } },
+      { blueprint: { id: 'cannon_tortoise', level: 50 }, unlockRequirement: new MissionCompletedRequirement('shells_of_time', 'consult_dr_t') },
       { blueprint: { id: 'merda', level: 12 } },
       { blueprint: { id: 'molga', level: 14 } },
       { blueprint: { id: 'zatton', level: 15 } },

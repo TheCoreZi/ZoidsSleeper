@@ -1,8 +1,9 @@
 import { Faction } from '../models/Faction';
-import { AllOfRequirement, ArmySizeRequirement, CampaignCompletedRequirement, ComparisonCondition, DungeonCompletionRequirement, FactionRequirement, ItemRequirement, MissionCompletedRequirement, NpcTalkedInCampaignRequirement, PilotDefeatRequirement, RouteKillRequirement, SpeciesZiDataRequirement, ZiDataRequirement, ZoidCreatedRequirement } from '../requirement';
+import { AllOfRequirement, ArmySizeRequirement, CampaignCompletedRequirement, ComparisonCondition, CoreNurturedRequirement, DungeonCompletionRequirement, FactionRequirement, ItemRequirement, MissionCompletedRequirement, NpcTalkedInCampaignRequirement, PilotDefeatRequirement, RouteKillRequirement, SpeciesDefeatRequirement, SpeciesZiDataRequirement, WildDefeatRequirement, ZiDataRequirement, ZoidCreatedRequirement } from '../requirement';
 import { CUTSCENES } from '../cutscene';
 import { activateCityActionReward, grantReward } from '../reward';
 import { enqueueDialog, playerStats, setPlayerStats } from '../store/gameStore';
+import { placeStatue, removeStatueSlot } from '../store/nurturingStore';
 import { POST_DEMO_TALK, STRAY_CHAIN_TRIGGER } from '../story/eventchains/strayChain';
 import type { Campaign } from './Campaign';
 
@@ -62,6 +63,20 @@ export const CAMPAIGNS: Record<string, Campaign> = {
       { id: 'sanctuary_secrets', goals: [new NpcTalkedInCampaignRequirement('shells_of_time', 'unia_corin')],
         onComplete: () => setPlayerStats((prev) => prev ? { ...prev, nurturingSlots: Math.max(prev.nurturingSlots, 1) } : prev) },
       { id: 'nurture_first_core', goals: [new ZoidCreatedRequirement('dragon_horse')] },
+      { id: 'show_dragon_horse', goals: [new NpcTalkedInCampaignRequirement('shells_of_time', 'unia_corin')], onComplete: () => placeStatue() },
+      { id: 'nurture_statue', goals: [new CoreNurturedRequirement('ancient_statue')] },
+      { id: 'statue_wont_emerge', goals: [new NpcTalkedInCampaignRequirement('shells_of_time', 'unia_corin')] },
+      { id: 'consult_dr_t', goals: [new NpcTalkedInCampaignRequirement('shells_of_time', 'dr_t')] },
+      { id: 'hunt_cannon_tortoise', showProgress: true, goals: [new SpeciesDefeatRequirement('cannon_tortoise', 20)],
+        onComplete: () => enqueueDialog(CUTSCENES.narration_tortoise_appears.toDialogScript()) },
+      { id: 'fight_ancient_tortoise', goals: [new WildDefeatRequirement('ancient_tortoise_wild', 'ancient_tortoise')],
+        onComplete: () => {
+          removeStatueSlot();
+          setPlayerStats((prev) => prev ? { ...prev, organoidId: 'beacon' } : prev);
+          enqueueDialog(CUTSCENES.narration_beacon_emerges.toDialogScript());
+        } },
+      { id: 'care_for_creature', goals: [new NpcTalkedInCampaignRequirement('shells_of_time', 'unia_corin')] },
+      { id: 'visit_father', goals: [new NpcTalkedInCampaignRequirement('shells_of_time', 'dr_thrun')] },
     ],
     unlockRequirements: [new CampaignCompletedRequirement('sleeper_commander')],
   },

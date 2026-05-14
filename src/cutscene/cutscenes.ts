@@ -8,6 +8,13 @@ export const CUTSCENES: Record<string, Cutscene> = {
     5: { speakerKey: 'pilots:dr_thrun', portrait: 'images/pilots/dr_thrun.png' },
   }),
   narration_arcobaleno_plan: new Cutscene('narration_arcobaleno_plan', 'dialog:narration_arcobaleno_plan', undefined, {1: 'images/cutscenes/arcobaleno.jpg'}),
+  narration_beacon_emerges: new Cutscene('narration_beacon_emerges', 'dialog:narration_beacon_emerges', undefined, { 0: 'images/cutscenes/tortoise_desert.png', 3: 'images/characters/beacon_full.png', 5: '', 7: 'images/characters/beacon_full.png' }, {
+    4: { speakerKey: 'pilots:kara', portrait: 'images/pilots/girl.png' },
+    5: { speakerKey: '', portrait: '' },
+    8: { speakerKey: 'pilots:kara', portrait: 'images/pilots/girl.png' },
+    9: { speakerKey: '', portrait: '' },
+    10: { speakerKey: 'pilots:kara', portrait: 'images/pilots/girl.png' },
+  }),
   narration_bandits_flee: new Cutscene('narration_bandits_flee', 'dialog:narration_bandits_flee', undefined, {0: 'images/cutscenes/rosso_defeat.jpg'}),
   narration_colony_attack: new Cutscene('narration_colony_attack', 'dialog:narration_colony_attack', undefined, {0: 'images/cutscenes/colony_attack.jpg'}),
   narration_officer_deal_imperial: new Cutscene('narration_officer_deal_imperial', 'dialog:narration_officer_deal_imperial', undefined, undefined, {
@@ -57,6 +64,10 @@ export const CUTSCENES: Record<string, Cutscene> = {
     2: { speakerKey: 'pilots:dr_t', portrait: 'images/pilots/dr_t.png' },
   }),
   narration_shield_liger: new Cutscene('narration_shield_liger', 'dialog:narration_shield_liger', undefined, {0: 'images/cutscenes/van_zeke_escape.jpg',1:'images/cutscenes/shield_liger.jpg'}),
+  narration_tortoise_appears: new Cutscene('narration_tortoise_appears', 'dialog:narration_tortoise_appears', undefined, { 0: 'images/cutscenes/tortoise_desert.png' }, {
+    1: { speakerKey: 'pilots:kara', portrait: 'images/pilots/girl.png' },
+    2: { speakerKey: 'pilots:kara', portrait: 'images/pilots/girl.png' },
+  }),
   narration_turtle_savior: new Cutscene('narration_turtle_savior', 'dialog:narration_turtle_savior', undefined, {0: 'images/cutscenes/red_horn.jpg', 1: 'images/items/ancient_statue.png', 2: 'images/cutscenes/red_horn_shoot.jpg', 3: 'images/cutscenes/turtle_shot.jpg'}),
   narration_van_farewell: new Cutscene('narration_van_farewell', 'dialog:narration_van_farewell', undefined, {0: 'images/cutscenes/van_farewell.jpg'}),
 };

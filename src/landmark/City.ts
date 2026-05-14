@@ -2,10 +2,11 @@ import { CUTSCENES } from '../cutscene';
 import { type ConsumableItem, ITEMS } from '../item';
 import { CoreType } from '../item/ZoidCore';
 import { PILOTS } from '../models/Pilot';
-import { ArmySizeRequirement, COMPOUND_REQUIREMENTS, ComparisonCondition, DevRequirement, ImpossibleRequirement, ItemRequirement, MissionCompletedRequirement, NpcTalkedInCampaignRequirement, PilotDefeatRequirement, RouteKillRequirement } from '../requirement';
+import { ArmySizeRequirement, COMPOUND_REQUIREMENTS, ComparisonCondition, DevRequirement, ImpossibleRequirement, ItemRequirement, MissionCompletedRequirement, NpcTalkedInCampaignRequirement, PilotDefeatRequirement, RouteKillRequirement, WildDefeatRequirement } from '../requirement';
 import { activateCityActionReward, compositeReward, itemReward, missionAdvanceReward, removeItemReward, removeZiDataReward, removeZoidReward, typedZoidCoreReward } from '../reward';
 import { ActionDuelPilot } from './action/ActionDuelPilot';
 import { ActionFightPilot } from './action/ActionFightPilot';
+import { ActionFightWild } from './action/ActionFightWild';
 import { ActionPlayCutscene } from './action/ActionPlayCutscene';
 import { ActionTalkToNPC } from './action/ActionTalkToNPC';
 import { ActionVisitDepot } from './action/ActionVisitDepot';
@@ -98,6 +99,14 @@ export const CITIES: City[] = [
       new ActionFightPilot(PILOTS['rosso'], [new PilotDefeatRequirement('rosso')], [new PilotDefeatRequirement('rosso', 2)]),
       new ActionTalkToNPC('kara', [new MissionCompletedRequirement(C, 'fight_rosso_rematch')], [new MissionCompletedRequirement(C, 'deliver_girl')], undefined, 'ui:talk_to_girl'),
       ...AUTOMATIC_ACTIONS.concho_talk_fight_decide,
+      new ActionFightWild(
+        'ancient_tortoise_wild',
+        [{ attackOverride: 70, id: 'ancient_tortoise', level: 55, maxHealthOverride: 45000, scannable: false }],
+        { magnis: 10000, zi_metal: 30 },
+        10,
+        [new MissionCompletedRequirement(S, 'hunt_cannon_tortoise')],
+        [new WildDefeatRequirement('ancient_tortoise_wild', 'ancient_tortoise')]
+      ),
     ],
     battleBackground: BattleBackground.Desert,
     id: 'arcobaleno_camp',
@@ -133,6 +142,7 @@ export const CITIES: City[] = [
       new ActionTalkToNPC('dr_t', [new PilotDefeatRequirement('arcadia_guard')], [new MissionCompletedRequirement(S, 'meet_father')]),
       new ActionTalkToNPC('dr_thrun', [new MissionCompletedRequirement(S, 'meet_father')], [new MissionCompletedRequirement(S, 'clear_ruins_demo')]),
       new ActionTalkToNPC('dr_thrun', [new MissionCompletedRequirement(S, 'survive_stray')], [new MissionCompletedRequirement(S, 'meet_unia_corin')], undefined, 'ui:talk_to_doctors'),
+      new ActionTalkToNPC('dr_t', [new MissionCompletedRequirement(S, 'statue_wont_emerge')], [new MissionCompletedRequirement(S, 'fight_ancient_tortoise')]),
       new ActionTalkToNPC('fisherman', [new MissionCompletedRequirement(S, 'discuss_in_lab')]),
     ],
     battleBackground: BattleBackground.Dirt,

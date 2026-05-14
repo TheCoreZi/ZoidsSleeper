@@ -111,7 +111,7 @@ describe('new NPCs', () => {
 
   it('unia_corin NPC exists with portrait', () => {
     expect(NPCS['unia_corin']).toBeDefined();
-    expect(NPCS['unia_corin'].dialogs.length).toBe(6);
+    expect(NPCS['unia_corin'].dialogs.length).toBe(9);
     expect(NPCS['unia_corin'].portrait).toBe('images/pilots/unia.png');
   });
 
@@ -126,7 +126,7 @@ describe('shells_of_time campaign', () => {
   it('has 3 missions', () => {
     const campaign = CAMPAIGNS['shells_of_time'];
     expect(campaign).toBeDefined();
-    expect(campaign.missions.length).toBe(20);
+    expect(campaign.missions.length).toBe(28);
   });
 
   it('missions are in correct order', () => {
@@ -136,6 +136,8 @@ describe('shells_of_time campaign', () => {
       'father_backstory', 'clear_ruins_demo', 'clear_ruins_stray', 'survive_stray', 'discuss_in_lab', 'meet_unia_corin',
       'check_outside', 'confront_officer', 'challenge_officer', 'republican_intervention',
       'unia_trials_talk', 'unia_trials', 'unia_trials_accepted', 'sanctuary_secrets', 'nurture_first_core',
+      'show_dragon_horse', 'nurture_statue', 'statue_wont_emerge', 'consult_dr_t',
+      'hunt_cannon_tortoise', 'fight_ancient_tortoise', 'care_for_creature', 'visit_father',
     ]);
   });
 

@@ -94,6 +94,38 @@
         "name": "Proof of Life",
         "description": "Nurture the Zoid Core Unia gave you until it grows into a Zoid."
       },
+      "show_dragon_horse": {
+        "name": "Born, Not Built",
+        "description": "Show Unia the Dragon Horse that emerged from the Core."
+      },
+      "nurture_statue": {
+        "name": "Ancient Nurturing",
+        "description": "Fill the ancient statue with fragments in the nurturing tank."
+      },
+      "statue_wont_emerge": {
+        "name": "Resonance",
+        "description": "The statue can't absorb any more fragments but won't respond. Talk to Unia."
+      },
+      "consult_dr_t": {
+        "name": "A Well-Traveled Mind",
+        "description": "Dr. Thrun or Dr. T may know how to find the ancient Cannon Tortoise. Look for them in Porto Nido."
+      },
+      "hunt_cannon_tortoise": {
+        "name": "Shaking the Desert",
+        "description": "Defeat 20 Cannon Tortoise in Elmia Desert to draw out the Ancient Tortoise."
+      },
+      "fight_ancient_tortoise": {
+        "name": "The Ancient Sentinel",
+        "description": "The Ancient Tortoise has appeared near the Arcobaleno Camp, but it's not happy. Calm it down to get close."
+      },
+      "care_for_creature": {
+        "name": "Strange Creature",
+        "description": "Talk to Unia and Dr. T at the sanctuary about the creature that emerged from the statue."
+      },
+      "visit_father": {
+        "name": "Homecoming",
+        "description": "Dr. Thrun is back in Porto Nido. Visit him and introduce him to Beacon."
+      },
       "sanctuary_secrets": {
         "name": "Sanctuary Secrets",
         "description": "Unia has promised to share her family's ancient knowledge. Listen to what she has to say."

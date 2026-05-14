@@ -5,7 +5,7 @@ import { grantCurrencyReward } from '../store/walletStore';
 import { getZoidById, spawnZoid } from '../models/Zoid';
 import { checkCampaigns } from '../store/campaignStore';
 import { emitRewardEvent, setEnemyZoid } from '../store/gameStore';
-import { incrementRouteKills } from '../store/statisticsStore';
+import { incrementRouteKills, incrementSpeciesDefeats } from '../store/statisticsStore';
 
 import { ZoidResearchStatus } from '../models/Zoid';
 import { updateZoidResearch } from '../store/zoidResearchStore';
@@ -49,6 +49,7 @@ export class Battle extends BaseBattle {
 
     addFragments(this.route.fragmentYield);
     incrementRouteKills(this.route.id);
+    incrementSpeciesDefeats(this.enemy.id);
     resetScanAfterBattle();
     checkCampaigns();
     this.spawnEnemy();

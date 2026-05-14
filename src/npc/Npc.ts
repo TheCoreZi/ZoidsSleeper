@@ -75,6 +75,10 @@ export const NPCS: Record<string, Npc> = {
           new NotRequirement(new MissionCompletedRequirement('shells_of_time', 'challenge_officer')),
         ]),
       },
+      {
+        dialogKey: 'dialog:dr_t_find_tortoise',
+        unlockRequirement: new MissionCompletedRequirement('shells_of_time', 'statue_wont_emerge'),
+      },
       { dialogKey: 'dialog:dr_t_intro' },
     ],
     id: 'dr_t',
@@ -315,6 +319,36 @@ export const NPCS: Record<string, Npc> = {
   },
   unia_corin: {
     dialogs: [
+      {
+        dialogKey: 'dialog:kara_care_creature',
+        speakers: {
+          0: { speakerKey: 'pilots:dr_t', portrait: 'images/pilots/dr_t.png' },
+          1: { speakerKey: '' },
+          2: { speakerKey: 'pilots:kara', portrait: 'images/pilots/girl.png' },
+          3: { speakerKey: 'organoids:beacon', portrait: 'images/pilots/beacon.png' },
+          4: { speakerKey: 'pilots:dr_t', portrait: 'images/pilots/dr_t.png' },
+        },
+        unlockRequirement: new MissionCompletedRequirement('shells_of_time', 'fight_ancient_tortoise'),
+      },
+      {
+        dialogKey: 'dialog:unia_statue_wont_emerge',
+        speakers: {
+          2: { speakerKey: 'pilots:kara', portrait: 'images/pilots/girl.png' },
+          3: { speakerKey: '' },
+        },
+        unlockRequirement: new MissionCompletedRequirement('shells_of_time', 'nurture_statue'),
+      },
+      {
+        dialogKey: 'dialog:unia_show_dragon_horse',
+        images: { 1: 'images/zoids/dragon_horse.png', 2: '' },
+        speakers: {
+          0: { speakerKey: 'pilots:kara', portrait: 'images/pilots/girl.png' },
+          1: { speakerKey: '' },
+          3: { speakerKey: 'pilots:kara', portrait: 'images/pilots/girl.png' },
+          4: { speakerKey: '' },
+        },
+        unlockRequirement: new MissionCompletedRequirement('shells_of_time', 'nurture_first_core'),
+      },
       {
         dialogKey: 'dialog:sanctuary_secrets_summary',
         unlockRequirement: new MissionCompletedRequirement('shells_of_time', 'sanctuary_secrets'),

@@ -46,7 +46,7 @@
   "captain_farewell": [
     "¡Vaya! Ahora sí pareces todo un comandante con tu propia armada. Veo que estás decidido a hacerle frente a esos bandidos. Buena suerte, muchacho.",
     "Ah, una cosa más. Le eché un vistazo más de cerca a ese módulo Sleeper tuyo. No te recomendaría desplegar más de un Zoid de la misma especie. El módulo no parece permitir el control simultáneo de multiples Zoids de la misma especie.",
-    "Así que si estás formando tu ejército la variedad será tu mejor arma.... Por ahora. Ten cuidado, en estos tiempos de guerra lo mejor sería no inmiscuirse en asuntos de los ejércitos. Pero algo me dice que ya es tarde para eso..."
+    "Así que si estás formando tu ejército la variedad será tu mejor arma.... Por ahora. Ten cuidado, en estos tiempos de guerra lo mejor sería no inmiscuirte en asuntos de los ejércitos. Pero algo me dice que ya es tarde para eso..."
   ],
   "challenge": [
     "¿{{zoidName}}, eh? Buena elección.",
@@ -85,6 +85,13 @@
     "No dejaban de preguntarme por mi padre, pero no les dije nada. Él me dijo que su trabajo es muy importante y que debe mantenerse en secreto de la gente mala.",
     "No sé dónde está ahora, pero sé que está haciendo algo importante. Gracias de nuevo por rescatarme. ¿Podrías llevarme de vuelta a la aldea?"
   ],
+  "kara_care_creature": [
+    "Se parece a un Organoide — como Zeke. Pero le he hecho las mismas pruebas que a otros y no parece tener las mismas estructuras internas. Su comportamiento tampoco coincide — no responde a estímulos, no interactúa. Sea lo que sea esta criatura, es algo completamente diferente.",
+    "Ha estado un tiempo en el santuario. Ignora a los otros Zoids por completo — no interactúa, no los sigue. Lo único que parece querer hacer es alimentarse de metales. Algunos Zoids incluso lo atacaron y ni siquiera intentó defenderse.",
+    "Gracias por cuidarlo, Señorita Unia. No me importa qué es o qué no puede hacer. ¿Ya olvidaron que nos salvó la vida contra Rosso? ¿Y que detuvo al Helcat Salvaje en las ruinas? Creo que Beacon es increíble. Acaba de despertar en un mundo que no se parece en nada al que conocía — por supuesto que está confundido. Denle tiempo.",
+    "...",
+    "Puede que tengas razón, pequeña. Oye, me contaron que tu padre regresó ayer a Porto Nido. ¿Por qué no vas a verlo? Seguro le encantará conocer a Beacon."
+  ],
   "jenkins": [
     "¿Así que Malinoff te envía? Vaya, vaya... Vi cómo ayudaste a la gente de esta aldea, así que por eso acepto hablar contigo. ¿Conseguir más Zoids? La forma más fácil es comprárselos al ejército, aunque solo te darán sus desechos.",
     "Yo dejé de trabajar con Zoids hace mucho, pero en mis tiempos usábamos trampas para capturar Zoids salvajes. Hoy en día es casi imposible encontrarlos, y más aún lograr que cooperen contigo. Así que los ejércitos idearon una nueva forma: aprendimos a incubar Zoid Cores.",
@@ -118,6 +125,19 @@
     "Te escondes entre las tiendas del campamento y escuchas a Rosso hablando con sus hombres.",
     "\"Con el Zoid plateado y la chica, por fin tendremos lo que necesitamos para volver al ejército imperial. El alto mando nos recibirá como héroes.\"",
     "\"Bianco, Nero, Blu... id al punto de intercambio y asegúrense de que todo salga según el plan. Si esos pueblerinos intentan algo, ya saben qué hacer.\""
+  ],
+  "narration_beacon_emerges": [
+    "La Ancient Tortoise levanta su cañón, lista para disparar de nuevo. Pero entonces se detiene. Sus ojos se fijan en Kara — o más bien, en lo que ella lleva.",
+    "Kara avanza temblando, sosteniendo la estatua ancestral contra su pecho. La Ancient Tortoise baja su cañón lentamente y emite un sonido grave y melancólico — como un llamado que no había hecho en siglos.",
+    "La estatua responde. Un pulso de luz brota de su interior, luego otro, más fuerte, más rápido. La costra de piedra que cubría la estatua comienza a moverse — las piezas se reorganizan, estirándose en delgados hilos metálicos que envuelven el Core y comienzan a darle forma.",
+    "Los hilos terminan de tejerse. Algo pequeño y extraño se alza donde antes estaba la estatua. Se mueve — pero no se parece a nada que hayan visto jamás.",
+    "¿Eso es... un Zoid? Es tan pequeño. No se parece a ningún Zoid que haya visto.",
+    "La criatura se gira hacia la Ancient Tortoise. Por un momento, ninguno se mueve. Entonces la criatura emite un sonido débil — y la Cannon Tortoise responde con un grave y suave ronroneo. Como viejos amigos reencontrándose tras un largo sueño.",
+    "La Ancient Tortoise, agotada por la batalla, se hunde en la arena. Sus ojos se cierran lentamente mientras el desierto la envuelve — no huyendo, sino descansando. Regresando a un sueño que se ha ganado.",
+    "La criatura la observa irse. Luego se queda inmóvil, temblando, sin saber qué hacer.",
+    "Me dijiste que Fine dijo un nombre cuando vio la estatua... Beacon, ¿verdad?",
+    "Las orejas de la criatura se mueven. Se gira hacia Kara.",
+    "Está bien, Beacon. Tienes miedo, ¿verdad? Está bien. Estoy aquí."
   ],
   "narration_bandits_flee": [
     "El Red Horn de Rosso retrocede tambaleante, gravemente dañado. Aprovechas para recuperar a la niña. Rosso te mira con furia, pero entonces explosiones en el punto de intercambio llaman su atención. Algo no salió de acuerdo a lo planeado.",
@@ -168,6 +188,11 @@
     "Esto es lo que va a pasar. Te vas de esta isla y olvidas todo lo que viste. No mencionaremos tu derrota y tú no mencionarás nada de esto. Contactaré a la Presidenta Camford yo misma. Eso debería satisfacer tus órdenes.",
     "...Se arrepentirán de esto. Todos ustedes. La República no olvida, y yo tampoco.",
     "El oficial sube de vuelta a su maltrecho Barigator y se retira a través del agua. Mientras el sonido de sus motores se desvanece en la distancia, la isla queda en silencio una vez más."
+  ],
+  "narration_tortoise_appears": [
+    "La última Cannon Tortoise se retira entre la arena. El desierto queda en silencio, demasiado silencio. Entonces, desde lo alto de una duna erosionada cerca del Campamento Arcobaleno, una silueta masiva se alza. Una Cannon Tortoise como ninguna otra. Su caparazón marcado por siglos, su cañón desgastado por batallas olvidadas.",
+    "¡Esa es! ¡La reconozco, las mismas marcas, las mismas cicatrices! ¡Nos salvó del Red Horn de Rosso!",
+    "Se ve enojada... muy enojada. ¡Pero la necesitamos... si hay que pelear con ella para acercarnos, pues peleamos!"
   ],
   "narration_turtle_savior": [
     "El Red Horn de Rosso es como una fortaleza andante. Tus Zoids apenas pueden resistir los ataques implacables...",
@@ -265,6 +290,21 @@
     "¿La Presidenta...? Yo... A pesar de todo, todavía siento el más profundo respeto por esa mujer. Pero ella sabe mejor que nadie que no participaré en esta guerra.",
     "Tengo mis órdenes y no volveré con las manos vacías. Vendrá con nosotros, por las buenas o por las malas.",
     "¡Deténganse! ¡No den un paso más! ¡¿No ven lo que están haciendo?! ¡Los Zoids están entrando en pánico! ¡Si siguen avanzando provocarán una estampida! ¡Estas criaturas están bajo mi protección y NO dejaré que les hagan daño!"
+  ],
+  "unia_show_dragon_horse": [
+    "¡Señorita Unia, Señorita Unia! ¡Venga a ver! ¡El Core — funcionó! Le empezaron a salir pedacitos que fueron creciendo y formándose hasta que... ¡mira! ¡Es un Zoid!",
+    "Un Dragon Horse. Hace mucho que no veía uno. Eran monturas en el viejo mundo, antes de que los ejércitos construyeran cabinas y necesitaran Zoids más grandes para pilotar. Demasiado pequeños para la guerra, demasiado libres para controlarlos. Los ejércitos los descartaron, y las guerras destruyeron sus hábitats. Están casi extintos.",
+    "Y sin embargo aquí hay uno. No salió de un laboratorio de clonación — así es como un Zoid debería venir al mundo. Deben cuidarlo bien. Una especie tan rara merece algo mejor de lo que el mundo le dio.",
+    "¡Lo haremos! ¡Lo prometo!",
+    "Bien. Ahora — hemos esperado suficiente. La estatua. La momia de un Core que les mencioné. La hemos visto pulsar dos veces. Lo que sea que hay dentro, está vivo, y este método puede hacer emerger Zoids de un Core.",
+    "No sé si funcionará con algo tan ancestral, pero lo debemos intentar."
+  ],
+  "unia_statue_wont_emerge": [
+    "La estatua ha absorbido cada fragmento que le hemos dado. Parece totalmente nutrido — pero no responde. Sin crecimiento, sin formación, nada. Me temía esto. Lo que sea que hay dentro, es mucho más antiguo que cualquier Core documentado por mi familia.",
+    "Revisé los apuntes de mi abuela anoche y encontré un pasaje sobre algo que ella llamaba 'vínculos de resonancia.' Algunos Cores ancestrales no podían desarrollarse solos — necesitaban la presencia de un Zoid vinculado, una criatura viva unida al Core a través de experiencias compartidas. Sin esa presencia, el Core se niega a despertar.",
+    "¿Un Zoid vinculado...? ¡Espera! ¡La tortuga! ¡En el desierto, cuando peleamos contra Rosso, la estatua brilló y una Cannon Tortoise apareció de la nada y nos salvó!",
+    "¿La estatua reaccionó a una Cannon Tortoise? ¿Y apareció justo cuando la estatua pulsó? Eso podría ser exactamente el tipo de vínculo de resonancia que mi abuela describió.",
+    "Pero eso fue hace meses, en medio del Desierto de Elmia. Ni siquiera sabemos si la criatura sigue viva. El Dr. T y tu padre saben más sobre el comportamiento de los Zoids en la naturaleza que cualquiera de nosotros, tal vez ellos sepan algo."
   ],
   "unia_corin_meeting": [
     "¡Esta es un área restringida! ¿Quién autorizó su presencia aquí? Identifíquense de inmediato.",
@@ -410,7 +450,13 @@
     "Así que entonces tienes uno de los módulos Sleeper de esos bandidos... ¿Me dejarías verlo?",
     "... Mmm. Justo lo que me temía.",
     "Si me lo permiten... Creo que deberías contarles sobre tu trabajo. He visto lo suficiente para saber que este joven es alguien de confianza.",
-    "Tienes razón. Pero no aquí. Estas ruinas son más peligrosas de lo que aprece. Vayamos a la ciudad, allí les contaré todo."
+    "Tienes razón. Pero no aquí. Estas ruinas son más peligrosas de lo que parece. Vayamos a la ciudad, allí les contaré todo."
+  ],
+  "dr_t_find_tortoise": [
+    "¿El Dr. Thrun? Volvió a las Ruinas Sommerso, está convencido de que hay más por descubrir sobre el Core ancestral y su conexión con el sistema Sleeper. Tardará un buen rato. Lo lamento, pero puedo tratar de ayudarles...",
+    "¿Así que quieren atraer a una Ancient Tortoise? Interesante. Los Cannon Tortoise son criaturas fascinantes, muy sociales, forman grupos cerrados y las mayores vigilan desde terreno elevado. Si algo perturbara a las jóvenes o las asustara lo suficiente como para hacerlas huir, la más anciana saldría a guiarlas a un lugar seguro. Es un instinto guardián más profundo que cualquier cosa que los ejércitos pudieron quitarles.",
+    "Tendrían que causar suficiente alboroto para asustar a un grupo y hacerlo retroceder. No voy a pretender que sea un método elegante, pero los Zoids son resistentes, unas cuantas batallas justas no les causarán daño. Así es como prueban sus límites en la naturaleza.",
+    "Vayan al Desierto de Elmia, recientemente se ha visto a un grupo de Cannon Tortoise por ahí. Si su Ancient Tortoise sigue por ahí, saldrá a protegerlas. Pero estén advertidos — cuando lo haga, no estará contenta. Una anciana defendiendo a los suyos no es algo que se tome a la ligera."
   ],
   "dr_t_intro": [
     "Lamento lo sucedido, solo intentaba protegerme. Me conocen como Dr. T. Déjame adivinar... esa joven es familia del Dr. Thrun, ¿verdad? El parecido es inconfundible. Díganme, ¿qué los trae hasta aquí?",
