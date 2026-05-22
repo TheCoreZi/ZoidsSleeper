@@ -117,8 +117,19 @@ describe('new NPCs', () => {
 
   it('republican_officer NPC exists with dialogs', () => {
     expect(NPCS['republican_officer']).toBeDefined();
-    expect(NPCS['republican_officer'].dialogs.length).toBe(4);
+    expect(NPCS['republican_officer'].dialogs.length).toBe(5);
     expect(NPCS['republican_officer'].portrait).toBe('images/pilots/republican_officer.png');
+  });
+});
+
+describe('raven pilot', () => {
+  it('uses saber_tiger_rs with Shadow organoid', () => {
+    const pilot = PILOTS['raven'];
+    expect(pilot).toBeDefined();
+    expect(pilot.zoidSets.length).toBe(1);
+    expect(pilot.zoidSets[0].zoids[0].id).toBe('saber_tiger_rs');
+    expect(pilot.zoidSets[0].organoid).toBeDefined();
+    expect(pilot.zoidSets[0].organoid!.multiplier).toBe(10);
   });
 });
 
@@ -126,7 +137,7 @@ describe('shells_of_time campaign', () => {
   it('has 3 missions', () => {
     const campaign = CAMPAIGNS['shells_of_time'];
     expect(campaign).toBeDefined();
-    expect(campaign.missions.length).toBe(28);
+    expect(campaign.missions.length).toBe(31);
   });
 
   it('missions are in correct order', () => {
@@ -138,6 +149,7 @@ describe('shells_of_time campaign', () => {
       'unia_trials_talk', 'unia_trials', 'unia_trials_accepted', 'sanctuary_secrets', 'nurture_first_core',
       'show_dragon_horse', 'nurture_statue', 'statue_wont_emerge', 'consult_dr_t',
       'hunt_cannon_tortoise', 'fight_ancient_tortoise', 'care_for_creature', 'visit_father',
+      'fight_raven', 'investigate_kidnapping', 'pursue_kidnappers',
     ]);
   });
 

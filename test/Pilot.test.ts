@@ -43,11 +43,13 @@ describe('Pilot', () => {
     expect(PILOTS['opis_kerone'].zoidSets).toHaveLength(1);
   });
 
-  it('should have raven with two zoids in a single set', () => {
+  it('should have raven with saber_tiger_rs and shadow organoid', () => {
     const zoids = getActiveZoids(PILOTS['raven']);
 
     expect(PILOTS['raven'].zoidSets).toHaveLength(1);
-    expect(zoids).toHaveLength(2);
+    expect(zoids).toHaveLength(1);
+    expect(zoids[0].id).toBe('saber_tiger_rs');
+    expect(PILOTS['raven'].zoidSets[0].organoid?.multiplier).toBe(10);
   });
 
   it('should have viola_verde_giallo with three zoids', () => {

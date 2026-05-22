@@ -189,6 +189,19 @@
     "...You will regret this. All of you. The Republic does not forget, and neither will I.",
     "The officer climbs back into his battered Barigator and retreats across the water. As the sound of its engines fades into the distance, the island falls silent once more."
   ],
+  "narration_porto_nido_attack": [
+    "Porto Nido is in chaos. Smoke rises from the outskirts and the sound of explosions echoes through the streets.",
+    "Dr. T, sir! Thank the stars! An Imperial squad arrived... just a handful of soldiers, but one of their pilots... a single Zoid tore through everything. They took Dr. Thrun!",
+    "In the distance, a massive Saber Tiger prowls through the wreckage. Its movements are precise, predatory.",
+    "Fall back! All units, fall back! This thing is— AAARGH!",
+    "Wait... that's the officer from Chimera Island! He's fighting that Saber Tiger!",
+    "That officer... and that Saber Tiger... that must be the Zoid that took Dr. Thrun! We have to help him!",
+    "Still alive? You're more stubborn than I expected for such a pathetic Zoid. Don't worry. I'll put you both out of your misery."
+  ],
+  "narration_raven_aftermath": [
+    "Damn you... How dare trash like you raise a hand against me. A pathetic coward hiding behind Sleeper Zoids. You don't even deserve to be called a pilot.",
+    "I can't believe they sent me to capture garbage like this. You're not even worth finishing off. Be grateful I have more important things to do than waste my time on you."
+  ],
   "narration_tortoise_appears": [
     "The last Cannon Tortoise retreats into the sand. The desert falls silent — too silent. Then, from atop a weathered dune near the Arcobaleno Camp, a massive silhouette rises. A Cannon Tortoise unlike any other — its shell scarred by centuries, its cannon worn by battles long forgotten.",
     "That's the one! I remember it — the same markings, the same scars. It saved us from Rosso's Red Horn!",
@@ -228,6 +241,17 @@
   "priest_leon_exchange": [
     "I'm sorry Van, but Maria comes first. Hand over Zeke! If you resist, we'll have to tie you up.",
     "The patriarch and I will go make the exchange."
+  ],
+  "republican_officer_investigate": [
+    "Please... please, we have to go after them! They took my dad! We can't just... we have to do something!",
+    "Kara, we will get him back. I promise. But rushing in blind will get us all killed. That pilot was Raven. One of the most dangerous on the continent. He and his Organoid, Shadow, are practically unstoppable. I have no idea why they would send someone like him just to capture Thrun. We are incredibly lucky to be alive.",
+    "...Lucky? He destroyed my entire unit in minutes. Look... I owe you one for stepping in back there. Don't think this changes anything between us. But... thanks.",
+    "Does anyone know where they took him?",
+    "I'm sorry, Dr. T... it all happened so fast. I couldn't see where they went.",
+    "...Desert Gorge. Before the attack, I overheard the other two with him. They told that monster they'd meet at Desert Gorge once he had the doctor. But you'd be insane to go after them. An entire Republic unit was crushed. Even with reinforcements, I don't think you'd stand a chance.",
+    "Desert Gorge... then that's where we're going.",
+    "Kara, think about this. A single pilot just tore through an entire garrison. And there were two more with him. This is madness.",
+    "I don't care! He's my father! I'm going whether you come with me or not. Beacon and I will find him ourselves if we have to."
   ],
   "republican_officer_imperial": [
     "Now hold on. You cannot just barge in here and threaten people.",

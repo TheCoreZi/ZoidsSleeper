@@ -36,6 +36,7 @@ export abstract class BaseBattle {
     const now = Date.now();
     if (now - this.lastClickAttack < CLICK_COOLDOWN) {return;}
     if (this.enemy.health <= 0) {return;}
+    if (this.organoidAnimationTimer > 0) {return;}
     this.lastClickAttack = now;
     const stats = playerStats();
     const damage = Math.max(1, Math.floor((stats?.clickAttack ?? 1) * (stats?.attackMult ?? 1)));

@@ -4,6 +4,7 @@ import { Currency } from '../models/Currency';
 import { ZOID_LIST, ZoidResearchStatus } from '../models/Zoid';
 import { isMissionCompleted } from '../store/campaignStore';
 import { playerStats } from '../store/gameStore';
+import { isSpeciesInTank } from '../store/nurturingStore';
 import { party } from '../store/partyStore';
 import { getZoidDataCount } from '../store/zoidDataStore';
 import { getCurrency } from '../store/walletStore';
@@ -45,7 +46,7 @@ const LabPanel: Component<LabPanelProps> = (props) => {
             <For each={availableZoids()}>
               {(entry) => {
                 const isFirstFree = () => party().zoids.length === 1 && !isMissionCompleted('sleeper_commander', 'grow_army');
-                const isDeployed = () => party().zoids.some((z) => z.id === entry.id) && !playerStats()?.reinforcementsEnabled;
+                const isDeployed = () => (party().zoids.some((z) => z.id === entry.id) || isSpeciesInTank(entry.id)) && !playerStats()?.reinforcementsEnabled;
                 const canAfford = () => isFirstFree() || getCurrency(Currency.Magnis) >= entry.data.price;
                 const isDisabled = () => isDeployed() || !canAfford();
                 return (
