@@ -183,9 +183,8 @@ export const PILOTS: Record<string, Pilot> = {
     name: 'Raven',
     zoidSets: [
       new PilotZoidSet([
-        { attackOverride: 80, id: 'saber_tiger', level: 50, maxHealthOverride: 40000 },
-        { attackOverride: 800, id: 'saber_tiger', level: 50, maxHealthOverride: 400000 },
-      ]),
+        { attackOverride: 80, id: 'saber_tiger_rs', level: 55, maxHealthOverride: 40000 },
+      ], undefined, ORGANOIDS.shadow),
     ],
   },
   rosso: {

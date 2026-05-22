@@ -22,41 +22,9 @@
   "shells_of_time": {
     "description": "A father researching Zoids, a mysterious Dr T, and a family torn apart. Head to Porto Nido to find answers.",
     "missions": {
-      "fight_arcadia_guard": {
-        "description": "The guard has turned aggressive. Calm him down by defeating him in battle.",
-        "name": "What Did I Say?"
-      },
-      "head_to_porto_nido": {
-        "description": "The girl's father is in Porto Nido. Head south to find him and warn him about the pursuers.",
-        "name": "The Road to Porto Nido"
-      },
-      "clear_ruins": {
-        "description": "Dr. T said Kara's father is deep inside the Sommerso Ruins. Complete a sortie to reach him.",
-        "name": "Into the Deep"
-      },
-      "meet_dr_t": {
-        "description": "A mysterious man appeared after the fight and calmed the guard down. Talk to him and find out what he knows.",
-        "name": "The Guard Whisperer"
-      },
-      "meet_father": {
-        "description": "You've reached the heart of the ruins. Talk to Dr. Thrun and deliver his daughter safely.",
-        "name": "Last Mile"
-      },
-      "father_backstory": {
-        "name": "The Sleeper's Origin",
-        "description": "Dr. Thrun has a story to tell. Find him in Porto Nido."
-      },
-      "clear_ruins_demo": {
-        "name": "Without a Soul",
-        "description": "Complete a sortie in Sommerso Ruins to understand Dr. Thrun's work."
-      },
-      "clear_ruins_stray": {
-        "name": "Unleashed",
-        "description": "Complete another sortie in Sommerso Ruins to witness the effect of Sleeper technology."
-      },
-      "discuss_in_lab": {
-        "name": "The Relic",
-        "description": "Return to Porto Nido and discuss what just happened with the doctors."
+      "care_for_creature": {
+        "name": "Strange Creature",
+        "description": "Talk to Unia and Dr. T at the sanctuary about the creature that emerged from the statue."
       },
       "challenge_officer": {
         "name": "Pride and the Coast",
@@ -66,21 +34,101 @@
         "name": "Restless Sanctuary",
         "description": "Something is upsetting the Zoids. Go outside and investigate."
       },
+      "clear_ruins": {
+        "description": "Dr. T said Kara's father is deep inside the Sommerso Ruins. Complete a sortie to reach him.",
+        "name": "Into the Deep"
+      },
+      "clear_ruins_demo": {
+        "name": "Without a Soul",
+        "description": "Complete a sortie in Sommerso Ruins to understand Dr. Thrun's work."
+      },
+      "clear_ruins_stray": {
+        "name": "Unleashed",
+        "description": "Complete another sortie in Sommerso Ruins to witness the effect of Sleeper technology."
+      },
       "confront_officer": {
         "name": "Who Does He Think He Is?",
         "description": "A Republican officer is causing trouble on the island. Confront him."
+      },
+      "consult_dr_t": {
+        "name": "A Well-Traveled Mind",
+        "description": "Dr. Thrun or Dr. T may know how to find the ancient Cannon Tortoise. Look for them in Porto Nido."
+      },
+      "discuss_in_lab": {
+        "name": "The Relic",
+        "description": "Return to Porto Nido and discuss what just happened with the doctors."
+      },
+      "father_backstory": {
+        "name": "The Sleeper's Origin",
+        "description": "Dr. Thrun has a story to tell. Find him in Porto Nido."
+      },
+      "fight_ancient_tortoise": {
+        "name": "The Ancient Sentinel",
+        "description": "The Ancient Tortoise has appeared near the Arcobaleno Camp, but it's not happy. Calm it down to get close."
+      },
+      "fight_arcadia_guard": {
+        "description": "The guard has turned aggressive. Calm him down by defeating him in battle.",
+        "name": "What Did I Say?"
+      },
+      "fight_raven": {
+        "name": "Shadow of the Saber Tiger",
+        "description": "A terrifying pilot and his Saber Tiger are destroying everything. Save the Republican Officer!"
+      },
+      "head_to_porto_nido": {
+        "description": "The girl's father is in Porto Nido. Head south to find him and warn him about the pursuers.",
+        "name": "The Road to Porto Nido"
+      },
+      "hunt_cannon_tortoise": {
+        "name": "Shaking the Desert",
+        "description": "Defeat 20 Cannon Tortoise in Elmia Desert to draw out the Ancient Tortoise."
+      },
+      "investigate_kidnapping": {
+        "name": "Among the Rubble",
+        "description": "Talk to the Republican Officer and find out where they took Dr. Thrun."
+      },
+      "meet_dr_t": {
+        "description": "A mysterious man appeared after the fight and calmed the guard down. Talk to him and find out what he knows.",
+        "name": "The Guard Whisperer"
+      },
+      "meet_father": {
+        "description": "You've reached the heart of the ruins. Talk to Dr. Thrun and deliver his daughter safely.",
+        "name": "Last Mile"
       },
       "meet_unia_corin": {
         "name": "Let Me Call an Expert",
         "description": "Cross the sea to Chimera Island and find Dr. Thrun's contact."
       },
+      "nurture_first_core": {
+        "name": "Proof of Life",
+        "description": "Nurture the Zoid Core Unia gave you until it grows into a Zoid."
+      },
+      "nurture_statue": {
+        "name": "Ancient Nurturing",
+        "description": "Fill the ancient statue with fragments in the nurturing tank."
+      },
+      "pursue_kidnappers": {
+        "name": "Desert Gorge",
+        "description": "Dr. Thrun was taken to Desert Gorge. Go after the kidnappers."
+      },
       "republican_intervention": {
         "name": "Tides of War",
         "description": "Defeat the Republican Officer in a water duel to protect the sanctuary."
       },
-      "unia_trials_talk": {
-        "name": "Begging for Trust",
-        "description": "Talk to Unia Corin after driving off the officer."
+      "sanctuary_secrets": {
+        "name": "Sanctuary Secrets",
+        "description": "Unia has promised to share her family's ancient knowledge. Listen to what she has to say."
+      },
+      "show_dragon_horse": {
+        "name": "Born, Not Built",
+        "description": "Show Unia the Dragon Horse that emerged from the Core."
+      },
+      "statue_wont_emerge": {
+        "name": "Resonance",
+        "description": "The statue can't absorb any more fragments but won't respond. Talk to Unia."
+      },
+      "survive_stray": {
+        "name": "Unstoppable",
+        "description": "The Stray Helcat won't stay down. Defend yourself!"
       },
       "unia_trials": {
         "name": "The Price of Trust",
@@ -90,49 +138,13 @@
         "name": "One of Us",
         "description": "Return to Unia and deliver what she asked for."
       },
-      "nurture_first_core": {
-        "name": "Proof of Life",
-        "description": "Nurture the Zoid Core Unia gave you until it grows into a Zoid."
-      },
-      "show_dragon_horse": {
-        "name": "Born, Not Built",
-        "description": "Show Unia the Dragon Horse that emerged from the Core."
-      },
-      "nurture_statue": {
-        "name": "Ancient Nurturing",
-        "description": "Fill the ancient statue with fragments in the nurturing tank."
-      },
-      "statue_wont_emerge": {
-        "name": "Resonance",
-        "description": "The statue can't absorb any more fragments but won't respond. Talk to Unia."
-      },
-      "consult_dr_t": {
-        "name": "A Well-Traveled Mind",
-        "description": "Dr. Thrun or Dr. T may know how to find the ancient Cannon Tortoise. Look for them in Porto Nido."
-      },
-      "hunt_cannon_tortoise": {
-        "name": "Shaking the Desert",
-        "description": "Defeat 20 Cannon Tortoise in Elmia Desert to draw out the Ancient Tortoise."
-      },
-      "fight_ancient_tortoise": {
-        "name": "The Ancient Sentinel",
-        "description": "The Ancient Tortoise has appeared near the Arcobaleno Camp, but it's not happy. Calm it down to get close."
-      },
-      "care_for_creature": {
-        "name": "Strange Creature",
-        "description": "Talk to Unia and Dr. T at the sanctuary about the creature that emerged from the statue."
+      "unia_trials_talk": {
+        "name": "Begging for Trust",
+        "description": "Talk to Unia Corin after driving off the officer."
       },
       "visit_father": {
         "name": "Homecoming",
         "description": "Dr. Thrun is back in Porto Nido. Visit him and introduce him to Beacon."
-      },
-      "sanctuary_secrets": {
-        "name": "Sanctuary Secrets",
-        "description": "Unia has promised to share her family's ancient knowledge. Listen to what she has to say."
-      },
-      "survive_stray": {
-        "name": "Unstoppable",
-        "description": "The Stray Helcat won't stay down. Defend yourself!"
       }
     },
     "name": "Breaking the Shell"
@@ -140,6 +152,10 @@
   "sleeper_commander": {
     "description": "Gleam Village is under attack by Zoids Sleepers. Prove your skill as a pilot and uncover the culprits.",
     "missions": {
+      "ambush_arcobaleno": {
+        "description": "The bandits will try to double-cross the exchange. Don't let them. Ambush them at their camp and defeat Bianco, Nero, and Blu.",
+        "name": "Ambush"
+      },
       "beat_bandit": {
         "description": "You found an abandoned camp where a bandit is holding hostages. Defeat him and rescue them.",
         "name": "Save the Girl, Save the World"
@@ -171,10 +187,6 @@
       "elmia_desert_patrol": {
         "description": "Maria says her brother Van is somewhere in the Elmia Desert. Fight through the Sleepers to find him.",
         "name": "Desert Ruins"
-      },
-      "ambush_arcobaleno": {
-        "description": "The bandits will try to double-cross the exchange. Don't let them. Ambush them at their camp and defeat Bianco, Nero, and Blu.",
-        "name": "Ambush"
       },
       "fight_rosso": {
         "description": "Rosso and his Red Horn stand between you and the captive. Face him.",
@@ -232,10 +244,6 @@
         "description": "The old captain might know more about this artifact. Talk to him in the village.",
         "name": "Mission Report"
       },
-      "scout_arcobaleno": {
-        "description": "You saw which way the bandits fled. Fight through the Bandit Trail to their base and investigate what they're planning.",
-        "name": "Into the Wolves' Den"
-      },
       "return_to_colony_leon": {
         "description": "Return to Wind Colony and talk to Father Leon about the situation.",
         "name": "A Difficult Choice"
@@ -244,13 +252,13 @@
         "description": "The leader of the bandits, Rosso, reveals himself. Hear what he has to say.",
         "name": "The Boss"
       },
+      "scout_arcobaleno": {
+        "description": "You saw which way the bandits fled. Fight through the Bandit Trail to their base and investigate what they're planning.",
+        "name": "Into the Wolves' Den"
+      },
       "talk_to_boy": {
         "description": "There's a boy in the village who looks desperate. Talk to him.",
         "name": "Village in Peril"
-      },
-      "talk_to_van_and_fiona": {
-        "description": "Head through the Dustwind Trail to the Wind Oasis and talk to Van and Fine. They might have useful information.",
-        "name": "Desert Intel"
       },
       "talk_to_girl": {
         "description": "The girl the bandits were holding is safe now. Talk to her.",
@@ -272,13 +280,17 @@
         "description": "You've arrived at Wind Colony. Ask the local priest if he knows anything about the missing girl.",
         "name": "Prayer to the Wind"
       },
-      "tell_van_kidnapping": {
-        "description": "Go to the Wind Oasis and tell Van that the bandits kidnapped Maria.",
-        "name": "Bad News"
+      "talk_to_van_and_fiona": {
+        "description": "Head through the Dustwind Trail to the Wind Oasis and talk to Van and Fine. They might have useful information.",
+        "name": "Desert Intel"
       },
       "talk_to_van_tied": {
         "description": "The villagers tied Van up and locked him in a warehouse. Talk to him through the window to figure out a plan.",
         "name": "Captive Ally"
+      },
+      "tell_van_kidnapping": {
+        "description": "Go to the Wind Oasis and tell Van that the bandits kidnapped Maria.",
+        "name": "Bad News"
       }
     },
     "name": "Sleeper Commander"

@@ -150,6 +150,21 @@ export const NPCS: Record<string, Npc> = {
   republican_officer: {
     dialogs: [
       {
+        dialogKey: 'dialog:republican_officer_investigate',
+        speakers: {
+          0: { speakerKey: 'pilots:kara', portrait: 'images/pilots/girl.png' },
+          1: { speakerKey: 'pilots:dr_t', portrait: 'images/pilots/dr_t.png' },
+          2: { speakerKey: 'pilots:republican_officer', portrait: 'images/pilots/republican_officer.png' },
+          3: { speakerKey: 'pilots:dr_t', portrait: 'images/pilots/dr_t.png' },
+          4: { speakerKey: 'pilots:arcadia_guard', portrait: 'images/pilots/arcadia_guard.png' },
+          5: { speakerKey: 'pilots:republican_officer', portrait: 'images/pilots/republican_officer.png' },
+          6: { speakerKey: 'pilots:kara', portrait: 'images/pilots/girl.png' },
+          7: { speakerKey: 'pilots:dr_t', portrait: 'images/pilots/dr_t.png' },
+          8: { speakerKey: 'pilots:kara', portrait: 'images/pilots/girl.png' },
+        },
+        unlockRequirement: new MissionCompletedRequirement('shells_of_time', 'fight_raven'),
+      },
+      {
         dialogKey: 'dialog:republican_officer_imperial',
         speakers: {
           0: { speakerKey: 'pilots:dr_thrun', portrait: 'images/pilots/dr_thrun.png' },

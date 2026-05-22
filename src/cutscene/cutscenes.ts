@@ -17,6 +17,18 @@ export const CUTSCENES: Record<string, Cutscene> = {
   }),
   narration_bandits_flee: new Cutscene('narration_bandits_flee', 'dialog:narration_bandits_flee', undefined, {0: 'images/cutscenes/rosso_defeat.jpg'}),
   narration_colony_attack: new Cutscene('narration_colony_attack', 'dialog:narration_colony_attack', undefined, {0: 'images/cutscenes/colony_attack.jpg'}),
+  narration_porto_nido_attack: new Cutscene('narration_porto_nido_attack', 'dialog:narration_porto_nido_attack', undefined, undefined, {
+    1: { speakerKey: 'pilots:arcadia_guard', portrait: 'images/pilots/arcadia_guard.png' },
+    2: { speakerKey: '', portrait: '' },
+    3: { speakerKey: 'pilots:republican_officer', portrait: 'images/pilots/republican_officer.png' },
+    4: { speakerKey: 'pilots:kara', portrait: 'images/pilots/girl.png' },
+    5: { speakerKey: 'pilots:dr_t', portrait: 'images/pilots/dr_t.png' },
+    6: { speakerKey: 'pilots:raven', portrait: 'images/pilots/raven.png' },
+  }),
+  narration_raven_aftermath: new Cutscene('narration_raven_aftermath', 'dialog:narration_raven_aftermath', undefined, undefined, {
+    0: { speakerKey: 'pilots:raven', portrait: 'images/pilots/raven.png' },
+    1: { speakerKey: 'pilots:raven', portrait: 'images/pilots/raven.png' },
+  }),
   narration_officer_deal_imperial: new Cutscene('narration_officer_deal_imperial', 'dialog:narration_officer_deal_imperial', undefined, undefined, {
     0: { speakerKey: '', portrait: '' },
     1: { speakerKey: 'pilots:republican_officer', portrait: 'images/pilots/republican_officer.png' },

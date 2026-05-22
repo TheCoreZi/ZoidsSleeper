@@ -1,6 +1,6 @@
 import type { Drop } from '../item/Drop';
 import type { Requirement } from '../requirement';
-import { CampaignStartedRequirement, DungeonCompletionRequirement, MissionCompletedRequirement, OwnZoidForTerrainRequirement, ZoidCreatedRequirement } from '../requirement';
+import { CampaignStartedRequirement, DungeonCompletionRequirement, ImpossibleRequirement, MissionCompletedRequirement, OwnZoidForTerrainRequirement, ZoidCreatedRequirement } from '../requirement';
 import type { CurrencyReward } from '../models/Currency';
 import { TerrainType } from '../models/Terrain';
 import type { Landmark } from './Landmark';
@@ -187,6 +187,47 @@ export const ROUTES: Route[] = [
     name: 'South Coast',
     routeHealth: 700,
     requirements: [new DungeonCompletionRequirement('tauros_grotto_sortie', 1)],
+    type: LandmarkType.Route,
+  },
+  {
+    baseReward: { magnis: 350, zi_metal: 55 },
+    battleBackground: BattleBackground.Desert,
+    connects: ['porto_nido', 'desert_gorge'],
+    devOnly: true,
+    enemies: [
+      { blueprint: { id: 'saradin', level: 40 } },
+      { blueprint: { id: 'malder', level: 48 } },
+      { blueprint: { id: 'goliath', level: 48 } },
+      { blueprint: { id: 'crosswinger', level: 46 } },
+      { blueprint: { id: 'gator', level: 46 } },
+      { blueprint: { id: 'molga', level: 45 } },
+    ],
+    fragmentYield: 4,
+    id: 'gorge_approach',
+    name: 'Dead Dunes',
+    routeHealth: 2000,
+    requirements: [new MissionCompletedRequirement('shells_of_time', 'investigate_kidnapping')],
+    type: LandmarkType.Route,
+  },
+  {
+    baseReward: { magnis: 300, zi_metal: 50 },
+    battleBackground: BattleBackground.Desert,
+    connects: ['desert_gorge', 'arcobaleno_camp'],
+    devOnly: true,
+    enemies: [
+      { blueprint: { id: 'geruder', level: 45 }, probability: .005 },
+      { blueprint: { id: 'stealth_viper', level: 42 } },
+      { blueprint: { id: 'zatton', level: 40 } },
+      { blueprint: { id: 'grandmolar', level: 40 } },
+      { blueprint: { id: 'cannon_tortoise', level: 40 } },
+      { blueprint: { id: 'spiker', level: 40 } },
+      { blueprint: { id: 'merda', level: 40 } },
+    ],
+    fragmentYield: 4,
+    id: 'gorge_trail',
+    name: 'Swallowing Sands',
+    routeHealth: 2000,
+    requirements: [new ImpossibleRequirement()],
     type: LandmarkType.Route,
   },
 ];

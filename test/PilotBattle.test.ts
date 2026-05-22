@@ -102,6 +102,9 @@ describe('PilotBattle organoid', () => {
     battle.clickAttack();
     expect(battle.organoidActivated).toBe(true);
 
+    // Wait for organoid animation to finish
+    while (battle.organoidAnimationTimer > 0) { battle.gameTick(); }
+
     // Second: defeat the boosted zoid
     battle.enemy.health = 1;
     battle.lastClickAttack = 0;

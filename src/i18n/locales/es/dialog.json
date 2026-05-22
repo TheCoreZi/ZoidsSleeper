@@ -189,6 +189,19 @@
     "...Se arrepentirán de esto. Todos ustedes. La República no olvida, y yo tampoco.",
     "El oficial sube de vuelta a su maltrecho Barigator y se retira a través del agua. Mientras el sonido de sus motores se desvanece en la distancia, la isla queda en silencio una vez más."
   ],
+  "narration_porto_nido_attack": [
+    "Porto Nido está sumida en el caos. El humo se eleva desde las afueras y el sonido de explosiones retumba por las calles.",
+    "¡Dr. T, señor! ¡Gracias a los cielos! Un escuadrón imperial llegó... solo un puñado de soldados, pero uno de sus pilotos... un solo Zoid destrozó todo. ¡Se llevaron al Dr. Thrun!",
+    "A la distancia, un enorme Saber Tiger avanza entre los escombros. Sus movimientos son precisos, depredadores.",
+    "¡Retrocedan! ¡Todas las unidades, retrocedan! Esta cosa es— ¡AAARGH!",
+    "¡Espera... ese es el oficial de la Isla Quimera! ¡Está peleando contra ese Saber Tiger!",
+    "Ese oficial... y ese Saber Tiger... ¡ese debe ser el Zoid que se llevó al Dr. Thrun! ¡Tenemos que ayudarlo!",
+    "¿Aún vivo? Eres más terco de lo que esperaba para un Zoid tan patético. No te preocupes. Los sacaré a ambos de su miseria."
+  ],
+  "narration_raven_aftermath": [
+    "Maldito... Cómo se atreve una basura como tú a levantar la mano contra mí. Un cobarde patético escondiéndose detrás de Zoids Sleepers. Ni siquiera mereces llamarte piloto.",
+    "No puedo creer que me enviaran a capturar basura como esta. Ni siquiera vale la pena acabar contigo. Agradece que tengo cosas más importantes que hacer que perder mi tiempo contigo."
+  ],
   "narration_tortoise_appears": [
     "La última Cannon Tortoise se retira entre la arena. El desierto queda en silencio, demasiado silencio. Entonces, desde lo alto de una duna erosionada cerca del Campamento Arcobaleno, una silueta masiva se alza. Una Cannon Tortoise como ninguna otra. Su caparazón marcado por siglos, su cañón desgastado por batallas olvidadas.",
     "¡Esa es! ¡La reconozco, las mismas marcas, las mismas cicatrices! ¡Nos salvó del Red Horn de Rosso!",
@@ -228,6 +241,17 @@
   "priest_leon_exchange": [
     "Lo siento Van, pero la prioridad ahora es María. ¡Entréganos a Zeke! Si te resistes, tendremos que atarte.",
     "El patriarca y yo iremos a hacer el intercambio."
+  ],
+  "republican_officer_investigate": [
+    "Por favor... por favor, ¡tenemos que ir tras ellos! ¡Se llevaron a mi papá! No podemos simplemente— ¡tenemos que hacer algo!",
+    "Kara, lo recuperaremos. Te lo prometo. Pero ir a ciegas nos va a matar a todos. Ese piloto era Raven. Uno de los más peligrosos del continente. Él y su Organoide, Shadow, son prácticamente imparables. No tengo idea de por qué enviarían a alguien como él solo para capturar a Thrun. Tenemos una suerte increíble de estar vivos.",
+    "...¿Suerte? Destruyó a toda mi unidad en minutos. Mira... te debo una por intervenir. No creas que esto cambia nada entre nosotros. Pero... gracias.",
+    "¿Alguien sabe adónde se lo llevaron?",
+    "Lo siento, Dr. T... todo pasó muy rápido. No pude ver hacia dónde fueron.",
+    "...Garganta del Desierto. Antes del ataque, escuché a los otros dos que iban con él. Le dijeron a ese monstruo que se verían en la Garganta del Desierto cuando tuviera al doctor. Pero estarían locos si van tras ellos. Una unidad entera de la República fue aplastada. Ni siquiera con refuerzos creo que podrían.",
+    "Garganta del Desierto... entonces ahí es donde vamos.",
+    "Kara, piénsalo. Un solo piloto acaba de arrasar con una guarnición entera. Y había dos más con él. Esto es una locura.",
+    "¡No me importa! ¡Es mi padre! Voy a ir quieran o no. Beacon y yo lo encontraremos solos si es necesario."
   ],
   "republican_officer_imperial": [
     "Un momento. No pueden irrumpir aquí y amenazar a la gente.",

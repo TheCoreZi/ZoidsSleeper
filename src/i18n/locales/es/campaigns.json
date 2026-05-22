@@ -1,122 +1,4 @@
 {
-  "shells_of_time": {
-    "description": "Un padre investigando Zoids, un misterioso Dr T y una familia separada. Dirígete a Porto Nido para encontrar respuestas.",
-    "missions": {
-      "fight_arcadia_guard": {
-        "description": "El guardia se ha puesto agresivo. Tranquilízalo venciéndolo en combate.",
-        "name": "¿Pues qué pregunté?"
-      },
-      "head_to_porto_nido": {
-        "description": "El padre de la niña está en Porto Nido. Ve hacia el sur para encontrarlo y advertirle sobre los perseguidores.",
-        "name": "El Camino a Porto Nido"
-      },
-      "clear_ruins": {
-        "description": "Dr. T dijo que el padre de Kara está en lo profundo de las Ruinas Sommerso. Completa una incursión para llegar hasta él.",
-        "name": "Hacia las Profundidades"
-      },
-      "meet_dr_t": {
-        "description": "Un hombre misterioso apareció tras la pelea y calmó al guardia. Habla con él y averigua qué sabe.",
-        "name": "El Encantador de Guardias"
-      },
-      "meet_father": {
-        "description": "Has llegado al corazón de las ruinas. Habla con el Dr. Thrun y entrégale a su hija sana y salva.",
-        "name": "La Última Milla"
-      },
-      "father_backstory": {
-        "name": "El Origen del Sleeper",
-        "description": "El Dr. Thrun tiene algo que contarte. Encuéntralo en Porto Nido."
-      },
-      "clear_ruins_demo": {
-        "name": "Sin Alma",
-        "description": "Completa una incursión en las Ruinas Sommerso para entender el trabajo del Dr. Thrun."
-      },
-      "clear_ruins_stray": {
-        "name": "Desatado",
-        "description": "Completa otra incursión en las Ruinas Sommerso para presenciar el efecto de la tecnología Sleeper."
-      },
-      "discuss_in_lab": {
-        "name": "La Reliquia",
-        "description": "Regresa a Porto Nido y discute lo que acaba de pasar con los doctores."
-      },
-      "challenge_officer": {
-        "name": "Orgullo y Costa",
-        "description": "Lleva al oficial a la costa y busquen una manera de proteger a Unia y al santuario."
-      },
-      "check_outside": {
-        "name": "Santuario Inquieto",
-        "description": "Algo está alterando a los Zoids. Sal a investigar."
-      },
-      "confront_officer": {
-        "name": "¿Y este quién se cree?",
-        "description": "Un oficial republicano está causando problemas en la isla. Enfréntalo."
-      },
-      "meet_unia_corin": {
-        "name": "Déjame llamar a un experto",
-        "description": "Cruza el mar hasta la Isla Quimera y encuentra al contacto del Dr. Thrun."
-      },
-      "republican_intervention": {
-        "name": "Mareas de Guerra",
-        "description": "Derrota al Oficial Republicano en un duelo acuático para proteger el santuario."
-      },
-      "unia_trials_talk": {
-        "name": "Mendigando Confianza",
-        "description": "Habla con Unia Corin después de ahuyentar al oficial."
-      },
-      "unia_trials": {
-        "name": "El Precio de la Confianza",
-        "description": "Completa los tres desafíos de conservación de Unia para ganarte su confianza."
-      },
-      "unia_trials_accepted": {
-        "name": "Uno de Nosotros",
-        "description": "Regresa con Unia y entrégale lo que pidió."
-      },
-      "nurture_first_core": {
-        "name": "Prueba de Vida",
-        "description": "Nutre el Core Zoid que Unia te dio hasta que se convierta en un Zoid."
-      },
-      "show_dragon_horse": {
-        "name": "Nacido, No Fabricado",
-        "description": "Muéstrale a Unia el Dragon Horse que emergió del Core."
-      },
-      "nurture_statue": {
-        "name": "Alimento Ancestral",
-        "description": "Llena la estatua antigua con fragmentos en el tanque primordial."
-      },
-      "statue_wont_emerge": {
-        "name": "Resonancia",
-        "description": "La estatua ya no puede absorber más fragmentos pero no responde. Habla con Unia."
-      },
-      "consult_dr_t": {
-        "name": "Más sabe el doctor por sus viajes que por su doctorado",
-        "description": "El profesor Thrun o el Dr. T podrían saber cómo encontrar a la antigua Cannon Tortoise. Búscalos en Porto Nido."
-      },
-      "hunt_cannon_tortoise": {
-        "name": "Sacudiendo el Desierto",
-        "description": "Derrota 20 Cannon Tortoise en el Desierto de Elmia para atraer a la Ancient Tortoise."
-      },
-      "fight_ancient_tortoise": {
-        "name": "El Centinela Ancestral",
-        "description": "La Ancient Tortoise ha aparecido cerca del Campamento Arcobaleno, pero no está muy contenta. Cálmala para tratar de acercarte."
-      },
-      "care_for_creature": {
-        "name": "Extraña Criatura",
-        "description": "Habla con Unia y el Dr. T. en el santuario sobre la criatura que emergió de la estatua ."
-      },
-      "visit_father": {
-        "name": "De Vuelta a Casa",
-        "description": "El Dr. Thrun regresó a Porto Nido. Visítalo y preséntale a Beacon."
-      },
-      "sanctuary_secrets": {
-        "name": "Secretos del Santuario",
-        "description": "Unia ha prometido compartir el conocimiento ancestral de su familia. Escucha lo que tiene que decir."
-      },
-      "survive_stray": {
-        "name": "Imparable",
-        "description": "El Helcat Salvaje no se quedará abajo. ¡Defiéndete!"
-      }
-    },
-    "name": "Saliendo del Caparazón"
-  },
   "olympus_guylos": {
     "description": "El Imperio planea un arma secreta que podría cambiar el equilibrio de poder para siempre. Como nuevo recluta, repórtate en la sede y únete a la operación.",
     "missions": {
@@ -137,9 +19,143 @@
     },
     "name": "La Amenaza del Olympus"
   },
+  "shells_of_time": {
+    "description": "Un padre investigando Zoids, un misterioso Dr T y una familia separada. Dirígete a Porto Nido para encontrar respuestas.",
+    "missions": {
+      "care_for_creature": {
+        "name": "Extraña Criatura",
+        "description": "Habla con Unia y el Dr. T. en el santuario sobre la criatura que emergió de la estatua ."
+      },
+      "challenge_officer": {
+        "name": "Orgullo y Costa",
+        "description": "Lleva al oficial a la costa y busquen una manera de proteger a Unia y al santuario."
+      },
+      "check_outside": {
+        "name": "Santuario Inquieto",
+        "description": "Algo está alterando a los Zoids. Sal a investigar."
+      },
+      "clear_ruins": {
+        "description": "Dr. T dijo que el padre de Kara está en lo profundo de las Ruinas Sommerso. Completa una incursión para llegar hasta él.",
+        "name": "Hacia las Profundidades"
+      },
+      "clear_ruins_demo": {
+        "name": "Sin Alma",
+        "description": "Completa una incursión en las Ruinas Sommerso para entender el trabajo del Dr. Thrun."
+      },
+      "clear_ruins_stray": {
+        "name": "Desatado",
+        "description": "Completa otra incursión en las Ruinas Sommerso para presenciar el efecto de la tecnología Sleeper."
+      },
+      "confront_officer": {
+        "name": "¿Y este quién se cree?",
+        "description": "Un oficial republicano está causando problemas en la isla. Enfréntalo."
+      },
+      "consult_dr_t": {
+        "name": "Más sabe el doctor por sus viajes que por su doctorado",
+        "description": "El profesor Thrun o el Dr. T podrían saber cómo encontrar a la antigua Cannon Tortoise. Búscalos en Porto Nido."
+      },
+      "discuss_in_lab": {
+        "name": "La Reliquia",
+        "description": "Regresa a Porto Nido y discute lo que acaba de pasar con los doctores."
+      },
+      "father_backstory": {
+        "name": "El Origen del Sleeper",
+        "description": "El Dr. Thrun tiene algo que contarte. Encuéntralo en Porto Nido."
+      },
+      "fight_ancient_tortoise": {
+        "name": "El Centinela Ancestral",
+        "description": "La Ancient Tortoise ha aparecido cerca del Campamento Arcobaleno, pero no está muy contenta. Cálmala para tratar de acercarte."
+      },
+      "fight_arcadia_guard": {
+        "description": "El guardia se ha puesto agresivo. Tranquilízalo venciéndolo en combate.",
+        "name": "¿Pues qué pregunté?"
+      },
+      "fight_raven": {
+        "name": "La Sombra del Saber Tiger",
+        "description": "Un piloto aterrador y su Saber Tiger están destruyendo todo. ¡Salva al Oficial Republicano!"
+      },
+      "head_to_porto_nido": {
+        "description": "El padre de la niña está en Porto Nido. Ve hacia el sur para encontrarlo y advertirle sobre los perseguidores.",
+        "name": "El Camino a Porto Nido"
+      },
+      "hunt_cannon_tortoise": {
+        "name": "Sacudiendo el Desierto",
+        "description": "Derrota 20 Cannon Tortoise en el Desierto de Elmia para atraer a la Ancient Tortoise."
+      },
+      "investigate_kidnapping": {
+        "name": "Entre los Escombros",
+        "description": "Habla con el Oficial Republicano y averigua adónde se llevaron al Dr. Thrun."
+      },
+      "meet_dr_t": {
+        "description": "Un hombre misterioso apareció tras la pelea y calmó al guardia. Habla con él y averigua qué sabe.",
+        "name": "El Encantador de Guardias"
+      },
+      "meet_father": {
+        "description": "Has llegado al corazón de las ruinas. Habla con el Dr. Thrun y entrégale a su hija sana y salva.",
+        "name": "La Última Milla"
+      },
+      "meet_unia_corin": {
+        "name": "Déjame llamar a un experto",
+        "description": "Cruza el mar hasta la Isla Quimera y encuentra al contacto del Dr. Thrun."
+      },
+      "nurture_first_core": {
+        "name": "Prueba de Vida",
+        "description": "Nutre el Core Zoid que Unia te dio hasta que se convierta en un Zoid."
+      },
+      "nurture_statue": {
+        "name": "Alimento Ancestral",
+        "description": "Llena la estatua antigua con fragmentos en el tanque primordial."
+      },
+      "pursue_kidnappers": {
+        "name": "Garganta del Desierto",
+        "description": "Se llevaron al Dr. Thrun a la Garganta del Desierto. Ve tras los secuestradores."
+      },
+      "republican_intervention": {
+        "name": "Mareas de Guerra",
+        "description": "Derrota al Oficial Republicano en un duelo acuático para proteger el santuario."
+      },
+      "sanctuary_secrets": {
+        "name": "Secretos del Santuario",
+        "description": "Unia ha prometido compartir el conocimiento ancestral de su familia. Escucha lo que tiene que decir."
+      },
+      "show_dragon_horse": {
+        "name": "Nacido, No Fabricado",
+        "description": "Muéstrale a Unia el Dragon Horse que emergió del Core."
+      },
+      "statue_wont_emerge": {
+        "name": "Resonancia",
+        "description": "La estatua ya no puede absorber más fragmentos pero no responde. Habla con Unia."
+      },
+      "survive_stray": {
+        "name": "Imparable",
+        "description": "El Helcat Salvaje no se quedará abajo. ¡Defiéndete!"
+      },
+      "unia_trials": {
+        "name": "El Precio de la Confianza",
+        "description": "Completa los tres desafíos de conservación de Unia para ganarte su confianza."
+      },
+      "unia_trials_accepted": {
+        "name": "Uno de Nosotros",
+        "description": "Regresa con Unia y entrégale lo que pidió."
+      },
+      "unia_trials_talk": {
+        "name": "Mendigando Confianza",
+        "description": "Habla con Unia Corin después de ahuyentar al oficial."
+      },
+      "visit_father": {
+        "name": "De Vuelta a Casa",
+        "description": "El Dr. Thrun regresó a Porto Nido. Visítalo y preséntale a Beacon."
+      }
+    },
+    "name": "Saliendo del Caparazón"
+  },
   "sleeper_commander": {
     "description": "La Aldea Destello es atacada por Zoids Sleepers, muestra tu habilidad como piloto y descubre a los culpables.",
     "missions": {
+      "ambush_arcobaleno": {
+        "description": "Los bandidos intentarán pasarse de listos en el intercambio. No lo permitas. Embóscalos en su campamento y derrota a Bianco, Nero y Blu.",
+        "name": "Emboscada"
+      },
       "beat_bandit": {
         "description": "Encontraste un campamento abandonado donde un bandido tiene rehenes. Véncelo y rescátalos.",
         "name": "Salva a la chica, salva al mundo"
@@ -171,10 +187,6 @@
       "elmia_desert_patrol": {
         "description": "María dice que su hermano Van está en algún lugar del Desierto de Elmia. Abre camino entre los Sleepers para encontrarlo.",
         "name": "Ruinas del Desierto"
-      },
-      "ambush_arcobaleno": {
-        "description": "Los bandidos intentarán pasarse de listos en el intercambio. No lo permitas. Embóscalos en su campamento y derrota a Bianco, Nero y Blu.",
-        "name": "Emboscada"
       },
       "fight_rosso": {
         "description": "Rosso y su Red Horn se interponen entre tú y la cautiva. Enfréntalo.",
@@ -232,10 +244,6 @@
         "description": "Puede ser que el anciano capitán sepa más sobre este artefacto, habla con él en la aldea.",
         "name": "Reporte de misión"
       },
-      "scout_arcobaleno": {
-        "description": "Lograste ver por dónde huyeron los bandidos. Ábrete camino por el Sendero del Bandido hasta su base e investiga qué están tramando.",
-        "name": "A la Guarida de los Lobos"
-      },
       "return_to_colony_leon": {
         "description": "Regresa a la Colonia del Viento y habla con el Padre León sobre la situación.",
         "name": "Una Decisión Difícil"
@@ -244,13 +252,13 @@
         "description": "El líder de los bandidos, Rosso, se revela. Escucha lo que tiene que decir.",
         "name": "El Jefe"
       },
+      "scout_arcobaleno": {
+        "description": "Lograste ver por dónde huyeron los bandidos. Ábrete camino por el Sendero del Bandido hasta su base e investiga qué están tramando.",
+        "name": "A la Guarida de los Lobos"
+      },
       "talk_to_boy": {
         "description": "Hay un chico en la aldea que luce muy desesperado, habla con él.",
         "name": "Aldea en apuros"
-      },
-      "talk_to_van_and_fiona": {
-        "description": "Dirígete por el Sendero del Viento Polvoriento hasta el Oasis del Viento y habla con Van y Fine. Podrían tener información útil.",
-        "name": "Inteligencia del Desierto"
       },
       "talk_to_girl": {
         "description": "La chica que los bandidos tenían cautiva está a salvo. Habla con ella.",
@@ -272,13 +280,17 @@
         "description": "Has llegado a la Colonia del Viento. Pregunta al Padre León, el sacerdote local, si sabe algo sobre la chica perdida.",
         "name": "Plegaria al Viento"
       },
-      "tell_van_kidnapping": {
-        "description": "Ve al Oasis del Viento y dile a Van que los bandidos secuestraron a María.",
-        "name": "Malas Noticias"
+      "talk_to_van_and_fiona": {
+        "description": "Dirígete por el Sendero del Viento Polvoriento hasta el Oasis del Viento y habla con Van y Fine. Podrían tener información útil.",
+        "name": "Inteligencia del Desierto"
       },
       "talk_to_van_tied": {
         "description": "Los pobladores han atado a Van y lo tienen dentro de un almacén. Habla con él por la ventana para buscar una solución.",
         "name": "Cautivo Aliado"
+      },
+      "tell_van_kidnapping": {
+        "description": "Ve al Oasis del Viento y dile a Van que los bandidos secuestraron a María.",
+        "name": "Malas Noticias"
       }
     },
     "name": "Comandante Sleeper"

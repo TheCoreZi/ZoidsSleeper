@@ -1,5 +1,5 @@
 import { Faction } from '../models/Faction';
-import { AllOfRequirement, ArmySizeRequirement, CampaignCompletedRequirement, ComparisonCondition, CoreNurturedRequirement, DungeonCompletionRequirement, FactionRequirement, ItemRequirement, MissionCompletedRequirement, NpcTalkedInCampaignRequirement, PilotDefeatRequirement, RouteKillRequirement, SpeciesDefeatRequirement, SpeciesZiDataRequirement, WildDefeatRequirement, ZiDataRequirement, ZoidCreatedRequirement } from '../requirement';
+import { AllOfRequirement, ArmySizeRequirement, CampaignCompletedRequirement, ComparisonCondition, CoreNurturedRequirement, DungeonCompletionRequirement, FactionRequirement, ImpossibleRequirement, ItemRequirement, MissionCompletedRequirement, NpcTalkedInCampaignRequirement, PilotDefeatRequirement, RouteKillRequirement, SpeciesDefeatRequirement, SpeciesZiDataRequirement, WildDefeatRequirement, ZiDataRequirement, ZoidCreatedRequirement } from '../requirement';
 import { CUTSCENES } from '../cutscene';
 import { activateCityActionReward, grantReward } from '../reward';
 import { enqueueDialog, playerStats, setPlayerStats } from '../store/gameStore';
@@ -76,7 +76,11 @@ export const CAMPAIGNS: Record<string, Campaign> = {
           enqueueDialog(CUTSCENES.narration_beacon_emerges.toDialogScript());
         } },
       { id: 'care_for_creature', goals: [new NpcTalkedInCampaignRequirement('shells_of_time', 'unia_corin')] },
-      { id: 'visit_father', goals: [new NpcTalkedInCampaignRequirement('shells_of_time', 'dr_thrun')] },
+      { id: 'visit_father', goals: [new ImpossibleRequirement()] },
+      { id: 'fight_raven', goals: [new PilotDefeatRequirement('raven')],
+        onComplete: () => enqueueDialog(CUTSCENES.narration_raven_aftermath.toDialogScript()) },
+      { id: 'investigate_kidnapping', goals: [new NpcTalkedInCampaignRequirement('shells_of_time', 'republican_officer')] },
+      { id: 'pursue_kidnappers', goals: [new NpcTalkedInCampaignRequirement('shells_of_time', 'opis_kerone')] },
     ],
     unlockRequirements: [new CampaignCompletedRequirement('sleeper_commander')],
   },
