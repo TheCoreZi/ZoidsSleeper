@@ -3,13 +3,11 @@ import { ActionFightWild } from '../../landmark/action/ActionFightWild';
 import { ActionPlayCutscene } from '../../landmark/action/ActionPlayCutscene';
 import { ActionTalkToNPC } from '../../landmark/action/ActionTalkToNPC';
 import type { CityAction } from '../../landmark/action/CityAction';
-import type { ZoidBlueprint } from '../../models/Zoid';
+import { STRAY_HELCAT } from '../../models/StoryBlueprints';
 import { ImpossibleRequirement, MissionCompletedRequirement, WildDefeatRequirement } from '../../requirement';
 import { activateCityActionReward, missionAdvanceReward } from '../../reward';
 
 const S = 'shells_of_time';
-
-const STRAY_HELCAT_BLUEPRINT: ZoidBlueprint = { attackOverride: 65, id: 'helcat_stray', level: 65, maxHealthOverride: 15000, scannable: false };
 const STRAY_REWARD = { magnis: 8000, zi_metal: 20 };
 const hidden = [new ImpossibleRequirement()];
 
@@ -19,7 +17,7 @@ const cutsceneStatue = new ActionPlayCutscene(
 );
 
 const fight2 = new ActionFightWild(
-  'stray_helcat_wild', Array.from({ length: 10 }, () => STRAY_HELCAT_BLUEPRINT), STRAY_REWARD, 3, hidden,
+  'stray_helcat_wild', Array.from({ length: 10 }, () => STRAY_HELCAT), STRAY_REWARD, 3, hidden,
   [new MissionCompletedRequirement(S, 'survive_stray')],
   true, activateCityActionReward(cutsceneStatue)
 );
@@ -31,7 +29,7 @@ const cutsceneGetsUp = new ActionPlayCutscene(
 );
 
 const fight1 = new ActionFightWild(
-  'stray_helcat_wild', [STRAY_HELCAT_BLUEPRINT], STRAY_REWARD, 3, hidden,
+  'stray_helcat_wild', [STRAY_HELCAT], STRAY_REWARD, 3, hidden,
   [new MissionCompletedRequirement(S, 'survive_stray')],
   false, activateCityActionReward(cutsceneGetsUp)
 );

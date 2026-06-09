@@ -2,8 +2,10 @@ import { CUTSCENES } from '../cutscene';
 import { type ConsumableItem, ITEMS } from '../item';
 import { CoreType } from '../item/ZoidCore';
 import { PILOTS } from '../models/Pilot';
+import { ANCIENT_TORTOISE_DUEL, BARRAGE_TORTOISE_DUEL } from '../models/StoryBlueprints';
+import { GALE_EW_CHAIN } from '../story/eventchains/galeEwChain';
 import { ArmySizeRequirement, COMPOUND_REQUIREMENTS, ComparisonCondition, DevRequirement, ImpossibleRequirement, ItemRequirement, MissionCompletedRequirement, NpcTalkedInCampaignRequirement, PilotDefeatRequirement, RouteKillRequirement, WildDefeatRequirement } from '../requirement';
-import { activateCityActionReward, compositeReward, itemReward, missionAdvanceReward, removeItemReward, removeZiDataReward, removeZoidReward, typedZoidCoreReward } from '../reward';
+import { activateCityActionReward, compositeReward, cutsceneReward, itemReward, missionAdvanceReward, removeItemReward, removeZiDataReward, removeZoidReward, typedZoidCoreReward, zoidReward } from '../reward';
 import { ActionDuelPilot } from './action/ActionDuelPilot';
 import { ActionFightPilot } from './action/ActionFightPilot';
 import { ActionFightWild } from './action/ActionFightWild';
@@ -64,7 +66,8 @@ export const CITIES: City[] = [
       new ActionTalkToNPC('unia_corin', [new MissionCompletedRequirement(S, 'republican_intervention')], [new MissionCompletedRequirement(S, 'unia_trials')]),
       new ActionTalkToNPC('unia_corin', [new MissionCompletedRequirement(S, 'unia_trials'), new ArmySizeRequirement(ComparisonCondition.AtLeast, 2)], [new MissionCompletedRequirement(S, 'unia_trials_accepted')], compositeReward(removeItemReward('core_saver', 50), removeZiDataReward('barigator', 5), removeZoidReward('sea_panther'))),
       new ActionTalkToNPC('unia_corin', [new MissionCompletedRequirement(S, 'unia_trials_accepted')], [new MissionCompletedRequirement(S, 'sanctuary_secrets')], typedZoidCoreReward(CoreType.MiniCore)),
-      new ActionTalkToNPC('unia_corin', [new MissionCompletedRequirement(S, 'sanctuary_secrets')]),
+      new ActionTalkToNPC('unia_corin', [new MissionCompletedRequirement(S, 'sanctuary_secrets')], [new MissionCompletedRequirement(S, 'visit_father')]),
+      new ActionTalkToNPC('unia_corin', [new MissionCompletedRequirement(S, 'duel_gale_evolved')], [new MissionCompletedRequirement(S, 'talk_to_unia_aftermath')]),
     ],
     battleBackground: BattleBackground.Water,
     devOnly: true,
@@ -135,6 +138,13 @@ export const CITIES: City[] = [
     type: LandmarkType.City,
   },
   {
+    actions: [
+      new ActionTalkToNPC('opis_kerone', [new MissionCompletedRequirement(S, 'investigate_kidnapping')], [new MissionCompletedRequirement(S, 'pursue_kidnappers')]),
+      ...GALE_EW_CHAIN,
+      new ActionDuelPilot(PILOTS['opis_kerone'], [new MissionCompletedRequirement(S, 'fight_gale_ew')], [new PilotDefeatRequirement('opis_kerone')], false, cutsceneReward('narration_gorge_ambush'), ANCIENT_TORTOISE_DUEL),
+      new ActionFightPilot(PILOTS['opis_kerone'], [new MissionCompletedRequirement(S, 'duel_opis_tortoise')], [new PilotDefeatRequirement('opis_kerone', 2)], false, cutsceneReward('narration_tortoise_reborn')),
+      new ActionDuelPilot(PILOTS['gale_task'], [new MissionCompletedRequirement(S, 'fight_opis_army')], [new PilotDefeatRequirement('gale_task', 2)], false, compositeReward(cutsceneReward('narration_gorge_retreat'), zoidReward('barrage_tortoise')), BARRAGE_TORTOISE_DUEL),
+    ],
     battleBackground: BattleBackground.Desert,
     devOnly: true,
     id: 'desert_gorge',

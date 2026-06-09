@@ -1,10 +1,12 @@
 import { t } from '../../i18n';
-import type { Requirement } from '../../requirement';
+import type { ArmyFilter } from '../../models/ArmyFilter';
 import type { Pilot } from '../../models/Pilot';
+import type { Requirement } from '../../requirement';
 import type { Reward } from '../../reward';
 import type { CityAction } from './CityAction';
 
 export class ActionFightPilot implements CityAction {
+  armyFilter: ArmyFilter | null;
   completeRequirements?: Requirement[];
   id: string;
   onExecute: (() => void) | null = null;
@@ -13,7 +15,8 @@ export class ActionFightPilot implements CityAction {
   reward?: Reward;
   unwinnable: boolean;
 
-  constructor(pilot: Pilot, requirements?: Requirement[], completeRequirements?: Requirement[], unwinnable = false, reward?: Reward) {
+  constructor(pilot: Pilot, requirements?: Requirement[], completeRequirements?: Requirement[], unwinnable = false, reward?: Reward, armyFilter: ArmyFilter | null = null) {
+    this.armyFilter = armyFilter;
     this.completeRequirements = completeRequirements;
     this.id = `fight-${pilot.id}`;
     this.pilot = pilot;

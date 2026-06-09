@@ -58,8 +58,6 @@ export class DuelBattle extends BaseBattle {
   nextDamage = 0;
   currentPhaseTimer = DUEL_TAPPING_PHASE_DURATION;
   pilot: Pilot;
-  playerHealth: number;
-  playerMaxHealth: number;
   playerZoid: CustomizedZoid;
   powerCharged = 0;
   powerMax: number;

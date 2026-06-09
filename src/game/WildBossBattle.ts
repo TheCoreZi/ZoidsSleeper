@@ -8,7 +8,6 @@ import {
   setPilotPlayerHealth,
   setPilotPlayerMaxHealth,
 } from '../store/gameStore';
-import { partyMaxHealth } from '../store/partyStore';
 import { BaseBattle } from './BaseBattle';
 
 export class WildBossBattle extends BaseBattle {
@@ -16,16 +15,12 @@ export class WildBossBattle extends BaseBattle {
   fragmentYield: number;
   onDefeat: (() => void) | null = null;
   onVictory: (() => void) | null = null;
-  playerHealth: number;
-  playerMaxHealth: number;
   zoids: ZoidBlueprint[];
 
-  constructor(playerStats: PlayerStats, zoids: ZoidBlueprint[], fragmentYield = 0) {
+  constructor(_playerStats: PlayerStats, zoids: ZoidBlueprint[], fragmentYield = 0) {
     super();
     this.fragmentYield = fragmentYield;
     this.zoids = zoids;
-    this.playerMaxHealth = playerStats.baseHealth + partyMaxHealth();
-    this.playerHealth = this.playerMaxHealth;
     this.enemy = spawnZoid(buildZoid(this.zoids[0]));
     updateZoidResearch(this.enemy.id, ZoidResearchStatus.Seen);
     this.syncToStore();

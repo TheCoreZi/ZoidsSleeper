@@ -12,7 +12,7 @@ import {
   setDamageEvents,
   setPlayerDamageEvents,
 } from '../store/gameStore';
-import { party, partyAttack, setParty } from '../store/partyStore';
+import { party, partyAttack, partyMaxHealth, setParty } from '../store/partyStore';
 import { getActiveDeviceId, getActiveScanMode, scanNewOnly, ScanMode } from '../store/scanStore';
 import { getZoidDataCount } from '../store/zoidDataStore';
 import { getZoidResearch } from '../store/zoidResearchStore';
@@ -25,12 +25,15 @@ export function shouldSkipScan(zoidId: string): boolean {
 let damageIdCounter = 0;
 
 export abstract class BaseBattle {
+  armyAttack = partyAttack();
   counter = 0;
   enemy!: SpawnedZoid;
   lastClickAttack = 0;
   organoid?: Organoid;
   organoidActivated = false;
   organoidAnimationTimer = 0;
+  playerHealth = (playerStats()?.baseHealth ?? 0) + partyMaxHealth();
+  playerMaxHealth = (playerStats()?.baseHealth ?? 0) + partyMaxHealth();
 
   clickAttack(): void {
     const now = Date.now();
@@ -86,7 +89,7 @@ export abstract class BaseBattle {
 
   private autoAttack(): void {
     if (this.enemy.health <= 0) {return;}
-    const damage = Math.max(0, Math.floor(partyAttack() * (playerStats()?.attackMult ?? 1)));
+    const damage = Math.max(0, Math.floor(this.armyAttack * (playerStats()?.attackMult ?? 1)));
     if (damage <= 0) {return;}
     this.dealDamage(damage, 'auto');
   }

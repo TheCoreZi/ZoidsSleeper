@@ -145,6 +145,26 @@
       "visit_father": {
         "name": "Homecoming",
         "description": "Dr. Thrun is back in Porto Nido. Visit him and introduce him to Beacon."
+      },
+      "duel_gale_evolved": {
+        "name": "Barrage",
+        "description": "The tortoise has been reborn. Time to put its new power to the test."
+      },
+      "duel_opis_tortoise": {
+        "name": "Unexpected Ally",
+        "description": "The Ancient Tortoise is fighting Opis on its own. Help it survive!"
+      },
+      "fight_gale_ew": {
+        "name": "The Gorge",
+        "description": "Gale Task stands between you and Dr. Thrun. Take him on."
+      },
+      "fight_opis_army": {
+        "name": "Awakened",
+        "description": "Something has changed. Your Zoids are moving again. Fight back!"
+      },
+      "talk_to_unia_aftermath": {
+        "name": "Old Connections",
+        "description": "Return to Chimera Island and ask Unia for help finding Dr. Thrun."
       }
     },
     "name": "Breaking the Shell"

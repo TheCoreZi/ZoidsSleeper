@@ -1,6 +1,6 @@
 import type { Drop } from '../item/Drop';
 import type { Requirement } from '../requirement';
-import { CampaignStartedRequirement, DungeonCompletionRequirement, ImpossibleRequirement, MissionCompletedRequirement, OwnZoidForTerrainRequirement, ZoidCreatedRequirement } from '../requirement';
+import { CampaignCompletedRequirement, CampaignStartedRequirement, DungeonCompletionRequirement, MissionCompletedRequirement, OwnZoidForTerrainRequirement, ZoidCreatedRequirement } from '../requirement';
 import type { CurrencyReward } from '../models/Currency';
 import { TerrainType } from '../models/Terrain';
 import type { Landmark } from './Landmark';
@@ -227,7 +227,7 @@ export const ROUTES: Route[] = [
     id: 'gorge_trail',
     name: 'Swallowing Sands',
     routeHealth: 2000,
-    requirements: [new ImpossibleRequirement()],
+    requirements: [new CampaignCompletedRequirement('shells_of_time')],
     type: LandmarkType.Route,
   },
 ];

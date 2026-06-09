@@ -24,10 +24,12 @@ import type { Dungeon } from '../landmark';
 import { REGIONS } from '../map/Region';
 import { Currency } from '../models/Currency';
 import type { CurrencyReward } from '../models/Currency';
+import type { ArmyFilter } from '../models/ArmyFilter';
+import { Faction } from '../models/Faction';
 import type { Pilot } from '../models/Pilot';
 import { DEFAULT_PLAYER } from '../models/Player';
 import { PopupMessage, PopupType } from '../models/PopupMessage';
-import { getZoidById, ZoidResearchStatus } from '../models/Zoid';
+import { calculatePartyAttack, calculatePartyMaxHealth, getZoidById, ZoidResearchStatus } from '../models/Zoid';
 import type { ZoidBlueprint } from '../models/Zoid';
 import { grantReward, type Reward } from '../reward';
 import { loadCampaigns, markNpcTalked, checkCampaigns } from '../store/campaignStore';
@@ -56,7 +58,8 @@ import {
   playerStats,
 } from '../store/gameStore';
 import { setCurrentLandmark } from '../store/landmarkStore';
-import { addZoidToArmy, partyMaxHealth, setParty } from '../store/partyStore';
+import { addZoidToArmy, party, partyMaxHealth, setParty } from '../store/partyStore';
+import { currentTerrain } from '../store/terrainStore';
 import { incrementDungeonCompletions, incrementPilotDefeats, loadStatistics } from '../store/statisticsStore';
 import { loadInventory } from '../store/inventoryStore';
 import { loadScanSetup } from '../store/scanStore';
@@ -184,8 +187,16 @@ export class Game {
     setBattleState(BattleState.DuelCombat);
   }
 
-  enterPilotBattle(pilot: Pilot, unwinnable = false, reward?: Reward): void {
-    const battle = new PilotBattle(playerStats()!, pilot);
+  enterPilotBattle(pilot: Pilot, unwinnable = false, reward?: Reward, armyFilter: ArmyFilter | null = null): void {
+    let battle: PilotBattle;
+    if (armyFilter) {
+      const filtered = armyFilter.apply(party().zoids, party().commanderZoidId);
+      const filteredMaxHealth = (playerStats()?.baseHealth ?? 0) + calculatePartyMaxHealth(filtered, playerStats()?.faction ?? Faction.Neutral);
+      battle = new PilotBattle(playerStats()!, pilot, filteredMaxHealth, filteredMaxHealth);
+      battle.armyAttack = calculatePartyAttack(filtered, playerStats()?.faction ?? Faction.Neutral, currentTerrain());
+    } else {
+      battle = new PilotBattle(playerStats()!, pilot);
+    }
     battle.onDefeat = () => {
       if (unwinnable) {
         incrementPilotDefeats(pilot.id);
@@ -404,7 +415,7 @@ export class Game {
       } else if (action instanceof DungeonSortieEvent) {
         action.onExecute = () => this.enterDungeon(action);
       } else if (action instanceof ActionFightPilot) {
-        action.onExecute = () => this.enterPilotBattle(action.pilot, action.unwinnable, action.reward);
+        action.onExecute = () => this.enterPilotBattle(action.pilot, action.unwinnable, action.reward, action.armyFilter);
       } else if (action instanceof ActionFightWild) {
         action.onExecute = () => this.enterWildBossBattle(action.wildId, action.zoids, action.currencyReward, action.fragmentYield, action.unwinnable, action.reward);
       } else if (action instanceof ActionPlayCutscene) {

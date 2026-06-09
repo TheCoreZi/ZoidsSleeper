@@ -1,4 +1,4 @@
-import { PilotDefeatRequirement } from '../requirement';
+import { MissionCompletedRequirement, PilotDefeatRequirement } from '../requirement';
 import type { Organoid } from './Organoid';
 import { ORGANOIDS } from './Organoid';
 import type { ZoidBlueprint } from '../models/Zoid';
@@ -68,6 +68,9 @@ export const PILOTS: Record<string, Pilot> = {
     magnisReward: 14000,
     name: 'Gale Task',
     zoidSets: [
+      new PilotZoidSet([
+        { attackOverride: 1000, id: 'iron_kong', level: 55, maxHealthOverride: 60000 },
+      ], [new MissionCompletedRequirement('shells_of_time', 'fight_opis_army')]),
       new PilotZoidSet([
         { attackOverride: 60, id: 'iron_kong', level: 55, maxHealthOverride: 60000 },
       ]),
@@ -161,7 +164,10 @@ export const PILOTS: Record<string, Pilot> = {
     name: 'Opis Kerone',
     zoidSets: [
       new PilotZoidSet([
-        { attackOverride: 60, id: 'cannon_tortoise_os', level: 55, maxHealthOverride: 15000 },
+        { attackOverride: 250, id: 'cannon_tortoise_os', level: 55, maxHealthOverride: 15000 },
+      ], [new PilotDefeatRequirement('opis_kerone')]),
+      new PilotZoidSet([
+        { attackOverride: 1000, id: 'cannon_tortoise_os', level: 55, maxHealthOverride: 15000 },
       ]),
     ],
   },

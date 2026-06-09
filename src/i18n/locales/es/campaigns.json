@@ -145,6 +145,26 @@
       "visit_father": {
         "name": "De Vuelta a Casa",
         "description": "El Dr. Thrun regresó a Porto Nido. Visítalo y preséntale a Beacon."
+      },
+      "duel_gale_evolved": {
+        "name": "Descarga",
+        "description": "La tortuga ha renacido. Es hora de poner su nuevo poder a prueba."
+      },
+      "duel_opis_tortoise": {
+        "name": "Aliada Inesperada",
+        "description": "¡La Ancient Tortoise está luchando contra Opis por su cuenta. Ayúdala a sobrevivir!"
+      },
+      "fight_gale_ew": {
+        "name": "El Desfiladero",
+        "description": "Gale Task se interpone entre tú y el Dr. Thrun. Enfréntalo."
+      },
+      "fight_opis_army": {
+        "name": "Despertar",
+        "description": "Algo ha cambiado. Tus Zoids se están moviendo de nuevo. ¡Contraataca!"
+      },
+      "talk_to_unia_aftermath": {
+        "name": "Viejas Conexiones",
+        "description": "Regresa a Chimera Island y pide ayuda a Unia para encontrar al Dr. Thrun."
       }
     },
     "name": "Saliendo del Caparazón"

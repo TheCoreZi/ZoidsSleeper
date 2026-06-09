@@ -10,3 +10,4 @@ export { removeZoidReward } from './RemoveZoidReward';
 export { type Reward } from './Reward';
 export { typedZoidCoreReward } from './TypedZoidCoreReward';
 export { zoidCoreReward } from './ZoidCoreReward';
+export { zoidReward } from './ZoidReward';
