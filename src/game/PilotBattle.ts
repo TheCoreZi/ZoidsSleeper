@@ -12,7 +12,6 @@ import {
   setPilotPlayerMaxHealth,
   setPilotZoidIds,
 } from '../store/gameStore';
-import { partyMaxHealth } from '../store/partyStore';
 import { BaseBattle } from './BaseBattle';
 
 export class PilotBattle extends BaseBattle {
@@ -20,17 +19,15 @@ export class PilotBattle extends BaseBattle {
   onDefeat: (() => void) | null = null;
   onVictory: (() => void) | null = null;
   pilot: Pilot;
-  playerHealth: number;
-  playerMaxHealth: number;
   zoids: ZoidBlueprint[];
 
-  constructor(playerStats: PlayerStats, pilot: Pilot, initialHealth?: number, initialMaxHealth?: number) {
+  constructor(_playerStats: PlayerStats, pilot: Pilot, initialHealth?: number, initialMaxHealth?: number) {
     super();
     this.organoid = getActiveOrganoid(pilot);
     this.pilot = pilot;
     this.zoids = getActiveZoids(pilot);
-    this.playerMaxHealth = initialMaxHealth ?? (playerStats.baseHealth + partyMaxHealth());
-    this.playerHealth = initialHealth ?? this.playerMaxHealth;
+    if (initialMaxHealth) { this.playerMaxHealth = initialMaxHealth; }
+    if (initialHealth) { this.playerHealth = initialHealth; }
     this.enemy = spawnZoid(buildZoid(this.zoids[0]));
     updateZoidResearch(this.enemy.id, ZoidResearchStatus.Seen);
     this.syncToStore();

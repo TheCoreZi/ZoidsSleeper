@@ -127,5 +127,8 @@
   "zi_metal": "Zi Metal",
   "zoids": "Zoids",
   "zoids_army": "Zoids Army",
-  "zoids_defeated": "Zoids Defeated"
+  "zoids_defeated": "Zoids Defeated",
+  "fight_gale_task": "Fight Gale Task",
+  "new_ally": "New Ally",
+  "zoid_joined_army": "{{name}} has joined your army!"
 }

@@ -233,7 +233,27 @@ export const NPCS: Record<string, Npc> = {
     portrait: 'images/pilots/republican_officer.png',
   },
   opis_kerone: {
-    dialogs: [],
+    dialogs: [
+      {
+        dialogKey: 'dialog:opis_kerone_gorge',
+        speakers: {
+          0: { speakerKey: 'pilots:kara', portrait: 'images/pilots/girl.png' },
+          1: { speakerKey: '???', portrait: 'images/pilots/opis.png' },
+          2: { speakerKey: 'pilots:dr_t', portrait: 'images/pilots/dr_t.png' },
+          3: { speakerKey: 'pilots:kara', portrait: 'images/pilots/girl.png' },
+          4: { speakerKey: '???', portrait: 'images/pilots/opis.png' },
+          5: { speakerKey: 'pilots:dr_t', portrait: 'images/pilots/dr_t.png' },
+          6: { speakerKey: 'pilots:raven', portrait: 'images/pilots/raven.png' },
+          7: { speakerKey: '', portrait: '' },
+          8: { speakerKey: 'pilots:kara', portrait: 'images/pilots/girl.png' },
+          9: { speakerKey: 'pilots:dr_t', portrait: 'images/pilots/dr_t.png' },
+          10: { speakerKey: '', portrait: '' },
+          11: { speakerKey: '', portrait: '' },
+          12: { speakerKey: 'pilots:gale_task', portrait: 'images/pilots/gale_task.png' },
+          13: { speakerKey: 'pilots:dr_t', portrait: 'images/pilots/dr_t.png' },
+        },
+      },
+    ],
     id: 'opis_kerone',
     nameKey: 'pilots:opis_kerone',
     portrait: 'images/pilots/opis.png',
@@ -334,6 +354,27 @@ export const NPCS: Record<string, Npc> = {
   },
   unia_corin: {
     dialogs: [
+      {
+        dialogKey: 'dialog:unia_gorge_aftermath',
+        speakers: {
+          0: { speakerKey: 'pilots:kara', portrait: 'images/pilots/girl.png' },
+          1: { speakerKey: '', portrait: '' },
+          2: { speakerKey: 'pilots:dr_t', portrait: 'images/pilots/dr_t.png' },
+          3: { speakerKey: '', portrait: '' },
+          4: { speakerKey: 'pilots:kara', portrait: 'images/pilots/girl.png' },
+          5: { speakerKey: 'pilots:dr_t', portrait: 'images/pilots/dr_t.png' },
+          6: { speakerKey: '', portrait: '' },
+          7: { speakerKey: 'pilots:dr_t', portrait: 'images/pilots/dr_t.png' },
+          8: { speakerKey: '', portrait: '' },
+          9: { speakerKey: 'pilots:dr_t', portrait: 'images/pilots/dr_t.png' },
+          10: { speakerKey: 'pilots:kara', portrait: 'images/pilots/girl.png' },
+          11: { speakerKey: '', portrait: '' },
+          12: { speakerKey: 'pilots:kara', portrait: 'images/pilots/girl.png' },
+          13: { speakerKey: 'pilots:kara', portrait: 'images/pilots/girl.png' },
+          14: { speakerKey: '', portrait: '' },
+        },
+        unlockRequirement: new MissionCompletedRequirement('shells_of_time', 'duel_gale_evolved'),
+      },
       {
         dialogKey: 'dialog:kara_care_creature',
         speakers: {

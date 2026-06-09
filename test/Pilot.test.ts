@@ -35,12 +35,12 @@ describe('Pilot', () => {
     expect(PILOTS['rosso'].zoidSets).toHaveLength(2);
   });
 
-  it('should have gale_task with one zoid set', () => {
-    expect(PILOTS['gale_task'].zoidSets).toHaveLength(1);
+  it('should have gale_task with two zoid sets', () => {
+    expect(PILOTS['gale_task'].zoidSets).toHaveLength(2);
   });
 
-  it('should have opis_kerone with one zoid set', () => {
-    expect(PILOTS['opis_kerone'].zoidSets).toHaveLength(1);
+  it('should have opis_kerone with two zoid sets', () => {
+    expect(PILOTS['opis_kerone'].zoidSets).toHaveLength(2);
   });
 
   it('should have raven with saber_tiger_rs and shadow organoid', () => {

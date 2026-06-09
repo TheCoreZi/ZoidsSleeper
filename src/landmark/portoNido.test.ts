@@ -84,7 +84,7 @@ describe('Chimera Island', () => {
     expect(city).toBeDefined();
     expect(city!.type).toBe(LandmarkType.City);
     expect(city!.actions).toBeDefined();
-    expect(city!.actions!.length).toBe(10);
+    expect(city!.actions!.length).toBe(11);
   });
 });
 
@@ -111,7 +111,7 @@ describe('new NPCs', () => {
 
   it('unia_corin NPC exists with portrait', () => {
     expect(NPCS['unia_corin']).toBeDefined();
-    expect(NPCS['unia_corin'].dialogs.length).toBe(9);
+    expect(NPCS['unia_corin'].dialogs.length).toBe(10);
     expect(NPCS['unia_corin'].portrait).toBe('images/pilots/unia.png');
   });
 
@@ -137,7 +137,7 @@ describe('shells_of_time campaign', () => {
   it('has 3 missions', () => {
     const campaign = CAMPAIGNS['shells_of_time'];
     expect(campaign).toBeDefined();
-    expect(campaign.missions.length).toBe(31);
+    expect(campaign.missions.length).toBe(36);
   });
 
   it('missions are in correct order', () => {
@@ -150,6 +150,7 @@ describe('shells_of_time campaign', () => {
       'show_dragon_horse', 'nurture_statue', 'statue_wont_emerge', 'consult_dr_t',
       'hunt_cannon_tortoise', 'fight_ancient_tortoise', 'care_for_creature', 'visit_father',
       'fight_raven', 'investigate_kidnapping', 'pursue_kidnappers',
+      'fight_gale_ew', 'duel_opis_tortoise', 'fight_opis_army', 'duel_gale_evolved', 'talk_to_unia_aftermath',
     ]);
   });
 

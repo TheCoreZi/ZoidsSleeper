@@ -1,8 +1,10 @@
 import { CUTSCENES } from '../cutscene';
+import { t } from '../i18n';
+import { PopupMessage, PopupType } from '../models/PopupMessage';
 import { advanceMission } from '../store/campaignStore';
+import { enqueueDialog, showPopup } from '../store/gameStore';
 import { addItem, removeItem } from '../store/inventoryStore';
-import { enqueueDialog } from '../store/gameStore';
-import { removeZoidFromArmy } from '../store/partyStore';
+import { addZoidToArmy, removeZoidFromArmy } from '../store/partyStore';
 import { addCore, addTypedCore } from '../store/zoidCoreStore';
 import { removeZoidData } from '../store/zoidDataStore';
 import { type Reward, RewardType } from './Reward';
@@ -35,6 +37,10 @@ export function grantReward(reward: Reward): void {
       break;
     case RewardType.TypedZoidCore:
       addTypedCore(reward.coreType);
+      break;
+    case RewardType.Zoid:
+      addZoidToArmy(reward.zoidId);
+      showPopup(new PopupMessage(t('ui:zoid_joined_army', { name: t(`zoids:${reward.zoidId}`) }), t('ui:new_ally'), PopupType.Victory, `images/zoids/${reward.zoidId}.png`));
       break;
     case RewardType.ZoidCore:
       addCore(reward.zoidSpeciesId);
