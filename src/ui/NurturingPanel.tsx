@@ -166,7 +166,6 @@ const NurturingPanel: Component = () => {
                         disabled={party().zoids.length <= 1 || getAvailableSlotCount() <= 0}
                         id={zoid.id}
                         onClick={() => handlePlaceReborn(zoid.id)}
-                        showTooltip={false}
                         status={ZoidResearchStatus.Created}
                       />
                     )}

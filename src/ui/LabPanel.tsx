@@ -55,7 +55,6 @@ const LabPanel: Component<LabPanelProps> = (props) => {
                     disabled={isDisabled()}
                     id={entry.id}
                     onClick={() => props.onBuy(entry.id)}
-                    showTooltip={false}
                     status={ZoidResearchStatus.Created}
                   >
                     <Show when={isDeployed()}>
