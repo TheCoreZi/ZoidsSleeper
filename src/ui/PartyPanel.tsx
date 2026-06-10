@@ -1,4 +1,7 @@
 import { createMemo, createSignal, For, Show, type Component } from 'solid-js';
+import { ZoidResearchStatus } from '../models/Zoid';
+import { getZoidResearch } from '../store/zoidResearchStore';
+import ZoidDetailModal from './ZoidDetailModal';
 import { t } from '../i18n';
 import { getFactionBonus } from '../models/Faction';
 import { experienceForLevel, MAX_LEVEL } from '../models/LevelType';
@@ -59,6 +62,7 @@ interface PartyPanelProps {
 
 const PartyPanel: Component<PartyPanelProps> = (props) => {
   const [selectedStat, setSelectedStat] = createSignal<StatOption>(StatOption.Attack);
+  const [detailZoidId, setDetailZoidId] = createSignal<string | null>(null);
   const isDuelUnlocked = createMemo(() => isMissionCompleted('sleeper_commander', 'find_van_oasis'));
   const commanderZoidId = createMemo(() => {
     const zoids = party().zoids;
@@ -106,11 +110,21 @@ const PartyPanel: Component<PartyPanelProps> = (props) => {
                     </Show>
                   </div>
                   <span class="party-row-stat">{getStatValue(zoid, selectedStat()).toLocaleString()}</span>
+                  <button class="party-row-info-btn" onClick={(e) => { e.stopPropagation(); setDetailZoidId(zoid.id); }} title="Info">i</button>
                 </div>
               );
             }}
           </For>
         </div>
+      </Show>
+      <Show when={detailZoidId()}>
+        {(id) => (
+          <ZoidDetailModal
+            id={id()}
+            onClose={() => setDetailZoidId(null)}
+            status={getZoidResearch(id()) ?? ZoidResearchStatus.Created}
+          />
+        )}
       </Show>
     </div>
   );

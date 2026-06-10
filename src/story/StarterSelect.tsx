@@ -22,7 +22,7 @@ const StarterSelect: Component<StarterSelectProps> = (props) => (
               <div class="starter-card-stats">
                 ATK {zoid.attack} / HP {zoid.maxHealth}
               </div>
-              <div class="starter-card-desc">{t(`zoids:${id}_desc`)}</div>
+              <div class="starter-card-desc">{t(`zoids:${id}_starter_desc`)}</div>
               <button type="button" onClick={() => props.onSelect(id)}>
                 {t('ui:choose')}
               </button>

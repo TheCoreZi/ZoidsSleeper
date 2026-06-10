@@ -1,4 +1,5 @@
 import { CAMPAIGNS } from '../campaign/campaigns';
+import { REBORN_ATTACK_BONUS_PERCENT } from '../constants';
 import type { OwnedZoid } from '../models/Zoid';
 import type { SaveData } from './Save';
 
@@ -7,6 +8,15 @@ export type MigrationData = Partial<SaveData> & Record<string, unknown>;
 type MigrationFn = (data: MigrationData) => void;
 
 const migrations: Record<string, MigrationFn> = {
+  '0.4.9': (data) => {
+    const zoids = data.party?.zoids as OwnedZoid[] | undefined;
+    if (!zoids) {return;}
+    for (const zoid of zoids) {
+      if (zoid.rebornBonusPercent && zoid.rebornBonusPercent > 0) {
+        zoid.rebornCount = Math.round(zoid.rebornBonusPercent / REBORN_ATTACK_BONUS_PERCENT);
+      }
+    }
+  },
   '0.4.8': () => {},
   '0.4.7': (data) => {
     const stats = data.playerStats as Record<string, unknown> | undefined;

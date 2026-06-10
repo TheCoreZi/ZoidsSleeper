@@ -47,7 +47,7 @@
   cursor: pointer;
   display: grid;
   gap: 0.25rem;
-  grid-template-columns: 40px 1fr 1fr;
+  grid-template-columns: 40px 1fr 1fr auto;
   padding: 0.35rem 0.5rem;
 }
 
@@ -121,6 +121,29 @@
   font-size: 0.8rem;
   font-weight: bold;
   text-align: right;
+}
+
+.party-row-info-btn {
+  align-items: center;
+  background: none;
+  border: 1px solid var(--theme-border);
+  border-radius: 50%;
+  color: #888;
+  cursor: pointer;
+  display: flex;
+  flex-shrink: 0;
+  font-size: 0.65rem;
+  font-style: italic;
+  font-weight: bold;
+  height: 1.2rem;
+  justify-content: center;
+  transition: border-color 0.15s, color 0.15s;
+  width: 1.2rem;
+}
+
+.party-row-info-btn:hover {
+  border-color: var(--theme-accent);
+  color: var(--theme-accent);
 }
 
 .party-row-xp-bar {

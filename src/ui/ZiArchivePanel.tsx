@@ -1,6 +1,5 @@
-import { type Component, createMemo, For, type ParentComponent, Show } from 'solid-js';
+import { type Component, createMemo, createSignal, For, type ParentComponent, Show } from 'solid-js';
 import { t } from '../i18n';
-import { getZoidLocations } from '../landmark';
 import { FACTIONS } from '../models/Faction';
 import {
   getZoidImage,
@@ -8,8 +7,8 @@ import {
   ZoidResearchStatus,
 } from '../models/Zoid';
 import { getTerrainBorderStyle } from '../models/Terrain';
-import { getZoidDataCount } from '../store/zoidDataStore';
 import { getZoidResearch } from '../store/zoidResearchStore';
+import ZoidDetailModal from './ZoidDetailModal';
 import './archive.css';
 
 interface ZiArchivePanelProps {
@@ -18,6 +17,7 @@ interface ZiArchivePanelProps {
 
 const ZiArchivePanel: Component<ZiArchivePanelProps> = (props) => {
   const totalCount = Object.keys(ZOID_LIST).length;
+  const [selectedZoidId, setSelectedZoidId] = createSignal<string | null>(null);
 
   const archiveEntries = createMemo(() =>
     Object.keys(ZOID_LIST)
@@ -25,6 +25,12 @@ const ZiArchivePanel: Component<ZiArchivePanelProps> = (props) => {
       .filter((e): e is typeof e & { status: ZoidResearchStatus } => e.status !== null)
       .sort((a, b) => a.data.name.localeCompare(b.data.name))
   );
+
+  const selectedEntry = () => {
+    const id = selectedZoidId();
+    if (!id) {return null;}
+    return archiveEntries().find((e) => e.id === id) ?? null;
+  };
 
   return (
     <div class="archive-overlay" onClick={() => props.onClose()}>
@@ -42,11 +48,26 @@ const ZiArchivePanel: Component<ZiArchivePanelProps> = (props) => {
         >
           <div class="archive-grid">
             <For each={archiveEntries()}>
-              {(entry) => <ArchiveCard id={entry.id} status={entry.status} />}
+              {(entry) => (
+                <ArchiveCard
+                  id={entry.id}
+                  onClick={() => setSelectedZoidId(entry.id)}
+                  status={entry.status}
+                />
+              )}
             </For>
           </div>
         </Show>
       </div>
+      <Show when={selectedEntry()}>
+        {(entry) => (
+          <ZoidDetailModal
+            id={entry().id}
+            onClose={() => setSelectedZoidId(null)}
+            status={entry().status}
+          />
+        )}
+      </Show>
     </div>
   );
 };
@@ -56,15 +77,12 @@ interface ArchiveCardProps {
   disabled?: boolean;
   id: string;
   onClick?: () => void;
-  showTooltip?: boolean;
   status: ZoidResearchStatus | null;
 }
 
 export const ArchiveCard: ParentComponent<ArchiveCardProps> = (props) => {
   const zoid = () => ZOID_LIST[props.id];
-  const locations = () => getZoidLocations(props.id);
   const statusClass = () => props.status ? `archive-card--${props.status}` : 'archive-card--seen';
-  const showTooltip = () => props.showTooltip ?? true;
 
   return (
     <button
@@ -83,30 +101,6 @@ export const ArchiveCard: ParentComponent<ArchiveCardProps> = (props) => {
         <span class="archive-card-name">{props.status ? zoid().name : '???'}</span>
         {props.children}
       </div>
-      <Show when={showTooltip()}>
-        <div class="archive-card-tooltip">
-          <Show when={props.status}>
-            <span class="archive-card-tooltip-name">{t(`ui:archive_status_${props.status}`)}</span>
-            <Show when={props.status === ZoidResearchStatus.Scanned}>
-              <span class="archive-card-tooltip-desc">
-                {t('ui:archive_scans', { count: getZoidDataCount(props.id) })}
-              </span>
-            </Show>
-            <Show when={props.status === ZoidResearchStatus.Created}>
-              <span class="archive-card-tooltip-desc">{t('ui:archive_attack', { value: zoid().attack })}</span>
-              <span class="archive-card-tooltip-desc">{t('ui:archive_hp', { value: zoid().maxHealth })}</span>
-            </Show>
-          </Show>
-          <span class="archive-card-tooltip-name">{t('ui:locations')}</span>
-          <Show when={locations().length > 0} fallback={<span class="archive-card-tooltip-desc">???</span>}>
-            <div class="archive-card-locations">
-              <For each={locations()}>
-                {(locId) => <span class="archive-card-location">• {t(`locations:${locId}`)}</span>}
-              </For>
-            </div>
-          </Show>
-        </div>
-      </Show>
     </button>
   );
 };

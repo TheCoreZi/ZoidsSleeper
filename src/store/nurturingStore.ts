@@ -36,6 +36,7 @@ function completeSlot(index: number): void {
     const reborn: OwnedZoid = {
       ...slot.ownedZoid,
       rebornBonusPercent: (slot.ownedZoid.rebornBonusPercent ?? 0) + REBORN_ATTACK_BONUS_PERCENT,
+      rebornCount: (slot.ownedZoid.rebornCount ?? 0) + 1,
       experience: 0,
     };
     setParty((prev) => ({
