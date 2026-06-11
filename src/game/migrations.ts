@@ -8,6 +8,20 @@ export type MigrationData = Partial<SaveData> & Record<string, unknown>;
 type MigrationFn = (data: MigrationData) => void;
 
 const migrations: Record<string, MigrationFn> = {
+  '0.5.0': (data) => {
+    const campaign = data.campaigns?.['shells_of_time'];
+    if (!campaign) {return;}
+    const missions = CAMPAIGNS.shells_of_time.missions;
+    const targetIndex = missions.findIndex((m) => m.id === 'duel_gale_evolved');
+    const currentIndex = missions.findIndex((m) => m.id === campaign.currentMission);
+    const pastTarget = campaign.status === 'completed' || currentIndex > targetIndex;
+    if (pastTarget) {
+      const stats = data.playerStats as Record<string, unknown> | undefined;
+      if (stats) {
+        stats.evolvingEnabled = true;
+      }
+    }
+  },
   '0.4.9': (data) => {
     const zoids = data.party?.zoids as OwnedZoid[] | undefined;
     if (!zoids) {return;}

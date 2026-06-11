@@ -124,6 +124,14 @@ body {
   color: #f44;
 }
 
+.popup-evolution {
+  border-color: #4caf50;
+}
+
+.popup-evolution h2 {
+  color: #4caf50;
+}
+
 .popup-faction {
   border-color: var(--theme-accent);
 }

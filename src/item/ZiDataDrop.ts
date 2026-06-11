@@ -24,7 +24,7 @@ export class ZiDataDrop extends Drop {
     const image = `images/zoids/${this.zoidId}.png`;
     incrementZoidData(this.zoidId);
     updateZoidResearch(this.zoidId, ZoidResearchStatus.Scanned);
-    const name = `${this.zoidId} Zi-Data`;
+    const name = `${t(`zoids:${this.zoidId}`)} Zi-Data`;
     showPopup(new PopupMessage(name, t('ui:enemy_drop'), PopupType.Item, image));
     if (isNew) {
       showPopup(new PopupMessage(name, t('ui:new_zdata'), PopupType.Item, image));
