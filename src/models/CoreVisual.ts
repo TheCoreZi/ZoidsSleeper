@@ -16,6 +16,7 @@ const CORE_SIZE_PX: Record<ZoidSize, number> = {
   [ZoidSize.M]: 48,
   [ZoidSize.S]: 40,
   [ZoidSize.XS]: 32,
+  [ZoidSize.XXS]: 24,
 };
 
 const CORE_COLORS: Record<Faction, string> = {

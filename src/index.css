@@ -124,6 +124,33 @@ body {
   color: #f44;
 }
 
+.popup-evolution {
+  border-color: #4caf50;
+}
+
+.popup-evolution h2 {
+  color: #4caf50;
+}
+
+.popup-evolution-img-wrapper {
+  align-items: center;
+  display: flex;
+  flex-shrink: 0;
+  height: 56px;
+  justify-content: center;
+  position: relative;
+  width: 56px;
+}
+
+.popup-evolution-overlay {
+  height: 100%;
+  left: 0;
+  object-fit: contain;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
 .popup-faction {
   border-color: var(--theme-accent);
 }
@@ -161,6 +188,11 @@ body {
   image-rendering: pixelated;
   object-fit: contain;
   width: 40px;
+}
+
+.popup-evolution-img-wrapper .popup-message-img {
+  height: 28px;
+  width: 28px;
 }
 
 .popup-message p {

@@ -16,7 +16,8 @@ import { DungeonPhase, dungeonPhase, isDungeonActive } from './dungeon/dungeonSt
 import { Game } from './game/Game';
 import { t } from './i18n';
 import WorldMap from './map/WorldMap';
-import { PopupMessage, PopupType } from './models/PopupMessage';
+import { EvolutionPopupImage, PopupMessage, PopupType } from './models/PopupMessage';
+import EvolutionPopupImageView from './ui/EvolutionPopupImageView';
 import {
   activeDialog,
   activeLab,
@@ -272,12 +273,11 @@ const App: Component = () => {
       <Show when={popupMessage()} keyed>
         {(popup) => (
           <div class={`popup-message popup-${popup.type}`}>
-            <Show when={popup.image}>
-              <img
-                class="popup-message-img"
-                src={popup.image}
-                alt=""
-              />
+            <Show when={popup.image} keyed>
+              {(img) => img instanceof EvolutionPopupImage
+                ? <EvolutionPopupImageView image={img} />
+                : <img class="popup-message-img" src={img.src} alt="" />
+              }
             </Show>
             <div>
               <h2>{popup.title}</h2>

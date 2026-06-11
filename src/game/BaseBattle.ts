@@ -1,7 +1,9 @@
 import { BATTLE_TICK, CLICK_COOLDOWN, ORGANOID_ACTIVATION_THRESHOLD, ORGANOID_ANIMATION_DURATION, TICK_TIME } from '../constants';
 import { awardExperience, calculateExperienceGain } from '../models/Experience';
 import type { Organoid } from '../models/Organoid';
-import { getOwnedZoidLevel, getZoidById, type SpawnedZoid, ZoidResearchStatus } from '../models/Zoid';
+import { EvolutionPopupImage, PopupMessage, PopupType } from '../models/PopupMessage';
+import { computeOwnedZoidStats, getOwnedZoidLevel, getZoidById, getZoidImage, type OwnedZoid, type SpawnedZoid, ZoidResearchStatus } from '../models/Zoid';
+import { t } from '../i18n';
 import {
   damageEvents,
   type DamageSource,
@@ -11,8 +13,10 @@ import {
   setOrganoidAnimating,
   setDamageEvents,
   setPlayerDamageEvents,
+  showPopup,
 } from '../store/gameStore';
-import { party, partyAttack, partyMaxHealth, setParty } from '../store/partyStore';
+import { isSpeciesInTank } from '../store/nurturingStore';
+import { addZoidToArmy, party, partyAttack, partyMaxHealth, setParty } from '../store/partyStore';
 import { getActiveDeviceId, getActiveScanMode, scanNewOnly, ScanMode } from '../store/scanStore';
 import { getZoidDataCount } from '../store/zoidDataStore';
 import { getZoidResearch } from '../store/zoidResearchStore';
@@ -109,10 +113,38 @@ export abstract class BaseBattle {
     const xpGain = calculateExperienceGain(enemyData.baseExp, this.enemy.level, this.isPilotBattle);
     const previousLevels = party().zoids.map((z) => getOwnedZoidLevel(z));
     setParty((prev) => ({ ...prev, zoids: awardExperience(prev.zoids, xpGain) }));
-    const totalGained = party().zoids.reduce((sum, z, i) =>
+    const currentParty = party();
+    const leveledUpZoids = currentParty.zoids.filter((z, i) => getOwnedZoidLevel(z) > previousLevels[i]);
+    const totalGained = currentParty.zoids.reduce((sum, z, i) =>
       sum + Math.floor(getOwnedZoidLevel(z) / 10) - Math.floor(previousLevels[i] / 10), 0);
     if (totalGained > 0) {
       incrementClickAttack(totalGained);
+    }
+    if (leveledUpZoids.length > 0) {
+      this.checkEvolutions(leveledUpZoids, currentParty.zoids);
+    }
+  }
+
+  private checkEvolutions(leveledUpZoids: OwnedZoid[], allZoids: OwnedZoid[]): void {
+    const stats = playerStats();
+    if (!stats?.evolvingEnabled) {return;}
+    for (const owned of leveledUpZoids) {
+      const species = getZoidById(owned.id);
+      if (!species.evolution) {continue;}
+      const { targetId } = species.evolution;
+      if (allZoids.some((z) => z.id === targetId) || isSpeciesInTank(targetId)) {continue;}
+
+      if (species.evolution.isFulfilled(computeOwnedZoidStats(owned, stats.faction))) {
+        addZoidToArmy(targetId);
+        const targetName = getZoidById(targetId).name;
+        showPopup(new PopupMessage(
+          t('ui:evolution_message', { source: species.name, target: targetName }),
+          t('ui:evolution_title'),
+          PopupType.Evolution,
+          new EvolutionPopupImage(getZoidImage(owned.id), getZoidImage(targetId))
+        ));
+        showPopup(new PopupMessage(targetName, t('ui:new_zoid'), PopupType.Item, getZoidImage(targetId)));
+      }
     }
   }
 

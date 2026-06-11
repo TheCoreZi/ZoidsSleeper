@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { Faction } from './Faction';
 import { TerrainType } from './Terrain';
-import { calculatePartyAttack, type OwnedZoid } from './Zoid';
+import { calculatePartyAttack, getZoidById, type OwnedZoid, ZOID_LIST } from './Zoid';
 
 describe('calculatePartyAttack', () => {
   const landZoid: OwnedZoid = { id: 'shield_liger', experience: 1000 };
@@ -30,5 +30,20 @@ describe('calculatePartyAttack', () => {
     const defaultAttack = calculatePartyAttack([landZoid], Faction.Neutral);
     const landAttack = calculatePartyAttack([landZoid], Faction.Neutral, TerrainType.Land);
     expect(defaultAttack).toBe(landAttack);
+  });
+});
+
+describe('evolution targets in ZOID_LIST', () => {
+  it('all evolution targets reference valid species', () => {
+    for (const species of Object.values(ZOID_LIST)) {
+      if (species.evolution) {
+        expect(() => getZoidById(species.evolution!.targetId)).not.toThrow();
+      }
+    }
+  });
+
+  it('has exactly 6 species with evolution rules', () => {
+    const withEvolution = Object.values(ZOID_LIST).filter((s) => s.evolution);
+    expect(withEvolution).toHaveLength(6);
   });
 });
