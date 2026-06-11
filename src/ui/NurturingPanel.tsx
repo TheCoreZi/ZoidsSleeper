@@ -1,7 +1,8 @@
 import { type Component, createMemo, createSignal, For, Show } from 'solid-js';
 import { t } from '../i18n';
-import { CoreType, resolveTypedCore } from '../item/ZoidCore';
+import { CORE_EMERGE_POOLS, type CoreTypeData, CoreType, resolveTypedCore } from '../item/ZoidCore';
 import { getOwnedZoidLevel, getZoidImage, ZOID_LIST, ZoidResearchStatus } from '../models/Zoid';
+import { getZoidResearch } from '../store/zoidResearchStore';
 import { playerStats } from '../store/gameStore';
 import { completeSlot, getAvailableSlotCount, placeCore, placeReborn, tankSlots } from '../store/nurturingStore';
 import { party } from '../store/partyStore';
@@ -20,6 +21,7 @@ type PickerTabType = typeof PickerTab[keyof typeof PickerTab];
 const NurturingPanel: Component = () => {
   const [showPicker, setShowPicker] = createSignal(false);
   const [pickerTab, setPickerTab] = createSignal<PickerTabType>(PickerTab.Zoids);
+  const [selectedCoreId, setSelectedCoreId] = createSignal<string | null>(null);
 
   const emptySlotCount = () => Math.max(0, (playerStats()?.nurturingSlots ?? 1) - tankSlots().length);
 
@@ -35,6 +37,39 @@ const NurturingPanel: Component = () => {
         return { count, id, image, name, zoidSpeciesId };
       })
       .filter((c) => c.zoidSpeciesId !== null);
+  });
+
+  function isRevealed(zoidId: string): boolean {
+    const status = getZoidResearch(zoidId);
+    return status === ZoidResearchStatus.Scanned || status === ZoidResearchStatus.Created;
+  }
+
+  function getEligiblePool(coreId: string): { zoidSpeciesId: string }[] {
+    const poolData = (CORE_EMERGE_POOLS as Record<string, CoreTypeData | undefined>)[coreId];
+    if (poolData) {
+      return poolData.pool.filter((e) => !e.requirement || e.requirement.isCompleted());
+    }
+    if (ZOID_LIST[coreId]) {
+      return [{ zoidSpeciesId: coreId }];
+    }
+    return [];
+  }
+
+  const selectedCorePool = createMemo(() => {
+    const coreId = selectedCoreId();
+    if (!coreId) {
+      return null;
+    }
+    const entries = getEligiblePool(coreId);
+    if (entries.length === 0) {
+      return null;
+    }
+    const chance = Math.round(10000 / entries.length) / 100;
+    return entries.map(({ zoidSpeciesId }) => ({
+      chance,
+      image: isRevealed(zoidSpeciesId) ? getZoidImage(zoidSpeciesId) : null,
+      name: isRevealed(zoidSpeciesId) ? (ZOID_LIST[zoidSpeciesId]?.name ?? zoidSpeciesId) : '???',
+    }));
   });
 
   const rebornCandidates = createMemo(() =>
@@ -137,20 +172,58 @@ const NurturingPanel: Component = () => {
               <Show when={availableCores().length > 0} fallback={
                 <p class="nurturing-empty">{t('ui:cores_empty')}</p>
               }>
-                <div class="nurturing-available-grid">
-                  <For each={availableCores()}>
-                    {(core) => (
-                      <button
-                        class="nurturing-core-card"
-                        disabled={getAvailableSlotCount() <= 0}
-                        onClick={() => handlePlaceCore(core.id, core.zoidSpeciesId!)}
-                      >
-                        <img class="nurturing-core-image" src={core.image} alt={core.name} />
-                        <span class="nurturing-core-name">{core.name}</span>
-                        <span class="supplies-item-count">×{core.count}</span>
-                      </button>
-                    )}
-                  </For>
+                <div class="nurturing-cores-layout">
+                  <div class="nurturing-cores-grid-wrapper">
+                    <div class="nurturing-available-grid">
+                      <For each={availableCores()}>
+                        {(core) => (
+                          <button
+                            class={`nurturing-core-card ${selectedCoreId() === core.id ? 'nurturing-core-card--selected' : ''}`}
+                            onClick={() => setSelectedCoreId((prev) => prev === core.id ? null : core.id)}
+                          >
+                            <img class="nurturing-core-image" src={core.image} alt={core.name} />
+                            <span class="nurturing-core-name">{core.name}</span>
+                            <span class="supplies-item-count">×{core.count}</span>
+                          </button>
+                        )}
+                      </For>
+                    </div>
+                  </div>
+                  <div class={`nurturing-pool-table ${selectedCorePool() ? '' : 'nurturing-pool-table--hidden'}`}>
+                    <Show when={availableCores().find((c) => c.id === selectedCoreId())}>
+                      {(core) => (
+                        <>
+                          <div class="nurturing-pool-core-header">
+                            <img class="nurturing-pool-core-image" src={core().image} alt={core().name} />
+                            <span class="nurturing-pool-core-name">{core().name}</span>
+                          </div>
+                          <span class="nurturing-pool-title">{t('ui:core_pool')}</span>
+                          <table class="nurturing-pool-entries">
+                            <For each={selectedCorePool()!}>
+                              {(entry) => (
+                                <tr class="nurturing-pool-row">
+                                  <td>
+                                    {entry.image
+                                      ? <img class="nurturing-pool-zoid-image" src={entry.image} alt={entry.name} />
+                                      : <div class="nurturing-pool-zoid-unknown" />}
+                                  </td>
+                                  <td class="nurturing-pool-zoid-name">{entry.name}</td>
+                                  <td class="nurturing-pool-chance">{entry.chance}%</td>
+                                </tr>
+                              )}
+                            </For>
+                          </table>
+                          <button
+                            class="nurturing-pool-place-btn"
+                            disabled={getAvailableSlotCount() <= 0}
+                            onClick={() => handlePlaceCore(core().id, core().zoidSpeciesId!)}
+                          >
+                            {t('ui:nurturing_place_core')}
+                          </button>
+                        </>
+                      )}
+                    </Show>
+                  </div>
                 </div>
               </Show>
             </Show>

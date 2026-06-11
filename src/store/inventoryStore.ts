@@ -1,11 +1,11 @@
 import { createSignal } from 'solid-js';
 import { t } from '../i18n';
-import { type ConsumableItem, ItemType } from '../item';
+import { type ConsumableItem, CoreItem, ItemType } from '../item';
 import { ITEMS } from '../item';
-import { Currency } from '../models/Currency';
 import { PopupMessage, PopupType } from '../models/PopupMessage';
 import { showPopup } from './gameStore';
 import { addCurrency, getCurrency } from './walletStore';
+import { addTypedCore } from './zoidCoreStore';
 
 const [inventory, setInventory] = createSignal<Record<string, number>>({});
 
@@ -14,12 +14,17 @@ function buyItem(itemId: string, amount: number): boolean {
   if (!item || item.type !== ItemType.Consumable) {
     return false;
   }
-  const total = (item as ConsumableItem).price * amount;
-  if (getCurrency(Currency.Magnis) < total) {
+  const consumable = item as ConsumableItem;
+  const total = consumable.price * amount;
+  if (getCurrency(consumable.currency) < total) {
     return false;
   }
-  addCurrency(Currency.Magnis, -total);
-  addItem(itemId, amount);
+  addCurrency(consumable.currency, -total);
+  if (consumable instanceof CoreItem) {
+    addTypedCore(consumable.coreType, amount);
+  } else {
+    addItem(itemId, amount);
+  }
   return true;
 }
 

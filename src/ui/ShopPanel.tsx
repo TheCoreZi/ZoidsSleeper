@@ -1,7 +1,6 @@
 import { type Component, createSignal, For } from 'solid-js';
 import { t } from '../i18n';
 import type { ConsumableItem } from '../item';
-import { Currency } from '../models/Currency';
 import { getCurrency } from '../store/walletStore';
 import './shop.css';
 
@@ -15,16 +14,20 @@ interface ShopPanelProps {
   shop: ShopData;
 }
 
+function currencyIcon(currency: string): string {
+  return `images/items/${currency}.png`;
+}
+
 const ShopPanel: Component<ShopPanelProps> = (props) => {
   const [selectedIndex, setSelectedIndex] = createSignal(0);
   const [amount, setAmount] = createSignal(1);
 
   const selectedItem = () => props.shop.items[selectedIndex()];
   const totalPrice = () => selectedItem().price * amount();
-  const canAfford = () => getCurrency(Currency.Magnis) >= totalPrice();
+  const canAfford = () => getCurrency(selectedItem().currency) >= totalPrice();
   const maxAffordable = () => {
     const price = selectedItem().price;
-    return price > 0 ? Math.floor(getCurrency(Currency.Magnis) / price) : 0;
+    return price > 0 ? Math.floor(getCurrency(selectedItem().currency) / price) : 0;
   };
 
   function buy(): void {
@@ -41,8 +44,8 @@ const ShopPanel: Component<ShopPanelProps> = (props) => {
           <button class="shop-close" onClick={() => props.onClose()}>✕</button>
         </div>
         <div class="shop-wallet">
-          <img class="shop-wallet-icon" src="images/items/magnis.png" alt="Magnis" />
-          <span class="shop-wallet-amount">{getCurrency(Currency.Magnis).toLocaleString()}</span>
+          <img class="shop-wallet-icon" src={currencyIcon(selectedItem().currency)} alt={t(`ui:${selectedItem().currency}`)} />
+          <span class="shop-wallet-amount">{getCurrency(selectedItem().currency).toLocaleString()}</span>
         </div>
         <div class="shop-items">
           <For each={props.shop.items}>
@@ -51,13 +54,13 @@ const ShopPanel: Component<ShopPanelProps> = (props) => {
                 class={`shop-item ${selectedIndex() === index() ? 'shop-item-selected' : ''}`}
                 onClick={() => { setSelectedIndex(index()); setAmount(1); }}
               >
-                <img class="shop-item-icon" src={`images/items/${item.id}.png`} alt={t(`items:${item.id}.name`)} />
+                <img class="shop-item-icon" src={item.getImage()} alt={t(`items:${item.id}.name`)} />
                 <div class="shop-item-info">
                   <span class="shop-item-name">{t(`items:${item.id}.name`)}</span>
                   <span class="shop-item-desc">{t(`items:${item.id}.description`)}</span>
                 </div>
                 <div class="shop-item-price">
-                  <img class="shop-price-icon" src="images/items/magnis.png" alt="" />
+                  <img class="shop-price-icon" src={currencyIcon(item.currency)} alt="" />
                   <span>{item.price.toLocaleString()}</span>
                 </div>
               </button>
@@ -74,7 +77,7 @@ const ShopPanel: Component<ShopPanelProps> = (props) => {
           </div>
           <div class="shop-total-row">
             <span class="shop-total-label">{t('ui:total')}:</span>
-            <img class="shop-price-icon" src="images/items/magnis.png" alt="" />
+            <img class="shop-price-icon" src={currencyIcon(selectedItem().currency)} alt="" />
             <span class={`shop-total-value ${canAfford() ? '' : 'shop-no-funds'}`}>
               {totalPrice().toLocaleString()}
             </span>

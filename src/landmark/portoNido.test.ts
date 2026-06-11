@@ -84,7 +84,7 @@ describe('Chimera Island', () => {
     expect(city).toBeDefined();
     expect(city!.type).toBe(LandmarkType.City);
     expect(city!.actions).toBeDefined();
-    expect(city!.actions!.length).toBe(11);
+    expect(city!.actions!.length).toBe(12);
   });
 });
 

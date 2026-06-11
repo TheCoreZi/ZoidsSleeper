@@ -3,7 +3,7 @@ import type { Requirement } from '../requirement/Requirement';
 export const CoreProgress = { Dormant: 'dormant', Growing: 'growing', Ready: 'ready' } as const;
 export type CoreProgress = (typeof CoreProgress)[keyof typeof CoreProgress];
 
-export const CoreType = { MiniCore: 'mini_core' } as const;
+export const CoreType = { MiniCore: 'mini_core', ProtoCore: 'proto_core' } as const;
 export type CoreType = (typeof CoreType)[keyof typeof CoreType];
 
 export interface CorePoolEntry {
@@ -28,6 +28,14 @@ export const CORE_EMERGE_POOLS: Record<CoreType, CoreTypeData> = {
     nameKey: 'items:core_mini_core.name',
     pool: [
       { zoidSpeciesId: 'dragon_horse' },
+    ],
+  },
+  [CoreType.ProtoCore]: {
+    nameKey: 'items:core_proto_core.name',
+    pool: [
+      { zoidSpeciesId: 'elephantus' },
+      { zoidSpeciesId: 'garius' },
+      { zoidSpeciesId: 'glidoler' },
     ],
   },
 };
