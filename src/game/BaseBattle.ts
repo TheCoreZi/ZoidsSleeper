@@ -1,7 +1,7 @@
 import { BATTLE_TICK, CLICK_COOLDOWN, ORGANOID_ACTIVATION_THRESHOLD, ORGANOID_ANIMATION_DURATION, TICK_TIME } from '../constants';
 import { awardExperience, calculateExperienceGain } from '../models/Experience';
 import type { Organoid } from '../models/Organoid';
-import { PopupMessage, PopupType } from '../models/PopupMessage';
+import { EvolutionPopupImage, PopupMessage, PopupType } from '../models/PopupMessage';
 import { computeOwnedZoidStats, getOwnedZoidLevel, getZoidById, getZoidImage, type OwnedZoid, type SpawnedZoid, ZoidResearchStatus } from '../models/Zoid';
 import { t } from '../i18n';
 import {
@@ -141,8 +141,9 @@ export abstract class BaseBattle {
           t('ui:evolution_message', { source: species.name, target: targetName }),
           t('ui:evolution_title'),
           PopupType.Evolution,
-          getZoidImage(targetId)
+          new EvolutionPopupImage(getZoidImage(owned.id), getZoidImage(targetId))
         ));
+        showPopup(new PopupMessage(targetName, t('ui:new_zoid'), PopupType.Item, getZoidImage(targetId)));
       }
     }
   }
