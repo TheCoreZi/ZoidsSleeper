@@ -26,8 +26,8 @@ describe('checkCampaigns', () => {
     expect(campaignStates()['auto_start']?.status).toBe(CampaignStatus.Started);
   });
 
-  it('auto-starts devOnly campaigns in dev mode', () => {
-    const campaign = stubCampaign({ devOnly: true, id: 'dev_campaign' });
+  it('auto-starts feature-flagged campaigns in dev mode', () => {
+    const campaign = stubCampaign({ featureFlag: { isEnabled: () => true }, id: 'dev_campaign' });
     loadCampaigns({ dev_campaign: campaign }, {});
 
     checkCampaigns();

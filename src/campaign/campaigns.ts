@@ -1,3 +1,4 @@
+import { FEATURE_FLAGS } from '../featureFlag';
 import { Faction } from '../models/Faction';
 import { AllOfRequirement, ArmySizeRequirement, CampaignCompletedRequirement, ComparisonCondition, CoreNurturedRequirement, DungeonCompletionRequirement, FactionRequirement, ImpossibleRequirement, ItemRequirement, MissionCompletedRequirement, NpcTalkedInCampaignRequirement, PilotDefeatRequirement, RouteKillRequirement, SpeciesDefeatRequirement, SpeciesZiDataRequirement, WildDefeatRequirement, ZiDataRequirement, ZoidCreatedRequirement } from '../requirement';
 import { CUTSCENES } from '../cutscene';
@@ -26,7 +27,7 @@ export const CAMPAIGNS: Record<string, Campaign> = {
   },
   shells_of_time: {
     autoStart: true,
-    devOnly: true,
+    featureFlag: FEATURE_FLAGS.SHELLS_OF_TIME,
     id: 'shells_of_time',
     missions: [
       { id: 'head_to_porto_nido', goals: [new NpcTalkedInCampaignRequirement('shells_of_time', 'arcadia_guard')] },

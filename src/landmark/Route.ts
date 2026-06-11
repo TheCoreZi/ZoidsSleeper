@@ -1,3 +1,4 @@
+import { FEATURE_FLAGS } from '../featureFlag';
 import type { Drop } from '../item/Drop';
 import type { Requirement } from '../requirement';
 import { CampaignCompletedRequirement, CampaignStartedRequirement, DungeonCompletionRequirement, MissionCompletedRequirement, OwnZoidForTerrainRequirement, ZoidCreatedRequirement } from '../requirement';
@@ -46,7 +47,7 @@ export const ROUTES: Route[] = [
     baseReward: { magnis: 220, zi_metal: 45 },
     battleBackground: BattleBackground.Water,
     connects: ['porto_nido', 'chimera_island'],
-    devOnly: true,
+    featureFlag: FEATURE_FLAGS.SHELLS_OF_TIME,
     enemies: [
       { blueprint: { id: 'aquadon', level: 35 } },
       { blueprint: { id: 'barigator', level: 38 }, probability: .05 },
@@ -144,7 +145,7 @@ export const ROUTES: Route[] = [
       { blueprint: { id: 'molga', level: 25 } },
       { blueprint: { id: 'malder', level: 24 } },
     ],
-    devOnly: true,
+    featureFlag: FEATURE_FLAGS.SHELLS_OF_TIME,
     fragmentYield: 2,
     id: 'tauros_edge',
     name: 'Tauros Edge',
@@ -156,7 +157,7 @@ export const ROUTES: Route[] = [
     baseReward: { magnis: 200, zi_metal: 40 },
     battleBackground: BattleBackground.Ruin,
     connects: ['porto_nido', 'sommerso_ruins'],
-    devOnly: true,
+    featureFlag: FEATURE_FLAGS.SHELLS_OF_TIME,
     enemies: [
       { blueprint: { id: 'giraffsworder', level: 30 } },
       { blueprint: { id: 'gunbeetle', level: 32 } },
@@ -181,7 +182,7 @@ export const ROUTES: Route[] = [
       { blueprint: { id: 'zatton', level: 26 } },
       { blueprint: { id: 'gator', level: 28 } },
     ],
-    devOnly: true,
+    featureFlag: FEATURE_FLAGS.SHELLS_OF_TIME,
     fragmentYield: 3,
     id: 'south_coast',
     name: 'South Coast',
@@ -193,7 +194,7 @@ export const ROUTES: Route[] = [
     baseReward: { magnis: 350, zi_metal: 55 },
     battleBackground: BattleBackground.Desert,
     connects: ['porto_nido', 'desert_gorge'],
-    devOnly: true,
+    featureFlag: FEATURE_FLAGS.SHELLS_OF_TIME,
     enemies: [
       { blueprint: { id: 'saradin', level: 40 } },
       { blueprint: { id: 'malder', level: 48 } },
@@ -213,7 +214,7 @@ export const ROUTES: Route[] = [
     baseReward: { magnis: 300, zi_metal: 50 },
     battleBackground: BattleBackground.Desert,
     connects: ['desert_gorge', 'arcobaleno_camp'],
-    devOnly: true,
+    featureFlag: FEATURE_FLAGS.SHELLS_OF_TIME,
     enemies: [
       { blueprint: { id: 'geruder', level: 45 }, probability: .005 },
       { blueprint: { id: 'stealth_viper', level: 42 } },
