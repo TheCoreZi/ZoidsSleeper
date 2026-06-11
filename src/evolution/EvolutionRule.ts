@@ -1,3 +1,5 @@
+import { t } from '../i18n';
+
 export interface OwnedZoidStats {
   attack: number;
   health: number;
@@ -6,6 +8,7 @@ export interface OwnedZoidStats {
 
 export interface EvolutionRule {
   targetId: string;
+  hint(): string;
   isFulfilled(stats: OwnedZoidStats): boolean;
 }
 
@@ -16,6 +19,10 @@ export class AttackEvolution implements EvolutionRule {
   constructor(targetId: string, threshold: number) {
     this.targetId = targetId;
     this.threshold = threshold;
+  }
+
+  hint(): string {
+    return t('ui:evo_condition_atk', { atk: this.threshold });
   }
 
   isFulfilled(stats: OwnedZoidStats): boolean {
@@ -32,6 +39,10 @@ export class CompoundEvolution implements EvolutionRule {
     this.conditions = conditions;
   }
 
+  hint(): string {
+    return this.conditions.map((c) => c.hint()).join('\n');
+  }
+
   isFulfilled(stats: OwnedZoidStats): boolean {
     return this.conditions.every((c) => c.isFulfilled(stats));
   }
@@ -46,6 +57,10 @@ export class HealthEvolution implements EvolutionRule {
     this.threshold = threshold;
   }
 
+  hint(): string {
+    return t('ui:evo_condition_hp', { hp: this.threshold });
+  }
+
   isFulfilled(stats: OwnedZoidStats): boolean {
     return stats.health >= this.threshold;
   }
@@ -58,6 +73,10 @@ export class LevelEvolution implements EvolutionRule {
   constructor(targetId: string, threshold: number) {
     this.targetId = targetId;
     this.threshold = threshold;
+  }
+
+  hint(): string {
+    return t('ui:evo_condition_level', { level: this.threshold });
   }
 
   isFulfilled(stats: OwnedZoidStats): boolean {

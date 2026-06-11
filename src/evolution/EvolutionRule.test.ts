@@ -1,5 +1,12 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { AttackEvolution, CompoundEvolution, HealthEvolution, LevelEvolution } from './EvolutionRule';
+
+vi.mock('../i18n', () => ({
+  t: (key: string, opts?: Record<string, number | string>) => {
+    const params = opts ? Object.entries(opts).map(([k, v]) => `${k}=${v}`).join(',') : '';
+    return params ? `${key}(${params})` : key;
+  },
+}));
 
 describe('LevelEvolution', () => {
   const rule = new LevelEvolution('godos', 50);
@@ -20,6 +27,10 @@ describe('LevelEvolution', () => {
   it('is not fulfilled when level is below threshold', () => {
     expect(rule.isFulfilled({ attack: 0, health: 0, level: 49 })).toBe(false);
   });
+
+  it('returns hint with level threshold', () => {
+    expect(rule.hint()).toBe('ui:evo_condition_level(level=50)');
+  });
 });
 
 describe('HealthEvolution', () => {
@@ -37,6 +48,10 @@ describe('HealthEvolution', () => {
   it('is not fulfilled when health is below threshold', () => {
     expect(rule.isFulfilled({ attack: 0, health: 999, level: 0 })).toBe(false);
   });
+
+  it('returns hint with hp threshold', () => {
+    expect(rule.hint()).toBe('ui:evo_condition_hp(hp=1000)');
+  });
 });
 
 describe('AttackEvolution', () => {
@@ -53,6 +68,10 @@ describe('AttackEvolution', () => {
 
   it('is not fulfilled when attack is below threshold', () => {
     expect(rule.isFulfilled({ attack: 99, health: 0, level: 0 })).toBe(false);
+  });
+
+  it('returns hint with atk threshold', () => {
+    expect(rule.hint()).toBe('ui:evo_condition_atk(atk=100)');
   });
 });
 
@@ -76,5 +95,9 @@ describe('CompoundEvolution', () => {
 
   it('is not fulfilled when health condition fails', () => {
     expect(rule.isFulfilled({ attack: 0, health: 499, level: 50 })).toBe(false);
+  });
+
+  it('returns joined hints from all conditions', () => {
+    expect(rule.hint()).toBe('ui:evo_condition_level(level=50)\nui:evo_condition_hp(hp=500)');
   });
 });

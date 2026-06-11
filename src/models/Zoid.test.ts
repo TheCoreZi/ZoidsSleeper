@@ -42,8 +42,8 @@ describe('evolution targets in ZOID_LIST', () => {
     }
   });
 
-  it('has exactly 6 species with evolution rules', () => {
+  it('has exactly 7 species with evolution rules', () => {
     const withEvolution = Object.values(ZOID_LIST).filter((s) => s.evolution);
-    expect(withEvolution).toHaveLength(6);
+    expect(withEvolution).toHaveLength(7);
   });
 });
