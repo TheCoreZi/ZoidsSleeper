@@ -1,4 +1,6 @@
 export { ConsumableItem } from './ConsumableItem';
+export { CoreItem } from './CoreItem';
+export { CORES } from './cores';
 export { Drop, DropType } from './Drop';
 export { ImportantItem } from './ImportantItem';
 export type { ItemDefinition } from './Item';

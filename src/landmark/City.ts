@@ -68,6 +68,7 @@ export const CITIES: City[] = [
       new ActionTalkToNPC('unia_corin', [new MissionCompletedRequirement(S, 'unia_trials_accepted')], [new MissionCompletedRequirement(S, 'sanctuary_secrets')], typedZoidCoreReward(CoreType.MiniCore)),
       new ActionTalkToNPC('unia_corin', [new MissionCompletedRequirement(S, 'sanctuary_secrets')], [new MissionCompletedRequirement(S, 'visit_father')]),
       new ActionTalkToNPC('unia_corin', [new MissionCompletedRequirement(S, 'duel_gale_evolved')], [new MissionCompletedRequirement(S, 'talk_to_unia_aftermath')]),
+      new ActionVisitDepot([ITEMS.core_proto_core as ConsumableItem], [new MissionCompletedRequirement(S, 'sanctuary_secrets')], 'ui:visit_sanctuary_vault'),
     ],
     battleBackground: BattleBackground.Water,
     devOnly: true,

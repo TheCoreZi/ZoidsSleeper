@@ -6,6 +6,10 @@
   "core_mini_core": {
     "name": "Mini Core"
   },
+  "core_proto_core": {
+    "description": "Un core frágil de uno de los primeros prototipos de Zoid. Antiguo e inestable, conserva rastros de formas de vida primitivas olvidadas hace mucho.",
+    "name": "Proto Core"
+  },
   "core_analyzer": {
     "description": "Un dispositivo usado para obtener información estructural de los Zoid Cores",
     "name": "Analizador de Cores"

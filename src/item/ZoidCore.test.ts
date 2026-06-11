@@ -56,6 +56,18 @@ describe('resolveTypedCore', () => {
     expect(result).toBe('redler');
   });
 
+  it('resolves ProtoCore to one of its pool species', () => {
+    const result0 = resolveTypedCore(CoreType.ProtoCore, () => 0);
+    expect(result0).toBe('elephantus');
+
+    const result1 = resolveTypedCore(CoreType.ProtoCore, () => 0.99);
+    expect(result1).toBe('glidoler');
+  });
+
+  it('ProtoCore pool contains exactly three species', () => {
+    expect(CORE_EMERGE_POOLS[CoreType.ProtoCore].pool).toHaveLength(3);
+  });
+
   it('returns null when all requirements are unmet', () => {
     const unmetRequirement: Requirement = {
       hint: () => '',
