@@ -4,7 +4,8 @@ import { CoreType } from '../item/ZoidCore';
 import { PILOTS } from '../models/Pilot';
 import { ANCIENT_TORTOISE_DUEL, BARRAGE_TORTOISE_DUEL } from '../models/StoryBlueprints';
 import { GALE_EW_CHAIN } from '../story/eventchains/galeEwChain';
-import { ArmySizeRequirement, COMPOUND_REQUIREMENTS, ComparisonCondition, DevRequirement, ImpossibleRequirement, ItemRequirement, MissionCompletedRequirement, NpcTalkedInCampaignRequirement, PilotDefeatRequirement, RouteKillRequirement, WildDefeatRequirement } from '../requirement';
+import { FEATURE_FLAGS } from '../featureFlag';
+import { ArmySizeRequirement, COMPOUND_REQUIREMENTS, ComparisonCondition, FeatureFlagRequirement, ImpossibleRequirement, ItemRequirement, MissionCompletedRequirement, NpcTalkedInCampaignRequirement, PilotDefeatRequirement, RouteKillRequirement, WildDefeatRequirement } from '../requirement';
 import { activateCityActionReward, compositeReward, cutsceneReward, itemReward, missionAdvanceReward, removeItemReward, removeZiDataReward, removeZoidReward, typedZoidCoreReward, zoidReward } from '../reward';
 import { ActionDuelPilot } from './action/ActionDuelPilot';
 import { ActionFightPilot } from './action/ActionFightPilot';
@@ -28,7 +29,7 @@ const S = 'shells_of_time';
 
 const AUTOMATIC_ACTIONS: Record<string, CityAction[]> = {
   arthur_talk_fight_decide: (() => {
-    const requirements = [new DevRequirement(), new MissionCompletedRequirement(C, 'deliver_girl')];
+    const requirements = [new FeatureFlagRequirement(FEATURE_FLAGS.SHELLS_OF_TIME), new MissionCompletedRequirement(C, 'deliver_girl')];
     const completeRequirements = [new PilotDefeatRequirement('arthur')];
     const hidden = [new ImpossibleRequirement()];
     const decision = new ActionTalkToNPC('arthur', [new PilotDefeatRequirement('arthur')]);
@@ -37,7 +38,7 @@ const AUTOMATIC_ACTIONS: Record<string, CityAction[]> = {
     return [intro, fight, decision];
   })(),
   concho_talk_fight_decide: (() => {
-    const requirements = [new DevRequirement(), new MissionCompletedRequirement(C, 'deliver_girl')];
+    const requirements = [new FeatureFlagRequirement(FEATURE_FLAGS.SHELLS_OF_TIME), new MissionCompletedRequirement(C, 'deliver_girl')];
     const completeRequirements = [new PilotDefeatRequirement('concho_cancer')];
     const hidden = [new ImpossibleRequirement()];
     const decision = new ActionTalkToNPC('concho_cancer', [new PilotDefeatRequirement('concho_cancer')]);
@@ -71,7 +72,7 @@ export const CITIES: City[] = [
       new ActionVisitDepot([ITEMS.core_proto_core as ConsumableItem], [new MissionCompletedRequirement(S, 'sanctuary_secrets')], 'ui:visit_sanctuary_vault'),
     ],
     battleBackground: BattleBackground.Water,
-    devOnly: true,
+    featureFlag: FEATURE_FLAGS.SHELLS_OF_TIME,
     id: 'chimera_island',
     mapPosition: { x: 23, y: 48 },
     name: 'Chimera Island',
@@ -147,7 +148,7 @@ export const CITIES: City[] = [
       new ActionDuelPilot(PILOTS['gale_task'], [new MissionCompletedRequirement(S, 'fight_opis_army')], [new PilotDefeatRequirement('gale_task', 2)], false, compositeReward(cutsceneReward('narration_gorge_retreat'), zoidReward('barrage_tortoise')), BARRAGE_TORTOISE_DUEL),
     ],
     battleBackground: BattleBackground.Desert,
-    devOnly: true,
+    featureFlag: FEATURE_FLAGS.SHELLS_OF_TIME,
     id: 'desert_gorge',
     mapPosition: { x: 30, y: 40 },
     name: 'Desert Gorge',
@@ -177,7 +178,7 @@ export const CITIES: City[] = [
       new ActionTalkToNPC('fisherman', [COMPOUND_REQUIREMENTS.fisherman_tutorial]),
     ],
     battleBackground: BattleBackground.Dirt,
-    devOnly: true,
+    featureFlag: FEATURE_FLAGS.SHELLS_OF_TIME,
     id: 'porto_nido',
     mapPosition: { x: 29, y: 49 },
     name: 'Porto Nido',

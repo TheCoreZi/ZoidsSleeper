@@ -21,7 +21,7 @@ const landmarkBackground = createMemo<string | undefined>(() => {
 });
 
 function isVisible(landmark: Landmark): boolean {
-  return !landmark.devOnly || import.meta.env.DEV;
+  return !landmark.featureFlag || landmark.featureFlag.isEnabled();
 }
 
 function citiesForRegion(region: Region): City[] {

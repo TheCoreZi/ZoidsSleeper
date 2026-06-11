@@ -7,7 +7,7 @@ export { CampaignStartedRequirement } from './CampaignStartedRequirement';
 export { ComparisonCondition, evaluateCondition } from './ComparisonCondition';
 export { CurrentMissionRequirement } from './CurrentMissionRequirement';
 export { DungeonCompletionRequirement } from './DungeonCompletionRequirement';
-export { DevRequirement } from './DevRequirement';
+export { FeatureFlagRequirement } from './FeatureFlagRequirement';
 export { FactionRequirement } from './FactionRequirement';
 export { COMPOUND_REQUIREMENTS } from './CompoundRequirements';
 export { ImpossibleRequirement } from './ImpossibleRequirement';

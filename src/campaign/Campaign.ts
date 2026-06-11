@@ -1,3 +1,4 @@
+import type { FeatureFlag } from '../featureFlag';
 import type { Requirement } from '../requirement';
 
 export const CampaignStatus = {
@@ -9,7 +10,7 @@ export const CampaignStatus = {
 export type CampaignStatus = typeof CampaignStatus[keyof typeof CampaignStatus];
 
 export interface Mission {
-  devOnly?: boolean;
+  featureFlag?: FeatureFlag;
   goals: Requirement[];
   id: string;
   onComplete?: () => void;
@@ -18,7 +19,7 @@ export interface Mission {
 
 export interface Campaign {
   autoStart?: boolean;
-  devOnly?: boolean;
+  featureFlag?: FeatureFlag;
   hidden?: boolean;
   id: string;
   missions: Mission[];

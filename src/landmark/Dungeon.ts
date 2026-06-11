@@ -1,4 +1,5 @@
 import { CAMPAIGNS } from '../campaign/campaigns';
+import { FEATURE_FLAGS } from '../featureFlag';
 import { DungeonSortieEvent } from '../dungeon/DungeonSortieEvent';
 import { DUNGEON_EVENTS } from '../dungeon/dungeonEvents';
 import { BossTier, PilotBossEntry, WildBossEntry } from '../dungeon/DungeonSortieConfig';
@@ -102,7 +103,7 @@ export const DUNGEONS: Dungeon[] = [
       }),
     ],
     battleBackground: BattleBackground.Rock,
-    devOnly: true,
+    featureFlag: FEATURE_FLAGS.SHELLS_OF_TIME,
     id: 'tauros_grotto',
     mapPosition: { x: 34, y: 44 },
     name: 'Tauros Grotto',
@@ -147,7 +148,7 @@ export const DUNGEONS: Dungeon[] = [
       ...STRAY_CHAIN_ACTIONS,
     ],
     battleBackground: BattleBackground.Ruin,
-    devOnly: true,
+    featureFlag: FEATURE_FLAGS.SHELLS_OF_TIME,
     id: 'sommerso_ruins',
     mapPosition: { x:33, y: 50 },
     name: 'Sommerso Ruins',

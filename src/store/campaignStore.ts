@@ -136,14 +136,10 @@ function forceSetMission(campaignId: string, missionId: string): void {
   }));
 }
 
-function isDevMode(): boolean {
-  return import.meta.env.DEV;
-}
-
 function advanceCompletedMissions(): void {
   const states = campaignStates();
   for (const campaign of Object.values(campaigns)) {
-    if (campaign.devOnly && !isDevMode()) {continue;}
+    if (campaign.featureFlag && !campaign.featureFlag.isEnabled()) {continue;}
 
     const state = states[campaign.id];
     if (!state || state.status !== CampaignStatus.Started) {continue;}
@@ -161,7 +157,7 @@ function advanceCompletedMissions(): void {
 function autoStartCampaigns(): void {
   const states = campaignStates();
   for (const campaign of Object.values(campaigns)) {
-    if (campaign.devOnly && !isDevMode()) {continue;}
+    if (campaign.featureFlag && !campaign.featureFlag.isEnabled()) {continue;}
 
     const state = states[campaign.id];
     if (!campaign.autoStart || (state && state.status !== CampaignStatus.Inactive)) {continue;}

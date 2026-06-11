@@ -1,3 +1,4 @@
+import type { FeatureFlag } from '../featureFlag';
 import type { Requirement } from '../requirement';
 import { RouteKillRequirement } from '../requirement';
 import { TerrainType } from '../models/Terrain';
@@ -23,7 +24,7 @@ export type LandmarkType = (typeof LandmarkType)[keyof typeof LandmarkType];
 
 export interface Landmark {
   battleBackground: BattleBackground;
-  devOnly?: boolean;
+  featureFlag?: FeatureFlag;
   id: string;
   name: string;
   requirements?: Requirement[];
