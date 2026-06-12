@@ -5,6 +5,7 @@ import type { LevelType } from './LevelType';
 import type { TerrainType } from './Terrain';
 
 export const ZoidSize = {
+  Transport: 'transport',
   Colossal: 'colossal',
   XL: 'xl',
   L: 'l',
