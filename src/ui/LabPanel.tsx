@@ -1,4 +1,4 @@
-import { type Component, createMemo, For, Show } from 'solid-js';
+import { type Component, createMemo, createSignal, For, Show } from 'solid-js';
 import { t } from '../i18n';
 import { Currency } from '../models/Currency';
 import { ZOID_LIST, ZoidResearchStatus } from '../models/Zoid';
@@ -8,8 +8,30 @@ import { isSpeciesInTank } from '../store/nurturingStore';
 import { party } from '../store/partyStore';
 import { getZoidDataCount } from '../store/zoidDataStore';
 import { getCurrency } from '../store/walletStore';
+import { formatStatLabel, SORT_CYCLE, type SortDirection, StatOption } from './StatSort';
+import StatSortBar from './StatSortBar';
 import { ArchiveCard } from './ZiArchivePanel';
 import './lab.css';
+
+const LAB_STAT_OPTIONS: StatOption[] = [
+  StatOption.Name, StatOption.BaseAttack, StatOption.BaseHp,
+];
+
+function labCompare(aId: string, bId: string, stat: StatOption): number {
+  if (stat === StatOption.Name) {
+    return ZOID_LIST[bId].name.localeCompare(ZOID_LIST[aId].name);
+  }
+  const aVal = stat === StatOption.BaseAttack ? ZOID_LIST[aId].attack : ZOID_LIST[aId].maxHealth;
+  const bVal = stat === StatOption.BaseAttack ? ZOID_LIST[bId].attack : ZOID_LIST[bId].maxHealth;
+  return aVal - bVal;
+}
+
+function getLabStatLabel(id: string, stat: StatOption): string | undefined {
+  const data = ZOID_LIST[id];
+  const value = stat === StatOption.BaseAttack ? data.attack : stat === StatOption.BaseHp ? data.maxHealth : null;
+  if (value === null) {return undefined;}
+  return formatStatLabel(stat, value.toLocaleString());
+}
 
 interface LabPanelProps {
   labId: string;
@@ -18,12 +40,20 @@ interface LabPanelProps {
 }
 
 const LabPanel: Component<LabPanelProps> = (props) => {
-  const availableZoids = createMemo(() =>
-    Object.keys(ZOID_LIST)
+  const [selectedStat, setSelectedStat] = createSignal<StatOption>(StatOption.Name);
+  const [sortDirection, setSortDirection] = createSignal<SortDirection>('desc');
+
+  const availableZoids = createMemo(() => {
+    const stat = selectedStat();
+    const dir = sortDirection();
+    return Object.keys(ZOID_LIST)
       .filter((id) => getZoidDataCount(id) > 0)
       .map((id) => ({ data: ZOID_LIST[id], id }))
-      .sort((a, b) => a.data.name.localeCompare(b.data.name))
-  );
+      .sort((a, b) => {
+        const cmp = labCompare(a.id, b.id, stat);
+        return dir === 'desc' ? -cmp : cmp;
+      });
+  });
 
   return (
     <div class="archive-overlay" onClick={() => props.onClose()}>
@@ -38,6 +68,13 @@ const LabPanel: Component<LabPanelProps> = (props) => {
             ✕
           </button>
         </div>
+        <StatSortBar
+          options={LAB_STAT_OPTIONS}
+          selectedStat={selectedStat}
+          onStatChange={(s) => { setSelectedStat(s); setSortDirection('desc'); }}
+          sortDirection={sortDirection}
+          onSortToggle={() => setSortDirection(d => SORT_CYCLE[(SORT_CYCLE.indexOf(d) + 1) % SORT_CYCLE.length])}
+        />
         <Show
           when={availableZoids().length > 0}
           fallback={<p class="archive-empty">{t('ui:lab_empty')}</p>}
@@ -55,6 +92,7 @@ const LabPanel: Component<LabPanelProps> = (props) => {
                     disabled={isDisabled()}
                     id={entry.id}
                     onClick={() => props.onBuy(entry.id)}
+                    statLabel={getLabStatLabel(entry.id, selectedStat())}
                     status={ZoidResearchStatus.Created}
                   >
                     <Show when={isDeployed()}>

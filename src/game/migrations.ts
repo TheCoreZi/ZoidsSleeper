@@ -8,6 +8,26 @@ export type MigrationData = Partial<SaveData> & Record<string, unknown>;
 type MigrationFn = (data: MigrationData) => void;
 
 const migrations: Record<string, MigrationFn> = {
+  '0.5.1': (data) => {
+    const now = Date.now();
+    const backfill = (zoid: OwnedZoid) => {
+      if (!zoid.dateObtained) {
+        (zoid as unknown as Record<string, unknown>).dateObtained = now;
+      }
+    };
+    const zoids = data.party?.zoids as OwnedZoid[] | undefined;
+    if (zoids) {
+      for (const zoid of zoids) {backfill(zoid);}
+    }
+    const tank = data.nurturingTank as Array<Record<string, unknown>> | undefined;
+    if (tank) {
+      for (const slot of tank) {
+        if (slot.source === 'reborn' && slot.ownedZoid) {
+          backfill(slot.ownedZoid as OwnedZoid);
+        }
+      }
+    }
+  },
   '0.5.0': (data) => {
     const campaign = data.campaigns?.['shells_of_time'];
     if (!campaign) {return;}

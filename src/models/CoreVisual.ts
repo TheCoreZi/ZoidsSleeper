@@ -1,6 +1,6 @@
 import { Faction } from './Faction';
-import type { ZoidSpecies } from './Zoid';
 import { ZoidSize } from './Zoid';
+import type { ZoidSpecies } from './ZoidSpecies';
 
 export interface CoreVisualLayers {
   color: string;

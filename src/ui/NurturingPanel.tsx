@@ -1,7 +1,9 @@
 import { type Component, createMemo, createSignal, For, Show } from 'solid-js';
 import { t } from '../i18n';
 import { CORE_EMERGE_POOLS, type CoreTypeData, CoreType, resolveTypedCore } from '../item/ZoidCore';
-import { getOwnedZoidLevel, getZoidImage, ZOID_LIST, ZoidResearchStatus } from '../models/Zoid';
+import { getFactionBonus } from '../models/Faction';
+import { buildZoid, getOwnedZoidLevel, getZoidImage, ZOID_LIST, ZoidResearchStatus, type OwnedZoid } from '../models/Zoid';
+import { DateStat, NameStat, NumericStat, type ZoidDisplayStat } from '../models/ZoidDisplayStat';
 import { getZoidResearch } from '../store/zoidResearchStore';
 import { playerStats } from '../store/gameStore';
 import { completeSlot, getAvailableSlotCount, placeCore, placeReborn, tankSlots } from '../store/nurturingStore';
@@ -10,8 +12,32 @@ import type { TankSlot } from '../store/TankSlot';
 import { TankSlotSource } from '../store/TankSlot';
 import { zoidCores } from '../store/zoidCoreStore';
 import CoreVisual from './CoreVisual';
+import { formatStatLabel, SORT_CYCLE, type SortDirection, StatOption } from './StatSort';
+import StatSortBar from './StatSortBar';
 import { ArchiveCard } from './ZiArchivePanel';
 import './nurturing.css';
+
+const NURTURING_STAT_OPTIONS: StatOption[] = [
+  StatOption.Name, StatOption.DateObtained, StatOption.Attack, StatOption.Hp,
+  StatOption.BaseAttack, StatOption.BaseHp, StatOption.Experience,
+];
+
+function getNurturingStatValue(zoid: OwnedZoid, stat: StatOption): ZoidDisplayStat {
+  const level = getOwnedZoidLevel(zoid);
+  const bonusMultiplier = getFactionBonus(playerStats()?.faction ?? 'neutral', ZOID_LIST[zoid.id].faction);
+  const built = () => buildZoid({ bonusMultiplier, id: zoid.id, level, rebornBonusPercent: zoid.rebornBonusPercent });
+  switch (stat) {
+    case StatOption.Attack: return new NumericStat(built().attack);
+    case StatOption.Attack100: return new NumericStat(buildZoid({ bonusMultiplier, id: zoid.id, level: 100, rebornBonusPercent: zoid.rebornBonusPercent }).attack);
+    case StatOption.BaseAttack: return new NumericStat(ZOID_LIST[zoid.id].attack);
+    case StatOption.BaseHp: return new NumericStat(ZOID_LIST[zoid.id].maxHealth);
+    case StatOption.DateObtained: return new DateStat(zoid.dateObtained ?? 0);
+    case StatOption.Experience: return new NumericStat(zoid.experience);
+    case StatOption.Hp: return new NumericStat(built().maxHealth);
+    case StatOption.Hp100: return new NumericStat(buildZoid({ bonusMultiplier, id: zoid.id, level: 100, rebornBonusPercent: zoid.rebornBonusPercent }).maxHealth);
+    case StatOption.Name: return new NameStat(ZOID_LIST[zoid.id].name, built().attack, built().maxHealth);
+  }
+}
 
 const CORE_TYPE_VALUES = new Set<string>(Object.values(CoreType));
 
@@ -22,6 +48,8 @@ const NurturingPanel: Component = () => {
   const [showPicker, setShowPicker] = createSignal(false);
   const [pickerTab, setPickerTab] = createSignal<PickerTabType>(PickerTab.Zoids);
   const [selectedCoreId, setSelectedCoreId] = createSignal<string | null>(null);
+  const [selectedStat, setSelectedStat] = createSignal<StatOption>(StatOption.Name);
+  const [sortDirection, setSortDirection] = createSignal<SortDirection>('desc');
 
   const emptySlotCount = () => Math.max(0, (playerStats()?.nurturingSlots ?? 1) - tankSlots().length);
 
@@ -72,9 +100,16 @@ const NurturingPanel: Component = () => {
     }));
   });
 
-  const rebornCandidates = createMemo(() =>
-    party().zoids.filter((z) => getOwnedZoidLevel(z) >= 100)
-  );
+  const rebornCandidates = createMemo(() => {
+    const stat = selectedStat();
+    const dir = sortDirection();
+    return party().zoids
+      .filter((z) => getOwnedZoidLevel(z) >= 100)
+      .sort((a, b) => {
+        const cmp = getNurturingStatValue(a, stat).compare(getNurturingStatValue(b, stat));
+        return dir === 'desc' ? -cmp : cmp;
+      });
+  });
 
   const isReady = (slot: TankSlot) => slot.fragments >= slot.fragmentsRequired;
   const progress = (slot: TankSlot) => Math.min(100, Math.floor(slot.fragments / slot.fragmentsRequired * 100));
@@ -229,19 +264,30 @@ const NurturingPanel: Component = () => {
             </Show>
 
             <Show when={pickerTab() === PickerTab.Zoids}>
+              <StatSortBar
+                options={NURTURING_STAT_OPTIONS}
+                selectedStat={selectedStat}
+                onStatChange={(s) => { setSelectedStat(s); setSortDirection('desc'); }}
+                sortDirection={sortDirection}
+                onSortToggle={() => setSortDirection(d => SORT_CYCLE[(SORT_CYCLE.indexOf(d) + 1) % SORT_CYCLE.length])}
+              />
               <Show when={rebornCandidates().length > 0} fallback={
                 <p class="nurturing-empty">{t('ui:nurturing_empty_slot')}</p>
               }>
                 <div class="nurturing-available-grid">
                   <For each={rebornCandidates()}>
-                    {(zoid) => (
-                      <ArchiveCard
-                        disabled={party().zoids.length <= 1 || getAvailableSlotCount() <= 0}
-                        id={zoid.id}
-                        onClick={() => handlePlaceReborn(zoid.id)}
-                        status={ZoidResearchStatus.Created}
-                      />
-                    )}
+                    {(zoid) => {
+                      const stat = () => getNurturingStatValue(zoid, selectedStat());
+                      return (
+                        <ArchiveCard
+                          disabled={party().zoids.length <= 1 || getAvailableSlotCount() <= 0}
+                          id={zoid.id}
+                          onClick={() => handlePlaceReborn(zoid.id)}
+                          statLabel={formatStatLabel(selectedStat(), stat().display())}
+                          status={ZoidResearchStatus.Created}
+                        />
+                      );
+                    }}
                   </For>
                 </div>
               </Show>

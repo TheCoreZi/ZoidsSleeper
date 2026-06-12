@@ -130,20 +130,22 @@ export abstract class BaseBattle {
     if (!stats?.evolvingEnabled) {return;}
     for (const owned of leveledUpZoids) {
       const species = getZoidById(owned.id);
-      if (!species.evolution) {continue;}
-      const { targetId } = species.evolution;
-      if (allZoids.some((z) => z.id === targetId) || isSpeciesInTank(targetId)) {continue;}
-
-      if (species.evolution.isFulfilled(computeOwnedZoidStats(owned, stats.faction))) {
-        addZoidToArmy(targetId);
-        const targetName = getZoidById(targetId).name;
-        showPopup(new PopupMessage(
-          t('ui:evolution_message', { source: species.name, target: targetName }),
-          t('ui:evolution_title'),
-          PopupType.Evolution,
-          new EvolutionPopupImage(getZoidImage(owned.id), getZoidImage(targetId))
-        ));
-        showPopup(new PopupMessage(targetName, t('ui:new_zoid'), PopupType.Item, getZoidImage(targetId)));
+      if (!species.evolutions) {continue;}
+      const ownedStats = computeOwnedZoidStats(owned, stats.faction);
+      for (const evo of species.evolutions) {
+        const { targetId } = evo;
+        if (allZoids.some((z) => z.id === targetId) || isSpeciesInTank(targetId)) {continue;}
+        if (evo.isFulfilled(ownedStats)) {
+          addZoidToArmy(targetId);
+          const targetName = getZoidById(targetId).name;
+          showPopup(new PopupMessage(
+            t('ui:evolution_message', { source: species.name, target: targetName }),
+            t('ui:evolution_title'),
+            PopupType.Evolution,
+            new EvolutionPopupImage(getZoidImage(owned.id), getZoidImage(targetId))
+          ));
+          showPopup(new PopupMessage(targetName, t('ui:new_zoid'), PopupType.Item, getZoidImage(targetId)));
+        }
       }
     }
   }

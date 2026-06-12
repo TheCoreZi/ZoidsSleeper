@@ -24,14 +24,43 @@
   color: var(--theme-accent-hover);
 }
 
-.party-stat-select {
-  background: var(--theme-surface-bg);
+.stat-sort-bar {
+  background: rgb(var(--theme-accent-rgb) / 6%);
+  border: 1px solid rgb(var(--theme-accent-rgb) / 15%);
+  border-radius: 6px;
+  display: flex;
+  margin: 0.5rem 0.75rem;
+  overflow: hidden;
+}
+
+.stat-sort-select {
+  background: transparent;
   border: none;
-  border-bottom: 1px solid var(--theme-border);
-  color: #e0e0e0;
+  color: #ccc;
+  flex: 1;
   font-size: 0.75rem;
-  padding: 0.4rem 0.75rem;
-  width: 100%;
+  padding: 0.35rem 0.6rem;
+}
+
+.stat-sort-btn {
+  background: rgb(var(--theme-accent-rgb) / 8%);
+  border: none;
+  border-left: 1px solid rgb(var(--theme-accent-rgb) / 15%);
+  color: #666;
+  cursor: pointer;
+  font-size: 0.85rem;
+  padding: 0.35rem 0.65rem;
+  transition: background 0.15s, color 0.15s;
+}
+
+.stat-sort-btn:hover {
+  background: rgb(var(--theme-accent-rgb) / 15%);
+  color: var(--theme-accent);
+}
+
+.stat-sort-btn-active {
+  background: rgb(var(--theme-accent-rgb) / 12%);
+  color: var(--theme-accent);
 }
 
 .party-list {
@@ -121,6 +150,7 @@
   font-size: 0.8rem;
   font-weight: bold;
   text-align: right;
+  white-space: nowrap;
 }
 
 .party-row-info-btn {
