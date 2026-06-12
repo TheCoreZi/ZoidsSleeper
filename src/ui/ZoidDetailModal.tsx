@@ -1,5 +1,5 @@
 import { type Component, For, Show } from 'solid-js';
-import { getEvolutionSource } from '../evolution/evolutionLookup';
+import { getEvolutionSources } from '../evolution/evolutionLookup';
 import { t } from '../i18n';
 import { getZoidLocations } from '../landmark';
 import { FACTIONS, FACTION_THEMES } from '../models/Faction';
@@ -43,8 +43,8 @@ const ZoidDetailModal: Component<ZoidDetailModalProps> = (props) => {
   const atkAt100 = () => { const oz = ownedZoid(); return buildZoid({ id: props.id, level: 100, rebornBonusPercent: oz?.rebornBonusPercent }).attack; };
   const hpAt100 = () => { const oz = ownedZoid(); return buildZoid({ id: props.id, level: 100, rebornBonusPercent: oz?.rebornBonusPercent }).maxHealth; };
 
-  const evolvesFrom = () => getEvolutionSource(props.id);
-  const evolvesInto = () => zoid().evolution ?? null;
+  const evolvesFrom = () => getEvolutionSources(props.id);
+  const evolvesInto = () => zoid().evolutions ?? [];
 
   const isEvoRevealed = (zoidId: string) => {
     const status = getZoidResearch(zoidId);
@@ -173,18 +173,18 @@ const ZoidDetailModal: Component<ZoidDetailModalProps> = (props) => {
             </div>
           </Show>
 
-          <Show when={playerStats()?.evolvingEnabled && (evolvesFrom() || evolvesInto())}>
+          <Show when={isRevealed() && playerStats()?.evolvingEnabled && (evolvesFrom().length > 0 || evolvesInto().length > 0)}>
             <div class="archive-detail-evo">
               <span class="archive-detail-section-title">{t('ui:archive_evolution')}</span>
-              <Show when={evolvesFrom()}>
+              <For each={evolvesFrom()}>
                 {(source) => (
                   <div class="archive-detail-evo-chain">
                     <div class="archive-detail-evo-zoid">
-                      <img class={evoImageClass(source().sourceId)} src={getZoidImage(source().sourceId)} alt={evoName(source().sourceId)} />
-                      <span>{evoName(source().sourceId)}</span>
+                      <img class={evoImageClass(source.sourceId)} src={getZoidImage(source.sourceId)} alt={evoName(source.sourceId)} />
+                      <span>{evoName(source.sourceId)}</span>
                     </div>
                     <div class="archive-detail-evo-arrow">
-                      <span class="archive-detail-evo-condition">{source().rule.hint()}</span>
+                      <span class="archive-detail-evo-condition">{source.rule.hint()}</span>
                       <span class="archive-detail-evo-arrow-line"><span class="archive-detail-evo-arrow-icon">→</span></span>
                     </div>
                     <div class="archive-detail-evo-zoid">
@@ -193,24 +193,30 @@ const ZoidDetailModal: Component<ZoidDetailModalProps> = (props) => {
                     </div>
                   </div>
                 )}
-              </Show>
-              <Show when={evolvesInto()}>
-                {(evo) => (
-                  <div class="archive-detail-evo-chain">
-                    <div class="archive-detail-evo-zoid">
-                      <img class={evoImageClass(props.id, true)} src={getZoidImage(props.id)} alt={evoName(props.id)} />
-                      <span>{evoName(props.id)}</span>
-                    </div>
-                    <div class="archive-detail-evo-arrow">
-                      <span class="archive-detail-evo-condition">{evo().hint()}</span>
-                      <span class="archive-detail-evo-arrow-line"><span class="archive-detail-evo-arrow-icon">→</span></span>
-                    </div>
-                    <div class="archive-detail-evo-zoid">
-                      <img class={evoImageClass(evo().targetId)} src={getZoidImage(evo().targetId)} alt={evoName(evo().targetId)} />
-                      <span>{evoName(evo().targetId)}</span>
-                    </div>
+              </For>
+              <Show when={evolvesInto().length > 0}>
+                <div class="archive-detail-evo-chain">
+                  <div class="archive-detail-evo-zoid">
+                    <img class={evoImageClass(props.id, true)} src={getZoidImage(props.id)} alt={evoName(props.id)} />
+                    <span>{evoName(props.id)}</span>
                   </div>
-                )}
+                  <div class="archive-detail-evo-targets">
+                    <For each={evolvesInto()}>
+                      {(evo) => (
+                        <div class="archive-detail-evo-target-row">
+                          <div class="archive-detail-evo-arrow">
+                            <span class="archive-detail-evo-condition">{evo.hint()}</span>
+                            <span class="archive-detail-evo-arrow-line"><span class="archive-detail-evo-arrow-icon">→</span></span>
+                          </div>
+                          <div class="archive-detail-evo-zoid">
+                            <img class={evoImageClass(evo.targetId)} src={getZoidImage(evo.targetId)} alt={evoName(evo.targetId)} />
+                            <span>{evoName(evo.targetId)}</span>
+                          </div>
+                        </div>
+                      )}
+                    </For>
+                  </div>
+                </div>
               </Show>
             </div>
           </Show>

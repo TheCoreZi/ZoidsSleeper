@@ -8,8 +8,35 @@ import {
 } from '../models/Zoid';
 import { getTerrainBorderStyle } from '../models/Terrain';
 import { getZoidResearch } from '../store/zoidResearchStore';
+import { formatStatLabel, SORT_CYCLE, type SortDirection, StatOption } from './StatSort';
+import StatSortBar from './StatSortBar';
 import ZoidDetailModal from './ZoidDetailModal';
 import './archive.css';
+
+const ARCHIVE_STAT_OPTIONS: StatOption[] = [
+  StatOption.Name, StatOption.BaseAttack, StatOption.BaseHp,
+];
+
+function getArchiveStatLabel(id: string, stat: StatOption, status: ZoidResearchStatus): string | undefined {
+  if (status === ZoidResearchStatus.Seen) {return stat !== StatOption.Name ? '???' : undefined;}
+  const data = ZOID_LIST[id];
+  const value = stat === StatOption.BaseAttack ? data.attack : stat === StatOption.BaseHp ? data.maxHealth : null;
+  if (value === null) {return undefined;}
+  return formatStatLabel(stat, value.toLocaleString());
+}
+
+function getArchiveNumericStat(id: string, stat: StatOption, status: ZoidResearchStatus): number {
+  if (status === ZoidResearchStatus.Seen) {return -1;}
+  const data = ZOID_LIST[id];
+  return stat === StatOption.BaseAttack ? data.attack : data.maxHealth;
+}
+
+function archiveCompare(aId: string, bId: string, aStat: ZoidResearchStatus, bStat: ZoidResearchStatus, stat: StatOption): number {
+  if (stat === StatOption.Name) {
+    return ZOID_LIST[bId].name.localeCompare(ZOID_LIST[aId].name);
+  }
+  return getArchiveNumericStat(aId, stat, aStat) - getArchiveNumericStat(bId, stat, bStat);
+}
 
 interface ZiArchivePanelProps {
   onClose: () => void;
@@ -18,13 +45,20 @@ interface ZiArchivePanelProps {
 const ZiArchivePanel: Component<ZiArchivePanelProps> = (props) => {
   const totalCount = Object.keys(ZOID_LIST).length;
   const [selectedZoidId, setSelectedZoidId] = createSignal<string | null>(null);
+  const [selectedStat, setSelectedStat] = createSignal<StatOption>(StatOption.Name);
+  const [sortDirection, setSortDirection] = createSignal<SortDirection>('desc');
 
-  const archiveEntries = createMemo(() =>
-    Object.keys(ZOID_LIST)
+  const archiveEntries = createMemo(() => {
+    const stat = selectedStat();
+    const dir = sortDirection();
+    return Object.keys(ZOID_LIST)
       .map((id) => ({ data: ZOID_LIST[id], id, status: getZoidResearch(id) }))
       .filter((e): e is typeof e & { status: ZoidResearchStatus } => e.status !== null)
-      .sort((a, b) => a.data.name.localeCompare(b.data.name))
-  );
+      .sort((a, b) => {
+        const cmp = archiveCompare(a.id, b.id, a.status, b.status, stat);
+        return dir === 'desc' ? -cmp : cmp;
+      });
+  });
 
   const selectedEntry = () => {
     const id = selectedZoidId();
@@ -42,6 +76,13 @@ const ZiArchivePanel: Component<ZiArchivePanelProps> = (props) => {
             ✕
           </button>
         </div>
+        <StatSortBar
+          options={ARCHIVE_STAT_OPTIONS}
+          selectedStat={selectedStat}
+          onStatChange={(s) => { setSelectedStat(s); setSortDirection('desc'); }}
+          sortDirection={sortDirection}
+          onSortToggle={() => setSortDirection(d => SORT_CYCLE[(SORT_CYCLE.indexOf(d) + 1) % SORT_CYCLE.length])}
+        />
         <Show
           when={archiveEntries().length > 0}
           fallback={<p class="archive-empty">{t('ui:archive_empty')}</p>}
@@ -52,6 +93,7 @@ const ZiArchivePanel: Component<ZiArchivePanelProps> = (props) => {
                 <ArchiveCard
                   id={entry.id}
                   onClick={() => setSelectedZoidId(entry.id)}
+                  statLabel={getArchiveStatLabel(entry.id, selectedStat(), entry.status)}
                   status={entry.status}
                 />
               )}
@@ -77,6 +119,7 @@ interface ArchiveCardProps {
   disabled?: boolean;
   id: string;
   onClick?: () => void;
+  statLabel?: string;
   status: ZoidResearchStatus | null;
 }
 
@@ -99,6 +142,9 @@ export const ArchiveCard: ParentComponent<ArchiveCardProps> = (props) => {
           alt={zoid().name}
         />
         <span class="archive-card-name">{props.status ? zoid().name : '???'}</span>
+        <Show when={props.statLabel}>
+          <span class="archive-card-stat">{props.statLabel}</span>
+        </Show>
         {props.children}
       </div>
     </button>

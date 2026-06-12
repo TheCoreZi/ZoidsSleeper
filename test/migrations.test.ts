@@ -196,7 +196,10 @@ describe('migrate', () => {
 
       expect(data.party).toEqual({
         commanderZoidId: 'shield_liger',
-        zoids: [{ experience: 1000, id: 'shield_liger' }, { experience: 500, id: 'molga' }],
+        zoids: [
+          { dateObtained: expect.any(Number), experience: 1000, id: 'shield_liger' },
+          { dateObtained: expect.any(Number), experience: 500, id: 'molga' },
+        ],
       });
     });
 
@@ -233,7 +236,7 @@ describe('migrate', () => {
 
       migrate(data, '0.4.0');
 
-      expect(data.party).toEqual({ commanderZoidId: 'molga', zoids: [{ experience: 0, id: 'molga' }] });
+      expect(data.party).toEqual({ commanderZoidId: 'molga', zoids: [{ dateObtained: expect.any(Number), experience: 0, id: 'molga' }] });
     });
   });
 

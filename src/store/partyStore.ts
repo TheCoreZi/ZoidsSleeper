@@ -23,7 +23,7 @@ function addZoidToArmy(zoidId: string, experience = 0): void {
     }
     return {
       commanderZoidId: prev.zoids.length === 0 ? zoidId : prev.commanderZoidId,
-      zoids: [...prev.zoids, { experience, id: zoidId }],
+      zoids: [...prev.zoids, { dateObtained: Date.now(), experience, id: zoidId }],
     };
   });
   incrementClickAttack();

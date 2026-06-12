@@ -2,6 +2,7 @@ import { t } from '../i18n';
 
 export interface OwnedZoidStats {
   attack: number;
+  faction: string;
   health: number;
   level: number;
 }
@@ -45,6 +46,24 @@ export class CompoundEvolution implements EvolutionRule {
 
   isFulfilled(stats: OwnedZoidStats): boolean {
     return this.conditions.every((c) => c.isFulfilled(stats));
+  }
+}
+
+export class FactionEvolution implements EvolutionRule {
+  requiredFaction: string;
+  targetId: string;
+
+  constructor(targetId: string, requiredFaction: string) {
+    this.targetId = targetId;
+    this.requiredFaction = requiredFaction;
+  }
+
+  hint(): string {
+    return t('ui:evo_condition_faction', { faction: t(`factions:${this.requiredFaction}`) });
+  }
+
+  isFulfilled(stats: OwnedZoidStats): boolean {
+    return stats.faction === this.requiredFaction;
   }
 }
 

@@ -156,6 +156,12 @@
   text-align: center;
 }
 
+.archive-card-stat {
+  color: #999;
+  font-size: 0.65rem;
+  text-align: center;
+}
+
 /* Detail Modal */
 
 .archive-detail-overlay {
@@ -403,6 +409,18 @@
 
 .archive-detail-evo-img--silhouette {
   filter: brightness(0);
+}
+
+.archive-detail-evo-targets {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.archive-detail-evo-target-row {
+  align-items: center;
+  display: flex;
+  gap: 0.75rem;
 }
 
 .archive-detail-evo-arrow {

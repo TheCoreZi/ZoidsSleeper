@@ -1,16 +1,19 @@
 import type { EvolutionRule } from './EvolutionRule';
 import { ZOID_LIST } from '../models/Zoid';
 
-interface EvolutionSource {
+export interface EvolutionSource {
   rule: EvolutionRule;
   sourceId: string;
 }
 
-export function getEvolutionSource(targetId: string): EvolutionSource | null {
+export function getEvolutionSources(targetId: string): EvolutionSource[] {
+  const sources: EvolutionSource[] = [];
   for (const [id, species] of Object.entries(ZOID_LIST)) {
-    if (species.evolution?.targetId === targetId) {
-      return { rule: species.evolution, sourceId: id };
+    for (const evo of species.evolutions ?? []) {
+      if (evo.targetId === targetId) {
+        sources.push({ rule: evo, sourceId: id });
+      }
     }
   }
-  return null;
+  return sources;
 }

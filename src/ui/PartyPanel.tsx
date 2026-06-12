@@ -6,31 +6,18 @@ import { t } from '../i18n';
 import { getFactionBonus } from '../models/Faction';
 import { experienceForLevel, MAX_LEVEL } from '../models/LevelType';
 import { getOwnedZoidLevel, getZoidById, getZoidImage, buildZoid, type OwnedZoid } from '../models/Zoid';
+import { DateStat, NameStat, NumericStat, type ZoidDisplayStat } from '../models/ZoidDisplayStat';
 import { isMissionCompleted } from '../store/campaignStore';
 import { playerStats } from '../store/gameStore';
 import { party, selectCommanderZoid } from '../store/partyStore';
+import { SORT_CYCLE, type SortDirection, StatOption } from './StatSort';
+import StatSortBar from './StatSortBar';
 import './party.css';
 
-const StatOption = {
-  Attack: 'attack',
-  Attack100: 'attack_100',
-  BaseAttack: 'base_attack',
-  BaseHp: 'base_hp',
-  Experience: 'experience',
-  Hp: 'hp',
-  Hp100: 'hp_100',
-} as const;
-
-type StatOption = typeof StatOption[keyof typeof StatOption];
-
-const STAT_OPTIONS: StatOption[] = [
-  StatOption.Attack, StatOption.Hp, StatOption.Attack100, StatOption.Hp100,
+const PARTY_STAT_OPTIONS: StatOption[] = [
+  StatOption.Name, StatOption.DateObtained, StatOption.Attack, StatOption.Hp, StatOption.Attack100, StatOption.Hp100,
   StatOption.BaseAttack, StatOption.BaseHp, StatOption.Experience,
 ];
-
-function statLabel(key: StatOption): string {
-  return t(`ui:stat_${key}`);
-}
 
 function getExpProgress(zoid: OwnedZoid): number {
   const level = getOwnedZoidLevel(zoid);
@@ -41,17 +28,20 @@ function getExpProgress(zoid: OwnedZoid): number {
   return range <= 0 ? 100 : ((zoid.experience - currentXp) / range) * 100;
 }
 
-function getStatValue(zoid: OwnedZoid, stat: StatOption): number {
+function getStatValue(zoid: OwnedZoid, stat: StatOption): ZoidDisplayStat {
   const level = getOwnedZoidLevel(zoid);
   const bonusMultiplier = getFactionBonus(playerStats()?.faction ?? 'neutral', getZoidById(zoid.id).faction);
+  const built = () => buildZoid({ bonusMultiplier, id: zoid.id, level, rebornBonusPercent: zoid.rebornBonusPercent });
   switch (stat) {
-    case StatOption.Attack: return buildZoid({ bonusMultiplier, id: zoid.id, level, rebornBonusPercent: zoid.rebornBonusPercent }).attack;
-    case StatOption.Attack100: return buildZoid({ bonusMultiplier, id: zoid.id, level: 100, rebornBonusPercent: zoid.rebornBonusPercent }).attack;
-    case StatOption.BaseAttack: return getZoidById(zoid.id).attack;
-    case StatOption.BaseHp: return getZoidById(zoid.id).maxHealth;
-    case StatOption.Experience: return zoid.experience;
-    case StatOption.Hp: return buildZoid({ bonusMultiplier, id: zoid.id, level, rebornBonusPercent: zoid.rebornBonusPercent }).maxHealth;
-    case StatOption.Hp100: return buildZoid({ bonusMultiplier, id: zoid.id, level: 100, rebornBonusPercent: zoid.rebornBonusPercent }).maxHealth;
+    case StatOption.Attack: return new NumericStat(built().attack);
+    case StatOption.Attack100: return new NumericStat(buildZoid({ bonusMultiplier, id: zoid.id, level: 100, rebornBonusPercent: zoid.rebornBonusPercent }).attack);
+    case StatOption.BaseAttack: return new NumericStat(getZoidById(zoid.id).attack);
+    case StatOption.BaseHp: return new NumericStat(getZoidById(zoid.id).maxHealth);
+    case StatOption.DateObtained: return new DateStat(zoid.dateObtained ?? 0);
+    case StatOption.Experience: return new NumericStat(zoid.experience);
+    case StatOption.Hp: return new NumericStat(built().maxHealth);
+    case StatOption.Hp100: return new NumericStat(buildZoid({ bonusMultiplier, id: zoid.id, level: 100, rebornBonusPercent: zoid.rebornBonusPercent }).maxHealth);
+    case StatOption.Name: return new NameStat(getZoidById(zoid.id).name, built().attack, built().maxHealth);
   }
 }
 
@@ -61,7 +51,8 @@ interface PartyPanelProps {
 }
 
 const PartyPanel: Component<PartyPanelProps> = (props) => {
-  const [selectedStat, setSelectedStat] = createSignal<StatOption>(StatOption.Attack);
+  const [selectedStat, setSelectedStat] = createSignal<StatOption>(StatOption.Name);
+  const [sortDirection, setSortDirection] = createSignal<SortDirection>('none');
   const [detailZoidId, setDetailZoidId] = createSignal<string | null>(null);
   const isDuelUnlocked = createMemo(() => isMissionCompleted('sleeper_commander', 'find_van_oasis'));
   const commanderZoidId = createMemo(() => {
@@ -69,22 +60,30 @@ const PartyPanel: Component<PartyPanelProps> = (props) => {
     if (zoids.length <= 1 || !isDuelUnlocked()) {return null;}
     return party().commanderZoidId;
   });
+  const sortedZoids = createMemo(() => {
+    const dir = sortDirection();
+    const zoids = party().zoids;
+    if (dir === 'none') {return zoids;}
+    const stat = selectedStat();
+    return [...zoids].sort((a, b) => {
+      const cmp = getStatValue(a, stat).compare(getStatValue(b, stat));
+      return dir === 'desc' ? -cmp : cmp;
+    });
+  });
 
   return (
     <div class="party-panel">
       <h3 class="party-title" onClick={() => props.onToggle()}>{t('ui:zoids_army')}</h3>
       <Show when={props.expanded}>
-        <select
-          class="party-stat-select"
-          value={selectedStat()}
-          onChange={(e) => setSelectedStat(e.currentTarget.value as StatOption)}
-        >
-          <For each={STAT_OPTIONS}>
-            {(value) => <option value={value}>{statLabel(value)}</option>}
-          </For>
-        </select>
+        <StatSortBar
+          options={PARTY_STAT_OPTIONS}
+          selectedStat={selectedStat}
+          onStatChange={(s) => { setSelectedStat(s); setSortDirection('none'); }}
+          sortDirection={sortDirection}
+          onSortToggle={() => setSortDirection(d => SORT_CYCLE[(SORT_CYCLE.indexOf(d) + 1) % SORT_CYCLE.length])}
+        />
         <div class="party-list">
-          <For each={party().zoids}>
+          <For each={sortedZoids()}>
             {(zoid) => {
               const level = () => getOwnedZoidLevel(zoid);
               const isCommander = () => zoid.id === commanderZoidId();
@@ -109,7 +108,7 @@ const PartyPanel: Component<PartyPanelProps> = (props) => {
                       <span class="party-row-commander-badge">{t('ui:commander_badge')}</span>
                     </Show>
                   </div>
-                  <span class="party-row-stat">{getStatValue(zoid, selectedStat()).toLocaleString()}</span>
+                  <span class="party-row-stat">{getStatValue(zoid, selectedStat()).display()}</span>
                   <button class="party-row-info-btn" onClick={(e) => { e.stopPropagation(); setDetailZoidId(zoid.id); }} title="Info">i</button>
                 </div>
               );

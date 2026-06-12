@@ -36,14 +36,14 @@ describe('calculatePartyAttack', () => {
 describe('evolution targets in ZOID_LIST', () => {
   it('all evolution targets reference valid species', () => {
     for (const species of Object.values(ZOID_LIST)) {
-      if (species.evolution) {
-        expect(() => getZoidById(species.evolution!.targetId)).not.toThrow();
+      for (const evo of species.evolutions ?? []) {
+        expect(() => getZoidById(evo.targetId)).not.toThrow();
       }
     }
   });
 
   it('has exactly 7 species with evolution rules', () => {
-    const withEvolution = Object.values(ZOID_LIST).filter((s) => s.evolution);
+    const withEvolution = Object.values(ZOID_LIST).filter((s) => s.evolutions?.length);
     expect(withEvolution).toHaveLength(7);
   });
 });
