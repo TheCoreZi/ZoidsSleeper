@@ -46,6 +46,13 @@ const AUTOMATIC_ACTIONS: Record<string, CityAction[]> = {
     const intro = new ActionTalkToNPC('concho_cancer', requirements, completeRequirements, activateCityActionReward(fight));
     return [intro, fight, decision];
   })(),
+  pillbug_dealer_shop: (() => {
+    const requirements = [new MissionCompletedRequirement(S, 'duel_gale_evolved')];
+    const hidden = [new ImpossibleRequirement()];
+    const depot = new ActionVisitDepot([ITEMS.layered_armor as ConsumableItem], hidden, 'ui:visit_pillbug_shop');
+    const intro = new ActionTalkToNPC('pillbug_dealer', requirements, undefined, activateCityActionReward(depot));
+    return [intro, depot];
+  })(),
   porto_nido_ask_doctor: (() => {
     const completeRequirements = [new PilotDefeatRequirement('arcadia_guard')];
     const hidden = [new ImpossibleRequirement()];
@@ -209,6 +216,7 @@ export const CITIES: City[] = [
       new ActionTalkToNPC('fiona', [new MissionCompletedRequirement(C, 'maria_van_status')], [new MissionCompletedRequirement(C, 'tell_van_kidnapping')]),
       new ActionTalkToNPC('van', [new MissionCompletedRequirement(C, 'check_van_colony')], [new PilotDefeatRequirement('van_shield_liger')]),
       new ActionDuelPilot(PILOTS['van_shield_liger'], [new MissionCompletedRequirement(C, 'find_van_oasis')], [new MissionCompletedRequirement(C, 'fight_van')]),
+      ...AUTOMATIC_ACTIONS.pillbug_dealer_shop,
     ],
     battleBackground: BattleBackground.Desert,
     id: 'wind_oasis',

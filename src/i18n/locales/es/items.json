@@ -26,6 +26,10 @@
     "description": "Una unidad de preservación avanzada que estabiliza el Zoid Core durante la extracción, mejorando las probabilidades de obtener datos estructurales.",
     "name": "Protector de Core"
   },
+  "layered_armor": {
+    "description": "Un conjunto de placas reforzadas en capas que pueden injertarse en un Zoid compatible, provocando una metamorfosis estructural.",
+    "name": "Blindaje Estratificado"
+  },
   "sleeper_module": {
     "description": "Un extraño módulo que permite controlar el comportamiento de multiples Sleepers al mismo tiempo.",
     "name": "Módulo Sleeper"

@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { getEvolutionSources } from './evolutionLookup';
+import { CompoundEvolution } from './EvolutionRule';
+import { getEvolutionSources, getSpeciesEvolvableByItem } from './evolutionLookup';
 
 describe('getEvolutionSources', () => {
   it('finds source species for a known evolution target', () => {
@@ -23,5 +24,19 @@ describe('getEvolutionSources', () => {
     const iguan = getEvolutionSources('iguan');
     expect(iguan).toHaveLength(1);
     expect(iguan[0].sourceId).toBe('garius');
+  });
+});
+
+describe('getSpeciesEvolvableByItem', () => {
+  it('finds species evolvable by a known item', () => {
+    const results = getSpeciesEvolvableByItem('layered_armor');
+    expect(results).toHaveLength(1);
+    expect(results[0].sourceId).toBe('malder');
+    expect(results[0].rule).toBeInstanceOf(CompoundEvolution);
+    expect(results[0].rule.targetId).toBe('gustav');
+  });
+
+  it('returns empty array for unknown item', () => {
+    expect(getSpeciesEvolvableByItem('nonexistent')).toHaveLength(0);
   });
 });

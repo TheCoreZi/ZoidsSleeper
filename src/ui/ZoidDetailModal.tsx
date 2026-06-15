@@ -1,7 +1,11 @@
 import { type Component, For, Show } from 'solid-js';
+import type { EvolutionRule } from '../evolution/EvolutionRule';
+import { CompoundEvolution, FactionEvolution } from '../evolution/EvolutionRule';
 import { getEvolutionSources } from '../evolution/evolutionLookup';
+import { ItemEvolution } from '../evolution/ItemEvolution';
 import { t } from '../i18n';
 import { getZoidLocations } from '../landmark';
+import type { Faction } from '../models/Faction';
 import { FACTIONS, FACTION_THEMES } from '../models/Faction';
 import {
   buildZoid,
@@ -20,6 +24,24 @@ export interface ZoidDetailModalProps {
   id: string;
   onClose: () => void;
   status: ZoidResearchStatus;
+}
+
+function getEvoFaction(rule: EvolutionRule): string | undefined {
+  if (rule instanceof FactionEvolution) { return rule.requiredFaction; }
+  if (rule instanceof CompoundEvolution) { return rule.conditions.map(getEvoFaction).find(Boolean); }
+  return undefined;
+}
+
+function getEvoItemId(rule: EvolutionRule): string | undefined {
+  if (rule instanceof ItemEvolution) { return rule.itemId; }
+  if (rule instanceof CompoundEvolution) { return rule.conditions.map(getEvoItemId).find(Boolean); }
+  return undefined;
+}
+
+function getNonVisualHint(rule: EvolutionRule): string {
+  if (rule instanceof ItemEvolution || rule instanceof FactionEvolution) { return ''; }
+  if (rule instanceof CompoundEvolution) { return rule.conditions.map(getNonVisualHint).filter(Boolean).join('\n'); }
+  return rule.hint();
 }
 
 const MACH_KMH = 1234.8;
@@ -184,7 +206,12 @@ const ZoidDetailModal: Component<ZoidDetailModalProps> = (props) => {
                       <span>{evoName(source.sourceId)}</span>
                     </div>
                     <div class="archive-detail-evo-arrow">
-                      <span class="archive-detail-evo-condition">{source.rule.hint()}</span>
+                      <span class="archive-detail-evo-condition">
+                        <Show when={source.rule instanceof ItemEvolution}>
+                          <img class="archive-detail-evo-item-img" src={`images/items/${(source.rule as ItemEvolution).itemId}.png`} alt="" />
+                        </Show>
+                        {source.rule.hint()}
+                      </span>
                       <span class="archive-detail-evo-arrow-line"><span class="archive-detail-evo-arrow-icon">→</span></span>
                     </div>
                     <div class="archive-detail-evo-zoid">
@@ -205,7 +232,15 @@ const ZoidDetailModal: Component<ZoidDetailModalProps> = (props) => {
                       {(evo) => (
                         <div class="archive-detail-evo-target-row">
                           <div class="archive-detail-evo-arrow">
-                            <span class="archive-detail-evo-condition">{evo.hint()}</span>
+                            <span class="archive-detail-evo-condition">
+                              <Show when={getEvoFaction(evo)}>
+                                {(factionId) => <img class="archive-detail-evo-item-img" src={FACTIONS[factionId() as Faction].image} alt="" />}
+                              </Show>
+                              <Show when={getEvoItemId(evo)}>
+                                {(itemId) => <img class="archive-detail-evo-item-img" src={`images/items/${itemId()}.png`} alt="" />}
+                              </Show>
+                              {getNonVisualHint(evo)}
+                            </span>
                             <span class="archive-detail-evo-arrow-line"><span class="archive-detail-evo-arrow-icon">→</span></span>
                           </div>
                           <div class="archive-detail-evo-zoid">

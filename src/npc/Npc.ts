@@ -258,6 +258,11 @@ export const NPCS: Record<string, Npc> = {
     nameKey: 'pilots:opis_kerone',
     portrait: 'images/pilots/opis.png',
   },
+  pillbug_dealer: {
+    dialogs: [{ dialogKey: 'dialog:pillbug_dealer' }],
+    id: 'pillbug_dealer',
+    nameKey: 'pilots:pillbug_dealer',
+  },
   priest_leon: {
     dialogs: [
       { dialogKey: 'dialog:priest_leon_exchange', unlockRequirement: new MissionCompletedRequirement('sleeper_commander', 'repel_attackers') },

@@ -11,6 +11,7 @@ export interface EvolutionRule {
   targetId: string;
   hint(): string;
   isFulfilled(stats: OwnedZoidStats): boolean;
+  isFulfilledWithItem(stats: OwnedZoidStats, ownedItemId: string): boolean;
 }
 
 export class AttackEvolution implements EvolutionRule {
@@ -28,6 +29,10 @@ export class AttackEvolution implements EvolutionRule {
 
   isFulfilled(stats: OwnedZoidStats): boolean {
     return stats.attack >= this.threshold;
+  }
+
+  isFulfilledWithItem(stats: OwnedZoidStats, _ownedItemId: string): boolean {
+    return this.isFulfilled(stats);
   }
 }
 
@@ -47,6 +52,10 @@ export class CompoundEvolution implements EvolutionRule {
   isFulfilled(stats: OwnedZoidStats): boolean {
     return this.conditions.every((c) => c.isFulfilled(stats));
   }
+
+  isFulfilledWithItem(stats: OwnedZoidStats, ownedItemId: string): boolean {
+    return this.conditions.every((c) => c.isFulfilledWithItem(stats, ownedItemId));
+  }
 }
 
 export class FactionEvolution implements EvolutionRule {
@@ -64,6 +73,10 @@ export class FactionEvolution implements EvolutionRule {
 
   isFulfilled(stats: OwnedZoidStats): boolean {
     return stats.faction === this.requiredFaction;
+  }
+
+  isFulfilledWithItem(stats: OwnedZoidStats, _ownedItemId: string): boolean {
+    return this.isFulfilled(stats);
   }
 }
 
@@ -83,6 +96,10 @@ export class HealthEvolution implements EvolutionRule {
   isFulfilled(stats: OwnedZoidStats): boolean {
     return stats.health >= this.threshold;
   }
+
+  isFulfilledWithItem(stats: OwnedZoidStats, _ownedItemId: string): boolean {
+    return this.isFulfilled(stats);
+  }
 }
 
 export class LevelEvolution implements EvolutionRule {
@@ -100,5 +117,9 @@ export class LevelEvolution implements EvolutionRule {
 
   isFulfilled(stats: OwnedZoidStats): boolean {
     return stats.level >= this.threshold;
+  }
+
+  isFulfilledWithItem(stats: OwnedZoidStats, _ownedItemId: string): boolean {
+    return this.isFulfilled(stats);
   }
 }
