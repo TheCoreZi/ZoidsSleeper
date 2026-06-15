@@ -36,9 +36,9 @@
   background: var(--theme-panel-bg);
   border: 2px solid var(--theme-border);
   border-radius: 12px;
-  max-width: 500px;
+  max-width: 60vw;
   padding: 1.25rem;
-  width: 90%;
+  width: 60%;
 }
 
 .supplies-header {
@@ -97,6 +97,22 @@
 
 .supplies-close:hover {
   color: #e94560;
+}
+
+.supplies-section-title {
+  border-bottom: 1px solid var(--theme-border);
+  color: #d0d0d0;
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  margin-bottom: 0.75rem;
+  margin-top: 1rem;
+  padding-bottom: 0.5rem;
+}
+
+.supplies-section-title:first-child {
+  margin-top: 0;
 }
 
 .supplies-empty {
@@ -191,10 +207,28 @@
   border-color: var(--theme-accent);
 }
 
-.supplies-evo-section {
-  border-top: 1px solid var(--theme-border);
-  margin-top: 0.75rem;
-  padding-top: 0.75rem;
+.supplies-items-layout {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.supplies-items-grid-wrapper {
+  flex: 1;
+  min-width: 0;
+}
+
+.supplies-evo-side {
+  align-self: stretch;
+  background: var(--theme-surface-bg);
+  border: 1px solid var(--theme-border);
+  border-radius: 8px;
+  flex-shrink: 0;
+  padding: 0.5rem;
+  width: 40%;
+}
+
+.supplies-evo-side--hidden {
+  display: none;
 }
 
 .supplies-evo-title {
@@ -209,7 +243,7 @@
 .supplies-evo-grid {
   display: grid;
   gap: 0.6rem;
-  grid-template-columns: repeat(auto-fill, minmax(120px, 150px));
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
   justify-content: center;
 }
 
@@ -225,4 +259,19 @@
   color: #e94560;
   font-size: 0.6rem;
   font-weight: bold;
+}
+
+@media (width <= 768px) {
+  .supplies-panel {
+    max-width: none;
+    width: 90%;
+  }
+
+  .supplies-items-layout {
+    flex-direction: column;
+  }
+
+  .supplies-evo-side {
+    width: 100%;
+  }
 }

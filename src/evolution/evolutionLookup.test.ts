@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { CompoundEvolution } from './EvolutionRule';
+import { ItemEvolution } from './ItemEvolution';
 import { getEvolutionSources, getSpeciesEvolvableByItem } from './evolutionLookup';
 
 describe('getEvolutionSources', () => {
@@ -32,7 +32,7 @@ describe('getSpeciesEvolvableByItem', () => {
     const results = getSpeciesEvolvableByItem('layered_armor');
     expect(results).toHaveLength(1);
     expect(results[0].sourceId).toBe('malder');
-    expect(results[0].rule).toBeInstanceOf(CompoundEvolution);
+    expect(results[0].rule).toBeInstanceOf(ItemEvolution);
     expect(results[0].rule.targetId).toBe('gustav');
   });
 
