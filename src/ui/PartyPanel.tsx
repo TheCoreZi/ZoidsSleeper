@@ -41,6 +41,7 @@ function getStatValue(zoid: OwnedZoid, stat: StatOption): ZoidDisplayStat {
     case StatOption.Experience: return new NumericStat(zoid.experience);
     case StatOption.Hp: return new NumericStat(built().maxHealth);
     case StatOption.Hp100: return new NumericStat(buildZoid({ bonusMultiplier, id: zoid.id, level: 100, rebornBonusPercent: zoid.rebornBonusPercent }).maxHealth);
+    case StatOption.CoreFragments: return new NumericStat(getZoidById(zoid.id).coreFragments);
     case StatOption.Name: return new NameStat(getZoidById(zoid.id).name, built().attack, built().maxHealth);
   }
 }

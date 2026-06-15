@@ -3,7 +3,7 @@ import { REBORN_ATTACK_BONUS_PERCENT } from '../constants';
 import { LevelType, experienceForLevel } from '../models/LevelType';
 import { DEFAULT_PLAYER } from '../models/Player';
 import { setPlayerStats } from './gameStore';
-import { addFragments, completeSlot, getAvailableSlotCount, isSpeciesInTank, loadTankSlots, placeCore, placeReborn, tankSlots } from './nurturingStore';
+import { addFragments, completeSlot, getAvailableSlotCount, getAvailableTransportZoids, getTransportBonus, isSpeciesInTank, loadTankSlots, loadTransportZoidId, placeCore, placeReborn, selectTransportZoid, tankSlots, transportZoidId } from './nurturingStore';
 import { party, setParty } from './partyStore';
 import { addCore, getCoreCount, loadZoidCores } from './zoidCoreStore';
 
@@ -11,6 +11,7 @@ const LEVEL_100_XP = experienceForLevel(100, LevelType.Fast);
 
 beforeEach(() => {
   loadTankSlots([]);
+  loadTransportZoidId(null);
   loadZoidCores({});
   setPlayerStats({ ...DEFAULT_PLAYER, nurturingSlots: 4 });
   setParty({ commanderZoidId: 'merda', zoids: [{ experience: 0, id: 'merda' }, { experience: 0, id: 'gator' }] });
@@ -130,5 +131,75 @@ describe('loadTankSlots', () => {
     loadTankSlots([{ coreId: 'merda', fragments: 10, fragmentsRequired: 400, source: 'core', zoidSpeciesId: 'merda' }]);
     expect(tankSlots()).toHaveLength(1);
     expect(tankSlots()[0].fragments).toBe(10);
+  });
+});
+
+describe('transport zoid', () => {
+  it('applies fragment multiplier with gustav', () => {
+    selectTransportZoid('gustav');
+    addCore('merda');
+    placeCore('merda', 'merda');
+    addFragments(100);
+    expect(tankSlots()[0].fragments).toBe(125);
+  });
+
+  it('applies no multiplier without transport', () => {
+    addCore('merda');
+    placeCore('merda', 'merda');
+    addFragments(100);
+    expect(tankSlots()[0].fragments).toBe(100);
+  });
+
+  it('applies reborn bonus multiplier with gustav_mc', () => {
+    selectTransportZoid('gustav_mc');
+    setParty({ commanderZoidId: 'merda', zoids: [{ experience: LEVEL_100_XP, id: 'merda' }, { experience: 0, id: 'gator' }] });
+    placeReborn('merda');
+    addFragments(999999);
+    completeSlot(0);
+    const reborn = party().zoids.find((z) => z.id === 'merda');
+    expect(reborn).toBeDefined();
+    expect(reborn!.rebornBonusPercent).toBe(REBORN_ATTACK_BONUS_PERCENT * 1.5);
+  });
+
+  it('evicts slots when switching to transport with fewer extra slots', () => {
+    setPlayerStats({ ...DEFAULT_PLAYER, nurturingSlots: 2 });
+    addCore('merda');
+    addCore('gator');
+    placeCore('merda', 'merda');
+    placeCore('gator', 'gator');
+    expect(tankSlots()).toHaveLength(2);
+
+    setPlayerStats({ ...DEFAULT_PLAYER, nurturingSlots: 1 });
+    selectTransportZoid(null);
+    expect(tankSlots()).toHaveLength(1);
+    expect(getCoreCount('gator')).toBe(1);
+  });
+
+  it('evicts reborn slots back to party', () => {
+    setPlayerStats({ ...DEFAULT_PLAYER, nurturingSlots: 1 });
+    setParty({ commanderZoidId: 'gator', zoids: [{ experience: LEVEL_100_XP, id: 'merda' }, { experience: 0, id: 'gator' }] });
+    placeReborn('merda');
+    expect(party().zoids).toHaveLength(1);
+
+    setPlayerStats({ ...DEFAULT_PLAYER, nurturingSlots: 0 });
+    selectTransportZoid(null);
+    expect(tankSlots()).toHaveLength(0);
+    expect(party().zoids.some((z) => z.id === 'merda')).toBe(true);
+  });
+
+  it('selects null to deactivate transport', () => {
+    selectTransportZoid('gustav');
+    expect(transportZoidId()).toBe('gustav');
+    selectTransportZoid(null);
+    expect(transportZoidId()).toBeNull();
+    expect(getTransportBonus().fragmentMultiplier).toBe(1);
+  });
+
+  it('getAvailableTransportZoids returns only owned transport zoids', () => {
+    setParty({ commanderZoidId: 'gustav', zoids: [{ experience: 0, id: 'gustav' }, { experience: 0, id: 'merda' }] });
+    const available = getAvailableTransportZoids();
+    expect(available).toContain('gustav');
+    expect(available).not.toContain('gustav_mc');
+    expect(available).not.toContain('merda');
   });
 });

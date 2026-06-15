@@ -13,7 +13,7 @@ import { wallet } from '../store/walletStore';
 import { zoidDataLog } from '../store/zoidDataStore';
 import type { ActiveScan } from '../store/scanStore';
 import { activeScan } from '../store/scanStore';
-import { tankSlots } from '../store/nurturingStore';
+import { tankSlots, transportZoidId } from '../store/nurturingStore';
 import type { TankSlot } from '../store/TankSlot';
 import { zoidCores } from '../store/zoidCoreStore';
 import { zoidResearch } from '../store/zoidResearchStore';
@@ -33,6 +33,7 @@ export interface SaveData {
   routeKills?: Record<string, number>;
   scanSetup?: ActiveScan;
   speciesDefeats?: Record<string, number>;
+  transportZoidId?: string | null;
   version: string;
   wallet?: Record<string, number>;
   zoidCores?: Record<string, number>;
@@ -121,6 +122,7 @@ export class Save {
       playerStats: playerStats() ?? undefined,
       routeKills: routeKills(),
       speciesDefeats: speciesDefeats(),
+      transportZoidId: transportZoidId(),
       scanSetup: activeScan() ?? undefined,
       wallet: wallet(),
       zoidCores: zoidCores(),
