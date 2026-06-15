@@ -10,6 +10,7 @@ export interface CoreVisualLayers {
 }
 
 const CORE_SIZE_PX: Record<ZoidSize, number> = {
+  [ZoidSize.Transport]: 80,
   [ZoidSize.Colossal]: 72,
   [ZoidSize.XL]: 64,
   [ZoidSize.L]: 56,

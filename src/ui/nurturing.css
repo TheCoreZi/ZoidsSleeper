@@ -435,3 +435,17 @@
   color: #e0e0e0;
   font-size: 0.7rem;
 }
+
+@media (width <= 768px) {
+  .nurturing-picker {
+    width: 90vw;
+  }
+
+  .nurturing-cores-layout {
+    flex-direction: column;
+  }
+
+  .nurturing-pool-table {
+    width: 100%;
+  }
+}

@@ -273,12 +273,14 @@ const App: Component = () => {
       <Show when={popupMessage()} keyed>
         {(popup) => (
           <div class={`popup-message popup-${popup.type}`}>
-            <Show when={popup.image} keyed>
-              {(img) => img instanceof EvolutionPopupImage
-                ? <EvolutionPopupImageView image={img} />
-                : <img class="popup-message-img" src={img.src} alt="" />
-              }
-            </Show>
+            <Switch>
+              <Match when={popup.image instanceof EvolutionPopupImage && popup.image}>
+                {(img) => <EvolutionPopupImageView image={img()} />}
+              </Match>
+              <Match when={popup.image}>
+                {(img) => <img class="popup-message-img" src={img().src} alt="" />}
+              </Match>
+            </Switch>
             <div>
               <h2>{popup.title}</h2>
               <p>{popup.content}</p>
