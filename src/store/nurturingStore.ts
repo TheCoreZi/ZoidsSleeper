@@ -3,6 +3,7 @@ import { REBORN_ATTACK_BONUS_PERCENT } from '../constants';
 import { t } from '../i18n';
 import { levelFromExperience } from '../models/LevelType';
 import { PopupMessage, PopupType } from '../models/PopupMessage';
+import { NO_TRANSPORT_BONUS, TRANSPORT_ZOID_BONUSES, type TransportZoidBonus } from '../models/TransportZoid';
 import type { OwnedZoid } from '../models/Zoid';
 import { getZoidById, getZoidImage, ZOID_LIST } from '../models/Zoid';
 import { playerStats, showPopup } from './gameStore';
@@ -12,15 +13,17 @@ import { STATUE_SLOT, TankSlotSource } from './TankSlot';
 import { addCore, removeCore } from './zoidCoreStore';
 
 const [tankSlots, setTankSlots] = createSignal<TankSlot[]>([]);
+const [transportZoidId, setTransportZoidId] = createSignal<string | null>(null);
 
 function addFragments(amount: number): void {
+  const multiplied = Math.floor(amount * getTransportBonus().fragmentMultiplier);
   setTankSlots((prev) => {
     const hasChange = prev.some((s) => s.fragments < s.fragmentsRequired);
     if (!hasChange) {return prev;}
     return prev.map((slot) =>
       slot.fragments >= slot.fragmentsRequired
         ? slot
-        : { ...slot, fragments: Math.min(slot.fragments + amount, slot.fragmentsRequired) }
+        : { ...slot, fragments: Math.min(slot.fragments + multiplied, slot.fragmentsRequired) }
     );
   });
 }
@@ -35,7 +38,7 @@ function completeSlot(index: number): void {
   } else if (slot.source === TankSlotSource.Reborn) {
     const reborn: OwnedZoid = {
       ...slot.ownedZoid,
-      rebornBonusPercent: (slot.ownedZoid.rebornBonusPercent ?? 0) + REBORN_ATTACK_BONUS_PERCENT,
+      rebornBonusPercent: (slot.ownedZoid.rebornBonusPercent ?? 0) + REBORN_ATTACK_BONUS_PERCENT * getTransportBonus().rebornBonusMultiplier,
       rebornCount: (slot.ownedZoid.rebornCount ?? 0) + 1,
       experience: 0,
     };
@@ -52,7 +55,17 @@ function completeSlot(index: number): void {
 
 function getAvailableSlotCount(): number {
   const stats = playerStats();
-  return (stats?.nurturingSlots ?? 1) - tankSlots().length;
+  return (stats?.nurturingSlots ?? 1) + getTransportBonus().extraSlots - tankSlots().length;
+}
+
+function getAvailableTransportZoids(): string[] {
+  const owned = party().zoids.map((z) => z.id);
+  return Object.keys(TRANSPORT_ZOID_BONUSES).filter((id) => owned.includes(id));
+}
+
+function getTransportBonus(): TransportZoidBonus {
+  const id = transportZoidId();
+  return id ? TRANSPORT_ZOID_BONUSES[id] ?? NO_TRANSPORT_BONUS : NO_TRANSPORT_BONUS;
 }
 
 function isSpeciesInTank(zoidSpeciesId: string): boolean {
@@ -61,6 +74,10 @@ function isSpeciesInTank(zoidSpeciesId: string): boolean {
 
 function loadTankSlots(data?: TankSlot[]): void {
   setTankSlots(data ?? []);
+}
+
+function loadTransportZoidId(id?: string | null): void {
+  setTransportZoidId(id ?? null);
 }
 
 function placeCore(coreId: string, zoidSpeciesId: string): void {
@@ -133,4 +150,29 @@ function removeStatueSlot(): void {
   setTankSlots((prev) => prev.filter((slot) => slot.source !== TankSlotSource.Statue));
 }
 
-export { addFragments, completeSlot, getAvailableSlotCount, isCoreNurtured, isSpeciesInTank, loadTankSlots, placeCore, placeReborn, placeStatue, removeStatueSlot, tankSlots };
+function selectTransportZoid(newId: string | null): void {
+  setTransportZoidId(newId);
+  const newExtraSlots = getTransportBonus().extraSlots;
+
+  const stats = playerStats();
+  const baseSlots = stats?.nurturingSlots ?? 1;
+  const newMax = baseSlots + newExtraSlots;
+  const currentSlots = tankSlots();
+
+  if (currentSlots.length > newMax) {
+    const toEvict = currentSlots.slice(newMax);
+    for (const slot of toEvict) {
+      if (slot.source === TankSlotSource.Core) {
+        addCore(slot.coreId);
+      } else if (slot.source === TankSlotSource.Reborn) {
+        setParty((prev) => ({
+          ...prev,
+          zoids: [...prev.zoids, slot.ownedZoid],
+        }));
+      }
+    }
+    setTankSlots((prev) => prev.slice(0, newMax));
+  }
+}
+
+export { addFragments, completeSlot, getAvailableSlotCount, getAvailableTransportZoids, getTransportBonus, isCoreNurtured, isSpeciesInTank, loadTankSlots, loadTransportZoidId, placeCore, placeReborn, placeStatue, removeStatueSlot, selectTransportZoid, tankSlots, transportZoidId };

@@ -436,6 +436,166 @@
   font-size: 0.7rem;
 }
 
+.nurturing-bonus--positive.nurturing-bonus--positive {
+  color: #6ddc6d;
+}
+
+.nurturing-bonus--negative.nurturing-bonus--negative {
+  color: #dc6d6d;
+}
+
+.nurturing-transport {
+  align-items: center;
+  border-bottom: 1px solid var(--theme-border);
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.nurturing-transport-image {
+  height: 36px;
+  object-fit: contain;
+  width: 36px;
+}
+
+.nurturing-transport-name {
+  color: #e0e0e0;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+.nurturing-transport-none {
+  color: #666;
+  flex: 1;
+  font-size: 0.75rem;
+}
+
+.nurturing-transport-btn {
+  background: none;
+  border: 1px solid var(--theme-border);
+  border-radius: 6px;
+  color: #999;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+  margin-left: auto;
+  padding: 0.25rem 0.4rem;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.nurturing-transport-btn:hover {
+  border-color: var(--theme-accent);
+  color: var(--theme-accent);
+}
+
+.nurturing-transport-bonuses {
+  border-collapse: collapse;
+  flex: 1;
+  min-width: 0;
+}
+
+.nurturing-transport-bonuses-label {
+  color: #999;
+  font-size: 0.6rem;
+  padding: 0.1rem 0.25rem;
+}
+
+.nurturing-transport-bonuses-value {
+  color: var(--theme-accent);
+  font-size: 0.6rem;
+  font-weight: bold;
+  padding: 0.1rem 0.25rem;
+  text-align: right;
+}
+
+.nurturing-transport-grid {
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  padding: 0.5rem 0;
+}
+
+.nurturing-transport-card {
+  align-items: center;
+  background: var(--theme-surface-bg);
+  border: 1px solid var(--theme-border);
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.5rem;
+  transition: border-color 0.2s, transform 0.1s;
+}
+
+.nurturing-transport-card:hover {
+  border-color: var(--theme-accent);
+  transform: scale(1.05);
+}
+
+.nurturing-transport-card--active {
+  background: var(--theme-accent-bg, rgb(255 255 255 / 8%));
+  border-color: var(--theme-accent);
+}
+
+.nurturing-transport-card-image {
+  height: 48px;
+  object-fit: contain;
+  width: 48px;
+}
+
+.nurturing-transport-card-none {
+  align-items: center;
+  background: #333;
+  border-radius: 50%;
+  color: #666;
+  display: flex;
+  font-size: 1.2rem;
+  height: 48px;
+  justify-content: center;
+  width: 48px;
+}
+
+.nurturing-transport-card-name {
+  color: #e0e0e0;
+  font-size: 0.7rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.nurturing-transport-card-table {
+  border-top: 1px solid var(--theme-border);
+  display: grid;
+  gap: 0;
+  grid-template-columns: 1fr auto;
+  margin-top: 0.25rem;
+  padding-top: 0.25rem;
+  width: 100%;
+}
+
+.nurturing-transport-card-label {
+  border-bottom: 1px solid var(--theme-border);
+  color: #999;
+  font-size: 0.6rem;
+  padding: 0.15rem 0.25rem;
+  text-align: left;
+}
+
+.nurturing-transport-card-value {
+  border-bottom: 1px solid var(--theme-border);
+  color: var(--theme-accent);
+  font-size: 0.6rem;
+  font-weight: bold;
+  padding: 0.15rem 0.25rem;
+  text-align: right;
+}
+
+.nurturing-transport-card-label:last-of-type,
+.nurturing-transport-card-value:last-of-type {
+  border-bottom: none;
+}
+
 @media (width <= 768px) {
   .nurturing-picker {
     width: 90vw;

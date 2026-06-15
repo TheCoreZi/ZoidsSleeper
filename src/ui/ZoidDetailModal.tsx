@@ -179,6 +179,7 @@ const ZoidDetailModal: Component<ZoidDetailModalProps> = (props) => {
                       {statRow(t('ui:archive_times_nurtured'), ownedZoid()!.rebornCount ?? 0)}
                       {statRow(t('ui:archive_research_bonus'), `${ownedZoid()!.rebornBonusPercent ?? 0}%`)}
                     </Show>
+                    {statRow(t('ui:stat_core_fragments'), zoid().coreFragments)}
                   </div>
                 </div>
               </div>

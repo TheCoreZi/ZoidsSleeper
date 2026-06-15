@@ -14,21 +14,29 @@ import ZoidDetailModal from './ZoidDetailModal';
 import './archive.css';
 
 const ARCHIVE_STAT_OPTIONS: StatOption[] = [
-  StatOption.Name, StatOption.BaseAttack, StatOption.BaseHp,
+  StatOption.Name, StatOption.BaseAttack, StatOption.BaseHp, StatOption.CoreFragments,
 ];
+
+function getArchiveStatValue(id: string, stat: StatOption): number | null {
+  const data = ZOID_LIST[id];
+  switch (stat) {
+    case StatOption.BaseAttack: return data.attack;
+    case StatOption.BaseHp: return data.maxHealth;
+    case StatOption.CoreFragments: return data.coreFragments;
+    default: return null;
+  }
+}
 
 function getArchiveStatLabel(id: string, stat: StatOption, status: ZoidResearchStatus): string | undefined {
   if (status === ZoidResearchStatus.Seen) {return stat !== StatOption.Name ? '???' : undefined;}
-  const data = ZOID_LIST[id];
-  const value = stat === StatOption.BaseAttack ? data.attack : stat === StatOption.BaseHp ? data.maxHealth : null;
+  const value = getArchiveStatValue(id, stat);
   if (value === null) {return undefined;}
   return formatStatLabel(stat, value.toLocaleString());
 }
 
 function getArchiveNumericStat(id: string, stat: StatOption, status: ZoidResearchStatus): number {
   if (status === ZoidResearchStatus.Seen) {return -1;}
-  const data = ZOID_LIST[id];
-  return stat === StatOption.BaseAttack ? data.attack : data.maxHealth;
+  return getArchiveStatValue(id, stat) ?? 0;
 }
 
 function archiveCompare(aId: string, bId: string, aStat: ZoidResearchStatus, bStat: ZoidResearchStatus, stat: StatOption): number {
