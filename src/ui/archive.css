@@ -396,6 +396,12 @@
   text-align: center;
 }
 
+.archive-detail-evo-img-wrapper {
+  background: rgb(255 255 255 / 10%);
+  border-radius: 50%;
+  padding: 4px;
+}
+
 .archive-detail-evo-img {
   height: 64px;
   image-rendering: pixelated;
