@@ -1,5 +1,7 @@
 import { BaseBattle } from '../game/BaseBattle';
 import { buildDropPool, rollDrops } from '../item/rollDrops';
+import { checkCampaigns } from '../store/campaignStore';
+import { incrementSpeciesDefeats } from '../store/statisticsStore';
 import { grantCurrencyReward } from '../store/walletStore';
 import { spawnZoid, buildZoid, getZoidById, ZoidResearchStatus } from '../models/Zoid';
 
@@ -61,7 +63,9 @@ export class DungeonBattle extends BaseBattle {
     const drop = rollDrops(drops);
     if (drop) {drop.grant();}
 
+    incrementSpeciesDefeats(this.enemy.id);
     resetScanAfterBattle();
+    checkCampaigns();
     if (this.currentEnemyIndex < this.enemies.length - 1) {
       this.nextEnemy();
     } else {

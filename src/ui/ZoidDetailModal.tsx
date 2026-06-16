@@ -229,7 +229,7 @@ const ZoidDetailModal: Component<ZoidDetailModalProps> = (props) => {
 
           <div class="archive-detail-row3">
             <span class="archive-detail-section-title">{t('ui:locations')}</span>
-            <Show when={isRevealed() && locations().length > 0} fallback={<span class="archive-detail-section-value">???</span>}>
+            <Show when={locations().length > 0} fallback={<span class="archive-detail-section-value">???</span>}>
               <div class="archive-detail-locations">
                 <For each={locations()}>
                   {(locId) => <span class="archive-detail-location">• {t(`locations:${locId}`)}</span>}

@@ -1,6 +1,6 @@
 import { FEATURE_FLAGS } from '../featureFlag';
 import { Faction } from '../models/Faction';
-import { AllOfRequirement, ArmySizeRequirement, CampaignCompletedRequirement, ComparisonCondition, CoreNurturedRequirement, DungeonCompletionRequirement, FactionRequirement, ImpossibleRequirement, ItemRequirement, MissionCompletedRequirement, NpcTalkedInCampaignRequirement, PilotDefeatRequirement, RouteKillRequirement, SpeciesDefeatRequirement, SpeciesZiDataRequirement, WildDefeatRequirement, ZiDataRequirement, ZoidCreatedRequirement } from '../requirement';
+import { AllOfRequirement, ArmySizeRequirement, CampaignCompletedRequirement, ComparisonCondition, CoreNurturedRequirement, DungeonCompletionRequirement, FactionRequirement, ImpossibleRequirement, ItemRequirement, MissionCompletedRequirement, NpcTalkedInCampaignRequirement, PilotDefeatRequirement, RouteKillRequirement, SpeciesDefeatRequirement, SpeciesZiDataRequirement, WildDefeatRequirement, ZiDataRequirement, ZoidAtLevelRequirement, ZoidCreatedRequirement } from '../requirement';
 import { CUTSCENES } from '../cutscene';
 import { activateCityActionReward, grantReward } from '../reward';
 import { enqueueDialog, playerStats, setPlayerStats } from '../store/gameStore';
@@ -18,10 +18,24 @@ export const CAMPAIGNS: Record<string, Campaign> = {
     unlockRequirements: [new FactionRequirement(Faction.GuylosEmpire)],
   },
   olympus_threat: {
+    featureFlag: FEATURE_FLAGS.SHELLS_OF_TIME,
     hidden: true,
     id: 'olympus_threat',
     missions: [
-      { id: 'report_to_republican_camp', goals: [new MissionCompletedRequirement('olympus_threat', 'report_to_republican_camp')] },
+      { featureFlag: FEATURE_FLAGS.SHELLS_OF_TIME, id: 'report_to_republican_camp', goals: [new NpcTalkedInCampaignRequirement('olympus_threat', 'registration_officer')] },
+      { featureFlag: FEATURE_FLAGS.SHELLS_OF_TIME, id: 'go_to_training', goals: [new NpcTalkedInCampaignRequirement('olympus_threat', 'training_officer')] },
+      { featureFlag: FEATURE_FLAGS.SHELLS_OF_TIME, id: 'recruitment_trials', showProgress: true, goals: [new AllOfRequirement([
+        new SpeciesDefeatRequirement('sinker', 5),
+        new SpeciesZiDataRequirement('gorgodos', 1),
+        new ZoidAtLevelRequirement(50),
+      ])] },
+      { featureFlag: FEATURE_FLAGS.SHELLS_OF_TIME, id: 'trials_complete', goals: [new NpcTalkedInCampaignRequirement('olympus_threat', 'training_officer')] },
+      { featureFlag: FEATURE_FLAGS.SHELLS_OF_TIME, id: 'talk_to_companions', showProgress: true, goals: [ new AllOfRequirement([
+        new NpcTalkedInCampaignRequirement('olympus_threat', 'kara'),
+        new NpcTalkedInCampaignRequirement('olympus_threat', 'cynian_rain'),
+        new NpcTalkedInCampaignRequirement('olympus_threat', 'badol_decisive'),
+      ])]},
+      { id: 'coming_soon', goals: [new ImpossibleRequirement()] },
     ],
     unlockRequirements: [new FactionRequirement(Faction.HelicRepublic)],
   },

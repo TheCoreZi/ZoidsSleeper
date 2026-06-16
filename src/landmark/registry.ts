@@ -1,3 +1,4 @@
+import { WildBossEntry } from '../dungeon/DungeonSortieConfig';
 import { DungeonSortieEvent } from '../dungeon/DungeonSortieEvent';
 import { CITIES } from './City';
 import { DUNGEONS } from './Dungeon';
@@ -23,7 +24,8 @@ export function getZoidLocations(zoidId: string): string[] {
     for (const action of dungeon.actions ?? []) {
       if (action instanceof DungeonSortieEvent) {
         const hasEnemy = action.enemies.some((e) => e.zoidData.id === zoidId)
-          || action.eliteEnemies.some((e) => e.zoidData.id === zoidId);
+          || action.eliteEnemies.some((e) => e.zoidData.id === zoidId)
+          || action.bossTiers.some((tier) => tier.entries.some((e) => e instanceof WildBossEntry && e.zoidData.id === zoidId));
         if (hasEnemy) { locations.push(dungeon.id); break; }
       }
     }

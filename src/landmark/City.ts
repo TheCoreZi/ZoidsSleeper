@@ -5,7 +5,8 @@ import { PILOTS } from '../models/Pilot';
 import { ANCIENT_TORTOISE_DUEL, BARRAGE_TORTOISE_DUEL } from '../models/StoryBlueprints';
 import { GALE_EW_CHAIN } from '../story/eventchains/galeEwChain';
 import { FEATURE_FLAGS } from '../featureFlag';
-import { ArmySizeRequirement, COMPOUND_REQUIREMENTS, ComparisonCondition, FeatureFlagRequirement, ImpossibleRequirement, ItemRequirement, MissionCompletedRequirement, NpcTalkedInCampaignRequirement, PilotDefeatRequirement, RouteKillRequirement, WildDefeatRequirement } from '../requirement';
+import { Faction } from '../models/Faction';
+import { AllOfRequirement, ArmySizeRequirement, COMPOUND_REQUIREMENTS, ComparisonCondition, FactionRequirement, FeatureFlagRequirement, ImpossibleRequirement, ItemRequirement, MissionCompletedRequirement, NpcTalkedInCampaignRequirement, PilotDefeatRequirement, RouteKillRequirement, WildDefeatRequirement } from '../requirement';
 import { activateCityActionReward, compositeReward, cutsceneReward, itemReward, missionAdvanceReward, removeItemReward, removeZiDataReward, removeZoidReward, typedZoidCoreReward, zoidReward } from '../reward';
 import { ActionDuelPilot } from './action/ActionDuelPilot';
 import { ActionFightPilot } from './action/ActionFightPilot';
@@ -25,6 +26,7 @@ export interface City extends Landmark {
 }
 
 const C = 'sleeper_commander';
+const O = 'olympus_threat';
 const S = 'shells_of_time';
 
 const AUTOMATIC_ACTIONS: Record<string, CityAction[]> = {
@@ -223,6 +225,38 @@ export const CITIES: City[] = [
     mapPosition: { x: 34, y: 31 },
     name: 'Wind Oasis',
     requirements: [new RouteKillRequirement('dustwind_trail', 10)],
+    type: LandmarkType.City,
+  },
+  {
+    actions: [
+      new ActionTalkToNPC('registration_officer',
+        undefined,
+        [new MissionCompletedRequirement(O, 'report_to_republican_camp')],
+        undefined,
+        'ui:report_to_camp'),
+      new ActionTalkToNPC('training_officer',
+        [new MissionCompletedRequirement(O, 'report_to_republican_camp')],
+        [new MissionCompletedRequirement(O, 'talk_to_companions')],
+        undefined,
+        'ui:go_to_training'),
+      new ActionTalkToNPC('kara',
+        [new MissionCompletedRequirement(O, 'trials_complete')],
+        [new MissionCompletedRequirement(O, 'talk_to_companions')]),
+      new ActionTalkToNPC('cynian_rain',
+        [new MissionCompletedRequirement(O, 'trials_complete')],
+        [new MissionCompletedRequirement(O, 'talk_to_companions')]),
+      new ActionTalkToNPC('badol_decisive',
+        [new MissionCompletedRequirement(O, 'trials_complete')],
+        [new MissionCompletedRequirement(O, 'talk_to_companions')]),
+      new ActionVisitDepot([ITEMS.core_preserver as ConsumableItem, ITEMS.core_saver as ConsumableItem], undefined, 'ui:visit_armory'),
+      new ActionVisitLab('lab'),
+    ],
+    battleBackground: BattleBackground.Grass,
+    featureFlag: FEATURE_FLAGS.SHELLS_OF_TIME,
+    id: 'republican_camp',
+    mapPosition: { x: 43, y: 42 },
+    name: 'Republican Camp',
+    requirements: [new AllOfRequirement([new FactionRequirement(Faction.HelicRepublic), new RouteKillRequirement('republican_trail', 10)])],
     type: LandmarkType.City,
   },
 ];

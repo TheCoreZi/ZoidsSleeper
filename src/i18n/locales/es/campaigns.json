@@ -12,9 +12,29 @@
   "olympus_threat": {
     "description": "La inteligencia sugiere que el Imperio de Guylos se está movilizando para algo grande. Como nuevo miembro de la República, repórtate en el campamento y ayuda a descubrir qué están planeando.",
     "missions": {
+      "coming_soon": {
+        "description": "Próximamente",
+        "name": "Continuará"
+      },
+      "go_to_training": {
+        "description": "Preséntate en el área de entrenamiento para tu primera instrucción.",
+        "name": "Primer Día"
+      },
+      "recruitment_trials": {
+        "description": "Completa las pruebas de reclutamiento para demostrar tu valía como soldado.",
+        "name": "Gánate Tu Lugar"
+      },
       "report_to_republican_camp": {
         "description": "Dirígete al campamento republicano y repórtate. El Mayor Arthur ya habló bien de ti.",
         "name": "Reportándose a la República"
+      },
+      "talk_to_companions": {
+        "description": "Habla con Kara, Cynian Rain y Badol Decisive antes de la siguiente asignación.",
+        "name": "El Significado del Uniforme"
+      },
+      "trials_complete": {
+        "description": "Repórtate con el oficial para confirmar los resultados de tus pruebas.",
+        "name": "Aún en Pie"
       }
     },
     "name": "La Amenaza del Olympus"
