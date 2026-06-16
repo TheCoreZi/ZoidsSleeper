@@ -3,6 +3,10 @@
     "description": "Una pequeña estatua antigua, su superficie cubierta de extraños símbolos.",
     "name": "Estatua Antigua"
   },
+  "buster_cannon": {
+    "description": "Cañón de gran calibre. Mayor alcance y poder destructivo a costa de movilidad.",
+    "name": "Buster Cannon"
+  },
   "core_mini_core": {
     "name": "Mini Core"
   },

@@ -63,12 +63,12 @@ const SuppliesPanel: Component<SuppliesPanelProps> = (props) => {
     const stats = playerStats();
     return matches
       .filter(({ sourceId }) => currentParty.zoids.some((z) => z.id === sourceId))
-      .map(({ rule, sourceId }) => {
+      .map(({ evolution, sourceId }) => {
         const owned = currentParty.zoids.find((z) => z.id === sourceId)!;
-        const targetInParty = currentParty.zoids.some((z) => z.id === rule.targetId);
+        const targetInParty = currentParty.zoids.some((z) => z.id === evolution.targetId);
         const ownedStats = computeOwnedZoidStats(owned, stats?.faction ?? 'neutral');
-        const otherConditionsMet = rule.isFulfilledWithItem(ownedStats, itemId);
-        return { disabled: !otherConditionsMet, sourceId, targetId: rule.targetId, targetInParty };
+        const otherConditionsMet = evolution.isFulfilledWithItem(ownedStats, itemId);
+        return { disabled: !otherConditionsMet, sourceId, targetId: evolution.targetId, targetInParty };
       });
   });
 

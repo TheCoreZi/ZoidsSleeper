@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { ItemEvolution } from './ItemEvolution';
+import { Evolution } from './EvolutionRule';
+import { ItemRule } from './ItemRule';
 import { getEvolutionSources, getSpeciesEvolvableByItem } from './evolutionLookup';
 
 describe('getEvolutionSources', () => {
@@ -13,11 +14,12 @@ describe('getEvolutionSources', () => {
     expect(getEvolutionSources('aquadon')).toHaveLength(0);
   });
 
-  it('returns the evolution rule from the source species', () => {
+  it('returns the evolution from the source species', () => {
     const results = getEvolutionSources('godos');
     expect(results).toHaveLength(1);
     expect(results[0].sourceId).toBe('garius');
-    expect(results[0].rule.targetId).toBe('godos');
+    expect(results[0].evolution).toBeInstanceOf(Evolution);
+    expect(results[0].evolution.targetId).toBe('godos');
   });
 
   it('finds multiple sources when a species has branching evolutions', () => {
@@ -32,8 +34,8 @@ describe('getSpeciesEvolvableByItem', () => {
     const results = getSpeciesEvolvableByItem('layered_armor');
     expect(results).toHaveLength(1);
     expect(results[0].sourceId).toBe('malder');
-    expect(results[0].rule).toBeInstanceOf(ItemEvolution);
-    expect(results[0].rule.targetId).toBe('gustav');
+    expect(results[0].evolution.rule).toBeInstanceOf(ItemRule);
+    expect(results[0].evolution.targetId).toBe('gustav');
   });
 
   it('returns empty array for unknown item', () => {

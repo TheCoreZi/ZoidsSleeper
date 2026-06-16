@@ -1,5 +1,5 @@
 import type { Drop } from '../item/Drop';
-import type { EvolutionRule } from '../evolution';
+import type { Evolution } from '../evolution';
 import type { Faction } from './Faction';
 import type { LevelType } from './LevelType';
 import type { TerrainType } from './Terrain';
@@ -31,7 +31,7 @@ export interface ZoidSpecies {
   scanRate: number;
   size: ZoidSize;
   terrainTypes: TerrainType[];
-  evolutions?: EvolutionRule[];
+  evolutions?: Evolution[];
   height?: number;
   itemDrops?: Drop[];
   length?: number;

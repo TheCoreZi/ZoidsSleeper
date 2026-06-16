@@ -3,6 +3,10 @@
     "description": "A small ancient statue, its surface covered in strange symbols.",
     "name": "Ancient Statue"
   },
+  "buster_cannon": {
+    "description": "Large-caliber beam cannon. Greater range and firepower at the cost of mobility.",
+    "name": "Buster Cannon"
+  },
   "core_mini_core": {
     "name": "Mini Core"
   },
