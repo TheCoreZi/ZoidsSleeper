@@ -672,5 +672,40 @@
     "¡Debiste verlo, Señorita Unia! ¡Beacon abrió la boca y salió esta luz que envolvió a la tortuga como un capullo y luego BOOM salió completamente diferente y luego el Iron Kong intentó golpearnos y la tortuga hizo BLAM BLAM BLAM disparó todo a la vez como una... como una ráfaga!",
     "¡Eso es! ¡Es una Barrage Tortoise!",
     "Barrage Tortoise... me gusta. Le va bien a su nueva forma."
+  ],
+  "registration_officer_arrival": [
+    "¡Alto! ¿Quién eres? Esto es un campamento militar, no un parque de juegos para niños. ¿Qué? ¡¿Tú?! ¿Recomendado? ¿Con nada más que Zoids Sleepers? Jajaja, sí claro... Déjame revisar los papeles.",
+    "...Vaya, vaya. Los papeles coinciden. Así que el viejo no estaba bromeando después de todo. Pero que quede claro: una recomendación no significa trato especial. No eres diferente a cualquier otro recluta. Toma tus pertenencias y dirígete al Barracón. Muévete.",
+    "¡Tú no! ¿A dónde crees que vas, niña? Los civiles no tienen permitido entrar a un campamento militar. Solo personal alistado y oficiales autorizados pueden entrar. Vete ahora.",
+    "¡Oye! ¡Viajamos juntos hasta aquí! ¡No puedes simplemente dejarme afuera! ¡Déjame pasar! ¡Ugh! ¡Mi papá tenía razón, los soldados de verdad son unos tontos testarudos!",
+    "Me da igual si viajaste con la mismísima Presidenta. Las reglas son las reglas. Ahora vete antes de que te escolten a la salida. ...Espera. ¿Y quién se supone que es tu padre?",
+    "¡Mi padre es el Dr. Thrun! ¡Él trabajó para la República! ¡Es más inteligente que todos ustedes juntos!",
+    "¡Oficial! ¿Qué está pasando aquí? ¿De verdad le está causando problemas solo por ser una niña? Yo también soy una niña. ¿Tiene algún problema conmigo también? ¿La hija del Dr. Thrun verdad? Conocí a tu padre. Era un buen hombre. Oficial, ella se queda. Será mi invitada.",
+    "¡Recluta! Ya escuchaste a la señorita Pawn. Sin embargo, tú trajiste a la niña así que es tu responsabilidad. Si algo le pasa, serás sancionado. Ahora muévete."
+  ],
+  "training_officer_speech": [
+    "¡Escuchen, reclutas! Están aquí porque han elegido servir a algo más grande que ustedes mismos. Lucharán por lo que nos pertenece: nuestras tierras, nuestra libertad, nuestra gente. Jamás nos arrodillaremos ante un tirano impuesto cuyo único objetivo es conquistar. El camino que tienen por delante no será fácil. Pero si sobreviven lo que viene, se ganarán el derecho de llamarse soldados de la República. ¡Ahora muévanse! ¡Veinte vueltas al campamento! ¡Vamos, vamos, vamos!",
+    "No puede ser... ¿eres tú? ¿Me recuerdas? ¡Cynian Rain! ¡Ja! Recuerdo que apenas podías seguirle el paso a los otros niños en la aldea y ahora quieres ser soldado? Deberías haber entrenado un poco antes de presentarte aquí. Bueno, al menos me harás ver bien en comparación. Solo ten en cuenta que pienso ascender en las filas. Y no permitiré que nada se interponga. Intenta seguirme el paso.",
+    "Ey, no le hagas caso. Ya veremos cómo les va a los flacuchos cuando se queden sin suministros en una misión. Nosotros en cambio tenemos reservas para días, jaja. Me llamo Badol. Badol Decisive. Escuché que te recomendó el mismísimo Mayor Arthur. Eso no es poca cosa. No te preocupes, saldremos de esta juntos.",
+    "¡Si ya terminaron de presentarse! Es hora de la verdadera prueba. Cada año, cientos se alistan solo porque quieren comida, techo y la comodidad que ser soldado les brinda. El ejército no puede permitirse mantener a quienes no están verdaderamente comprometidos. Para mañana, solo un puñado de ustedes quedará. El resto estarán de regreso a sus casas. Completarán tres tareas.",
+    "Primero: quiero ver los restos de cinco Sinkers. Tráiganme prueba de que pueden con Zoids imperiales. Segundo: obtener el Zi-Data de un Gorgodos. La inteligencia y la recolección de datos son tan importantes como el combate. Tercero: presentarán a su Zoid ante mí. Un soldado debe mantener a sus Zoids en buen estado y listos para la pelea. No quiero ver Zoids débiles y desnutridos en mis filas. Tienen sus órdenes. Retírense."
+  ],
+  "training_officer_trials_done": [
+    "Vaya, vaya. Quién lo diría, sí terminaste. Llegaste mucho después de todos los demás. Esa amiga tuya, Rain, fue la primera en completar las tareas. ¿Y se supone que tú eras el recomendado por un Mayor? Ja. Pero lo lograste. Muchos ya empacaron sus cosas y se fueron. Ahora solo quedan los verdaderos soldados. Te has ganado el derecho de quedarte. Prepárate para el verdadero entrenamiento."
+  ],
+  "kara_companion": [
+    "Te ves cansado. He estado con Mana estos días. Me enseñó mucho sobre los Zoids. Cosas que nunca supe. Incluso me dejó ver parte de la vieja investigación de mi padre. Realmente estaba trabajando en algo importante aquí.",
+    "Todos aquí hablan de libertad y justicia. Pero la República está peleando una guerra en un continente que ni siquiera es suyo. Y se niegan a ceder. ¿En qué se diferencia eso de lo que hace el Imperio? Ambos bandos son culpables de esta guerra, cada uno a su manera. Pero espero que tú seas diferente. Espero que te hayas unido por las razones correctas."
+  ],
+  "cynian_rain_companion": [
+    "Oh, ¿pasando el rato con una niña? ¿No puedes con las de tu edad? ¡Ja! Hola, soy Cynian Rain. ¿Y tú eres...?",
+    "Soy Kara. Y no soy una niña. ¿Así que tú también eres de la aldea? Sí, en Gleam somos bien tontos. Unirnos a una guerra ajena a nosotros solo por renombre...",
+    "¡No estoy aquí por renombre! ¿Recuerdas la escasez de comida? ¿El hambre, los mercados vacíos? Todo eso fue por culpa del Imperio. Todo empezó cuando decidieron que tenían derecho a establecerse en este continente. Tomaron nuestros recursos, se llevaron a nuestra gente, y dejaron a aldeas como la nuestra morir de hambre. Debieron quedarse en Nyx, donde pertenecen. No descansaré hasta que paguen por lo que hicieron. Por eso estoy aquí. Y si son listos, no se interpondrán en mi camino."
+  ],
+  "badol_decisive_companion": [
+    "¡Ey! ¿Cómo la llevas? Pasaste las pruebas, eso es lo que importa. Oh, ¿y quién es esta? ¿Tu hermanita? Sabes, tengo un hermano de tu edad en casa. Tal vez debería presentártelo, ¡jaja!",
+    "¡No soy su hermana! ¡Me llamo Kara! Y... ¡¿Q-Qué?! ¡Ugh, eres igual de molesto que él! No esperaba menos de un soldado cabeza dura que solo busca pelea.",
+    "¡Jajaja! Solo estoy bromeando. Y no estoy aquí solo por pelear ni por la gloria. En mi aldea apenas hay comida o trabajo. Todo escasea. Unirme al ejército fue mi única opción real. Al menos así puedo enviar dinero a mi familia.",
+    "¿Por qué la República? Bueno, ellos controlan el continente central. Más tierra, más recursos, más oportunidades. Y no querría vivir en Nyx ni que me pagaran, ¡jaja! Dicen que hasta los Zoids de allá están deprimidos. Así que aquí estoy. No es la razón más heroica, pero es honesta. Y es un sacrificio que estoy dispuesto a hacer por mi jefecita."
   ]
 }

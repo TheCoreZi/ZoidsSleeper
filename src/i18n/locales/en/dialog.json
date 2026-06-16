@@ -672,5 +672,40 @@
     "You should have seen it, Miss Unia! Beacon opened its mouth and this light came out and wrapped around the tortoise like a cocoon and then BOOM it came out completely different and then the Iron Kong tried to hit us and the tortoise just BLAM BLAM BLAM fired everything at once like a... like a barrage!",
     "That is what it does! It is a Barrage Tortoise!",
     "Barrage Tortoise... I like it. It suits this new form."
+  ],
+  "registration_officer_arrival": [
+    "Halt! Who are you? This is a military camp, not a playground for children. What? You!? Recommended? With nothing but Sleeper Zoids? Haha, sure... Let me check the papers.",
+    "...Well, I'll be. The paperwork checks out. So the old man wasn't joking after all. But let me be clear: a recommendation does not mean special treatment. You are no different from any other recruit. Take your belongings and head to the Barracks. Move.",
+    "Not you! Where do you think you're going, little girl? Civilians are not permitted inside a military camp. Only enlisted personnel and authorized officers may enter. Leave now.",
+    "Hey! We traveled here together! You can't just keep me out! Let me through! Ugh! My dad was right, soldiers really are a bunch of stubborn fools!",
+    "I don't care if you traveled with the President herself. Rules are rules. Now leave before I have you escorted out. ...Wait. And who exactly is your father supposed to be?",
+    "My father is Dr. Thrun! He worked for the Republic! He's smarter than all of you combined!",
+    "Officer! What is going on here? Are you really giving her trouble just because she's a girl? I'm a girl too. Do you have a problem with me as well? Dr. Thrun's daughter right? I knew your father. He was a good man. Officer, she stays. She will be my guest.",
+    "Recruit! You heard Miss Pawn. However, you brought the girl here so she is your responsibility. If anything happens to her, you will be disciplined. Now get moving."
+  ],
+  "training_officer_speech": [
+    "Listen up, recruits! You are here because you have chosen to serve something greater than yourselves. You will fight for what belongs to us: our lands, our freedom, our people. We will never bow to an imposed tyrant whose only goal is conquest. The road ahead will not be easy. But if you survive what comes next, you will earn the right to call yourselves soldiers of the Republic. Now move! Twenty laps around the camp! Go, go, go!",
+    "No way... is that you? Do you remember me? Cynian Rain! Ha! I remember you could barely keep up with the other kids back in the village and now you want to be a soldier? You should have trained a bit before showing up here. Well, at least you'll make me look good by comparison. Just know that I intend to rise through the ranks. And I won't let anything get in my way. Try to keep up.",
+    "Hey, don't listen to her. We'll see how the skinny ones do when they run out of supplies on a mission. Us on the other hand? We've got reserves for days, haha. The name's Badol. Badol Decisive. I heard you were recommended by Major Arthur himself. That's no small thing. Don't worry, we'll get through this together.",
+    "If you're done introducing yourselves! It is time for the real test. Every year, hundreds enlist only because they want food, shelter, and the comfort that being a soldier provides. The army cannot afford to keep those who are not truly committed. By tomorrow, only a handful of you will remain. The rest will be on their way back home. You will complete three tasks.",
+    "First: I want to see the remains of five Sinkers. Bring me proof that you can handle Imperial Zoids. Second: obtain the Zi-Data from a Gorgodos. Intelligence and data collection are as important as combat. Third: you will present your Zoid before me. A soldier must keep their Zoids in top condition and ready for battle. I don't want to see weak, underfed Zoids in my ranks. You have your orders. Dismissed."
+  ],
+  "training_officer_trials_done": [
+    "Well, well. Who would have thought, you actually finished. You arrived long after everyone else. That friend of yours, Rain, was the first to complete the tasks. And you were supposed to be the one recommended by a Major? Ha. But you made it. Many have already packed their things and left. Now only the true soldiers remain. You have earned the right to stay. Prepare yourself for the real training."
+  ],
+  "kara_companion": [
+    "You look tired. I've been with Mana these days. She taught me a lot about Zoids. Things I never knew. She even let me see some of my father's old research. He really was working on something important here.",
+    "Everyone here talks about freedom and justice. But the Republic is fighting a war on a continent that isn't even theirs. And they refuse to back down. How is that so different from what the Empire does? Both sides are to blame for this war, each in their own way. But I hope you'll be different. I hope you joined for the right reasons."
+  ],
+  "cynian_rain_companion": [
+    "Oh, hanging out with a little girl? Can't handle girls your own age? Ha! Hi there, I'm Cynian Rain. And you are...?",
+    "I'm Kara. And I'm not a little girl. So you're from the village too? Yeah, we sure are fools in Gleam. Joining a war that isn't even ours just for glory...",
+    "I'm not here for glory! Do you remember the food shortages? The hunger, the empty markets? That was all because of the Empire. It all started when they decided they had the right to settle on this continent. They took our resources, dragged our people away, and left villages like ours to starve. They should have stayed in Nyx where they belong. I won't rest until they pay for what they did. That's why I'm here. And if you're smart, neither of you will get in my way."
+  ],
+  "badol_decisive_companion": [
+    "Hey! How are you holding up? You made it through the trials, that's what matters. Oh, and who is this? Your little sister? You know, I have a brother about your age back home. Maybe I should introduce you two, haha!",
+    "I'm not his sister! My name is Kara! And... W-What!? Ugh, you're just as annoying as him! I should have expected nothing less from a thick-headed soldier who only knows how to fight.",
+    "Hahaha! I'm just messing with you. And I'm not here just to fight or for glory. Back in my village, there's barely any food or work. Everything is scarce. Joining the army was my only real option. At least this way I can send money back to my family.",
+    "Why the Republic? Well, they control the central continent. More land, more resources, more opportunities. And I wouldn't want to live in Nyx even if they paid me, haha! I heard even the Zoids there are depressed. So here I am. Not the most heroic reason, but it's an honest one. And it's a sacrifice I'm willing to make for my old lady back home."
   ]
 }

@@ -25,4 +25,5 @@ export { SpeciesDefeatRequirement } from './SpeciesDefeatRequirement';
 export { SpeciesZiDataRequirement } from './SpeciesZiDataRequirement';
 export { WildDefeatRequirement } from './WildDefeatRequirement';
 export { ZiDataRequirement } from './ZiDataRequirement';
+export { ZoidAtLevelRequirement } from './ZoidAtLevelRequirement';
 export { ZoidCreatedRequirement } from './ZoidCreatedRequirement';

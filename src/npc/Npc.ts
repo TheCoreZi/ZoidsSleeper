@@ -26,6 +26,20 @@ export const NPCS: Record<string, Npc> = {
     nameKey: 'pilots:arcadia_guard',
     portrait: 'images/pilots/arcadia_guard.png',
   },
+  badol_decisive: {
+    dialogs: [
+      {
+        dialogKey: 'dialog:badol_decisive_companion',
+        speakers: {
+          1: { speakerKey: 'pilots:kara', portrait: 'images/pilots/girl.png' },
+          2: { speakerKey: '', portrait: '' },
+        },
+      },
+    ],
+    id: 'badol_decisive',
+    nameKey: 'pilots:badol_decisive',
+    portrait: 'images/pilots/badol_decisive.png',
+  },
   arthur: {
     dialogs: [
       { dialogKey: 'dialog:arthur_same_faction', unlockRequirement: new AllOfRequirement([new PilotDefeatRequirement('arthur'), new FactionRequirement(Faction.HelicRepublic)]) },
@@ -133,6 +147,20 @@ export const NPCS: Record<string, Npc> = {
     id: 'concho_cancer',
     nameKey: 'pilots:concho_cancer',
     portrait: 'images/pilots/concho.png',
+  },
+  cynian_rain: {
+    dialogs: [
+      {
+        dialogKey: 'dialog:cynian_rain_companion',
+        speakers: {
+          1: { speakerKey: 'pilots:kara', portrait: 'images/pilots/girl.png' },
+          2: { speakerKey: '', portrait: '' },
+        },
+      },
+    ],
+    id: 'cynian_rain',
+    nameKey: 'pilots:cynian_rain',
+    portrait: 'images/pilots/cynian_rain.png',
   },
   boy: {
     dialogs: [
@@ -299,7 +327,13 @@ export const NPCS: Record<string, Npc> = {
     portrait: 'images/pilots/fiona.png',
   },
   kara: {
-    dialogs: [{ dialogKey: 'dialog:girl_thanks', speakers: { 0: { portrait: 'images/pilots/girl.png', speakerKey: 'pilots:girl' } } }],
+    dialogs: [
+      {
+        dialogKey: 'dialog:kara_companion',
+        unlockRequirement: new MissionCompletedRequirement('olympus_threat', 'trials_complete'),
+      },
+      { dialogKey: 'dialog:girl_thanks', speakers: { 0: { portrait: 'images/pilots/girl.png', speakerKey: 'pilots:girl' } } },
+    ],
     id: 'kara',
     nameKey: 'pilots:kara',
     portrait: 'images/pilots/girl.png',
@@ -330,6 +364,48 @@ export const NPCS: Record<string, Npc> = {
     id: 'maria_flyheight',
     nameKey: 'pilots:maria_flyheight',
     portrait: 'images/pilots/maria.png',
+  },
+  mana_pawn: {
+    dialogs: [],
+    id: 'mana_pawn',
+    nameKey: 'pilots:mana_pawn',
+    portrait: 'images/pilots/mana_pawn.png',
+  },
+  registration_officer: {
+    dialogs: [
+      {
+        dialogKey: 'dialog:registration_officer_arrival',
+        speakers: {
+          3: { speakerKey: 'pilots:kara', portrait: 'images/pilots/girl.png' },
+          4: { speakerKey: '', portrait: ''},
+          5: { speakerKey: 'pilots:kara', portrait: 'images/pilots/girl.png' },
+          6: { speakerKey: 'pilots:mana_pawn', portrait: 'images/pilots/mana_pawn.png' },
+          7: { speakerKey: '', portrait: '' },
+        },
+      },
+    ],
+    id: 'registration_officer',
+    nameKey: 'pilots:registration_officer',
+    portrait: 'images/pilots/republican_officer.png',
+  },
+  training_officer: {
+    dialogs: [
+      {
+        dialogKey: 'dialog:training_officer_trials_done',
+        unlockRequirement: new MissionCompletedRequirement('olympus_threat', 'recruitment_trials'),
+      },
+      {
+        dialogKey: 'dialog:training_officer_speech',
+        speakers: {
+          1: { speakerKey: 'pilots:cynian_rain', portrait: 'images/pilots/cynian_rain.png' },
+          2: { speakerKey: 'pilots:badol_decisive', portrait: 'images/pilots/badol_decisive.png' },
+          3: { speakerKey: '', portrait: '' },
+        },
+      },
+    ],
+    id: 'training_officer',
+    nameKey: 'pilots:training_officer',
+    portrait: 'images/pilots/republican_officer.png',
   },
   fisherman: {
     dialogs: [{ dialogKey: 'dialog:fisherman_docks' }],

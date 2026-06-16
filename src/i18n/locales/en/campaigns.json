@@ -12,9 +12,29 @@
   "olympus_threat": {
     "description": "Intelligence suggests the Guylos Empire is mobilizing for something big. As a new member of the Republic, report to camp and help uncover what they're planning.",
     "missions": {
+      "coming_soon": {
+        "description": "Coming soon",
+        "name": "To Be Continued"
+      },
+      "go_to_training": {
+        "description": "Report to the training area for your initial briefing.",
+        "name": "First Day"
+      },
+      "recruitment_trials": {
+        "description": "Complete the recruitment trials to prove your worth as a soldier.",
+        "name": "Earn Your Place"
+      },
       "report_to_republican_camp": {
         "description": "Head to the Republican camp and report for duty. Major Arthur has already put in a good word for you.",
         "name": "Reporting to the Republic"
+      },
+      "talk_to_companions": {
+        "description": "Speak with Kara, Cynian Rain, and Badol Decisive before the next assignment.",
+        "name": "The Meaning of the Uniform"
+      },
+      "trials_complete": {
+        "description": "Report to the officer to confirm your trial results.",
+        "name": "Still Standing"
       }
     },
     "name": "The Olympus Threat"

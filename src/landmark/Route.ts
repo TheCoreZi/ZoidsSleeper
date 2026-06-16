@@ -1,7 +1,8 @@
 import { FEATURE_FLAGS } from '../featureFlag';
 import type { Drop } from '../item/Drop';
 import type { Requirement } from '../requirement';
-import { CampaignCompletedRequirement, CampaignStartedRequirement, DungeonCompletionRequirement, MissionCompletedRequirement, OwnZoidForTerrainRequirement, ZoidCreatedRequirement } from '../requirement';
+import { CampaignCompletedRequirement, CampaignStartedRequirement, DungeonCompletionRequirement, FactionRequirement, MissionCompletedRequirement, OwnZoidForTerrainRequirement, ZoidCreatedRequirement } from '../requirement';
+import { Faction } from '../models/Faction';
 import type { CurrencyReward } from '../models/Currency';
 import { TerrainType } from '../models/Terrain';
 import type { Landmark } from './Landmark';
@@ -229,6 +230,25 @@ export const ROUTES: Route[] = [
     name: 'Swallowing Sands',
     routeHealth: 2000,
     requirements: [new CampaignCompletedRequirement('shells_of_time')],
+    type: LandmarkType.Route,
+  },
+  {
+    baseReward: { magnis: 155, zi_metal: 22 },
+    battleBackground: BattleBackground.Grass,
+    connects: ['gleam_village', 'republican_camp'],
+    enemies: [
+      { blueprint: { id: 'cannon_tortoise', level: 27 }, unlockRequirement: new MissionCompletedRequirement('shells_of_time', 'consult_dr_t')  },
+      { blueprint: { id: 'crosswinger', level: 27 } },
+      { blueprint: { id: 'giraffsworder', level: 28 } },
+      { blueprint: { id: 'spiker', level: 26 } },
+      { blueprint: { id: 'stealth_viper', level: 26 } },
+    ],
+    featureFlag: FEATURE_FLAGS.SHELLS_OF_TIME,
+    fragmentYield: 3,
+    id: 'republican_trail',
+    name: 'Republican Trail',
+    routeHealth: 700,
+    requirements: [new FactionRequirement(Faction.HelicRepublic)],
     type: LandmarkType.Route,
   },
 ];
