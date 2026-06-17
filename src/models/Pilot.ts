@@ -62,6 +62,18 @@ export const PILOTS: Record<string, Pilot> = {
       ]),
     ],
   },
+  imperial_scout: {
+    fragmentYield: 5,
+    id: 'imperial_scout',
+    imageId: 'empire_soldier',
+    magnisReward: 3000,
+    name: 'Imperial Scout',
+    zoidSets: [
+      new PilotZoidSet([
+        { attackOverride: 20, id: 'molga', level: 20, maxHealthOverride: 2000 },
+      ]),
+    ],
+  },
   gale_task: {
     fragmentYield: 12,
     id: 'gale_task',

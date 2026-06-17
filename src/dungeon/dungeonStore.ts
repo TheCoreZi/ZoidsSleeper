@@ -4,8 +4,8 @@ import type { DungeonBoss } from './DungeonSortieConfig';
 import { Currency } from '../models/Currency';
 import { addCurrency } from '../store/walletStore';
 import type { DungeonSortieEvent } from './DungeonSortieEvent';
-import type { DungeonEventChoice } from './DungeonEventOutcome';
-import { EventOutcomeType } from './DungeonEventOutcome';
+import { type DungeonEventOutcome, EventOutcomeType, ItemRewardOutcome, RewardOutcome } from './DungeonEventOutcome';
+import { addItem } from '../store/inventoryStore';
 import { SortieNodeType } from './DungeonGraph';
 import type { SortieLayer, SortieNode } from './DungeonGraph';
 import { SupplyCostType, SupplyType } from './DungeonSupply';
@@ -56,19 +56,28 @@ function advanceLayer(): void {
   setDungeonPhase(DungeonPhase.Map);
 }
 
-function applyEventOutcome(choice: DungeonEventChoice): void {
-  const { outcome } = choice;
+function applyEventOutcome(outcome: DungeonEventOutcome): void {
   switch (outcome.type) {
+    case EventOutcomeType.AttackBuff:
+      setPlayerStats((prev) => prev ? { ...prev, attackMult: prev.attackMult * (1 + outcome.value / 100) } : prev);
+      break;
     case EventOutcomeType.Damage:
       applyPlayerHealthChangePercent(-outcome.value);
       break;
     case EventOutcomeType.Heal:
       applyPlayerHealthChangePercent(outcome.value);
       break;
-    case EventOutcomeType.Reward:
-      addCurrency(Currency.Magnis, outcome.value);
-      emitRewardEvent(outcome.value, 'magnis');
+    case EventOutcomeType.ItemReward: {
+      const item = outcome as ItemRewardOutcome;
+      addItem(item.itemId, item.amount);
       break;
+    }
+    case EventOutcomeType.Reward: {
+      const itemId = (outcome as RewardOutcome).itemId;
+      addCurrency(itemId as Currency, outcome.value);
+      emitRewardEvent(outcome.value, itemId);
+      break;
+    }
   }
 }
 
@@ -151,7 +160,7 @@ function resetBuffs(): void {
 
 function startSortie(config: DungeonSortieEvent, playerHealth: number, playerMaxHealth: number): void {
   resetBuffs();
-  const graph = generateSortie({ layers: config.layers, nodesPerLayer: config.nodesPerLayer });
+  const graph = generateSortie({ layers: config.layers, nodesPerLayer: config.nodesPerLayer, nodeTypeChances: config.nodeTypeChances });
   setDungeonRun({
     boss: config.resolveBoss(),
     config,

@@ -1,19 +1,24 @@
 import { type SortieLayer, type SortieNode, SortieNodeType } from './DungeonGraph';
+import { DEFAULT_NODE_TYPE_CHANCES } from './DungeonSortieEvent';
+import type { NodeTypeChances } from './DungeonSortieEvent';
 
 interface GenerateOptions {
   layers: number;
   nodesPerLayer: [number, number];
+  nodeTypeChances?: NodeTypeChances;
 }
 
 export const ENTRY_NODE_ID = 'entry';
 
-export function generateSortie({ layers, nodesPerLayer }: GenerateOptions): SortieLayer[] {
+export function generateSortie({ layers, nodesPerLayer, nodeTypeChances }: GenerateOptions): SortieLayer[] {
   const result: SortieLayer[] = [];
 
   result.push({
     depth: 0,
     nodes: [{ connectsTo: [], eventSeed: 0, id: ENTRY_NODE_ID, type: SortieNodeType.Entry }],
   });
+
+  const chances = nodeTypeChances ?? DEFAULT_NODE_TYPE_CHANCES;
 
   for (let i = 0; i < layers; i++) {
     const depth = i + 1;
@@ -22,7 +27,7 @@ export function generateSortie({ layers, nodesPerLayer }: GenerateOptions): Sort
       connectsTo: [],
       eventSeed: randomBetween(1, 100),
       id: `node_${depth}_${j}`,
-      type: pickNodeType(i, layers),
+      type: pickNodeType(i, layers, chances),
     }));
     result.push({ depth, nodes });
   }
@@ -36,13 +41,13 @@ export function generateSortie({ layers, nodesPerLayer }: GenerateOptions): Sort
   return result;
 }
 
-function pickNodeType(depth: number, totalLayers: number): SortieNodeType {
+function pickNodeType(depth: number, totalLayers: number, chances: NodeTypeChances): SortieNodeType {
   const progress = depth / totalLayers;
   const roll = Math.random();
 
-  const combat = 0.45 - 0.25 * progress;
-  const elite = 0.10 + 0.35 * progress;
-  const event = 0.25 - 0.05 * progress;
+  const combat = chances.combat.at(progress);
+  const elite = chances.elite.at(progress);
+  const event = chances.event.at(progress);
 
   if (roll < combat) {return SortieNodeType.Combat;}
   if (roll < combat + elite) {return SortieNodeType.Elite;}

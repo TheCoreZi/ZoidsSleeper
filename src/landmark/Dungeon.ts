@@ -49,8 +49,9 @@ export const DUNGEONS: Dungeon[] = [
         layers: 4,
         nodesPerLayer: [3, 4],
         eventPool: [
-          DUNGEON_EVENTS.mysterious_device,
           DUNGEON_EVENTS.mysterious_creature,
+          DUNGEON_EVENTS.mysterious_device,
+          DUNGEON_EVENTS.sealed_chamber,
         ],
         supplyOptions: [
           DUNGEON_SUPPLIES.field_repair,
@@ -93,8 +94,11 @@ export const DUNGEONS: Dungeon[] = [
         layers: 4,
         nodesPerLayer: [3, 4],
         eventPool: [
-          DUNGEON_EVENTS.mysterious_device,
+          DUNGEON_EVENTS.enemy_patrol,
+          DUNGEON_EVENTS.fallen_soldiers,
           DUNGEON_EVENTS.mysterious_creature,
+          DUNGEON_EVENTS.mysterious_device,
+          DUNGEON_EVENTS.sealed_chamber,
         ],
         supplyOptions: [
           DUNGEON_SUPPLIES.field_repair,
@@ -131,8 +135,13 @@ export const DUNGEONS: Dungeon[] = [
         ],
         entryCost: 50,
         eventPool: [
-          DUNGEON_EVENTS.mysterious_device,
+          DUNGEON_EVENTS.enemy_patrol,
+          DUNGEON_EVENTS.fallen_soldiers,
           DUNGEON_EVENTS.mysterious_creature,
+          DUNGEON_EVENTS.mysterious_device,
+          DUNGEON_EVENTS.downed_zoid,
+          DUNGEON_EVENTS.sealed_chamber,
+          DUNGEON_EVENTS.stray_zoid,
         ],
         fragmentYield: 3,
         id: 'sommerso_ruins_sortie',

@@ -7,7 +7,7 @@ import { DungeonEvent, DungeonEventChoice, HealOutcome } from '../dungeon/Dungeo
 import { BattleBackground, LandmarkType } from '../landmark/Landmark';
 import type { City } from '../landmark/City';
 
-const DUMMY_EVENT = new DungeonEvent('e1', 'test', [new DungeonEventChoice('ok', new HealOutcome('heal', 10))]);
+const DUMMY_EVENT = new DungeonEvent('e1', 'test', [new DungeonEventChoice('ok', [new HealOutcome('heal', 10)])]);
 
 const DUMMY_SORTIE = new DungeonSortieEvent({
   baseReward: { magnis: 100 },
