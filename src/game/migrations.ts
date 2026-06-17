@@ -8,6 +8,7 @@ export type MigrationData = Partial<SaveData> & Record<string, unknown>;
 type MigrationFn = (data: MigrationData) => void;
 
 const migrations: Record<string, MigrationFn> = {
+  '0.6.0': () => {},
   '0.5.2': () => {},
   '0.5.1': (data) => {
     const now = Date.now();
