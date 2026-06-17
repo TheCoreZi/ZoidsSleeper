@@ -111,6 +111,13 @@ export const CUTSCENES: Record<string, Cutscene> = {
   }),
   narration_dr_t_appears: new Cutscene('narration_dr_t_appears', 'dialog:narration_dr_t_appears', undefined, undefined, { 1: { portrait: 'images/pilots/dr_t.png', speakerKey: '???' }, 2: {portrait: '', speakerKey: ''} }),
   narration_discover_fione: new Cutscene('narration_discover_fione', 'dialog:narration_discover_fione', itemReward('ancient_statue', 1, true), { 1: 'images/cutscenes/fine_ruins.jpg', 2: 'images/items/ancient_statue.png' }),
+  narration_kara_imperial_camp: new Cutscene('narration_kara_imperial_camp', 'dialog:narration_kara_imperial_camp', undefined, undefined, {
+    0: { speakerKey: 'pilots:imperial_registration_officer', portrait: 'images/pilots/empire_soldier.png' },
+    1: { speakerKey: 'pilots:imperial_registration_officer', portrait: 'images/pilots/empire_soldier.png' },
+    2: { speakerKey: 'pilots:imperial_registration_officer', portrait: 'images/pilots/empire_soldier.png' },
+    3: { speakerKey: 'pilots:imperial_registration_officer', portrait: 'images/pilots/empire_soldier.png' },
+    4: { speakerKey: 'pilots:kara', portrait: 'images/pilots/girl.png' },
+  }),
   narration_maria_kidnapped: new Cutscene('narration_maria_kidnapped', 'dialog:narration_maria_kidnapped', undefined, {0: 'images/cutscenes/maria_kidnap.jpg'}),
   narration_stray_helcat: new Cutscene('narration_stray_helcat', 'dialog:narration_stray_helcat', undefined, undefined, {
     1: { speakerKey: 'pilots:dr_thrun', portrait: 'images/pilots/dr_thrun.png' },
