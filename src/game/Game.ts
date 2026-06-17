@@ -26,7 +26,7 @@ import { Currency } from '../models/Currency';
 import type { CurrencyReward } from '../models/Currency';
 import type { ArmyFilter } from '../models/ArmyFilter';
 import { Faction } from '../models/Faction';
-import type { Pilot } from '../models/Pilot';
+import { type Pilot, PILOTS } from '../models/Pilot';
 import { DEFAULT_PLAYER } from '../models/Player';
 import { PopupMessage, PopupType } from '../models/PopupMessage';
 import { calculatePartyAttack, calculatePartyMaxHealth, getZoidById, ZoidResearchStatus } from '../models/Zoid';
@@ -267,6 +267,32 @@ export class Game {
     const run = dungeonRun();
     if (!run) {return;}
     this.startDungeonCombat(run.config, SortieNodeType.Combat);
+  }
+
+  wildAmbushFromEvent(zoidData: ZoidBlueprint): void {
+    const run = dungeonRun();
+    if (!run) {return;}
+    const zoidName = getZoidById(zoidData.id).name;
+    const battle = new WildBossBattle(playerStats()!, [zoidData]);
+    battle.onVictory = () => {
+      this.endWildBossBattle(new PopupMessage(t('ui:wild_defeated', { name: zoidName }), t('ui:victory'), PopupType.Victory));
+      this.completeDungeonNode();
+    };
+    battle.onDefeat = () => {
+      this.endWildBossBattle(new PopupMessage(t('ui:not_strong_enough', { name: zoidName }), t('ui:defeated'), PopupType.Defeat));
+      this.endDungeonRun(false);
+    };
+    this.battle = battle;
+    setBattleState(BattleState.WildBossCombat);
+    setDungeonPhase(DungeonPhase.Combat);
+  }
+
+  pilotAmbushFromEvent(pilotId: string): void {
+    const run = dungeonRun();
+    if (!run) {return;}
+    const pilot = PILOTS[pilotId];
+    if (!pilot) {return;}
+    this.startPilotDungeonBoss({ pilot } as PilotDungeonBoss, run.playerHealth, run.playerMaxHealth);
   }
 
   completeDungeonNode(): void {

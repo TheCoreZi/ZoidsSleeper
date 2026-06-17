@@ -11,7 +11,7 @@ import { DungeonEvent, DungeonEventChoice, HealOutcome } from './DungeonEventOut
 import { DungeonSortieEvent, NodeProbability } from './DungeonSortieEvent';
 import type { NodeTypeChances } from './DungeonSortieEvent';
 
-const DUMMY_EVENT = new DungeonEvent('e1', 'test', [new DungeonEventChoice('ok', new HealOutcome('heal', 10))]);
+const DUMMY_EVENT = new DungeonEvent('e1', 'test', [new DungeonEventChoice('ok', [new HealOutcome('heal', 10)])]);
 
 function makeSortie(bossTiers: BossTier[]): DungeonSortieEvent {
   return new DungeonSortieEvent({

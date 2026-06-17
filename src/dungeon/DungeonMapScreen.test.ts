@@ -14,7 +14,7 @@ import {
   startSortie,
 } from './dungeonStore';
 
-const DUMMY_EVENT = new DungeonEvent('e1', 'test', [new DungeonEventChoice('ok', new HealOutcome('heal', 10))]);
+const DUMMY_EVENT = new DungeonEvent('e1', 'test', [new DungeonEventChoice('ok', [new HealOutcome('heal', 10)])]);
 
 const DUMMY_SORTIE = new DungeonSortieEvent({
   baseReward: { magnis: 100 },

@@ -224,6 +224,8 @@ const App: Component = () => {
                 <DungeonEventScreen
                   onAmbush={() => game?.ambushFromEvent()}
                   onComplete={() => game?.completeDungeonNode()}
+                  onPilotAmbush={(pilotId) => game?.pilotAmbushFromEvent(pilotId)}
+                  onWildAmbush={(zoidData) => game?.wildAmbushFromEvent(zoidData)}
                 />
               </Match>
               <Match when={isDungeonSupply()}>
