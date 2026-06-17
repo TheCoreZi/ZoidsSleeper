@@ -145,6 +145,18 @@ export const PILOTS: Record<string, Pilot> = {
       ]),
     ],
   },
+  imperial_soldier: {
+    fragmentYield: 7,
+    id: 'imperial_soldier',
+    imageId: 'empire_soldier',
+    magnisReward: 5000,
+    name: 'Imperial Soldier',
+    zoidSets: [
+      new PilotZoidSet([
+        { attackOverride: 25, id: 'sea_panther', level: 35, maxHealthOverride: 5000 },
+      ]),
+    ],
+  },
   republican_officer: {
     fragmentYield: 10,
     id: 'republican_officer',

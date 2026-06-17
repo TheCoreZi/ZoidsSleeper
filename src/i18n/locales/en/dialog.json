@@ -92,6 +92,22 @@
     "...",
     "You might be right, little one. By the way, I heard your father returned to Porto Nido yesterday. Why don't you go see him? I'm sure he'd love to meet Beacon."
   ],
+  "imperial_officer_arrival": [
+    "So you are the pilot Concho Cancer recommended. If Concho sent you here, then there must be something worth testing. Show me your papers.",
+    "You brought quite a number of Sleeper Zoids. That may be useful for survival, but the Imperial army does not measure a pilot by the size of their pack.",
+    "If you truly want to serve the Empire, show me your skill. Defeat one of my soldiers in a duel. Prove you are more than a shepherd of sleeping beasts."
+  ],
+  "imperial_officer_training": [
+    "Listen well, recruits. The Empire does not have the luxury of weak resolve.",
+    "Our people have survived by their own strength. When the world turned its back on us, it was the Emperor who gave us a path forward. That is why we follow him. That is why we are an Empire.",
+    "The Empire needs soldiers who can protect its future. Strength is necessary because no one else will fight for our people.",
+    "Every year, recruits arrive looking for food, shelter, or a name. The Empire has no room for passengers. Each of you will complete three tasks to earn your place.",
+    "First: obtain the Zi-Data from a Sinker. Know your weapons. Second: have a Zoid in top condition ready for battle. We do not deploy rust. Third: defeat 20 Guysacks. The Republic uses them as ambush traps across the trails. Learn to handle them.",
+    "Complete these tasks and you will have earned your place among us. Now move."
+  ],
+  "imperial_officer_trials_done": [
+    "You completed the trials. Good. Perhaps there is more to you than a pack of Sleeper Zoids after all. Rest while you can. From this point on, your strength belongs to the Empire."
+  ],
   "jenkins": [
     "So Malinoff sent you? Well, well... I saw how you helped the people of this village, so I'll hear you out. More Zoids, you say? The easiest way is buying them from the army, though they'll only sell you their scraps.",
     "I stopped working with Zoids a long time ago, but back in my day we used traps to catch wild Zoids. Nowadays it's nearly impossible to find them, let alone get one to cooperate with you. So the armies came up with a new method: we learned to incubate Zoid Cores.",
@@ -125,6 +141,13 @@
     "You hide among the camp tents and overhear Rosso talking to his men.",
     "\"With the silver Zoid and the girl, we'll finally have what we need to return to the Imperial Army. High command will welcome us back as heroes.\"",
     "\"Bianco, Nero, Blu... head to the exchange point and make sure everything goes according to plan. If those villagers try anything, you know what to do.\""
+  ],
+  "narration_kara_imperial_camp": [
+    "Not bad. You fight better than most recruits who walk through that gate.",
+    "I see you are not traveling alone. She can stay in the quarters near yours. You brought her, you look after her.",
+    "Imperial soldiers offer their lives to the Empire. The least the army can do is shelter those who stand beside them. Do not mistake this for kindness. A soldier who has nothing left to protect has nothing left to lose.",
+    "Report to the training grounds when you are ready.",
+    "I did not expect the Empire to be this flexible. Maybe there is more to this place than I thought."
   ],
   "narration_beacon_emerges": [
     "The Ancient Tortoise raises its cannon, ready to fire again. But then it stops. Its eyes lock onto Kara — or rather, onto what she carries.",
@@ -300,6 +323,22 @@
     "Trust me. We need to get them away from the sanctuary before the Zoids get hurt.",
     "Once they reach the coast, far from here... that will be your moment to act.",
     "Finally, someone with sense. Move out."
+  ],
+  "rhine_hawk_companion": [
+    "Congratulations on making it through the trials. I knew you had it in you. And who is your companion? I have seen her around the camp.",
+    "I am Kara! I travel with this pilot. Nice to meet you!",
+    "You remind me of my little sister. She always had that same look, curious about everything, afraid of nothing. She is back home with my family, far from all this. You have no idea how much she suffered in Nyx. The cold, the darkness, the ground cracking beneath your feet. No child should have to grow up like that.",
+    "So you came to Europa?",
+    "We did. The people here took us in. For a while, it felt like we finally had a home. But then the Republic turned it into something political. Bases, patrols, borders. Suddenly we were not refugees anymore. We were a threat. I do not want to hurt people who have nothing to do with this war. But I will fight if that is what it takes so my family never has to run again."
+  ],
+  "rhine_hawk_intro": [
+    "You are the new recruit, right? My name is Rhine Hawk. I arrived a few days ago. I still do not know everything, but I can at least point you in the right direction.",
+    "Training is held past the main barracks, near the open field. Do not be late. The officers here do not like waiting.",
+    "You will be fine. Just listen carefully and do what they ask.",
+    "Well, look who made it all the way here. You remember me, right? Eddie Crescent, from Gleam Village. I did not expect you to choose military life. Or maybe the Empire just has better meals than back home?",
+    "If you work hard enough, maybe they will let you polish my Zoid someday.",
+    "Get lost, Eddie. You have been here three days longer than anyone else and you already act like a general. You are a new recruit just like the rest of us.",
+    "Do not mind him. He talks a lot but means half of it. Come on, I will show you where the training grounds are."
   ],
   "rosso_confrontation": [
     "Well, well... looks like we've got a rat. So you're the one who took the Sleeper module I gave that good-for-nothing.",
@@ -521,6 +560,15 @@
     "Hah! Alright, alright. You actually fight hard enough to be entertaining. Most idiots fold in five seconds against my Heldigunner.",
     "Look, I hate speeches, so here's the deal. That module? Honestly, I always thought Sleeper tech was worthless garbage. But you're not garbage. The Guylos Empire wants strong pilots. We don't care about your past, your methods, or your ideals. Just whether you can fight."
   ],
+  "eddie_crescent_companion": [
+    "What are you doing hanging out with that girl? Did they already figure out you are not a real pilot and put you on babysitting duty?",
+    "My name is Kara, and I am not a little girl. The Empire's standards must be pretty low if they accepted someone like you.",
+    "Low standards? Look at who else they accepted. This one only came for the free meals. Although eating was never a problem for this one back in Gleam Village. But the rest of us were not that lucky.",
+    "The Republic came to our village every season looking for materials and recruits. They promised protection, freedom, a future. But our village still went hungry. When the bandits showed up, where were they? When the food ran out, where were they? They took what they needed from us and left us with nothing.",
+    "At least the Empire is honest. If you are strong, if you are useful, they give you a place.",
+    "That is a harsh way to see the world.",
+    "Harsh? Try growing up hungry while the Republic talks about how much they care. Maybe the Empire caused the shortage. But the Republic taught me what it feels like to be forgotten."
+  ],
   "dr_thrun_return_to_city": [
     "...and that's how we escaped from those guys in the desert. Their boss said someone hired them to capture Dad in exchange for Sleeper Modules.",
     "...I see. You also mentioned finding a small Zoid sealed in a capsule in those ruins. One that fused with a destroyed Zoid and restored it. That is an Organoid. But this statue... it is nothing like one.",
@@ -692,6 +740,14 @@
   ],
   "training_officer_trials_done": [
     "Well, well. Who would have thought, you actually finished. You arrived long after everyone else. That friend of yours, Rain, was the first to complete the tasks. And you were supposed to be the one recommended by a Major? Ha. But you made it. Many have already packed their things and left. Now only the true soldiers remain. You have earned the right to stay. Prepare yourself for the real training."
+  ],
+  "kara_companion_imperial": [
+    "Your father was a difficult man to understand, but his work saved more lives than most people know. I met him years ago, before the war consumed everything. He was brilliant, stubborn, and deeply kind beneath all that coldness. He would be proud to see you standing here.",
+    "You may stay here under our protection, Kara. But remember, this is still a military camp.",
+    "And you must be the new recruit. I am Lieutenant Kirsche Hartriegel. Take care of this girl. She is stronger than she looks.",
+    "How did it go? I was talking to Lieutenant Kirsche. I was curious and started exploring the camp on my own. I wandered somewhere I was not supposed to be and a soldier was about to scold me. Then she showed up and told him to leave me alone.",
+    "We started talking and she recognized me. She said she knew my father. Can you believe that? She has been very kind to me. I did not expect that from Imperial soldiers. They are different from what I imagined.",
+    "But I still do not understand this war. Both sides seem to believe they are right. I just hope we are fighting for the right reasons."
   ],
   "kara_companion": [
     "You look tired. I've been with Mana these days. She taught me a lot about Zoids. Things I never knew. She even let me see some of my father's old research. He really was working on something important here.",

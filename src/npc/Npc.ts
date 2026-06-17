@@ -137,6 +137,22 @@ export const NPCS: Record<string, Npc> = {
     nameKey: 'pilots:dr_thrun',
     portrait: 'images/pilots/dr_thrun.png',
   },
+  eddie_crescent: {
+    dialogs: [
+      {
+        dialogKey: 'dialog:eddie_crescent_companion',
+        speakers: {
+          1: { speakerKey: 'pilots:kara', portrait: 'images/pilots/girl.png' },
+          2: { speakerKey: '', portrait: '' },
+          5: { speakerKey: 'pilots:kara', portrait: 'images/pilots/girl.png' },
+          6: { speakerKey: '', portrait: '' },
+        },
+      },
+    ],
+    id: 'eddie_crescent',
+    nameKey: 'pilots:eddie_crescent',
+    portrait: 'images/pilots/eddie_crescent.png',
+  },
   concho_cancer: {
     dialogs: [
       { dialogKey: 'dialog:concho_same_faction', unlockRequirement: new AllOfRequirement([new PilotDefeatRequirement('concho_cancer'), new FactionRequirement(Faction.GuylosEmpire)]) },
@@ -312,6 +328,30 @@ export const NPCS: Record<string, Npc> = {
     nameKey: 'pilots:gale_task',
     portrait: 'images/pilots/gale_task.png',
   },
+  imperial_registration_officer: {
+    dialogs: [
+      {
+        dialogKey: 'dialog:imperial_officer_arrival',
+      },
+    ],
+    id: 'imperial_registration_officer',
+    nameKey: 'pilots:imperial_registration_officer',
+    portrait: 'images/pilots/empire_soldier.png',
+  },
+  imperial_training_officer: {
+    dialogs: [
+      {
+        dialogKey: 'dialog:imperial_officer_trials_done',
+        unlockRequirement: new MissionCompletedRequirement('olympus_guylos', 'recruitment_trials'),
+      },
+      {
+        dialogKey: 'dialog:imperial_officer_training',
+      },
+    ],
+    id: 'imperial_training_officer',
+    nameKey: 'pilots:imperial_training_officer',
+    portrait: 'images/pilots/empire_soldier.png',
+  },
   explorer: {
     dialogs: [{ dialogKey: 'dialog:explorer_dungeon_tips', images: {1: 'images/items/zi_metal.png', 2: '' } }],
     id: 'explorer',
@@ -329,14 +369,36 @@ export const NPCS: Record<string, Npc> = {
   kara: {
     dialogs: [
       {
+        dialogKey: 'dialog:kara_companion_imperial',
+        speakers: {
+          0: { speakerKey: 'pilots:kirsche_hartriegel', portrait: 'images/pilots/kirsche_hartriegel.png' },
+          1: { speakerKey: 'pilots:kirsche_hartriegel', portrait: 'images/pilots/kirsche_hartriegel.png' },
+          2: { speakerKey: 'pilots:kirsche_hartriegel', portrait: 'images/pilots/kirsche_hartriegel.png' },
+          3: { speakerKey: '', portrait: '' },
+        },
+        unlockRequirement: new AllOfRequirement([
+          new MissionCompletedRequirement('olympus_guylos', 'trials_complete'),
+          new FactionRequirement(Faction.GuylosEmpire),
+        ]),
+      },
+      {
         dialogKey: 'dialog:kara_companion',
-        unlockRequirement: new MissionCompletedRequirement('olympus_threat', 'trials_complete'),
+        unlockRequirement: new AllOfRequirement([
+          new MissionCompletedRequirement('olympus_threat', 'trials_complete'),
+          new FactionRequirement(Faction.HelicRepublic),
+        ]),
       },
       { dialogKey: 'dialog:girl_thanks', speakers: { 0: { portrait: 'images/pilots/girl.png', speakerKey: 'pilots:girl' } } },
     ],
     id: 'kara',
     nameKey: 'pilots:kara',
     portrait: 'images/pilots/girl.png',
+  },
+  kirsche_hartriegel: {
+    dialogs: [],
+    id: 'kirsche_hartriegel',
+    nameKey: 'pilots:kirsche_hartriegel',
+    portrait: 'images/pilots/kirsche_hartriegel.png',
   },
   captain_malinoff: {
     dialogs: [
@@ -387,6 +449,31 @@ export const NPCS: Record<string, Npc> = {
     id: 'registration_officer',
     nameKey: 'pilots:registration_officer',
     portrait: 'images/pilots/republican_officer.png',
+  },
+  rhine_hawk: {
+    dialogs: [
+      {
+        dialogKey: 'dialog:rhine_hawk_companion',
+        speakers: {
+          1: { speakerKey: 'pilots:kara', portrait: 'images/pilots/girl.png' },
+          2: { speakerKey: '', portrait: '' },
+          3: { speakerKey: 'pilots:kara', portrait: 'images/pilots/girl.png' },
+          4: { speakerKey: '', portrait: '' },
+        },
+        unlockRequirement: new MissionCompletedRequirement('olympus_guylos', 'trials_complete'),
+      },
+      {
+        dialogKey: 'dialog:rhine_hawk_intro',
+        speakers: {
+          3: { speakerKey: 'pilots:eddie_crescent', portrait: 'images/pilots/eddie_crescent.png' },
+          4: { speakerKey: 'pilots:eddie_crescent', portrait: 'images/pilots/eddie_crescent.png' },
+          5: { speakerKey: '', portrait: '' },
+        },
+      },
+    ],
+    id: 'rhine_hawk',
+    nameKey: 'pilots:rhine_hawk',
+    portrait: 'images/pilots/rhine_hawk.png',
   },
   training_officer: {
     dialogs: [

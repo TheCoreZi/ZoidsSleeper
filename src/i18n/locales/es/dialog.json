@@ -52,6 +52,15 @@
     "¿{{zoidName}}, eh? Buena elección.",
     "Pero elegir un Zoid no es suficiente. El Zoid también debe elegirte a ti. ¡Demuestra tu valía. Sube a la cabina y demuéstrale que tienes espíritu de piloto!"
   ],
+  "eddie_crescent_companion": [
+    "¿Qué haces por ahí con esa niña? ¿Ya se dieron cuenta de que no eres buen piloto y te pusieron de niñero?",
+    "Me llamo Kara, y no soy una niña. Los estándares del Imperio deben ser muy bajos si aceptaron a alguien como tú.",
+    "¿Estándares bajos? Mira a quién más aceptaron. Este solo vino por la comida gratis. Aunque comer nunca fue un problema para este en Gleam Village. Pero el resto no tuvimos tanta suerte.",
+    "La República venía a nuestra aldea cada temporada buscando materiales y reclutas. Prometían protección, libertad, un futuro. Pero nuestra aldea seguía con hambre. Cuando llegaron los bandidos, ¿dónde estaban? Cuando se acabó la comida, ¿dónde estaban? Tomaron lo que necesitaban de nosotros y nos dejaron con nada.",
+    "Al menos el Imperio es honesto. Si eres fuerte, si eres útil, te dan un lugar.",
+    "Esa es una forma muy dura de ver el mundo.",
+    "¿Dura? Intenta crecer con hambre mientras la República habla de lo mucho que le importas. Quizás el Imperio causó la escasez. Pero la República me enseñó lo que se siente ser olvidado."
+  ],
   "explorer_dungeon_tips": [
     "¿Vas a entrar a las ruinas? Yo ya he bajado un par de veces. Déjame contarte qué esperar.",
     "Si logras debilitar a un Zoid lo suficiente como para preservar su Core, aprovecha para recoger un poco de Metal Zi. Lo vas a necesitar para preparar a tus Zoids para las incursiones en las ruinas.",
@@ -91,6 +100,22 @@
     "Gracias por cuidarlo, Señorita Unia. No me importa qué es o qué no puede hacer. ¿Ya olvidaron que nos salvó la vida contra Rosso? ¿Y que detuvo al Helcat Salvaje en las ruinas? Creo que Beacon es increíble. Acaba de despertar en un mundo que no se parece en nada al que conocía — por supuesto que está confundido. Denle tiempo.",
     "...",
     "Puede que tengas razón, pequeña. Oye, me contaron que tu padre regresó ayer a Porto Nido. ¿Por qué no vas a verlo? Seguro le encantará conocer a Beacon."
+  ],
+  "imperial_officer_arrival": [
+    "Así que tú eres el piloto que Concho Cancer recomendó. Si Concho te envió aquí, debe haber algo que valga la pena probar. Muéstrame tus papeles.",
+    "Trajiste bastantes Sleeper Zoids. Eso puede ser útil para sobrevivir, pero el ejército Imperial no mide a un piloto por el tamaño de su manada.",
+    "Si de verdad quieres servir al Imperio, demuéstrame tu habilidad. Derrota a uno de mis soldados en un duelo. Demuestra que eres más que un pastor de bestias dormidas."
+  ],
+  "imperial_officer_training": [
+    "Escuchen bien, reclutas. El Imperio no tiene el lujo de la debilidad.",
+    "Nuestro pueblo ha sobrevivido por su propia fuerza. Cuando el mundo nos dio la espalda, fue el Emperador quien nos dio un camino. Por eso lo seguimos. Por eso somos un Imperio.",
+    "El Imperio necesita soldados que puedan proteger su futuro. La fuerza es necesaria porque nadie más peleará por nuestra gente.",
+    "Cada año llegan reclutas buscando comida, refugio o un nombre. El Imperio no tiene espacio para pasajeros. Cada uno de ustedes completará tres tareas para ganarse su lugar.",
+    "Primero: obtengan el Zi-Data de un Sinker. Conozcan sus armas. Segundo: tengan un Zoid en condiciones óptimas listo para el combate. No desplegamos chatarra. Tercero: derroten 20 Guysacks. La República los usa como trampas en los caminos. Aprendan a manejarlos.",
+    "Completen estas tareas y se habrán ganado su lugar entre nosotros. Ahora muévanse."
+  ],
+  "imperial_officer_trials_done": [
+    "Completaste las pruebas. Bien. Quizás hay más en ti que una manada de Sleeper Zoids después de todo. Descansa mientras puedas. De aquí en adelante, tu fuerza le pertenece al Imperio."
   ],
   "jenkins": [
     "¿Así que Malinoff te envía? Vaya, vaya... Vi cómo ayudaste a la gente de esta aldea, así que por eso acepto hablar contigo. ¿Conseguir más Zoids? La forma más fácil es comprárselos al ejército, aunque solo te darán sus desechos.",
@@ -153,6 +178,13 @@
     "Tras el milagro que acabas de presenciar, regresas a las ruinas buscando alguna señal de Van. En lo profundo de los pasajes en ruinas, escuchas que se encuentra en una cámara similar a donde encontraron a Zeke.",
     "De pronto, otra de las cápsulas se abre y una chica sale de ella. Pero justo en ese momento, debido a la batalla, el suelo sobre el que estás parado se abre y caes a una cámara oculta.",
     "En el centro se alza una pequeña estatua antigua, su superficie cubierta de extraños símbolos."
+  ],
+  "narration_kara_imperial_camp": [
+    "Nada mal. Peleas mejor que la mayoría de reclutas que cruzan esa puerta.",
+    "Veo que no viajas solo. Ella puede quedarse en los cuartos cerca de los tuyos. Tú la trajiste, tú la cuidas.",
+    "Los soldados imperiales dan su vida por el Imperio. Lo mínimo que el ejército puede hacer es dar refugio a quienes están a su lado. No confundas esto con amabilidad. Un soldado que no tiene nada que proteger no tiene nada que perder.",
+    "Preséntate en los campos de entrenamiento cuando estés listo.",
+    "No esperaba que el Imperio fuera tan flexible. Quizás hay más en este lugar de lo que pensé."
   ],
   "narration_maria_kidnapped": [
     "La banda del Arcobaleno huye de la colonia al descubrir que no está desprotegida. Pero en medio del caos, han logrado llevarse a María.",
@@ -246,6 +278,22 @@
   "priest_leon_exchange": [
     "Lo siento Van, pero la prioridad ahora es María. ¡Entréganos a Zeke! Si te resistes, tendremos que atarte.",
     "El patriarca y yo iremos a hacer el intercambio."
+  ],
+  "rhine_hawk_companion": [
+    "Felicidades por pasar las pruebas. Sabía que lo lograrías. ¿Y quién es tu acompañante? La he visto por el campamento.",
+    "¡Soy Kara! Viajo con este piloto. ¡Mucho gusto!",
+    "Me recuerdas a mi hermana menor. Siempre tenía esa misma mirada, curiosa por todo, sin miedo a nada. Está en casa con mi familia, lejos de todo esto. No tienes idea de lo mucho que sufrió en Nyx. El frío, la oscuridad, el suelo quebrándose bajo tus pies. Ningún niño debería crecer así.",
+    "¿Entonces vinieron a Europa?",
+    "Sí. La gente de aquí nos acogió. Por un tiempo, sentimos que por fin teníamos un hogar. Pero luego la República lo convirtió en algo político. Bases, patrullas, fronteras. De repente ya no éramos refugiados. Éramos una amenaza. No quiero hacerle daño a personas que no tienen nada que ver con esta guerra. Pero pelearé si eso es lo que se necesita para que mi familia nunca tenga que huir de nuevo."
+  ],
+  "rhine_hawk_intro": [
+    "¿Tú eres el nuevo recluta, verdad? Mi nombre es Rhine Hawk. Llegué hace unos días. Aún no lo sé todo, pero al menos puedo orientarte.",
+    "El entrenamiento se hace pasando los barracones principales, cerca del campo abierto. No llegues tarde. A los oficiales de aquí no les gusta esperar.",
+    "Te irá bien. Solo escucha con atención y haz lo que te pidan.",
+    "Vaya, mira quién llegó hasta aquí. ¿Me recuerdas, verdad? Eddie Crescent, de Gleam Village. No esperaba que eligieras la vida militar. ¿O quizás el Imperio tiene mejor comida que en casa?",
+    "Si te esfuerzas lo suficiente, tal vez te dejen pulir mi Zoid algún día.",
+    "Piérdete, Eddie. Llevas aquí tres días más que los demás y ya te crees general. Eres un recluta nuevo igual que el resto.",
+    "No le hagas caso. Habla mucho pero solo dice la mitad en serio. Ven, te enseño dónde están los campos de entrenamiento."
   ],
   "republican_officer_investigate": [
     "Por favor... por favor, ¡tenemos que ir tras ellos! ¡Se llevaron a mi papá! No podemos simplemente— ¡tenemos que hacer algo!",
@@ -692,6 +740,14 @@
   ],
   "training_officer_trials_done": [
     "Vaya, vaya. Quién lo diría, sí terminaste. Llegaste mucho después de todos los demás. Esa amiga tuya, Rain, fue la primera en completar las tareas. ¿Y se supone que tú eras el recomendado por un Mayor? Ja. Pero lo lograste. Muchos ya empacaron sus cosas y se fueron. Ahora solo quedan los verdaderos soldados. Te has ganado el derecho de quedarte. Prepárate para el verdadero entrenamiento."
+  ],
+  "kara_companion_imperial": [
+    "Tu padre era un hombre difícil de entender, pero su trabajo salvó más vidas de las que la mayoría sabe. Lo conocí hace años, antes de que la guerra lo consumiera todo. Era brillante, terco y profundamente amable bajo toda esa frialdad. Estaría orgulloso de verte aquí.",
+    "Puedes quedarte aquí bajo nuestra protección, Kara. Pero recuerda, esto sigue siendo un campamento militar.",
+    "Y tú debes ser el nuevo recluta. Soy la Teniente Kirsche Hartriegel. Cuida de esta niña. Es más fuerte de lo que parece.",
+    "¿Cómo te fue? Estaba hablando con la Teniente Kirsche. Tenía curiosidad y empecé a explorar el campamento por mi cuenta. Me metí en un lugar donde no debía estar y un soldado estaba a punto de regañarme. Entonces ella apareció y le dijo que me dejara en paz.",
+    "Empezamos a hablar y me reconoció. Dijo que conocía a mi padre. ¿Puedes creerlo? Ha sido muy amable conmigo. No esperaba eso de los soldados imperiales. Son diferentes de lo que imaginaba.",
+    "Pero aún no entiendo esta guerra. Ambos lados parecen creer que tienen razón. Solo espero que estemos peleando por las razones correctas."
   ],
   "kara_companion": [
     "Te ves cansado. He estado con Mana estos días. Me enseñó mucho sobre los Zoids. Cosas que nunca supe. Incluso me dejó ver parte de la vieja investigación de mi padre. Realmente estaba trabajando en algo importante aquí.",

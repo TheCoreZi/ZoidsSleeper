@@ -26,6 +26,7 @@ export interface City extends Landmark {
 }
 
 const C = 'sleeper_commander';
+const G = 'olympus_guylos';
 const O = 'olympus_threat';
 const S = 'shells_of_time';
 
@@ -146,6 +147,46 @@ export const CITIES: City[] = [
     id: 'gleam_village',
     mapPosition: { x: 38, y: 44 },
     name: 'Gleam Village',
+    type: LandmarkType.City,
+  },
+  {
+    actions: [
+      new ActionTalkToNPC('imperial_registration_officer',
+        undefined,
+        [new MissionCompletedRequirement(G, 'report_to_imperial_hq')],
+        undefined,
+        'ui:enlist_in_empire'),
+      new ActionDuelPilot(PILOTS['imperial_soldier'],
+        [new MissionCompletedRequirement(G, 'report_to_imperial_hq')],
+        [new MissionCompletedRequirement(G, 'sleeper_challenge')]),
+      new ActionTalkToNPC('rhine_hawk',
+        [new PilotDefeatRequirement('imperial_soldier')],
+        [new MissionCompletedRequirement(G, 'meet_recruits')],
+        undefined,
+        'ui:find_training_grounds'),
+      new ActionTalkToNPC('imperial_training_officer',
+        [new MissionCompletedRequirement(G, 'meet_recruits')],
+        [new MissionCompletedRequirement(G, 'talk_to_companions')],
+        undefined,
+        'ui:go_to_training'),
+      new ActionTalkToNPC('kara',
+        [new MissionCompletedRequirement(G, 'trials_complete')],
+        [new MissionCompletedRequirement(G, 'talk_to_companions')]),
+      new ActionTalkToNPC('rhine_hawk',
+        [new MissionCompletedRequirement(G, 'trials_complete')],
+        [new MissionCompletedRequirement(G, 'talk_to_companions')]),
+      new ActionTalkToNPC('eddie_crescent',
+        [new MissionCompletedRequirement(G, 'trials_complete')],
+        [new MissionCompletedRequirement(G, 'talk_to_companions')]),
+      new ActionVisitDepot([ITEMS.core_preserver as ConsumableItem, ITEMS.core_saver as ConsumableItem], undefined, 'ui:visit_armory'),
+      new ActionVisitLab('lab'),
+    ],
+    battleBackground: BattleBackground.Plain,
+    featureFlag: FEATURE_FLAGS.SHELLS_OF_TIME,
+    id: 'imperial_camp',
+    mapPosition: { x: 23, y:32 },
+    name: 'Imperial Camp',
+    requirements: [new AllOfRequirement([new FactionRequirement(Faction.GuylosEmpire), new RouteKillRequirement('imperial_trail', 10)])],
     type: LandmarkType.City,
   },
   {

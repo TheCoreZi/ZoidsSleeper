@@ -234,6 +234,25 @@ export const ROUTES: Route[] = [
   },
   {
     baseReward: { magnis: 155, zi_metal: 22 },
+    battleBackground: BattleBackground.Plain,
+    connects: ['elmia_ruins', 'imperial_camp'],
+    enemies: [
+      { blueprint: { id: 'gator', level: 28 } },
+      { blueprint: { id: 'malder', level: 27 } },
+      { blueprint: { id: 'merda', level: 26 } },
+      { blueprint: { id: 'molga', level: 26 } },
+      { blueprint: { id: 'sea_panther', level: 27 }, probability: 0.01 },
+    ],
+    featureFlag: FEATURE_FLAGS.SHELLS_OF_TIME,
+    fragmentYield: 3,
+    id: 'imperial_trail',
+    name: 'Imperial Trail',
+    requirements: [new FactionRequirement(Faction.GuylosEmpire)],
+    routeHealth: 700,
+    type: LandmarkType.Route,
+  },
+  {
+    baseReward: { magnis: 155, zi_metal: 22 },
     battleBackground: BattleBackground.Grass,
     connects: ['gleam_village', 'republican_camp'],
     enemies: [

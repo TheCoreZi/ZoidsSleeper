@@ -1,10 +1,38 @@
 {
   "olympus_guylos": {
-    "description": "The Empire is planning a secret weapon that could shift the balance of power forever. As a new recruit, report to headquarters and join the operation.",
+    "description": "The Guylos Empire needs strong pilots. Report to the Imperial Headquarters and prove your worth.",
     "missions": {
+      "coming_soon": {
+        "description": "Coming soon",
+        "name": "To Be Continued"
+      },
+      "go_to_training": {
+        "description": "Report to the Imperial Officer at the training grounds.",
+        "name": "First Orders"
+      },
+      "meet_recruits": {
+        "description": "Find the training grounds at the Imperial Headquarters.",
+        "name": "The Training Grounds"
+      },
+      "recruitment_trials": {
+        "description": "Complete the three recruitment tasks assigned by the Imperial Officer.",
+        "name": "Earn Your Place"
+      },
       "report_to_imperial_hq": {
-        "description": "Head to the Imperial recruitment headquarters and register as a new recruit.",
-        "name": "Imperial Enlistment"
+        "description": "Head to the Imperial Headquarters and register as a new recruit.",
+        "name": "Enlisting in the Empire"
+      },
+      "sleeper_challenge": {
+        "description": "Prove your skill by defeating an Imperial soldier in a one-on-one duel.",
+        "name": "The Shepherd's Duel"
+      },
+      "talk_to_companions": {
+        "description": "Speak with Kara, Rhine Hawk, and Eddie Crescent.",
+        "name": "The Weight of the Uniform"
+      },
+      "trials_complete": {
+        "description": "Report back to the Imperial Officer after completing the trials.",
+        "name": "Still Standing"
       }
     },
     "name": "The Beast of Olympus"

@@ -13,14 +13,14 @@ export interface Region {
 
 export const REGIONS: Region[] = [
   {
-    cityIds: ['abandoned_camp', 'arcobaleno_camp', 'chimera_island', 'desert_gorge', 'gleam_village', 'porto_nido', 'republican_camp', 'wind_colony', 'wind_oasis'],
+    cityIds: ['abandoned_camp', 'arcobaleno_camp', 'chimera_island', 'desert_gorge', 'gleam_village', 'imperial_camp', 'porto_nido', 'republican_camp', 'wind_colony', 'wind_oasis'],
     dungeonIds: ['elmia_ruins', 'sommerso_ruins', 'tauros_grotto'],
     id: 'south_europa',
     image: 'images/map/south_europa.png',
     imageSize: { h: 1024, w: 1536 },
     initialLandmark: 'gleam_village',
     name: 'Southern Europa',
-    routeIds: ['bandit_trail', 'conservation_archipelago', 'dustwind_trail', 'elmia_desert', 'gleam_outskirts', 'gorge_approach', 'gorge_trail', 'republican_trail', 'sommerso_trail', 'south_coast', 'tauros_edge', 'wind_road'],
+    routeIds: ['bandit_trail', 'conservation_archipelago', 'dustwind_trail', 'elmia_desert', 'gleam_outskirts', 'gorge_approach', 'gorge_trail', 'imperial_trail', 'republican_trail', 'sommerso_trail', 'south_coast', 'tauros_edge', 'wind_road'],
     subtitle: 'Western Continent: Europa',
     viewBox: { h: 290, w: 430, x: 250, y: 240 },
   },
