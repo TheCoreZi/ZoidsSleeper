@@ -8,6 +8,25 @@ export type MigrationData = Partial<SaveData> & Record<string, unknown>;
 type MigrationFn = (data: MigrationData) => void;
 
 const migrations: Record<string, MigrationFn> = {
+  '0.6.1': (data) => {
+    const campaign = data.campaigns?.['sleeper_commander'];
+    if (!campaign) {return;}
+
+    if (campaign.status === 'completed') {
+      data.campaigns!['sleeper_commander'] = {
+        currentMission: 'deliver_girl',
+        missionNpcFlags: {},
+        status: 'started',
+      };
+      return;
+    }
+
+    const flags = campaign.missionNpcFlags;
+    if (flags?.['sleeper_commander:girl'] !== undefined) {
+      flags['sleeper_commander:kara'] = flags['sleeper_commander:girl'];
+      delete flags['sleeper_commander:girl'];
+    }
+  },
   '0.6.0': () => {},
   '0.5.2': () => {},
   '0.5.1': (data) => {
