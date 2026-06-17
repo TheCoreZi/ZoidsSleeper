@@ -151,7 +151,7 @@ function resetBuffs(): void {
 
 function startSortie(config: DungeonSortieEvent, playerHealth: number, playerMaxHealth: number): void {
   resetBuffs();
-  const graph = generateSortie({ layers: config.layers, nodesPerLayer: config.nodesPerLayer });
+  const graph = generateSortie({ layers: config.layers, nodesPerLayer: config.nodesPerLayer, nodeTypeChances: config.nodeTypeChances });
   setDungeonRun({
     boss: config.resolveBoss(),
     config,
