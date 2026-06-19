@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest';
 import type { MigrationData } from './migrations';
 import { migrate } from './migrations';
 
+// Migration test data uses the OLD save format (currentMission as string)
 function baseSave(overrides: Partial<MigrationData> = {}): MigrationData {
   return {
     campaigns: {
@@ -11,12 +12,30 @@ function baseSave(overrides: Partial<MigrationData> = {}): MigrationData {
         missionNpcFlags: {},
         status: 'started',
       },
-    },
+    } as unknown as MigrationData['campaigns'],
     landmarkId: 'gleam_village',
     version: '0.4.1',
     ...overrides,
   };
 }
+
+describe('migration 0.6.2', () => {
+  it('converts currentMission string to object with goalState', () => {
+    const data = baseSave({ version: '0.6.1' });
+
+    migrate(data, '0.6.1');
+
+    expect(data.campaigns!['sleeper_commander'].currentMission).toEqual({ goalState: [], id: 'talk_to_boy' });
+  });
+
+  it('does not affect saves without campaigns', () => {
+    const data = baseSave({ campaigns: undefined, version: '0.6.1' });
+
+    migrate(data, '0.6.1');
+
+    expect(data.campaigns).toBeUndefined();
+  });
+});
 
 describe('migration 0.4.5', () => {
   it('preserves existing save data without dungeonCompletions', () => {
@@ -25,7 +44,7 @@ describe('migration 0.4.5', () => {
     migrate(data, '0.4.4');
 
     expect(data.dungeonCompletions).toBeUndefined();
-    expect(data.campaigns!['sleeper_commander'].currentMission).toBe('talk_to_boy');
+    expect(data.campaigns!['sleeper_commander'].currentMission).toEqual({ goalState: [], id: 'talk_to_boy' });
   });
 });
 
@@ -38,13 +57,13 @@ describe('migration 0.4.2', () => {
           missionNpcFlags: {},
           status: 'completed',
         },
-      },
+      } as unknown as MigrationData['campaigns'],
     });
 
     migrate(data, '0.4.1');
 
     expect(data.campaigns!['sleeper_commander']).toEqual({
-      currentMission: 'deliver_girl',
+      currentMission: { goalState: [], id: 'deliver_girl' },
       missionNpcFlags: {},
       status: 'started',
     });
@@ -55,7 +74,7 @@ describe('migration 0.4.2', () => {
 
     migrate(data, '0.4.1');
 
-    expect(data.campaigns!['sleeper_commander'].currentMission).toBe('talk_to_boy');
+    expect(data.campaigns!['sleeper_commander'].currentMission).toEqual({ goalState: [], id: 'talk_to_boy' });
     expect(data.campaigns!['sleeper_commander'].status).toBe('started');
   });
 
@@ -67,12 +86,12 @@ describe('migration 0.4.2', () => {
           missionNpcFlags: {},
           status: 'started',
         },
-      },
+      } as unknown as MigrationData['campaigns'],
     });
 
     migrate(data, '0.4.1');
 
-    expect(data.campaigns!['sleeper_commander'].currentMission).toBe('fight_van');
+    expect(data.campaigns!['sleeper_commander'].currentMission).toEqual({ goalState: [], id: 'fight_van' });
     expect(data.campaigns!['sleeper_commander'].status).toBe('started');
   });
 
@@ -92,7 +111,7 @@ describe('migration 0.4.2', () => {
           missionNpcFlags: { 'sleeper_commander:girl': false },
           status: 'started',
         },
-      },
+      } as unknown as MigrationData['campaigns'],
     });
 
     migrate(data, '0.4.1');

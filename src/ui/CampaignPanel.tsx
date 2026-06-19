@@ -17,7 +17,7 @@ interface MissionInfo {
 }
 
 function currentMissionInfo(campaign: Campaign): MissionInfo | undefined {
-  const missionId = getCampaignState(campaign.id).currentMission;
+  const missionId = getCampaignState(campaign.id).currentMission.id;
   if (!missionId) { return undefined; }
   return {
     description: t(`campaigns:${campaign.id}.missions.${missionId}.description`),
@@ -26,7 +26,7 @@ function currentMissionInfo(campaign: Campaign): MissionInfo | undefined {
 }
 
 function currentMissionObj(campaign: Campaign): Mission | undefined {
-  const missionId = getCampaignState(campaign.id).currentMission;
+  const missionId = getCampaignState(campaign.id).currentMission.id;
   return campaign.missions.find((m) => m.id === missionId);
 }
 
@@ -47,7 +47,7 @@ const CampaignEntry: Component<{ campaign: Campaign }> = (props) => {
   let missionRef: HTMLDivElement | undefined;
 
   createEffect(on(
-    () => getCampaignState(props.campaign.id).currentMission,
+    () => getCampaignState(props.campaign.id).currentMission.id,
     (current, prev) => {
       if (prev && prev !== current && missionRef) {
         missionRef.classList.remove('campaign-mission-transition');

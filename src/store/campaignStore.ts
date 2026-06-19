@@ -16,18 +16,17 @@ function advanceMission(campaignId: string): void {
   const campaign = campaigns[campaignId];
   if (!campaign) {return;}
 
-  const currentIndex = getMissionIndex(campaign, state.currentMission);
+  const currentIndex = getMissionIndex(campaign, state.currentMission.id);
   if (currentIndex < 0) {return;}
 
-  const completedMissionId = state.currentMission;
+  const completedMissionId = state.currentMission.id;
 
   const nextIndex = currentIndex + 1;
   const completed = nextIndex >= campaign.missions.length;
-  const nextMissionId = campaign.missions[nextIndex]?.id ?? '';
 
   const newState: CampaignSaveData = completed
-    ? { currentMission: '', status: CampaignStatus.Completed }
-    : { currentMission: nextMissionId, missionNpcFlags: buildNpcFlags(campaign, nextIndex), status: CampaignStatus.Started };
+    ? { currentMission: { goalState: [], id: '' }, status: CampaignStatus.Completed }
+    : { currentMission: campaign.missions[nextIndex].toSaveData(), missionNpcFlags: buildNpcFlags(campaign, nextIndex), status: CampaignStatus.Started };
 
   setCampaignStates((prev) => ({ ...prev, [campaignId]: newState }));
 
@@ -61,7 +60,7 @@ function buildNpcFlags(campaign: Campaign, missionIndex: number): Record<string,
 }
 
 function getCampaignState(id: string): CampaignSaveData {
-  return campaignStates()[id] ?? { currentMission: '', status: CampaignStatus.Inactive };
+  return campaignStates()[id] ?? { currentMission: { goalState: [], id: '' }, status: CampaignStatus.Inactive };
 }
 
 function getMissionIndex(campaign: Campaign, missionId: string): number {
@@ -85,7 +84,7 @@ function isMissionCompleted(campaignId: string, missionId: string): boolean {
   if (!campaign) {return false;}
 
   const targetIndex = getMissionIndex(campaign, missionId);
-  const currentIndex = getMissionIndex(campaign, state.currentMission);
+  const currentIndex = getMissionIndex(campaign, state.currentMission.id);
   return targetIndex >= 0 && currentIndex > targetIndex;
 }
 
@@ -96,6 +95,19 @@ function isMissionNpcTalked(campaignId: string, npcId: string): boolean {
 
 function loadCampaigns(registeredCampaigns: Record<string, Campaign>, data: Record<string, CampaignSaveData>): void {
   campaigns = registeredCampaigns;
+  for (const [id, state] of Object.entries(data)) {
+    if (state.status !== CampaignStatus.Started) {continue;}
+    const campaign = registeredCampaigns[id];
+    if (!campaign) {continue;}
+    const missionIndex = campaign.missions.findIndex((m) => m.id === state.currentMission.id);
+    if (missionIndex < 0) {continue;}
+    const mission = campaign.missions[missionIndex];
+    if (state.currentMission.goalState?.length) {
+      mission.fromSaveData(state.currentMission);
+    } else {
+      state.currentMission = mission.toSaveData();
+    }
+  }
   setCampaignStates(data);
 }
 
@@ -118,10 +130,9 @@ function markNpcTalked(npcId: string): void {
 function startCampaign(id: string): void {
   const campaign = campaigns[id];
   if (!campaign) {return;}
-  const firstMissionId = campaign.missions[0]?.id ?? '';
   setCampaignStates((prev) => ({
     ...prev,
-    [id]: { currentMission: firstMissionId, missionNpcFlags: buildNpcFlags(campaign, 0), status: CampaignStatus.Started },
+    [id]: { currentMission: campaign.missions[0].toSaveData(), missionNpcFlags: buildNpcFlags(campaign, 0), status: CampaignStatus.Started },
   }));
 }
 
@@ -132,7 +143,7 @@ function forceSetMission(campaignId: string, missionId: string): void {
   if (missionIndex < 0) {return;}
   setCampaignStates((prev) => ({
     ...prev,
-    [campaignId]: { currentMission: missionId, missionNpcFlags: buildNpcFlags(campaign, missionIndex), status: CampaignStatus.Started },
+    [campaignId]: { currentMission: campaign.missions[missionIndex].toSaveData(), missionNpcFlags: buildNpcFlags(campaign, missionIndex), status: CampaignStatus.Started },
   }));
 }
 
@@ -144,7 +155,7 @@ function advanceCompletedMissions(): void {
     const state = states[campaign.id];
     if (!state || state.status !== CampaignStatus.Started) {continue;}
 
-    const currentIndex = getMissionIndex(campaign, state.currentMission);
+    const currentIndex = getMissionIndex(campaign, state.currentMission.id);
     const mission = campaign.missions[currentIndex];
     if (!mission) {continue;}
 

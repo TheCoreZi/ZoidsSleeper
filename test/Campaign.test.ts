@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { CampaignStatus, type Campaign } from '../src/campaign/Campaign';
+import { CampaignStatus, Mission, type Campaign } from '../src/campaign/Campaign';
 import { PopupType } from '../src/models/PopupMessage';
 import { RouteKillRequirement } from '../src/requirement';
 import { NpcTalkedInCampaignRequirement } from '../src/requirement/NpcTalkedInCampaignRequirement';
@@ -18,8 +18,8 @@ import { incrementRouteKills, loadStatistics } from '../src/store/statisticsStor
 const testCampaign: Campaign = {
   id: 'test_campaign',
   missions: [
-    { id: 'mission_1', goals: [new RouteKillRequirement('test_route', 3)] },
-    { id: 'mission_2', goals: [new NpcTalkedInCampaignRequirement('test_campaign', 'boy')] },
+    new Mission({ id: 'mission_1', goals: [new RouteKillRequirement('test_route', 3)] }),
+    new Mission({ id: 'mission_2', goals: [new NpcTalkedInCampaignRequirement('test_campaign', 'boy')] }),
   ],
 };
 
@@ -39,14 +39,14 @@ describe('Campaign Store', () => {
     startCampaign('test_campaign');
 
     expect(isCampaignStarted('test_campaign')).toBe(true);
-    expect(getCampaignState('test_campaign').currentMission).toBe('mission_1');
+    expect(getCampaignState('test_campaign').currentMission.id).toBe('mission_1');
   });
 
   it('should not advance when requirements are not met', () => {
     startCampaign('test_campaign');
     checkCampaigns();
 
-    expect(getCampaignState('test_campaign').currentMission).toBe('mission_1');
+    expect(getCampaignState('test_campaign').currentMission.id).toBe('mission_1');
   });
 
   it('should advance to next mission when requirements are met', () => {
@@ -56,7 +56,7 @@ describe('Campaign Store', () => {
     incrementRouteKills('test_route');
     checkCampaigns();
 
-    expect(getCampaignState('test_campaign').currentMission).toBe('mission_2');
+    expect(getCampaignState('test_campaign').currentMission.id).toBe('mission_2');
   });
 
   it('should complete campaign when all missions are done', () => {
@@ -95,7 +95,7 @@ describe('Campaign Store', () => {
     const campaignWithCallback: Campaign = {
       id: 'callback_campaign',
       missions: [
-        { id: 'm1', onComplete: callback, goals: [new RouteKillRequirement('test_route', 1)] },
+        new Mission({ id: 'm1', onComplete: callback, goals: [new RouteKillRequirement('test_route', 1)] }),
       ],
     };
     loadCampaigns({ callback_campaign: campaignWithCallback }, {});
@@ -108,10 +108,10 @@ describe('Campaign Store', () => {
 
   it('should restore campaign state from save data', () => {
     loadCampaigns([testCampaign], {
-      test_campaign: { currentMission: 'mission_2', status: CampaignStatus.Started },
+      test_campaign: { currentMission: { goalState: [], id: 'mission_2' }, status: CampaignStatus.Started },
     });
 
-    expect(getCampaignState('test_campaign').currentMission).toBe('mission_2');
+    expect(getCampaignState('test_campaign').currentMission.id).toBe('mission_2');
     expect(isCampaignStarted('test_campaign')).toBe(true);
   });
 });

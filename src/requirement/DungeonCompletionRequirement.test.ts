@@ -23,4 +23,25 @@ describe('DungeonCompletionRequirement', () => {
     expect(req.isCompleted()).toBe(false);
     expect(req.progress()).toBe(2);
   });
+
+  it('subtracts baseline from progress', () => {
+    loadStatistics({ sommerso_ruins_sortie: 5 }, {}, {});
+    const req = new DungeonCompletionRequirement('sommerso_ruins_sortie', 1, 5);
+    expect(req.progress()).toBe(0);
+    expect(req.isCompleted()).toBe(false);
+  });
+
+  it('is completed when clears exceed baseline by required amount', () => {
+    loadStatistics({ sommerso_ruins_sortie: 6 }, {}, {});
+    const req = new DungeonCompletionRequirement('sommerso_ruins_sortie', 1, 5);
+    expect(req.progress()).toBe(1);
+    expect(req.isCompleted()).toBe(true);
+  });
+
+  it('clamps progress to zero when below baseline', () => {
+    loadStatistics({ sommerso_ruins_sortie: 2 }, {}, {});
+    const req = new DungeonCompletionRequirement('sommerso_ruins_sortie', 1, 5);
+    expect(req.progress()).toBe(0);
+    expect(req.isCompleted()).toBe(false);
+  });
 });
