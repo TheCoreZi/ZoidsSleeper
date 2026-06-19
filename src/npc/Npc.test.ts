@@ -5,9 +5,9 @@ import { CAMPAIGNS } from '../campaign/campaigns';
 import { loadCampaigns } from '../store/campaignStore';
 import { NPCS } from './Npc';
 
-function mariaDialogKey(currentMission: string): string {
+function mariaDialogKey(missionId: string): string {
   loadCampaigns(CAMPAIGNS, {
-    sleeper_commander: { currentMission, missionNpcFlags: {}, status: CampaignStatus.Started },
+    sleeper_commander: { currentMission: { goalState: [], id: missionId }, missionNpcFlags: {}, status: CampaignStatus.Started },
   });
   const maria = NPCS.maria_flyheight;
   const dialog = maria.dialogs.find((d) => !d.unlockRequirement || d.unlockRequirement.isCompleted())

@@ -8,12 +8,22 @@ export type MigrationData = Partial<SaveData> & Record<string, unknown>;
 type MigrationFn = (data: MigrationData) => void;
 
 const migrations: Record<string, MigrationFn> = {
+  '0.6.2': (data) => {
+    const campaignsData = data.campaigns as Record<string, Record<string, unknown>> | undefined;
+    if (!campaignsData) {return;}
+    for (const campaign of Object.values(campaignsData)) {
+      if (typeof campaign.currentMission === 'string') {
+        campaign.currentMission = { goalState: [], id: campaign.currentMission };
+      }
+    }
+  },
   '0.6.1': (data) => {
-    const campaign = data.campaigns?.['sleeper_commander'];
+    const campaigns = data.campaigns as Record<string, Record<string, unknown>> | undefined;
+    const campaign = campaigns?.['sleeper_commander'];
     if (!campaign) {return;}
 
     if (campaign.status === 'completed') {
-      data.campaigns!['sleeper_commander'] = {
+      campaigns!['sleeper_commander'] = {
         currentMission: 'deliver_girl',
         missionNpcFlags: {},
         status: 'started',
@@ -21,7 +31,7 @@ const migrations: Record<string, MigrationFn> = {
       return;
     }
 
-    const flags = campaign.missionNpcFlags;
+    const flags = campaign.missionNpcFlags as Record<string, unknown> | undefined;
     if (flags?.['sleeper_commander:girl'] !== undefined) {
       flags['sleeper_commander:kara'] = flags['sleeper_commander:girl'];
       delete flags['sleeper_commander:girl'];
@@ -50,7 +60,8 @@ const migrations: Record<string, MigrationFn> = {
     }
   },
   '0.5.0': (data) => {
-    const campaign = data.campaigns?.['shells_of_time'];
+    const campaigns = data.campaigns as Record<string, Record<string, unknown>> | undefined;
+    const campaign = campaigns?.['shells_of_time'];
     if (!campaign) {return;}
     const missions = CAMPAIGNS.shells_of_time.missions;
     const targetIndex = missions.findIndex((m) => m.id === 'duel_gale_evolved');
@@ -92,11 +103,12 @@ const migrations: Record<string, MigrationFn> = {
     }
   },
   '0.4.2': (data) => {
-    const campaign = data.campaigns?.['sleeper_commander'];
+    const campaigns = data.campaigns as Record<string, Record<string, unknown>> | undefined;
+    const campaign = campaigns?.['sleeper_commander'];
     if (!campaign) {return;}
 
     if (campaign.status === 'completed') {
-      data.campaigns!['sleeper_commander'] = {
+      campaigns!['sleeper_commander'] = {
         currentMission: 'deliver_girl',
         missionNpcFlags: {},
         status: 'started',
@@ -104,7 +116,7 @@ const migrations: Record<string, MigrationFn> = {
       return;
     }
 
-    const flags = campaign.missionNpcFlags;
+    const flags = campaign.missionNpcFlags as Record<string, unknown> | undefined;
     if (flags?.['sleeper_commander:girl'] !== undefined) {
       flags['sleeper_commander:kara'] = flags['sleeper_commander:girl'];
       delete flags['sleeper_commander:girl'];
@@ -120,7 +132,8 @@ const migrations: Record<string, MigrationFn> = {
     }
   },
   '0.4.0': (data) => {
-    const campaign = data.campaigns?.['sleeper_commander'];
+    const campaigns = data.campaigns as Record<string, Record<string, unknown>> | undefined;
+    const campaign = campaigns?.['sleeper_commander'];
     if (!campaign) {return;}
 
     const missions = CAMPAIGNS.sleeper_commander.missions;
@@ -129,7 +142,7 @@ const migrations: Record<string, MigrationFn> = {
     const pastTarget = campaign.status === 'completed' || currentIndex > targetIndex;
 
     if (pastTarget) {
-      data.campaigns!['sleeper_commander'] = {
+      campaigns!['sleeper_commander'] = {
         currentMission: 'find_van_oasis',
         missionNpcFlags: {},
         status: 'started',
@@ -142,7 +155,8 @@ const migrations: Record<string, MigrationFn> = {
     }
   },
   '0.3.0': (data) => {
-    const campaign = data.campaigns?.['sleeper_commander'];
+    const campaigns = data.campaigns as Record<string, Record<string, unknown>> | undefined;
+    const campaign = campaigns?.['sleeper_commander'];
     if (!campaign) {return;}
 
     const missions = CAMPAIGNS.sleeper_commander.missions;
@@ -151,7 +165,7 @@ const migrations: Record<string, MigrationFn> = {
     const pastTarget = campaign.status === 'completed' || currentIndex > targetIndex;
 
     if (pastTarget) {
-      data.campaigns!['sleeper_commander'] = {
+      campaigns!['sleeper_commander'] = {
         currentMission: 'maria_van_status',
         missionNpcFlags: { 'sleeper_commander:maria_flyheight': false },
         status: 'started',
@@ -166,7 +180,8 @@ const migrations: Record<string, MigrationFn> = {
     delete inv['core_probe'];
   },
   '0.2.0': (data) => {
-    const campaign = data.campaigns?.['sleeper_commander'];
+    const campaigns = data.campaigns as Record<string, Record<string, unknown>> | undefined;
+    const campaign = campaigns?.['sleeper_commander'];
     if (!campaign) {return;}
 
     const missions = CAMPAIGNS.sleeper_commander.missions;
@@ -175,7 +190,7 @@ const migrations: Record<string, MigrationFn> = {
     const pastTarget = campaign.status === 'completed' || currentIndex > targetIndex;
 
     if (pastTarget) {
-      data.campaigns!['sleeper_commander'] = {
+      campaigns!['sleeper_commander'] = {
         currentMission: 'interrogate_bandits',
         missionNpcFlags: { 'sleeper_commander:bianco': false },
         status: 'started',

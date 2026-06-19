@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it } from 'vitest';
-import { CampaignStatus, type Campaign } from '../src/campaign/Campaign';
+import { CampaignStatus, Mission, type Campaign } from '../src/campaign/Campaign';
 import { CampaignCompletedRequirement, CurrentMissionRequirement, MissionCompletedRequirement, RouteKillRequirement } from '../src/requirement';
 import { NpcTalkedInCampaignRequirement } from '../src/requirement/NpcTalkedInCampaignRequirement';
 import { loadCampaigns, markNpcTalked, startCampaign, checkCampaigns } from '../src/store/campaignStore';
@@ -8,8 +8,8 @@ import { incrementRouteKills, loadStatistics } from '../src/store/statisticsStor
 const testCampaign: Campaign = {
   id: 'test_campaign',
   missions: [
-    { id: 'm0', goals: [new RouteKillRequirement('r', 1)] },
-    { id: 'm1', goals: [new NpcTalkedInCampaignRequirement('test_campaign', 'boy')] },
+    new Mission({ id: 'm0', goals: [new RouteKillRequirement('r', 1)] }),
+    new Mission({ id: 'm1', goals: [new NpcTalkedInCampaignRequirement('test_campaign', 'boy')] }),
   ],
 };
 
@@ -34,7 +34,7 @@ describe('CampaignCompletedRequirement', () => {
 
   it('should be completed for completed campaign', () => {
     loadCampaigns({ test_campaign: testCampaign }, {
-      test_campaign: { currentMission: '', status: CampaignStatus.Completed },
+      test_campaign: { currentMission: { goalState: [], id: '' }, status: CampaignStatus.Completed },
     });
     const req = new CampaignCompletedRequirement('test_campaign');
 
@@ -72,7 +72,7 @@ describe('MissionCompletedRequirement', () => {
 
   it('should be completed when campaign is fully completed', () => {
     loadCampaigns({ test_campaign: testCampaign }, {
-      test_campaign: { currentMission: '', status: CampaignStatus.Completed },
+      test_campaign: { currentMission: { goalState: [], id: '' }, status: CampaignStatus.Completed },
     });
     const req = new MissionCompletedRequirement('test_campaign', 'm0');
 
@@ -110,7 +110,7 @@ describe('CurrentMissionRequirement', () => {
 
   it('should not be completed when campaign is fully completed', () => {
     loadCampaigns({ test_campaign: testCampaign }, {
-      test_campaign: { currentMission: '', status: CampaignStatus.Completed },
+      test_campaign: { currentMission: { goalState: [], id: '' }, status: CampaignStatus.Completed },
     });
     const req = new CurrentMissionRequirement('test_campaign', 'm0');
 

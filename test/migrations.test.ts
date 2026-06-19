@@ -63,7 +63,7 @@ describe('migrate', () => {
       migrate(data, '0.2.1');
 
       expect(data.campaigns.sleeper_commander).toEqual({
-        currentMission: 'maria_van_status',
+        currentMission: { goalState: [], id: 'maria_van_status' },
         missionNpcFlags: { 'sleeper_commander:maria_flyheight': false },
         status: 'started',
       });
@@ -85,7 +85,7 @@ describe('migrate', () => {
 
       migrate(data, '0.2.1');
 
-      expect(data.campaigns.sleeper_commander.currentMission).toBe('maria_van_status');
+      expect(data.campaigns.sleeper_commander.currentMission).toEqual({ goalState: [], id: 'maria_van_status' });
       expect(data.landmarkId).toBe('wind_colony');
     });
 
@@ -104,7 +104,7 @@ describe('migrate', () => {
 
       migrate(data, '0.2.1');
 
-      expect(data.campaigns.sleeper_commander.currentMission).toBe('interrogate_bandits');
+      expect(data.campaigns.sleeper_commander.currentMission).toEqual({ goalState: [], id: 'interrogate_bandits' });
       expect(data.landmarkId).toBe('elmia_ruins');
     });
 
@@ -129,7 +129,7 @@ describe('migrate', () => {
       migrate(data, '0.3.0');
 
       expect(data.campaigns.sleeper_commander).toEqual({
-        currentMission: 'find_van_oasis',
+        currentMission: { goalState: [], id: 'find_van_oasis' },
         missionNpcFlags: {},
         status: 'started',
       });
@@ -153,7 +153,7 @@ describe('migrate', () => {
 
       migrate(data, '0.3.0');
 
-      expect(data.campaigns.sleeper_commander.currentMission).toBe('find_van_oasis');
+      expect(data.campaigns.sleeper_commander.currentMission).toEqual({ goalState: [], id: 'find_van_oasis' });
       expect(data.landmarkId).toBe('wind_oasis');
       expect(data.pilotDefeats).not.toHaveProperty('van_shield_liger');
     });
@@ -173,7 +173,7 @@ describe('migrate', () => {
 
       migrate(data, '0.3.0');
 
-      expect(data.campaigns.sleeper_commander.currentMission).toBe('maria_van_status');
+      expect(data.campaigns.sleeper_commander.currentMission).toEqual({ goalState: [], id: 'maria_van_status' });
       expect(data.landmarkId).toBe('wind_colony');
     });
 
@@ -285,7 +285,7 @@ describe('migrate', () => {
       migrate(data, '0.1.0');
 
       expect(data.campaigns.sleeper_commander).toEqual({
-        currentMission: 'interrogate_bandits',
+        currentMission: { goalState: [], id: 'interrogate_bandits' },
         missionNpcFlags: { 'sleeper_commander:bianco': false },
         status: 'started',
       });
@@ -308,7 +308,7 @@ describe('migrate', () => {
       migrate(data, '0.1.0');
 
       expect(data.campaigns.sleeper_commander).toEqual({
-        currentMission: 'interrogate_bandits',
+        currentMission: { goalState: [], id: 'interrogate_bandits' },
         missionNpcFlags: { 'sleeper_commander:bianco': false },
         status: 'started',
       });
@@ -330,7 +330,7 @@ describe('migrate', () => {
 
       migrate(data, '0.1.0');
 
-      expect(data.campaigns.sleeper_commander.currentMission).toBe('defeat_bul');
+      expect(data.campaigns.sleeper_commander.currentMission).toEqual({ goalState: [], id: 'defeat_bul' });
       expect(data.landmarkId).toBe('wind_colony');
     });
 

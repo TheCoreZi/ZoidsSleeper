@@ -20,7 +20,7 @@ export class CurrentMissionRequirement implements Requirement {
   }
 
   isCompleted(): boolean {
-    return getCampaignState(this.campaignId).currentMission === this.missionId;
+    return getCampaignState(this.campaignId).currentMission.id === this.missionId;
   }
 
   progress(): number {

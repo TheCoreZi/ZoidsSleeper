@@ -19,7 +19,8 @@ export { NpcTalkedInCampaignRequirement } from './NpcTalkedInCampaignRequirement
 export { OwnZoidForTerrainRequirement } from './OwnZoidForTerrainRequirement';
 export { OnlyOneRequirement } from './OnlyOneRequirement';
 export { PilotDefeatRequirement } from './PilotDefeatRequirement';
-export type { Requirement } from './Requirement';
+export { isStatefulRequirement } from './Requirement';
+export type { Requirement, RequirementSaveData, StatefulRequirement } from './Requirement';
 export { RouteKillRequirement } from './RouteKillRequirement';
 export { SpeciesDefeatRequirement } from './SpeciesDefeatRequirement';
 export { SpeciesZiDataRequirement } from './SpeciesZiDataRequirement';

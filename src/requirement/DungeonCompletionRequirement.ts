@@ -1,14 +1,24 @@
 import { t } from '../i18n';
 import { getDungeonCompletions } from '../store/statisticsStore';
-import type { Requirement } from './Requirement';
+import type { RequirementSaveData, StatefulRequirement } from './Requirement';
 
-export class DungeonCompletionRequirement implements Requirement {
+export interface DungeonRequirementSaveData extends RequirementSaveData {
+  baselineClears: number;
+}
+
+export class DungeonCompletionRequirement implements StatefulRequirement {
+  baseline: number;
   dungeonId: string;
   requiredValue: number;
 
-  constructor(dungeonId: string, requiredCompletions: number) {
+  constructor(dungeonId: string, requiredCompletions: number, baseline = 0) {
+    this.baseline = baseline;
     this.dungeonId = dungeonId;
     this.requiredValue = requiredCompletions;
+  }
+
+  fromSaveData(data: RequirementSaveData): void {
+    this.baseline = (data as DungeonRequirementSaveData).baselineClears ?? 0;
   }
 
   hint(): string {
@@ -24,6 +34,11 @@ export class DungeonCompletionRequirement implements Requirement {
   }
 
   progress(): number {
-    return getDungeonCompletions(this.dungeonId);
+    return Math.max(0, getDungeonCompletions(this.dungeonId) - this.baseline);
+  }
+
+  toSaveData(): DungeonRequirementSaveData {
+    this.baseline = getDungeonCompletions(this.dungeonId);
+    return { baselineClears: this.baseline };
   }
 }
