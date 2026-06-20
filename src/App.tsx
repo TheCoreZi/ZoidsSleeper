@@ -151,7 +151,10 @@ const App: Component = () => {
       <Show when={activeShop()}>
         <ShopPanel
           shop={activeShop()!}
-          onBuy={(item, amount) => buyItem(item.id, amount)}
+          onBuy={(item, amount) => {
+            buyItem(item.id, amount);
+            checkCampaigns();
+          }}
           onClose={() => setActiveShop(null)}
         />
       </Show>
