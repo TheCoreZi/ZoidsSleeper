@@ -4,8 +4,10 @@ import { CampaignStatus, Mission, type Campaign } from '../campaign/Campaign';
 import { AllOfRequirement } from '../requirement/AllOfRequirement';
 import { CampaignCompletedRequirement } from '../requirement/CampaignCompletedRequirement';
 import { DungeonCompletionRequirement, type DungeonRequirementSaveData } from '../requirement/DungeonCompletionRequirement';
+import { ItemRequirement } from '../requirement/ItemRequirement';
 import { NpcTalkedInCampaignRequirement } from '../requirement/NpcTalkedInCampaignRequirement';
 import { campaignStates, checkCampaigns, loadCampaigns } from './campaignStore';
+import { addItem } from './inventoryStore';
 import { incrementDungeonCompletions, loadStatistics } from './statisticsStore';
 
 function stubCampaign(overrides: Partial<Campaign> = {}): Campaign {
@@ -146,6 +148,25 @@ describe('checkCampaigns', () => {
     incrementDungeonCompletions('test_dungeon_sortie');
 
     expect(dungeonReq.isCompleted()).toBe(true);
+  });
+
+  it('advances mission when ItemRequirement is met', () => {
+    const campaign = stubCampaign({
+      id: 'item_campaign',
+      missions: [
+        new Mission({ id: 'collect_items', goals: [new ItemRequirement('core_saver', 3)] }),
+        new Mission({ id: 'done', goals: [new NpcTalkedInCampaignRequirement('item_campaign', 'npc')] }),
+      ],
+    });
+    loadCampaigns(
+      { item_campaign: campaign },
+      { item_campaign: { currentMission: { goalState: [], id: 'collect_items' }, status: CampaignStatus.Started } }
+    );
+
+    addItem('core_saver', 3);
+    checkCampaigns();
+
+    expect(campaignStates()['item_campaign']?.currentMission.id).toBe('done');
   });
 
   it('handles DungeonCompletionRequirement inside AllOfRequirement', () => {
