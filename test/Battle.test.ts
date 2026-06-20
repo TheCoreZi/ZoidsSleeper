@@ -3,18 +3,21 @@ import { BATTLE_TICK, TICK_TIME } from '../src/constants';
 import { Battle } from '../src/game/Battle';
 import { BattleBackground, LandmarkType, type Route, ROUTES } from '../src/landmark';
 import { DEFAULT_PLAYER } from '../src/models/Player';
-import { ZoidResearchStatus } from '../src/models/Zoid';
+import { calculatePartyAttack, ZoidResearchStatus } from '../src/models/Zoid';
 import { playerStats, setPlayerStats } from '../src/store/gameStore';
-import { partyAttack } from '../src/store/partyStore';
+import { partyAttack, party, setParty } from '../src/store/partyStore';
 import { getRouteKills, loadStatistics } from '../src/store/statisticsStore';
 import { getZoidResearch, loadZoidResearch } from '../src/store/zoidResearchStore';
 
 const toughRoute: Route = {
+  baseReward: { magnis: 0, zi_metal: 0 },
   battleBackground: BattleBackground.Grass,
   connects: ['test-a', 'test-b'],
   enemies: [{ blueprint: { id: 'molga', level: 50 } }],
+  fragmentYield: 0,
   id: 'test-route',
   name: 'Test',
+  routeHealth: 999,
   type: LandmarkType.Route,
 };
 
@@ -136,5 +139,20 @@ describe('Battle', () => {
     battle.clickAttack();
 
     expect(getRouteKills(ROUTES[0].id)).toBe(1);
+  });
+
+  it('should update armyAttack after defeating an enemy that grants enough xp to level up', () => {
+    setParty({ commanderZoidId: 'command_wolf', zoids: [{ dateObtained: 0, experience: 0, id: 'command_wolf' }] });
+    const initialAttack = calculatePartyAttack(party().zoids);
+
+    expect(initialAttack).toBeGreaterThan(0);
+
+    const battle = new Battle(toughRoute);
+    battle.enemy.health = 1;
+    battle.clickAttack();
+
+    const updatedAttack = calculatePartyAttack(party().zoids);
+    expect(updatedAttack).toBeGreaterThan(initialAttack);
+    expect(battle.armyAttack).toBe(updatedAttack);
   });
 });
