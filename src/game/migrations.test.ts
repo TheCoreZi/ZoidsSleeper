@@ -48,8 +48,75 @@ describe('migration 0.4.5', () => {
   });
 });
 
+describe('migration 0.6.1', () => {
+  it('resets completed campaign to deliver_girl when shells_of_time not started', () => {
+    const data = baseSave({
+      campaigns: {
+        sleeper_commander: {
+          currentMission: '',
+          missionNpcFlags: {},
+          status: 'completed',
+        },
+      } as unknown as MigrationData['campaigns'],
+      version: '0.6.0',
+    });
+
+    migrate(data, '0.6.0');
+
+    expect(data.campaigns!['sleeper_commander']).toEqual({
+      currentMission: { goalState: [], id: 'deliver_girl' },
+      missionNpcFlags: {},
+      status: 'started',
+    });
+  });
+
+  it('preserves completed status when shells_of_time is started', () => {
+    const data = baseSave({
+      campaigns: {
+        sleeper_commander: {
+          currentMission: '',
+          missionNpcFlags: {},
+          status: 'completed',
+        },
+        shells_of_time: {
+          currentMission: 'head_to_porto_nido',
+          missionNpcFlags: {},
+          status: 'started',
+        },
+      } as unknown as MigrationData['campaigns'],
+      version: '0.6.0',
+    });
+
+    migrate(data, '0.6.0');
+
+    expect(data.campaigns!['sleeper_commander'].status).toBe('completed');
+  });
+
+  it('preserves completed status when shells_of_time is completed', () => {
+    const data = baseSave({
+      campaigns: {
+        sleeper_commander: {
+          currentMission: '',
+          missionNpcFlags: {},
+          status: 'completed',
+        },
+        shells_of_time: {
+          currentMission: '',
+          missionNpcFlags: {},
+          status: 'completed',
+        },
+      } as unknown as MigrationData['campaigns'],
+      version: '0.6.0',
+    });
+
+    migrate(data, '0.6.0');
+
+    expect(data.campaigns!['sleeper_commander'].status).toBe('completed');
+  });
+});
+
 describe('migration 0.4.2', () => {
-  it('resets completed campaign to deliver_girl', () => {
+  it('resets completed campaign to deliver_girl when shells_of_time not started', () => {
     const data = baseSave({
       campaigns: {
         sleeper_commander: {
@@ -67,6 +134,27 @@ describe('migration 0.4.2', () => {
       missionNpcFlags: {},
       status: 'started',
     });
+  });
+
+  it('preserves completed status when shells_of_time is started', () => {
+    const data = baseSave({
+      campaigns: {
+        sleeper_commander: {
+          currentMission: '',
+          missionNpcFlags: {},
+          status: 'completed',
+        },
+        shells_of_time: {
+          currentMission: 'head_to_porto_nido',
+          missionNpcFlags: {},
+          status: 'started',
+        },
+      } as unknown as MigrationData['campaigns'],
+    });
+
+    migrate(data, '0.4.1');
+
+    expect(data.campaigns!['sleeper_commander'].status).toBe('completed');
   });
 
   it('does not affect players before fight_van', () => {

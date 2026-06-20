@@ -22,6 +22,12 @@ const migrations: Record<string, MigrationFn> = {
     const campaign = campaigns?.['sleeper_commander'];
     if (!campaign) {return;}
 
+    const shellsStatus = campaigns?.['shells_of_time']?.status;
+    if (shellsStatus === 'started' || shellsStatus === 'completed') {
+      campaigns!['sleeper_commander'] = { currentMission: '', status: 'completed' };
+      return;
+    }
+
     if (campaign.status === 'completed') {
       campaigns!['sleeper_commander'] = {
         currentMission: 'deliver_girl',
@@ -106,6 +112,12 @@ const migrations: Record<string, MigrationFn> = {
     const campaigns = data.campaigns as Record<string, Record<string, unknown>> | undefined;
     const campaign = campaigns?.['sleeper_commander'];
     if (!campaign) {return;}
+
+    const shellsStatus = campaigns?.['shells_of_time']?.status;
+    if (shellsStatus === 'started' || shellsStatus === 'completed') {
+      campaigns!['sleeper_commander'] = { currentMission: '', status: 'completed' };
+      return;
+    }
 
     if (campaign.status === 'completed') {
       campaigns!['sleeper_commander'] = {
