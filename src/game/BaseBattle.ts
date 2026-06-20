@@ -1,9 +1,10 @@
 import { BATTLE_TICK, CLICK_COOLDOWN, ORGANOID_ACTIVATION_THRESHOLD, ORGANOID_ANIMATION_DURATION, TICK_TIME } from '../constants';
+import { t } from '../i18n';
 import { awardExperience, calculateExperienceGain } from '../models/Experience';
+import { Faction } from '../models/Faction';
 import type { Organoid } from '../models/Organoid';
 import { EvolutionPopupImage, PopupMessage, PopupType } from '../models/PopupMessage';
-import { computeOwnedZoidStats, getOwnedZoidLevel, getZoidById, getZoidImage, type OwnedZoid, type SpawnedZoid, ZoidResearchStatus } from '../models/Zoid';
-import { t } from '../i18n';
+import { calculatePartyAttack, computeOwnedZoidStats, getOwnedZoidLevel, getZoidById, getZoidImage, type OwnedZoid, type SpawnedZoid, ZoidResearchStatus } from '../models/Zoid';
 import {
   damageEvents,
   type DamageSource,
@@ -18,6 +19,7 @@ import {
 import { isSpeciesInTank } from '../store/nurturingStore';
 import { addZoidToArmy, party, partyAttack, partyMaxHealth, setParty } from '../store/partyStore';
 import { getActiveDeviceId, getActiveScanMode, scanNewOnly, ScanMode } from '../store/scanStore';
+import { currentTerrain } from '../store/terrainStore';
 import { getZoidDataCount } from '../store/zoidDataStore';
 import { getZoidResearch } from '../store/zoidResearchStore';
 import { attemptScan } from './Scan';
@@ -123,6 +125,7 @@ export abstract class BaseBattle {
     if (leveledUpZoids.length > 0) {
       this.checkEvolutions(leveledUpZoids, currentParty.zoids);
     }
+    this.armyAttack = calculatePartyAttack(currentParty.zoids, playerStats()?.faction ?? Faction.Neutral, currentTerrain());
   }
 
   private checkEvolutions(leveledUpZoids: OwnedZoid[], allZoids: OwnedZoid[]): void {
