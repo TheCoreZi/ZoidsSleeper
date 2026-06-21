@@ -73,6 +73,39 @@ describe('Dungeon layer advance animation', () => {
     expect(visible[1].depth).toBe(1);
   });
 
+  it('only the completed node from previous layer should drive active connections', () => {
+    startSortie(DUMMY_SORTIE, 100, 100);
+    const run = dungeonRun()!;
+
+    const completedNodeId = ENTRY_NODE_ID;
+    const prevLayer = run.graph[run.currentDepth - 1];
+    const completedNode = prevLayer.nodes.find((n) => run.nodeResults[n.id] === 'completed');
+
+    expect(completedNode).toBeDefined();
+    expect(completedNode!.id).toBe(completedNodeId);
+
+    const otherNodes = prevLayer.nodes.filter((n) => n.id !== completedNodeId);
+    for (const node of otherNodes) {
+      expect(run.nodeResults[node.id]).toBeUndefined();
+    }
+  });
+
+  it('after advancing, completed node from new previous layer drives active connections', () => {
+    startSortie(DUMMY_SORTIE, 100, 100);
+    const run = dungeonRun()!;
+
+    const firstLayerNode = run.graph[1].nodes[0];
+    markNodeCompleted(firstLayerNode.id);
+    advanceLayer();
+
+    const updated = dungeonRun()!;
+    const prevLayer = updated.graph[updated.currentDepth - 1];
+    const completedNode = prevLayer.nodes.find((n) => updated.nodeResults[n.id] === 'completed');
+
+    expect(completedNode).toBeDefined();
+    expect(completedNode!.id).toBe(firstLayerNode.id);
+  });
+
   it('endDungeon clears isLayerAdvancing', () => {
     startSortie(DUMMY_SORTIE, 100, 100);
     setIsLayerAdvancing(true);

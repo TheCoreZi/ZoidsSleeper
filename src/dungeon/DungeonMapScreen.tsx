@@ -98,14 +98,14 @@ const DungeonMapScreen: Component<Props> = (props) => {
           if (!toEl) {continue;}
           const toRect = toEl.getBoundingClientRect();
 
-          const isFirstLayer = layers[i].depth === r.currentDepth;
+          const isActiveConnection = node.id === lastCompletedNodeId();
 
           const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
           line.setAttribute('x1', String(fromRect.left + fromRect.width / 2 - containerRect.left));
           line.setAttribute('y1', String(fromRect.top + fromRect.height / 2 - containerRect.top));
           line.setAttribute('x2', String(toRect.left + toRect.width / 2 - containerRect.left));
           line.setAttribute('y2', String(toRect.top + toRect.height / 2 - containerRect.top));
-          line.setAttribute('class', isFirstLayer ? 'connection-active' : 'connection-inactive');
+          line.setAttribute('class', isActiveConnection ? 'connection-active' : 'connection-inactive');
           svgRef.appendChild(line);
         }
       }
