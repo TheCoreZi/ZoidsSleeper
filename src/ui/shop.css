@@ -203,12 +203,24 @@
   background: var(--theme-button-hover);
 }
 
-.shop-amount-value {
+.shop-amount-input {
+  appearance: textfield;
+  background: transparent;
+  border: 1px solid var(--theme-border);
+  border-radius: 4px;
   color: #fff;
   font-size: 1rem;
   font-weight: bold;
-  min-width: 2.5rem;
+  min-width: 3rem;
+  padding: 0.2rem 0.3rem;
   text-align: center;
+  width: 4rem;
+}
+
+.shop-amount-input::-webkit-inner-spin-button,
+.shop-amount-input::-webkit-outer-spin-button {
+  appearance: none;
+  margin: 0;
 }
 
 .shop-total-row {
