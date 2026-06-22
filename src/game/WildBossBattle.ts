@@ -2,6 +2,7 @@ import type { PlayerStats } from '../models/Player';
 import type { ZoidBlueprint } from '../models/Zoid';
 import { spawnZoid, buildZoid, ZoidResearchStatus } from '../models/Zoid';
 import { addFragments } from '../store/nurturingStore';
+import { resetScanAfterBattle } from '../store/scanStore';
 import { updateZoidResearch } from '../store/zoidResearchStore';
 import {
   setEnemyZoid,
@@ -36,6 +37,8 @@ export class WildBossBattle extends BaseBattle {
   }
 
   protected onEnemyDefeated(): void {
+    this.tryScan();
+    resetScanAfterBattle();
     addFragments(this.fragmentYield);
     if (this.currentEnemyIndex < this.zoids.length - 1) {
       this.nextEnemy();
