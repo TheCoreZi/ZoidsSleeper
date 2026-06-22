@@ -82,6 +82,7 @@ const SettingsMenu: Component = () => {
               <DevFactionTools />
             </Match>
           </Switch>
+          <span class="settings-version">v{__APP_VERSION__}</span>
         </div>
       </Show>
     </div>

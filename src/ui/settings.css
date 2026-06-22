@@ -141,6 +141,14 @@
   font-size: 1.2rem;
 }
 
+.settings-version {
+  color: #666;
+  display: block;
+  font-size: 0.7rem;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
 .reset-overlay {
   align-items: center;
   background: rgb(0 0 0 / 60%);
