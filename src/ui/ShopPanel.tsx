@@ -69,8 +69,26 @@ const ShopPanel: Component<ShopPanelProps> = (props) => {
         </div>
         <div class="shop-buy-section">
           <div class="shop-amount-row">
+            <button class="shop-amount-btn" onClick={() => setAmount((a) => Math.max(1, a - 10))}>-10</button>
             <button class="shop-amount-btn" onClick={() => setAmount((a) => Math.max(1, a - 1))}>−</button>
-            <span class="shop-amount-value">{amount()}</span>
+            <input
+              class="shop-amount-input"
+              type="number"
+              min="1"
+              value={amount()}
+              onInput={(e) => {
+                const val = parseInt(e.currentTarget.value);
+                if (!Number.isNaN(val) && val >= 1) {
+                  setAmount(val);
+                }
+              }}
+              onBlur={(e) => {
+                const val = parseInt(e.currentTarget.value);
+                if (Number.isNaN(val) || val < 1) {
+                  setAmount(1);
+                }
+              }}
+            />
             <button class="shop-amount-btn" onClick={() => setAmount((a) => a + 1)}>+</button>
             <button class="shop-amount-btn" onClick={() => setAmount((a) => a + 10)}>+10</button>
             <button class="shop-amount-btn" onClick={() => setAmount(Math.max(1, maxAffordable()))}>{t('ui:max')}</button>
