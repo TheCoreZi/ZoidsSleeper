@@ -38,6 +38,13 @@ describe('WildBossBattle', () => {
     expect(spy).toHaveBeenCalledOnce();
   });
 
+  it('attempts scan on enemy defeat', () => {
+    const battle = new WildBossBattle(PLAYER_STATS, ZOIDS);
+    const spy = vi.spyOn(battle as never, 'tryScan');
+    battle['onEnemyDefeated']();
+    expect(spy).toHaveBeenCalledOnce();
+  });
+
   it('calls onDefeat when player health reaches zero', () => {
     const battle = new WildBossBattle(PLAYER_STATS, [{ attackOverride: 9999, id: 'gator', level: 99, maxHealthOverride: 50 }]);
     const spy = vi.fn();
