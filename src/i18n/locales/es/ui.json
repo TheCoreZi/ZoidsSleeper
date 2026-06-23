@@ -135,6 +135,8 @@
   "scan_permanent": "Siempre activo",
   "scan_rate": "Prob. de análisis: {{rate}}%",
   "scan_single": "Uso único",
+  "rank": "Rango",
+  "rank_changed": "Cambio de Rango",
   "report_to_camp": "Reportarse al Campamento",
   "scout_camp": "Investigar el campamento",
   "section_important_items": "Objetos Importantes",

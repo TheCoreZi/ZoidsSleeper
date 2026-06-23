@@ -3,6 +3,7 @@ import type { CompositeReward } from './CompositeReward';
 import type { CutsceneReward } from './CutsceneReward';
 import type { ItemReward } from './ItemReward';
 import type { MissionAdvanceReward } from './MissionAdvanceReward';
+import type { RankUpReward } from './RankUpReward';
 import type { RemoveItemReward } from './RemoveItemReward';
 import type { RemoveZiDataReward } from './RemoveZiDataReward';
 import type { RemoveZoidReward } from './RemoveZoidReward';
@@ -16,6 +17,7 @@ const RewardType = {
   Cutscene: 'cutscene',
   Item: 'item',
   MissionAdvance: 'mission_advance',
+  RankUp: 'rank_up',
   RemoveItem: 'remove_item',
   RemoveZiData: 'remove_zi_data',
   RemoveZoid: 'remove_zoid',
@@ -26,6 +28,6 @@ const RewardType = {
 
 type RewardType = typeof RewardType[keyof typeof RewardType];
 
-export type Reward = ActivateCityActionReward | CompositeReward | CutsceneReward | ItemReward | MissionAdvanceReward | RemoveItemReward | RemoveZiDataReward | RemoveZoidReward | TypedZoidCoreReward | ZoidCoreReward | ZoidReward;
+export type Reward = ActivateCityActionReward | CompositeReward | CutsceneReward | ItemReward | MissionAdvanceReward | RankUpReward | RemoveItemReward | RemoveZiDataReward | RemoveZoidReward | TypedZoidCoreReward | ZoidCoreReward | ZoidReward;
 
 export { RewardType };

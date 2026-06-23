@@ -2,7 +2,7 @@ import { CUTSCENES } from '../cutscene';
 import { t } from '../i18n';
 import { PopupMessage, PopupType } from '../models/PopupMessage';
 import { advanceMission } from '../store/campaignStore';
-import { enqueueDialog, showPopup } from '../store/gameStore';
+import { enqueueDialog, setPlayerRank, showPopup } from '../store/gameStore';
 import { addItem, removeItem } from '../store/inventoryStore';
 import { addZoidToArmy, removeZoidFromArmy } from '../store/partyStore';
 import { addCore, addTypedCore } from '../store/zoidCoreStore';
@@ -25,6 +25,9 @@ export function grantReward(reward: Reward): void {
       break;
     case RewardType.MissionAdvance:
       advanceMission(reward.campaignId);
+      break;
+    case RewardType.RankUp:
+      setPlayerRank(reward.rank, reward.faction);
       break;
     case RewardType.RemoveItem:
       removeItem(reward.itemId, reward.amount);

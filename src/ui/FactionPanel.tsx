@@ -1,11 +1,13 @@
 import { type Component, createSignal, Show } from 'solid-js';
 import { t } from '../i18n';
 import { FACTIONS, type Faction } from '../models/Faction';
+import { Rank, type Rank as RankType } from '../models/Rank';
 import FactionBonusPopup from './FactionBonusPopup';
 import './faction.css';
 
 interface FactionPanelProps {
   faction: Faction;
+  rank?: RankType;
 }
 
 const FactionPanel: Component<FactionPanelProps> = (props) => {
@@ -22,6 +24,16 @@ const FactionPanel: Component<FactionPanelProps> = (props) => {
           alt={t(`factions:${props.faction}`)}
         />
         <span class="faction-panel-name">{t(`factions:${props.faction}`)}</span>
+        <Show when={props.rank && props.rank !== Rank.Civilian}>
+          <span class="faction-panel-rank">
+            <img
+              class="faction-panel-rank-image"
+              src={`images/ranks/${props.rank}.svg`}
+              alt={t(`ranks:${props.rank}`)}
+            />
+            {t(`ranks:${props.rank}`)}
+          </span>
+        </Show>
         <button
           class="faction-panel-info"
           onClick={() => setShowBonus(true)}
