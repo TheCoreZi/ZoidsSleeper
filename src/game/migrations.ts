@@ -8,6 +8,38 @@ export type MigrationData = Partial<SaveData> & Record<string, unknown>;
 type MigrationFn = (data: MigrationData) => void;
 
 const migrations: Record<string, MigrationFn> = {
+  '0.6.3': (data) => {
+    const stats = data.playerStats as Record<string, unknown> | undefined;
+    if (!stats || stats.factionRanks) {return;}
+    const faction = stats.faction as string | undefined;
+    if (!faction || faction === 'neutral') {return;}
+
+    const campaignsData = data.campaigns as Record<string, Record<string, unknown>> | undefined;
+    const campaignId = faction === 'helic_republic' ? 'olympus_threat' : 'olympus_guylos';
+    const campaign = campaignsData?.[campaignId];
+    if (!campaign) {return;}
+
+    const missionId = typeof campaign.currentMission === 'string'
+      ? campaign.currentMission
+      : (campaign.currentMission as Record<string, unknown>)?.id as string;
+
+    const missionOrder = CAMPAIGNS[campaignId].missions.map((m) => m.id);
+    const currentIndex = missionOrder.indexOf(missionId);
+    const cadetIndex = missionOrder.indexOf('talk_to_companions');
+    const recruitMission = campaignId === 'olympus_threat' ? 'go_to_training' : 'meet_recruits';
+    const recruitIndex = missionOrder.indexOf(recruitMission);
+
+    let rank: string;
+    if (campaign.status === 'completed' || currentIndex >= cadetIndex) {
+      rank = 'cadet';
+    } else if (currentIndex >= recruitIndex) {
+      rank = 'recruit';
+    } else {
+      return;
+    }
+
+    stats.factionRanks = { [faction]: rank };
+  },
   '0.6.2': (data) => {
     const campaignsData = data.campaigns as Record<string, Record<string, unknown>> | undefined;
     if (!campaignsData) {return;}

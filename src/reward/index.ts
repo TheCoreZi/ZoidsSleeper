@@ -4,6 +4,7 @@ export { cutsceneReward } from './CutsceneReward';
 export { grantReward } from './grantReward';
 export { itemReward } from './ItemReward';
 export { missionAdvanceReward } from './MissionAdvanceReward';
+export { rankUpReward } from './RankUpReward';
 export { removeItemReward } from './RemoveItemReward';
 export { removeZiDataReward } from './RemoveZiDataReward';
 export { removeZoidReward } from './RemoveZoidReward';

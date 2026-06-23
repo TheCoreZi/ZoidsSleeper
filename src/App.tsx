@@ -212,7 +212,7 @@ const App: Component = () => {
               onToggle={() => setShowParty((v) => !v)}
             />
             <Show when={import.meta.env.DEV && playerStats()}>
-              <FactionPanel faction={playerStats()!.faction} />
+              <FactionPanel faction={playerStats()!.faction} rank={playerStats()!.factionRanks?.[playerStats()!.faction]} />
             </Show>
           </div>
           <div class="battle-column">

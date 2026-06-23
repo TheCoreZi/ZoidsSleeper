@@ -1,6 +1,7 @@
 import { createMemo, createSignal } from 'solid-js';
 import { FACTIONS, type Faction } from '../models/Faction';
 import { PopupMessage, PopupType } from '../models/PopupMessage';
+import { Rank } from '../models/Rank';
 import { t } from '../i18n';
 import type { PlayerStats } from '../models/Player';
 import type { DialogScript } from '../dialog/Dialog';
@@ -139,6 +140,12 @@ function incrementClickAttack(amount = 1): void {
   setPlayerStats((prev) => prev ? { ...prev, clickAttack: prev.clickAttack + amount } : prev);
 }
 
+function getPlayerRank(): Rank {
+  const stats = playerStats();
+  if (!stats) {return Rank.Civilian;}
+  return stats.factionRanks?.[stats.faction] ?? Rank.Civilian;
+}
+
 function setPlayerFaction(faction: Faction): void {
   setPlayerStats((prev) => prev ? { ...prev, faction } : prev);
   const factionData = FACTIONS[faction];
@@ -147,6 +154,18 @@ function setPlayerFaction(faction: Faction): void {
     t('ui:faction_changed'),
     PopupType.Faction,
     factionData.image
+  ));
+}
+
+function setPlayerRank(rank: Rank, faction: Faction): void {
+  setPlayerStats((prev) => {
+    if (!prev) {return prev;}
+    return { ...prev, factionRanks: { ...prev.factionRanks, [faction]: rank } };
+  });
+  showPopup(new PopupMessage(
+    t(`ranks:${rank}`),
+    t('ui:rank_changed'),
+    PopupType.Faction
   ));
 }
 
@@ -207,7 +226,9 @@ export {
   setPilotPlayerMaxHealth,
   setPilotZoidIds,
   setPlayerDamageEvents,
+  getPlayerRank,
   setPlayerFaction,
+  setPlayerRank,
   setPlayerStats,
   showPopup,
   setRewardEvents,

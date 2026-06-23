@@ -1,4 +1,5 @@
 import type { Faction } from './Faction';
+import type { Rank } from './Rank';
 
 export interface PlayerStats {
   attackMult: number;
@@ -6,6 +7,7 @@ export interface PlayerStats {
   clickAttack: number;
   evolvingEnabled: boolean;
   faction: Faction;
+  factionRanks?: Partial<Record<Faction, Rank>>;
   nurturingSlots: number;
   organoidId?: string;
   reinforcementsEnabled: boolean;

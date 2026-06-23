@@ -1,8 +1,9 @@
 import { FEATURE_FLAGS } from '../featureFlag';
 import { Faction } from '../models/Faction';
+import { Rank } from '../models/Rank';
 import { AllOfRequirement, ArmySizeRequirement, CampaignCompletedRequirement, ComparisonCondition, CoreNurturedRequirement, DungeonCompletionRequirement, FactionRequirement, ImpossibleRequirement, ItemRequirement, MissionCompletedRequirement, NpcTalkedInCampaignRequirement, PilotDefeatRequirement, RouteKillRequirement, SpeciesDefeatRequirement, SpeciesZiDataRequirement, WildDefeatRequirement, ZiDataRequirement, ZoidAtLevelRequirement, ZoidCreatedRequirement } from '../requirement';
 import { CUTSCENES } from '../cutscene';
-import { activateCityActionReward, grantReward } from '../reward';
+import { activateCityActionReward, grantReward, rankUpReward } from '../reward';
 import { enqueueDialog, playerStats, setPlayerStats } from '../store/gameStore';
 import { placeStatue, removeStatueSlot } from '../store/nurturingStore';
 import { POST_DEMO_TALK, STRAY_CHAIN_TRIGGER } from '../story/eventchains/strayChain';
@@ -28,7 +29,7 @@ export const CAMPAIGNS: Record<string, Campaign> = {
         new NpcTalkedInCampaignRequirement('olympus_guylos', 'kara'),
         new NpcTalkedInCampaignRequirement('olympus_guylos', 'rhine_hawk'),
         new NpcTalkedInCampaignRequirement('olympus_guylos', 'eddie_crescent'),
-      ])] }),
+      ])], onComplete: () => grantReward(rankUpReward(Rank.Cadet, Faction.GuylosEmpire)) }),
       new Mission({ id: 'coming_soon', goals: [new ImpossibleRequirement()] }),
     ],
     unlockRequirements: [new FactionRequirement(Faction.GuylosEmpire)],
@@ -50,7 +51,7 @@ export const CAMPAIGNS: Record<string, Campaign> = {
         new NpcTalkedInCampaignRequirement('olympus_threat', 'kara'),
         new NpcTalkedInCampaignRequirement('olympus_threat', 'cynian_rain'),
         new NpcTalkedInCampaignRequirement('olympus_threat', 'badol_decisive'),
-      ])] }),
+      ])], onComplete: () => grantReward(rankUpReward(Rank.Cadet, Faction.HelicRepublic)) }),
       new Mission({ id: 'coming_soon', goals: [new ImpossibleRequirement()] }),
     ],
     unlockRequirements: [new FactionRequirement(Faction.HelicRepublic)],
