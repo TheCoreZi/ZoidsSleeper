@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://elawdk.com/ZoidsSleeper/sitemap.xml
+Sitemap: https://zoidssleeper.com/sitemap.xml

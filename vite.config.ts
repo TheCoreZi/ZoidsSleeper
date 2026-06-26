@@ -3,7 +3,7 @@ import solid from 'vite-plugin-solid';
 import pkg from './package.json';
 
 export default defineConfig({
-  base: '/ZoidsSleeper/',
+  base: '/',
   define: {
     __APP_VERSION__: JSON.stringify(pkg.version),
   },
