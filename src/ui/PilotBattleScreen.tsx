@@ -2,7 +2,7 @@ import { For, Show, type Component } from 'solid-js';
 import { t } from '../i18n';
 import { formatOrganoidCry } from '../models/Organoid';
 import { getPilotImage } from '../models/Pilot';
-import { getZoidImage } from '../models/Zoid';
+import { getZoidImage, getZoidName } from '../models/Zoid';
 import {
   enemyZoid,
   organoidAnimating,
@@ -29,11 +29,11 @@ const PilotBattleScreen: Component<PilotBattleScreenProps> = (props) => {
   return (
     <div class="battle-screen">
       <div class="enemy-section">
-        <h2 class="enemy-name">{enemyZoid()?.name ?? t('ui:unknown')}</h2>
+        <h2 class="enemy-name">{enemyZoid() ? getZoidName(enemyZoid()!.id) : t('ui:unknown')}</h2>
         <HealthBar />
         <div class={`battle-area bg-${battleBackground()}`} onClick={() => props.onClick()}>
           {enemyZoid()?.id && (
-            <img class="enemy-image" src={getZoidImage(enemyZoid()!.id, enemyZoid()!.imageOverride)} alt={enemyZoid()!.name} />
+            <img class="enemy-image" src={getZoidImage(enemyZoid()!.id, enemyZoid()!.imageOverride)} alt={getZoidName(enemyZoid()!.id)} />
           )}
           <DamageNumber />
           <Show when={organoidAnimating()}>

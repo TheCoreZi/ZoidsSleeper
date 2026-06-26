@@ -53,8 +53,9 @@ import SuppliesPanel from './ui/SuppliesPanel';
 import ZiArchivePanel from './ui/ZiArchivePanel';
 import WalletIndicator from './ui/WalletPanel';
 import { Currency } from './models/Currency';
-import { getZoidImage, ZOID_LIST } from './models/Zoid';
+import { getZoidImage, getZoidName, ZOID_LIST } from './models/Zoid';
 import { buyItem } from './store/inventoryStore';
+import { addTypedCore } from './store/zoidCoreStore';
 import { grantReward } from './reward';
 import { checkCampaigns, isMissionCompleted } from './store/campaignStore';
 import { isSpeciesInTank } from './store/nurturingStore';
@@ -141,7 +142,7 @@ const App: Component = () => {
               addZoidToArmy(zoidId);
               checkCampaigns();
               if (isNew) {
-                showPopup(new PopupMessage(zoid.name, t('ui:new_zoid'), PopupType.Item, getZoidImage(zoidId)));
+                showPopup(new PopupMessage(getZoidName(zoidId), t('ui:new_zoid'), PopupType.Item, getZoidImage(zoidId)));
               }
             }
           }}
@@ -152,7 +153,7 @@ const App: Component = () => {
         <ShopPanel
           shop={activeShop()!}
           onBuy={(item, amount) => {
-            buyItem(item.id, amount);
+            buyItem(item.id, amount, addTypedCore);
             checkCampaigns();
           }}
           onClose={() => setActiveShop(null)}

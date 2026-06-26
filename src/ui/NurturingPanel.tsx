@@ -2,7 +2,7 @@ import { type Component, createMemo, createSignal, For, Show } from 'solid-js';
 import { t } from '../i18n';
 import { CORE_EMERGE_POOLS, type CoreTypeData, CoreType, resolveTypedCore } from '../item/ZoidCore';
 import { getFactionBonus } from '../models/Faction';
-import { buildZoid, getOwnedZoidLevel, getZoidImage, ZOID_LIST, ZoidResearchStatus, type OwnedZoid } from '../models/Zoid';
+import { buildZoid, getOwnedZoidLevel, getZoidImage, getZoidName, ZOID_LIST, ZoidResearchStatus, type OwnedZoid } from '../models/Zoid';
 import { DateStat, NameStat, NumericStat, type ZoidDisplayStat } from '../models/ZoidDisplayStat';
 import { getZoidResearch } from '../store/zoidResearchStore';
 import { playerStats } from '../store/gameStore';
@@ -38,7 +38,7 @@ function getNurturingStatValue(zoid: OwnedZoid, stat: StatOption): ZoidDisplaySt
     case StatOption.Hp: return new NumericStat(built().maxHealth);
     case StatOption.Hp100: return new NumericStat(buildZoid({ bonusMultiplier, id: zoid.id, level: 100, rebornBonusPercent: zoid.rebornBonusPercent }).maxHealth);
     case StatOption.CoreFragments: return new NumericStat(ZOID_LIST[zoid.id].coreFragments);
-    case StatOption.Name: return new NameStat(ZOID_LIST[zoid.id].name, built().attack, built().maxHealth);
+    case StatOption.Name: return new NameStat(getZoidName(zoid.id), built().attack, built().maxHealth);
   }
 }
 
@@ -65,7 +65,7 @@ const NurturingPanel: Component = () => {
         const isTyped = CORE_TYPE_VALUES.has(id);
         const zoidSpeciesId = isTyped ? resolveTypedCore(id as CoreType) : id;
         const image = isTyped ? `images/cores/${id}.png` : getZoidImage(id);
-        const name = isTyped ? t(`items:core_${id}.name`) : (ZOID_LIST[id]?.name ?? id);
+        const name = isTyped ? t(`items:core_${id}.name`) : getZoidName(id);
         return { count, id, image, name, zoidSpeciesId };
       })
       .filter((c) => c.zoidSpeciesId !== null);
@@ -100,7 +100,7 @@ const NurturingPanel: Component = () => {
     return entries.map(({ zoidSpeciesId }) => ({
       chance,
       image: isRevealed(zoidSpeciesId) ? getZoidImage(zoidSpeciesId) : null,
-      name: isRevealed(zoidSpeciesId) ? (ZOID_LIST[zoidSpeciesId]?.name ?? zoidSpeciesId) : '???',
+      name: isRevealed(zoidSpeciesId) ? getZoidName(zoidSpeciesId) : '???',
     }));
   });
 
@@ -158,8 +158,8 @@ const NurturingPanel: Component = () => {
         }>
           {(id) => (
             <>
-              <img class="nurturing-transport-image" src={getZoidImage(id())} alt={ZOID_LIST[id()]?.name ?? ''} />
-              <span class="nurturing-transport-name">{ZOID_LIST[id()]?.name ?? id()}</span>
+              <img class="nurturing-transport-image" src={getZoidImage(id())} alt={getZoidName(id())} />
+              <span class="nurturing-transport-name">{getZoidName(id())}</span>
               <table class="nurturing-transport-bonuses">
                 <For each={getBonusEntries(id())}>
                   {(entry) => (

@@ -62,6 +62,58 @@ export const PILOTS: Record<string, Pilot> = {
       ]),
     ],
   },
+  bandits_elmia: {
+    fragmentYield: 6,
+    id: 'bandits_elmia',
+    imageId: 'bandit1',
+    magnisReward: 6000,
+    name: 'Ruins Bandits',
+    zoidSets: [
+      new PilotZoidSet([
+        { attackOverride: 200, id: 'guysack', level: 80, maxHealthOverride: 40000 },
+        { attackOverride: 250, id: 'malder', level: 80, maxHealthOverride: 40000 },
+      ]),
+    ],
+  },
+  bandits_gorge: {
+    fragmentYield: 6,
+    id: 'bandits_gorge',
+    imageId: 'bandit1',
+    magnisReward: 6000,
+    name: 'Gorge Bandits',
+    zoidSets: [
+      new PilotZoidSet([
+        { attackOverride: 300, id: 'redler', level: 80, maxHealthOverride: 30000 },
+        { attackOverride: 300, id: 'zatton', level: 80, maxHealthOverride: 30000 },
+      ]),
+    ],
+  },
+  bandits_oasis: {
+    fragmentYield: 6,
+    id: 'bandits_oasis',
+    imageId: 'bandit1',
+    magnisReward: 6000,
+    name: 'Oasis Bandits',
+    zoidSets: [
+      new PilotZoidSet([
+        { attackOverride: 100, id: 'gator', level: 80, maxHealthOverride: 50000 },
+        { attackOverride: 150, id: 'merda', level: 80, maxHealthOverride: 60000 },
+      ]),
+    ],
+  },
+  dock_thugs: {
+    fragmentYield: 5,
+    id: 'dock_thugs',
+    imageId: 'thug',
+    magnisReward: 5000,
+    name: 'Dock Thugs',
+    zoidSets: [
+      new PilotZoidSet([
+        { attackOverride: 150, id: 'molga', level: 80, maxHealthOverride: 30000 },
+        { attackOverride: 200, id: 'gator', level: 80, maxHealthOverride: 35000 },
+      ]),
+    ],
+  },
   imperial_scout: {
     fragmentYield: 5,
     id: 'imperial_scout',
@@ -118,6 +170,10 @@ export const PILOTS: Record<string, Pilot> = {
     name: 'Bianco & Nero',
     zoidSets: [
       new PilotZoidSet([
+        { attackOverride: 200, id: 'command_wolf_desert', level: 80, maxHealthOverride: 50000 },
+        { attackOverride: 200, id: 'command_wolf_desert', level: 80, maxHealthOverride: 50000 },
+      ], [new MissionCompletedRequirement('olympus_guylos', 'recover_cargo')]),
+      new PilotZoidSet([
         { attackOverride: 8, id: 'command_wolf_desert', level: 15, maxHealthOverride: 450 },
         { attackOverride: 8, id: 'command_wolf_desert', level: 17, maxHealthOverride: 550 },
       ]),
@@ -129,6 +185,9 @@ export const PILOTS: Record<string, Pilot> = {
     magnisReward: 1000,
     name: 'Bul',
     zoidSets: [
+      new PilotZoidSet([
+        { attackOverride: 200, id: 'guysack', imageOverride: 'guysack_bs', level: 80, maxHealthOverride: 60000 },
+      ], [new MissionCompletedRequirement('olympus_guylos', 'recover_cargo')]),
       new PilotZoidSet([
         { attackOverride: 8, id: 'guysack', imageOverride: 'guysack_bs', level: 5, maxHealthOverride: 2000 },
       ]),

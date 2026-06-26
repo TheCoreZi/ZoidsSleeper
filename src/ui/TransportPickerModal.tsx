@@ -1,7 +1,7 @@
 import { type Component, For } from 'solid-js';
 import { t } from '../i18n';
 import { TRANSPORT_ZOID_BONUSES } from '../models/TransportZoid';
-import { getZoidImage, ZOID_LIST } from '../models/Zoid';
+import { getZoidImage, getZoidName } from '../models/Zoid';
 import { playerStats } from '../store/gameStore';
 import { getAvailableTransportZoids, selectTransportZoid, transportZoidId } from '../store/nurturingStore';
 import './nurturing.css';
@@ -65,8 +65,8 @@ const TransportPickerModal: Component<TransportPickerModalProps> = (props) => {
                   class={`nurturing-transport-card ${transportZoidId() === zoidId ? 'nurturing-transport-card--active' : ''}`}
                   onClick={() => handleSelect(zoidId)}
                 >
-                  <img class="nurturing-transport-card-image" src={getZoidImage(zoidId)} alt={ZOID_LIST[zoidId]?.name ?? ''} />
-                  <span class="nurturing-transport-card-name">{ZOID_LIST[zoidId]?.name ?? zoidId}</span>
+                  <img class="nurturing-transport-card-image" src={getZoidImage(zoidId)} alt={getZoidName(zoidId)} />
+                  <span class="nurturing-transport-card-name">{getZoidName(zoidId)}</span>
                   <div class="nurturing-transport-card-table">
                     <For each={entries()}>
                       {(entry) => (

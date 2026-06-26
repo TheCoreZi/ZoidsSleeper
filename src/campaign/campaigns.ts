@@ -14,40 +14,78 @@ export const CAMPAIGNS: Record<string, Campaign> = {
     hidden: true,
     id: 'olympus_guylos',
     missions: [
-      new Mission({ featureFlag: FEATURE_FLAGS.SHELLS_OF_TIME, id: 'report_to_imperial_hq', goals: [new NpcTalkedInCampaignRequirement('olympus_guylos', 'imperial_registration_officer')] }),
-      new Mission({ featureFlag: FEATURE_FLAGS.SHELLS_OF_TIME, id: 'sleeper_challenge', goals: [new PilotDefeatRequirement('imperial_soldier')],
+      new Mission({ id: 'report_to_imperial_hq', goals: [new NpcTalkedInCampaignRequirement('olympus_guylos', 'imperial_registration_officer')] }),
+      new Mission({ id: 'sleeper_challenge', goals: [new PilotDefeatRequirement('imperial_soldier')],
         onComplete: () => enqueueDialog(CUTSCENES.narration_kara_imperial_camp.toDialogScript()) }),
-      new Mission({ featureFlag: FEATURE_FLAGS.SHELLS_OF_TIME, id: 'meet_recruits', goals: [new NpcTalkedInCampaignRequirement('olympus_guylos', 'rhine_hawk')] }),
-      new Mission({ featureFlag: FEATURE_FLAGS.SHELLS_OF_TIME, id: 'go_to_training', goals: [new NpcTalkedInCampaignRequirement('olympus_guylos', 'imperial_training_officer')] }),
-      new Mission({ featureFlag: FEATURE_FLAGS.SHELLS_OF_TIME, id: 'recruitment_trials', showProgress: true, goals: [new AllOfRequirement([
+      new Mission({ id: 'meet_recruits', goals: [new NpcTalkedInCampaignRequirement('olympus_guylos', 'rhine_hawk')] }),
+      new Mission({ id: 'go_to_training', goals: [new NpcTalkedInCampaignRequirement('olympus_guylos', 'imperial_training_officer')] }),
+      new Mission({ id: 'recruitment_trials', showProgress: true, goals: [new AllOfRequirement([
         new SpeciesZiDataRequirement('sinker', 1),
         new ZoidAtLevelRequirement(50),
         new SpeciesDefeatRequirement('guysack', 20),
       ])] }),
-      new Mission({ featureFlag: FEATURE_FLAGS.SHELLS_OF_TIME, id: 'trials_complete', goals: [new NpcTalkedInCampaignRequirement('olympus_guylos', 'imperial_training_officer')] }),
-      new Mission({ featureFlag: FEATURE_FLAGS.SHELLS_OF_TIME, id: 'talk_to_companions', showProgress: true, goals: [new AllOfRequirement([
+      new Mission({ id: 'trials_complete', goals: [new NpcTalkedInCampaignRequirement('olympus_guylos', 'imperial_training_officer')] }),
+      new Mission({ id: 'talk_to_companions', showProgress: true, goals: [new AllOfRequirement([
         new NpcTalkedInCampaignRequirement('olympus_guylos', 'kara'),
         new NpcTalkedInCampaignRequirement('olympus_guylos', 'rhine_hawk'),
         new NpcTalkedInCampaignRequirement('olympus_guylos', 'eddie_crescent'),
       ])], onComplete: () => grantReward(rankUpReward(Rank.Cadet, Faction.GuylosEmpire)) }),
+      // --- Segment 2: Ancient Ruins & Moonbay Escort ---
+      new Mission({ featureFlag: FEATURE_FLAGS.RED_RIVER, id: 'ruins_briefing', goals: [new NpcTalkedInCampaignRequirement('olympus_guylos', 'imperial_training_officer')] }),
+      new Mission({ featureFlag: FEATURE_FLAGS.RED_RIVER, id: 'scout_ruins', goals: [new ImpossibleRequirement()] }),
+      new Mission({ featureFlag: FEATURE_FLAGS.RED_RIVER, id: 'clear_hollow_ruins', goals: [new DungeonCompletionRequirement('hollow_ruins_sortie', 1)],
+        onComplete: () => enqueueDialog(CUTSCENES.narration_ruins_aftermath.toDialogScript()) }),
+      new Mission({ featureFlag: FEATURE_FLAGS.RED_RIVER, id: 'explore_lower_level', goals: [new DungeonCompletionRequirement('hollow_ruins_sortie', 1)],
+        onComplete: () => enqueueDialog(CUTSCENES.narration_guysack_appears.toDialogScript()) }),
+      new Mission({ featureFlag: FEATURE_FLAGS.RED_RIVER, id: 'fight_guysack_heavy_armor', goals: [new WildDefeatRequirement('guysack_heavy_armor_wild', 'guysack_heavy_armor')],
+        onComplete: () => enqueueDialog(CUTSCENES.narration_eddie_returns.toDialogScript()) }),
+      new Mission({ featureFlag: FEATURE_FLAGS.RED_RIVER, id: 'escape_ruins', goals: [new DungeonCompletionRequirement('hollow_ruins_sortie', 1)] }),
+      new Mission({ featureFlag: FEATURE_FLAGS.RED_RIVER, id: 'rhine_plan', goals: [new NpcTalkedInCampaignRequirement('olympus_guylos', 'rhine_hawk')] }),
+      new Mission({ featureFlag: FEATURE_FLAGS.RED_RIVER, id: 'return_to_eddie', goals: [new DungeonCompletionRequirement('hollow_ruins_sortie', 1)],
+        onComplete: () => enqueueDialog(CUTSCENES.narration_eddie_reunite.toDialogScript()) }),
+      new Mission({ featureFlag: FEATURE_FLAGS.RED_RIVER, id: 'defeat_guysack_heavy_armor', goals: [new WildDefeatRequirement('guysack_heavy_armor_wild', 'guysack_heavy_armor', 2)],
+        onComplete: () => enqueueDialog(CUTSCENES.narration_eddie_resolve.toDialogScript()) }),
+      new Mission({ featureFlag: FEATURE_FLAGS.RED_RIVER, id: 'ruins_debrief', goals: [new NpcTalkedInCampaignRequirement('olympus_guylos', 'imperial_training_officer')] }),
+      new Mission({ featureFlag: FEATURE_FLAGS.RED_RIVER, id: 'team_bonding', goals: [new NpcTalkedInCampaignRequirement('olympus_guylos', 'kara')] }),
+      // --- Segment 2: Moonbay Escort ---
+      new Mission({ featureFlag: FEATURE_FLAGS.RED_RIVER, id: 'escort_briefing', goals: [new NpcTalkedInCampaignRequirement('olympus_guylos', 'imperial_training_officer')] }),
+      new Mission({ featureFlag: FEATURE_FLAGS.RED_RIVER, id: 'companions_pre_escort', goals: [new NpcTalkedInCampaignRequirement('olympus_guylos', 'eddie_crescent')] }),
+      new Mission({ featureFlag: FEATURE_FLAGS.RED_RIVER, id: 'bar_investigation', goals: [new NpcTalkedInCampaignRequirement('olympus_guylos', 'thug')] }),
+      new Mission({ featureFlag: FEATURE_FLAGS.RED_RIVER, id: 'rescue_rhine', goals: [new NpcTalkedInCampaignRequirement('olympus_guylos', 'rhine_hawk')] }),
+      new Mission({ featureFlag: FEATURE_FLAGS.RED_RIVER, id: 'fight_dock_thugs', goals: [new PilotDefeatRequirement('dock_thugs')],
+        onComplete: () => enqueueDialog(CUTSCENES.narration_rhine_rescued.toDialogScript()) }),
+      new Mission({ featureFlag: FEATURE_FLAGS.RED_RIVER, id: 'arrive_tauros', showProgress: true, goals: [new NpcTalkedInCampaignRequirement('olympus_guylos', 'eddie_crescent')] }),
+      new Mission({ featureFlag: FEATURE_FLAGS.RED_RIVER, id: 'find_moonbay', goals: [new DungeonCompletionRequirement('tauros_grotto_sortie', 1)],
+        onComplete: () => enqueueDialog(CUTSCENES.moonbay_intro.toDialogScript()) }),
+      new Mission({ featureFlag: FEATURE_FLAGS.RED_RIVER, id: 'moonbay_mission', goals: [new NpcTalkedInCampaignRequirement('olympus_guylos', 'moonbay')] }),
+      new Mission({ featureFlag: FEATURE_FLAGS.RED_RIVER, id: 'arcobaleno_ambush', goals: [new NpcTalkedInCampaignRequirement('olympus_guylos', 'eddie_crescent')] }),
+      new Mission({ featureFlag: FEATURE_FLAGS.RED_RIVER, id: 'recover_cargo', showProgress: true, goals: [new AllOfRequirement([
+        new PilotDefeatRequirement('bandits_oasis'),
+        new PilotDefeatRequirement('bandits_elmia'),
+        new PilotDefeatRequirement('bandits_gorge'),
+      ])], onComplete: () => enqueueDialog(CUTSCENES.narration_desert_gorge_reflection.toDialogScript()) }),
+      new Mission({ featureFlag: FEATURE_FLAGS.RED_RIVER, id: 'escort_elmia', goals: [new DungeonCompletionRequirement('elmia_ruins_sortie', 1)],
+        onComplete: () => enqueueDialog(CUTSCENES.narration_moonbay_farewell.toDialogScript()) }),
+      new Mission({ featureFlag: FEATURE_FLAGS.RED_RIVER, id: 'escort_debrief', goals: [new NpcTalkedInCampaignRequirement('olympus_guylos', 'imperial_training_officer')] }),
+      new Mission({ featureFlag: FEATURE_FLAGS.RED_RIVER, id: 'post_escort_talk', goals: [new NpcTalkedInCampaignRequirement('olympus_guylos', 'eddie_crescent')] }),
       new Mission({ id: 'coming_soon', goals: [new ImpossibleRequirement()] }),
     ],
     unlockRequirements: [new FactionRequirement(Faction.GuylosEmpire)],
   },
   olympus_threat: {
-    featureFlag: FEATURE_FLAGS.SHELLS_OF_TIME,
+
     hidden: true,
     id: 'olympus_threat',
     missions: [
-      new Mission({ featureFlag: FEATURE_FLAGS.SHELLS_OF_TIME, id: 'report_to_republican_camp', goals: [new NpcTalkedInCampaignRequirement('olympus_threat', 'registration_officer')] }),
-      new Mission({ featureFlag: FEATURE_FLAGS.SHELLS_OF_TIME, id: 'go_to_training', goals: [new NpcTalkedInCampaignRequirement('olympus_threat', 'training_officer')] }),
-      new Mission({ featureFlag: FEATURE_FLAGS.SHELLS_OF_TIME, id: 'recruitment_trials', showProgress: true, goals: [new AllOfRequirement([
+      new Mission({ id: 'report_to_republican_camp', goals: [new NpcTalkedInCampaignRequirement('olympus_threat', 'registration_officer')] }),
+      new Mission({ id: 'go_to_training', goals: [new NpcTalkedInCampaignRequirement('olympus_threat', 'training_officer')] }),
+      new Mission({ id: 'recruitment_trials', showProgress: true, goals: [new AllOfRequirement([
         new SpeciesDefeatRequirement('sinker', 5),
         new SpeciesZiDataRequirement('gorgodos', 1),
         new ZoidAtLevelRequirement(50),
       ])] }),
-      new Mission({ featureFlag: FEATURE_FLAGS.SHELLS_OF_TIME, id: 'trials_complete', goals: [new NpcTalkedInCampaignRequirement('olympus_threat', 'training_officer')] }),
-      new Mission({ featureFlag: FEATURE_FLAGS.SHELLS_OF_TIME, id: 'talk_to_companions', showProgress: true, goals: [ new AllOfRequirement([
+      new Mission({ id: 'trials_complete', goals: [new NpcTalkedInCampaignRequirement('olympus_threat', 'training_officer')] }),
+      new Mission({ id: 'talk_to_companions', showProgress: true, goals: [ new AllOfRequirement([
         new NpcTalkedInCampaignRequirement('olympus_threat', 'kara'),
         new NpcTalkedInCampaignRequirement('olympus_threat', 'cynian_rain'),
         new NpcTalkedInCampaignRequirement('olympus_threat', 'badol_decisive'),
@@ -58,7 +96,7 @@ export const CAMPAIGNS: Record<string, Campaign> = {
   },
   shells_of_time: {
     autoStart: true,
-    featureFlag: FEATURE_FLAGS.SHELLS_OF_TIME,
+
     id: 'shells_of_time',
     missions: [
       new Mission({ id: 'head_to_porto_nido', goals: [new NpcTalkedInCampaignRequirement('shells_of_time', 'arcadia_guard')] }),

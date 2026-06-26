@@ -1,4 +1,5 @@
 import type { OwnedZoidStats } from '../evolution';
+import { t } from '../i18n';
 import { Faction, getFactionBonus } from './Faction';
 import { levelFromExperience } from './LevelType';
 import { TerrainType, getTerrainBonus } from './Terrain';
@@ -98,6 +99,12 @@ export function getZoidById(id: string): ZoidSpecies {
   const zoid = ZOID_LIST[id];
   if (!zoid) {throw new Error(`Unknown Zoid: ${id}`);}
   return zoid;
+}
+
+export function getZoidName(id: string): string {
+  const key = `zoids:${id}`;
+  const translated = t(key);
+  return translated === key ? id : translated;
 }
 
 export function getZoidImage(id: string, imageOverride?: string): string {

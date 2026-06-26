@@ -763,5 +763,271 @@
     "¡No soy su hermana! ¡Me llamo Kara! Y... ¡¿Q-Qué?! ¡Ugh, eres igual de molesto que él! No esperaba menos de un soldado cabeza dura que solo busca pelea.",
     "¡Jajaja! Solo estoy bromeando. Y no estoy aquí solo por pelear ni por la gloria. En mi aldea apenas hay comida o trabajo. Todo escasea. Unirme al ejército fue mi única opción real. Al menos así puedo enviar dinero a mi familia.",
     "¿Por qué la República? Bueno, ellos controlan el continente central. Más tierra, más recursos, más oportunidades. Y no querría vivir en Nyx ni que me pagaran, ¡jaja! Dicen que hasta los Zoids de allá están deprimidos. Así que aquí estoy. No es la razón más heroica, pero es honesta. Y es un sacrificio que estoy dispuesto a hacer por mi jefecita."
+  ],
+  "imperial_officer_ruins_briefing": [
+    "Escuchen, reclutas. Inteligencia ha localizado un artefacto en unas ruinas al norte del campamento. Un equipo de reconocimiento ya ha mapeado la zona. Las ruinas están bajo control de Sleepers imperiales, así que la resistencia debería ser mínima.",
+    "Ustedes tres se unirán a un escuadrón de soldados que se dirige al lugar. Su trabajo es simple: recuperar el artefacto y traerlo de vuelta. Considérenlo su primera misión real.",
+    "Crescent, controla ese temperamento. Hawk, usa esa velocidad tuya para algo que no sea huir. Y tú, te gustan los Sleepers, ¿no? Te sentirás como en casa. Como en una reunión familiar disfuncional.",
+    "No le den más vueltas. Entren, tomen el artefacto y salgan. Los veteranos se encargarán del trabajo pesado. No estorben."
+  ],
+  "rhine_hawk_pre_ruins": [
+    "Así que llegó la hora. Nuestra primera misión real. He estado viendo el área y parece bastante sencillo. Pasillos estrechos, cámaras abiertas. Mientras nos mantengamos juntos, deberíamos estar bien.",
+    "Sé que mi Merda no es el Zoid más fuerte. Pero es rápida. En Nyx, la velocidad era lo único que importaba. No querías estar expuesto al frío más tiempo del necesario. Esta chica nos ha sacado de problemas más veces de las que puedo contar.",
+    "Si las cosas se complican, puedo explorar adelante o desviar la atención. Para eso fue construida. Entrar rápido, salir rápido.",
+    "Volvamos de una pieza, ¿sí?"
+  ],
+  "eddie_crescent_pre_ruins": [
+    "Una misión de recuperación. Nos mandan a recoger un artefacto empolvado de unas ruinas llenas de Zoids Sleeper. Qué increíble uso de mis talentos.",
+    "¿Sabes lo que es esto, verdad? No confían en nosotros para nada de verdad todavía. Así que nos dejan los mandados. Ve a buscar esto, trae aquello. Como si fuéramos repartidores.",
+    "Claro, el Iguan es un Zoid básico. Pero ese es exactamente el punto. Es la máquina perfecta para demostrar lo que un piloto de verdad puede hacer. Yo le saco más provecho a un Iguan que tú a toda esa muchedumbre de chatarra Sleeper que arrastras. ¿Cómo no te mueres del aburrimiento esperando a que esas cosas hagan algo?",
+    "Solo intenten no quedarse atrás. No planeo cuidar a los dos."
+  ],
+  "narration_ruins_discovery": [
+    "¡Guysacks! ¡Guysacks por todas partes! ¡Estos no son nuestros! ¿¡Desde cuándo hay Sleepers republicanos en esta zona!?",
+    "¡No veo a ninguno de los soldados! ¿¡Dónde está el resto del escuadrón!?",
+    "¿¡Están sordos!? ¡Olvídense de los soldados! ¡La arena se mueve bajo sus pies y ustedes dos ahí parados como idiotas de paseo!",
+    "Nos hemos adentrado demasiado en el desierto. Estos Zoids se esconden bajo tierra. No los vemos hasta que ya los tenemos encima.",
+    "¡No me digas! ¡A las ruinas, ya! Los pasillos son lo bastante estrechos para que no nos rodeen. ¡A menos que ustedes, genios, quieran quedarse aquí a que los despedacen!",
+    "¿¡Y si los soldados no llegan!?",
+    "¡Entonces felicidades, estamos solos! ¡Cierren la boca y muévanse! ¡Y tú, usa esa pandilla de chatarras Sleeper que cargas para detenerlos, o ya te encariñaste con ellos también!?"
+  ],
+  "narration_ruins_aftermath": [
+    "Esperen... esos son uniformes imperiales. Los soldados... están todos muertos.",
+    "Todos y cada uno. Los eliminaron antes de que siquiera llegaran a las cámaras interiores.",
+    "Esto era una trampa. Todo. Los Sleepers de afuera nos estaban guiando hacia aquí. Piénsenlo. No nos persiguieron, nos rodearon. Nos empujaron hacia las ruinas a propósito.",
+    "Pero los Sleepers nunca se han comportado así. No se coordinan. Solo se quedan ahí y esperan.",
+    "Exacto. La República debe estar probando alguna táctica nueva y nosotros caímos directo en su campo de pruebas. Estos ya no son Sleepers normales. Los reprogramaron para cazar.",
+    "Mi equipo ha estado captando lecturas extrañas desde que entramos. Algún tipo de interferencia de onda. No es aleatoria. Viene de abajo. Algo ahí abajo está bloqueando nuestras comunicaciones.",
+    "Miren a los soldados. Iban hacia ese pasaje. Lleva hacia abajo, probablemente a un pozo o un conducto. Las lecturas coinciden. Lo que sea que esté ahí abajo es la fuente de la interferencia.",
+    "Entonces bajamos. Aún tenemos una misión que cumplir. El artefacto debería estar ahí. Terminemos con esto y salgamos."
+  ],
+  "narration_guysack_appears": [
+    "Es aquí. El agua ha inundado parte de la cámara. El artefacto debe estar en algún lugar bajo la superficie.",
+    "Uno de los soldados dejó un pod de reconocimiento cerca de la entrada. Es lo bastante pequeño para navegar la sección inundada.",
+    "Hawk, tú toma el pod. Tu Merda es inútil ahí abajo y no confío en los Sleepers de este cerca de algo valioso. Además, ¿has visto el tamaño de ese pod? Este no cabe ni de broma.",
+    "Bien. Pero más les vale mantener todo tranquilo aquí arriba mientras estoy abajo.",
+    "...",
+    "Prepárate. Escucho algo. El suelo está temblando.",
+    "¿Qué demonios...? ¡Mira el tamaño de esa cosa! Ese debe ser el que coordina a los demás. Mira la antena en su espalda. Es la unidad de mando. Por eso los Sleepers estaban organizados.",
+    "¿¡Qué está pasando allá arriba!? ¡Puedo oír estruendos!",
+    "Espero que esos Sleepers tuyos al menos sirvan de bocadillo para esa cosa. Rhine sigue ahí abajo. Si quieres salvarla, tendrás que detenerlo. Buena suerte.",
+    "¿¡Qué!? ¡¡Eddie!! ¡¡EDDIE!! ¡Nos abandonó! ¡Tienes que resistir! ¡Ya casi termino aquí abajo! ¡Por favor, no me dejes tú también!"
+  ],
+  "narration_eddie_returns": [
+    "¡Tengo el artefacto! ¡Estoy subiendo! ¿Qué está pasando allá arri...?",
+    "¿¡Qué es esa cosa!? ¡Es enorme! Y Eddie... ¡Eddie ese cobarde nos dejó!",
+    "¡Más Sleepers vienen por los pasillos! ¡Estamos rodeados!",
+    "¡¡MUÉVANSE!!",
+    "Una explosión desgarró el techo sobre el Guysack gigante. Escombros y piedra cayeron, atrapando a la bestia contra el suelo. Desde una brecha en el nivel superior, el Iguan se alzaba cubierto de polvo.",
+    "¿Qué clase de soldado sería si no puedo ni salvar a un par de buenos para nada como ustedes?",
+    "Eso no lo detendrá mucho. Hawk, tu Merda es lo único lo bastante rápido para escapar de la horda que viene. Ya despejé un pasaje al corredor oeste.",
+    "Y tú, protégela en el camino. No pares por nada. Yo detendré a esta cosa aquí.",
+    "¡Eddie, no puedes quedarte! ¡Cuando se levante...!",
+    "¡Dije que se vayan! ¡No hay tiempo! ¡Ya se está moviendo!"
+  ],
+  "narration_rhine_plan": [
+    "¡No podemos dejarlo! ¡Pero son demasiados! ¿¡Qué hacemos!? Eddie... ¿de verdad lo vamos a abandonar? ¡No podemos hacer nada!",
+    "¿Qué? ¿Usar tus Sleepers? ¡Pero las señales están bloqueadas! No podemos contactarlos desde...",
+    "Espera. Tienes razón. Si nos acercamos lo suficiente, la interferencia no será tan fuerte. La señal podría llegar.",
+    "Bien, este es el plan. Tú programas el módulo Sleeper con instrucciones de dispersarse por los túneles. Yo lo llevo en mi Merda y me acerco lo suficiente a cada uno de tus Zoids para asegurarme de que la señal les llegue. Los Sleepers republicanos los perseguirán.",
+    "Tú vuelves con Eddie. Mientras la horda se dispersa persiguiendo a tus Sleepers, tal vez los tres tengamos una oportunidad de acabar con el líder juntos. Es arriesgado, pero es nuestra única opción. Programa el módulo. ¡Vamos!"
+  ],
+  "narration_eddie_reunite": [
+    "¿¡Qué demonios haces aquí!? ¡Te dije que huyeras! ¡Nadie pidió tu ayuda!",
+    "Como sea. Si quieres morir, esa cosa de allá puede ayudarte con eso. Su blindaje es demasiado grueso. Le he estado pegando y no puedo hacerle daño real.",
+    "Bien. Si vamos a hacer esto, más vale que sirvas para algo. Mira los transmisores en su espalda. Es el único punto expuesto. No pueden cubrirlo o bloquearían la señal. Si tenemos alguna oportunidad, es concentrar nuestro fuego ahí.",
+    "Y procura no morirte. No despejé media ruina para verte aplastado al final."
+  ],
+  "narration_eddie_resolve": [
+    "¡Llegué! ¡La horda se dispersó!",
+    "Tú también, ¿eh? Bien, al menos sirves para algo. Distráelo mientras me reposiciono. Esta vez no fallaremos.",
+    "¡AHORA! ¡Esta es nuestra oportunidad! ¡A los transmisores!",
+    "Ambos pilotos dispararon al punto expuesto en la espalda del Guysack. Una explosión masiva desgarró su abdomen, lanzando pedazos de blindaje por toda la cámara.",
+    "¡Cayó! ¡Lo logramos!",
+    "No celebren todavía. La horda no se quedará dispersa para siempre. Tenemos una ventana. ¡Muévanse, ya!",
+    "De verdad lo logramos. Los tres.",
+    "Guárdense el sentimentalismo para después. Salgamos de aquí antes de que algo más salga de la arena. Y nadie habla de esto en el campamento. ¿Entendido?"
+  ],
+  "imperial_officer_ruins_debrief": [
+    "Antes que nada, les debo una disculpa. La inteligencia nos falló. Nunca pretendí poner a cadetes novatos en ese tipo de peligro.",
+    "Sin embargo, ustedes tres sobrevivieron a una misión donde muchos soldados experimentados no lo hicieron. Eso habla mucho de sus habilidades.",
+    "He revisado el reporte de campo. Mostraste verdadero liderazgo ahí afuera. Coordinar bajo presión, adaptarse a una situación que nadie anticipó. Eso requiere más que habilidad. Requiere instinto.",
+    "Gracias, señor. Pero puse en peligro a la cadete Hawk. Y jamás habría salido de ahí sin los Sleepers de este. Aún no estoy listo para liderar nada.",
+    "¡Ja! Esa es exactamente la respuesta que quiero escuchar de un soldado. Los que creen estar listos suelen ser los primeros en caer.",
+    "Descansen, todos. Se lo ganaron."
+  ],
+  "narration_team_bonding": [
+    "¿¡Volaste el techo de unas ruinas antiguas!? ¡Wow!",
+    "¡Sí! Debiste haber visto la cara de este idiota cuando aparecí. Parado justo debajo con cara de confundido mientras un Guysack gigante estaba a punto de comérselo vivo.",
+    "Claro, porque nosotros ya estábamos peleando con esa cosa antes de que tú aparecieras, Eddie.",
+    "¡Ja! Cierto, cierto. Pensaron que los había abandonado. Debiste haber visto sus caras cuando caí por el techo.",
+    "Pero el tiro, Kara. Debiste haberlo visto. Los dos disparando al mismo punto al mismo tiempo.",
+    "Si hubiera sido cualquier otro jalando ese gatillo en vez de mí, estarían todos muertos. Ni siquiera estoy seguro de que este le haya dado al blanco.",
+    "¿De verdad enfrentaste a todos esos Sleepers tú solo para abrirles un camino?",
+    "Alguien tenía que hacerlo, niña. Estos dos estaban muy ocupados entrando en pánico. De hecho, al salir vi a un Guysack tan confundido que le daba zapes al resto. Ni ellos podían creer lo que estaba pasando.",
+    "Eddie... te debo una disculpa. Cuando vi tu Iguan alejándose, pensé lo peor. Te juzgué y estaba equivocada. Arriesgaste tu vida por nosotros. Eso requirió verdadero valor.",
+    "No te pongas sentimental, Hawk. Hice lo que había que hacer. Aunque debo decir, eres más rápida de lo que pensaba. Ese Merda tuyo sí que se movió ahí afuera. Sin tu velocidad, el plan se habría desmoronado.",
+    "Espera... ¿Eddie acaba de hacerle un cumplido a alguien?",
+    "¡Estoy diciendo un hecho! Su Zoid es rápido. Eso no es un cumplido, ¡es una observación básica!",
+    "Claro. Observación básica.",
+    "¿Saben qué? Todos cállense. La próxima misión voy solo. Menos idiotas de los que preocuparme.",
+    "Claro, Eddie. Lo que tú digas."
+  ],
+  "imperial_officer_escort_briefing": [
+    "Bien, están todos aquí. Tengo una nueva asignación. Esta requiere discreción.",
+    "Tenemos un contacto operando en territorio republicano. Un transportista. No es militar, no es leal a nadie, pero está dispuesto a mover un cargamento de explosivos para nosotros.",
+    "Su misión es escoltar al contacto hasta donde están almacenados los explosivos. Una vez asegurado el cargamento, el transportista se encargará del resto.",
+    "Van a cruzar a territorio enemigo. Eviten confrontaciones a toda costa. Entren, encuentren al contacto, consigan el cargamento y vuelvan sin llamar la atención."
+  ],
+  "companions_pre_escort": [
+    "Esto es completamente diferente a las ruinas. Estamos cruzando a territorio enemigo. Tenemos que alejarnos de las ciudades y caminos principales. Iremos a través del desierto y ocultaremos a nuestros Zoids para no levantar sospechas.",
+    "Genial. Ahora somos niñeras de una contrabandista que ni siquiera podemos reconocer. Justo cuando pensé que las misiones estaban mejorando.",
+    "Hablando de ser niñeras, ¿qué haces aquí, niña?",
+    "¡Kirsche me dio permiso de ir con ustedes! Dijo que no planeaban enfrentarse a nadie, así que debería ser seguro.",
+    "Además, ¿cómo se supone que sabremos quién es el contacto? ¿Cómo luce un transportista? De cualquier forma hay que tener cuidado. La gente que trabaja para ambos bandos no es leal a nadie. En cuanto las cosas se pongan feas, solo pensará en salvarse.",
+    "¿Y cómo se supone que vamos a pasar desapercibidos con todo el circo de Sleepers de este siguiéndonos? Mejor carguemos un cartel que diga 'disparen aquí'."
+  ],
+  "narration_bar_investigation": [
+    "Porto Nido. Si hay un transportista trabajando en esta costa, alguien en este pueblo lo sabrá.",
+    "El oficial nos dio una frase clave. 'Busco a alguien que sepa moverse bien esta noche.' Quien responda con la respuesta correcta es nuestro contacto.",
+    "Esa es la frase clave más idiota que he escuchado en mi vida. ¿Quién escribe estas cosas? Bien, acabemos con esto.",
+    "Solo digámosla a quien parezca un transportista cerca de los muelles.",
+    "Yo NO pienso decir eso. Dilo tú, Hawk.",
+    "Bien, lo haré yo. ¿Disculpe, señor? Busco a alguien que sepa moverse bien... esta noche.",
+    "¿Alguien que sepa moverse bien? Preciosa, yo me muevo como quieras, las veces que quieras.",
+    "¡Oh! ¿Usted es el... espere, ¿qué hace? ¡Suélteme el brazo!",
+    "Vamos, no seas tímida. Tú viniste a mí, ¿recuerdas? Muchachos, asegúrense de que se sienta bienvenida.",
+    "¡¡QUÍTALE LAS MANOS DE ENCIMA!!",
+    "¡¡Ve!! ¡¡Encuéntrala!! ¡¡Yo me encargo de estos idiotas!!"
+  ],
+  "narration_rhine_rescue": [
+    "¡Suéltenme! ¡Dije que me SUELTEN!",
+    "Sigue forcejeando, preciosa. Es más divertido así. Métanla al Zoid. Nos la llevamos.",
+    "¡No! ¡PAREN! ¡Alguien ayu...!",
+    "¡Hay que salvarla! ¡Olvídate de que nos descubran, después vemos eso!",
+    "¡Jefe! ¡Alguien viene! ¡Traen Zoids!",
+    "Tch. Claro que hay más. ¡A sus máquinas!"
+  ],
+  "narration_rhine_rescued": [
+    "...Gracias. Si no hubieras llegado...",
+    "Estoy bien. Estoy bien. Solo... volvamos a ver si Eddie está bien.",
+    "Ya era hora de que aparecieran. Se me estaban acabando las personas a las que golpear.",
+    "¡Eddie! ¿Estás bien?",
+    "He tenido peores. Escuchen, le saqué algo al cantinero. Resulta que nuestra transportista no está aquí. Opera cerca de la Gruta de Tauros.",
+    "Estuvo muy dispuesto a compartir cuando le expliqué que le destrozaría el bar por segunda vez si no lo hacía.",
+    "Entonces vamos a las grutas. Vámonos. Ya nos descubrieron, hasta aquí llegó la discreción."
+  ],
+  "narration_arrive_tauros": [
+    "Este es la Gruta de Tauros. El cantinero dijo que nuestro contacto opera por aquí.",
+    "Genial. Otro agujero en la tierra. Porque la última vez que bajamos a un lugar subterráneo nos fue tan bien.",
+    "Eddie, no nos eches la sal.",
+    "Solo digo. Cada vez que bajamos a un lugar subterráneo, algo intenta matarnos. Tal vez debería quedarme aquí hasta que ustedes empiecen a gritar como cobardes.",
+    "Busquemos por aquí. Estén atentos."
+  ],
+  "moonbay_intro": [
+    "¡Oigan! ¿Qué es todo este ruido? Estaba aquí abajo buscando tesoros y ustedes llegan pisando fuerte como si fueran los dueños del lugar.",
+    "¿Quién demonios son ustedes? No parecen los carroñeros de siempre.",
+    "Podríamos preguntarte lo mismo. ¿Qué haces en cuevas tan cerca de una zona de guerra?",
+    "¿Zona de guerra? Estas cuevas no son de nadie. Yo voy donde está el dinero.",
+    "Momento. Ese de ahí afuera es un Iguan. Y un Merda. Esos son Zoids imperiales. Son soldados del Imperio, en territorio republicano. Esto no me incumbe, pero si no se van ahora mismo, llamo a mis contactos de la República. Pagan bien por información sobre intrusos.",
+    "Busco a alguien que sepa moverse bien esta noche.",
+    "¡Jajajaja! ¡Jajajajaja!",
+    "¿Se... se está riendo?",
+    "¡No puedo creerlo! ¡Alguien de verdad lo dijo! ¿¡USTEDES son mi contacto!? ¡El Imperio mandó a un montón de niños y una niñita dijo la frase! ¡Jajajaja!",
+    "Soy Moonbay. Yo escribí esa frase a propósito. La idea era que ningún ejército real usaría algo tan vergonzoso como código. Así ninguna patrulla militar vendría a buscarme usándola. ¡Solo mi contacto real estaría lo bastante desesperado como para decirla en voz alta!"
+  ],
+  "moonbay_getting_to_know": [
+    "¡Jajaja! ¿¡De verdad le dijiste la frase a unos matones en Porto Nido!? ¿¡Y pensaron que... jajaja!",
+    "NO fue gracioso, Moonbay. Me secuestraron. Fue horrible.",
+    "Bien, perdón. Pero saben que diseñé esa frase para que fuera lo más vergonzosa posible, ¿verdad? Si suena como algo que un soldado real diría, las patrullas podrían tropezar con ella. ¿Pero algo tan estúpido? Solo mi contacto real la diría.",
+    "Es estúpido.",
+    "Funcionó, ¿no? Aquí están. Ahora, ¿dónde está el punto de recogida? Solo me dijeron que me encontrara con mi escolta aquí.",
+    "Campamento Arcobaleno. El mando lo está usando como depósito oculto ahora que los bandidos se fueron.",
+    "¿Un campamento de bandidos abandonado como depósito de armas? Inteligente. Vámonos. Ustedes pelean, yo transporto."
+  ],
+  "narration_arcobaleno_ambush": [
+    "Este es el lugar. Pero algo está mal. Los guardias deberían estar aquí.",
+    "Miren. Soldados imperiales. Muertos. El campamento fue asaltado.",
+    "¿¡Me están tomando el pelo!? ¿¡Quién usa un campamento de bandidos abandonado para esconder suministros militares!? ¡Claro que alguien más iría tras de ellos! ¡El mando está lleno de genios!",
+    "El cargamento se fue. Algún otro grupo debe haberse apoderado del campamento después de que los bandidos anteriores fueron expulsados.",
+    "Esperen. El cargamento tiene rastreadores. Protocolo imperial estándar para envíos de alto valor. Si los explosivos siguen intactos, deberíamos poder captar la señal.",
+    "Por fin alguien pensó en algo útil. ¿Dónde están?",
+    "La señal está dividida. Dividieron el cargamento y se fueron en diferentes direcciones. Tendremos que rastrear a cada grupo para recuperar todo.",
+    "Claro que lo hicieron. Nada es sencillo nunca. Vámonos."
+  ],
+  "moonbay_pickup_1": [
+    "Entonces, tú eres el piloto de Sleepers del que tanto hablan. He visto muchos pilotos, pero nunca uno que arrastre un ejército de Sleepers. ¿Cómo funciona eso?",
+    "La mayoría de la gente usa un Zoid. Tal vez dos. ¿Tú solo... los coleccionas? ¿Como mascotas?",
+    "¡No son mascotas! Son...",
+    "Oye, no estoy juzgando. Lo que sea que funcione. Una vez transporté a un tipo que peleaba con tres Molgas amarrados a un remolque. No eres el cliente más raro que he tenido.",
+    "Espera. Tú. La niña. ¿Cómo te llamas? Te me haces conocida de alguna forma.",
+    "Kara. Kara Thrun.",
+    "¿¡Thrun!? ¿Como el Doctor Thrun? He escuchado de él. Es famoso entre los transportistas. Siempre moviendo equipo de investigación a lugares raros donde nadie quiere ir.",
+    "¿Conoces a mi padre?",
+    "Sé DE él. Nunca lo conocí en persona. Pero sus envíos siempre pagaban bien. ¿Qué hace estos días?",
+    "Yo... no sé. No lo he visto en mucho tiempo.",
+    "Oh. Perdón, niña. No quise... en fin, ¿qué es esa cosa que te sigue? Esa criaturita.",
+    "¡Este es Beacon! No estoy segura de qué es exactamente. Pero es mi amigo y me ha salvado más de una vez.",
+    "No es un Zoid, eso seguro. He visto muchas máquinas en mi línea de trabajo. Esa cosa es algo completamente diferente. Deberías tener cuidado con eso. Algo tan raro suele atraer el tipo de atención equivocada."
+  ],
+  "moonbay_pickup_2": [
+    "A ver si entendí bien. ¿El enojón con el Iguan se intentó sacrificar para salvarlos a todos? Quién lo diría. Tal vez le gustas.",
+    "¡NO me sacrifiqué! ¡Estaba reposicionándome! ¡Y NO me gusta nadie!",
+    "Claro que no, niño. Solo te lanzaste a un bar lleno de matones para salvar a tu amiga. Total coincidencia.",
+    "¡No es mi amiga! ¡Es una compañera soldado! ¡Hay una diferencia!",
+    "Ajá. Y la niña con la criatura rara, el piloto con el ejército de Sleepers, y el señor 'yo no tengo amigos'... ¿saben? Para ser un grupo de soldados imperiales, la verdad no están tan mal.",
+    "Viniendo de alguien que nos vendería por el precio correcto, lo tomaré como un cumplido.",
+    "Chico listo. Ahora vamos por el siguiente cargamento."
+  ],
+  "narration_desert_gorge_reflection": [
+    "Esa fue la última. Los tres cargamentos recuperados.",
+    "¿Saben? Después de escuchar todas sus historias... todos se unieron al Imperio por razones reales. No por gloria ni poder. Para proteger a la gente que quieren.",
+    "Pero he estado en ambos lados de esta guerra. ¿Los soldados de la República? Dicen las mismas cosas que ustedes. Sus razones tampoco están mal.",
+    "Sus razones no están mal. Pero la guerra sí. Buena gente matando a buena gente por 'razones nobles'. Eso es lo que la guerra realmente es.",
+    "...",
+    "Yo no elijo bandos porque he visto lo que los bandos le hacen a la gente. Solo... no se pierdan en esto. Peleen por sus razones, no por sus banderas.",
+    "Misión cumplida. Entregamos el cargamento. Ahora ella hace su parte.",
+    "¿Un último favor? Necesito escolta por las ruinas de Elmia. Con tanta carga, no puedo defenderme bien si algo me salta ahí dentro. Después de eso, desaparezco.",
+    "Considérenlo una ronda extra. De lo contrario le cobraré más al Imperio y les diré que fue porque ustedes no quisieron completar su misión."
+  ],
+  "narration_moonbay_farewell": [
+    "Bueno, aquí nos separamos. Cargamento seguro, camino despejado. De aquí puedo sola.",
+    "¿Volveremos a verte, Moonbay?",
+    "¿Quién sabe, niña? Pero no fue el peor trabajo que he tenido. Cuídate. Y esa criatura tuya, no dejes que la gente equivocada se entere.",
+    "Y tú. Cuida bien a tus dos chicas allá afuera.",
+    "¿¡D-dos chicas!? ¿¡Qué se supone que significa eso!?",
+    "¡Jaja! Miren eso, se está poniendo roja. Lo sabía.",
+    "¡NO estoy...! ¡El calor! ¡Es el desierto!",
+    "Claro que sí. Igualito a la excusa de Eddie.",
+    "En fin. Díganle a sus jefes que Moonbay cumple. Siempre. Nos vemos, niños. Y háganme un favor, traten de no mover muchas cosas esta noche. Ya saben cómo termina eso.",
+    "La odio.",
+    "No es cierto.",
+    "...Cállense."
+  ],
+  "imperial_officer_escort_debrief": [
+    "He recibido confirmación de nuestro contacto. La transportista tiene el cargamento y está en camino al punto de entrega. La misión fue un éxito.",
+    "Me enteré del incidente en Porto Nido. Llamaron la atención. Eso no era parte del plan.",
+    "Pero la misión está completa, y eso es lo que importa. Han demostrado que pueden manejar una situación de vida o muerte y una tediosa misión de escolta igual de bien. Eso muestra versatilidad.",
+    "La Teniente Hartriegel ha estado observando su progreso. Se las dejo a ella.",
+    "El Coronel Schwarz necesita soldados capaces en Río Rojo. Ustedes tres deben presentarse allí para despliegue bajo su mando.",
+    "¿Río Rojo? Eso es un despliegue en primera línea...",
+    "Lo es. Y es exactamente donde se necesitan soldados como ustedes. El Coronel no acepta a cualquiera. Considérenlo un reconocimiento de lo que han logrado.",
+    "Repórtense en Río Rojo cuando estén listos. Yo arreglaré el traslado. Pueden retirarse."
+  ],
+  "narration_post_escort_talk": [
+    "¡Río Rojo! ¡Bajo el mismísimo Schwarz! Esto es. Aquí es donde demuestro lo que realmente valgo. No más misiones de búsqueda, no más cuidar cargamento. Combate real.",
+    "Eddie, ¿siquiera sabes lo que está pasando en Río Rojo? Es una zona de cese al fuego. Ambos ejércitos están estacionados en lados opuestos. Un movimiento en falso y todo estalla.",
+    "¿Y qué, tienen miedo? Cuando las cosas se pongan feas, y se pondrán, van a necesitar soldados como yo. No llorones como ustedes dos.",
+    "Moonbay fue... interesante. No esperaba caerme bien.",
+    "Era una criminal.",
+    "Era una transportista, Eddie. Hay una diferencia.",
+    "Trabaja para quien pague. Hoy somos nosotros, mañana es la República. No se puede confiar en gente así.",
+    "Tal vez. Pero lo que dijo sobre la guerra... sobre que ambos lados creen que tienen razón...",
+    "Bien. Da igual. Río Rojo es lo que importa ahora. Schwarz quiere soldados, no filósofos. Estemos listos.",
+    "Kirsche me ha hablado de Schwarz... mucho. Es un piloto extraordinario, estricto pero también razonable y justo. Dice que es uno de los pocos oficiales que de verdad se preocupa por sus soldados.",
+    "Bien. Entonces tal vez por fin tendremos un comandante que sepa lo que hace."
+  ],
+  "thug_bar": [
+    "¿Qué quieren? No parecen de por aquí. Pidan algo o lárguense."
   ]
 }

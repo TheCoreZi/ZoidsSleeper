@@ -19,7 +19,7 @@ import { SortieNodeType } from '../dungeon/DungeonGraph';
 import { t } from '../i18n';
 import { DialogScript } from '../dialog/Dialog';
 import type { City, Landmark, Route } from '../landmark';
-import { ActionDuelPilot, ActionFightPilot, ActionFightWild, ActionPlayCutscene, ActionTalkToNPC, ActionVisitDepot, ActionVisitLab, getLandmarkById, getLandmarkHints, isLandmarkUnlocked, isRoute, ROUTES } from '../landmark';
+import { ActionDuelPilot, ActionDuelWild, ActionFightPilot, ActionFightWild, ActionPlayCutscene, ActionTalkToNPC, ActionVisitDepot, ActionVisitLab, getLandmarkById, getLandmarkHints, isLandmarkUnlocked, isRoute, ROUTES } from '../landmark';
 import type { Dungeon } from '../landmark';
 import { REGIONS } from '../map/Region';
 import { Currency } from '../models/Currency';
@@ -29,7 +29,7 @@ import { Faction } from '../models/Faction';
 import { type Pilot, PILOTS } from '../models/Pilot';
 import { DEFAULT_PLAYER } from '../models/Player';
 import { PopupMessage, PopupType } from '../models/PopupMessage';
-import { calculatePartyAttack, calculatePartyMaxHealth, getZoidById, ZoidResearchStatus } from '../models/Zoid';
+import { calculatePartyAttack, calculatePartyMaxHealth, getZoidName, ZoidResearchStatus } from '../models/Zoid';
 import type { ZoidBlueprint } from '../models/Zoid';
 import { grantReward, type Reward } from '../reward';
 import { loadCampaigns, markNpcTalked, checkCampaigns } from '../store/campaignStore';
@@ -70,7 +70,7 @@ import { loadZoidData } from '../store/zoidDataStore';
 import { loadZoidResearch, updateZoidResearch } from '../store/zoidResearchStore';
 import { BaseBattle } from './BaseBattle';
 import { Battle } from './Battle';
-import { DuelBattle } from './DuelBattle';
+import { DuelBattle, PilotDuelEnemy, WildDuelEnemy } from './DuelBattle';
 import { GameLoop } from './GameLoop';
 import { PilotBattle } from './PilotBattle';
 import { Save } from './Save';
@@ -167,7 +167,7 @@ export class Game {
   }
 
   enterDuelBattle(pilot: Pilot, unwinnable = false, reward?: Reward, forcedZoid?: ZoidBlueprint): void {
-    const battle = new DuelBattle(playerStats()!, pilot, forcedZoid);
+    const battle = new DuelBattle(playerStats()!, new PilotDuelEnemy(pilot), forcedZoid);
     battle.onDefeat = () => {
       if (unwinnable) {
         incrementPilotDefeats(pilot.id);
@@ -181,6 +181,27 @@ export class Game {
       incrementPilotDefeats(pilot.id);
       checkCampaigns();
       this.endDuelBattle(new PopupMessage(t('ui:pilot_defeated', { name: t(`pilots:${pilot.id}`) }), t('ui:victory'), PopupType.Victory));
+      if (reward) { grantReward(reward); }
+    };
+    this.battle = battle;
+    setBattleState(BattleState.DuelCombat);
+  }
+
+  enterDuelWildBattle(name: string, wildId: string, zoids: ZoidBlueprint[], currencyReward: CurrencyReward, fragmentYield = 0, unwinnable = false, reward?: Reward): void {
+    const battle = new DuelBattle(playerStats()!, new WildDuelEnemy(name, zoids, fragmentYield));
+    battle.onDefeat = () => {
+      if (unwinnable) {
+        incrementPilotDefeats(wildId);
+        checkCampaigns();
+      }
+      this.endDuelBattle(new PopupMessage(t('ui:not_strong_enough', { name }), t('ui:defeated'), PopupType.Defeat));
+      if (unwinnable && reward) { grantReward(reward); }
+    };
+    battle.onVictory = () => {
+      grantCurrencyReward(currencyReward, 1, true);
+      incrementPilotDefeats(wildId);
+      checkCampaigns();
+      this.endDuelBattle(new PopupMessage(t('ui:wild_defeated', { name }), t('ui:victory'), PopupType.Victory));
       if (reward) { grantReward(reward); }
     };
     this.battle = battle;
@@ -217,7 +238,7 @@ export class Game {
   }
 
   enterWildBossBattle(wildId: string, zoids: ZoidBlueprint[], currencyReward: CurrencyReward, fragmentYield = 0, unwinnable = false, reward?: Reward): void {
-    const zoidName = getZoidById(zoids[0].id).name;
+    const zoidName = getZoidName(zoids[0].id);
     const battle = new WildBossBattle(playerStats()!, zoids, fragmentYield);
     battle.onDefeat = () => {
       if (unwinnable) {
@@ -272,7 +293,7 @@ export class Game {
   wildAmbushFromEvent(zoidData: ZoidBlueprint): void {
     const run = dungeonRun();
     if (!run) {return;}
-    const zoidName = getZoidById(zoidData.id).name;
+    const zoidName = getZoidName(zoidData.id);
     const battle = new WildBossBattle(playerStats()!, [zoidData]);
     battle.onVictory = () => {
       this.endWildBossBattle(new PopupMessage(t('ui:wild_defeated', { name: zoidName }), t('ui:victory'), PopupType.Victory));
@@ -438,6 +459,8 @@ export class Game {
     city.actions?.forEach((action) => {
       if (action instanceof ActionDuelPilot) {
         action.onExecute = () => this.enterDuelBattle(action.pilot, action.unwinnable, action.reward, action.forcedZoid);
+      } else if (action instanceof ActionDuelWild) {
+        action.onExecute = () => this.enterDuelWildBattle(t(action.nameKey), action.wildId, action.zoids, action.currencyReward, action.fragmentYield, action.unwinnable, action.reward);
       } else if (action instanceof DungeonSortieEvent) {
         action.onExecute = () => this.enterDungeon(action);
       } else if (action instanceof ActionFightPilot) {

@@ -1,5 +1,5 @@
 import { t } from '../i18n';
-import { getZoidById } from '../models/Zoid';
+import { getZoidName } from '../models/Zoid';
 import { getSpeciesDefeats } from '../store/statisticsStore';
 import type { Requirement } from './Requirement';
 
@@ -15,7 +15,7 @@ export class SpeciesDefeatRequirement implements Requirement {
   hint(): string {
     return t('requirements:defeat_species', {
       count: this.requiredValue,
-      zoid: getZoidById(this.speciesId).name,
+      zoid: getZoidName(this.speciesId),
     });
   }
 

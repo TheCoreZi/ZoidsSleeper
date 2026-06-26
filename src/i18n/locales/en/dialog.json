@@ -763,5 +763,271 @@
     "I'm not his sister! My name is Kara! And... W-What!? Ugh, you're just as annoying as him! I should have expected nothing less from a thick-headed soldier who only knows how to fight.",
     "Hahaha! I'm just messing with you. And I'm not here just to fight or for glory. Back in my village, there's barely any food or work. Everything is scarce. Joining the army was my only real option. At least this way I can send money back to my family.",
     "Why the Republic? Well, they control the central continent. More land, more resources, more opportunities. And I wouldn't want to live in Nyx even if they paid me, haha! I heard even the Zoids there are depressed. So here I am. Not the most heroic reason, but it's an honest one. And it's a sacrifice I'm willing to make for my old lady back home."
+  ],
+  "imperial_officer_ruins_briefing": [
+    "Listen up, recruits. Intelligence has located an artifact in ruins north of the camp. A reconnaissance team already mapped the area. The ruins are under Imperial Sleeper control, so resistance should be minimal.",
+    "You three will join a squad of soldiers heading to the site. Your job is simple: recover the artifact and bring it back. Think of it as your first real assignment.",
+    "Crescent, keep your temper in check. Hawk, use that speed of yours for something other than running away. And you, you like Sleepers, right? You will feel right at home. Like a dysfunctional family reunion.",
+    "Do not overthink it. Get in, get the artifact, get out. The veterans will handle the heavy work. Do not get in their way."
+  ],
+  "rhine_hawk_pre_ruins": [
+    "So this is it. Our first real mission. I have been looking at the area and it seems straightforward enough. Narrow passages, open chambers. As long as we stay together, we should be fine.",
+    "I know my Merda is not the strongest Zoid out there. But she is fast. Back in Nyx, speed was all that mattered. You did not want to be exposed to the cold any longer than you had to. This girl has gotten us out of trouble more times than I can count.",
+    "If things go sideways, I can scout ahead or draw attention away. That is what she is built for. Quick in, quick out.",
+    "Let us make it back in one piece, alright?"
+  ],
+  "eddie_crescent_pre_ruins": [
+    "A recovery mission. They are sending us to pick up some dusty artifact from a bunch of ruins full of sleeping Zoids. What an incredible use of my talents.",
+    "You know what this is, right? They do not trust us with anything real yet. So they give us the errands. Go fetch this, bring back that. Like we are delivery boys.",
+    "Sure, the Iguan is a basic Zoid. But that is exactly the point. It is the perfect machine to prove what a real pilot can do. I can squeeze more out of one Iguan than you can out of that whole junk mob of Sleepers you drag around. How are you not bored out of your mind waiting for those things to actually do something?",
+    "Just try to keep up out there. I do not plan on babysitting both of you."
+  ],
+  "narration_ruins_discovery": [
+    "Guysacks! Guysacks everywhere! These are not ours! Since when are there Republican Sleepers in this area?!",
+    "I do not see any of the soldiers! Where is the rest of the squad?!",
+    "Are you deaf?! Forget the soldiers! The sand is moving under your feet and you two are just standing there like idiots on a field trip!",
+    "We have gone too deep into the desert. These Zoids are hiding underground. We cannot see them until they are already on top of us.",
+    "Yeah, no kidding! The ruins, now! The corridors are narrow enough to keep them from flanking us. Unless you geniuses want to stay out here and get torn apart!",
+    "And what if the soldiers never show up?!",
+    "Then congratulations, we are on our own! Now shut up and move! And you, use that junk pile of Sleepers you carry around to hold them off, or have you gotten attached to those things too?!"
+  ],
+  "narration_ruins_aftermath": [
+    "Wait... those are Imperial uniforms. The soldiers... they are all dead.",
+    "Every single one of them. They were cut down before they even reached the inner chambers.",
+    "This was a trap. The whole thing. The Sleepers outside were herding us in here. Think about it. They did not chase us, they surrounded us. They pushed us toward the ruins on purpose.",
+    "But Sleepers have never behaved like that before. They do not coordinate. They just sit and wait.",
+    "Exactly. The Republic must be testing some new tactic and we walked right into their proving ground. These are not normal Sleepers anymore. They have been reprogrammed to hunt.",
+    "My equipment has been picking up strange readings since we got inside. Some kind of wave interference. It is not random. It is coming from below. Something down there is jamming our communications.",
+    "Look at the soldiers. They were heading toward that passage. It leads down, probably to a well or a shaft. The readings match. Whatever is down there is the source of the interference.",
+    "Then we go down. We still have a mission to complete. The artifact should be there. Let us finish this and get out."
+  ],
+  "narration_guysack_appears": [
+    "This is it. The water has flooded part of the chamber. The artifact must be somewhere below the surface.",
+    "One of the soldiers left a recon pod near the entrance. It is small enough to navigate the flooded section.",
+    "Hawk, you take the pod. Your Merda is useless down there and I do not trust this one's Sleepers anywhere near something valuable. Besides, have you seen the size of that pod? There is no way this one fits in there.",
+    "Fine. But you two better keep things quiet up here while I am down there.",
+    "...",
+    "Get ready. I hear something. The ground is shaking.",
+    "What the... look at the size of that thing! That must be the one coordinating the others. Look at the signal array on its back. It is the command unit. That is why the Sleepers were organized.",
+    "What is going on up there?! I can hear rumbling!",
+    "I hope those Sleepers of yours are at least good enough to serve as a snack for that thing. Rhine is still down there. If you want to save her, you will have to stop it. Good luck.",
+    "What?! Eddie!! EDDIE!! He abandoned us! You have to hold it off! I am almost done down here! Please, do not leave me too!"
+  ],
+  "narration_eddie_returns": [
+    "I got the artifact! I am coming up! What is happening up th...",
+    "What is that thing?! It is enormous! And Eddie... Eddie that coward left us!",
+    "More Sleepers are coming from the corridors! We are surrounded!",
+    "MOVE!!",
+    "An explosion tore through the ceiling above the giant Guysack. Rubble and stone rained down, pinning the beast to the ground. From a breach in the upper level, the Iguan stood covered in dust.",
+    "What kind of soldier would I be if I cannot even save a couple of good-for-nothings like you?",
+    "That will not hold it for long. Hawk, your Merda is the only thing fast enough to outrun the horde heading this way. I already cleared a passage to the west corridor.",
+    "And you, protect her on the way out. Do not stop for anything. I will hold this thing here.",
+    "Eddie, you cannot stay! When it gets back up...",
+    "I said go! There is no time! It is already moving!"
+  ],
+  "narration_rhine_plan": [
+    "We cannot leave him! But there are too many! What do we do?! Eddie... are we really going to abandon him? We cannot do anything!",
+    "What? Use your Sleepers? But the signals are jammed! We cannot reach them from...",
+    "Wait. You are right. If we get close enough, the interference will not be as strong. The signal could get through.",
+    "Alright, here is the plan. You program the Sleeper module with instructions to scatter through the tunnels. I take it on my Merda and get close enough to each of your Zoids to make sure the signal reaches them. The Republican Sleepers will chase them.",
+    "You go back to Eddie. While the horde spreads out chasing your Sleepers, maybe the three of us will have a chance to take down the leader together. It is risky, but it is our only option. Program the module. Let us go!"
+  ],
+  "narration_eddie_reunite": [
+    "What the hell are you doing here?! I told you to run! Nobody asked for your help!",
+    "Whatever. If you want to die, that thing over there can help you with that. Its armor is too thick. I have been hitting it and I cannot do any real damage.",
+    "Fine. If we are doing this, you had better be useful. Look at the transmitters on its back. It is the only spot that is exposed. They cannot cover it or it would dampen the signal. If we have any chance, we concentrate our fire there.",
+    "And try not to die. I did not clear half this ruin just to watch you get crushed at the end."
+  ],
+  "narration_eddie_resolve": [
+    "I made it! The horde is scattered!",
+    "You too, huh. Fine, at least you are good for something. Distract it while I reposition. This time we will not miss.",
+    "NOW! This is our chance! Hit the transmitters!",
+    "Both pilots fired at the exposed point on the Guysack's back. A massive explosion tore through its abdomen, sending pieces of armor flying across the chamber.",
+    "It is down! We did it!",
+    "Do not celebrate yet. The horde will not stay scattered forever. We have a window. Move, now!",
+    "We actually made it. All three of us.",
+    "Save the sentimentality for later. Let us get out of here before anything else crawls out of the sand. And nobody talks about this back at camp. Understood?"
+  ],
+  "imperial_officer_ruins_debrief": [
+    "Before anything else, I owe you an apology. Intelligence failed us. I never intended to put fresh cadets in that kind of danger.",
+    "However, you three survived a mission where many seasoned soldiers did not. That speaks volumes about your abilities.",
+    "I have reviewed the field report. You showed real leadership out there. Coordinating under pressure, adapting to a situation no one anticipated. That takes more than skill. That takes instinct.",
+    "Thank you, sir. But I put Cadet Hawk in danger. And I would never have made it out without this one's Sleepers. I am not ready to lead anything yet.",
+    "Ha! That is exactly the kind of answer I want to hear from a soldier. The ones who think they are ready are usually the first to fall.",
+    "Get some rest, all of you. You have earned it."
+  ],
+  "narration_team_bonding": [
+    "You blew up the ceiling of ancient ruins?! Wow!",
+    "Yeah! You should have seen this idiot's face when I came through. Standing right under it looking confused while a giant Guysack was about to eat them alive.",
+    "Oh sure, because we were already fighting that thing before you even showed up, Eddie.",
+    "Ha! Right, right. They thought I had abandoned them. You should have seen their faces when I dropped through the ceiling.",
+    "But the shot, Kara. You should have seen it. Both of them firing at the same spot at the exact same time.",
+    "If it had been anyone else pulling that trigger instead of me, you would all be dead. I am not even sure this one actually hit anything.",
+    "You really fought all those Sleepers by yourself just to clear a path for them?",
+    "Someone had to, kid. These two were too busy panicking. Actually, on my way out I saw a Guysack so confused it was slapping the others around. Even they could not believe what was happening.",
+    "Eddie... I owe you an apology. When I saw your Iguan leaving, I thought the worst. I judged you and I was wrong. You risked your life for us. That took real courage.",
+    "Do not get sentimental on me, Hawk. I did what needed to be done. Although I will say, you are faster than I thought. That Merda of yours really moved out there. Without your speed, the plan would have fallen apart.",
+    "Wait... did Eddie just compliment someone?",
+    "I am stating a fact! Her Zoid is fast. That is not a compliment, that is basic observation!",
+    "Right. Basic observation.",
+    "You know what? All of you can shut up. Next mission, I am going alone. Less idiots to worry about.",
+    "Sure, Eddie. Whatever you say."
+  ],
+  "imperial_officer_escort_briefing": [
+    "Good, you are all here. I have a new assignment. This one requires discretion.",
+    "We have a contact operating in Republican territory. A transporter. Not military, not loyal to anyone, but willing to move a shipment of explosives for us.",
+    "Your mission is to escort the contact to where the explosives are stored. Once the cargo is secured, the transporter will handle the rest.",
+    "You will be crossing into enemy territory. Avoid confrontation at all costs. Get in, find the contact, get the cargo, and come back without drawing attention."
+  ],
+  "companions_pre_escort": [
+    "This is completely different from the ruins. We are crossing into enemy territory. We need to stay away from cities and main roads. We will go through the desert and keep our Zoids hidden to avoid suspicion.",
+    "Great. Now we are babysitters for some smuggler we cannot even recognize. Just when I thought the missions were getting better.",
+    "Speaking of babysitting, what are you doing here, kid?",
+    "Kirsche gave me permission to come with you! She said you were not planning to engage anyone, so it should be safe.",
+    "Also, how are we supposed to know who the contact is? What does a transporter even look like? We should watch out either way. People who work for both sides are not loyal to anyone. The moment things go bad, they will think about themselves first.",
+    "And how exactly are we supposed to go unnoticed with this one's entire circus of Sleepers following behind? We might as well carry a banner that says 'shoot here'."
+  ],
+  "narration_bar_investigation": [
+    "Porto Nido. If there is a transporter working this coast, someone in this town will know about it.",
+    "The officer gave us a pass phrase. 'I have something that needs to be moved tonight.' Whoever responds with the right answer is our contact.",
+    "That is the most idiotic pass phrase I have ever heard. Who writes these? Fine, let us get this over with.",
+    "Let us just say it to whoever looks like a transporter around the docks.",
+    "I am NOT saying that. You do it, Hawk.",
+    "Fine, I will do it. Excuse me, sir? I have something that needs to be moved... tonight.",
+    "Something that needs to be moved tonight? I will move whatever you want, as many times as you want, sweetheart.",
+    "Oh! Are you the... wait, what are you doing? Let go of my arm!",
+    "Come on, do not be shy. You came to me, remember? Boys, make sure she feels welcome.",
+    "GET YOUR HANDS OFF HER!",
+    "Go! Find her! I will deal with these idiots!"
+  ],
+  "narration_rhine_rescue": [
+    "Let go of me! I said LET GO!",
+    "Keep struggling, sweetheart. Makes it more fun. Throw her in the Zoid. We are taking her with us.",
+    "No! STOP! Someone he...",
+    "We have to save her! Forget about being discovered, we deal with that later!",
+    "Boss! Someone is coming! They have got Zoids!",
+    "Tch. Of course there are more of them. Get to your machines!"
+  ],
+  "narration_rhine_rescued": [
+    "...Thank you. If you had not shown up...",
+    "I am fine. I am fine. Let us just... go back and see if Eddie is okay.",
+    "About time you showed up. I was running out of people to hit.",
+    "Eddie! Are you alright?",
+    "I have had worse. Listen, I got something from the bartender. Turns out our transporter is not here. She operates near the Tauros Grotto.",
+    "He was very eager to share once I explained that I would break his bar a second time if he did not.",
+    "Then we head to the Grotto. Let us go. We are already discovered, so much for discretion."
+  ],
+  "narration_arrive_tauros": [
+    "This is the Tauros Grotto. The bartender said our contact operates around here somewhere.",
+    "Great. Another hole in the ground. Because the last time we went underground it went so well for us.",
+    "Eddie, do not jinx us.",
+    "I am just saying. Every time we go underground, something tries to kill us. Maybe I should just wait out here until you start screaming like cowards.",
+    "Let us look around. Stay alert."
+  ],
+  "moonbay_intro": [
+    "Hey! What is all this noise? I was down here looking for treasure and you lot come stomping in like you own the place.",
+    "Who the hell are you? You do not look like the usual scavengers.",
+    "We could ask you the same thing. What are you doing in caves this close to a war zone?",
+    "War zone? These caves do not belong to anyone. I go where the money is.",
+    "Wait. That is an Iguan out there. And a Merda. Those are Imperial Zoids. You are soldiers from the Empire, in Republican territory. This does not concern me, but if you do not leave right now, I am calling my Republic contacts. They pay well for information about trespassers.",
+    "I have something that needs to be moved tonight.",
+    "Hahahaha! Hahahahaha!",
+    "She... she is laughing?",
+    "I cannot believe it! Someone actually said it! YOU are my contact?! The Empire sent a bunch of kids and a little girl said the phrase! Hahahaha!",
+    "I am Moonbay. I wrote that phrase on purpose. The whole point was that no real army would ever use something that embarrassing as a code. So no military patrol would ever come looking for me using it. Only my real contact would be desperate enough to say it out loud!"
+  ],
+  "moonbay_getting_to_know": [
+    "Hahaha! So you actually said the phrase to some thugs at Porto Nido?! And they thought... hahaha!",
+    "It was NOT funny, Moonbay. They grabbed me. It was bad.",
+    "Okay, sorry. But you know I designed that phrase to be as embarrassing as possible, right? If it sounds like something a real soldier would say, patrols could stumble into it. But something that stupid? Only my real contact would ever say it.",
+    "It is idiotic.",
+    "It worked, did it not? Here you are. Now, where is the pickup point? I was only told to meet my escort here.",
+    "Arcobaleno Camp. Command is using it as a hidden supply cache now that the bandits are gone.",
+    "An abandoned bandit camp as a weapons cache? Clever. Let us move. You handle the fighting, I handle the transport."
+  ],
+  "narration_arcobaleno_ambush": [
+    "This is the place. But something is wrong. The guards should be here.",
+    "Look. Imperial soldiers. Dead. The camp was raided.",
+    "Are you kidding me?! Who uses an abandoned bandit camp to hide military supplies?! Of course someone else moved in! Command is full of geniuses!",
+    "The cargo is gone. Some other group must have taken over the camp after the previous bandits were driven out.",
+    "Wait. The cargo has tracking devices. Standard Imperial protocol for high-value shipments. If the explosives are still in one piece, we should be able to pick up the signal.",
+    "Finally, someone thought of something useful. Where are they?",
+    "The signal is split. They divided the cargo and went in different directions. We will have to track down each group to recover everything.",
+    "Of course they did. Nothing is ever simple. Let us move."
+  ],
+  "moonbay_pickup_1": [
+    "So, you are the Sleeper pilot they keep talking about. I have seen a lot of pilots, but never one who drags around an army of sleeping Zoids. How does that even work?",
+    "Most people use one Zoid. Maybe two. You just... collect them? Like pets?",
+    "They are not pets! They are...",
+    "Hey, I am not judging. Whatever gets the job done. I once transported a guy who fought with three Molgas strapped to a trailer. You are not the weirdest client I have had.",
+    "Hold on. You. The girl. What is your name? You look familiar somehow.",
+    "Kara. Kara Thrun.",
+    "Thrun?! As in Doctor Thrun? I have heard of him. He is famous among transporters. Always moving research equipment to weird places nobody wants to go.",
+    "You know my father?",
+    "I know OF him. Never met him personally. But his shipments always paid well. What is he up to these days?",
+    "I... do not know. I have not seen him in a long time.",
+    "Oh. Sorry, kid. Did not mean to... anyway, what is that thing following you around? That little creature.",
+    "This is Beacon! I am not sure what he is exactly. But he is my friend and he has saved me more than once.",
+    "It is not a Zoid, that is for sure. I have seen a lot of machines in my line of work. That thing is something else entirely. You should be careful with it. Something that rare tends to attract the wrong kind of attention."
+  ],
+  "moonbay_pickup_2": [
+    "So let me see if I have this right. The angry one with the Iguan tried to sacrifice himself to save you all? Who would have guessed. Maybe he likes you.",
+    "I did NOT sacrifice myself! I was repositioning! And I do NOT like anyone!",
+    "Sure you do not, kid. You just charged into a bar full of thugs to save your friend. Total coincidence.",
+    "She is not my friend! She is a fellow soldier! There is a difference!",
+    "Mhm. And the girl with the weird creature, the pilot with the sleeping army, and mister 'I do not have friends'... you know, for a bunch of Imperial soldiers, you are actually not that bad.",
+    "Coming from someone who would sell us out for the right price, I will take that as a compliment.",
+    "Smart boy. Now let us go get the next shipment."
+  ],
+  "narration_desert_gorge_reflection": [
+    "That was the last one. All three shipments recovered.",
+    "You know, after hearing all your stories... you all joined the Empire for real reasons. Not for glory or power. To protect the people you love.",
+    "But I have been on both sides of this war. The Republic's soldiers? They say the same things you do. Their reasons are not wrong either.",
+    "Your reasons are not wrong. But the war is. Good people killing good people because of 'noble reasons'. That is what war really is.",
+    "...",
+    "I do not pick sides because I have seen what sides do to people. Just... do not lose yourselves in this. Fight for your reasons, not for their flags.",
+    "Mission complete. We delivered the cargo. Now she does her part.",
+    "One last favor? I need an escort through Elmia Ruins. With this much cargo, I cannot defend myself if something jumps me in there. After that, I am out of your hair.",
+    "Consider it a bonus round. Otherwise I will charge the Empire extra and tell them it was because you refused to finish the job."
+  ],
+  "narration_moonbay_farewell": [
+    "Well, this is where we part ways. Cargo is secure, path is clear. I can handle it from here.",
+    "Will we see you again, Moonbay?",
+    "Who knows, kid? But this was not the worst job I have ever had. Take care of yourself. And that creature of yours, do not let the wrong people find out about it.",
+    "And you. Take good care of your two girls out there.",
+    "T-two girls?! What is THAT supposed to mean?!",
+    "Haha! Look at that, she is turning red. I knew it.",
+    "I am NOT...! The heat! It is the desert!",
+    "Sure it is. Just like Eddie's excuse.",
+    "Anyway. Tell your bosses Moonbay delivers. Always. See you around, kids. And do me a favor, try not to move too many things tonight. You know how that turns out.",
+    "I hate her.",
+    "No you do not.",
+    "...Shut up."
+  ],
+  "imperial_officer_escort_debrief": [
+    "I have received confirmation from our contact. The transporter has the cargo and is en route to the delivery point. The mission was a success.",
+    "I heard about the incident at Porto Nido. You drew attention. That was not part of the plan.",
+    "But the mission is complete, and that is what matters. You have proven you can handle a life-or-death situation and a tedious escort mission equally well. That shows versatility.",
+    "Lieutenant Hartriegel has been observing your progress. I will let her take it from here.",
+    "Colonel Schwarz needs capable soldiers at the Red River. You three are to report there for deployment under his command.",
+    "Red River? That is a frontline deployment...",
+    "It is. And it is exactly where soldiers like you are needed. The Colonel does not accept just anyone. Consider this recognition of what you have accomplished.",
+    "Report to Red River when you are ready. I will arrange the transfer. Dismissed."
+  ],
+  "narration_post_escort_talk": [
+    "Red River! Under Schwarz himself! This is it. This is where I prove what I am really worth. No more fetch missions, no more babysitting cargo. Real combat.",
+    "Eddie, do you even know what is happening at Red River? It is a ceasefire zone. Both armies are stationed on opposite sides. One wrong move and the whole thing erupts.",
+    "And what, you are scared? When things go bad, and they will, they are going to need soldiers like me. Not crybabies like you two.",
+    "Moonbay was... interesting. I did not expect to like her.",
+    "She was a criminal.",
+    "She was a transporter, Eddie. There is a difference.",
+    "She works for whoever pays. Today it is us, tomorrow it is the Republic. You cannot trust people like that.",
+    "Maybe. But what she said about the war... about both sides thinking they are right...",
+    "Fine. Whatever. Red River is what matters now. Schwarz wants soldiers, not philosophers. Let us be ready.",
+    "Kirsche has told me about Schwarz... a lot. He is an extraordinary pilot, strict but also reasonable and fair. She says he is one of the few officers who actually cares about his soldiers.",
+    "Good. Then maybe we will finally have a commander who knows what they are doing."
+  ],
+  "thug_bar": [
+    "What do you want? You do not look like you belong here. Order something or get out."
   ]
 }

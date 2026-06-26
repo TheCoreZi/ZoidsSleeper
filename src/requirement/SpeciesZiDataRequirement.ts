@@ -1,5 +1,5 @@
 import { t } from '../i18n';
-import { getZoidById } from '../models/Zoid';
+import { getZoidName } from '../models/Zoid';
 import { getZoidDataCount } from '../store/zoidDataStore';
 import type { Requirement } from './Requirement';
 
@@ -15,7 +15,7 @@ export class SpeciesZiDataRequirement implements Requirement {
   hint(): string {
     return t('requirements:zi_data_species_required', {
       count: this.requiredValue,
-      zoid: getZoidById(this.zoidId).name,
+      zoid: getZoidName(this.zoidId),
     });
   }
 

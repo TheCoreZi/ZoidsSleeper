@@ -13,5 +13,6 @@ export const ITEMS: Record<string, ItemDefinition> = {
   core_saver: new SyncDeviceItem('core_saver', 500, 5),
   ...CORES,
   layered_armor: new UpgradeItem('layered_armor', 1000000),
+  reinforced_cockpit: new UpgradeItem('reinforced_cockpit', 1000000),
   sleeper_module: new ImportantItem('sleeper_module'),
 };

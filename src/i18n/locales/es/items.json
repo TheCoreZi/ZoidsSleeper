@@ -7,16 +7,12 @@
     "description": "Cañón de gran calibre. Mayor alcance y poder destructivo a costa de movilidad.",
     "name": "Buster Cannon"
   },
-  "core_mini_core": {
-    "name": "Mini Core"
-  },
-  "core_proto_core": {
-    "description": "Un core frágil de uno de los primeros prototipos de Zoid. Antiguo e inestable, conserva rastros de formas de vida primitivas olvidadas hace mucho.",
-    "name": "Proto Core"
-  },
   "core_analyzer": {
     "description": "Un dispositivo usado para obtener información estructural de los Zoid Cores",
     "name": "Analizador de Cores"
+  },
+  "core_mini_core": {
+    "name": "Mini Core"
   },
   "core_preserver": {
     "description": "Un dispositivo para preservar el Core de un Zoid debilitado y poder extraer datos estructurales.",
@@ -26,6 +22,10 @@
     "description": "Una sonda para conectarse al Zoid Core. Puede obtener datos estructurales.",
     "name": "Sonda de Core"
   },
+  "core_proto_core": {
+    "description": "Un core frágil de uno de los primeros prototipos de Zoid. Antiguo e inestable, conserva rastros de formas de vida primitivas olvidadas hace mucho.",
+    "name": "Proto Core"
+  },
   "core_saver": {
     "description": "Una unidad de preservación avanzada que estabiliza el Zoid Core durante la extracción, mejorando las probabilidades de obtener datos estructurales.",
     "name": "Protector de Core"
@@ -33,6 +33,10 @@
   "layered_armor": {
     "description": "Un conjunto de placas reforzadas en capas que pueden injertarse en un Zoid compatible, provocando una metamorfosis estructural.",
     "name": "Blindaje Estratificado"
+  },
+  "reinforced_cockpit": {
+    "description": "Un módulo de cabina blindado diseñado para condiciones de combate extremas. Puede instalarse en algunos Zoids para mejorarlos.",
+    "name": "Cabina Reforzada"
   },
   "sleeper_module": {
     "description": "Un extraño módulo que permite controlar el comportamiento de multiples Sleepers al mismo tiempo.",

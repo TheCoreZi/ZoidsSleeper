@@ -7,16 +7,12 @@
     "description": "Large-caliber beam cannon. Greater range and firepower at the cost of mobility.",
     "name": "Buster Cannon"
   },
-  "core_mini_core": {
-    "name": "Mini Core"
-  },
-  "core_proto_core": {
-    "description": "A fragile core from one of the earliest Zoid prototypes. Ancient and unstable, it holds traces of primitive life forms long forgotten.",
-    "name": "Proto Core"
-  },
   "core_analyzer": {
     "description": "A device that can be used to obtain structural data from Zoid Cores.",
     "name": "Core Analyzer"
+  },
+  "core_mini_core": {
+    "name": "Mini Core"
   },
   "core_preserver": {
     "description": "A device to preserve the Core of a weakened Zoid in order to extract structural data.",
@@ -26,6 +22,10 @@
     "description": "A probe to connect to the Zoid Core. Can obtain structural data.",
     "name": "Core Probe"
   },
+  "core_proto_core": {
+    "description": "A fragile core from one of the earliest Zoid prototypes. Ancient and unstable, it holds traces of primitive life forms long forgotten.",
+    "name": "Proto Core"
+  },
   "core_saver": {
     "description": "An advanced preservation unit that stabilizes the Zoid Core during extraction, improving the chances of obtaining structural data.",
     "name": "Core Saver"
@@ -33,6 +33,10 @@
   "layered_armor": {
     "description": "A set of reinforced layered plates that can be grafted onto a compatible Zoid, triggering a structural metamorphosis.",
     "name": "Layered Armor"
+  },
+  "reinforced_cockpit": {
+    "description": "A heavily armored cockpit module designed for extreme combat conditions. Can be installed on certain Zoids to upgrade them.",
+    "name": "Reinforced Cockpit"
   },
   "sleeper_module": {
     "description": "A strange module that allows to control multiple Sleepers behavior at the same time.",

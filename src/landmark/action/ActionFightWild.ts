@@ -1,6 +1,6 @@
 import { t } from '../../i18n';
 import type { CurrencyReward } from '../../models/Currency';
-import { getZoidById, type ZoidBlueprint } from '../../models/Zoid';
+import { getZoidName, type ZoidBlueprint } from '../../models/Zoid';
 import type { Requirement } from '../../requirement';
 import type { Reward } from '../../reward';
 import type { CityAction } from './CityAction';
@@ -34,7 +34,7 @@ export class ActionFightWild implements CityAction {
   }
 
   getLabel(): string {
-    return t('ui:fight_wild', { name: getZoidById(this.zoids[0].id).name });
+    return t('ui:fight_wild', { name: getZoidName(this.zoids[0].id) });
   }
 
   isCompleted(): boolean {

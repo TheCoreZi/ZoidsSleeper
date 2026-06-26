@@ -1,5 +1,5 @@
 import { t } from '../i18n';
-import { getZoidById } from '../models/Zoid';
+import { getZoidName } from '../models/Zoid';
 import { ZoidResearchStatus } from '../models/ZoidResearchStatus';
 import { getZoidResearch } from '../store/zoidResearchStore';
 import type { Requirement } from './Requirement';
@@ -13,7 +13,7 @@ export class ZoidCreatedRequirement implements Requirement {
   }
 
   hint(): string {
-    return t('requirements:zoid_created', { zoid: getZoidById(this.zoidId).name });
+    return t('requirements:zoid_created', { zoid: getZoidName(this.zoidId) });
   }
 
   isCompleted(): boolean {

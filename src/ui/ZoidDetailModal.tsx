@@ -8,6 +8,7 @@ import {
   getOwnedZoidLevel,
   getZoidById,
   getZoidImage,
+  getZoidName,
   ZoidResearchStatus,
 } from '../models/Zoid';
 import { playerStats } from '../store/gameStore';
@@ -61,7 +62,7 @@ const ZoidDetailModal: Component<ZoidDetailModalProps> = (props) => {
   };
 
   const evoName = (zoidId: string) =>
-    isEvoRevealed(zoidId) ? getZoidById(zoidId).name : '???';
+    isEvoRevealed(zoidId) ? getZoidName(zoidId) : '???';
 
   const imageClass = () => {
     switch (props.status) {
@@ -91,7 +92,7 @@ const ZoidDetailModal: Component<ZoidDetailModalProps> = (props) => {
         }}
       >
         <div class="archive-detail-header">
-          <span class="archive-detail-name">{zoid().name}</span>
+          <span class="archive-detail-name">{getZoidName(props.id)}</span>
           <button class="archive-close" onClick={() => props.onClose()}>✕</button>
         </div>
 
@@ -103,7 +104,7 @@ const ZoidDetailModal: Component<ZoidDetailModalProps> = (props) => {
 
           <div class="archive-detail-image-col">
             <div class="archive-detail-image-wrapper">
-              <img class={imageClass()} src={getZoidImage(props.id)} alt={zoid().name} />
+              <img class={imageClass()} src={getZoidImage(props.id)} alt={getZoidName(props.id)} />
             </div>
             <Show when={isRevealed()} fallback={<p class="archive-detail-desc">???</p>}>
               <p class="archive-detail-desc">{t(`zoids:${props.id}_desc`)}</p>

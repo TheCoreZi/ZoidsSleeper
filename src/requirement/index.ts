@@ -1,5 +1,6 @@
 export { AllOfRequirement } from './AllOfRequirement';
 export { ArmySizeRequirement } from './ArmySizeRequirement';
+export { AtLeastNRequirement } from './AtLeastNRequirement';
 export { AtLeastOneRequirement } from './AtLeastOneRequirement';
 export { CampaignCompletedRequirement } from './CampaignCompletedRequirement';
 export { CoreNurturedRequirement } from './CoreNurturedRequirement';
@@ -11,6 +12,7 @@ export { FeatureFlagRequirement } from './FeatureFlagRequirement';
 export { FactionRequirement } from './FactionRequirement';
 export { COMPOUND_REQUIREMENTS } from './CompoundRequirements';
 export { ImpossibleRequirement } from './ImpossibleRequirement';
+export { LocationRequirement } from './LocationRequirement';
 export { ItemRequirement } from './ItemRequirement';
 export { MagnisRequirement } from './MagnisRequirement';
 export { MissionCompletedRequirement } from './MissionCompletedRequirement';

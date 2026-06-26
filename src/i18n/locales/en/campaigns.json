@@ -33,6 +33,102 @@
       "trials_complete": {
         "description": "Report back to the Imperial Officer after completing the trials.",
         "name": "Still Standing"
+      },
+      "ruins_briefing": {
+        "name": "Time to Get to Work",
+        "description": "Report to the Imperial Officer for your first field assignment."
+      },
+      "scout_ruins": {
+        "name": "Sleeping with the Enemy",
+        "description": "Investigate the surroundings of the Hollow Ruins."
+      },
+      "clear_hollow_ruins": {
+        "name": "So That's Where They Were",
+        "description": "Fight through the Hollow Ruins and eliminate the Sleeper threat."
+      },
+      "explore_lower_level": {
+        "name": "How Deep Does This Go?",
+        "description": "Descend deeper into the ruins to find the artifact."
+      },
+      "escape_ruins": {
+        "name": "I Was About to Cry",
+        "description": "Fight your way out of the Hollow Ruins."
+      },
+      "rhine_plan": {
+        "name": "No I in Team",
+        "description": "Regroup with Rhine and plan your next move."
+      },
+      "return_to_eddie": {
+        "name": "Fear Not, For I Am Here",
+        "description": "Go back to help Eddie fight the Guysack Heavy Armor."
+      },
+      "ruins_debrief": {
+        "name": "Survivors",
+        "description": "Report back to the Imperial Officer at the camp."
+      },
+      "team_bonding": {
+        "name": "Not That Bad",
+        "description": "Talk to your companions about what happened in the ruins."
+      },
+      "escort_briefing": {
+        "name": "Discression",
+        "description": "Report to the Imperial Officer for your next assignment."
+      },
+      "companions_pre_escort": {
+        "name": "Get the Circus Going",
+        "description": "Talk to your companions before heading out."
+      },
+      "bar_investigation": {
+        "name": "I Like to Move It Move It",
+        "description": "Search for the transporter at Porto Nido."
+      },
+      "rescue_rhine": {
+        "name": "That Wasn't in the Script",
+        "description": "Find Rhine before it is too late."
+      },
+      "fight_dock_thugs": {
+        "name": "Not On My Watch",
+        "description": "Defeat the dock thugs to save Rhine."
+      },
+      "arrive_tauros": {
+        "name": "Not Again",
+        "description": "Regroup with your companions at Tauros Grotto and plan your next move."
+      },
+      "find_moonbay": {
+        "name": "The Transporter",
+        "description": "Explore the Tauros Grotto to find the contact."
+      },
+      "moonbay_mission": {
+        "name": "It Worked, Didn't It?",
+        "description": "Talk to Moonbay and plan the cargo retrieval."
+      },
+      "arcobaleno_ambush": {
+        "name": "Who Does That?!",
+        "description": "Check the supply cache at Arcobaleno Camp."
+      },
+      "recover_cargo": {
+        "name": "Triple Threat",
+        "description": "Track down and recover the stolen explosives from the bandits."
+      },
+      "escort_elmia": {
+        "name": "The Lone Transporter of the Wasteland",
+        "description": "Escort Moonbay safely through the Elmia Ruins."
+      },
+      "escort_debrief": {
+        "name": "That Was Easy",
+        "description": "Report back to the Imperial Officer."
+      },
+      "post_escort_talk": {
+        "name": "Now the Fun Begins",
+        "description": "Talk to your companions about the road ahead."
+      },
+      "fight_guysack_heavy_armor": {
+        "name": "Hit Me But Don't Leave Me",
+        "description": "Fight the Guysack Heavy Armor to protect Rhine."
+      },
+      "defeat_guysack_heavy_armor": {
+        "name": "The Scorpion King",
+        "description": "Destroy the Guysack Heavy Armor's transmitters to shut down the Sleeper horde."
       }
     },
     "name": "The Beast of Olympus"

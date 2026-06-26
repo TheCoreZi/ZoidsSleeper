@@ -1,5 +1,5 @@
 import { t } from '../i18n';
-import { getZoidById } from '../models/Zoid';
+import { getZoidName } from '../models/Zoid';
 import { getPilotDefeats } from '../store/statisticsStore';
 import type { Requirement } from './Requirement';
 
@@ -15,7 +15,7 @@ export class WildDefeatRequirement implements Requirement {
   }
 
   hint(): string {
-    return t('requirements:defeat_wild', { name: getZoidById(this.zoidId).name });
+    return t('requirements:defeat_wild', { name: getZoidName(this.zoidId) });
   }
 
   isCompleted(): boolean {

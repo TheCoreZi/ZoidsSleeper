@@ -3,6 +3,7 @@ import { t } from '../i18n';
 import { FACTIONS } from '../models/Faction';
 import {
   getZoidImage,
+  getZoidName,
   ZOID_LIST,
   ZoidResearchStatus,
 } from '../models/Zoid';
@@ -41,7 +42,7 @@ function getArchiveNumericStat(id: string, stat: StatOption, status: ZoidResearc
 
 function archiveCompare(aId: string, bId: string, aStat: ZoidResearchStatus, bStat: ZoidResearchStatus, stat: StatOption): number {
   if (stat === StatOption.Name) {
-    return ZOID_LIST[bId].name.localeCompare(ZOID_LIST[aId].name);
+    return getZoidName(bId).localeCompare(getZoidName(aId));
   }
   return getArchiveNumericStat(aId, stat, aStat) - getArchiveNumericStat(bId, stat, bStat);
 }
@@ -147,9 +148,9 @@ export const ArchiveCard: ParentComponent<ArchiveCardProps> = (props) => {
         <img
           class="archive-card-image"
           src={getZoidImage(props.id)}
-          alt={zoid().name}
+          alt={getZoidName(props.id)}
         />
-        <span class="archive-card-name">{props.status ? zoid().name : '???'}</span>
+        <span class="archive-card-name">{props.status ? getZoidName(props.id) : '???'}</span>
         <Show when={props.statLabel}>
           <span class="archive-card-stat">{props.statLabel}</span>
         </Show>

@@ -426,11 +426,11 @@
 }
 
 .pilot-zoid-roster img {
-  height: 24px;
+  height: 32px;
   image-rendering: pixelated;
   object-fit: contain;
   transition: filter 0.3s, opacity 0.3s;
-  width: 24px;
+  width: 32px;
 }
 
 .pilot-zoid-roster img.defeated {

@@ -1,4 +1,5 @@
 export { ActionDuelPilot } from './ActionDuelPilot';
+export { ActionDuelWild } from './ActionDuelWild';
 export { ActionFightPilot } from './ActionFightPilot';
 export { ActionFightWild } from './ActionFightWild';
 export { ActionPlayCutscene } from './ActionPlayCutscene';

@@ -4,9 +4,8 @@ import { CoreType } from '../item/ZoidCore';
 import { PILOTS } from '../models/Pilot';
 import { ANCIENT_TORTOISE_DUEL, BARRAGE_TORTOISE_DUEL } from '../models/StoryBlueprints';
 import { GALE_EW_CHAIN } from '../story/eventchains/galeEwChain';
-import { FEATURE_FLAGS } from '../featureFlag';
 import { Faction } from '../models/Faction';
-import { AllOfRequirement, ArmySizeRequirement, COMPOUND_REQUIREMENTS, ComparisonCondition, FactionRequirement, FeatureFlagRequirement, ImpossibleRequirement, ItemRequirement, MissionCompletedRequirement, NpcTalkedInCampaignRequirement, PilotDefeatRequirement, RouteKillRequirement, WildDefeatRequirement } from '../requirement';
+import { AllOfRequirement, ArmySizeRequirement, COMPOUND_REQUIREMENTS, ComparisonCondition, FactionRequirement, ImpossibleRequirement, ItemRequirement, MissionCompletedRequirement, NpcTalkedInCampaignRequirement, PilotDefeatRequirement, RouteKillRequirement, WildDefeatRequirement } from '../requirement';
 import { activateCityActionReward, compositeReward, cutsceneReward, itemReward, missionAdvanceReward, removeItemReward, removeZiDataReward, removeZoidReward, typedZoidCoreReward, zoidReward } from '../reward';
 import { ActionDuelPilot } from './action/ActionDuelPilot';
 import { ActionFightPilot } from './action/ActionFightPilot';
@@ -32,19 +31,19 @@ const S = 'shells_of_time';
 
 const AUTOMATIC_ACTIONS: Record<string, CityAction[]> = {
   arthur_talk_fight_decide: (() => {
-    const requirements = [new FeatureFlagRequirement(FEATURE_FLAGS.SHELLS_OF_TIME), new MissionCompletedRequirement(C, 'deliver_girl')];
+    const requirements = [new MissionCompletedRequirement(C, 'deliver_girl')];
     const completeRequirements = [new PilotDefeatRequirement('arthur')];
     const hidden = [new ImpossibleRequirement()];
-    const decision = new ActionTalkToNPC('arthur', [new PilotDefeatRequirement('arthur')]);
+    const decision = new ActionTalkToNPC('arthur', [new PilotDefeatRequirement('arthur')], [COMPOUND_REQUIREMENTS.beaten_arthur_enrolled]);
     const fight = new ActionFightPilot(PILOTS['arthur'], hidden, completeRequirements, false, activateCityActionReward(decision));
     const intro = new ActionTalkToNPC('arthur', requirements, completeRequirements, activateCityActionReward(fight));
     return [intro, fight, decision];
   })(),
   concho_talk_fight_decide: (() => {
-    const requirements = [new FeatureFlagRequirement(FEATURE_FLAGS.SHELLS_OF_TIME), new MissionCompletedRequirement(C, 'deliver_girl')];
+    const requirements = [new MissionCompletedRequirement(C, 'deliver_girl')];
     const completeRequirements = [new PilotDefeatRequirement('concho_cancer')];
     const hidden = [new ImpossibleRequirement()];
-    const decision = new ActionTalkToNPC('concho_cancer', [new PilotDefeatRequirement('concho_cancer')]);
+    const decision = new ActionTalkToNPC('concho_cancer', [new PilotDefeatRequirement('concho_cancer')], [COMPOUND_REQUIREMENTS.beaten_concho_enrolled]);
     const fight = new ActionFightPilot(PILOTS['concho_cancer'], hidden, completeRequirements, false, activateCityActionReward(decision));
     const intro = new ActionTalkToNPC('concho_cancer', requirements, completeRequirements, activateCityActionReward(fight));
     return [intro, fight, decision];
@@ -82,7 +81,7 @@ export const CITIES: City[] = [
       new ActionVisitDepot([ITEMS.core_proto_core as ConsumableItem], [new MissionCompletedRequirement(S, 'sanctuary_secrets')], 'ui:visit_sanctuary_vault'),
     ],
     battleBackground: BattleBackground.Water,
-    featureFlag: FEATURE_FLAGS.SHELLS_OF_TIME,
+
     id: 'chimera_island',
     mapPosition: { x: 23, y: 48 },
     name: 'Chimera Island',
@@ -122,6 +121,12 @@ export const CITIES: City[] = [
         [new MissionCompletedRequirement(S, 'hunt_cannon_tortoise')],
         [new WildDefeatRequirement('ancient_tortoise_wild', 'ancient_tortoise')]
       ),
+      // Segment 2: Arcobaleno ambush
+      new ActionTalkToNPC('eddie_crescent',
+        [new MissionCompletedRequirement(G, 'moonbay_mission')],
+        [new MissionCompletedRequirement(G, 'recover_cargo')],
+        undefined,
+        'ui:check_cargo'),
     ],
     battleBackground: BattleBackground.Desert,
     id: 'arcobaleno_camp',
@@ -178,11 +183,54 @@ export const CITIES: City[] = [
       new ActionTalkToNPC('eddie_crescent',
         [new MissionCompletedRequirement(G, 'trials_complete')],
         [new MissionCompletedRequirement(G, 'talk_to_companions')]),
+      // Segment 2: Ruins briefing
+      new ActionTalkToNPC('imperial_training_officer',
+        [new MissionCompletedRequirement(G, 'talk_to_companions')],
+        [new MissionCompletedRequirement(G, 'scout_ruins')],
+        undefined,
+        'ui:receive_orders'),
+      // Segment 2: Optional pre-ruins companion dialogs
+      new ActionTalkToNPC('rhine_hawk',
+        [new MissionCompletedRequirement(G, 'ruins_briefing')],
+        [new MissionCompletedRequirement(G, 'scout_ruins')]),
+      new ActionTalkToNPC('eddie_crescent',
+        [new MissionCompletedRequirement(G, 'ruins_briefing')],
+        [new MissionCompletedRequirement(G, 'scout_ruins')]),
+      // Segment 2: Ruins debrief
+      new ActionTalkToNPC('imperial_training_officer',
+        [new MissionCompletedRequirement(G, 'defeat_guysack_heavy_armor')],
+        [new MissionCompletedRequirement(G, 'team_bonding')]),
+      // Segment 2: Team bonding
+      new ActionTalkToNPC('kara',
+        [new MissionCompletedRequirement(G, 'ruins_debrief')],
+        [new MissionCompletedRequirement(G, 'escort_briefing')]),
+      // Segment 2: Escort briefing
+      new ActionTalkToNPC('imperial_training_officer',
+        [new MissionCompletedRequirement(G, 'team_bonding')],
+        [new MissionCompletedRequirement(G, 'companions_pre_escort')],
+        undefined,
+        'ui:receive_orders'),
+      // Segment 2: Pre-escort companion dialog
+      new ActionTalkToNPC('eddie_crescent',
+        [new MissionCompletedRequirement(G, 'escort_briefing')],
+        [new MissionCompletedRequirement(G, 'bar_investigation')],
+        undefined,
+        'ui:prepare_mission'),
+      // Segment 2: Escort debrief (with Kirsche)
+      new ActionTalkToNPC('imperial_training_officer',
+        [new MissionCompletedRequirement(G, 'escort_elmia')],
+        [new MissionCompletedRequirement(G, 'post_escort_talk')]),
+      // Segment 2: Post-escort talk
+      new ActionTalkToNPC('eddie_crescent',
+        [new MissionCompletedRequirement(G, 'escort_debrief')],
+        undefined,
+        undefined,
+        'ui:talk_to_companions'),
       new ActionVisitDepot([ITEMS.core_preserver as ConsumableItem, ITEMS.core_saver as ConsumableItem], undefined, 'ui:visit_armory'),
       new ActionVisitLab('lab'),
     ],
     battleBackground: BattleBackground.Plain,
-    featureFlag: FEATURE_FLAGS.SHELLS_OF_TIME,
+
     id: 'imperial_camp',
     mapPosition: { x: 23, y:32 },
     name: 'Imperial Camp',
@@ -196,9 +244,16 @@ export const CITIES: City[] = [
       new ActionDuelPilot(PILOTS['opis_kerone'], [new MissionCompletedRequirement(S, 'fight_gale_ew')], [new PilotDefeatRequirement('opis_kerone')], false, cutsceneReward('narration_gorge_ambush'), ANCIENT_TORTOISE_DUEL),
       new ActionFightPilot(PILOTS['opis_kerone'], [new MissionCompletedRequirement(S, 'duel_opis_tortoise')], [new PilotDefeatRequirement('opis_kerone', 2)], false, cutsceneReward('narration_tortoise_reborn')),
       new ActionDuelPilot(PILOTS['gale_task'], [new MissionCompletedRequirement(S, 'fight_opis_army')], [new PilotDefeatRequirement('gale_task', 2)], false, compositeReward(cutsceneReward('narration_gorge_retreat'), zoidReward('barrage_tortoise')), BARRAGE_TORTOISE_DUEL),
+      // Segment 2: Recover cargo - gorge bandits
+      new ActionFightPilot(PILOTS['bandits_gorge'],
+        [new MissionCompletedRequirement(G, 'arcobaleno_ambush')],
+        [new PilotDefeatRequirement('bandits_gorge')]),
+      new ActionPlayCutscene(CUTSCENES.narration_desert_gorge_reflection, 'ui:talk_to_companions',
+        [new MissionCompletedRequirement(G, 'recover_cargo')],
+        [new MissionCompletedRequirement(G, 'escort_elmia')]),
     ],
     battleBackground: BattleBackground.Desert,
-    featureFlag: FEATURE_FLAGS.SHELLS_OF_TIME,
+
     id: 'desert_gorge',
     mapPosition: { x: 30, y: 40 },
     name: 'Desert Gorge',
@@ -226,9 +281,28 @@ export const CITIES: City[] = [
         [new MissionCompletedRequirement(S, 'fight_raven')],
         [new MissionCompletedRequirement(S, 'pursue_kidnappers')]),
       new ActionTalkToNPC('fisherman', [COMPOUND_REQUIREMENTS.fisherman_tutorial]),
+      // Segment 2: Bar investigation
+      new ActionTalkToNPC('thug',
+        [new MissionCompletedRequirement(G, 'companions_pre_escort')],
+        [new MissionCompletedRequirement(G, 'bar_investigation')],
+        undefined,
+        'ui:search_bar'),
+      // Segment 2: Rescue Rhine
+      new ActionTalkToNPC('rhine_hawk',
+        [new MissionCompletedRequirement(G, 'bar_investigation')],
+        [new MissionCompletedRequirement(G, 'rescue_rhine')],
+        undefined,
+        'ui:find_rhine'),
+      // Segment 2: Fight dock thugs
+      new ActionFightPilot(PILOTS['dock_thugs'],
+        [new MissionCompletedRequirement(G, 'rescue_rhine')],
+        [new PilotDefeatRequirement('dock_thugs')]),
+      new ActionPlayCutscene(CUTSCENES.narration_rhine_rescued, 'ui:go_back_to_bar',
+        [new MissionCompletedRequirement(G, 'fight_dock_thugs')],
+        [new MissionCompletedRequirement(G, 'arrive_tauros')]),
     ],
     battleBackground: BattleBackground.Dirt,
-    featureFlag: FEATURE_FLAGS.SHELLS_OF_TIME,
+
     id: 'porto_nido',
     mapPosition: { x: 29, y: 49 },
     name: 'Porto Nido',
@@ -260,6 +334,20 @@ export const CITIES: City[] = [
       new ActionTalkToNPC('van', [new MissionCompletedRequirement(C, 'check_van_colony')], [new PilotDefeatRequirement('van_shield_liger')]),
       new ActionDuelPilot(PILOTS['van_shield_liger'], [new MissionCompletedRequirement(C, 'find_van_oasis')], [new MissionCompletedRequirement(C, 'fight_van')]),
       ...AUTOMATIC_ACTIONS.pillbug_dealer_shop,
+      // Segment 2: Recover cargo - oasis bandits
+      ...(() => {
+        const moonbayTalk = new ActionTalkToNPC('moonbay',
+          [new PilotDefeatRequirement('bandits_oasis')],
+          [new MissionCompletedRequirement(G, 'recover_cargo')]);
+        return [
+          new ActionFightPilot(PILOTS['bandits_oasis'],
+            [new MissionCompletedRequirement(G, 'arcobaleno_ambush')],
+            [new PilotDefeatRequirement('bandits_oasis')],
+            false,
+            activateCityActionReward(moonbayTalk)),
+          moonbayTalk,
+        ];
+      })(),
     ],
     battleBackground: BattleBackground.Desert,
     id: 'wind_oasis',
@@ -293,7 +381,7 @@ export const CITIES: City[] = [
       new ActionVisitLab('lab'),
     ],
     battleBackground: BattleBackground.Grass,
-    featureFlag: FEATURE_FLAGS.SHELLS_OF_TIME,
+
     id: 'republican_camp',
     mapPosition: { x: 43, y: 42 },
     name: 'Republican Camp',

@@ -1,4 +1,5 @@
 import { AllOfRule, AtLeastOneOfRule, AttackRule, Evolution, FactionRule, HealthRule, ItemRule, LevelRule } from '../evolution';
+import { ItemDrop } from '../item/ItemDrop';
 import { ZiDataDrop } from '../item/ZiDataDrop';
 import { Faction } from './Faction';
 import { LevelType } from './LevelType';
@@ -142,6 +143,7 @@ export const ZOID_LIST: Record<string, ZoidSpecies> = {
     scanRate: 30,
     size: ZoidSize.S,
     terrainTypes: [TerrainType.Water, TerrainType.Land],
+    itemDrops: [new ItemDrop('buster_cannon', 10)],
     height: 5.8,
     length: 9.9,
     speed: 80,
@@ -674,6 +676,7 @@ export const ZOID_LIST: Record<string, ZoidSpecies> = {
     maxHealth: 400,
     baseExp: 45,
     coreFragments: 1200,
+    evolutions: [new Evolution('guysack_heavy_armor', new ItemRule('reinforced_cockpit'))],
     faction: Faction.HelicRepublic,
     levelType: LevelType.MediumFast,
     price: 8000,
@@ -687,6 +690,27 @@ export const ZOID_LIST: Record<string, ZoidSpecies> = {
     type: 'scorpion',
     weight: 22,
     width: 6.2,
+  },
+  guysack_heavy_armor: {
+    id: 'guysack_heavy_armor',
+    name: 'Guysack Heavy Armor',
+    attack: 180,
+    maxHealth: 500,
+    baseExp: 50,
+    coreFragments: 1200,
+    faction: Faction.HelicRepublic,
+    levelType: LevelType.MediumFast,
+    price: 50000,
+    scanRate: -1,
+    size: ZoidSize.S,
+    terrainTypes: [TerrainType.Land],
+    itemDrops: [new ItemDrop('reinforced_cockpit', 20)],
+    height: 5,
+    length: 12,
+    speed: 100,
+    type: 'scorpion',
+    weight: 30,
+    width: 7,
   },
   hammerrock: {
     id: 'hammerrock',

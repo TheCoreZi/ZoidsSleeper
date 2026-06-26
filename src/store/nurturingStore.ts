@@ -5,7 +5,7 @@ import { levelFromExperience } from '../models/LevelType';
 import { PopupMessage, PopupType } from '../models/PopupMessage';
 import { NO_TRANSPORT_BONUS, TRANSPORT_ZOID_BONUSES, type TransportZoidBonus } from '../models/TransportZoid';
 import type { OwnedZoid } from '../models/Zoid';
-import { getZoidById, getZoidImage, ZOID_LIST } from '../models/Zoid';
+import { getZoidById, getZoidImage, getZoidName } from '../models/Zoid';
 import { playerStats, showPopup } from './gameStore';
 import { addZoidToArmy, party, setParty } from './partyStore';
 import type { TankSlot } from './TankSlot';
@@ -48,7 +48,7 @@ function completeSlot(index: number): void {
     }));
   }
 
-  const name = ZOID_LIST[slot.zoidSpeciesId]?.name ?? slot.zoidSpeciesId;
+  const name = getZoidName(slot.zoidSpeciesId);
   showPopup(new PopupMessage(name, t('ui:nurturing_zoid_hatched', { name }), PopupType.Item, getZoidImage(slot.zoidSpeciesId)));
   setTankSlots((prev) => prev.filter((_, i) => i !== index));
 }
