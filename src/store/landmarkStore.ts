@@ -3,9 +3,11 @@ import type { BattleBackground, City, Dungeon, Landmark, Route } from '../landma
 import { BattleBackgroundTerrain, getCity, getDungeon, getRoute, isRoute, ROUTES } from '../landmark';
 import type { Region } from '../map/Region';
 import { REGIONS } from '../map/Region';
+import { registerLocationProvider } from './locationProvider';
 import { setCurrentTerrain } from './terrainStore';
 
 const [currentLandmark, _setCurrentLandmark] = createSignal<Landmark>(ROUTES[0]);
+registerLocationProvider(() => currentLandmark().id);
 const [currentRegion, setCurrentRegion] = createSignal<Region>(REGIONS[0]);
 
 function setCurrentLandmark(landmark: Landmark): void {

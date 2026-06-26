@@ -1,5 +1,5 @@
 import { Faction } from '../models/Faction';
-import { AllOfRequirement, COMPOUND_REQUIREMENTS, FactionRequirement, MissionCompletedRequirement, NotRequirement, PilotDefeatRequirement } from '../requirement';
+import { AllOfRequirement, AtLeastNRequirement, AtLeastOneRequirement, COMPOUND_REQUIREMENTS, FactionRequirement, LocationRequirement, MissionCompletedRequirement, NotRequirement, PilotDefeatRequirement } from '../requirement';
 import type { Requirement } from '../requirement';
 import { DECISIONS } from '../dialog/decisions';
 import type { DialogDecision, SpeakerOverride } from '../dialog/Dialog';
@@ -139,6 +139,77 @@ export const NPCS: Record<string, Npc> = {
   },
   eddie_crescent: {
     dialogs: [
+      {
+        dialogKey: 'dialog:narration_post_escort_talk',
+        speakers: {
+          0: { speakerKey: 'pilots:eddie_crescent', portrait: 'images/pilots/eddie_crescent.png' },
+          1: { speakerKey: 'pilots:rhine_hawk', portrait: 'images/pilots/rhine_hawk.png' },
+          2: { speakerKey: 'pilots:eddie_crescent', portrait: 'images/pilots/eddie_crescent.png' },
+          3: { speakerKey: 'pilots:kara', portrait: 'images/pilots/girl.png' },
+          4: { speakerKey: 'pilots:eddie_crescent', portrait: 'images/pilots/eddie_crescent.png' },
+          5: { speakerKey: 'pilots:rhine_hawk', portrait: 'images/pilots/rhine_hawk.png' },
+          6: { speakerKey: 'pilots:eddie_crescent', portrait: 'images/pilots/eddie_crescent.png' },
+          7: { speakerKey: 'pilots:rhine_hawk', portrait: 'images/pilots/rhine_hawk.png' },
+          8: { speakerKey: 'pilots:eddie_crescent', portrait: 'images/pilots/eddie_crescent.png' },
+          9: { speakerKey: 'pilots:kara', portrait: 'images/pilots/girl.png' },
+          10: { speakerKey: 'pilots:eddie_crescent', portrait: 'images/pilots/eddie_crescent.png' },
+        },
+        unlockRequirement: new MissionCompletedRequirement('olympus_guylos', 'escort_debrief'),
+      },
+      {
+        dialogKey: 'dialog:narration_arcobaleno_ambush',
+        speakers: {
+          0: { speakerKey: 'pilots:rhine_hawk', portrait: 'images/pilots/rhine_hawk.png' },
+          1: { speakerKey: 'pilots:rhine_hawk', portrait: 'images/pilots/rhine_hawk.png' },
+          2: { speakerKey: 'pilots:eddie_crescent', portrait: 'images/pilots/eddie_crescent.png' },
+          3: { speakerKey: 'pilots:rhine_hawk', portrait: 'images/pilots/rhine_hawk.png' },
+          4: { speakerKey: 'pilots:rhine_hawk', portrait: 'images/pilots/rhine_hawk.png' },
+          5: { speakerKey: 'pilots:eddie_crescent', portrait: 'images/pilots/eddie_crescent.png' },
+          6: { speakerKey: 'pilots:rhine_hawk', portrait: 'images/pilots/rhine_hawk.png' },
+          7: { speakerKey: 'pilots:eddie_crescent', portrait: 'images/pilots/eddie_crescent.png' },
+        },
+        unlockRequirement: new MissionCompletedRequirement('olympus_guylos', 'moonbay_mission'),
+      },
+      {
+        dialogKey: 'dialog:narration_arrive_tauros',
+        speakers: {
+          0: { speakerKey: 'pilots:rhine_hawk', portrait: 'images/pilots/rhine_hawk.png' },
+          1: { speakerKey: 'pilots:eddie_crescent', portrait: 'images/pilots/eddie_crescent.png' },
+          2: { speakerKey: 'pilots:rhine_hawk', portrait: 'images/pilots/rhine_hawk.png' },
+          3: { speakerKey: 'pilots:eddie_crescent', portrait: 'images/pilots/eddie_crescent.png' },
+          4: { speakerKey: 'pilots:rhine_hawk', portrait: 'images/pilots/rhine_hawk.png' },
+        },
+        unlockRequirement: new MissionCompletedRequirement('olympus_guylos', 'fight_dock_thugs'),
+      },
+      {
+        dialogKey: 'dialog:companions_pre_escort',
+        speakers: {
+          0: { speakerKey: 'pilots:rhine_hawk', portrait: 'images/pilots/rhine_hawk.png' },
+          1: { speakerKey: 'pilots:eddie_crescent', portrait: 'images/pilots/eddie_crescent.png' },
+          2: { speakerKey: 'pilots:eddie_crescent', portrait: 'images/pilots/eddie_crescent.png' },
+          3: { speakerKey: 'pilots:kara', portrait: 'images/pilots/girl.png' },
+          4: { speakerKey: 'pilots:eddie_crescent', portrait: 'images/pilots/eddie_crescent.png' },
+          5: { speakerKey: 'pilots:eddie_crescent', portrait: 'images/pilots/eddie_crescent.png' },
+        },
+        unlockRequirement: new MissionCompletedRequirement('olympus_guylos', 'escort_briefing'),
+      },
+      {
+        dialogKey: 'dialog:narration_ruins_discovery',
+        speakers: {
+          0: { speakerKey: 'pilots:eddie_crescent', portrait: 'images/pilots/eddie_crescent.png' },
+          1: { speakerKey: 'pilots:rhine_hawk', portrait: 'images/pilots/rhine_hawk.png' },
+          2: { speakerKey: 'pilots:eddie_crescent', portrait: 'images/pilots/eddie_crescent.png' },
+          3: { speakerKey: 'pilots:rhine_hawk', portrait: 'images/pilots/rhine_hawk.png' },
+          4: { speakerKey: 'pilots:eddie_crescent', portrait: 'images/pilots/eddie_crescent.png' },
+          5: { speakerKey: 'pilots:rhine_hawk', portrait: 'images/pilots/rhine_hawk.png' },
+          6: { speakerKey: 'pilots:eddie_crescent', portrait: 'images/pilots/eddie_crescent.png' },
+        },
+        unlockRequirement: new AllOfRequirement([new MissionCompletedRequirement('olympus_guylos', 'ruins_briefing'), new LocationRequirement('hollow_ruins')]),
+      },
+      {
+        dialogKey: 'dialog:eddie_crescent_pre_ruins',
+        unlockRequirement: new MissionCompletedRequirement('olympus_guylos', 'ruins_briefing'),
+      },
       {
         dialogKey: 'dialog:eddie_crescent_companion',
         speakers: {
@@ -341,6 +412,33 @@ export const NPCS: Record<string, Npc> = {
   imperial_training_officer: {
     dialogs: [
       {
+        dialogKey: 'dialog:imperial_officer_escort_debrief',
+        speakers: {
+          3: { speakerKey: 'pilots:imperial_training_officer', portrait: 'images/pilots/empire_soldier.png' },
+          4: { speakerKey: 'pilots:kirsche_hartriegel', portrait: 'images/pilots/kirsche_hartriegel.png' },
+          5: { speakerKey: 'pilots:rhine_hawk', portrait: 'images/pilots/rhine_hawk.png' },
+          6: { speakerKey: 'pilots:kirsche_hartriegel', portrait: 'images/pilots/kirsche_hartriegel.png' },
+          7: { speakerKey: 'pilots:kirsche_hartriegel', portrait: 'images/pilots/kirsche_hartriegel.png' },
+        },
+        unlockRequirement: new MissionCompletedRequirement('olympus_guylos', 'escort_elmia'),
+      },
+      {
+        dialogKey: 'dialog:imperial_officer_escort_briefing',
+        unlockRequirement: new MissionCompletedRequirement('olympus_guylos', 'team_bonding'),
+      },
+      {
+        dialogKey: 'dialog:imperial_officer_ruins_debrief',
+        speakers: {
+          3: { speakerKey: 'pilots:eddie_crescent', portrait: 'images/pilots/eddie_crescent.png' },
+          4: { speakerKey: '', portrait: '' },
+        },
+        unlockRequirement: new MissionCompletedRequirement('olympus_guylos', 'defeat_guysack_heavy_armor'),
+      },
+      {
+        dialogKey: 'dialog:imperial_officer_ruins_briefing',
+        unlockRequirement: new MissionCompletedRequirement('olympus_guylos', 'talk_to_companions'),
+      },
+      {
         dialogKey: 'dialog:imperial_officer_trials_done',
         unlockRequirement: new MissionCompletedRequirement('olympus_guylos', 'recruitment_trials'),
       },
@@ -368,6 +466,27 @@ export const NPCS: Record<string, Npc> = {
   },
   kara: {
     dialogs: [
+      {
+        dialogKey: 'dialog:narration_team_bonding',
+        speakers: {
+          0: { speakerKey: 'pilots:kara', portrait: 'images/pilots/girl.png' },
+          1: { speakerKey: 'pilots:eddie_crescent', portrait: 'images/pilots/eddie_crescent.png' },
+          2: { speakerKey: 'pilots:rhine_hawk', portrait: 'images/pilots/rhine_hawk.png' },
+          3: { speakerKey: 'pilots:eddie_crescent', portrait: 'images/pilots/eddie_crescent.png' },
+          4: { speakerKey: 'pilots:rhine_hawk', portrait: 'images/pilots/rhine_hawk.png' },
+          5: { speakerKey: 'pilots:eddie_crescent', portrait: 'images/pilots/eddie_crescent.png' },
+          6: { speakerKey: 'pilots:kara', portrait: 'images/pilots/girl.png' },
+          7: { speakerKey: 'pilots:eddie_crescent', portrait: 'images/pilots/eddie_crescent.png' },
+          8: { speakerKey: 'pilots:rhine_hawk', portrait: 'images/pilots/rhine_hawk.png' },
+          9: { speakerKey: 'pilots:eddie_crescent', portrait: 'images/pilots/eddie_crescent.png' },
+          10: { speakerKey: 'pilots:kara', portrait: 'images/pilots/girl.png' },
+          11: { speakerKey: 'pilots:eddie_crescent', portrait: 'images/pilots/eddie_crescent.png' },
+          12: { speakerKey: 'pilots:kara', portrait: 'images/pilots/girl.png' },
+          13: { speakerKey: 'pilots:eddie_crescent', portrait: 'images/pilots/eddie_crescent.png' },
+          14: { speakerKey: 'pilots:rhine_hawk', portrait: 'images/pilots/rhine_hawk.png' },
+        },
+        unlockRequirement: new MissionCompletedRequirement('olympus_guylos', 'ruins_debrief'),
+      },
       {
         dialogKey: 'dialog:kara_companion_imperial',
         speakers: {
@@ -433,6 +552,60 @@ export const NPCS: Record<string, Npc> = {
     nameKey: 'pilots:mana_pawn',
     portrait: 'images/pilots/mana_pawn.png',
   },
+  moonbay: {
+    dialogs: [
+      {
+        dialogKey: 'dialog:moonbay_pickup_2',
+        speakers: {
+          0: { speakerKey: 'pilots:moonbay', portrait: 'images/pilots/moonbay.png' },
+          1: { speakerKey: 'pilots:eddie_crescent', portrait: 'images/pilots/eddie_crescent.png' },
+          2: { speakerKey: 'pilots:moonbay', portrait: 'images/pilots/moonbay.png' },
+          3: { speakerKey: 'pilots:eddie_crescent', portrait: 'images/pilots/eddie_crescent.png' },
+          4: { speakerKey: 'pilots:moonbay', portrait: 'images/pilots/moonbay.png' },
+          5: { speakerKey: 'pilots:eddie_crescent', portrait: 'images/pilots/eddie_crescent.png' },
+          6: { speakerKey: 'pilots:moonbay', portrait: 'images/pilots/moonbay.png' },
+        },
+        unlockRequirement: new AtLeastNRequirement([new PilotDefeatRequirement('bandits_oasis'), new PilotDefeatRequirement('bandits_elmia'), new PilotDefeatRequirement('bandits_gorge')], 2),
+      },
+      {
+        dialogKey: 'dialog:moonbay_pickup_1',
+        images: { 11: 'images/characters/beacon_full.png', 12: '' },
+        speakers: {
+          0: { speakerKey: 'pilots:moonbay', portrait: 'images/pilots/moonbay.png' },
+          1: { speakerKey: 'pilots:moonbay', portrait: 'images/pilots/moonbay.png' },
+          2: { speakerKey: 'pilots:kara', portrait: 'images/pilots/girl.png' },
+          3: { speakerKey: 'pilots:moonbay', portrait: 'images/pilots/moonbay.png' },
+          4: { speakerKey: 'pilots:moonbay', portrait: 'images/pilots/moonbay.png' },
+          5: { speakerKey: 'pilots:kara', portrait: 'images/pilots/girl.png' },
+          6: { speakerKey: 'pilots:moonbay', portrait: 'images/pilots/moonbay.png' },
+          7: { speakerKey: 'pilots:kara', portrait: 'images/pilots/girl.png' },
+          8: { speakerKey: 'pilots:moonbay', portrait: 'images/pilots/moonbay.png' },
+          9: { speakerKey: 'pilots:kara', portrait: 'images/pilots/girl.png' },
+          10: { speakerKey: 'pilots:moonbay', portrait: 'images/pilots/moonbay.png' },
+          11: { speakerKey: 'pilots:kara', portrait: 'images/pilots/girl.png' },
+          12: { speakerKey: 'pilots:moonbay', portrait: 'images/pilots/moonbay.png' },
+        },
+        unlockRequirement: new AtLeastOneRequirement([new PilotDefeatRequirement('bandits_oasis'), new PilotDefeatRequirement('bandits_elmia'), new PilotDefeatRequirement('bandits_gorge')]),
+      },
+      {
+        dialogKey: 'dialog:moonbay_getting_to_know',
+        speakers: {
+          0: { speakerKey: 'pilots:moonbay', portrait: 'images/pilots/moonbay.png' },
+          1: { speakerKey: 'pilots:rhine_hawk', portrait: 'images/pilots/rhine_hawk.png' },
+          2: { speakerKey: 'pilots:moonbay', portrait: 'images/pilots/moonbay.png' },
+          3: { speakerKey: 'pilots:eddie_crescent', portrait: 'images/pilots/eddie_crescent.png' },
+          4: { speakerKey: 'pilots:moonbay', portrait: 'images/pilots/moonbay.png' },
+          5: { speakerKey: 'pilots:rhine_hawk', portrait: 'images/pilots/rhine_hawk.png' },
+          6: { speakerKey: 'pilots:moonbay', portrait: 'images/pilots/moonbay.png' },
+        },
+        unlockRequirement: new MissionCompletedRequirement('olympus_guylos', 'find_moonbay'),
+      },
+      { dialogKey: 'dialog:moonbay_intro' },
+    ],
+    id: 'moonbay',
+    nameKey: 'pilots:moonbay',
+    portrait: 'images/pilots/moonbay.png',
+  },
   registration_officer: {
     dialogs: [
       {
@@ -452,6 +625,25 @@ export const NPCS: Record<string, Npc> = {
   },
   rhine_hawk: {
     dialogs: [
+      {
+        dialogKey: 'dialog:narration_rhine_rescue',
+        speakers: {
+          1: { speakerKey: 'pilots:thug', portrait: 'images/pilots/thug.png' },
+          2: { speakerKey: '', portrait: '' },
+          3: { speakerKey: 'pilots:kara', portrait: 'images/pilots/girl.png' },
+          4: { speakerKey: 'pilots:thug', portrait: 'images/pilots/thug.png' },
+          5: { speakerKey: 'pilots:thug', portrait: 'images/pilots/thug.png' },
+        },
+        unlockRequirement: new MissionCompletedRequirement('olympus_guylos', 'bar_investigation'),
+      },
+      {
+        dialogKey: 'dialog:narration_rhine_plan',
+        unlockRequirement: new MissionCompletedRequirement('olympus_guylos', 'escape_ruins'),
+      },
+      {
+        dialogKey: 'dialog:rhine_hawk_pre_ruins',
+        unlockRequirement: new MissionCompletedRequirement('olympus_guylos', 'ruins_briefing'),
+      },
       {
         dialogKey: 'dialog:rhine_hawk_companion',
         speakers: {
@@ -519,6 +711,31 @@ export const NPCS: Record<string, Npc> = {
     ],
     id: 'scrap_dealer',
     nameKey: 'pilots:scrap_dealer',
+  },
+  thug: {
+    dialogs: [
+      {
+        dialogKey: 'dialog:narration_bar_investigation',
+        speakers: {
+          0: { speakerKey: 'pilots:rhine_hawk', portrait: 'images/pilots/rhine_hawk.png' },
+          1: { speakerKey: 'pilots:rhine_hawk', portrait: 'images/pilots/rhine_hawk.png' },
+          2: { speakerKey: 'pilots:eddie_crescent', portrait: 'images/pilots/eddie_crescent.png' },
+          3: { speakerKey: 'pilots:rhine_hawk', portrait: 'images/pilots/rhine_hawk.png' },
+          4: { speakerKey: 'pilots:eddie_crescent', portrait: 'images/pilots/eddie_crescent.png' },
+          5: { speakerKey: 'pilots:rhine_hawk', portrait: 'images/pilots/rhine_hawk.png' },
+          6: { speakerKey: '', portrait: '' },
+          7: { speakerKey: 'pilots:rhine_hawk', portrait: 'images/pilots/rhine_hawk.png' },
+          8: { speakerKey: '', portrait: '' },
+          9: { speakerKey: 'pilots:eddie_crescent', portrait: 'images/pilots/eddie_crescent.png' },
+          10: { speakerKey: 'pilots:eddie_crescent', portrait: 'images/pilots/eddie_crescent.png' },
+        },
+        unlockRequirement: new MissionCompletedRequirement('olympus_guylos', 'companions_pre_escort'),
+      },
+      { dialogKey: 'dialog:thug_bar' },
+    ],
+    id: 'thug',
+    nameKey: 'pilots:thug',
+    portrait: 'images/pilots/thug.png',
   },
   unia_corin: {
     dialogs: [

@@ -4,7 +4,7 @@ import { t } from '../i18n';
 import { ImportantItem, ITEMS, SyncDeviceItem, UpgradeItem } from '../item';
 import { CoreType } from '../item/ZoidCore';
 import { EvolutionPopupImage, PopupMessage, PopupType } from '../models/PopupMessage';
-import { computeOwnedZoidStats, getZoidById, getZoidImage, ZOID_LIST } from '../models/Zoid';
+import { computeOwnedZoidStats, getZoidImage, getZoidName } from '../models/Zoid';
 import { ZoidResearchStatus } from '../models/Zoid';
 import { showPopup } from '../store/gameStore';
 import { playerStats } from '../store/gameStore';
@@ -43,7 +43,7 @@ const SuppliesPanel: Component<SuppliesPanelProps> = (props) => {
   const ownedZoidData = () =>
     Object.entries(zoidDataLog())
       .filter(([, count]) => count > 0)
-      .map(([id, count]) => ({ count, id, name: ZOID_LIST[id]?.name ?? id }));
+      .map(([id, count]) => ({ count, id, name: getZoidName(id) }));
 
   const ownedCores = () =>
     Object.entries(zoidCores())
@@ -51,7 +51,7 @@ const SuppliesPanel: Component<SuppliesPanelProps> = (props) => {
       .map(([id, count]) => {
         const isTyped = CORE_TYPE_VALUES.has(id);
         const image = isTyped ? `images/cores/${id}.png` : getZoidImage(id);
-        const name = isTyped ? t(`items:core_${id}.name`) : (ZOID_LIST[id]?.name ?? id);
+        const name = isTyped ? t(`items:core_${id}.name`) : getZoidName(id);
         return { count, id, image, name };
       });
 
@@ -77,15 +77,13 @@ const SuppliesPanel: Component<SuppliesPanelProps> = (props) => {
     if (!itemId) { return; }
     removeItem(itemId, 1);
     addZoidToArmy(targetId);
-    const source = getZoidById(sourceId);
-    const target = getZoidById(targetId);
     showPopup(new PopupMessage(
-      t('ui:evolution_message', { source: source.name, target: target.name }),
+      t('ui:evolution_message', { source: getZoidName(sourceId), target: getZoidName(targetId) }),
       t('ui:evolution_title'),
       PopupType.Evolution,
       new EvolutionPopupImage(getZoidImage(sourceId), getZoidImage(targetId))
     ));
-    showPopup(new PopupMessage(target.name, t('ui:new_zoid'), PopupType.Item, getZoidImage(targetId)));
+    showPopup(new PopupMessage(getZoidName(targetId), t('ui:new_zoid'), PopupType.Item, getZoidImage(targetId)));
     setSelectedUpgradeItemId(null);
   }
 

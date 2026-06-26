@@ -1,7 +1,7 @@
 import type { Drop } from '../item/Drop';
 import type { Pilot } from '../models/Pilot';
 import { getPilotImage, PILOTS } from '../models/Pilot';
-import { getZoidById, getZoidImage, type ZoidBlueprint } from '../models/Zoid';
+import { getZoidImage, getZoidName, type ZoidBlueprint } from '../models/Zoid';
 import type { Requirement } from '../requirement';
 
 export interface BossPreview {
@@ -77,7 +77,7 @@ export class WildBossEntry extends BossEntry {
       id: this.zoidData.id,
       imageUrl: getZoidImage(this.zoidData.id, this.zoidData.imageOverride),
       isZoid: true,
-      label: getZoidById(this.zoidData.id).name,
+      label: getZoidName(this.zoidData.id),
     };
   }
 

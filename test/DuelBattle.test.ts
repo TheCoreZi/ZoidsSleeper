@@ -7,7 +7,7 @@ import {
   DUEL_TAPPING_PHASE_DURATION,
   TICK_TIME,
 } from '../src/constants';
-import { calculateAimMultiplier, DuelBattle, GaugeDirection } from '../src/game/DuelBattle';
+import { calculateAimMultiplier, DuelBattle, GaugeDirection, PilotDuelEnemy, WildDuelEnemy } from '../src/game/DuelBattle';
 import { Organoid } from '../src/models/Organoid';
 import type { Pilot } from '../src/models/Pilot';
 import { PILOTS } from '../src/models/Pilot';
@@ -39,7 +39,7 @@ describe('DuelBattle', () => {
   });
 
   it('should select the party zoid with most experience', () => {
-    const battle = new DuelBattle(DEFAULT_PLAYER, PILOTS['van_shield_liger']);
+    const battle = new DuelBattle(DEFAULT_PLAYER, new PilotDuelEnemy(PILOTS['van_shield_liger']));
 
     expect(battle.playerZoid.id).toBe('shield_liger');
   });
@@ -47,20 +47,20 @@ describe('DuelBattle', () => {
   it('should use commanderZoidId instead of strongest', () => {
     selectCommanderZoid('molga');
 
-    const battle = new DuelBattle(DEFAULT_PLAYER, PILOTS['van_shield_liger']);
+    const battle = new DuelBattle(DEFAULT_PLAYER, new PilotDuelEnemy(PILOTS['van_shield_liger']));
 
     expect(battle.playerZoid.id).toBe('molga');
   });
 
   it('should start in PlayerTapping phase', () => {
-    const battle = new DuelBattle(DEFAULT_PLAYER, PILOTS['van_shield_liger']);
+    const battle = new DuelBattle(DEFAULT_PLAYER, new PilotDuelEnemy(PILOTS['van_shield_liger']));
 
     expect(battle.turnPhase).toBe(DuelTurnPhase.PlayerTapping);
     expect(battle.currentPhaseTimer).toBe(DUEL_TAPPING_PHASE_DURATION);
   });
 
   it('should increase power fill by zoid attack on clickAttack during PlayerTapping', () => {
-    const battle = new DuelBattle(DEFAULT_PLAYER, PILOTS['van_shield_liger']);
+    const battle = new DuelBattle(DEFAULT_PLAYER, new PilotDuelEnemy(PILOTS['van_shield_liger']));
     battle.lastClickAttack = 0;
 
     battle.clickAttack();
@@ -69,7 +69,7 @@ describe('DuelBattle', () => {
   });
 
   it('should cap power fill at max', () => {
-    const battle = new DuelBattle(DEFAULT_PLAYER, PILOTS['van_shield_liger']);
+    const battle = new DuelBattle(DEFAULT_PLAYER, new PilotDuelEnemy(PILOTS['van_shield_liger']));
 
     for (let i = 0; i < 50; i++) {
       battle.lastClickAttack = 0;
@@ -80,7 +80,7 @@ describe('DuelBattle', () => {
   });
 
   it('should transition from PlayerTapping to AimDelay when timer expires', () => {
-    const battle = new DuelBattle(DEFAULT_PLAYER, PILOTS['van_shield_liger']);
+    const battle = new DuelBattle(DEFAULT_PLAYER, new PilotDuelEnemy(PILOTS['van_shield_liger']));
     const ticks = ticksFor(DUEL_TAPPING_PHASE_DURATION);
 
     advanceTicks(battle, ticks);
@@ -90,7 +90,7 @@ describe('DuelBattle', () => {
   });
 
   it('should transition from AimDelay to PlayerAiming', () => {
-    const battle = new DuelBattle(DEFAULT_PLAYER, PILOTS['van_shield_liger']);
+    const battle = new DuelBattle(DEFAULT_PLAYER, new PilotDuelEnemy(PILOTS['van_shield_liger']));
     advanceTicks(battle, ticksFor(DUEL_TAPPING_PHASE_DURATION));
 
     advanceTicks(battle, ticksFor(DUEL_AIM_DELAY));
@@ -100,7 +100,7 @@ describe('DuelBattle', () => {
   });
 
   it('should move gauge during PlayerAiming phase', () => {
-    const battle = new DuelBattle(DEFAULT_PLAYER, PILOTS['van_shield_liger']);
+    const battle = new DuelBattle(DEFAULT_PLAYER, new PilotDuelEnemy(PILOTS['van_shield_liger']));
     advanceTicks(battle, ticksFor(DUEL_TAPPING_PHASE_DURATION));
     advanceTicks(battle, ticksFor(DUEL_AIM_DELAY));
 
@@ -110,7 +110,7 @@ describe('DuelBattle', () => {
   });
 
   it('should bounce gauge at boundaries', () => {
-    const battle = new DuelBattle(DEFAULT_PLAYER, PILOTS['van_shield_liger']);
+    const battle = new DuelBattle(DEFAULT_PLAYER, new PilotDuelEnemy(PILOTS['van_shield_liger']));
     battle.turnPhase = DuelTurnPhase.PlayerAiming;
     battle.aimTimeRemaining = 99999;
     battle.aimIndicatorPosition = 0;
@@ -123,7 +123,7 @@ describe('DuelBattle', () => {
   });
 
   it('should auto-resolve player attack when gauge timer expires', () => {
-    const battle = new DuelBattle(DEFAULT_PLAYER, PILOTS['van_shield_liger']);
+    const battle = new DuelBattle(DEFAULT_PLAYER, new PilotDuelEnemy(PILOTS['van_shield_liger']));
     battle.powerCharged = 0.5;
     battle.turnPhase = DuelTurnPhase.PlayerAiming;
     battle.aimTimeRemaining = DUEL_GAUGE_PHASE_DURATION;
@@ -137,7 +137,7 @@ describe('DuelBattle', () => {
   });
 
   it('should transition to PlayerAttack on PlayerAiming click then to EnemyAttack', () => {
-    const battle = new DuelBattle(DEFAULT_PLAYER, PILOTS['van_shield_liger']);
+    const battle = new DuelBattle(DEFAULT_PLAYER, new PilotDuelEnemy(PILOTS['van_shield_liger']));
     battle.powerCharged = 0.5;
     battle.turnPhase = DuelTurnPhase.PlayerAiming;
     battle.aimTimeRemaining = DUEL_GAUGE_PHASE_DURATION;
@@ -172,7 +172,7 @@ describe('DuelBattle', () => {
   });
 
   it('should deal damage to player on enemy attack', () => {
-    const battle = new DuelBattle(DEFAULT_PLAYER, PILOTS['van_shield_liger']);
+    const battle = new DuelBattle(DEFAULT_PLAYER, new PilotDuelEnemy(PILOTS['van_shield_liger']));
     battle.turnPhase = DuelTurnPhase.PlayerAiming;
     battle.aimTimeRemaining = DUEL_GAUGE_PHASE_DURATION;
     battle.aimIndicatorPosition = 0.5;
@@ -190,7 +190,7 @@ describe('DuelBattle', () => {
   });
 
   it('should call onVictory when enemy health reaches 0', () => {
-    const battle = new DuelBattle(DEFAULT_PLAYER, PILOTS['van_shield_liger']);
+    const battle = new DuelBattle(DEFAULT_PLAYER, new PilotDuelEnemy(PILOTS['van_shield_liger']));
     const onVictory = vi.fn();
     battle.onVictory = onVictory;
     battle.organoidActivated = true;
@@ -208,7 +208,7 @@ describe('DuelBattle', () => {
   });
 
   it('should call onDefeat when player health reaches 0', () => {
-    const battle = new DuelBattle(DEFAULT_PLAYER, PILOTS['van_shield_liger']);
+    const battle = new DuelBattle(DEFAULT_PLAYER, new PilotDuelEnemy(PILOTS['van_shield_liger']));
     const onDefeat = vi.fn();
     battle.onDefeat = onDefeat;
     battle.enemy.health = 99999;
@@ -227,7 +227,7 @@ describe('DuelBattle', () => {
   });
 
   it('should ignore clicks during enemy phases', () => {
-    const battle = new DuelBattle(DEFAULT_PLAYER, PILOTS['van_shield_liger']);
+    const battle = new DuelBattle(DEFAULT_PLAYER, new PilotDuelEnemy(PILOTS['van_shield_liger']));
     battle.turnPhase = DuelTurnPhase.EnemyAttack;
     battle.lastClickAttack = 0;
     const initialFill = battle.powerCharged;
@@ -238,13 +238,13 @@ describe('DuelBattle', () => {
   });
 
   it('should increase gauge speed as player health decreases', () => {
-    const battle = new DuelBattle(DEFAULT_PLAYER, PILOTS['van_shield_liger']);
+    const battle = new DuelBattle(DEFAULT_PLAYER, new PilotDuelEnemy(PILOTS['van_shield_liger']));
     battle.turnPhase = DuelTurnPhase.PlayerAiming;
     battle.aimTimeRemaining = DUEL_GAUGE_PHASE_DURATION;
     battle.gameTick();
     const normalPosition = battle.aimIndicatorPosition;
 
-    const battle2 = new DuelBattle(DEFAULT_PLAYER, PILOTS['van_shield_liger']);
+    const battle2 = new DuelBattle(DEFAULT_PLAYER, new PilotDuelEnemy(PILOTS['van_shield_liger']));
     battle2.turnPhase = DuelTurnPhase.PlayerAiming;
     battle2.aimTimeRemaining = DUEL_GAUGE_PHASE_DURATION;
     battle2.playerHealth = 1;
@@ -254,7 +254,7 @@ describe('DuelBattle', () => {
   });
 
   it('should transition through full turn cycle', () => {
-    const battle = new DuelBattle(DEFAULT_PLAYER, PILOTS['van_shield_liger']);
+    const battle = new DuelBattle(DEFAULT_PLAYER, new PilotDuelEnemy(PILOTS['van_shield_liger']));
     battle.enemy.health = 99999;
 
     expect(battle.isPlayerTurn).toBe(true);
@@ -281,7 +281,7 @@ describe('DuelBattle', () => {
 
   it('should use forced zoid instead of party zoid', () => {
     const forcedZoid: ZoidBlueprint = { id: 'cannon_tortoise', level: 10 };
-    const battle = new DuelBattle(DEFAULT_PLAYER, PILOTS['van_shield_liger'], forcedZoid);
+    const battle = new DuelBattle(DEFAULT_PLAYER, new PilotDuelEnemy(PILOTS['van_shield_liger']), forcedZoid);
 
     expect(battle.playerZoid.id).toBe('cannon_tortoise');
     expect(battle.playerZoid.level).toBe(10);
@@ -290,7 +290,7 @@ describe('DuelBattle', () => {
   it('should calculate forced zoid stats from species base stats', () => {
     const level = 50;
     const forcedZoid: ZoidBlueprint = { id: 'cannon_tortoise', level };
-    const battle = new DuelBattle(DEFAULT_PLAYER, PILOTS['van_shield_liger'], forcedZoid);
+    const battle = new DuelBattle(DEFAULT_PLAYER, new PilotDuelEnemy(PILOTS['van_shield_liger']), forcedZoid);
     const species = getZoidById('cannon_tortoise');
 
     expect(battle.playerZoid.attack).toBe(calculateStat(species.attack, level));
@@ -298,7 +298,7 @@ describe('DuelBattle', () => {
   });
 
   it('should still use party zoid when no forced zoid is provided', () => {
-    const battle = new DuelBattle(DEFAULT_PLAYER, PILOTS['van_shield_liger']);
+    const battle = new DuelBattle(DEFAULT_PLAYER, new PilotDuelEnemy(PILOTS['van_shield_liger']));
 
     expect(battle.playerZoid.id).toBe('shield_liger');
   });
@@ -317,7 +317,7 @@ describe('DuelBattle', () => {
     it('should activate organoid when last enemy drops below 25% HP', () => {
       const organoid = new Organoid(2, 'organoids:zeke');
       const pilot = createPilotWithOrganoid(organoid);
-      const battle = new DuelBattle(DEFAULT_PLAYER, pilot);
+      const battle = new DuelBattle(DEFAULT_PLAYER, new PilotDuelEnemy(pilot));
       const initialMaxHealth = battle.enemy.maxHealth;
       const initialAttack = battle.enemy.attack;
 
@@ -339,7 +339,7 @@ describe('DuelBattle', () => {
     it('should only activate organoid once', () => {
       const organoid = new Organoid(2, 'organoids:zeke');
       const pilot = createPilotWithOrganoid(organoid);
-      const battle = new DuelBattle(DEFAULT_PLAYER, pilot);
+      const battle = new DuelBattle(DEFAULT_PLAYER, new PilotDuelEnemy(pilot));
 
       battle.enemy.health = 1;
       battle.powerCharged = 1;
@@ -362,6 +362,36 @@ describe('DuelBattle', () => {
       advanceTicks(battle, ticksFor(DUEL_ATTACK_ANIMATION_DURATION));
 
       expect(battle.enemy.maxHealth).toBe(maxHealthAfterFirst);
+    });
+  });
+
+  describe('WildDuelEnemy', () => {
+    it('should create a duel battle with wild zoids', () => {
+      const wildZoids: ZoidBlueprint[] = [{ attackOverride: 35, id: 'guysack', level: 40, maxHealthOverride: 8000 }];
+      const enemy = new WildDuelEnemy('Guysack Heavy Armor', wildZoids, 5);
+      const battle = new DuelBattle(DEFAULT_PLAYER, enemy);
+
+      expect(battle.duelEnemy.name).toBe('Guysack Heavy Armor');
+      expect(battle.duelEnemy.fragmentYield).toBe(5);
+      expect(battle.enemy.id).toBe('guysack');
+      expect(battle.duelEnemy.organoid).toBeUndefined();
+    });
+
+    it('should not have organoid for wild enemies', () => {
+      const wildZoids: ZoidBlueprint[] = [{ attackOverride: 10, id: 'molga', level: 5, maxHealthOverride: 100 }];
+      const enemy = new WildDuelEnemy('Wild Molga', wildZoids);
+      const battle = new DuelBattle(DEFAULT_PLAYER, enemy);
+
+      expect(battle.organoid).toBeUndefined();
+      expect(battle.duelEnemy.fragmentYield).toBe(0);
+    });
+
+    it('should use player strongest zoid against wild enemy', () => {
+      const wildZoids: ZoidBlueprint[] = [{ attackOverride: 35, id: 'guysack', level: 40, maxHealthOverride: 8000 }];
+      const enemy = new WildDuelEnemy('Guysack', wildZoids);
+      const battle = new DuelBattle(DEFAULT_PLAYER, enemy);
+
+      expect(battle.playerZoid.id).toBe('shield_liger');
     });
   });
 });

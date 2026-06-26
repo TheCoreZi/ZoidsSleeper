@@ -9,7 +9,7 @@ import {
 import { t } from '../i18n';
 import { formatOrganoidCry } from '../models/Organoid';
 import { getPilotImage } from '../models/Pilot';
-import { getZoidImage } from '../models/Zoid';
+import { getZoidImage, getZoidName } from '../models/Zoid';
 import {
   DuelTurnPhase,
   duelState,
@@ -112,25 +112,31 @@ const DuelBattleScreen: Component<DuelBattleScreenProps> = (props) => {
   return (
     <div class="battle-screen">
       <div class="enemy-section">
-        <h2 class="enemy-name">{enemyZoid()?.name ?? t('ui:unknown')}</h2>
+        <h2 class="enemy-name">{enemyZoid() ? getZoidName(enemyZoid()!.id) : t('ui:unknown')}</h2>
         <HealthBar />
         <div class={`battle-area bg-${battleBackground()}`} onClick={() => props.onClick()}>
           <div class="duel-arena">
             <Show when={state().playerZoid}>
-              {(pz) => (
-                <div class="duel-zoid-left">
-                  <img src={getZoidImage(pz().id)} alt={pz().name} />
-                  <span class="duel-zoid-label">{pz().name}</span>
-                </div>
-              )}
+              {(pz) => {
+                const name = () => getZoidName(pz().id);
+                return (
+                  <div class="duel-zoid-left">
+                    <img src={getZoidImage(pz().id)} alt={name()} />
+                    <span class="duel-zoid-label">{name()}</span>
+                  </div>
+                );
+              }}
             </Show>
             <Show when={enemyZoid()}>
-              {(ez) => (
-                <div class="duel-zoid-right">
-                  <img src={getZoidImage(ez().id, ez().imageOverride)} alt={ez().name} />
-                  <span class="duel-zoid-label">{ez().name}</span>
-                </div>
-              )}
+              {(ez) => {
+                const name = () => getZoidName(ez().id);
+                return (
+                  <div class="duel-zoid-right">
+                    <img src={getZoidImage(ez().id, ez().imageOverride)} alt={name()} />
+                    <span class="duel-zoid-label">{name()}</span>
+                  </div>
+                );
+              }}
             </Show>
           </div>
           <Show when={isPlayerAttack()}>

@@ -1,7 +1,7 @@
 import { type Component, createMemo, createSignal, For, Show } from 'solid-js';
 import { t } from '../i18n';
 import { Currency } from '../models/Currency';
-import { ZOID_LIST, ZoidResearchStatus } from '../models/Zoid';
+import { getZoidName, ZOID_LIST, ZoidResearchStatus } from '../models/Zoid';
 import { isMissionCompleted } from '../store/campaignStore';
 import { playerStats } from '../store/gameStore';
 import { isSpeciesInTank } from '../store/nurturingStore';
@@ -19,7 +19,7 @@ const LAB_STAT_OPTIONS: StatOption[] = [
 
 function labCompare(aId: string, bId: string, stat: StatOption): number {
   if (stat === StatOption.Name) {
-    return ZOID_LIST[bId].name.localeCompare(ZOID_LIST[aId].name);
+    return getZoidName(bId).localeCompare(getZoidName(aId));
   }
   const aVal = stat === StatOption.BaseAttack ? ZOID_LIST[aId].attack : ZOID_LIST[aId].maxHealth;
   const bVal = stat === StatOption.BaseAttack ? ZOID_LIST[bId].attack : ZOID_LIST[bId].maxHealth;

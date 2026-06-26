@@ -33,6 +33,102 @@
       "trials_complete": {
         "description": "Reporta de vuelta con el Oficial Imperial después de completar las pruebas.",
         "name": "Aún en Pie"
+      },
+      "ruins_briefing": {
+        "name": "Es Hora de Chambear",
+        "description": "Repórtate con el Oficial Imperial para tu primera asignación de campo."
+      },
+      "scout_ruins": {
+        "name": "Durmiendo con el Enemigo",
+        "description": "Investiga los alrededores de las Ruinas Huecas."
+      },
+      "clear_hollow_ruins": {
+        "name": "Con que Ahí Estaban",
+        "description": "Abre paso por las Ruinas Huecas y elimina la amenaza Sleeper."
+      },
+      "explore_lower_level": {
+        "name": "¿Hasta Dónde Llega Esto?",
+        "description": "Desciende más profundo en las ruinas para encontrar el artefacto."
+      },
+      "escape_ruins": {
+        "name": "Ya Iba a Llorar",
+        "description": "Ábrete paso para salir de las Ruinas Huecas."
+      },
+      "rhine_plan": {
+        "name": "No Hay Yo en Equipo",
+        "description": "Reagrúpate con Rhine y planea tu siguiente movimiento."
+      },
+      "return_to_eddie": {
+        "name": "No Teman, Porque Ya Estoy Aquí",
+        "description": "Regresa para ayudar a Eddie a pelear contra el Guysack Heavy Armor."
+      },
+      "ruins_debrief": {
+        "name": "Sobrevivientes",
+        "description": "Reporta al Oficial Imperial en el campamento."
+      },
+      "team_bonding": {
+        "name": "No Tan Mal",
+        "description": "Habla con tus compañeros sobre lo que pasó en las ruinas."
+      },
+      "escort_briefing": {
+        "name": "Discreción",
+        "description": "Repórtate con el Oficial Imperial para tu siguiente asignación."
+      },
+      "companions_pre_escort": {
+        "name": "Que Empiece el Circo",
+        "description": "Habla con tus compañeros antes de partir."
+      },
+      "bar_investigation": {
+        "name": "Quiero Mover el Bote",
+        "description": "Busca al transportista en Porto Nido."
+      },
+      "rescue_rhine": {
+        "name": "Eso No Estaba en el Libreto",
+        "description": "Encuentra a Rhine antes de que sea tarde."
+      },
+      "fight_dock_thugs": {
+        "name": "No Bajo Mi Guardia",
+        "description": "Derrota a los matones del muelle para salvar a Rhine."
+      },
+      "arrive_tauros": {
+        "name": "Otra Vez No",
+        "description": "Reúnete con tus compañeros en la Gruta de Tauros y planeen el siguiente paso."
+      },
+      "find_moonbay": {
+        "name": "El Transportador",
+        "description": "Explora Gruta de Tauros para encontrar al contacto."
+      },
+      "moonbay_mission": {
+        "name": "Funcionó, ¿No?",
+        "description": "Habla con Moonbay y planea la recuperación del cargamento."
+      },
+      "arcobaleno_ambush": {
+        "name": "¿¡Quién Hace Eso!?",
+        "description": "Revisa el depósito en el Campamento Arcobaleno."
+      },
+      "recover_cargo": {
+        "name": "Triple Amenaza",
+        "description": "Rastrea y recupera los explosivos robados de los bandidos."
+      },
+      "escort_elmia": {
+        "name": "La Conductora del Páramo",
+        "description": "Escolta a Moonbay de forma segura por las Ruinas de Elmia."
+      },
+      "escort_debrief": {
+        "name": "Eso Fue Fácil",
+        "description": "Reporta al Oficial Imperial."
+      },
+      "post_escort_talk": {
+        "name": "Ahora Sí Viene lo Chido",
+        "description": "Habla con tus compañeros sobre el camino por delante."
+      },
+      "fight_guysack_heavy_armor": {
+        "name": "Pégame Pero No Me Dejes",
+        "description": "Pelea contra el Guysack Heavy Armor para proteger a Rhine."
+      },
+      "defeat_guysack_heavy_armor": {
+        "name": "El Rey Escorpión",
+        "description": "Destruye los transmisores del Guysack Heavy Armor para detener la horda Sleeper."
       }
     },
     "name": "La Bestia del Olimpo"

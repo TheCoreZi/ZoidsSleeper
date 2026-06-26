@@ -2,7 +2,7 @@ import { createSignal, For, Show, type Component } from 'solid-js';
 import { getActiveScanRate } from '../game/Scan';
 import { t } from '../i18n';
 import { getUnlockedEnemies, type Route } from '../landmark';
-import { getZoidImage } from '../models/Zoid';
+import { getZoidImage, getZoidName } from '../models/Zoid';
 import { resolveProbabilities } from '../utils/probabilityRandom';
 import { enemyZoid, showClickHint } from '../store/gameStore';
 import { battleBackground, currentLandmark, isOnRoute } from '../store/landmarkStore';
@@ -49,7 +49,7 @@ const BattleScreen: Component<BattleScreenProps> = (props) => {
       <div class="enemy-section">
         <div class="enemy-header">
           <div />
-          <h2 class="enemy-name">{enemyZoid()?.name ?? t('ui:unknown')}</h2>
+          <h2 class="enemy-name">{enemyZoid() ? getZoidName(enemyZoid()!.id) : t('ui:unknown')}</h2>
           <Show when={isOnRoute()} fallback={<div />}>
             <button class="archive-button" onClick={() => setShowInfo(true)}>i</button>
           </Show>
@@ -62,7 +62,7 @@ const BattleScreen: Component<BattleScreenProps> = (props) => {
             </p>
           </Show>
           {enemyZoid()?.id && (
-            <img class="enemy-image" src={getZoidImage(enemyZoid()!.id)} alt={enemyZoid()!.name} />
+            <img class="enemy-image" src={getZoidImage(enemyZoid()!.id)} alt={getZoidName(enemyZoid()!.id)} />
           )}
           <DamageNumber />
           <RewardNumber />

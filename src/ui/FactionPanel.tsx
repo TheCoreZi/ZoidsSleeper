@@ -28,7 +28,7 @@ const FactionPanel: Component<FactionPanelProps> = (props) => {
           <span class="faction-panel-rank">
             <img
               class="faction-panel-rank-image"
-              src={`images/ranks/${props.rank}.svg`}
+              src={`images/ranks/${props.rank}.png`}
               alt={t(`ranks:${props.rank}`)}
             />
             {t(`ranks:${props.rank}`)}

@@ -1,7 +1,7 @@
 import { type Component, Show } from 'solid-js';
 import { getActiveScanRate } from '../game/Scan';
 import { t } from '../i18n';
-import { getZoidImage } from '../models/Zoid';
+import { getZoidImage, getZoidName } from '../models/Zoid';
 import {
   enemyZoid,
   pilotPlayerHealth,
@@ -27,7 +27,7 @@ const DungeonBattleScreen: Component<Props> = (props) => {
   return (
     <div class="battle-screen">
       <div class="enemy-section">
-        <h2 class="enemy-name">{enemyZoid()?.name ?? t('ui:unknown')}</h2>
+        <h2 class="enemy-name">{enemyZoid() ? getZoidName(enemyZoid()!.id) : t('ui:unknown')}</h2>
         <HealthBar />
         <div class={`battle-area bg-${battleBackground()}`} onClick={() => props.onClick()}>
           <Show when={scanRate() > 0}>
@@ -36,7 +36,7 @@ const DungeonBattleScreen: Component<Props> = (props) => {
             </p>
           </Show>
           {enemyZoid()?.id && (
-            <img class="enemy-image" src={getZoidImage(enemyZoid()!.id, enemyZoid()!.imageOverride)} alt={enemyZoid()!.name} />
+            <img class="enemy-image" src={getZoidImage(enemyZoid()!.id, enemyZoid()!.imageOverride)} alt={getZoidName(enemyZoid()!.id)} />
           )}
           <DamageNumber />
           <RewardNumber />

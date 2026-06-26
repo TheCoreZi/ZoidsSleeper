@@ -6,7 +6,7 @@ import { Currency } from '../models/Currency';
 import type { BossPreview } from '../dungeon/DungeonSortieConfig';
 import { getZoidResearch } from '../store/zoidResearchStore';
 import type { City, CityAction } from '../landmark';
-import { ActionDuelPilot, ActionVisitDepot, ActionVisitLab, isCityActionVisible } from '../landmark';
+import { ActionDuelPilot, ActionDuelWild, ActionVisitDepot, ActionVisitLab, isCityActionVisible } from '../landmark';
 import { currentLandmark, landmarkBackground } from '../store/landmarkStore';
 import { getCurrency } from '../store/walletStore';
 import './duel-battle.css';
@@ -68,7 +68,7 @@ const IdleLandmarkScreen: Component = () => {
             <For each={otherActions()}>
               {(action) => (
                 <button
-                  class={action instanceof ActionDuelPilot ? 'duel-btn' : 'city-action-btn'}
+                  class={action instanceof ActionDuelPilot || action instanceof ActionDuelWild ? 'duel-btn' : 'city-action-btn'}
                   onClick={() => action.execute()}
                 >
                   {action.getLabel()}

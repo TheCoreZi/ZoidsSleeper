@@ -1,7 +1,7 @@
 import { createSignal, Match, onCleanup, Switch, type Component } from 'solid-js';
 import { TICK_TIME } from '../constants';
 import { GameLoop } from '../game/GameLoop';
-import { getZoidById } from '../models/Zoid';
+import { getZoidName } from '../models/Zoid';
 import { BattleState, setBattleState } from '../store/gameStore';
 import BattleScreen from '../ui/BattleScreen';
 import DialogBox from '../dialog/DialogBox';
@@ -57,7 +57,7 @@ const IntroSequence: Component<IntroSequenceProps> = (props) => {
         </Match>
         <Match when={step() === 'challenge' && selectedZoidId}>
           <DialogBox
-            script={CHALLENGE_DIALOG(getZoidById(selectedZoidId!).name)}
+            script={CHALLENGE_DIALOG(getZoidName(selectedZoidId!))}
             onComplete={handleStartBattle}
           />
         </Match>

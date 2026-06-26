@@ -5,7 +5,7 @@ import ZoidDetailModal from './ZoidDetailModal';
 import { t } from '../i18n';
 import { getFactionBonus } from '../models/Faction';
 import { experienceForLevel, MAX_LEVEL } from '../models/LevelType';
-import { getOwnedZoidLevel, getZoidById, getZoidImage, buildZoid, type OwnedZoid } from '../models/Zoid';
+import { getOwnedZoidLevel, getZoidById, getZoidImage, getZoidName, buildZoid, type OwnedZoid } from '../models/Zoid';
 import { DateStat, NameStat, NumericStat, type ZoidDisplayStat } from '../models/ZoidDisplayStat';
 import { isMissionCompleted } from '../store/campaignStore';
 import { playerStats } from '../store/gameStore';
@@ -42,7 +42,7 @@ function getStatValue(zoid: OwnedZoid, stat: StatOption): ZoidDisplayStat {
     case StatOption.Hp: return new NumericStat(built().maxHealth);
     case StatOption.Hp100: return new NumericStat(buildZoid({ bonusMultiplier, id: zoid.id, level: 100, rebornBonusPercent: zoid.rebornBonusPercent }).maxHealth);
     case StatOption.CoreFragments: return new NumericStat(getZoidById(zoid.id).coreFragments);
-    case StatOption.Name: return new NameStat(getZoidById(zoid.id).name, built().attack, built().maxHealth);
+    case StatOption.Name: return new NameStat(getZoidName(zoid.id), built().attack, built().maxHealth);
   }
 }
 
@@ -95,7 +95,7 @@ const PartyPanel: Component<PartyPanelProps> = (props) => {
                   onClick={() => isDuelUnlocked() && selectCommanderZoid(zoid.id)}
                 >
                   <div class="party-row-image-col">
-                    <img class="party-row-image" src={getZoidImage(zoid.id)} alt={getZoidById(zoid.id).name} />
+                    <img class="party-row-image" src={getZoidImage(zoid.id)} alt={getZoidName(zoid.id)} />
                     <Show when={level() < MAX_LEVEL}>
                       <div class="party-row-xp-bar">
                         <div class="party-row-xp-fill" style={{ width: `${getExpProgress(zoid)}%` }} />
@@ -103,7 +103,7 @@ const PartyPanel: Component<PartyPanelProps> = (props) => {
                     </Show>
                   </div>
                   <div class="party-row-info">
-                    <span class="party-row-name">{getZoidById(zoid.id).name}</span>
+                    <span class="party-row-name">{getZoidName(zoid.id)}</span>
                     <span class="party-row-level">{t('ui:lv')}{level()}</span>
                     <Show when={isCommander()}>
                       <span class="party-row-commander-badge">{t('ui:commander_badge')}</span>

@@ -12,13 +12,8 @@ import {
   DUEL_TAPPING_PHASE_DURATION,
   TICK_TIME,
 } from '../constants';
+import type { Organoid } from '../models/Organoid';
 import type { Pilot } from '../models/Pilot';
-
-export const GaugeDirection = {
-  Left: -1,
-  Right: 1,
-} as const;
-type GaugeDirection = (typeof GaugeDirection)[keyof typeof GaugeDirection];
 import { getActiveOrganoid, getActiveZoids } from '../models/Pilot';
 import type { PlayerStats } from '../models/Player';
 import { getTerrainBonus } from '../models/Terrain';
@@ -39,6 +34,47 @@ import { addFragments } from '../store/nurturingStore';
 import { updateZoidResearch } from '../store/zoidResearchStore';
 import { BaseBattle } from './BaseBattle';
 
+export interface DuelEnemy {
+  fragmentYield: number;
+  name: string;
+  organoid?: Organoid;
+  zoids: ZoidBlueprint[];
+}
+
+export class PilotDuelEnemy implements DuelEnemy {
+  fragmentYield: number;
+  name: string;
+  organoid?: Organoid;
+  pilotId: string;
+  zoids: ZoidBlueprint[];
+
+  constructor(pilot: Pilot) {
+    this.fragmentYield = pilot.fragmentYield;
+    this.name = pilot.name;
+    this.organoid = getActiveOrganoid(pilot);
+    this.pilotId = pilot.id;
+    this.zoids = getActiveZoids(pilot);
+  }
+}
+
+export class WildDuelEnemy implements DuelEnemy {
+  fragmentYield: number;
+  name: string;
+  zoids: ZoidBlueprint[];
+
+  constructor(name: string, zoids: ZoidBlueprint[], fragmentYield = 0) {
+    this.fragmentYield = fragmentYield;
+    this.name = name;
+    this.zoids = zoids;
+  }
+}
+
+export const GaugeDirection = {
+  Left: -1,
+  Right: 1,
+} as const;
+type GaugeDirection = (typeof GaugeDirection)[keyof typeof GaugeDirection];
+
 export function calculateAimMultiplier(aimIndicatorPosition: number): number {
   const distance = Math.abs(aimIndicatorPosition - 0.5);
   if (distance <= DUEL_GAUGE_PERFECT_ZONE / 2) {return 2;}
@@ -57,7 +93,7 @@ export class DuelBattle extends BaseBattle {
   onVictory: (() => void) | null = null;
   nextDamage = 0;
   currentPhaseTimer = DUEL_TAPPING_PHASE_DURATION;
-  pilot: Pilot;
+  duelEnemy: DuelEnemy;
   playerZoid: CustomizedZoid;
   powerCharged = 0;
   powerMax: number;
@@ -65,11 +101,11 @@ export class DuelBattle extends BaseBattle {
   turnPhase: DuelTurnPhase = DuelTurnPhase.PlayerTapping;
   enemyZoids: ZoidBlueprint[];
 
-  constructor(playerStats: PlayerStats, pilot: Pilot, forcedZoid?: ZoidBlueprint) {
+  constructor(playerStats: PlayerStats, duelEnemy: DuelEnemy, forcedZoid?: ZoidBlueprint) {
     super();
-    this.organoid = getActiveOrganoid(pilot);
-    this.pilot = pilot;
-    this.enemyZoids = getActiveZoids(pilot);
+    this.organoid = duelEnemy.organoid;
+    this.duelEnemy = duelEnemy;
+    this.enemyZoids = duelEnemy.zoids;
     this.playerZoid = forcedZoid ? buildZoid(forcedZoid) : findStrongestZoid();
     this.terrainMultiplier = getTerrainBonus(currentTerrain(), getZoidById(this.playerZoid.id).terrainTypes);
     this.powerMax = Math.floor(this.playerZoid.attack * DUEL_POWER_MAX_TAPS * this.terrainMultiplier);
@@ -132,7 +168,7 @@ export class DuelBattle extends BaseBattle {
   protected onBattleTick(): void {}
 
   protected onEnemyDefeated(): void {
-    addFragments(this.pilot.fragmentYield);
+    addFragments(this.duelEnemy.fragmentYield);
     if (this.currentEnemyIndex < this.enemyZoids.length - 1) {
       this.nextEnemy();
     } else {
@@ -142,7 +178,9 @@ export class DuelBattle extends BaseBattle {
 
   protected syncToStore(): void {
     setEnemyZoid({ ...this.enemy });
-    setPilotInfo({ id: this.pilot.id, name: this.pilot.name });
+    if (this.duelEnemy instanceof PilotDuelEnemy) {
+      setPilotInfo({ id: this.duelEnemy.pilotId, name: this.duelEnemy.name });
+    }
     setPilotPlayerHealth(this.playerHealth);
     setPilotPlayerMaxHealth(this.playerMaxHealth);
     setDuelState({

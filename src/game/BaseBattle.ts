@@ -4,7 +4,7 @@ import { awardExperience, calculateExperienceGain } from '../models/Experience';
 import { Faction } from '../models/Faction';
 import type { Organoid } from '../models/Organoid';
 import { EvolutionPopupImage, PopupMessage, PopupType } from '../models/PopupMessage';
-import { calculatePartyAttack, computeOwnedZoidStats, getOwnedZoidLevel, getZoidById, getZoidImage, type OwnedZoid, type SpawnedZoid, ZoidResearchStatus } from '../models/Zoid';
+import { calculatePartyAttack, computeOwnedZoidStats, getOwnedZoidLevel, getZoidById, getZoidName, getZoidImage, type OwnedZoid, type SpawnedZoid, ZoidResearchStatus } from '../models/Zoid';
 import {
   damageEvents,
   type DamageSource,
@@ -140,9 +140,9 @@ export abstract class BaseBattle {
         if (allZoids.some((z) => z.id === targetId) || isSpeciesInTank(targetId)) {continue;}
         if (evo.isFulfilled(ownedStats)) {
           addZoidToArmy(targetId);
-          const targetName = getZoidById(targetId).name;
+          const targetName = getZoidName(targetId);
           showPopup(new PopupMessage(
-            t('ui:evolution_message', { source: species.name, target: targetName }),
+            t('ui:evolution_message', { source: getZoidName(species.id), target: targetName }),
             t('ui:evolution_title'),
             PopupType.Evolution,
             new EvolutionPopupImage(getZoidImage(owned.id), getZoidImage(targetId))
