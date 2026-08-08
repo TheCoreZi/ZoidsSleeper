@@ -1,6 +1,7 @@
 import { createSignal } from 'solid-js';
 import { CampaignStatus, type Campaign, type CampaignSaveData } from '../campaign/Campaign';
 import { t } from '../i18n';
+import { trackCampaignProgress } from '../lib/analytics';
 import { PopupMessage, PopupType } from '../models/PopupMessage';
 import { NpcTalkedInCampaignRequirement } from '../requirement/NpcTalkedInCampaignRequirement';
 import { showPopup } from './gameStore';
@@ -29,6 +30,7 @@ function advanceMission(campaignId: string): void {
     : { currentMission: campaign.missions[nextIndex].toSaveData(), missionNpcFlags: buildNpcFlags(campaign, nextIndex), status: CampaignStatus.Started };
 
   setCampaignStates((prev) => ({ ...prev, [campaignId]: newState }));
+  trackCampaignProgress(campaignId, completed ? CampaignStatus.Completed : newState.currentMission.id);
 
   campaign.missions[currentIndex]?.onComplete?.();
 
@@ -130,10 +132,16 @@ function markNpcTalked(npcId: string): void {
 function startCampaign(id: string): void {
   const campaign = campaigns[id];
   if (!campaign) {return;}
+  const newState: CampaignSaveData = {
+    currentMission: campaign.missions[0].toSaveData(),
+    missionNpcFlags: buildNpcFlags(campaign, 0),
+    status: CampaignStatus.Started,
+  };
   setCampaignStates((prev) => ({
     ...prev,
-    [id]: { currentMission: campaign.missions[0].toSaveData(), missionNpcFlags: buildNpcFlags(campaign, 0), status: CampaignStatus.Started },
+    [id]: newState,
   }));
+  trackCampaignProgress(id, newState.currentMission.id);
 }
 
 function forceSetMission(campaignId: string, missionId: string): void {
