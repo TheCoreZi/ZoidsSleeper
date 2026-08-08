@@ -8,6 +8,7 @@ import {
   Show,
   Switch,
 } from 'solid-js';
+import { CampaignStatus } from './campaign/Campaign';
 import DungeonBattleScreen from './dungeon/DungeonBattleScreen';
 import DungeonEventScreen from './dungeon/DungeonEventScreen';
 import DungeonMapScreen from './dungeon/DungeonMapScreen';
@@ -15,6 +16,7 @@ import DungeonSupplyScreen from './dungeon/DungeonSupplyScreen';
 import { DungeonPhase, dungeonPhase, isDungeonActive } from './dungeon/dungeonStore';
 import { Game } from './game/Game';
 import { t } from './i18n';
+import { AnalyticsSource, trackCampaignProgress, trackFaction } from './lib/analytics';
 import WorldMap from './map/WorldMap';
 import { EvolutionPopupImage, PopupMessage, PopupType } from './models/PopupMessage';
 import EvolutionPopupImageView from './ui/EvolutionPopupImageView';
@@ -57,7 +59,7 @@ import { getZoidImage, getZoidName, ZOID_LIST } from './models/Zoid';
 import { buyItem } from './store/inventoryStore';
 import { addTypedCore } from './store/zoidCoreStore';
 import { grantReward } from './reward';
-import { checkCampaigns, isMissionCompleted } from './store/campaignStore';
+import { campaignStates, checkCampaigns, isMissionCompleted } from './store/campaignStore';
 import { isSpeciesInTank } from './store/nurturingStore';
 import { addZoidToArmy, party } from './store/partyStore';
 import { addCurrency, getCurrency } from './store/walletStore';
@@ -85,6 +87,13 @@ const App: Component = () => {
   onMount(() => {
     game = new Game();
     game.start();
+    const stats = playerStats();
+    if (stats) {trackFaction(stats.faction, AnalyticsSource.Session);}
+    for (const [campaignId, state] of Object.entries(campaignStates())) {
+      if (state.status === CampaignStatus.Inactive) {continue;}
+      const progress = state.status === CampaignStatus.Completed ? CampaignStatus.Completed : state.currentMission.id;
+      trackCampaignProgress(campaignId, progress, AnalyticsSource.Session);
+    }
   });
 
   onCleanup(() => {
