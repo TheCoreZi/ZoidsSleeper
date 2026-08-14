@@ -1,4 +1,4 @@
-import { createSignal, Show, type Component } from 'solid-js';
+import { createSignal, onCleanup, onMount, Show, type Component } from 'solid-js';
 import { t } from '../i18n';
 import type { DialogScript } from './Dialog';
 import './dialog.css';
@@ -13,7 +13,7 @@ const DialogBox: Component<DialogBoxProps> = (props) => {
 
   const currentLine = () => props.script.lines[lineIndex()];
 
-  const handleClick = () => {
+  const advance = () => {
     if (lineIndex() < props.script.lines.length - 1) {
       setLineIndex((i) => i + 1);
     } else {
@@ -21,8 +21,23 @@ const DialogBox: Component<DialogBoxProps> = (props) => {
     }
   };
 
+  const handleKeyDown = (e: KeyboardEvent): void => {
+    if (e.key !== 'Enter') {return;}
+    if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) {return;}
+    if (e.repeat) {return;}
+    advance();
+  };
+
+  onMount(() => {
+    document.addEventListener('keydown', handleKeyDown);
+  });
+
+  onCleanup(() => {
+    document.removeEventListener('keydown', handleKeyDown);
+  });
+
   return (
-    <div class="dialog-box" onClick={handleClick}>
+    <div class="dialog-box" onClick={advance}>
       <div class="dialog-content">
         <div class="dialog-text-area">
           <Show when={currentLine().speakerKey}>

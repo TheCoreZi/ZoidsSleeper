@@ -63,6 +63,15 @@ import { addZoidToArmy, party } from './store/partyStore';
 import { addCurrency, getCurrency } from './store/walletStore';
 import { decrementZoidData } from './store/zoidDataStore';
 
+const BATTLE_STATES = new Set<BattleState>([
+  BattleState.DuelCombat,
+  BattleState.DungeonBoss,
+  BattleState.DungeonCombat,
+  BattleState.PilotCombat,
+  BattleState.WildBossCombat,
+  BattleState.WildCombat,
+]);
+
 const App: Component = () => {
   let game: Game;
   const [activeDecision, setActiveDecision] = createSignal<DialogDecision | null>(null);
@@ -82,12 +91,22 @@ const App: Component = () => {
   const isPilotBattleMode = createMemo(() => battleState() === BattleState.PilotCombat);
   const isWildBossCombat = createMemo(() => battleState() === BattleState.WildBossCombat);
 
+  const handleKeyDown = (e: KeyboardEvent): void => {
+    if (e.key !== 'Enter') {return;}
+    if (e.target instanceof HTMLInputElement || e.target instanceof HTMLTextAreaElement) {return;}
+    if (!BATTLE_STATES.has(battleState())) {return;}
+    if (e.repeat) {return;}
+    game?.battle?.clickAttack();
+  };
+
   onMount(() => {
     game = new Game();
     game.start();
+    document.addEventListener('keydown', handleKeyDown);
   });
 
   onCleanup(() => {
+    document.removeEventListener('keydown', handleKeyDown);
     game?.stop();
   });
 

@@ -1,5 +1,5 @@
 import { Faction } from '../models/Faction';
-import { AllOfRequirement, AtLeastNRequirement, AtLeastOneRequirement, COMPOUND_REQUIREMENTS, FactionRequirement, LocationRequirement, MissionCompletedRequirement, NotRequirement, PilotDefeatRequirement } from '../requirement';
+import { AllOfRequirement, AtLeastNRequirement, AtLeastOneRequirement, COMPOUND_REQUIREMENTS, CurrentMissionRequirement, FactionRequirement, LocationRequirement, MissionCompletedRequirement, NotRequirement, PilotDefeatRequirement } from '../requirement';
 import type { Requirement } from '../requirement';
 import { DECISIONS } from '../dialog/decisions';
 import type { DialogDecision, SpeakerOverride } from '../dialog/Dialog';
@@ -20,6 +20,24 @@ export interface Npc {
 }
 
 export const NPCS: Record<string, Npc> = {
+  abandoned_camp_officer: {
+    dialogs: [
+      {
+        dialogKey: 'dialog:abandoned_camp_officer',
+        speakers: {
+          2: { speakerKey: 'pilots:badol_decisive', portrait: 'images/pilots/badol_decisive.png' },
+          3: { speakerKey: 'pilots:abandoned_camp_officer', portrait: 'images/pilots/republican_officer.png' },
+          4: { speakerKey: 'pilots:badol_decisive', portrait: 'images/pilots/badol_decisive.png' },
+          5: { speakerKey: 'pilots:abandoned_camp_officer', portrait: 'images/pilots/republican_officer.png' },
+          6: { speakerKey: 'pilots:cynian_rain', portrait: 'images/pilots/cynian_rain.png' },
+          7: { speakerKey: 'pilots:abandoned_camp_officer', portrait: 'images/pilots/republican_officer.png' },
+        },
+      },
+    ],
+    id: 'abandoned_camp_officer',
+    nameKey: 'pilots:abandoned_camp_officer',
+    portrait: 'images/pilots/republican_officer.png',
+  },
   arcadia_guard: {
     dialogs: [{ dialogKey: 'dialog:arcadia_guard' }],
     id: 'arcadia_guard',
@@ -28,6 +46,14 @@ export const NPCS: Record<string, Npc> = {
   },
   badol_decisive: {
     dialogs: [
+      {
+        dialogKey: 'dialog:badol_post_ambush',
+        unlockRequirement: new MissionCompletedRequirement('olympus_threat', 'fight_sea_panther'),
+      },
+      {
+        dialogKey: 'dialog:badol_decisive_pre_ruins',
+        unlockRequirement: new MissionCompletedRequirement('olympus_threat', 'talk_to_companions'),
+      },
       {
         dialogKey: 'dialog:badol_decisive_companion',
         speakers: {
@@ -237,6 +263,22 @@ export const NPCS: Record<string, Npc> = {
   },
   cynian_rain: {
     dialogs: [
+      {
+        dialogKey: 'dialog:narration_sleeper_confrontation',
+        speakers: {
+          1: { speakerKey: 'pilots:badol_decisive', portrait: 'images/pilots/badol_decisive.png' },
+          2: { speakerKey: '', portrait: '' },
+          5: { speakerKey: 'pilots:badol_decisive', portrait: 'images/pilots/badol_decisive.png' },
+          6: { speakerKey: '', portrait: '' },
+          8: { speakerKey: 'pilots:badol_decisive', portrait: 'images/pilots/badol_decisive.png' },
+          9: { speakerKey: '', portrait: '' },
+        },
+        unlockRequirement: new MissionCompletedRequirement('olympus_threat', 'install_transmitters'),
+      },
+      {
+        dialogKey: 'dialog:cynian_rain_pre_ruins',
+        unlockRequirement: new MissionCompletedRequirement('olympus_threat', 'talk_to_companions'),
+      },
       {
         dialogKey: 'dialog:cynian_rain_companion',
         speakers: {
@@ -467,6 +509,18 @@ export const NPCS: Record<string, Npc> = {
   kara: {
     dialogs: [
       {
+        dialogKey: 'dialog:narration_reconciliation',
+        speakers: {
+          0: { speakerKey: 'pilots:mana_pawn', portrait: 'images/pilots/mana_pawn.png' },
+          1: { speakerKey: '', portrait: '' },
+          2: { speakerKey: 'pilots:mana_pawn', portrait: 'images/pilots/mana_pawn.png' },
+          3: { speakerKey: '', portrait: '' },
+          4: { speakerKey: 'pilots:mana_pawn', portrait: 'images/pilots/mana_pawn.png' },
+          6: { speakerKey: '', portrait: '' },
+        },
+        unlockRequirement: new CurrentMissionRequirement('olympus_threat', 'reconciliation'),
+      },
+      {
         dialogKey: 'dialog:narration_team_bonding',
         speakers: {
           0: { speakerKey: 'pilots:kara', portrait: 'images/pilots/girl.png' },
@@ -498,6 +552,13 @@ export const NPCS: Record<string, Npc> = {
         unlockRequirement: new AllOfRequirement([
           new MissionCompletedRequirement('olympus_guylos', 'trials_complete'),
           new FactionRequirement(Faction.GuylosEmpire),
+        ]),
+      },
+      {
+        dialogKey: 'dialog:kara_pre_ruins',
+        unlockRequirement: new AllOfRequirement([
+          new MissionCompletedRequirement('olympus_threat', 'talk_to_companions'),
+          new FactionRequirement(Faction.HelicRepublic),
         ]),
       },
       {
@@ -669,6 +730,14 @@ export const NPCS: Record<string, Npc> = {
   },
   training_officer: {
     dialogs: [
+      {
+        dialogKey: 'dialog:training_officer_ruins_debrief',
+        unlockRequirement: new MissionCompletedRequirement('olympus_threat', 'escape_ruins'),
+      },
+      {
+        dialogKey: 'dialog:training_officer_ruins_briefing',
+        unlockRequirement: new MissionCompletedRequirement('olympus_threat', 'talk_to_companions'),
+      },
       {
         dialogKey: 'dialog:training_officer_trials_done',
         unlockRequirement: new MissionCompletedRequirement('olympus_threat', 'recruitment_trials'),
@@ -913,4 +982,3 @@ export function resolveSpeakerPortraits(speakers: Record<number, SpeakerOverride
     })
   );
 }
-

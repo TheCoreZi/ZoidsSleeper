@@ -152,6 +152,58 @@
         "description": "Dirígete al campamento republicano y repórtate. El Mayor Arthur ya habló bien de ti.",
         "name": "Reportándose a la República"
       },
+      "activate_system": {
+        "description": "Completa otra incursión en las Ruinas Huecas para terminar la instalación y después activa el sistema de coordinación Sleeper.",
+        "name": "Solo Aprieta el Botón"
+      },
+      "badol_post_ambush": {
+        "description": "Habla con Badol al llegar a las Ruinas Huecas.",
+        "name": "Quién Lo Viera"
+      },
+      "clear_ruins": {
+        "description": "Elimina a los Sleepers imperiales de las Ruinas.",
+        "name": "Fuera lo Viejo"
+      },
+      "companions_pre_ruins": {
+        "description": "Habla con tus compañeros antes de partir.",
+        "name": "La Traición, Hermano"
+      },
+      "escape_ruins": {
+        "description": "Escapa de las ruinas antes de que los Sleepers te ataquen.",
+        "name": "Córrele Que Te Alcanza"
+      },
+      "fight_mercenaries": {
+        "description": "Defiende el depósito de suministros del ataque de mercenarios.",
+        "name": "¿De Dónde Salen Estos Rufianes?"
+      },
+      "fight_rain": {
+        "description": "Enséñale a Rain una lección sobre tus Sleepers.",
+        "name": "Ella Se Lo Buscó"
+      },
+      "fight_sea_panther": {
+        "description": "Detén al Sea Panther antes de que destruya al Guysack Armadura Pesada.",
+        "name": "¡Nooo Mi Nave!"
+      },
+      "head_to_ruins": {
+        "description": "Recoge el equipo y dirígete a las ruinas.",
+        "name": "En Marcha"
+      },
+      "install_transmitters": {
+        "description": "Instala los transmisores más adentro de las ruinas.",
+        "name": "Hasta Adentro"
+      },
+      "reconciliation": {
+        "description": "Busca a Kara.",
+        "name": "La Charla Difícil"
+      },
+      "ruins_briefing": {
+        "description": "Repórtate con el Oficial de Entrenamiento para tu primera misión de campo.",
+        "name": "Primera Misión"
+      },
+      "ruins_debrief": {
+        "description": "Repórtate con el Oficial de Entrenamiento.",
+        "name": "Uff, Qué Día"
+      },
       "talk_to_companions": {
         "description": "Habla con Kara, Cynian Rain y Badol Decisive antes de la siguiente asignación.",
         "name": "El Significado del Uniforme"
@@ -159,6 +211,10 @@
       "trials_complete": {
         "description": "Repórtate con el oficial para confirmar los resultados de tus pruebas.",
         "name": "Aún en Pie"
+      },
+      "visit_abandoned_camp": {
+        "description": "Dirígete al Campamento Abandonado para recibir el informe completo.",
+        "name": "La Colmena"
       }
     },
     "name": "La Amenaza del Olympus"

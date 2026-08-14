@@ -1,4 +1,5 @@
 {
+  "abandoned_camp_officer": "Supply Officer",
   "arcadia_guard": "Guard",
   "arthur": "Major Arthur Borgman",
   "badol_decisive": "Badol Decisive",
@@ -15,6 +16,7 @@
   "captain_malinoff": "Captain Malinoff",
   "concho_cancer": "Concho Cancer",
   "cynian_rain": "Cynian Rain",
+  "cynian_rain_duel": "Cynian Rain",
   "dock_thugs": "Dock Thugs",
   "dr_t": "Dr. T",
   "dr_thrun": "Dr. Thrun",
@@ -34,6 +36,8 @@
   "kirsche_hartriegel": "Lt. Kirsche Hartriegel",
   "mana_pawn": "Mana Pawn",
   "maria_flyheight": "Maria Flyheight",
+  "mercenaries": "Mercenaries",
+  "mercenary_leader": "Mercenary Leader",
   "moonbay": "Moonbay",
   "nero": "Nero",
   "opis_kerone": "Opis Kerone",
