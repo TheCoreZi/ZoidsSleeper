@@ -68,13 +68,13 @@ const SuppliesPanel: Component<SuppliesPanelProps> = (props) => {
         const targetInParty = currentParty.zoids.some((z) => z.id === evolution.targetId);
         const ownedStats = computeOwnedZoidStats(owned, stats?.faction ?? 'neutral');
         const otherConditionsMet = evolution.isFulfilledWithItem(ownedStats, itemId);
-        return { disabled: !otherConditionsMet, sourceId, targetId: evolution.targetId, targetInParty };
+        return { disabled: !stats?.evolvingEnabled || !otherConditionsMet, sourceId, targetId: evolution.targetId, targetInParty };
       });
   });
 
   function handleEvolve(sourceId: string, targetId: string): void {
     const itemId = selectedUpgradeItemId();
-    if (!itemId) { return; }
+    if (!itemId || !playerStats()?.evolvingEnabled) { return; }
     removeItem(itemId, 1);
     addZoidToArmy(targetId);
     showPopup(new PopupMessage(

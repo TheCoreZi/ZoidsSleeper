@@ -1,4 +1,14 @@
 {
+  "abandoned_camp_officer": [
+    "Así que ustedes son los novatos que mandaron. Esperaba... más. ¿Y qué es todo eso de Zoids siguiéndote? Ah, el piloto de Sleepers. Debí suponerlo.",
+    "Bien, escuchen. Hemos desarrollado un nuevo sistema de coordinación basado en transmisores. Los instalan en las ruinas, y cada Sleeper en rango captará las señales. Patrullarán, perseguirán, rodearán. Actuarán como un solo organismo. Una colmena.",
+    "¿Una colmena? Eso suena... inquietante.",
+    "Así debe ser. Para el enemigo. Ahora, el sistema necesita una fuente de señal. Una unidad de mando que transmita al resto. Esta es. El Guysack Armadura Pesada.",
+    "Momento. Ese es mi Guysack después de ir al gimnasio. ¿A mí cuándo me dan uno de esos?",
+    "No te van a dar uno. Este no es para pilotar. Se queda en las ruinas como el cerebro de la red. Ahora, dicen que eres bueno comandando Sleepers, ¿no? Tú programarás las rutas de patrulla, hacia dónde empujan a los intrusos, cómo les cortan las rutas de escape. Todo eso lo programas con este dispositivo, si eres bueno o no, se verá en el número de soldados enemigos que caigan en tu trampa.",
+    "¿O sea que él decide qué hacen y ellos solo... obedecen? ¿Como animales amaestrados?",
+    "Como soldados siguiendo órdenes, recluta. Que es lo que tú deberías estar haciendo. Una cosa más, no cubran los transmisores en su espalda o toda la red se apaga. Ahora tómenlo y muévanse."
+  ],
   "arcadia_guard": [
     "¿Dr. T...? Alto ahí. ¿Quién eres y dónde escuchaste ese nombre? Más te vale empezar a hablar, o mi Zoid te sacará la verdad."
   ],
@@ -1029,5 +1039,153 @@
   ],
   "thug_bar": [
     "¿Qué quieren? No parecen de por aquí. Pidan algo o lárguense."
+  ],
+  "badol_decisive_pre_ruins": [
+    "¿Un depósito de suministros y unas ruinas? Pensé que ser soldado sería más glamoroso. Mi madre va a estar decepcionada.",
+    "Pero bueno, órdenes son órdenes. Mientras me sigan pagando, aquí estaré. Mi Guysack y yo estamos listos para lo que sea.",
+    "No me importa cómo ganemos. Me importa volver a casa. Y si este nuevo sistema nos lleva ahí más rápido, yo encantado.",
+    "Y relájate, ¿quieres? Pareces como si te hubieran pedido cocinar a tu propia mascota. Solo les vamos a descargar una actualización, nada más. Yo te cuido."
+  ],
+  "badol_post_ambush": [
+    "Ey. Conozco esa mirada. Lo entiendo.",
+    "No lo disfruté. Tú sabes que no soy así. Pero no iba a dejar que un mercenario arruinara esta misión. Hay mucho en juego.",
+    "Además, te ahorré la decisión. Y la pelea con Rain. ¿La viste disparando ahí afuera? Te habría destrozado.",
+    "¿Estamos bien, no? Vamos. Aún tenemos ruinas que limpiar."
+  ],
+  "badol_return_from_ruins": [
+    "Bueno... vaya día, ¿no?",
+    "No te voy a mentir, tus Sleepers me asustaron ahí adentro. La forma en que se movieron, todos a la vez... no quiero estar del lado equivocado de eso.",
+    "¿Pero sabes en qué no dejo de pensar? En lo que dijo Rain. Sobre perder a su familia por culpa del Imperio.",
+    "Yo me uní a esta guerra para alimentar a la mía. Si alguien me la quitara... probablemente estaría igual de furioso que ella.",
+    "Rain, ¿estás ahí? ¿Podemos hablar?",
+    "¿Qué quieres, Badol?",
+    "Escuchen. Los dos. Lo que pasó en esas ruinas se queda en esas ruinas. No hablamos de eso en el campamento. Ni al oficial, ni a nadie.",
+    "Y arreglen esto entre ustedes. Porque si no somos un equipo, estamos muertos. Y yo no dejé a mi familia atrás para morir porque mis compañeros no se soportan. Mi madre no va a enterrar a su hijo por esto. ¿Quedó claro?",
+    "...Bien.",
+    "...",
+    "Ese mercenario. El que dijo que tenía hijos. ¿Creen que decía la verdad?",
+    "...No pienses en eso, Badol. Solo volvamos al campamento."
+  ],
+  "cynian_rain_pre_ruins": [
+    "Por fin, una misión de verdad. Ya me estaba cansando de los simulacros. Hora de destrozar chatarra imperial.",
+    "Así que para eso sirven tus Sleepers. Para poner trampas. Yo prefiero mirar al enemigo a los ojos cuando lo derroto, pero bueno, supongo que cada uno pelea como puede.",
+    "Tecnología nueva o no, lo único que me importa es que le haga daño al Imperio. Si funciona, funciona. Así de simple.",
+    "Intenta no quedarte atrás. Mi Stealth Viper no espera a nadie."
+  ],
+  "kara_pre_ruins": [
+    "...¿Más efectivos? ¿Qué quieres decir con más efectivos?",
+    "Más letales. Eso es lo que dices. Quieren convertir la investigación de mi padre en una mejor máquina de matar.",
+    "Él creó el Módulo Sleeper para que los Zoids pudieran pensar por sí mismos. Para que pudieran elegir. Y ahora los están convirtiendo en... esto.",
+    "Tú lo sabías. Sabías que los ejércitos harían esto con su trabajo. Y aun así te uniste a ellos. Aun así te pusiste ese uniforme.",
+    "¡Vete! ¡Ve a hacer tu misión! ¡No quiero verte!"
+  ],
+  "narration_badol_kill": [
+    "El Sea Panther se desplomó. El mercenario se arrastró fuera de los restos e intentó huir, pero no tenía a dónde ir. Acorralado.",
+    "¡Por favor! ¡Si me capturan, me van a colgar! ¡Los mercenarios no tienen juicio, no tienen derechos! ¡Solo es un trabajo! ¡Yo no elegí esto!",
+    "¿¡Qué esperas!? ¡Átalo de una vez!",
+    "¡Tengo familia! ¡Tengo hijos! ¡Solo seguía órdenes! ¡Ustedes son soldados, entienden eso, no!? ¡Saben lo que es!",
+    "¿¡Es en serio!? ¡Es un mercenario! ¡Acaba de intentar matarnos! ¡Solo amárralo y que el mando se encargue!",
+    "¡Mírenme! ¡Estoy desarmado! ¡No soy amenaza para nadie! ¡Solo déjenme ir y desaparezco! ¡Nunca me volverán a ver, lo juro!",
+    "¡Si se escapa, todo lo que acabamos de hacer fue para nada! ¡Casi MORIMOS ahí afuera! ¡Solo amárralo!",
+    "Rain sacó una cuerda y se acercó al mercenario, pero te interpusiste en su camino.",
+    "Quítate de mi camino. NO me pongas a prueba ahora. Te juro que si tú—",
+    "Un solo disparo. El mercenario cayó.",
+    "...¿Qué? Ustedes dos estaban muy ocupados discutiendo. Si escapa, le cuenta al Imperio sobre el sistema y el Armadura Pesada. Nuestra misión fracasa. Si la misión fracasa, no asciendo. Si no asciendo, mi familia no come. No me voy a arriesgar.",
+    "Bueno, al menos este ya no tiene que preocuparse por la soga.",
+    "Badol se dio la vuelta y caminó hacia los otros mercenarios caídos. Otro disparo. Y otro."
+  ],
+  "narration_mercenary_ambush": [
+    "Bien, antes de partir, asegúrense de asegurar el Armadura Pesada durante el transporte. La ruta del desierto puede ser—",
+    "Un disparo resonó. El oficial se desplomó a media frase. Luego otro. Y otro.",
+    "¡Francotiradores! ¡Al suelo!",
+    "¡Los oficiales! ¡Les dieron a todos!",
+    "¡Mercenarios! Sin insignias, sin uniformes. Estos no son soldados imperiales.",
+    "¡Vienen por el Guysack! ¡Detrás de él, ya! ¡Es la única cobertura que tenemos!",
+    "¡Nuestros Zoids están justo ahí! ¡Tenemos que llegar a ellos!",
+    "¿¡Estás loca!? ¡Eso es campo abierto! ¡Nos acribillarán antes de dar tres pasos!",
+    "Escúchenme. Los dos. Tomen los rifles de los oficiales. Yo iré primero. Cuando llegue a mi Viper, los cubriré desde ahí. Cuando empiece a disparar, corren. ¿Entendido?",
+    "¡Rain, vas a estar completamente expuesta!",
+    "Soy la más rápida aquí. Solo estén listos para moverse cuando yo diga.",
+    "Rain tomó un rifle y salió de la cobertura. Cruzó el campo abierto a toda velocidad, disparando mientras corría. Los mercenarios se debatían entre responder el fuego y cubrirse de sus disparos.",
+    "Llegó al Stealth Viper. Se subió. Los cañones del Viper cobraron vida, clavando a los mercenarios en sus posiciones.",
+    "¡¡VAMOS!! ¡¡AHORA!!"
+  ],
+  "narration_rain_pressure": [
+    "Con eso debería bastar. Los transmisores están en posición, el Armadura Pesada está instalado abajo. Solo falta que actives el sistema.",
+    "...",
+    "¿Qué esperas? Llevamos horas con esto. Solo actívalo.",
+    "...",
+    "¿Qué te pasa? ¿Por qué sigues retrasándolo?",
+    "¿Sabes?... antes de todo esto, eran seres vivos. Ahora solo son antenas. Receptores. Siguiendo una señal hasta que alguien los destruya. No es mucha vida que digamos.",
+    "Ay no, tú también no. ¿Qué es esto, un funeral? ¡Son máquinas!",
+    "Solo digo lo que todos estamos pensando. Bueno, lo que él está pensando."
+  ],
+  "narration_reconciliation": [
+    "...la República está perdiendo esta guerra, Kara. Si perdemos, un ejército que ni siquiera es de este continente decidirá todo por nosotros. Nunca harían esto si tuvieran opción. Ninguno de nosotros debería estar aquí. Tú, yo, él. Yo soy una niña comandando soldados. Él está usando Zoids como armas en contra de su naturaleza. Nada de esto está bien.",
+    "Entonces, ¿por qué lo aceptas?",
+    "Porque si la República gana, al menos tenemos una oportunidad. Una oportunidad de intentar cambiar las cosas. Eso es lo único que todos queremos. Acabar con esta guerra y tener voz en lo que venga después.",
+    "Tú también amas a los Zoids, Mana. Te he visto cómo les hablas. ¿Cómo puedes estar de acuerdo con convertirlos en... eso?",
+    "No estoy de acuerdo. Ninguno de nosotros lo está. Pero prefiero pelear para acabar esta guerra y luego arreglar lo que rompimos, a perder y nunca tener la oportunidad.",
+    "...Creo que alguien viene por ti. Ustedes tienen cosas que arreglar. Los dejo.",
+    "...Ella me contó todo. Que no querías hacerlo. Que lo odiaste cada segundo. ¿Es verdad? ¿Sentías lo mismo que yo todo este tiempo?",
+    "Entonces prométeme algo. Cuando esta guerra termine... los liberarás. A todos. Los Sleepers de esas ruinas. Les devolverás lo que mi padre quería para ellos.",
+    "...",
+    "También me contó... sobre cómo te negaste a activar el sistema. Lo mucho que te estaba afectando. Me hizo prometer que no te diría que estuvo aquí, así que... queda entre nosotros, ¿sí?",
+    "Creo que Rain quería que te perdonara. Pero ella también estaba... diferente. No sé qué vivieron ustedes dos en esas ruinas, pero la cambió a ella también.",
+    "...Sigo enojada. Pero te creo. No me hagas arrepentirme."
+  ],
+  "narration_ruins_cleared": [
+    "Bien, hay que seguir adelante. Deshacernos de los Sleepers imperiales y encontrar un buen lugar para establecer al Armadura Pesada como fuente de señal.",
+    "¡Ja! ¿Viste ese? Ni me vio venir. Podría hacer esto todo el día.",
+    "Cuidado, Rain. Te está empezando a gustar demasiado.",
+    "¿Qué tiene de malo? Destrozar chatarra imperial es la mejor parte de este trabajo. Más te vale cuidarte, grandote. Me está empezando a gustar destruir Sleepers. Los tuyos podrían ser los siguientes.",
+    "Sigan avanzando. Aún nos queda mucho terreno por cubrir."
+  ],
+  "narration_sea_panther_appears": [
+    "Ese fue el último. ¿Están todos bien?",
+    "Estoy bien. Buen tiro ahí afuera, Rain.",
+    "Guárdense los cumplidos para después. Algo no cuadra. Eso fue muy fácil para una emboscada planeada.",
+    "Un Sea Panther emergió detrás del depósito, dirigiéndose directo al Guysack Armadura Pesada.",
+    "¡Ese debe ser su líder! ¡Va por el Armadura Pesada!",
+    "¡Estamos muy lejos! ¡Los francotiradores nos alejaron del depósito! ¡No llegaremos a tiempo!",
+    "¡Tus Sleepers! ¡Siguen cerca del Armadura Pesada! ¡Son los únicos lo bastante cerca! ¡Úsalos!"
+  ],
+  "narration_sleeper_aftermath": [
+    "El Stealth Viper cae al suelo. Los Sleepers dejan de disparar. Por un momento, todo queda en silencio. Entonces empiezan a moverse. Lentamente. Todos. Acercándose desde todas las direcciones.",
+    "¿¡Qué están haciendo!? ¡Llámalos! ¡¡LLÁMALOS!!",
+    "Uno de los Sleepers se abalanza, agarra al Viper por el cuello y comienza a apretar. El Stealth Viper suelta un chillido agudo, su armazón de metal se dobla y cruje bajo la presión.",
+    "¡¡NO!! ¡Para! ¡La vas a aplastar! ¡¡SUÉLTALA!!",
+    "¡Por favor! ¡Ella no hizo nada malo! ¡Fui yo! ¡Yo fui la que disparó! ¡Desquítate conmigo, no con ella!",
+    "Le estás haciendo daño... por favor... ya entendí... perdón...",
+    "El Sleeper suelta su agarre. El Stealth Viper se desploma al suelo, abollado y gimiendo. Los Sleepers vuelven a sus posiciones como si nada hubiera pasado.",
+    "...",
+    "Para ser chatarra, muerden bastante fuerte, ¿no?",
+    "...Terminemos con esto.",
+    "Eh... ¿chicos? La pelea debió alertar a los Sleepers que instalamos. Deberíamos salir de aquí antes de que decidan que no pertenecemos."
+  ],
+  "narration_sleeper_confrontation": [
+    "¿¡Cuánto más vamos a tener que esperarte!? ¡Solo activa el sistema!",
+    "Ey, tranquila. Entiende que para él esto es difícil. Él los controla, los conoce. No es lo mismo para él que para ti o para mí.",
+    "¿¡Difícil!? ¡Difícil es perder a tu familia porque el Imperio te quitó todo! ¡Esto es solo apretar un botón!",
+    "¿Qué? ¿Ahora te vas a hacer el valiente? ¿Prefieres pelear conmigo que hacer tu trabajo?",
+    "¡Te escondes detrás de tus Sleepers para ganarte un lugar en el ejército, pero cuando puedes usarlos para salvar vidas, no te atreves!? ¡Eres un farsante y un cobarde!",
+    "¡¡YA!! ¡Los dos!",
+    "¡Bien! ¡Si tanto te importan, déjame enseñarte lo que realmente son!",
+    "...",
+    "¿¡Qué dem—!? ¡Rain! ¡Deja de disparar! ¡Esos Sleepers son de ÉL! ¿¡Estás loca!?",
+    "¿¡Ven!? ¡Chatarra! ¡Solo son chatarra que no puede ni esquivar un disparo! ¡Jamás serán lo mismo que un Zoid piloteado! ¡Jamás!"
+  ],
+  "training_officer_ruins_briefing": [
+    "Escuchen. Inteligencia ha detectado actividad imperial cerca de las ruinas antiguas al norte. Patrullas de exploración, equipos de reconocimiento. Creen que no nos hemos dado cuenta. Vamos a dejar que lo sigan creyendo.",
+    "Hemos estado trabajando en algo nuevo. Una forma de hacer a nuestros Sleepers... más efectivos. Se acabaron los Zoids plantados ahí sin hacer nada. Esta vez, cuando el Imperio entre en esas ruinas, no saldrá.",
+    "Tú estás en esta misión porque tienes más experiencia con los Sleepers. Rain, fuiste la primera en completar las pruebas. Eres la recluta más capaz que tenemos. Decisive, la misión cruza el desierto. Tus habilidades de supervivencia serán esenciales ahí afuera.",
+    "Primero, diríjanse al depósito de suministros en el Campamento Abandonado. Ahí recibirán el informe completo y recogerán el equipo. Después, las ruinas. Limpien a los Sleepers imperiales e instalen el nuevo sistema.",
+    "En marcha."
+  ],
+  "training_officer_ruins_debrief": [
+    "Recibí su reporte de campo. La red de Sleepers está operativa. Buen trabajo.",
+    "También leí sobre el ataque de mercenarios en el depósito. Estamos investigando quién los contrató, aunque creo que todos sabemos la respuesta.",
+    "Ustedes tres manejaron una situación que habría quebrado a la mayoría de escuadrones veteranos. Eso habla bien de ustedes.",
+    "Descansen. Se lo ganaron."
   ]
 }

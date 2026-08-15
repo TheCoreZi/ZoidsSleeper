@@ -114,6 +114,44 @@ export const PILOTS: Record<string, Pilot> = {
       ]),
     ],
   },
+  cynian_rain_duel: {
+    fragmentYield: 5,
+    id: 'cynian_rain_duel',
+    imageId: 'cynian_rain',
+    magnisReward: 5000,
+    name: 'Cynian Rain',
+    zoidSets: [
+      new PilotZoidSet([
+        { attackOverride: 400, id: 'stealth_viper', level: 80, maxHealthOverride: 60000 },
+      ]),
+    ],
+  },
+  mercenaries: {
+    fragmentYield: 5,
+    id: 'mercenaries',
+    imageId: 'thug',
+    magnisReward: 5000,
+    name: 'Mercenaries',
+    zoidSets: [
+      new PilotZoidSet([
+        { attackOverride: 100, id: 'molga', level: 70, maxHealthOverride: 30000 },
+        { attackOverride: 100, id: 'gator', level: 70, maxHealthOverride: 20000 },
+        { attackOverride: 100, id: 'malder', level: 70, maxHealthOverride: 20000 },
+      ]),
+    ],
+  },
+  mercenary_leader: {
+    fragmentYield: 6,
+    id: 'mercenary_leader',
+    imageId: 'thug',
+    magnisReward: 7000,
+    name: 'Mercenary Leader',
+    zoidSets: [
+      new PilotZoidSet([
+        { attackOverride: 200, id: 'sea_panther', level: 80, maxHealthOverride: 50000 },
+      ]),
+    ],
+  },
   imperial_scout: {
     fragmentYield: 5,
     id: 'imperial_scout',

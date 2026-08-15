@@ -152,6 +152,58 @@
         "description": "Head to the Republican camp and report for duty. Major Arthur has already put in a good word for you.",
         "name": "Reporting to the Republic"
       },
+      "activate_system": {
+        "description": "Complete another sortie through the Hollow Ruins to finish the installation, then activate the Sleeper coordination system.",
+        "name": "Just Press the Button"
+      },
+      "badol_post_ambush": {
+        "description": "Talk to Badol when you arrive at the Hollow Ruins.",
+        "name": "Who Would Have Thought"
+      },
+      "clear_ruins": {
+        "description": "Clear the Imperial Sleepers from the Hollow Ruins.",
+        "name": "Out with the Old"
+      },
+      "companions_pre_ruins": {
+        "description": "Talk to your companions before heading out.",
+        "name": "The Betrayal, Bro"
+      },
+      "escape_ruins": {
+        "description": "Escape the ruins before the Sleepers attack you.",
+        "name": "Run or Be Caught"
+      },
+      "fight_mercenaries": {
+        "description": "Defend the supply depot from the mercenary attack.",
+        "name": "Where Did These Thugs Come From?"
+      },
+      "fight_rain": {
+        "description": "Teach Rain a lesson about your Sleepers.",
+        "name": "She Asked for It"
+      },
+      "fight_sea_panther": {
+        "description": "Stop the Sea Panther from destroying the Guysack Heavy Armor.",
+        "name": "Nooo My Ship!"
+      },
+      "head_to_ruins": {
+        "description": "Gather the equipment and head to the ruins.",
+        "name": "Head Out"
+      },
+      "install_transmitters": {
+        "description": "Install the transmitters deeper in the ruins.",
+        "name": "All the Way In"
+      },
+      "reconciliation": {
+        "description": "Find Kara.",
+        "name": "The Hard Talk"
+      },
+      "ruins_briefing": {
+        "description": "Report to the Training Officer for your first field assignment.",
+        "name": "First Assignment"
+      },
+      "ruins_debrief": {
+        "description": "Report back to the Training Officer.",
+        "name": "What a Day"
+      },
       "talk_to_companions": {
         "description": "Speak with Kara, Cynian Rain, and Badol Decisive before the next assignment.",
         "name": "The Meaning of the Uniform"
@@ -159,6 +211,10 @@
       "trials_complete": {
         "description": "Report to the officer to confirm your trial results.",
         "name": "Still Standing"
+      },
+      "visit_abandoned_camp": {
+        "description": "Head to the Abandoned Camp for your full briefing.",
+        "name": "The Hive"
       }
     },
     "name": "The Olympus Threat"

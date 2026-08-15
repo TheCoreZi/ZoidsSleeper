@@ -52,10 +52,23 @@ function migrateGuylosSegment2(data: MigrationData): void {
   }
 }
 
+function migrateHelicSegment2(data: MigrationData): void {
+  const campaignsData = data.campaigns as Record<string, Record<string, unknown>> | undefined;
+  const campaign = campaignsData?.['olympus_threat'];
+  if (!campaign || campaign.status !== 'started') {return;}
+
+  const currentMission = campaign.currentMission as Record<string, unknown> | undefined;
+  if (currentMission?.id === 'coming_soon') {
+    campaign.currentMission = { goalState: [], id: 'ruins_briefing' };
+    campaign.missionNpcFlags = { 'olympus_threat:training_officer': false };
+  }
+}
+
 const migrations: Record<string, MigrationFn> = {
   '0.6.3': (data) => {
     migrateRanks(data);
     migrateGuylosSegment2(data);
+    migrateHelicSegment2(data);
   },
   '0.6.2': (data) => {
     const campaignsData = data.campaigns as Record<string, Record<string, unknown>> | undefined;

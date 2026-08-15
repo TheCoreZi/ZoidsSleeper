@@ -1,4 +1,14 @@
 {
+  "abandoned_camp_officer": [
+    "So you are the rookies they sent. I was expecting... more of you. And what is with all those Zoids following you around? Ah, the Sleeper pilot. Should have guessed.",
+    "Alright, listen up. We have developed a new coordination system based on transmitters. You install them in the ruins, and every Sleeper in range will pick up the signals. They will patrol, pursue, surround. Act as one organism. A hive.",
+    "A hive? That sounds... unsettling.",
+    "It is supposed to be. For the enemy. Now, the system needs a source for the signal. A command unit that broadcasts to the rest. This is it. The Guysack Heavy Armor.",
+    "Wait. That is just my Guysack after hitting the gym. When do I get one of those?",
+    "You do not. This one is not for piloting. It stays in the ruins as the brain of the network. Now, they say you are good at commanding Sleepers, right? You will program the patrol routes, where they push intruders, how they cut off escape routes. All of that should be set on this device. How good you are will be shown in the number of enemies that fall in your trap.",
+    "So he decides what they do and they just... obey? Like trained animals?",
+    "Like soldiers following orders, recruit. Which is what you should be doing. One more thing, do not cover the transmitters on its back or the whole network goes dark. Now take it and get moving."
+  ],
   "arcadia_guard": [
     "Dr. T...? Hold it right there. Who are you and where did you hear that name? You'd better start talking, or my Zoid will do the asking."
   ],
@@ -1029,5 +1039,153 @@
   ],
   "thug_bar": [
     "What do you want? You do not look like you belong here. Order something or get out."
+  ],
+  "badol_decisive_pre_ruins": [
+    "A supply depot and some ruins? I thought being a soldier would be more glamorous. My mother is going to be disappointed.",
+    "But hey, orders are orders. As long as they keep paying me, I will keep showing up. My Guysack and I are ready for whatever.",
+    "I do not care how we win. I care about going home. And if this new system gets us there faster, I am all for it.",
+    "And relax, will you? You look like someone asked you to cook your own pet. We are just downloading an update on them, that is all. I got your back."
+  ],
+  "badol_post_ambush": [
+    "Hey. I know that look. I get it.",
+    "I did not enjoy it. You know me better than that. But I was not going to let some mercenary ruin this mission. Too much depends on it.",
+    "Besides, I saved you the decision. And the fight with Rain. Did you see her out there? She would have torn you apart.",
+    "We are good, yeah? Come on. We still have ruins to clear."
+  ],
+  "badol_return_from_ruins": [
+    "So... that was something, huh?",
+    "I am not going to lie, your Sleepers scared me back there. The way they moved, all at once... I do not want to be on the wrong side of that.",
+    "But you know what I keep thinking about? What Rain said. About losing her family because of the Empire.",
+    "I joined this war to feed mine. If someone took them from me... I would probably be just as furious as her.",
+    "Rain, you there? Can we talk?",
+    "What do you want, Badol?",
+    "Listen. Both of you. What happened in those ruins stays in those ruins. We do not talk about it at camp. Not to the officer, not to anyone.",
+    "And sort this out between you. Because if we are not a team, we are dead. And I did not leave my family behind just to die because my squadmates cannot stand each other. My mother is not burying her son over this. Are we clear?",
+    "...Fine.",
+    "...",
+    "That mercenary. The one who said he had kids. You think he was telling the truth?",
+    "...Do not think about it, Badol. Let us just get back to camp."
+  ],
+  "cynian_rain_pre_ruins": [
+    "Finally, a real mission. I was getting tired of training drills. Time to smash some Imperial junk.",
+    "So that is what your Sleepers are for. Setting traps. I would rather look the enemy in the eye when I take them down, but I guess everyone fights how they can.",
+    "New technology or not, all I care about is that it hurts the Empire. If it works, it works. Simple as that.",
+    "Try to keep up out there. My Stealth Viper does not wait for anyone."
+  ],
+  "kara_pre_ruins": [
+    "...More effective? What do you mean, more effective?",
+    "More lethal. That is what you are saying. They want to turn my father's research into a better killing machine.",
+    "He created the Sleeper Module so Zoids could think for themselves. So they could choose. And now they are turning them into... this.",
+    "You knew. You knew the armies would do this with his work. And you still joined them. You still put on that uniform.",
+    "Just go! Go do your mission! I do not want to see you!"
+  ],
+  "narration_badol_kill": [
+    "The Sea Panther collapsed. The mercenary crawled out of the wreckage and tried to run, but there was nowhere to go. Cornered.",
+    "Please! If they capture me, they will hang me! Mercenaries get no trial, no rights! It is just a job! I did not choose this!",
+    "What are you waiting for?! Tie him up already!",
+    "I have a family! I have kids! I was just following orders! You are soldiers, you understand that, right?! You know what it is like!",
+    "Are you serious right now?! He is a mercenary! He just tried to kill us! Just restrain him and let command deal with it!",
+    "Look at me! I am unarmed! I am no threat to anyone! Just let me go and I disappear! You will never see me again, I swear!",
+    "If he gets away, everything we just did was for nothing! We almost DIED out there! Just grab him!",
+    "Rain pulled out a rope and moved toward the mercenary, but you stepped in front of her, blocking her path.",
+    "Get out of my way. Do NOT test me right now. I swear if you—",
+    "A single shot. The mercenary dropped.",
+    "...What? You two were too busy arguing. If he escapes, he tells the Empire about the system and the Heavy Armor. Our mission fails. If the mission fails, I do not get promoted. If I do not get promoted, my family does not eat. I am not taking that risk.",
+    "Well, at least this one does not have to worry about the noose anymore.",
+    "Badol turned and walked toward the other fallen mercenaries. Another shot. Then another."
+  ],
+  "narration_mercenary_ambush": [
+    "Alright, before you head out, make sure you secure the Heavy Armor during transport. The desert route can be—",
+    "A shot rang out. The officer collapsed mid-sentence. Then another. And another.",
+    "Sniper fire! Get down!",
+    "The officers! They are all hit!",
+    "Mercenaries! No insignias, no uniforms. These are not Imperial soldiers.",
+    "They are here for the Guysack! Get behind it, now! It is the only cover we have!",
+    "Our Zoids are right there! We need to get to them!",
+    "Are you crazy?! That is open ground! They will pick us off before we take three steps!",
+    "Listen to me. Both of you. Grab the officers' rifles. I will go first. Once I reach my Viper, I will cover you from there. When I start shooting, you run. Got it?",
+    "Rain, you will be completely exposed!",
+    "I am the fastest one here. Just be ready to move when I say so.",
+    "Rain grabbed a rifle and broke from cover. She sprinted across the open ground, firing as she ran. The mercenaries scrambled between returning fire and taking cover from her shots.",
+    "She reached the Stealth Viper. Climbed in. The Viper's guns roared to life, pinning the mercenaries down.",
+    "GO! NOW!"
+  ],
+  "narration_rain_pressure": [
+    "That should be enough. The transmitters are in place, the Heavy Armor is set up below. All that is left is for you to activate the system.",
+    "...",
+    "What is the holdup? We have been at this for hours. Just activate it.",
+    "...",
+    "What is wrong with you? Why do you keep stalling?",
+    "You know... before all this, they were living things. Now they are just antennas. Receivers. Following a signal until someone puts them down. Not much of a life, is it.",
+    "Oh, not you too. What is this, a funeral? They are machines!",
+    "I am just saying what we are all thinking. Well, what he is thinking."
+  ],
+  "narration_reconciliation": [
+    "...the Republic is losing this war, Kara. If we lose, an army that is not even from this continent will decide everything for us. They would never do this if they had a choice. None of us should be here. You, me, him. I am a child commanding soldiers. He is using Zoids as weapons against their nature. None of this is right.",
+    "Then why do you accept it?",
+    "Because if the Republic wins, at least we have a chance. A chance to try to change things. That is all any of us want. To end this war and have a say in what comes after.",
+    "You love Zoids too, Mana. I have seen how you talk to them. How can you be okay with turning them into... that?",
+    "I am not okay with it. None of us are. But I would rather fight to end this war and then fix what we broke, than lose and never get the chance.",
+    "...I think someone is here for you. You two have things to work out. I will leave you to it.",
+    "...She told me everything. That you did not want to do it. That you hated every second of it. Is that true? You felt the same way I did this whole time?",
+    "Then promise me something. When this war is over... you will free them. All of them. The Sleepers in those ruins. You will give them back what my father wanted for them.",
+    "...",
+    "She also told me... about how you refused to activate the system. How much it was hurting you. She made me promise not to tell you she was here, so... keep it between us, okay?",
+    "I think Rain wanted me to forgive you. But she was also... different. I do not know what you two went through in those ruins, but it changed her too.",
+    "...I am still angry. But I believe you. Do not make me regret it."
+  ],
+  "narration_ruins_cleared": [
+    "Alright, we need to push deeper. Clear out the Imperial Sleepers and find a good spot to set up the Heavy Armor as the signal source.",
+    "Ha! Did you see that one? It did not even see me coming. I could do this all day.",
+    "Careful, Rain. You are starting to enjoy this a little too much.",
+    "What is not to enjoy? Smashing Imperial junk is the best part of this job. You better watch out, big guy. I am starting to like destroying Sleepers. Yours might be next.",
+    "Keep moving. We still have a lot of ground to cover."
+  ],
+  "narration_sea_panther_appears": [
+    "That was the last of them. Is everyone alright?",
+    "I am fine. Nice shooting out there, Rain.",
+    "Save the compliments for later. Something is not right. That was too easy for a planned ambush.",
+    "A Sea Panther emerged from behind the depot, heading straight for the Guysack Heavy Armor.",
+    "That must be their leader! He is going for the Heavy Armor!",
+    "We are too far! The snipers pulled us away from the depot! We will never make it back in time!",
+    "Your Sleepers! They are still near the Heavy Armor! They are the only ones close enough! Use them!"
+  ],
+  "narration_sleeper_aftermath": [
+    "The Stealth Viper hit the ground. The Sleepers stopped firing. For a moment, everything was silent. Then they started moving. Slowly. All of them. Closing in from every direction.",
+    "What are they doing?! Call them off! CALL THEM OFF!",
+    "One of the Sleepers lunged forward, grabbed the Viper by the neck and started squeezing. The Stealth Viper let out a high-pitched shriek, its metal frame buckling and grinding under the pressure.",
+    "NO! Stop it! You are going to crush her! LET HER GO!",
+    "Please! She did nothing wrong! It was me! I was the one shooting! Take it out on me, not on her!",
+    "You are hurting her... please... I get it... I am sorry...",
+    "The Sleeper released its grip. The Stealth Viper collapsed to the ground, dented and whimpering. The Sleepers returned to their positions as if nothing had happened.",
+    "...",
+    "For junk, they sure bite hard, huh?",
+    "...Let us just finish this.",
+    "Uh... guys? The fight must have alerted the Sleepers we installed. We should get out of here before they decide we do not belong."
+  ],
+  "narration_sleeper_confrontation": [
+    "How much longer are we going to have to wait for you?! Just activate the system!",
+    "Hey, easy. Understand that this is hard for him. He controls them, he knows them. It is not the same for him as it is for you and me.",
+    "Hard?! Hard is losing your family because the Empire took everything from you! This is just pressing a button!",
+    "What? You are going to face me now? You would rather fight me than do your job?",
+    "You hide behind your Sleepers to earn your place in the army, but when you can actually use them to save lives, you do not have the nerve?! You are a fraud and a coward!",
+    "ENOUGH! Both of you!",
+    "Fine! If you care so much about them, let me show you what they really are!",
+    "...",
+    "What the— Rain! Stop shooting! Those are HIS Sleepers! Are you out of your mind?!",
+    "See?! Junk! They are just junk that cannot even dodge a shot! They will never be the same as a piloted Zoid! Never!"
+  ],
+  "training_officer_ruins_briefing": [
+    "Listen up. Intelligence has detected Imperial activity near the ancient ruins to the north. Scout patrols, reconnaissance teams. They think we have not noticed. We are going to keep it that way.",
+    "We have been working on something new. A way to make our Sleepers... more effective. No more Zoids sitting around waiting to be stepped on. This time, when the Empire walks into those ruins, they will not walk out.",
+    "You are on this mission because you have the most experience with Sleepers. Rain, you were the first to complete the trials. You are the most capable recruit we have. Decisive, the mission crosses the desert. Your survival skills will be essential out there.",
+    "First, head to the supply depot at the Abandoned Camp. You will receive the full briefing and pick up the equipment there. After that, the ruins. Clear out the Imperial Sleepers and set up our new system.",
+    "Move out."
+  ],
+  "training_officer_ruins_debrief": [
+    "I have received your field report. The Sleeper network is operational. Good work.",
+    "I also read about the mercenary attack at the depot. We are looking into who hired them, though I think we all know the answer.",
+    "You three handled a situation that would have broken most veteran squads. That speaks well of you.",
+    "Get some rest. You have earned it."
   ]
 }

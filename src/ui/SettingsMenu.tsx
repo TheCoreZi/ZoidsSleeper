@@ -3,6 +3,7 @@ import { changeLocale, currentLocale, t } from '../i18n';
 import { Save } from '../game/Save';
 import DevCampaignTools from './DevCampaignTools';
 import DevFactionTools from './DevFactionTools';
+import DevZoidTools from './DevZoidTools';
 import './settings.css';
 
 const LANGUAGES = [
@@ -80,6 +81,8 @@ const SettingsMenu: Component = () => {
               <DevCampaignTools />
               <div class="divider" />
               <DevFactionTools />
+              <div class="divider" />
+              <DevZoidTools />
             </Match>
           </Switch>
           <span class="settings-version">v{__APP_VERSION__}</span>

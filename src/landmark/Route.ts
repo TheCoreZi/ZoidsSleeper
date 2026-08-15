@@ -1,7 +1,7 @@
 import { FEATURE_FLAGS } from '../featureFlag';
 import type { Drop } from '../item/Drop';
 import type { Requirement } from '../requirement';
-import { CampaignCompletedRequirement, CampaignStartedRequirement, DungeonCompletionRequirement, FactionRequirement, MissionCompletedRequirement, OwnZoidForTerrainRequirement, ZoidCreatedRequirement } from '../requirement';
+import { AtLeastOneRequirement, CampaignCompletedRequirement, CampaignStartedRequirement, DungeonCompletionRequirement, FactionRequirement, MissionCompletedRequirement, OwnZoidForTerrainRequirement, ZoidCreatedRequirement } from '../requirement';
 import { Faction } from '../models/Faction';
 import type { CurrencyReward } from '../models/Currency';
 import { TerrainType } from '../models/Terrain';
@@ -256,13 +256,14 @@ export const ROUTES: Route[] = [
     battleBackground: BattleBackground.Desert,
     connects: ['elmia_ruins', 'hollow_ruins'],
     enemies: [
-      { blueprint: { id: 'guysack', level: 40 } },
+      { blueprint: { id: 'guysack', level: 40 }, unlockRequirement: new FactionRequirement(Faction.GuylosEmpire) },
+      { blueprint: { id: 'molga', level: 40 }, unlockRequirement: new FactionRequirement(Faction.HelicRepublic) },
     ],
     featureFlag: FEATURE_FLAGS.RED_RIVER,
     fragmentYield: 5,
     id: 'ruins_path',
     name: 'Ruins Path',
-    requirements: [new MissionCompletedRequirement('olympus_guylos', 'ruins_briefing')],
+    requirements: [new AtLeastOneRequirement([new MissionCompletedRequirement('olympus_guylos', 'ruins_briefing'), new MissionCompletedRequirement('olympus_threat', 'fight_sea_panther')])],
     routeHealth: 4000,
     type: LandmarkType.Route,
   },

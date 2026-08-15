@@ -7,7 +7,7 @@ import { BossTier, PilotBossEntry, WildBossEntry } from '../dungeon/DungeonSorti
 import { NodeProbability } from '../dungeon/DungeonSortieEvent';
 import { DUNGEON_SUPPLIES } from '../dungeon/dungeonSupplies';
 import { ItemDrop } from '../item';
-import { COMPOUND_REQUIREMENTS, DungeonCompletionRequirement, MissionCompletedRequirement, PilotDefeatRequirement, RouteKillRequirement, ZoidCreatedRequirement } from '../requirement';
+import { COMPOUND_REQUIREMENTS, CurrentMissionRequirement, DungeonCompletionRequirement, MissionCompletedRequirement, PilotDefeatRequirement, RouteKillRequirement, ZoidCreatedRequirement } from '../requirement';
 import { PILOTS } from '../models/Pilot';
 import { activateCityActionReward, cutsceneReward, missionAdvanceReward } from '../reward';
 import { ActionDuelWild } from './action/ActionDuelWild';
@@ -28,6 +28,7 @@ export interface Dungeon extends Landmark {
 
 const C = CAMPAIGNS.sleeper_commander;
 const G = CAMPAIGNS.olympus_guylos;
+const O = CAMPAIGNS.olympus_threat;
 const S = CAMPAIGNS.shells_of_time;
 
 export const DUNGEONS: Dungeon[] = [
@@ -73,7 +74,7 @@ export const DUNGEONS: Dungeon[] = [
         ],
       }),
       new ActionTalkToNPC('eddie_crescent', [new MissionCompletedRequirement(G.id, 'scout_ruins')], [new MissionCompletedRequirement(G.id, 'clear_hollow_ruins')], undefined, 'ui:scout_area'),
-      new ActionTalkToNPC('eddie_crescent', undefined, [new MissionCompletedRequirement(G.id, 'scout_ruins')], missionAdvanceReward(G.id), 'ui:scout_area'),
+      new ActionTalkToNPC('eddie_crescent', [new MissionCompletedRequirement(G.id, 'ruins_briefing')], [new MissionCompletedRequirement(G.id, 'scout_ruins')], missionAdvanceReward(G.id), 'ui:scout_area'),
       new ActionPlayCutscene(CUTSCENES.narration_ruins_aftermath, 'ui:review_findings',
         [new MissionCompletedRequirement(G.id, 'clear_hollow_ruins')],
         [new MissionCompletedRequirement(G.id, 'explore_lower_level')]),
@@ -103,6 +104,64 @@ export const DUNGEONS: Dungeon[] = [
         [new MissionCompletedRequirement(G.id, 'return_to_eddie')],
         [new MissionCompletedRequirement(G.id, 'defeat_guysack_heavy_armor')]
       ),
+      // --- Helic Campaign: Sleeper Ruins ---
+      // Helic sortie (clear Imperial Sleepers + install transmitters)
+      new DungeonSortieEvent({
+        baseReward: { magnis: 250, zi_metal: 8 },
+        bossTiers: [
+          new BossTier([new WildBossEntry({ attackOverride: 150, id: 'cannory_molga', level: 70, maxHealthOverride: 30000, scannable: false })]),
+          new BossTier([new WildBossEntry({ attackOverride: 200, id: 'cannory_molga', level: 75, maxHealthOverride: 40000, scannable: false })], [new MissionCompletedRequirement(O.id, 'clear_ruins')]),
+          new BossTier([new WildBossEntry({ attackOverride: 300, id: 'cannory_molga', level: 80, maxHealthOverride: 50000, scannable: false })], [new MissionCompletedRequirement(O.id, 'install_transmitters')]),
+          new BossTier([new WildBossEntry({ attackOverride: 300, id: 'guysack_heavy_armor', level: 80, maxHealthOverride: 50000, scannable: false })], [new CurrentMissionRequirement(O.id, 'escape_ruins')]),
+        ],
+        eliteEnemies: [
+          { zoidData: { attackOverride: 200, id: 'molga', level: 30, maxHealthOverride: 3000 } },
+        ],
+        enemies: [
+          { zoidData: { attackOverride: 100, id: 'molga', level: 25, maxHealthOverride: 2000 } },
+        ],
+        entryCost: 80,
+        eventPool: [
+          DUNGEON_EVENTS.enemy_patrol,
+          DUNGEON_EVENTS.mysterious_creature,
+          DUNGEON_EVENTS.mysterious_device,
+          DUNGEON_EVENTS.sealed_chamber,
+          DUNGEON_EVENTS.fallen_soldiers,
+          DUNGEON_EVENTS.stray_zoid,
+        ],
+        nodeTypeChances: {
+          combat: new NodeProbability(0.50, -0.20),
+          elite: new NodeProbability(0.25, 0.30),
+          event: new NodeProbability(0.20, -0.05),
+        },
+        fragmentYield: 5,
+        id: 'hollow_ruins_helic_sortie',
+        itemDrops: [new ItemDrop('core_preserver', 10)],
+        layers: 5,
+        nodesPerLayer: [4, 5],
+        requirements: [new MissionCompletedRequirement(O.id, 'badol_post_ambush')],
+        supplyOptions: [
+          DUNGEON_SUPPLIES.field_repair,
+          DUNGEON_SUPPLIES.overclock,
+        ],
+      }),
+      // Helic: Badol post-ambush talk
+      new ActionTalkToNPC('badol_decisive',
+        [new MissionCompletedRequirement(O.id, 'fight_sea_panther')],
+        [new MissionCompletedRequirement(O.id, 'clear_ruins')]),
+      // Helic: Activate system (talk to Rain)
+      new ActionTalkToNPC('cynian_rain',
+        [
+          new MissionCompletedRequirement(O.id, 'install_transmitters'),
+          new DungeonCompletionRequirement('hollow_ruins_helic_sortie', 3),
+        ],
+        [new MissionCompletedRequirement(O.id, 'fight_rain')],
+        undefined,
+        'ui:activate_system'),
+      // Helic: Fight Rain
+      new ActionFightPilot(PILOTS['cynian_rain_duel'],
+        [new MissionCompletedRequirement(O.id, 'activate_system')],
+        [new PilotDefeatRequirement('cynian_rain_duel')]),
     ],
     battleBackground: BattleBackground.Ruin,
     featureFlag: FEATURE_FLAGS.RED_RIVER,

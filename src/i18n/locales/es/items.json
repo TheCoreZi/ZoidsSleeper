@@ -7,6 +7,10 @@
     "description": "Cañón de gran calibre. Mayor alcance y poder destructivo a costa de movilidad.",
     "name": "Buster Cannon"
   },
+  "cannory_unit": {
+    "description": "Una unidad de artillería de largo alcance que mejora un Molga compatible para operaciones de transporte y apoyo de retaguardia.",
+    "name": "Unidad Cannory"
+  },
   "core_analyzer": {
     "description": "Un dispositivo usado para obtener información estructural de los Zoid Cores",
     "name": "Analizador de Cores"
