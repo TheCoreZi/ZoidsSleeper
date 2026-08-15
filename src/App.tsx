@@ -51,6 +51,7 @@ import SettingsMenu from './ui/SettingsMenu';
 import LabPanel from './ui/LabPanel';
 import NurturingPanel from './ui/NurturingPanel';
 import ShopPanel from './ui/ShopPanel';
+import { CommunityFooter, MigrationNotice } from './ui/SiteInformation';
 import SuppliesPanel from './ui/SuppliesPanel';
 import ZiArchivePanel from './ui/ZiArchivePanel';
 import WalletIndicator from './ui/WalletPanel';
@@ -155,6 +156,7 @@ const App: Component = () => {
           <SettingsMenu />
         </div>
       </div>
+      <MigrationNotice />
       <Show when={activeLab()}>
         <LabPanel
           labId={activeLab()!.labId}
@@ -304,6 +306,7 @@ const App: Component = () => {
           </div>
         </div>
       </Show>
+      <CommunityFooter />
       <Show when={popupMessage()} keyed>
         {(popup) => (
           <div class={`popup-message popup-${popup.type}`}>
