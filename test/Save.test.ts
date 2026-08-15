@@ -18,6 +18,24 @@ describe('Save', () => {
     expect(save.load()).toBeNull();
   });
 
+  it('should clear save data without reloading', () => {
+    localStorage.setItem('zoids-sleeper-save', '{}');
+
+    Save.clear();
+
+    expect(localStorage.getItem('zoids-sleeper-save')).toBeNull();
+  });
+
+  it('should clear save data and reload when reset', () => {
+    localStorage.setItem('zoids-sleeper-save', '{}');
+    vi.stubGlobal('location', { reload: vi.fn() });
+
+    Save.reset();
+
+    expect(localStorage.getItem('zoids-sleeper-save')).toBeNull();
+    expect(location.reload).toHaveBeenCalledOnce();
+  });
+
   it('should store and load save data', () => {
     const save = new Save();
 

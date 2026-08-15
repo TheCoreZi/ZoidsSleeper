@@ -4,8 +4,8 @@ import { Save } from '../game/Save';
 import { changeLocale } from '../i18n';
 import { CommunityFooter, DISCORD_URL, MigrationNotice } from './SiteInformation';
 
-const DISCORD_BACKGROUND = '#5865f2';
-const DISCORD_TEXT = '#ffffff';
+const DISCORD_BACKGROUND = '#000000';
+const DISCORD_TEXT = '#b8c0ff';
 const MINIMUM_AA_CONTRAST = 4.5;
 let dispose: (() => void) | undefined;
 

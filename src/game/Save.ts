@@ -44,6 +44,10 @@ export interface SaveData {
 export class Save {
   counter = 0;
 
+  static clear(): void {
+    localStorage.removeItem(SAVE_KEY);
+  }
+
   static decode(base64: string): string {
     const bytes = Uint8Array.from(atob(base64), c => c.charCodeAt(0));
     return new TextDecoder().decode(bytes);
@@ -87,7 +91,7 @@ export class Save {
   }
 
   static reset(): void {
-    localStorage.removeItem(SAVE_KEY);
+    Save.clear();
     location.reload();
   }
 

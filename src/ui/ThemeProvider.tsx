@@ -2,9 +2,13 @@ import { createEffect, type ParentComponent } from 'solid-js';
 import { Faction, FACTION_THEMES } from '../models/Faction';
 import { playerStats } from '../store/gameStore';
 
-const ThemeProvider: ParentComponent = (props) => {
+interface ThemeProviderProps {
+  faction?: Faction;
+}
+
+const ThemeProvider: ParentComponent<ThemeProviderProps> = (props) => {
   createEffect(() => {
-    const faction = playerStats()?.faction ?? Faction.Neutral;
+    const faction = props.faction ?? playerStats()?.faction ?? Faction.Neutral;
     const theme = FACTION_THEMES[faction];
     const style = document.documentElement.style;
     style.setProperty('--theme-accent', theme.accent);
