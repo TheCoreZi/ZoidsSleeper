@@ -40,11 +40,18 @@
   border: 2px solid var(--theme-border);
   border-radius: 8px;
   margin-top: 0.5rem;
-  min-width: 180px;
+  min-width: 260px;
   padding: 0.75rem;
   position: absolute;
   right: 0;
   top: 100%;
+}
+
+.settings-dropdown .player-name-form {
+  background: none;
+  border: none;
+  padding: 0;
+  width: 100%;
 }
 
 .settings-dropdown-header {
@@ -139,6 +146,11 @@
 
 .settings-menu-icon {
   font-size: 1.2rem;
+}
+
+.settings-menu-edit-icon {
+  color: var(--theme-accent);
+  margin-left: auto;
 }
 
 .settings-version {

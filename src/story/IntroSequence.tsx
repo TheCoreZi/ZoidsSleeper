@@ -2,23 +2,24 @@ import { createSignal, Match, onCleanup, Switch, type Component } from 'solid-js
 import { TICK_TIME } from '../constants';
 import { GameLoop } from '../game/GameLoop';
 import { getZoidName } from '../models/Zoid';
-import { BattleState, setBattleState } from '../store/gameStore';
+import { BattleState, setBattleState, setPlayerName } from '../store/gameStore';
 import BattleScreen from '../ui/BattleScreen';
 import DialogBox from '../dialog/DialogBox';
+import PlayerNameForm from '../ui/PlayerNameForm';
 import { IntroBattle } from './IntroBattle';
 import IntroText from './IntroText';
 import StarterSelect from './StarterSelect';
 import { CAPTAIN_DIALOG, CHALLENGE_DIALOG, FAREWELL_DIALOG } from './introScript';
 import './story.css';
 
-type IntroStep = 'battle' | 'challenge' | 'dialog' | 'farewell' | 'planet' | 'select';
+type IntroStep = 'battle' | 'challenge' | 'dialog' | 'farewell' | 'name' | 'planet' | 'select';
 
 interface IntroSequenceProps {
   onComplete: (zoidId: string) => void;
 }
 
 const IntroSequence: Component<IntroSequenceProps> = (props) => {
-  const [step, setStep] = createSignal<IntroStep>('planet');
+  const [step, setStep] = createSignal<IntroStep>('name');
   let battle: IntroBattle | null = null;
   let loop: GameLoop | null = null;
   let selectedZoidId: string | null = null;
@@ -46,6 +47,13 @@ const IntroSequence: Component<IntroSequenceProps> = (props) => {
   return (
     <div class="intro-container">
       <Switch>
+        <Match when={step() === 'name'}>
+          <PlayerNameForm
+            onSubmit={(name) => { setPlayerName(name); setStep('planet'); }}
+            submitKey="ui:continue"
+            titleKey="ui:enter_your_name"
+          />
+        </Match>
         <Match when={step() === 'planet'}>
           <IntroText onComplete={() => setStep('dialog')} />
         </Match>

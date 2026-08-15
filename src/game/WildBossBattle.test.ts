@@ -1,9 +1,9 @@
 import { describe, expect, it, vi } from 'vitest';
-import type { PlayerStats } from '../models/Player';
+import { DEFAULT_PLAYER, type PlayerStats } from '../models/Player';
 import type { ZoidBlueprint } from '../models/Zoid';
 import { WildBossBattle } from './WildBossBattle';
 
-const PLAYER_STATS: PlayerStats = { attackMult: 1, baseHealth: 100, clickAttack: 10, evolvingEnabled: false, faction: 'neutral', nurturingSlots: 0, reinforcementsEnabled: false };
+const PLAYER_STATS: PlayerStats = { ...DEFAULT_PLAYER, baseHealth: 100, clickAttack: 10 };
 const ZOIDS: ZoidBlueprint[] = [
   { attackOverride: 5, id: 'gator', level: 10, maxHealthOverride: 50 },
   { attackOverride: 8, id: 'molga', level: 12, maxHealthOverride: 80 },

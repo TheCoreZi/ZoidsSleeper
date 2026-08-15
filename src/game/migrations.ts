@@ -1,11 +1,19 @@
 import { CAMPAIGNS } from '../campaign/campaigns';
 import { REBORN_ATTACK_BONUS_PERCENT } from '../constants';
+import { DEFAULT_PLAYER_NAME } from '../models/Player';
 import type { OwnedZoid } from '../models/Zoid';
 import type { SaveData } from './Save';
 
 export type MigrationData = Partial<SaveData> & Record<string, unknown>;
 
 type MigrationFn = (data: MigrationData) => void;
+
+function migratePlayerName(data: MigrationData): void {
+  const stats = data.playerStats as Record<string, unknown> | undefined;
+  if (stats && typeof stats.name !== 'string') {
+    stats.name = DEFAULT_PLAYER_NAME;
+  }
+}
 
 function migrateRanks(data: MigrationData): void {
   const stats = data.playerStats as Record<string, unknown> | undefined;
@@ -66,6 +74,7 @@ function migrateHelicSegment2(data: MigrationData): void {
 
 const migrations: Record<string, MigrationFn> = {
   '0.6.3': (data) => {
+    migratePlayerName(data);
     migrateRanks(data);
     migrateGuylosSegment2(data);
     migrateHelicSegment2(data);

@@ -27,7 +27,7 @@ import type { CurrencyReward } from '../models/Currency';
 import type { ArmyFilter } from '../models/ArmyFilter';
 import { Faction } from '../models/Faction';
 import { type Pilot, PILOTS } from '../models/Pilot';
-import { DEFAULT_PLAYER } from '../models/Player';
+import { DEFAULT_PLAYER, DEFAULT_PLAYER_NAME } from '../models/Player';
 import { PopupMessage, PopupType } from '../models/PopupMessage';
 import { calculatePartyAttack, calculatePartyMaxHealth, getZoidName, ZoidResearchStatus } from '../models/Zoid';
 import type { ZoidBlueprint } from '../models/Zoid';
@@ -504,7 +504,7 @@ export class Game {
         loadZoidData(data.zoidData);
       }
       if (data.playerStats) {
-        setPlayerStats({ ...data.playerStats, attackMult: data.playerStats.attackMult ?? 1, evolvingEnabled: data.playerStats.evolvingEnabled ?? false, nurturingSlots: data.playerStats.nurturingSlots ?? 0, reinforcementsEnabled: data.playerStats.reinforcementsEnabled ?? false });
+        setPlayerStats({ ...data.playerStats, attackMult: data.playerStats.attackMult ?? 1, evolvingEnabled: data.playerStats.evolvingEnabled ?? false, name: data.playerStats.name ?? DEFAULT_PLAYER_NAME, nurturingSlots: data.playerStats.nurturingSlots ?? 0, reinforcementsEnabled: data.playerStats.reinforcementsEnabled ?? false });
       }
       if (data.scanSetup) {
         loadScanSetup(data.scanSetup);

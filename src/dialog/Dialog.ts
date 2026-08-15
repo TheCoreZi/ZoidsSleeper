@@ -1,6 +1,8 @@
 import { dialogLength } from '../i18n';
 import type { Reward } from '../reward';
 
+export const PLAYER_SPEAKER_KEY = 'player';
+
 export interface DialogLine {
   image?: string;
   interpolation?: Record<string, number | string>;
