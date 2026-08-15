@@ -37,6 +37,30 @@ describe('migration 0.6.2', () => {
   });
 });
 
+describe('migration 0.6.3', () => {
+  it('adds the default player name when it is missing', () => {
+    const data = baseSave({
+      playerStats: { faction: 'neutral' } as MigrationData['playerStats'],
+      version: '0.6.2',
+    });
+
+    migrate(data, '0.6.2');
+
+    expect(data.playerStats?.name).toBe('Zoidbert');
+  });
+
+  it('preserves an existing player name', () => {
+    const data = baseSave({
+      playerStats: { faction: 'neutral', name: 'Alice' } as MigrationData['playerStats'],
+      version: '0.6.2',
+    });
+
+    migrate(data, '0.6.2');
+
+    expect(data.playerStats?.name).toBe('Alice');
+  });
+});
+
 describe('migration 0.4.5', () => {
   it('preserves existing save data without dungeonCompletions', () => {
     const data = baseSave({ version: '0.4.4' });

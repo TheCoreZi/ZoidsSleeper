@@ -1,9 +1,12 @@
 import { createSignal, For, type Component, Show, Switch, Match } from 'solid-js';
 import { changeLocale, currentLocale, t } from '../i18n';
 import { Save } from '../game/Save';
+import { DEFAULT_PLAYER_NAME } from '../models/Player';
+import { GamePhase, gamePhase, playerStats, setPlayerName } from '../store/gameStore';
 import DevCampaignTools from './DevCampaignTools';
 import DevFactionTools from './DevFactionTools';
 import DevZoidTools from './DevZoidTools';
+import PlayerNameForm from './PlayerNameForm';
 import './settings.css';
 
 const LANGUAGES = [
@@ -11,7 +14,7 @@ const LANGUAGES = [
   { code: 'es', flag: '🇪🇸', label: 'Español' },
 ];
 
-type MenuView = 'dev' | 'language' | 'main';
+type MenuView = 'dev' | 'language' | 'main' | 'name';
 
 const SettingsMenu: Component = () => {
   const [isOpen, setIsOpen] = createSignal(false);
@@ -35,12 +38,21 @@ const SettingsMenu: Component = () => {
               <button class="settings-back" onClick={() => setView('main')}>◂</button>
             </Show>
             <span class="settings-section-title">
-              {view() === 'main' ? t('ui:settings') : view() === 'dev' ? 'Dev Tools' : t('ui:language')}
+              {view() === 'main' ? t('ui:settings') : view() === 'dev' ? 'Dev Tools' : t(`ui:${view() === 'name' ? 'player_name' : 'language'}`)}
             </span>
             <button class="settings-close" onClick={close}>✕</button>
           </div>
           <Switch>
             <Match when={view() === 'main'}>
+              <button
+                class="settings-menu-option"
+                onClick={() => setView('name')}
+                title={t('ui:change_player_name')}
+              >
+                <span class="settings-menu-icon">👤</span>
+                <span>{playerStats()?.name ?? DEFAULT_PLAYER_NAME}</span>
+                <span class="settings-menu-edit-icon" aria-hidden="true">✎</span>
+              </button>
               <button class="settings-menu-option" onClick={() => setView('language')}>
                 <span class="settings-menu-icon">🌐</span>
                 {t('ui:language')}
@@ -63,6 +75,17 @@ const SettingsMenu: Component = () => {
                   Dev Tools
                 </button>
               </Show>
+            </Match>
+            <Match when={view() === 'name'}>
+              <PlayerNameForm
+                initialName={playerStats()?.name}
+                onSubmit={(name) => {
+                  setPlayerName(name);
+                  if (gamePhase() === GamePhase.Playing) {new Save().store();}
+                  close();
+                }}
+                submitKey="ui:save"
+              />
             </Match>
             <Match when={view() === 'language'}>
               <For each={LANGUAGES}>

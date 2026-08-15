@@ -160,6 +160,10 @@ function setPlayerFaction(faction: Faction): void {
   ));
 }
 
+function setPlayerName(name: string): void {
+  setPlayerStats((prev) => prev ? { ...prev, name } : prev);
+}
+
 function setPlayerRank(rank: Rank, faction: Faction): void {
   setPlayerStats((prev) => {
     if (!prev) {return prev;}
@@ -231,6 +235,7 @@ export {
   setPlayerDamageEvents,
   getPlayerRank,
   setPlayerFaction,
+  setPlayerName,
   setPlayerRank,
   setPlayerStats,
   showPopup,
