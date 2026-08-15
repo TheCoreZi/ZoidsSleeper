@@ -63,6 +63,13 @@ function getAvailableTransportZoids(): string[] {
   return Object.keys(TRANSPORT_ZOID_BONUSES).filter((id) => owned.includes(id));
 }
 
+function getOwnedZoidInTank(zoidSpeciesId: string): OwnedZoid | undefined {
+  const slot = tankSlots().find((slot) =>
+    slot.source === TankSlotSource.Reborn && slot.zoidSpeciesId === zoidSpeciesId
+  );
+  return slot?.source === TankSlotSource.Reborn ? slot.ownedZoid : undefined;
+}
+
 function getTransportBonus(): TransportZoidBonus {
   const id = transportZoidId();
   return id ? TRANSPORT_ZOID_BONUSES[id] ?? NO_TRANSPORT_BONUS : NO_TRANSPORT_BONUS;
@@ -175,4 +182,4 @@ function selectTransportZoid(newId: string | null): void {
   }
 }
 
-export { addFragments, completeSlot, getAvailableSlotCount, getAvailableTransportZoids, getTransportBonus, isCoreNurtured, isSpeciesInTank, loadTankSlots, loadTransportZoidId, placeCore, placeReborn, placeStatue, removeStatueSlot, selectTransportZoid, tankSlots, transportZoidId };
+export { addFragments, completeSlot, getAvailableSlotCount, getAvailableTransportZoids, getOwnedZoidInTank, getTransportBonus, isCoreNurtured, isSpeciesInTank, loadTankSlots, loadTransportZoidId, placeCore, placeReborn, placeStatue, removeStatueSlot, selectTransportZoid, tankSlots, transportZoidId };

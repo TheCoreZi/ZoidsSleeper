@@ -12,6 +12,7 @@ import {
   ZoidResearchStatus,
 } from '../models/Zoid';
 import { playerStats } from '../store/gameStore';
+import { getOwnedZoidInTank } from '../store/nurturingStore';
 import { party } from '../store/partyStore';
 import { getSpeciesDefeats } from '../store/statisticsStore';
 import { getZoidResearch } from '../store/zoidResearchStore';
@@ -38,7 +39,7 @@ const ZoidDetailModal: Component<ZoidDetailModalProps> = (props) => {
   const locations = () => getZoidLocations(props.id);
   const isRevealed = () => props.status !== ZoidResearchStatus.Seen;
   const isCreated = () => props.status === ZoidResearchStatus.Created;
-  const ownedZoid = () => party().zoids.find((z) => z.id === props.id);
+  const ownedZoid = () => party().zoids.find((z) => z.id === props.id) ?? getOwnedZoidInTank(props.id);
   const ownedLevel = () => { const oz = ownedZoid(); return oz ? getOwnedZoidLevel(oz) : null; };
   const currentAtk = () => { const oz = ownedZoid(); const lv = ownedLevel(); return oz && lv ? buildZoid({ id: props.id, level: lv, rebornBonusPercent: oz.rebornBonusPercent }).attack : null; };
   const currentHp = () => { const oz = ownedZoid(); const lv = ownedLevel(); return oz && lv ? buildZoid({ id: props.id, level: lv, rebornBonusPercent: oz.rebornBonusPercent }).maxHealth : null; };
@@ -156,8 +157,8 @@ const ZoidDetailModal: Component<ZoidDetailModalProps> = (props) => {
                     {statRow(t('ui:archive_defeated'), getSpeciesDefeats(props.id))}
                     <Show when={isCreated()}>
                       {statRow(t('ui:archive_deployed'), ownedZoid()?.copies ?? 1)}
-                      {statRow(t('ui:archive_times_nurtured'), ownedZoid()!.rebornCount ?? 0)}
-                      {statRow(t('ui:archive_research_bonus'), `${ownedZoid()!.rebornBonusPercent ?? 0}%`)}
+                      {statRow(t('ui:archive_times_nurtured'), ownedZoid()?.rebornCount ?? 0)}
+                      {statRow(t('ui:archive_research_bonus'), `${ownedZoid()?.rebornBonusPercent ?? 0}%`)}
                     </Show>
                     {statRow(t('ui:stat_core_fragments'), zoid().coreFragments)}
                   </div>
