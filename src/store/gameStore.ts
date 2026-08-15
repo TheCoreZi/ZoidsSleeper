@@ -1,4 +1,5 @@
 import { createMemo, createSignal } from 'solid-js';
+import { trackFaction } from '../lib/analytics';
 import { FACTIONS, type Faction } from '../models/Faction';
 import { PopupMessage, PopupType } from '../models/PopupMessage';
 import { Rank } from '../models/Rank';
@@ -147,7 +148,9 @@ function getPlayerRank(): Rank {
 }
 
 function setPlayerFaction(faction: Faction): void {
+  const previousFaction = playerStats()?.faction;
   setPlayerStats((prev) => prev ? { ...prev, faction } : prev);
+  if (previousFaction && previousFaction !== faction) {trackFaction(faction);}
   const factionData = FACTIONS[faction];
   showPopup(new PopupMessage(
     t(`factions:${faction}`),
